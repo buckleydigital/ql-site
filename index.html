@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuoteLeads - Demand Infrastructure for Trade & Home-Service Businesses</title>
-    <meta name="description" content="QuoteLeads delivers exclusive leads and AI automation for trade businesses. 100% exclusive verified leads. No lock-in contracts.">
+    <meta name="description" content="QuoteLeads delivers exclusive leads and AI automation for trade businesses. 100% exclusive verified leads. $590 setup. No lock-in contracts.">
     <meta name="keywords" content="exclusive leads, AI automation, trade leads, home service leads, lead generation">
     <link rel="canonical" href="https://quoteleads.com.au/">
     
@@ -122,6 +122,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-align: center; 
             padding: 60px 24px; 
             position: relative; 
+            width: 100%;
         }
         .hero-logo { 
             width: 140px; 
@@ -135,23 +136,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             50% { transform: translateY(-20px); } 
         }
         .hero h1 { 
-            font-size: 52px; 
+            font-size: clamp(28px, 5vw, 52px); 
             font-weight: 500; 
-            line-height: 1.15; 
-            margin-bottom: 20px; 
+            line-height: 1.2; 
+            margin: 0 auto 20px; 
             background: linear-gradient(135deg, #ffffff 0%, #4797FF 100%); 
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
             background-clip: text; 
             max-width: 1000px; 
+            width: 100%;
             letter-spacing: -0.5px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            padding: 0 16px;
         }
         .hero-subtitle { 
-            font-size: 20px; 
+            font-size: clamp(16px, 2vw, 20px); 
             color: rgba(255,255,255,0.65); 
             max-width: 700px; 
-            margin-bottom: 40px; 
+            margin: 0 auto 40px; 
             font-weight: 400; 
+            width: 100%;
+            padding: 0 20px;
+            line-height: 1.5;
         }
         .cta-button { 
             background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%); 
@@ -225,7 +233,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: block; 
         }
         .section-title { 
-            font-size: 44px; 
+            font-size: clamp(28px, 4vw, 44px); 
             font-weight: 500; 
             line-height: 1.2; 
             margin-bottom: 20px; 
@@ -335,7 +343,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 0 auto; 
         }
         .lead-gen-content h2 { 
-            font-size: 38px; 
+            font-size: clamp(28px, 3vw, 38px); 
             font-weight: 500; 
             margin-bottom: 24px; 
             line-height: 1.2; 
@@ -364,12 +372,131 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-radius: 24px; 
             padding: 40px; 
             text-align: center;
+            width: 100%;
         }
         .target-icon {
             width: 64px;
             height: 64px;
             margin: 0 auto 20px;
             color: #4797FF;
+        }
+        
+        /* Lead Info Mockup Card - FIXED */
+        .lead-info-mockup {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .lead-info-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(71, 151, 255, 0.5), transparent);
+        }
+        .mockup-header {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .lead-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .lead-field {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.3s ease;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .lead-field:hover {
+            border-color: rgba(71, 151, 255, 0.3);
+            background: rgba(71, 151, 255, 0.05);
+        }
+        .lead-field.full-width {
+            grid-column: 1 / -1;
+        }
+        .field-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .field-value {
+            font-size: 15px;
+            color: #ffffff;
+            font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .ai-insight-box {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(71, 151, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .insight-label {
+            font-size: 12px;
+            color: #4797FF;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .insight-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .insight-footer {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .score-badge {
+            background: rgba(71, 151, 255, 0.15);
+            border: 1px solid rgba(71, 151, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4797FF;
+        }
+        .hot-tag {
+            background: linear-gradient(135deg, #2563eb 0%, #4797FF 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(71, 151, 255, 0.4);
         }
         
         /* AI Grid */
@@ -644,194 +771,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding-bottom: 24px; 
         }
         
-        /* Final CTA */
-        .final-cta { 
-            padding: 160px 24px; 
-            text-align: center; 
-            background: radial-gradient(ellipse at centre, rgba(71, 151, 255, 0.15) 0%, transparent 70%); 
-        }
-        .final-cta h2 { 
-            font-size: 48px; 
-            font-weight: 500; 
-            margin-bottom: 24px; 
-            background: linear-gradient(135deg, #ffffff 0%, #4797FF 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            background-clip: text; 
-        }
-        .final-cta p { 
-            font-size: 18px; 
-            color: rgba(255,255,255,0.6); 
-            max-width: 600px; 
-            margin: 0 auto 40px; 
-            line-height: 1.6; 
-        }
-        
-        /* Footer */
-        .minimal-footer { 
-            padding: 60px 24px 40px; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            text-align: center; 
-        }
-        .footer-links { 
-            display: flex; 
-            justify-content: center; 
-            gap: 32px; 
-            margin-bottom: 30px; 
-            flex-wrap: wrap; 
-        }
-        .footer-links a { 
-            color: rgba(255,255,255,0.6); 
-            text-decoration: none; 
-            font-size: 15px; 
-            transition: color 0.3s ease; 
-        }
-        .footer-links a:hover { 
-            color: #4797FF; 
-        }
-        .copyright { 
-            color: rgba(255,255,255,0.3); 
-            font-size: 14px; 
-        }
-        .footer-tagline {
-            color: rgba(255,255,255,0.5);
-            font-size: 15px;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 30px;
-        }
-        
-        .social-links a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .social-links a:hover {
-            color: #4797FF;
-        }
-
-        /* Lead Info Mockup Card */
-        .lead-info-mockup {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
-            max-width: 500px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-        .lead-info-mockup::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(71, 151, 255, 0.5), transparent);
-        }
-        .mockup-header {
-            text-align: center;
-            margin-bottom: 24px;
-            font-size: 14px;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .lead-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-        .lead-field {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 12px;
-            padding: 16px;
-            transition: all 0.3s ease;
-        }
-        .lead-field:hover {
-            border-color: rgba(71, 151, 255, 0.3);
-            background: rgba(71, 151, 255, 0.05);
-        }
-        .lead-field.full-width {
-            grid-column: 1 / -1;
-        }
-        .field-label {
-            font-size: 12px;
-            color: rgba(255,255,255,0.5);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .field-value {
-            font-size: 15px;
-            color: #ffffff;
-            font-weight: 500;
-        }
-        .ai-insight-box {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(71, 151, 255, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .insight-label {
-            font-size: 12px;
-            color: #4797FF;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-        .insight-text {
-            font-size: 14px;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.5;
-            margin-bottom: 12px;
-        }
-        .insight-footer {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-top: 12px;
-        }
-        .score-badge {
-            background: rgba(71, 151, 255, 0.15);
-            border: 1px solid rgba(71, 151, 255, 0.3);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #4797FF;
-        }
-        .hot-tag {
-            background: linear-gradient(135deg, #2563eb 0%, #4797FF 100%);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(71, 151, 255, 0.4);
-        }
-
         /* AI Chat Mockup */
         .ai-chat-mockup {
             background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
@@ -843,6 +782,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 40px auto 0;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
         }
         .ai-chat-mockup::before {
             content: '';
@@ -874,6 +815,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: 14px;
             line-height: 1.5;
             animation: fadeIn 0.5s ease;
+            word-wrap: break-word;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -952,7 +894,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 0 auto;
         }
         .exclusivity-content h2 {
-            font-size: 38px;
+            font-size: clamp(28px, 3vw, 38px);
             font-weight: 500;
             margin-bottom: 24px;
             line-height: 1.2;
@@ -995,6 +937,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .pain-text h4 {
             font-size: 17px;
+            font-weight: 500;
             margin-bottom: 4px;
             color: #ffffff;
         }
@@ -1030,7 +973,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .badge-text {
             font-size: 24px;
-            font-weight: 600;
+            font-weight: 500;
             color: #ffffff;
             margin-bottom: 8px;
         }
@@ -1052,6 +995,87 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             to { transform: rotate(360deg); }
         }
 
+        /* Final CTA - FIXED */
+        .final-cta { 
+            padding: 160px 24px; 
+            text-align: center; 
+            background: radial-gradient(ellipse at center, rgba(71, 151, 255, 0.15) 0%, transparent 70%); 
+        }
+        .final-cta h2 { 
+            font-size: clamp(32px, 5vw, 48px); 
+            font-weight: 500; 
+            margin: 0 auto 24px; 
+            background: linear-gradient(135deg, #ffffff 0%, #4797FF 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text; 
+            max-width: 800px;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .final-cta p { 
+            font-size: 18px; 
+            color: rgba(255,255,255,0.6); 
+            max-width: 600px; 
+            margin: 0 auto 40px; 
+            line-height: 1.6; 
+        }
+        
+        /* Footer */
+        .minimal-footer { 
+            padding: 60px 24px 40px; 
+            border-top: 1px solid rgba(255,255,255,0.05); 
+            text-align: center; 
+        }
+        .footer-links { 
+            display: flex; 
+            justify-content: center; 
+            gap: 32px; 
+            margin-bottom: 30px; 
+            flex-wrap: wrap; 
+        }
+        .footer-links a { 
+            color: rgba(255,255,255,0.6); 
+            text-decoration: none; 
+            font-size: 15px; 
+            transition: color 0.3s ease; 
+        }
+        .footer-links a:hover { 
+            color: #4797FF; 
+        }
+        .copyright { 
+            color: rgba(255,255,255,0.3); 
+            font-size: 14px; 
+        }
+        .footer-tagline {
+            color: rgba(255,255,255,0.5);
+            font-size: 15px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .social-links a:hover {
+            color: #4797FF;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) { 
             .hero h1 { font-size: 44px; } 
@@ -1062,24 +1086,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .stats-grid { grid-template-columns: 1fr; gap: 40px; } 
             .process-grid { grid-template-columns: 1fr; } 
             .process-grid:before { display: none; } 
-            .final-cta h2 { font-size: 40px; } 
             .exclusivity-grid { grid-template-columns: 1fr; }
             .ownership-badge { width: 250px; height: 250px; }
         }
         @media (max-width: 768px) { 
+            .hero { padding: 40px 20px; }
             .hero h1 { 
-                font-size: 28px; 
-                line-height: 1.2;
-                padding: 0 12px;
+                font-size: clamp(26px, 6vw, 40px);
+                line-height: 1.25;
+                padding: 0 4px;
             } 
-            .hero-subtitle { font-size: 16px; } 
+            .hero-subtitle { font-size: 16px; padding: 0 10px; } 
             .section { padding: 80px 24px; } 
             .section-title { font-size: 28px; } 
             .lead-gen-content h2 { font-size: 28px; }
             .exclusivity-content h2 { font-size: 28px; }
             .ai-grid { grid-template-columns: 1fr; } 
             .testimonial-card { width: 320px; } 
-            .final-cta h2 { font-size: 28px; } 
+            .final-cta h2 { font-size: 32px; } 
             .final-cta { padding: 100px 24px; }
             .price { font-size: 36px; } 
             .stat-item h3 { font-size: 40px; }
@@ -1087,10 +1111,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .faq-section { padding: 80px 24px; }
             .section-header { margin-bottom: 50px; }
             .lead-grid { grid-template-columns: 1fr; }
-            .lead-info-mockup, .ai-chat-mockup { padding: 24px; }
+            .lead-info-mockup { 
+                padding: 24px; 
+                width: 100%;
+            }
+            .ai-chat-mockup { padding: 24px; }
+            .ownership-badge { width: 280px; height: 280px; }
         }
         @media (max-width: 480px) {
+            .hero { padding: 40px 16px; }
             .hero-logo { width: 120px; }
+            .hero h1 { 
+                padding: 0; 
+                line-height: 1.3;
+                margin-bottom: 16px;
+            }
             .cta-button { 
                 padding: 16px 32px; 
                 font-size: 16px; 
@@ -1102,9 +1137,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .product-image { width: 60px; height: 60px; }
             .footer-links { gap: 16px; }
             .social-links { flex-direction: column; gap: 12px; align-items: center; }
-            .ownership-badge { width: 200px; height: 200px; }
+            .lead-info-mockup { 
+                padding: 20px; 
+                border-radius: 16px; 
+            }
+            .lead-grid { gap: 12px; }
+            .lead-field { padding: 12px; }
+            .ai-chat-mockup { padding: 20px; }
+            .ownership-badge { width: 260px; height: 260px; }
             .badge-lock { font-size: 48px; }
-            .badge-text { font-size: 18px; }
+            .badge-text { font-size: 20px; }
+            .badge-sub { padding: 0 20px; font-size: 13px; }
+            .pain-point { padding: 16px; }
+            .pain-icon { width: 36px; height: 36px; font-size: 16px; }
+            .exclusivity-content h2 { font-size: 26px; }
+            .lead-gen-visual { padding: 24px; }
         }
     </style>
 </head>
@@ -1129,14 +1176,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="marquee">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo1.png" alt="Trade Client" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo2.png" alt="Solar Company" loading="lazy">
-                <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo3.png" alt="Decking Business" loading="lazy">
+                <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo3.png" alt="Roofing Business" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo4.png" alt="HVAC Contractor" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo5.png" alt="Painting Company" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo6.png" alt="Carpentry Service" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo7.png" alt="Renovation Company" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo1.png" alt="Trade Client" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo2.png" alt="Solar Company" loading="lazy">
-                <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo3.png" alt="Decking Business" loading="lazy">
+                <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo3.png" alt="Roofing Business" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo4.png" alt="HVAC Contractor" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo5.png" alt="Painting Company" loading="lazy">
                 <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo6.png" alt="Carpentry Service" loading="lazy">
@@ -1452,7 +1499,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <line x1="12" y1="22" x2="12" y2="18"></line>
                     </svg>
                     <h3>Pattern Analysis</h3>
-                    <p>AI analyses conversation patterns, scores lead quality, and suggests next actions to improve your close rate.</p>
+                    <p>AI analyses conversation patterns, scores lead quality and suggests next actions to improve your close rate.</p>
                 </div>
             </div>
         </section>
@@ -1888,5 +1935,3 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
 </body>
 </html>
-
-
