@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Tag Manager -->
@@ -22,14 +22,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:description" content="Exclusive leads & AI automation for trade businesses. Start receiving qualified leads in 24-48 hours.">
     <meta property="og:image" content="https://github.com/buckleydigital/ql-site/raw/main/product-logo.png">
 
-
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://quoteleads.com.au/">
     <meta property="twitter:title" content="QuoteLeads - Demand Infrastructure for Trade & Home-Service Businesses">
     <meta property="twitter:description" content="Exclusive leads & AI automation for trade businesses. Start receiving qualified leads in 24-48 hours.">
     <meta property="twitter:image" content="https://github.com/buckleydigital/ql-site/raw/main/product-logo.png">
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,14 +43,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID_HERE');
+    fbq('init', '3264378767213114');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=3264378767213114&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
-
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -76,7 +73,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     </script>
 
-
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
 <script>
@@ -84,10 +80,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-
   gtag('config', 'G-F36W0PEFR4');
 </script>
-
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -727,6 +721,336 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #4797FF;
         }
 
+        /* Lead Info Mockup Card */
+        .lead-info-mockup {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .lead-info-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(71, 151, 255, 0.5), transparent);
+        }
+        .mockup-header {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .lead-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .lead-field {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+        .lead-field:hover {
+            border-color: rgba(71, 151, 255, 0.3);
+            background: rgba(71, 151, 255, 0.05);
+        }
+        .lead-field.full-width {
+            grid-column: 1 / -1;
+        }
+        .field-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .field-value {
+            font-size: 15px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .ai-insight-box {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(71, 151, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .insight-label {
+            font-size: 12px;
+            color: #4797FF;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .insight-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .insight-footer {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 12px;
+        }
+        .score-badge {
+            background: rgba(71, 151, 255, 0.15);
+            border: 1px solid rgba(71, 151, 255, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4797FF;
+        }
+        .hot-tag {
+            background: linear-gradient(135deg, #2563eb 0%, #4797FF 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(71, 151, 255, 0.4);
+        }
+
+        /* AI Chat Mockup */
+        .ai-chat-mockup {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            max-width: 450px;
+            margin: 40px auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .ai-chat-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(71, 151, 255, 0.5), transparent);
+        }
+        .chat-header {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .chat-bubble {
+            max-width: 80%;
+            padding: 16px 20px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .bubble-ai {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.9);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .bubble-user {
+            background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 4px 20px rgba(71, 151, 255, 0.3);
+        }
+        .chat-input {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+        }
+        .send-btn {
+            background: #4797FF;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .chat-status {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #4797FF;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Exclusivity Section */
+        .exclusivity-section {
+            background: rgba(0,0,0,0.2);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .exclusivity-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .exclusivity-content h2 {
+            font-size: 38px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #4797FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pain-points {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 32px;
+        }
+        .pain-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        .pain-point:hover {
+            border-color: rgba(71, 151, 255, 0.3);
+            transform: translateX(5px);
+        }
+        .pain-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(71, 151, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4797FF;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .pain-text h4 {
+            font-size: 17px;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+        .pain-text p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+        .ownership-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ownership-badge {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(71, 151, 255, 0.1) 0%, transparent 70%);
+            border: 2px solid rgba(71, 151, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        .badge-lock {
+            font-size: 64px;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 0 20px rgba(71, 151, 255, 0.5));
+        }
+        .badge-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        .badge-sub {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            padding: 0 40px;
+        }
+        .orbit-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px dashed rgba(71, 151, 255, 0.2);
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
         /* Responsive */
         @media (max-width: 1024px) { 
@@ -739,6 +1063,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .process-grid { grid-template-columns: 1fr; } 
             .process-grid:before { display: none; } 
             .final-cta h2 { font-size: 40px; } 
+            .exclusivity-grid { grid-template-columns: 1fr; }
+            .ownership-badge { width: 250px; height: 250px; }
         }
         @media (max-width: 768px) { 
             .hero h1 { 
@@ -750,6 +1076,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .section { padding: 80px 24px; } 
             .section-title { font-size: 28px; } 
             .lead-gen-content h2 { font-size: 28px; }
+            .exclusivity-content h2 { font-size: 28px; }
             .ai-grid { grid-template-columns: 1fr; } 
             .testimonial-card { width: 320px; } 
             .final-cta h2 { font-size: 28px; } 
@@ -759,6 +1086,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .award-section { padding: 60px 24px; }
             .faq-section { padding: 80px 24px; }
             .section-header { margin-bottom: 50px; }
+            .lead-grid { grid-template-columns: 1fr; }
+            .lead-info-mockup, .ai-chat-mockup { padding: 24px; }
         }
         @media (max-width: 480px) {
             .hero-logo { width: 120px; }
@@ -773,6 +1102,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .product-image { width: 60px; height: 60px; }
             .footer-links { gap: 16px; }
             .social-links { flex-direction: column; gap: 12px; align-items: center; }
+            .ownership-badge { width: 200px; height: 200px; }
+            .badge-lock { font-size: 48px; }
+            .badge-text { font-size: 18px; }
         }
     </style>
 </head>
@@ -791,7 +1123,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="https://quoteleads.com.au/get-started" class="cta-button">Get Started</a>
             <div class="scroll-indicator">↓</div>
         </section>
-
 
         <!-- Logos Marquee -->
         <section class="marquee-section">
@@ -813,7 +1144,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-
         <!-- How Lead Generation Works -->
         <section class="section">
             <div class="lead-gen-grid">
@@ -823,33 +1153,97 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <p>QuoteLeads uses a combination of ad campaigns, hyper-targeted audience data, and high-converting landing pages tailored to your trade. We drive real customers to exclusive enquiry forms or quote requests.</p>
                     <p>Every lead is 100% yours—never shared with competitors. We specialise in high-ticket home services including solar panel installation, roofing, HVAC, painting, and more.</p>
                     <div class="integrity-badge">
-                        <span>✓</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         <span>100% Auditable Lead Integrity Standard</span>
                     </div>
                 </div>
                 <div class="lead-gen-visual">
-                    <svg class="target-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <circle cx="12" cy="12" r="6"></circle>
-                        <circle cx="12" cy="12" r="2"></circle>
-                        <line x1="12" y1="2" x2="12" y2="4"></line>
-                        <line x1="12" y1="20" x2="12" y2="22"></line>
-                        <line x1="2" y1="12" x2="4" y2="12"></line>
-                        <line x1="20" y1="12" x2="22" y2="12"></line>
-                    </svg>
-                    <h3 style="font-size: 24px; margin-bottom: 16px; color: #ffffff; font-weight: 500;">Exclusive Lead Delivery</h3>
-                    <ul style="list-style: none; text-align: left; color: rgba(255,255,255,0.7); line-height: 2;">
-                        <li>✓ Identity Verification</li>
-                        <li>✓ Service Alignment Check</li>
-                        <li>✓ Location Accuracy</li>
-                        <li>✓ Contactability Confirmed</li>
-                        <li>✓ Intent Verification</li>
-                        <li>✓ Fresh Data Guarantee</li>
-                    </ul>
+                    <!-- Lead Info Mockup Card -->
+                    <div class="lead-info-mockup">
+                        <div class="mockup-header">Lead Information - Demo</div>
+                        <div class="lead-grid">
+                            <div class="lead-field">
+                                <div class="field-label">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    Name
+                                </div>
+                                <div class="field-value">Michael Harris</div>
+                            </div>
+                            <div class="lead-field">
+                                <div class="field-label">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                    Phone
+                                </div>
+                                <div class="field-value">+61 401 889 444</div>
+                            </div>
+                            <div class="lead-field">
+                                <div class="field-label">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                    Email
+                                </div>
+                                <div class="field-value">m.harris@email.com.au</div>
+                            </div>
+                            <div class="lead-field">
+                                <div class="field-label">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                    Postcode
+                                </div>
+                                <div class="field-value">4171</div>
+                            </div>
+                            <div class="lead-field full-width">
+                                <div class="field-label">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                    </svg>
+                                    Project
+                                </div>
+                                <div class="field-value">Ducted HVAC Installation</div>
+                            </div>
+                            <div class="lead-field">
+                                <div class="field-label">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    Timeline
+                                </div>
+                                <div class="field-value">Within 2 weeks</div>
+                            </div>
+                            <div class="lead-field">
+                                <div class="field-label">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    Owner
+                                </div>
+                                <div class="field-value">James O'Connell</div>
+                            </div>
+                        </div>
+                        <div class="ai-insight-box">
+                            <div class="insight-label">AI Insight</div>
+                            <div class="insight-text">High-intent HVAC lead. Ducted system install requested, roof access confirmed.</div>
+                            <div class="insight-footer">
+                                <span class="score-badge">Score: 94/100</span>
+                                <span class="hot-tag">HOT</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
 
         <!-- Pricing Section -->
         <section class="section" id="pricing" style="background: rgba(255,255,255,0.02);">
@@ -921,6 +1315,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
+        <!-- Exclusivity & Ownership Section -->
+        <section class="section exclusivity-section">
+            <div class="exclusivity-grid">
+                <div class="exclusivity-content">
+                    <span class="section-label">Ownership</span>
+                    <h2>Stop Competing for Your Own Leads</h2>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 17px; line-height: 1.8; margin-bottom: 20px;">Tired of buying leads that get sold to 5 other contractors? Or "hot leads" who were just browsing and aren't ready to buy? We eliminate the competition entirely.</p>
+                    
+                    <div class="pain-points">
+                        <div class="pain-point">
+                            <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                            <div class="pain-text">
+                                <h4>100% Exclusive Territory</h4>
+                                <p>We never sell the same lead twice. Once a lead enters your pipeline, it's yours alone. No more racing to call before your competitors do.</p>
+                            </div>
+                        </div>
+                        <div class="pain-point">
+                            <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                            <div class="pain-text">
+                                <h4>Pre-Qualified & Ready</h4>
+                                <p>Every lead is identity-verified, contactability-confirmed, and intent-validated. No more tire-kickers wasting your time.</p>
+                            </div>
+                        </div>
+                        <div class="pain-point">
+                            <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                            <div class="pain-text">
+                                <h4>Instant Ownership Transfer</h4>
+                                <p>Leads delivered directly to your CRM with full contact details. You own the relationship from minute one—no middlemen, no gatekeepers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ownership-visual">
+                    <div class="ownership-badge">
+                        <div class="orbit-ring"></div>
+                        <svg class="badge-lock" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <div class="badge-text">100% Exclusive</div>
+                        <div class="badge-sub">Zero Competition. Full Ownership. Verified Intent.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- AI Section -->
         <section class="section">
@@ -929,7 +1365,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h2 class="section-title">How QuoteLeads AI Works</h2>
                 <p class="section-subtitle">Advanced artificially intelligent SMS workflows trained on your business. Instantly follow up with new leads to qualify them and book call-backs, all without you lifting a finger.</p>
             </div>
-            <div class="ai-grid">
+            
+            <!-- AI Chat Mockup -->
+            <div class="ai-chat-mockup">
+                <div class="chat-header">AI Assistant - Demo</div>
+                <div class="chat-messages">
+                    <div class="chat-bubble bubble-ai">
+                        Hi Jane. Thanks for your interest in an air con installation.<br><br>
+                        Are you looking for a ducted or split system?
+                    </div>
+                    <div class="chat-bubble bubble-user">
+                        Yes, a full ducted system please
+                    </div>
+                    <div class="chat-bubble bubble-ai">
+                        When would be a good time for a free consultation?
+                    </div>
+                    <div class="chat-bubble bubble-user">
+                        Thursday afternoon works
+                    </div>
+                    <div class="chat-bubble bubble-ai">
+                        Perfect, thanks for the info. I'll have our specialist reach out to schedule.
+                    </div>
+                </div>
+                <div class="chat-status">
+                    <div class="status-item">
+                        <div class="status-dot"></div>
+                        <span>Routing lead to Justin</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-dot"></div>
+                        <span>Moving lead to scheduled tab</span>
+                    </div>
+                </div>
+                <div class="chat-input" style="margin-top: 16px;">
+                    <span>AI is handling this conversation...</span>
+                    <span class="send-btn">Send</span>
+                </div>
+            </div>
+
+            <div class="ai-grid" style="margin-top: 60px;">
                 <div class="ai-card">
                     <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -983,7 +1457,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-
         <!-- Stats -->
         <section class="section" style="background: rgba(255,255,255,0.02);">
             <div class="stats-grid">
@@ -1001,7 +1474,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
         </section>
-
 
         <!-- Process -->
         <section class="section">
@@ -1028,7 +1500,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-
         <!-- Trades -->
         <section class="section" style="background: rgba(255,255,255,0.02);">
             <div class="section-header">
@@ -1046,7 +1517,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="#pricing" class="trade-tag">Landscaping Leads</a>
             </div>
         </section>
-
 
         <!-- Testimonials -->
         <section class="testimonials-section">
@@ -1123,13 +1593,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-
         <!-- GRA Award -->
         <section class="award-section">
             <img src="https://github.com/buckleydigital/ql-site/raw/main/gra-awards.png" alt="Global Recognition Awards Winner 2024" class="award-image" loading="lazy">
             <p class="award-text">Proud winner of the Global Recognition Awards 2024 for innovation in lead generation technology and AI automation for trade businesses.</p>
         </section>
-
 
         <!-- FAQ -->
         <section class="faq-section">
@@ -1211,14 +1679,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-
         <!-- Final CTA -->
         <section class="final-cta">
             <h2>Ready to Scale Your Trade Business?</h2>
             <p>Join hundreds of contractors using QuoteLeads to fill their pipeline with exclusive, qualified leads. Ready to convert. No lock-in contracts.</p>
             <a href="https://quoteleads.com.au/get-started" class="cta-button" style="padding: 20px 48px; font-size: 20px;">Get Started Now</a>
         </section>
-
 
         <!-- Footer -->
         <footer class="minimal-footer">
@@ -1253,7 +1719,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </footer>
     </div>
 
-
     <script>
         // Space Particles System - Clean particles only (no connections)
         const canvas = document.getElementById('space-canvas');
@@ -1262,7 +1727,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         let particles = [];
         let stars = [];
         let animationId;
-
 
         function resize() {
             width = window.innerWidth;
@@ -1298,7 +1762,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             setTimeout(resize, 100);
         });
 
-
         class Star {
             constructor() {
                 this.x = Math.random() * width;
@@ -1321,7 +1784,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 ctx.fill();
             }
         }
-
 
         class Particle {
             constructor() {
@@ -1348,7 +1810,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
 
-
         let mouse = { x: null, y: null };
         window.addEventListener('mousemove', (e) => {
             mouse.x = e.clientX;
@@ -1370,7 +1831,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             mouse.x = null;
             mouse.y = null;
         });
-
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
@@ -1410,7 +1870,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         });
 
-
         // FAQ Toggle
         function toggleFaq(element) {
             const item = element.parentElement;
@@ -1429,3 +1888,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
 </body>
 </html>
+
