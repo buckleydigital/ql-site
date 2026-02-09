@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuoteLeads - Demand Engine for Trade & Home-Service Businesses</title>
-    <meta name="description" content="QuoteLeads delivers exclusive leads and AI automation for trade businesses. 100% exclusive verified leads. $590 setup. No lock-in contracts.">
+    <meta name="description" content="QuoteLeads delivers exclusive leads and AI automation for trade businesses. 100% exclusive verified leads. No lock-in contracts.">
     <meta name="keywords" content="exclusive leads, AI automation, trade leads, home service leads, lead generation">
     <link rel="canonical" href="https://quoteleads.com.au/">
     
@@ -31,7 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- Meta Pixel Code -->
     <script>
@@ -87,15 +87,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
-            font-family: 'Poppins', sans-serif; 
+            font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; 
             background: #0a0a0f; 
             color: #ffffff; 
             line-height: 1.6; 
             overflow-x: hidden; 
             font-weight: 400;
+            font-size: 16px;
         }
         
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-weight: 500;
         }
         
@@ -167,7 +168,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 18px 40px; 
             border-radius: 12px; 
             text-decoration: none; 
-            font-weight: 600; 
+            font-weight: 500; 
             font-size: 18px; 
             transition: all 0.3s ease; 
             border: none; 
@@ -225,7 +226,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .section-header { text-align: center; margin-bottom: 80px; }
         .section-label { 
             color: #4797FF; 
-            font-weight: 600; 
+            font-weight: 500; 
             font-size: 14px; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
@@ -249,139 +250,452 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 0 auto; 
         }
         
-        /* Products Grid */
-        .products-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 24px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
-        .product-card { 
-            background: rgba(255,255,255,0.03); 
-            border: 1px solid rgba(255,255,255,0.08); 
-            border-radius: 24px; 
-            padding: 40px 32px; 
-            transition: all 0.3s ease; 
-            backdrop-filter: blur(10px); 
-            position: relative; 
-            overflow: hidden; 
+        /* Industries Section */
+        .industries-section {
+            padding: 100px 24px;
             text-align: center;
         }
-        .product-card.featured { 
-            border-color: rgba(71, 151, 255, 0.4); 
-            background: rgba(71, 151, 255, 0.05); 
+        .industries-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 1000px;
+            margin: 40px auto 0;
         }
-        .product-card:hover { 
-            transform: translateY(-5px); 
-            border-color: rgba(71, 151, 255, 0.4); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
-        }
-        .product-image {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 24px;
-            object-fit: contain;
-        }
-        .product-card h3 { 
-            font-size: 26px; 
-            font-weight: 500; 
-            margin-bottom: 8px; 
-        }
-        .price { 
-            font-size: 44px; 
-            font-weight: 500; 
-            color: #4797FF; 
-            margin-bottom: 8px; 
-        }
-        .price-note { 
-            font-size: 14px; 
-            color: rgba(255,255,255,0.5); 
-            margin-bottom: 24px; 
-        }
-        .product-description { 
-            color: rgba(255,255,255,0.6); 
-            margin-bottom: 24px; 
-            line-height: 1.6; 
+        .industry-pill {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.9);
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
             font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
-        .feature-list { 
-            list-style: none; 
-            margin-bottom: 24px; 
-            text-align: left;
-        }
-        .feature-list li { 
-            padding: 8px 0; 
-            color: rgba(255,255,255,0.8); 
-            font-size: 15px; 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-        }
-        .feature-list li:before { 
-            content: "✓"; 
-            color: #4797FF; 
-            font-weight: 700; 
-        }
-        .best-for { 
-            font-size: 13px; 
-            color: rgba(255,255,255,0.5); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            margin-top: 20px; 
-            padding-top: 20px; 
-            border-top: 1px solid rgba(255,255,255,0.1); 
+        .industry-pill:hover {
+            background: rgba(71, 151, 255, 0.1);
+            border-color: rgba(71, 151, 255, 0.4);
+            color: #4797FF;
+            transform: translateY(-2px);
         }
         
-        /* Lead Gen Section */
-        .lead-gen-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 60px; 
-            align-items: center; 
-            max-width: 1200px; 
-            margin: 0 auto; 
+        /* Visual Timeline Sequence */
+        .timeline-section {
+            padding: 100px 24px;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .lead-gen-content h2 { 
-            font-size: clamp(28px, 3vw, 38px); 
-            font-weight: 500; 
-            margin-bottom: 24px; 
-            line-height: 1.2; 
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
         }
-        .lead-gen-content p { 
-            color: rgba(255,255,255,0.6); 
-            font-size: 17px; 
-            line-height: 1.8; 
-            margin-bottom: 20px; 
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 40px;
+            bottom: 40px;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(71, 151, 255, 0.3), rgba(71, 151, 255, 0.1));
         }
-        .integrity-badge { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 10px; 
-            background: rgba(71, 151, 255, 0.1); 
-            border: 1px solid rgba(71, 151, 255, 0.3); 
-            padding: 16px 24px; 
-            border-radius: 12px; 
-            margin-top: 20px; 
-            color: #4797FF; 
-            font-weight: 600; 
+        .timeline-step {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
         }
-        .lead-gen-visual {
-            background: rgba(255,255,255,0.03); 
-            border: 1px solid rgba(255,255,255,0.08); 
-            border-radius: 24px; 
-            padding: 40px; 
-            text-align: center;
-            width: 100%;
+        .timeline-step:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-step:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-step:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-step:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-step:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .target-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 20px;
+        
+        .timeline-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(71, 151, 255, 0.1);
+            border: 2px solid rgba(71, 151, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 1;
             color: #4797FF;
         }
+        .timeline-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        .timeline-content {
+            flex: 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+        }
+        .timeline-content::before {
+            content: attr(data-caption);
+            position: absolute;
+            top: -12px;
+            right: 16px;
+            background: #0a0a0f;
+            padding: 4px 12px;
+            color: #4797FF;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(71, 151, 255, 0.3);
+            border-radius: 20px;
+        }
+        .timeline-header {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .timeline-body {
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+        .timeline-highlight {
+            color: #4797FF;
+            font-weight: 500;
+        }
+        .final-step .timeline-content {
+            border-color: rgba(71, 151, 255, 0.4);
+            background: rgba(71, 151, 255, 0.05);
+        }
+        .final-step .timeline-icon {
+            background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%);
+            border-color: #4797FF;
+            color: white;
+        }
         
-        /* Lead Info Mockup Card - FIXED */
+        /* Bleeding Revenue Section */
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .pain-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .pain-card:hover {
+            border-color: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+        .pain-icon-large {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            color: #4797FF;
+            stroke-width: 1.5;
+        }
+        .pain-card h3 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+        .pain-stat {
+            font-size: 36px;
+            font-weight: 500;
+            color: #ff4757;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .pain-card p {
+            color: rgba(255,255,255,0.5);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .pain-result {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        /* Ownership Section */
+        .ownership-section {
+            padding: 120px 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .ownership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            align-items: center;
+        }
+        .ownership-content h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 500;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        .ownership-content > p {
+            color: rgba(255,255,255,0.6);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .ownership-features {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .ownership-item {
+            display: flex;
+            gap: 16px;
+        }
+        .ownership-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(71, 151, 255, 0.1);
+            border: 1px solid rgba(71, 151, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4797FF;
+            flex-shrink: 0;
+        }
+        .ownership-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        .ownership-item h4 {
+            font-size: 17px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+        .ownership-item p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+        .ownership-badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .ownership-badge {
+            background: rgba(71, 151, 255, 0.1);
+            border: 1px solid rgba(71, 151, 255, 0.3);
+            color: #4797FF;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .ownership-graphic {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            clip-path: inset(50px 0 30px 0);
+        }
+        
+        /* Modes Section */
+        .modes-section {
+            padding: 120px 24px;
+            background: rgba(255,255,255,0.02);
+        }
+        .modes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 60px auto 0;
+        }
+        .mode-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .mode-card:hover {
+            border-color: rgba(71, 151, 255, 0.3);
+            transform: translateY(-5px);
+            background: rgba(71, 151, 255, 0.02);
+        }
+        .mode-card.featured {
+            border-color: rgba(71, 151, 255, 0.4);
+            background: rgba(71, 151, 255, 0.05);
+        }
+        .mode-number {
+            width: 40px;
+            height: 40px;
+            background: rgba(71, 151, 255, 0.1);
+            border: 2px solid rgba(71, 151, 255, 0.3);
+            color: #4797FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 auto 20px;
+        }
+        .mode-card.featured .mode-number {
+            background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%);
+            color: white;
+            border-color: #4797FF;
+        }
+        .mode-card h3 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .mode-card > p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .mode-features {
+            list-style: none;
+            text-align: left;
+        }
+        .mode-features li {
+            padding: 8px 0;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .mode-features li:last-child {
+            border-bottom: none;
+        }
+        .mode-features li:before {
+            content: "•";
+            color: #4797FF;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .mode-tag {
+            display: inline-block;
+            background: rgba(71, 151, 255, 0.1);
+            border: 1px solid rgba(71, 151, 255, 0.3);
+            color: #4797FF;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 24px;
+        }
+        
+        /* Demand Infrastructure Section */
+        .infrastructure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .infra-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .infra-card:hover {
+            border-color: rgba(71, 151, 255, 0.3);
+            transform: translateY(-5px);
+            background: rgba(71, 151, 255, 0.02);
+        }
+        .infra-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .infra-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            color: #4797FF;
+            stroke-width: 1.5;
+        }
+        .infra-card h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        .infra-subtitle {
+            font-size: 14px;
+            color: #4797FF;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .infra-features {
+            list-style: none;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+        .infra-features li {
+            padding: 8px 0;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .infra-features li:before {
+            content: "•";
+            color: #4797FF;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 1;
+        }
+        
+        /* Lead Info Mockup Card */
         .lead-info-mockup {
             background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
             border: 1px solid rgba(255,255,255,0.1);
@@ -451,326 +765,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             word-wrap: break-word;
             overflow-wrap: break-word;
         }
-        .ai-insight-box {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(71, 151, 255, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .insight-label {
-            font-size: 12px;
-            color: #4797FF;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-        .insight-text {
-            font-size: 14px;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.5;
-            margin-bottom: 12px;
-        }
-        .insight-footer {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-        }
-        .score-badge {
-            background: rgba(71, 151, 255, 0.15);
-            border: 1px solid rgba(71, 151, 255, 0.3);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #4797FF;
-        }
-        .hot-tag {
-            background: linear-gradient(135deg, #2563eb 0%, #4797FF 100%);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(71, 151, 255, 0.4);
-        }
-        
-        /* AI Grid */
-        .ai-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 24px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-        }
-        .ai-card { 
-            background: rgba(255,255,255,0.02); 
-            border: 1px solid rgba(255,255,255,0.06); 
-            border-radius: 20px; 
-            padding: 40px 32px; 
-            text-align: center; 
-            transition: all 0.3s ease; 
-        }
-        .ai-card:hover { 
-            border-color: rgba(71, 151, 255, 0.3); 
-            transform: translateY(-5px); 
-            background: rgba(71, 151, 255, 0.05); 
-        }
-        .ai-icon { 
-            width: 48px;
-            height: 48px;
-            margin: 0 auto 20px;
-            color: #4797FF;
-            stroke-width: 1.5;
-        }
-        .ai-card h3 { 
-            font-size: 20px; 
-            font-weight: 500; 
-            margin-bottom: 12px; 
-        }
-        .ai-card p { 
-            color: rgba(255,255,255,0.5); 
-            line-height: 1.6; 
-            font-size: 15px; 
-        }
-        
-        /* Stats */
-        .stats-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 40px; 
-            max-width: 900px; 
-            margin: 0 auto; 
-            text-align: center; 
-        }
-        .stat-item h3 { 
-            font-size: 52px; 
-            font-weight: 500; 
-            background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            background-clip: text; 
-            margin-bottom: 8px; 
-        }
-        .stat-item p { 
-            color: rgba(255,255,255,0.5); 
-            font-size: 16px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-        
-        /* Process */
-        .process-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 40px; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            position: relative; 
-        }
-        .process-grid:before { 
-            content: ''; 
-            position: absolute; 
-            top: 40px; 
-            left: 20%; 
-            right: 20%; 
-            height: 2px; 
-            background: linear-gradient(90deg, transparent, rgba(71, 151, 255, 0.3), transparent); 
-        }
-        .process-step { 
-            text-align: center; 
-            position: relative; 
-            z-index: 1; 
-        }
-        .step-number { 
-            width: 80px; 
-            height: 80px; 
-            background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%); 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 28px; 
-            font-weight: 500; 
-            margin: 0 auto 24px; 
-            box-shadow: 0 0 30px rgba(71, 151, 255, 0.3); 
-        }
-        .process-step h3 { 
-            font-size: 22px; 
-            font-weight: 500; 
-            margin-bottom: 12px; 
-        }
-        .process-step p { 
-            color: rgba(255,255,255,0.5); 
-            line-height: 1.6; 
-            font-size: 15px;
-        }
-        
-        /* Trades */
-        .trades-grid { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 16px; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-        }
-        .trade-tag { 
-            background: rgba(255,255,255,0.05); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            border-radius: 100px; 
-            padding: 16px 32px; 
-            font-weight: 500; 
-            color: rgba(255,255,255,0.7); 
-            transition: all 0.3s ease; 
-            cursor: pointer; 
-            text-decoration: none; 
-            font-size: 15px;
-            display: inline-block;
-        }
-        .trade-tag:hover { 
-            border-color: #4797FF; 
-            color: #4797FF; 
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 20px rgba(71, 151, 255, 0.2); 
-        }
-        
-        /* Testimonials */
-        .testimonials-section { 
-            padding: 120px 0; 
-            overflow: hidden; 
-        }
-        .testimonials-section .section-header { 
-            padding: 0 24px; 
-            max-width: 1200px; 
-            margin: 0 auto 80px; 
-        }
-        .testimonial-marquee { 
-            display: flex; 
-            gap: 32px; 
-            animation: testimonialScroll 35s linear infinite; 
-            width: max-content; 
-            padding: 0 24px; 
-        }
-        .testimonial-marquee:hover { 
-            animation-play-state: paused; 
-        }
-        @keyframes testimonialScroll { 
-            0% { transform: translateX(0); } 
-            100% { transform: translateX(-50%); } 
-        }
-        .testimonial-card { 
-            background: rgba(255,255,255,0.03); 
-            border: 1px solid rgba(255,255,255,0.08); 
-            border-radius: 20px; 
-            padding: 40px; 
-            width: 400px; 
-            flex-shrink: 0; 
-            transition: all 0.3s ease; 
-        }
-        .testimonial-card:hover { 
-            border-color: rgba(71, 151, 255, 0.3); 
-            transform: translateY(-4px); 
-        }
-        .testimonial-header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 20px; 
-        }
-        .testimonial-logo { 
-            height: 40px; 
-            width: auto; 
-            filter: brightness(0) invert(1); 
-            opacity: 0.8; 
-        }
-        .stars { 
-            color: #4797FF; 
-            font-size: 18px; 
-            letter-spacing: 2px; 
-        }
-        .testimonial-text { 
-            font-size: 16px; 
-            line-height: 1.7; 
-            color: rgba(255,255,255,0.9); 
-            margin-bottom: 24px; 
-            font-style: italic; 
-        }
-        .testimonial-author { 
-            font-weight: 600; 
-            color: #ffffff; 
-            font-size: 14px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-        
-        /* GRA Award */
-        .award-section { 
-            padding: 100px 24px; 
-            text-align: center; 
-        }
-        .award-image { 
-            max-width: 250px; 
-            width: 100%; 
-            margin: 0 auto 30px; 
-            border-radius: 16px; 
-            filter: drop-shadow(0 10px 30px rgba(71, 151, 255, 0.2)); 
-        }
-        .award-text { 
-            font-size: 17px; 
-            color: rgba(255,255,255,0.6); 
-            max-width: 600px; 
-            margin: 0 auto; 
-        }
-        
-        /* FAQ Accordion */
-        .faq-section { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 120px 24px; 
-        }
-        .faq-item { 
-            border-bottom: 1px solid rgba(255,255,255,0.1); 
-            margin-bottom: 0; 
-        }
-        .faq-question { 
-            padding: 24px 0; 
-            cursor: pointer; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            font-size: 19px; 
-            font-weight: 500; 
-            color: #ffffff; 
-            transition: color 0.3s ease; 
-        }
-        .faq-question:hover { 
-            color: #4797FF; 
-        }
-        .faq-icon { 
-            font-size: 24px; 
-            color: #4797FF; 
-            transition: transform 0.3s ease; 
-        }
-        .faq-item.active .faq-icon { 
-            transform: rotate(45deg); 
-        }
-        .faq-answer { 
-            max-height: 0; 
-            overflow: hidden; 
-            transition: max-height 0.3s ease, padding 0.3s ease; 
-            color: rgba(255,255,255,0.6); 
-            line-height: 1.8; 
-            font-size: 15px;
-        }
-        .faq-item.active .faq-answer { 
-            max-height: 500px; 
-            padding-bottom: 24px; 
-        }
         
         /* AI Chat Mockup */
         .ai-chat-mockup {
@@ -780,7 +774,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 32px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             max-width: 450px;
-            margin: 40px auto 0;
+            margin: 0 auto;
             position: relative;
             overflow: hidden;
             width: 100%;
@@ -853,7 +847,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 6px 16px;
             border-radius: 8px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 500;
         }
         .chat-status {
             margin-top: 16px;
@@ -879,210 +873,237 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
         }
-
-        /* Exclusivity Section */
-        .exclusivity-section {
-            background: rgba(0,0,0,0.2);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+        
+        /* Pipeline Mockup */
+        .pipeline-mockup {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px;
         }
-        .exclusivity-grid {
+        .pipeline-columns {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .pipeline-col {
+            flex: 1;
+            background: rgba(255,255,255,0.05);
+            padding: 12px 8px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 11px;
+            border-top: 2px solid #4797FF;
+        }
+        .pipeline-col strong {
+            display: block;
+            color: #4797FF;
+            font-size: 18px;
+            margin-top: 4px;
+        }
+        
+        /* Growth Model Section */
+        .growth-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1200px;
+            gap: 32px;
+            max-width: 1000px;
             margin: 0 auto;
         }
-        .exclusivity-content h2 {
-            font-size: clamp(28px, 3vw, 38px);
+        .growth-card {
+            background: rgba(255,255,255,0.03);
+            border: 2px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 48px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .growth-card:hover {
+            border-color: rgba(71, 151, 255, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .growth-card.featured {
+            border-color: rgba(71, 151, 255, 0.4);
+            background: rgba(71, 151, 255, 0.05);
+        }
+        .growth-image {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 24px;
+            object-fit: contain;
+            display: block;
+        }
+        .growth-badge {
+            display: inline-block;
+            background: rgba(71, 151, 255, 0.1);
+            border: 1px solid rgba(71, 151, 255, 0.3);
+            color: #4797FF;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+        .growth-card h3 {
+            font-size: 28px;
             font-weight: 500;
             margin-bottom: 24px;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff 0%, #4797FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .pain-points {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 32px;
-        }
-        .pain-point {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 20px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-        }
-        .pain-point:hover {
-            border-color: rgba(71, 151, 255, 0.3);
-            transform: translateX(5px);
-        }
-        .pain-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(71, 151, 255, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #4797FF;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-        .pain-text h4 {
-            font-size: 17px;
-            font-weight: 500;
-            margin-bottom: 4px;
             color: #ffffff;
         }
-        .pain-text p {
-            font-size: 14px;
+        .growth-features {
+            list-style: none;
+            margin-bottom: 32px;
+            text-align: left;
+            flex: 1;
+        }
+        .growth-features li {
+            padding: 12px 0;
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .growth-features li:before {
+            content: "✓";
+            color: #4797FF;
+            font-weight: 500;
+        }
+        .growth-note {
+            font-size: 13px;
             color: rgba(255,255,255,0.5);
-            line-height: 1.5;
+            margin-top: 24px;
+            font-style: italic;
         }
-        .ownership-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .ownership-badge {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(71, 151, 255, 0.1) 0%, transparent 70%);
-            border: 2px solid rgba(71, 151, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-        .badge-lock {
-            font-size: 64px;
-            margin-bottom: 16px;
-            filter: drop-shadow(0 0 20px rgba(71, 151, 255, 0.5));
-        }
-        .badge-text {
-            font-size: 24px;
+        .price-tag {
+            font-size: 32px;
             font-weight: 500;
             color: #ffffff;
             margin-bottom: 8px;
         }
-        .badge-sub {
+        .price-sub {
             font-size: 14px;
-            color: rgba(255,255,255,0.6);
-            padding: 0 40px;
-        }
-        .orbit-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 1px dashed rgba(71, 151, 255, 0.2);
-            border-radius: 50%;
-            animation: spin 20s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Solutions Section Styles */
-        .solutions-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .solution-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 24px;
-            padding: 40px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        .solution-card:hover {
-            border-color: rgba(71, 151, 255, 0.3);
-            transform: translateY(-5px);
-            background: rgba(71, 151, 255, 0.05);
-        }
-        .solution-image {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
+            color: rgba(255,255,255,0.5);
             margin-bottom: 24px;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-        .solution-card h3 {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            color: #ffffff;
-        }
-        .solution-card p {
-            color: rgba(255,255,255,0.6);
-            line-height: 1.6;
-            font-size: 15px;
-        }
-
-        /* Live Systems Grid */
-        .live-systems-grid {
+        
+        /* Features Grid (Built for Trade Businesses) */
+        .features-grid-6 {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            max-width: 1200px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1000px;
             margin: 0 auto;
         }
-        .system-step {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 32px 24px;
+        .feature-item {
             text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
+            padding: 24px;
         }
-        .system-step:hover {
-            border-color: rgba(71, 151, 255, 0.3);
-            transform: translateY(-5px);
-        }
-        .system-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%);
-            border-radius: 50%;
+        .feature-icon-box {
+            width: 64px;
+            height: 64px;
+            background: rgba(71, 151, 255, 0.1);
+            border: 1px solid rgba(71, 151, 255, 0.2);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
-            font-size: 20px;
             margin: 0 auto 20px;
-            color: white;
+            color: #4797FF;
         }
-        .system-step h3 {
+        .feature-icon-box svg {
+            width: 32px;
+            height: 32px;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            fill: none;
+        }
+        .feature-item h4 {
             font-size: 18px;
             font-weight: 500;
             margin-bottom: 12px;
             color: #ffffff;
         }
-        .system-step p {
+        .feature-item p {
+            font-size: 14px;
             color: rgba(255,255,255,0.5);
             line-height: 1.6;
-            font-size: 14px;
         }
-
+        
+        /* Custom Integration Feature (Centered) */
+        .integration-feature {
+            max-width: 600px;
+            margin: 60px auto 0;
+            padding: 40px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            text-align: center;
+        }
+        .integration-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(71, 151, 255, 0.1);
+            border: 1px solid rgba(71, 151, 255, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #4797FF;
+        }
+        .integration-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            fill: none;
+        }
+        .integration-feature h4 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        .integration-feature p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        
+        /* Stats */
+        .stats-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 40px; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            text-align: center; 
+        }
+        .stat-item h3 { 
+            font-size: 52px; 
+            font-weight: 500; 
+            background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text; 
+            margin-bottom: 8px; 
+        }
+        .stat-item p { 
+            color: rgba(255,255,255,0.5); 
+            font-size: 16px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        
         /* Comparison Table Styles */
         .comparison-container {
             max-width: 1000px;
@@ -1100,7 +1121,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .comparison-cell {
             padding: 20px 24px;
-            font-weight: 600;
+            font-weight: 500;
             color: #ffffff;
         }
         .comparison-cell.ql {
@@ -1133,6 +1154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #ffffff;
             display: block;
             margin-bottom: 4px;
+            font-weight: 500;
         }
         .feature-name span {
             font-size: 13px;
@@ -1162,8 +1184,199 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: block;
             margin-top: 2px;
         }
+        .check-x {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+        .check-x.good {
+            background: rgba(71, 151, 255, 0.2);
+            color: #4797FF;
+        }
+        .check-x.bad {
+            background: rgba(255, 71, 87, 0.2);
+            color: #ff4757;
+        }
 
-        /* Final CTA - FIXED */
+        /* Testimonials */
+        .testimonials-section { 
+            padding: 120px 0; 
+            overflow: hidden; 
+        }
+        .testimonials-section .section-header { 
+            padding: 0 24px; 
+            max-width: 1200px; 
+            margin: 0 auto 80px; 
+        }
+        .testimonial-marquee { 
+            display: flex; 
+            gap: 32px; 
+            animation: testimonialScroll 35s linear infinite; 
+            width: max-content; 
+            padding: 0 24px; 
+        }
+        .testimonial-marquee:hover { 
+            animation-play-state: paused; 
+        }
+        @keyframes testimonialScroll { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(-50%); } 
+        }
+        .testimonial-card { 
+            background: rgba(255,255,255,0.03); 
+            border: 1px solid rgba(255,255,255,0.08); 
+            border-radius: 20px; 
+            padding: 40px; 
+            width: 400px; 
+            flex-shrink: 0; 
+            transition: all 0.3s ease; 
+        }
+        .testimonial-card:hover { 
+            border-color: rgba(71, 151, 255, 0.3); 
+            transform: translateY(-4px); 
+        }
+        .testimonial-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 20px; 
+        }
+        .testimonial-logo { 
+            height: 40px; 
+            width: auto; 
+            filter: brightness(0) invert(1); 
+            opacity: 0.8; 
+        }
+        .stars { 
+            color: #4797FF; 
+            font-size: 18px; 
+            letter-spacing: 2px; 
+        }
+        .testimonial-text { 
+            font-size: 16px; 
+            line-height: 1.7; 
+            color: rgba(255,255,255,0.9); 
+            margin-bottom: 24px; 
+            font-style: italic; 
+        }
+        .testimonial-author { 
+            font-weight: 500; 
+            color: #ffffff; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        
+        /* GRA Award */
+        .award-section { 
+            padding: 100px 24px; 
+            text-align: center; 
+        }
+        .award-image { 
+            max-width: 250px; 
+            width: 100%; 
+            margin: 0 auto 30px; 
+            border-radius: 16px; 
+            filter: drop-shadow(0 10px 30px rgba(71, 151, 255, 0.2)); 
+        }
+        .award-text { 
+            font-size: 17px; 
+            color: rgba(255,255,255,0.6); 
+            max-width: 600px; 
+            margin: 0 auto; 
+        }
+        
+        /* Built For Trades Section */
+        .built-for-trades {
+            padding: 80px 24px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .built-for-trades h2 {
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        .built-for-trades p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+        
+        /* Lead Integrity Standard Banner */
+        .integrity-banner {
+            background: rgba(71, 151, 255, 0.05);
+            border: 1px solid rgba(71, 151, 255, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+        .integrity-banner p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            margin: 0;
+        }
+        .integrity-banner a {
+            color: #4797FF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* FAQ Accordion */
+        .faq-section { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 120px 24px; 
+        }
+        .faq-item { 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            margin-bottom: 0; 
+        }
+        .faq-question { 
+            padding: 24px 0; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            font-size: 19px; 
+            font-weight: 500; 
+            color: #ffffff; 
+            transition: color 0.3s ease; 
+        }
+        .faq-question:hover { 
+            color: #4797FF; 
+        }
+        .faq-icon { 
+            font-size: 24px; 
+            color: #4797FF; 
+            transition: transform 0.3s ease; 
+        }
+        .faq-item.active .faq-icon { 
+            transform: rotate(45deg); 
+        }
+        .faq-answer { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.3s ease, padding 0.3s ease; 
+            color: rgba(255,255,255,0.6); 
+            line-height: 1.8; 
+            font-size: 15px;
+        }
+        .faq-item.active .faq-answer { 
+            max-height: 500px; 
+            padding-bottom: 24px; 
+        }
+        
+        /* Final CTA */
         .final-cta { 
             padding: 160px 24px; 
             text-align: center; 
@@ -1188,6 +1401,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             max-width: 600px; 
             margin: 0 auto 40px; 
             line-height: 1.6; 
+        }
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .trust-badges {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .trust-badges span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
         }
         
         /* Footer */
@@ -1248,16 +1484,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         @media (max-width: 1024px) { 
             .hero h1 { font-size: 44px; } 
             .section-title { font-size: 36px; } 
-            .products-grid { grid-template-columns: 1fr; max-width: 600px; } 
-            .lead-gen-grid { grid-template-columns: 1fr; } 
-            .ai-grid { grid-template-columns: repeat(2, 1fr); } 
+            .pain-grid { grid-template-columns: 1fr; max-width: 600px; }
+            .infrastructure-grid { grid-template-columns: 1fr; max-width: 600px; }
+            .growth-grid { grid-template-columns: 1fr; max-width: 600px; }
+            .features-grid-6 { grid-template-columns: repeat(2, 1fr); }
             .stats-grid { grid-template-columns: 1fr; gap: 40px; } 
-            .process-grid { grid-template-columns: 1fr; } 
-            .process-grid:before { display: none; } 
-            .exclusivity-grid { grid-template-columns: 1fr; }
-            .ownership-badge { width: 250px; height: 250px; }
-            .solutions-grid { grid-template-columns: 1fr; }
-            .live-systems-grid { grid-template-columns: repeat(2, 1fr); }
+            .ownership-grid { grid-template-columns: 1fr; }
+            .modes-grid { grid-template-columns: 1fr; max-width: 500px; }
         }
         @media (max-width: 768px) { 
             .hero { padding: 40px 20px; }
@@ -1269,25 +1502,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .hero-subtitle { font-size: 16px; padding: 0 10px; } 
             .section { padding: 80px 24px; } 
             .section-title { font-size: 28px; } 
-            .lead-gen-content h2 { font-size: 28px; }
-            .exclusivity-content h2 { font-size: 28px; }
-            .ai-grid { grid-template-columns: 1fr; } 
+            .timeline-container::before { left: 20px; }
+            .timeline-step { gap: 16px; }
+            .timeline-icon { width: 40px; height: 40px; }
+            .timeline-icon svg { width: 20px; height: 20px; }
+            .features-grid-6 { grid-template-columns: 1fr; }
             .testimonial-card { width: 320px; } 
             .final-cta h2 { font-size: 32px; } 
             .final-cta { padding: 100px 24px; }
-            .price { font-size: 36px; } 
             .stat-item h3 { font-size: 40px; }
             .award-section { padding: 60px 24px; }
             .faq-section { padding: 80px 24px; }
             .section-header { margin-bottom: 50px; }
-            .lead-grid { grid-template-columns: 1fr; }
-            .lead-info-mockup { 
-                padding: 24px; 
-                width: 100%;
-            }
-            .ai-chat-mockup { padding: 24px; }
-            .ownership-badge { width: 280px; height: 280px; }
-            .live-systems-grid { grid-template-columns: 1fr; }
             .comparison-header,
             .comparison-row {
                 grid-template-columns: 1.5fr 1fr 1fr;
@@ -1298,6 +1524,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .feature-comp {
                 padding: 16px 12px;
                 font-size: 13px;
+            }
+            .growth-card { padding: 32px 24px; }
+            .lead-grid { grid-template-columns: 1fr; }
+            .ownership-section { padding: 80px 24px; }
+            .modes-section { padding: 80px 24px; }
+            .industries-pills { gap: 12px; }
+            .industry-pill { padding: 12px 24px; font-size: 14px; }
+            
+            /* Center trust badges on mobile */
+            .trust-badges {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+            .trust-badges span {
+                justify-content: center;
+                width: 100%;
+            }
+            /* Hide the separator dots on mobile */
+            .trust-badges span:nth-child(even) {
+                display: none;
             }
         }
         @media (max-width: 480px) {
@@ -1314,28 +1561,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 width: 100%;
                 max-width: 300px;
             }
-            .trade-tag { padding: 12px 24px; font-size: 14px; }
             .testimonial-card { width: 300px; padding: 30px; }
-            .product-image { width: 60px; height: 60px; }
             .footer-links { gap: 16px; }
             .social-links { flex-direction: column; gap: 12px; align-items: center; }
-            .lead-info-mockup { 
-                padding: 20px; 
-                border-radius: 16px; 
-            }
-            .lead-grid { gap: 12px; }
-            .lead-field { padding: 12px; }
-            .ai-chat-mockup { padding: 20px; }
-            .ownership-badge { width: 260px; height: 260px; }
-            .badge-lock { font-size: 48px; }
-            .badge-text { font-size: 20px; }
-            .badge-sub { padding: 0 20px; font-size: 13px; }
-            .pain-point { padding: 16px; }
-            .pain-icon { width: 36px; height: 36px; font-size: 16px; }
-            .exclusivity-content h2 { font-size: 26px; }
-            .lead-gen-visual { padding: 24px; }
-            .solution-card { padding: 24px; }
-            .system-step { padding: 24px 16px; }
+            .cta-group { flex-direction: column; align-items: center; }
             .comparison-cell,
             .feature-name,
             .feature-ql,
@@ -1346,11 +1575,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .feature-name strong {
                 font-size: 13px;
             }
+            .pain-card { padding: 32px 24px; }
+            .integration-feature { padding: 32px 24px; }
+            .growth-image { width: 80px; height: 80px; }
+            .mode-card { padding: 32px 24px; }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER START - Paste on every page -->
+    <!-- HEADER START -->
 <header class="site-header">
     <nav class="header-nav">
         <a href="/" class="header-logo">
@@ -1395,16 +1628,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </header>
 
 <style>
-.site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 1000; padding: 24px; transition: all 0.3s ease; font-family: 'Poppins', sans-serif; }
+.site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 1000; padding: 24px; transition: all 0.3s ease; font-family: 'Poppins', system-ui, sans-serif; }
 .site-header.scrolled { position: fixed; background: rgba(10, 10, 15, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 24px; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
 .header-nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 .header-logo img { height: 40px; width: auto; display: block; }
 .header-links { display: flex; align-items: center; gap: 32px; }
 .header-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.3s ease; }
 .header-links a:hover { color: #4797FF; }
-.nav-cta { background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%); color: white !important; padding: 10px 24px; border-radius: 8px; font-weight: 600; box-shadow: 0 4px 15px rgba(71, 151, 255, 0.3); }
+.nav-cta { background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%); color: white !important; padding: 10px 24px; border-radius: 8px; font-weight: 500; box-shadow: 0 4px 15px rgba(71, 151, 255, 0.3); }
 .nav-dropdown { position: relative; }
-.drop-btn { background: none; border: none; color: rgba(255,255,255,0.8); font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.3s ease; }
+.drop-btn { background: none; border: none; color: rgba(255,255,255,0.8); font-family: 'Poppins', system-ui, sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 0; transition: color 0.3s ease; }
 .drop-btn:hover { color: #4797FF; }
 .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px); background: rgba(20, 20, 30, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 8px; min-width: 220px; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
 .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
@@ -1482,342 +1715,573 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-        <!-- Solutions Section - NEW -->
-        <section class="section">
-            <div class="section-header">
-                <span class="section-label">Solutions</span>
-                <h2 class="section-title">Two Core Problems. One Complete Solution.</h2>
-                <p class="section-subtitle">We don't just generate leads, we generate the exact project types you want in your vertical, scaled to your capacity, with AI automation that moves them towards the sale. No more random enquiries, only targeted, scalable opportunities.</p>
-            </div>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <img src="https://github.com/buckleydigital/ql-site/raw/main/lead-gen-graphic.png" alt="Lead Generation" class="solution-image">
-                    <h3>Precision Lead Generation</h3>
-                    <p>Stop chasing random enquiries. Our system generates <strong>specific project types in your vertical</strong>—scalable, targeted, and exclusive to your service capacity. Whether you need 50 solar install quotes or 10 roof restoration quotes, we dial in the exact lead volume and project type to match your business goals, unlike generic lead sources sending random, unqualified requests.</p>
-                </div>
-                <div class="solution-card">
-                    <img src="https://github.com/buckleydigital/ql-site/raw/main/ai-automation-graphic.png" alt="AI Automation" class="solution-image">
-                    <h3>AI Automation & Qualification</h3>
-                    <p>Every lead is instantly engaged, qualified, and nurtured by AI trained on your business. From immediate SMS follow-up to booking consultations automatically, our AI handles the heavy lifting while you focus on closing high-value projects.</p>
-                </div>
+        <!-- Industries Section -->
+        <section class="industries-section">
+            <span class="section-label">Industries</span>
+            <h2 class="section-title">Specialised Trade Leads</h2>
+            <p class="section-subtitle">We generate exclusive leads for high-ticket home service industries. Use our full sales dashboard, have leads delivered to your phone, or integrate with your existing CRM.</p>
+            
+            <div class="industries-pills">
+                <a href="/solar-leads" class="industry-pill">Solar Leads</a>
+                <a href="/roofing-leads" class="industry-pill">Roofing Leads</a>
+                <a href="/hvac-leads" class="industry-pill">HVAC Leads</a>
+                <a href="/painting-leads" class="industry-pill">Painting Leads</a>
+                <a href="/carpentry-leads" class="industry-pill">Carpentry Leads</a>
+                <a href="/renovation-leads" class="industry-pill">Renovation Leads</a>
+                <a href="/landscaping-leads" class="industry-pill">Landscaping Leads</a>
             </div>
         </section>
 
-        <!-- How Lead Generation Works -->
-        <section class="section">
-            <div class="lead-gen-grid">
-                <div class="lead-gen-content">
-                    <span class="section-label">Lead Generation</span>
-                    <h2>How QuoteLeads Generates Exclusive Leads</h2>
-                    <p>QuoteLeads uses a combination of ad campaigns, hyper-targeted audience data, and high-converting landing pages tailored to your trade. We drive real customers to exclusive enquiry forms or quote requests.</p>
-                    <p>Every lead is 100% yours, never shared with competitors. We specialise in high-ticket home services including solar panel installation, roofing, HVAC, painting, and more.</p>
-                    <div class="integrity-badge">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <span>100% Auditable Lead Integrity Standard</span>
+        <!-- Visual Timeline Sequence -->
+        <section class="timeline-section">
+            <div class="timeline-container">
+                <div class="timeline-step">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </div>
+                    <div class="timeline-content" data-caption="A lead comes in">
+                        <div class="timeline-header">New Lead</div>
+                        <div class="timeline-body">
+                            Roof Replacement enquiry<br>
+                            <span class="timeline-highlight">Assigned to: James (Postcode 2000)</span>
+                        </div>
                     </div>
                 </div>
-                <div class="lead-gen-visual">
-                    <!-- Lead Info Mockup Card -->
-                    <div class="lead-info-mockup">
-                        <div class="mockup-header">Lead Information - Demo</div>
-                        <div class="lead-grid">
-                            <div class="lead-field">
-                                <div class="field-label">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    Name
-                                </div>
-                                <div class="field-value">Michael Harris</div>
-                            </div>
-                            <div class="lead-field">
-                                <div class="field-label">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                    </svg>
-                                    Phone
-                                </div>
-                                <div class="field-value">+61 XXX XXX XXX</div>
-                            </div>
-                            <div class="lead-field">
-                                <div class="field-label">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
-                                    </svg>
-                                    Email
-                                </div>
-                                <div class="field-value">m.harris@email.com.au</div>
-                            </div>
-                            <div class="lead-field">
-                                <div class="field-label">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    Postcode
-                                </div>
-                                <div class="field-value">4171</div>
-                            </div>
-                            <div class="lead-field full-width">
-                                <div class="field-label">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
-                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                                    </svg>
-                                    Project
-                                </div>
-                                <div class="field-value">Ducted HVAC Installation</div>
-                            </div>
-                            <div class="lead-field">
-                                <div class="field-label">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <polyline points="12 6 12 12 16 14"></polyline>
-                                    </svg>
-                                    Timeline
-                                </div>
-                                <div class="field-value">Within 2 weeks</div>
-                            </div>
-                            <div class="lead-field">
-                                <div class="field-label">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5;">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                        <circle cx="12" cy="7" r="4"></circle>
-                                    </svg>
-                                    Owner
-                                </div>
-                                <div class="field-value">James O'Connell</div>
-                            </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </div>
+                    <div class="timeline-content" data-caption="AI responds in 30 seconds">
+                        <div class="timeline-header">AI SMS Sent</div>
+                        <div class="timeline-body">
+                            "Hi Sarah, thanks for your interest in a roof replacement. I'll have a quote ready shortly. When's a good time to call?"
                         </div>
-                        <div class="ai-insight-box">
-                            <div class="insight-label">AI Insight</div>
-                            <div class="insight-text">High-intent HVAC lead. Ducted system install requested, roof access confirmed.</div>
-                            <div class="insight-footer">
-                                <span class="score-badge">Score: 94/100</span>
-                                <span class="hot-tag">HOT</span>
-                            </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <div class="timeline-content" data-caption="Quote drafted automatically">
+                        <div class="timeline-header">9:52 PM - Quote Auto-Drafted</div>
+                        <div class="timeline-body">
+                            Roof Replacement - $24,500<br>
+                            <span class="timeline-highlight">[Review & Send]</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div class="timeline-content" data-caption="System tracks engagement">
+                        <div class="timeline-header">10:15 PM - Quote Sent</div>
+                        <div class="timeline-body">
+                            Notification delivered<br>
+                            <span class="timeline-highlight">Follow-up scheduled for tomorrow 9 AM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step final-step">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                    </div>
+                    <div class="timeline-content" data-caption="Booked while competitors slept">
+                        <div class="timeline-header">DEAL WON</div>
+                        <div class="timeline-body">
+                            <span class="timeline-highlight">$24,500</span><br>
+                            Quote has been approved
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Section -->
-        <section class="section" id="pricing" style="background: rgba(255,255,255,0.02);">
+        <!-- You're Bleeding Revenue Section -->
+        <section class="section" style="background: rgba(255,255,255,0.02);">
             <div class="section-header">
-                <span class="section-label">Pricing</span>
-                <h2 class="section-title">Performance Lead Generation for Trades</h2>
-                <p class="section-subtitle">Choose the solution that fits your business scale. No lock-in contracts. Start generating exclusive leads within 24-48 hours.</p>
+                <span class="section-label">The Problem</span>
+                <h2 class="section-title">You're Bleeding Revenue. Here's Where.</h2>
             </div>
-            <div class="products-grid">
-                <!-- Growth -->
-                <div class="product-card">
-                    <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-growth.png" alt="QuoteLeads Growth" class="product-image">
-                    <h3>QuoteLeads Growth</h3>
-                    <div class="price">$590</div>
-                    <div class="price-note">one-time set-up fee<br>30 - 120 leads per month</div>
-                    <p class="product-description">Perfect for small businesses and growing teams ready to scale with exclusive leads.</p>
-                    <ul class="feature-list">
-                        <li>DemandOS by QuoteLeads</li>
-                        <li>Control Ad Spend Budget</li>
-                        <li>Custom Lead Funnel</li>
-                        <li>CRM Integration/Lead Delivery</li>
-                        <li>Meta Ads Setup & Management</li>
-                        <li>QuoteLeads AI Engine</li>
-                        <li>Dedicated Support</li>
-                        <li>Optional Monthly Management</li>
-                        <li>No Lock-In Contracts</li>
-                    </ul>
-                    <div class="best-for">Best For: Small Businesses, Growing Teams</div>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <svg class="pain-icon-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <h3>Not enough volume + quality</h3>
+                    <p>Low lead flow or poor qualification means wasted ad spend and empty pipelines</p>
+                    <div class="pain-result">= Lost Revenue</div>
                 </div>
-                <!-- Scale -->
-                <div class="product-card featured">
-                    <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-scale.png" alt="QuoteLeads Scale" class="product-image">
-                    <h3>QuoteLeads Scale</h3>
-                    <div class="price">Custom</div>
-                    <div class="price-note">120 to 2000+ leads per month</div>
-                    <p class="product-description">Advanced solution for growing teams and national brands requiring high-volume lead flow.</p>
-                    <ul class="feature-list">
-                        <li>Everything in Growth, plus:</li>
-                        <li>2+ Custom Lead Funnels</li>
-                        <li>Custom Workflows & Automations</li>
-                        <li>Multi-Channel Management</li>
-                        <li>Lead Routing Systems</li>
-                        <li>QuoteLeads AI Engine</li>
-                        <li>Limitless Growth Potential</li>
-                        <li>Priority Support</li>
-                        <li>No Lock-In Contracts</li>
-                    </ul>
-                    <div class="best-for">Best For: Growing Teams, National Brands</div>
+                
+                <div class="pain-card">
+                    <svg class="pain-icon-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <h3>Too slow to respond + quote</h3>
+                    <p>Trade customers expect quotes within 2 hours. Slow response times mean lost opportunities to competitors.</p>
+                    <div class="pain-result">= Lost Revenue</div>
                 </div>
-                <!-- Exchange -->
-                <div class="product-card">
-                    <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-exchange.png" alt="QuoteLeads Exchange" class="product-image">
-                    <h3>QuoteLeads Exchange™</h3>
-                    <div class="price">Custom</div>
-                    <div class="price-note">30 to 100+ leads per month<br>Pay only for leads</div>
-                    <p class="product-description">High-quality leads on demand. Set your ideal project criteria, receive verified leads within 24-48 hours.</p>
-                    <ul class="feature-list">
-                        <li>100% Exclusive Leads</li>
-                        <li>Own Your Territory Exclusively</li>
-                        <li>Pay for Leads Only</li>
-                        <li>No Ad Spend Required</li>
-                        <li>No Management Fees</li>
-                        <li>Pre-qualified Based on Criteria</li>
-                        <li>Never Shared With Competitors</li>
-                        <li>Instant Lead Delivery</li>
-                    </ul>
-                    <div class="best-for">Best For: Specialised Contractors</div>
+                
+                <div class="pain-card">
+                    <svg class="pain-icon-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path></svg>
+                    <h3>Zero visibility or scalability</h3>
+                    <p>You have no idea which leads are hot, which went cold, or why they didn't convert. No system to scale.</p>
+                    <div class="pain-result">= Lost Revenue</div>
                 </div>
             </div>
         </section>
 
-        <!-- Exclusivity & Ownership Section -->
-        <section class="section exclusivity-section">
-            <div class="exclusivity-grid">
-                <div class="exclusivity-content">
-                    <span class="section-label">Ownership</span>
+        <!-- Ownership Section -->
+        <section class="ownership-section">
+            <div class="ownership-grid">
+                <div class="ownership-content">
+                    <span class="section-label" style="text-align: left; margin-bottom: 16px;">Ownership</span>
                     <h2>Stop Competing for Your Own Leads</h2>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 17px; line-height: 1.8; margin-bottom: 20px;">Tired of buying leads that get sold to 5 other contractors? Or "hot leads" who were just browsing and aren't ready to buy? We eliminate the competition entirely.</p>
+                    <p>Tired of buying leads shared with 5 other contractors? Or "hot leads" who are just browsing and months away from buying? Get exclusive leads that are actually ready to move.</p>
                     
-                    <div class="pain-points">
-                        <div class="pain-point">
-                            <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-                            <div class="pain-text">
+                    <div class="ownership-features">
+                        <div class="ownership-item">
+                            <div class="ownership-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            </div>
+                            <div>
                                 <h4>100% Exclusive Territory</h4>
                                 <p>We never sell the same lead twice. Once a lead enters your pipeline, it's yours alone. No more racing to call before your competitors do.</p>
                             </div>
                         </div>
-                        <div class="pain-point">
-                            <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-                            <div class="pain-text">
+                        
+                        <div class="ownership-item">
+                            <div class="ownership-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div>
                                 <h4>Pre-Qualified & Ready</h4>
                                 <p>Every lead is identity-verified, contactability-confirmed, and intent-validated. No more tire-kickers wasting your time.</p>
                             </div>
                         </div>
-                        <div class="pain-point">
-                            <div class="pain-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                            <div class="pain-text">
+                        
+                        <div class="ownership-item">
+                            <div class="ownership-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                            </div>
+                            <div>
                                 <h4>Instant Ownership Transfer</h4>
-                                <p>Leads delivered directly to your CRM with full contact details. You own the relationship from minute one—no middlemen, no gatekeepers.</p>
+                                <p>Leads delivered directly to your CRM with full contact details. You own the relationship from minute one, no middlemen, no gatekeepers.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="ownership-visual">
-                    <div class="ownership-badge">
-                        <div class="orbit-ring"></div>
-                        <svg class="badge-lock" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        <div class="badge-text">100% Exclusive</div>
-                        <div class="badge-sub">Zero Competition. Full Ownership. Verified Intent.</div>
+                    
+                    <div class="ownership-badges">
+                        <span class="ownership-badge">100% Exclusive</span>
+                        <span class="ownership-badge">Zero Competition</span>
+                        <span class="ownership-badge">Full Ownership</span>
+                        <span class="ownership-badge">Verified Intent</span>
                     </div>
+                </div>
+                
+                <div>
+                    <img src="https://raw.githubusercontent.com/buckleydigital/ql-site/main/lead-gen-graphic.png" alt="Lead Generation Process" class="ownership-graphic" style="margin-bottom: 20px;">
+                    <img src="https://raw.githubusercontent.com/buckleydigital/ql-site/main/ai-automation-graphic.png" alt="AI Automation" class="ownership-graphic">
                 </div>
             </div>
         </section>
 
-        <!-- AI Section -->
-        <section class="section">
+        <!-- Three Modes Section -->
+        <section class="modes-section">
             <div class="section-header">
-                <span class="section-label">AI Automation</span>
-                <h2 class="section-title">How QuoteLeads AI Works</h2>
-                <p class="section-subtitle">Advanced artificially intelligent SMS workflows trained on your business. Instantly follow up with new leads to qualify them and book call-backs, all without you lifting a finger.</p>
+                <span class="section-label">Flexibility</span>
+                <h2 class="section-title">Three Ways to Use QuoteLeads</h2>
+                <p class="section-subtitle">No forced adoption. No all-or-nothing software requirements. Choose your level of integration.</p>
             </div>
             
-            <!-- AI Chat Mockup -->
-            <div class="ai-chat-mockup">
-                <div class="chat-header">AI Assistant - Demo</div>
-                <div class="chat-messages">
-                    <div class="chat-bubble bubble-ai">
-                        Hi Jane. Thanks for your interest in an air con installation.<br><br>
-                        Are you looking for a ducted or split system?
-                    </div>
-                    <div class="chat-bubble bubble-user">
-                        Yes, a full ducted system please
-                    </div>
-                    <div class="chat-bubble bubble-ai">
-                        When would be a good time for a free consultation?
-                    </div>
-                    <div class="chat-bubble bubble-user">
-                        Thursday afternoon works
-                    </div>
-                    <div class="chat-bubble bubble-ai">
-                        Perfect, thanks for the info. I'll have our specialist reach out to schedule.
-                    </div>
+            <div class="modes-grid">
+                <div class="mode-card">
+                    <div class="mode-number">01</div>
+                    <h3>Full Platform</h3>
+                    <p>Use QuoteLeads as your complete sales dashboard. Pipeline, SMS, AI automation, and quote drafting all in one place.</p>
+                    <ul class="mode-features">
+                        <li>Replace your current chaos</li>
+                        <li>Complete visibility from lead to sale</li>
+                        <li>Best for: Solo operators or teams wanting one tool</li>
+                    </ul>
+                    <span class="mode-tag">Most Popular</span>
                 </div>
-                <div class="chat-status">
-                    <div class="status-item">
-                        <div class="status-dot"></div>
-                        <span>Routing lead to Justin</span>
-                    </div>
-                    <div class="status-item">
-                        <div class="status-dot"></div>
-                        <span>Moving lead to scheduled tab</span>
-                    </div>
+                
+                <div class="mode-card featured">
+                    <div class="mode-number">02</div>
+                    <h3>Pass-Through</h3>
+                    <p>We qualify and respond, you get leads via email, SMS, or API. No login required, no change to your current workflow.</p>
+                    <ul class="mode-features">
+                        <li>Keep your existing tools</li>
+                        <li>Instant lead delivery to your phone</li>
+                        <li>Best for: "Just send me good leads"</li>
+                    </ul>
+                    <span class="mode-tag">Zero Friction</span>
                 </div>
-                <div class="chat-input" style="margin-top: 16px;">
-                    <span>AI is handling this conversation...</span>
-                    <span class="send-btn">Send</span>
+                
+                <div class="mode-card">
+                    <div class="mode-number">03</div>
+                    <h3>Custom Integration</h3>
+                    <p>Enterprise setup with custom workflows. Leads flow into your existing systems with specific tagging and routing rules.</p>
+                    <ul class="mode-features">
+                        <li>Sync with ServiceTitan, Jobber, SimPro, etc.</li>
+                        <li>Custom automation rules</li>
+                        <li>Best for: Complex sales cycles</li>
+                    </ul>
+                    <span class="mode-tag">Enterprise</span>
                 </div>
             </div>
+        </section>
 
-            <div class="ai-grid" style="margin-top: 60px;">
-                <div class="ai-card">
-                    <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                    </svg>
-                    <h3>Instant Response</h3>
-                    <p>Be the first to respond to leads within seconds, 24/7. Speed-to-lead is critical for conversion.</p>
+        <!-- Complete Demand Infrastructure -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-label">The Solution</span>
+                <h2 class="section-title">QuoteLeads: Your Complete Demand Infrastructure</h2>
+                <p class="section-subtitle">We don't just send leads to your inbox and hope. Every lead flows through a proven system designed to maximize conversion.</p>
+            </div>
+            
+            <div class="infrastructure-grid">
+                <!-- Exclusive Leads -->
+                <div class="infra-card">
+                    <div class="infra-header">
+                        <svg class="infra-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        <div class="infra-subtitle">Phase 1</div>
+                        <h3>Exclusive Leads</h3>
+                    </div>
+                    <ul class="infra-features">
+                        <li>Pre-qualified prospects actively seeking quotes</li>
+                        <li>Verified contact details, project details captured</li>
+                        <li>From our network OR we run high-intent ads for you</li>
+                        <li>Exclusive to you in your service area</li>
+                    </ul>
+                    
+                    <!-- Lead Info Mockup -->
+                    <div class="lead-info-mockup" style="padding: 24px; margin-top: auto;">
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.5); text-align: center; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px;">Lead Preview</div>
+                        <div class="lead-grid" style="gap: 12px; margin-bottom: 0;">
+                            <div class="lead-field" style="padding: 12px;">
+                                <div class="field-label" style="font-size: 10px;">Name</div>
+                                <div class="field-value" style="font-size: 13px;">Sarah M.</div>
+                            </div>
+                            <div class="lead-field" style="padding: 12px;">
+                                <div class="field-label" style="font-size: 10px;">Postcode</div>
+                                <div class="field-value" style="font-size: 13px;">2000</div>
+                            </div>
+                            <div class="lead-field full-width" style="padding: 12px;">
+                                <div class="field-label" style="font-size: 10px;">Project</div>
+                                <div class="field-value" style="font-size: 13px;">Roof Replacement</div>
+                            </div>
+                            <div class="lead-field full-width" style="padding: 12px;">
+                                <div class="field-label" style="font-size: 10px;">Timeline</div>
+                                <div class="field-value" style="font-size: 13px;">1-2 weeks</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 12px; text-align: center;">
+                            <span style="background: linear-gradient(135deg, #2563eb 0%, #4797FF 100%); color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(71, 151, 255, 0.4);">Hot Lead - Verified</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="ai-card">
-                    <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                    </svg>
-                    <h3>Smart Qualification</h3>
-                    <p>AI automatically vets leads, gathers project requirements, and scores lead quality before you even see them.</p>
+
+                <!-- Instant Activation -->
+                <div class="infra-card">
+                    <div class="infra-header">
+                        <svg class="infra-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        <div class="infra-subtitle">Phase 2</div>
+                        <h3>Instant Activation System</h3>
+                    </div>
+                    <ul class="infra-features">
+                        <li>AI responds to every lead within 60 seconds</li>
+                        <li>Auto-routed to nearest rep (postcode + round robin)</li>
+                        <li>Quote templates auto-filled from lead data</li>
+                        <li>2-way SMS keeps conversations flowing</li>
+                    </ul>
+                    
+                    <!-- AI Chat Mockup -->
+                    <div class="ai-chat-mockup" style="padding: 24px; margin-top: auto;">
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.5); text-align: center; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px;">AI Conversation</div>
+                        <div class="chat-messages" style="gap: 12px; margin-bottom: 16px;">
+                            <div class="chat-bubble bubble-ai" style="padding: 12px 16px; font-size: 12px;">
+                                "Hi Sarah, saw your roof enquiry. I'm preparing your quote now. When's best to call?"
+                            </div>
+                            <div class="chat-bubble bubble-user" style="padding: 12px 16px; font-size: 12px;">
+                                "Tomorrow morning works"
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: rgba(255,255,255,0.5);">
+                            <div class="status-dot"></div>
+                            <span>Routing lead to James...</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="ai-card">
-                    <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                    <h3>Auto-Booking</h3>
-                    <p>Seamless appointment scheduling integrated with your calendar. The AI books qualified prospects directly.</p>
+
+                <!-- Conversion Tracking -->
+                <div class="infra-card">
+                    <div class="infra-header">
+                        <svg class="infra-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        <div class="infra-subtitle">Phase 3</div>
+                        <h3>Conversion Tracking Pipeline</h3>
+                    </div>
+                    <ul class="infra-features">
+                        <li>Visual pipeline: New → Quoted → Won/Lost</li>
+                        <li>Automated lead + quote follow-up</li>
+                        <li>Bulk SMS for database reactivation</li>
+                    </ul>
+                    
+                    <!-- Pipeline Mockup -->
+                    <div class="pipeline-mockup" style="margin-top: auto;">
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.5); text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Pipeline View</div>
+                        <div class="pipeline-columns">
+                            <div class="pipeline-col">
+                                New
+                                <strong>33</strong>
+                            </div>
+                            <div class="pipeline-col">
+                                Quoted
+                                <strong>55</strong>
+                            </div>
+                            <div class="pipeline-col">
+                                Won
+                                <strong>22</strong>
+                            </div>
+                        </div>
+                        <div style="font-size: 11px; color: rgba(255,255,255,0.5); text-align: center;">$470,500 in active quotes</div>
+                    </div>
                 </div>
-                <div class="ai-card">
-                    <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <h3>24/7 Availability</h3>
-                    <p>Never miss an after-hours lead. AI handles enquiries, qualifications, and booking while you sleep.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px; padding: 32px; background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);">
+                <p style="color: rgba(255,255,255,0.8); font-size: 18px; font-weight: 500; margin-bottom: 8px;">Everything you need between the ad click and the deposit.</p>
+                <p style="color: rgba(255,255,255,0.5); font-size: 15px;">Pre-built. Optimized. Ready to run.</p>
+            </div>
+        </section>
+
+        <!-- Choose Your Growth Model -->
+        <section class="section" id="pricing" style="background: rgba(255,255,255,0.02);">
+            <div class="section-header">
+                <span class="section-label">Pricing</span>
+                <h2 class="section-title">Choose Your Growth Model</h2>
+                <p class="section-subtitle">Two clear paths to revenue. Either way, you get the complete conversion infrastructure. That's what makes QuoteLeads different.</p>
+            </div>
+            
+            <div class="growth-grid">
+                <!-- Buy Leads Instantly -->
+                <div class="growth-card">
+                    <div class="growth-badge">Buy Leads</div>
+                    <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-exchange.png" alt="Buy Leads" class="growth-image">
+                    <h3>Buy Leads</h3>
+                    <div class="price-tag">Custom</div>
+                    <div class="price-sub">Pricing based on trade & location</div>
+                    <ul class="growth-features">
+                        <li>Exclusive, real-time leads</li>
+                        <li>DemandOS by QuoteLeads</li>
+                        <li>Purchase exclusive leads from our verified network</li>
+                        <li>Pay for leads only, cancel anytime</li>
+                        <li>System access included (no extra fees)</li>
+                        <li>Dedicated Support</li>
+                        <li>No Lock-In Contract</li>
+                        <li>Perfect for: filling gaps and seasonal boosts</li>
+                    </ul>
+                    <a href="/get-started" class="cta-button" style="width: 100%; display: block; text-align: center;">Get Started</a>
+                    <div class="growth-note">Start receiving leads within 24 hours</div>
                 </div>
-                <div class="ai-card">
-                    <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                    </svg>
-                    <h3>Cost Reduction</h3>
-                    <p>Save by eliminating the need for phone-based appointment setters and qualifying staff.</p>
+
+                <!-- Managed Advertising -->
+                <div class="growth-card featured">
+                    <div class="growth-badge" style="background: rgba(71, 151, 255, 0.2);">Managed Advertising</div>
+                    <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-growth.png" alt="Managed Advertising" class="growth-image">
+                    <h3>Managed Advertising</h3>
+                    <div class="price-tag">From $590</div>
+                    <div class="price-sub">One-time setup, optional monthly management</div>
+                    <ul class="growth-features">
+                        <li>DemandOS by QuoteLeads</li>
+                        <li>Control Ad Spend Budget</li>
+                        <li>Custom Lead Funnel</li>
+                        <li>CRM Integration/Lead Delivery</li>
+                        <li>Meta/Google Ads Setup & Management</li>
+                        <li>QuoteLeads AI Engine</li>
+                        <li>Dedicated Support</li>
+                        <li>No Lock-In Contract</li>
+                        <li>Perfect for: scaling volume, permanent asset ownership</li>
+                    </ul>
+                    <a href="/get-started" class="cta-button" style="width: 100%; display: block; text-align: center; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);">Book Strategy Call</a>
+                    <div class="growth-note">Strategy call within 24hrs, campaigns live in 24-48 hours</div>
                 </div>
-                <div class="ai-card">
-                    <svg class="ai-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="22" y1="12" x2="18" y2="12"></line>
-                        <line x1="6" y1="12" x2="2" y2="12"></line>
-                        <line x1="12" y1="6" x2="12" y2="2"></line>
-                        <line x1="12" y1="22" x2="12" y2="18"></line>
-                    </svg>
-                    <h3>Pattern Analysis</h3>
-                    <p>AI analyses conversation patterns, scores lead quality and suggests next actions to improve your close rate.</p>
+            </div>
+            
+            <!-- Lead Integrity Standard -->
+            <div class="integrity-banner">
+                <p><strong>100% Auditable Lead Integrity Standard</strong> - Every lead is tracked, verified, and auditable. <a href="/lead-integrity-standard">Learn more about our standards</a></p>
+            </div>
+        </section>
+
+        <!-- Built for Trade Businesses -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-label">Features</span>
+                <h2 class="section-title">Built for Trade Businesses, Not Tech Companies</h2>
+            </div>
+            
+            <div class="features-grid-6">
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <h4>AI Lead Response</h4>
+                    <p>Every lead gets a professional response in under 60 seconds. No more missed opportunities.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <h4>Smart Lead Routing</h4>
+                    <p>Automatically assigns leads to your closest available rep. No more manual sorting.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h4>Auto Quote Drafting</h4>
+                    <p>Quote templates auto-fill from lead data. Review and send in minutes, not hours.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </div>
+                    <h4>2-Way SMS Platform</h4>
+                    <p>Text your leads directly from the platform. All conversations tracked and searchable.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    </div>
+                    <h4>Visual Pipeline</h4>
+                    <p>Pipeline shows exactly where every lead sits. Move deals with drag & drop.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"></path><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"></path><path d="M12 2v10"></path><path d="M8 6l4-4 4 4"></path></svg>
+                    </div>
+                    <h4>Automated Follow-Up</h4>
+                    <p>Set-and-forget nurture sequences ensure no lead goes cold. Book callbacks automatically.</p>
+                </div>
+            </div>
+            
+            <!-- Custom Integration Feature (Centered) -->
+            <div class="integration-feature">
+                <div class="integration-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </div>
+                <h4>Custom Integration</h4>
+                <p>Whether you use ServiceTitan, Jobber, SimPro, ServiceM8, Hubspot, or Salesforce, we can integrate it all. QuoteLeads sits between your ad platforms and your existing infrastructure, pushing qualified leads wherever they need to go. Send leads to the platform from other sources, or have leads sent from the platform to your existing CRM, JMS, phone, or email. We fit into your workflow, not the other way around.</p>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="section" style="background: rgba(255,255,255,0.02);">
+            <div class="section-header">
+                <span class="section-label">Why Choose Us</span>
+                <h2 class="section-title">Why QuoteLeads vs Everything Else?</h2>
+                <p class="section-subtitle">Stop duct-taping together 5 different tools. Get the complete system, built for trades.</p>
+            </div>
+            
+            <div class="comparison-container">
+                <!-- Header Row -->
+                <div class="comparison-header">
+                    <div class="comparison-cell">Feature</div>
+                    <div class="comparison-cell comp">Other Lead Providers</div>
+                    <div class="comparison-cell ql">QuoteLeads</div>
+                </div>
+                
+                <!-- Row 1 -->
+                <div class="comparison-row">
+                    <div class="feature-name">
+                        <strong>Lead Quality</strong>
+                        <span>Pre-qualified prospects</span>
+                    </div>
+                    <div class="feature-comp"><span class="check-x bad">✗</span> Hit or miss</div>
+                    <div class="feature-ql"><span class="check-x good">✓</span> Pre-qualified</div>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="comparison-row">
+                    <div class="feature-name">
+                        <strong>Exclusivity</strong>
+                        <span>Who else gets this lead?</span>
+                    </div>
+                    <div class="feature-comp"><span class="check-x bad">✗</span> Shared w/ competitors</div>
+                    <div class="feature-ql"><span class="check-x good">✓</span> Exclusive to you</div>
+                </div>
+                
+                <!-- Row 3 -->
+                <div class="comparison-row">
+                    <div class="feature-name">
+                        <strong>Follow-up System</strong>
+                        <span>Manual vs Automated</span>
+                    </div>
+                    <div class="feature-comp"><span class="check-x bad">✗</span> You figure it out</div>
+                    <div class="feature-ql"><span class="check-x good">✓</span> Built-in AI + automation</div>
+                </div>
+                
+                <!-- Row 4 -->
+                <div class="comparison-row">
+                    <div class="feature-name">
+                        <strong>Pipeline Management</strong>
+                        <span>Deal organization</span>
+                    </div>
+                    <div class="feature-comp"><span class="check-x bad">✗</span> Use your own CRM</div>
+                    <div class="feature-ql"><span class="check-x good">✓</span> Included</div>
+                </div>
+                
+                <!-- Row 5 -->
+                <div class="comparison-row">
+                    <div class="feature-name">
+                        <strong>Campaign Management</strong>
+                        <span>Ad management included?</span>
+                    </div>
+                    <div class="feature-comp"><span class="check-x bad">✗</span> DIY or hire agency</div>
+                    <div class="feature-ql"><span class="check-x good">✓</span> Done for you (optional)</div>
+                </div>
+                
+                <!-- Row 6 -->
+                <div class="comparison-row">
+                    <div class="feature-name">
+                        <strong>Response Time</strong>
+                        <span>Speed to lead</span>
+                    </div>
+                    <div class="feature-comp"><span class="check-x bad">✗</span> Hours or days</div>
+                    <div class="feature-ql"><span class="check-x good">✓</span> Under 60 seconds</div>
+                </div>
+                
+                <!-- Row 7 -->
+                <div class="comparison-row">
+                    <div class="feature-name">
+                        <strong>Integration Needed</strong>
+                        <span>Setup complexity</span>
+                    </div>
+                    <div class="feature-comp"><span class="check-x bad">✗</span> Complex setup</div>
+                    <div class="feature-ql"><span class="check-x good">✓</span> Ready on day 1</div>
+                </div>
+
+                <!-- Row 8 - Control -->
+                <div class="comparison-row">
+                    <div class="feature-name">
+                        <strong>Control</strong>
+                        <span>Ownership & flexibility</span>
+                    </div>
+                    <div class="feature-comp"><span class="check-x bad">✗</span> Low control</div>
+                    <div class="feature-ql"><span class="check-x good">✓</span> Full ownership</div>
                 </div>
             </div>
         </section>
 
         <!-- Stats -->
-        <section class="section" style="background: rgba(255,255,255,0.02);">
+        <section class="section">
             <div class="stats-grid">
                 <div class="stat-item">
                     <h3>1.8M+</h3>
@@ -1834,82 +2298,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-        <!-- Process -->
-        <section class="section">
-            <div class="section-header">
-                <span class="section-label">How It Works</span>
-                <h2 class="section-title">Launch in Days, Not Weeks</h2>
-            </div>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h3>Discovery Call</h3>
-                    <p>We learn about your trade, service areas, and ideal customer profile.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h3>Custom Build</h3>
-                    <p>We build your exclusive lead funnel, ad campaigns, and AI automation sequences.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h3>Receive Leads</h3>
-                    <p>Start receiving exclusive, qualified leads within 24-48 hours. No waiting, no setup delays.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- How Live Systems Work - NEW -->
-        <section class="section" style="background: rgba(255,255,255,0.02);">
-            <div class="section-header">
-                <span class="section-label">Live Systems</span>
-                <h2 class="section-title">How Our Live Systems Work</h2>
-                <p class="section-subtitle">Real-time lead generation and qualification, delivering ready-to-buy prospects directly to your inbox.</p>
-            </div>
-            <div class="live-systems-grid">
-                <div class="system-step">
-                    <div class="system-number">1</div>
-                    <h3>Targeted Campaigns</h3>
-                    <p>Campaigns target property owners or project managers in your specified area actively seeking quotes for their project within a specific timeline.</p>
-                </div>
-                <div class="system-step">
-                    <div class="system-number">2</div>
-                    <h3>Deep Qualification</h3>
-                    <p>Property owners fill out detailed qualifiers (budget, timeline, ownership, intent, service scope) with verified phone and email contact details.</p>
-                </div>
-                <div class="system-step">
-                    <div class="system-number">3</div>
-                    <h3>Instant Delivery</h3>
-                    <p>Receive lead notifications via SMS and email with full project details, budget range, and timeline immediately upon qualification.</p>
-                </div>
-                <div class="system-step">
-                    <div class="system-number">4</div>
-                    <h3>Quote & Close</h3>
-                    <p>Quote the project and close the deal with follow-up automation and bulk reactivation for non-responsive quotes. Hit sales targets with higher quality.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Trades -->
-        <section class="section">
-            <div class="section-header">
-                <span class="section-label">Industries</span>
-                <h2 class="section-title">Specialised Trade Leads</h2>
-                <p class="section-subtitle">We generate exclusive leads for high-ticket home service industries.</p>
-            </div>
-            <div class="trades-grid">
-                <a href="/solar-leads" class="trade-tag">Solar Leads</a>
-                <a href="/roofing-leads" class="trade-tag">Roofing Leads</a>
-                <a href="/hvac-leads" class="trade-tag">HVAC Leads</a>
-                <a href="/painting-leads" class="trade-tag">Painting Leads</a>
-                <a href="/carpentry-leads" class="trade-tag">Carpentry Leads</a>
-                <a href="/renovation-leads" class="trade-tag">Renovation Leads</a>
-                <a href="/landscaping-leads" class="trade-tag">Landscaping Leads</a>
-            </div>
-        </section>
-
         <!-- Testimonials -->
-        <section class="testimonials-section">
+        <section class="testimonials-section" style="background: rgba(255,255,255,0.02);">
             <div class="section-header">
                 <span class="section-label">Results</span>
                 <h2 class="section-title">What Trade Businesses Say</h2>
@@ -1983,137 +2373,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </section>
 
-        <!-- Comparison Section - NEW -->
-        <section class="section" style="background: rgba(255,255,255,0.02);">
-            <div class="section-header">
-                <span class="section-label">Why Choose Us</span>
-                <h2 class="section-title">QuoteLeads vs. The Competition</h2>
-                <p class="section-subtitle">See why trade businesses are switching from traditional lead sources to our exclusive demand infrastructure.</p>
-            </div>
-            <div class="comparison-container">
-                <!-- Header Row -->
-                <div class="comparison-header">
-                    <div class="comparison-cell">Feature</div>
-                    <div class="comparison-cell ql">QuoteLeads</div>
-                    <div class="comparison-cell comp">Traditional Methods</div>
-                </div>
-                
-                <!-- Row 1: Exclusivity -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Exclusivity</strong>
-                        <span>Who else gets this lead?</span>
-                    </div>
-                    <div class="feature-ql">100% Exclusive<br><span>Yours alone, zero competition</span></div>
-                    <div class="feature-comp">Shared (3-5x)<br><span>Race to the bottom</span></div>
-                </div>
-                
-                <!-- Row 2: Cost Structure -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Cost Structure</strong>
-                        <span>Fees and scalability</span>
-                    </div>
-                    <div class="feature-ql">Fixed Fee + Scalable<br><span>System cost grows with your capacity</span></div>
-                    <div class="feature-comp">Variable/Per Lead<br><span>Unpredictable costs, hidden fees</span></div>
-                </div>
-                
-                <!-- Row 3: Lead Quality -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Lead Quality</strong>
-                        <span>Pre-qualified prospects</span>
-                    </div>
-                    <div class="feature-ql">Deep Qualified<br><span>Budget + Timeline + Intent verified</span></div>
-                    <div class="feature-comp">Basic Info Only<br><span>Name & number, unverified intent</span></div>
-                </div>
-                
-                <!-- Row 4: Geographic Control -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Geographic Control</strong>
-                        <span>Service area precision</span>
-                    </div>
-                    <div class="feature-ql">Auto Geo-Fenced<br><span>Zero wasted out-of-area leads</span></div>
-                    <div class="feature-comp">Broad/Random<br><span>Often outside service area</span></div>
-                </div>
-                
-                <!-- Row 5: Project Type Control -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Project Specificity</strong>
-                        <span>Type of work targeting</span>
-                    </div>
-                    <div class="feature-ql">Hyper Specific<br><span>Exact project types you want</span></div>
-                    <div class="feature-comp">Generic/Mixed<br><span>Any job, any size, random quality</span></div>
-                </div>
-                
-                <!-- Row 6: Competition -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Competition</strong>
-                        <span>Who sees the lead first</span>
-                    </div>
-                    <div class="feature-ql">Zero Competition<br><span>No other contractors see your leads</span></div>
-                    <div class="feature-comp">High Competition<br><span>5+ contractors fighting for same lead</span></div>
-                </div>
-                
-                <!-- Row 7: Lead Volume Consistency -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Volume Consistency</strong>
-                        <span>Predictable pipeline</span>
-                    </div>
-                    <div class="feature-ql">High & Consistent<br><span>Scalable to meet your demand</span></div>
-                    <div class="feature-comp">Sporadic<br><span>Feast or famine cycle</span></div>
-                </div>
-                
-                <!-- Row 8: Setup Time -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Setup Time</strong>
-                        <span>Time to first lead</span>
-                    </div>
-                    <div class="feature-ql">Instant to 24h Setup<br><span>First leads in 24-48 hours</span></div>
-                    <div class="feature-comp">1-2+ Weeks<br><span>Often no lead in first week</span></div>
-                </div>
-                
-                <!-- Row 9: Time Investment -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Time Investment</strong>
-                        <span>Minutes per lead handling</span>
-                    </div>
-                    <div class="feature-ql">&lt;1 Minute Per Lead<br><span>Just the booked call, AI handles rest</span></div>
-                    <div class="feature-comp">30-60 Minutes<br><span>Qualify + manual follow up</span></div>
-                </div>
-                
-                <!-- Row 10: Average Project Value -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Average Project Value</strong>
-                        <span>Quality of opportunities</span>
-                    </div>
-                    <div class="feature-ql">High Value<br><span>Pre-qualified budgets, ready to buy</span></div>
-                    <div class="feature-comp">Variable/Low<br><span>Price shoppers, low intent common</span></div>
-                </div>
-                
-                <!-- Row 11: Scalability -->
-                <div class="comparison-row">
-                    <div class="feature-name">
-                        <strong>Scalability</strong>
-                        <span>Grow without limits</span>
-                    </div>
-                    <div class="feature-ql">Infinite Scale<br><span>System meets any capacity</span></div>
-                    <div class="feature-comp">Limited<br><span>Fixed market, fixed volume</span></div>
-                </div>
-            </div>
-        </section>
-
         <!-- GRA Award -->
         <section class="award-section">
             <img src="https://github.com/buckleydigital/ql-site/raw/main/gra-awards.png" alt="Global Recognition Awards Winner 2024" class="award-image" loading="lazy">
             <p class="award-text">Proud winner of the Global Recognition Awards 2024 for innovation in lead generation technology and AI automation for trade businesses.</p>
+        </section>
+
+        <!-- Built Specifically For Trades -->
+        <section class="built-for-trades">
+            <h2>Built specifically for trades to generate and convert demand, not another generic software</h2>
+            <p>Every feature is engineered specifically for high-ticket home service industries. No resold software, no white-label licenses, just purpose-built infrastructure that works the way trades actually work.</p>
         </section>
 
         <!-- FAQ -->
@@ -2122,85 +2391,84 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="section-label">FAQ</span>
                 <h2 class="section-title">Common Questions</h2>
             </div>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>How does QuoteLeads generate leads?</span>
+                    <span>Do I have to use your CRM, or can you work with my existing tools?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>QuoteLeads uses a combination of ad campaigns, hyper-targeted audience data, and high-converting landing pages tailored to your trade. We drive real customers to exclusive enquiry forms or quote requests. Every lead is 100% yours, never shared with competitors.</p>
+                    <p>You have three options. <strong>Full Platform:</strong> Use QuoteLeads as your complete sales dashboard with pipeline, SMS, and AI automation. <strong>Pass-Through:</strong> We qualify leads and send them straight to your email, phone, or existing tools via API. <strong>Custom Integration:</strong> Enterprise setup where leads flow into your specific workflow (ServiceTitan, Salesforce, etc.) with custom tagging and routing. Most trades start with Pass-Through, then graduate to Full Platform once they see the conversion lift.</p>
                 </div>
             </div>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>How much does it cost?</span>
+                    <span>What if I already run my own ads?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>The cost of your QuoteLeads plan depends on several factors, including the package you choose and your preferred lead volume. Growth starts at $590 one-time setup. For precise pricing on Scale or Exchange, reach out to our team and we'll prepare a tailored quote based on your goals.</p>
+                    <p>Perfect. We can either take over campaign management for you, or you keep running ads and use QuoteLeads just for the lead handling and conversion infrastructure. Both options give you full system access.</p>
                 </div>
             </div>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Who does QuoteLeads work with?</span>
+                    <span>How are leads delivered?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>QuoteLeads systems are built specifically for specialised trades & home-services, the high-skill, project-based services that property owners actively seek out for larger jobs. We specialise in solar leads, roofing leads, HVAC leads, painting leads, carpentry leads, renovation leads, and landscaping leads.</p>
+                    <p>Directly into your QuoteLeads dashboard in real-time. You'll also get instant notifications via SMS or email. If you choose Pass-Through or Custom Integration, leads flow directly into your existing systems the moment they are qualified.</p>
                 </div>
             </div>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Can I get leads sent to my existing CRM?</span>
+                    <span>Can I add my sales team?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Yes. QuoteLeads integrates with most existing CRM (Customer Relationship Management) systems. If you aren't yet using a CRM, QuoteLeads platform includes a streamlined lead management feature for tracking, nurturing and converting leads.</p>
+                    <p>Yes. Add unlimited reps, set up postcode-based routing, round-robin assignment, or manual assignment. Each rep gets their own login and sees only their pipeline.</p>
                 </div>
             </div>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>When will I start receiving leads?</span>
+                    <span>What trades do you work with?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>In most cases, you'll start receiving leads in less than 24 hours upon QuoteLeads launching your custom advertising campaign, or about 48 hours upon signing up as a new client.</p>
+                    <p>We specialize in high-value trade services: renovations, solar, landscaping, painting, roofing, decking and similar. If your average job is $3k+, we can help.</p>
                 </div>
             </div>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>How does QuoteLeads AI work?</span>
+                    <span>How quickly can I get started?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>QuoteLeads AI Assistants are advanced artificially intelligent SMS workflows trained on your business. They instantly follow up with new leads to qualify them and book call-backs all without you lifting a finger. The AI assistants can also analyse patterns, score lead quality and suggest next actions. The AI speaks just like a real team member and follows your preferred sales process. You stay in control: turn features on or off anytime depending on how hands-on or automated you want to be.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Is there a lock-in contract?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>No, there's no lock-in contract, and no mandatory ongoing fee. You have complete flexibility to pause, adjust, or cancel your service at any time.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Do you provide customer support?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes. Our dedicated support team is available 24/7 via Phone, Email & WhatsApp to assist with any questions or other concerns you may have.</p>
+                    <p>Strategy call, campaigns or leads live within 24-48 hours. System is pre-configured on signup.</p>
                 </div>
             </div>
         </section>
 
         <!-- Final CTA -->
         <section class="final-cta">
-            <h2>Ready to Scale Your Trade Business?</h2>
-            <p>Join hundreds of contractors using QuoteLeads to fill their pipeline with exclusive, qualified leads. Ready to convert. No lock-in contracts.</p>
-            <a href="https://quoteleads.com.au/get-started" class="cta-button" style="padding: 20px 48px; font-size: 20px;">Get Started Now</a>
+            <h2>Stop Losing Leads. Start Closing Them.</h2>
+            <p>Join 247+ trade businesses using QuoteLeads to turn more prospects into profit, automatically.</p>
+            
+            <div class="cta-group">
+                <a href="/get-started" class="cta-button">Get Started</a>
+            </div>
+            
+            <div class="trust-badges">
+                <span>No lock-in contracts</span>
+                <span>•</span>
+                <span>Cancel anytime</span>
+                <span>•</span>
+                <span>Australian owned</span>
+            </div>
         </section>
 
         <!-- Footer -->
@@ -2405,5 +2673,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
 </body>
 </html>
-
 
