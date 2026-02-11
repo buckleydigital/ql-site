@@ -33,6 +33,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -492,6 +495,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #4797FF;
         }
 
+        /* Turnstile widget container */
+        .cf-turnstile {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) { 
             .section-title { font-size: 36px; } 
@@ -778,6 +788,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 
                                 <div class="form-group">
                                     <input type="email" name="email" id="email" placeholder="your@email.com" required>
+                                </div>
+                                
+                                <!-- Cloudflare Turnstile Widget -->
+                                <div class="form-group">
+                                    <div class="cf-turnstile" data-sitekey="0x4AAAAAACaqHFbjnV7BCTN7"></div>
                                 </div>
                                 
                                 <div class="button-group">
@@ -1166,6 +1181,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 return;
             }
             
+            // Get Turnstile token
+            const turnstileToken = document.querySelector('input[name="cf-turnstile-response"]')?.value;
+            if (!turnstileToken) {
+                alert('Please complete the security verification.');
+                return;
+            }
+            
             surveyData.email = email;
             
             console.log('Submitting data:', surveyData);
@@ -1175,13 +1197,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             document.getElementById('loading').classList.add('active');
             
             try {
-                // Send to Make.com webhook
+                // Send to Make.com webhook (includes turnstileToken for verification)
                 await fetch('https://hook.eu2.make.com/5vkii7borhhqtu4nmuvroh43act7lj9g', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(surveyData),
+                    body: JSON.stringify({
+                        ...surveyData,
+                        turnstileToken: turnstileToken
+                    }),
                     keepalive: true
                 });
                 
