@@ -476,7 +476,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             clip-path: inset(50px 0 30px 0);
         }
         
-        /* How It Works Section (Replaces Integration Flexibility) */
+        /* How It Works Section */
         .how-it-works-section {
             padding: 120px 24px;
             background: rgba(255,255,255,0.02);
@@ -528,7 +528,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             line-height: 1.6;
         }
         
-        /* Platform Section (Replaces Infrastructure) */
+        /* Platform Section */
         .platform-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -802,7 +802,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-top: 4px;
         }
         
-        /* Pricing Section - Simplified */
+        /* Pricing Section */
         .pricing-section {
             background: rgba(255,255,255,0.02);
         }
@@ -935,7 +935,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             line-height: 1.6;
         }
         
-        /* Integration Feature (Centered) */
+        /* Integration Feature */
         .integration-feature {
             max-width: 600px;
             margin: 60px auto 0;
@@ -1227,6 +1227,362 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-decoration: none;
             font-weight: 500;
         }
+
+        /* ============================================
+           AI CONTROL SECTION - NEW
+        ============================================ */
+        .ai-control-section {
+            padding: 120px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .ai-control-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .ai-control-content {
+            padding-top: 8px;
+        }
+
+        .ai-control-content h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+
+        .ai-control-content > p {
+            color: rgba(255,255,255,0.6);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .ai-control-points {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ai-control-point {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .ai-control-point-dot {
+            width: 8px;
+            height: 8px;
+            background: #4797FF;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        .ai-control-point p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        .ai-control-point p strong {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* Toggle Panel */
+        .ai-control-panel {
+            background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-control-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(71, 151, 255, 0.4), transparent);
+        }
+
+        .panel-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        /* Toggle Row */
+        .toggle-row {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 16px;
+            padding: 20px 22px;
+            margin-bottom: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle-row:hover {
+            border-color: rgba(71, 151, 255, 0.25);
+            background: rgba(71, 151, 255, 0.03);
+        }
+
+        .toggle-row:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .toggle-row-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .toggle-row-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .toggle-icon-wrap {
+            width: 40px;
+            height: 40px;
+            background: rgba(71, 151, 255, 0.1);
+            border: 1px solid rgba(71, 151, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4797FF;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-icon-wrap svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .toggle-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .toggle-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .toggle-desc {
+            font-size: 12px;
+            color: rgba(255,255,255,0.45);
+            line-height: 1.4;
+        }
+
+        /* The actual toggle switch */
+        .toggle-switch {
+            position: relative;
+            width: 48px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.12);
+            border-radius: 13px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 3px;
+            top: 3px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%);
+            box-shadow: 0 0 12px rgba(71, 151, 255, 0.4);
+        }
+
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(22px);
+            background: #ffffff;
+        }
+
+        /* Sub-options that reveal when booking toggle is ON */
+        .toggle-sub-options {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .toggle-sub-options.visible {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 16px;
+        }
+
+        .booking-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .booking-option {
+            flex: 1;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 12px 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+        }
+
+        .booking-option:hover {
+            border-color: rgba(71, 151, 255, 0.35);
+            background: rgba(71, 151, 255, 0.05);
+        }
+
+        .booking-option.selected {
+            border-color: rgba(71, 151, 255, 0.6);
+            background: rgba(71, 151, 255, 0.1);
+        }
+
+        .booking-option-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 3px;
+        }
+
+        .booking-option.selected .booking-option-label {
+            color: #4797FF;
+        }
+
+        .booking-option-sub {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Availability indicator */
+        .availability-hint {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .avail-dot {
+            width: 6px;
+            height: 6px;
+            background: #4797FF;
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+
+        /* AI sparkle icon (custom SVG path, no emoji) */
+        .sparkle-icon {
+            stroke: none;
+            fill: currentColor;
+        }
+
+        /* Status pill below AI row */
+        .toggle-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-status-pill.active {
+            background: rgba(71, 151, 255, 0.12);
+            border: 1px solid rgba(71, 151, 255, 0.3);
+            color: #4797FF;
+        }
+
+        .toggle-status-pill.inactive {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+        }
+
+        .pill-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .pill-dot.active {
+            background: #4797FF;
+            box-shadow: 0 0 6px rgba(71,151,255,0.6);
+            animation: pulse 2s infinite;
+        }
+
+        .pill-dot.inactive {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .panel-footer-note {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           END AI CONTROL SECTION
+        ============================================ */
         
         /* FAQ Accordion */
         .faq-section { 
@@ -1387,6 +1743,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .stats-grid { grid-template-columns: 1fr; gap: 40px; } 
             .ownership-grid { grid-template-columns: 1fr; }
             .how-grid { grid-template-columns: 1fr; max-width: 500px; }
+            .ai-control-grid { grid-template-columns: 1fr; gap: 48px; }
         }
         @media (max-width: 768px) { 
             .hero { padding: 40px 20px; }
@@ -1427,6 +1784,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .how-it-works-section { padding: 80px 24px; }
             .industries-pills { gap: 12px; }
             .industry-pill { padding: 12px 24px; font-size: 14px; }
+            .ai-control-section { padding: 80px 24px; }
+            .ai-control-panel { padding: 28px 22px; }
+            .booking-options { flex-direction: column; }
             
             /* Center trust badges on mobile */
             .trust-badges {
@@ -1475,6 +1835,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .integration-feature { padding: 32px 24px; }
             .pricing-image { width: 80px; height: 80px; }
             .how-card { padding: 32px 24px; }
+            .toggle-title { font-size: 14px; }
         }
         
         /* Dashboard Heading Styles */
@@ -2205,6 +2566,128 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Every feature is engineered for high-ticket home service businesses. No generic software—just tools that work the way you work.</p>
         </section>
 
+        <!-- ============================================
+             AI CONTROL SECTION - NEW
+        ============================================ -->
+        <section class="ai-control-section">
+            <div class="section-header" style="margin-bottom: 64px;">
+                <span class="section-label">Your Controls</span>
+                <h2 class="section-title">AI That Works For You. On Your Terms.</h2>
+                <p class="section-subtitle">You decide how much the AI handles. Turn it on when you're on the tools, pause it when you want to take over directly.</p>
+            </div>
+
+            <div class="ai-control-grid">
+                <!-- Left: copy -->
+                <div class="ai-control-content">
+                    <h2>You stay in control at every step.</h2>
+                    <p>The AI is a tool—not a replacement. It handles the fast work so you can focus on the high-value conversations. Adjust what it does, when it engages, and how leads reach you, all from one place.</p>
+
+                    <div class="ai-control-points">
+                        <div class="ai-control-point">
+                            <div class="ai-control-point-dot"></div>
+                            <p><strong>Pause AI at any time.</strong> If you want to take a conversation manually, flip the switch and the AI steps back immediately. Your lead, your call.</p>
+                        </div>
+                        <div class="ai-control-point">
+                            <div class="ai-control-point-dot"></div>
+                            <p><strong>Choose how leads convert.</strong> Set whether the AI books an on-site inspection or a phone callback—based on your rep availability and the type of job.</p>
+                        </div>
+                        <div class="ai-control-point">
+                            <div class="ai-control-point-dot"></div>
+                            <p><strong>After-hours coverage, business-hours feel.</strong> The AI responds instantly around the clock, but always in your voice, with your business name.</p>
+                        </div>
+                        <div class="ai-control-point">
+                            <div class="ai-control-point-dot"></div>
+                            <p><strong>Nothing sent without your approval.</strong> Quotes and proposals are drafted for your review before anything reaches the customer.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: interactive toggle panel -->
+                <div class="ai-control-panel">
+                    <div class="panel-label">AI Settings — Your Account</div>
+
+                    <!-- Toggle 1: AI Response -->
+                    <div class="toggle-row" id="aiToggleRow" onclick="toggleAI()">
+                        <div class="toggle-row-top">
+                            <div class="toggle-row-left">
+                                <div class="toggle-icon-wrap" id="aiIconWrap">
+                                    <!-- Sparkle / AI star icon -->
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:#4797FF;">
+                                        <path class="sparkle-icon" d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="currentColor" opacity="0.9"/>
+                                        <path class="sparkle-icon" d="M19 3L19.8 5.2L22 6L19.8 6.8L19 9L18.2 6.8L16 6L18.2 5.2L19 3Z" fill="currentColor" opacity="0.6"/>
+                                        <path class="sparkle-icon" d="M5 16L5.6 17.4L7 18L5.6 18.6L5 20L4.4 18.6L3 18L4.4 17.4L5 16Z" fill="currentColor" opacity="0.6"/>
+                                    </svg>
+                                </div>
+                                <div class="toggle-text">
+                                    <div class="toggle-title">AI Auto-Response</div>
+                                    <div class="toggle-desc">Replies to new leads within 60 seconds, 24/7</div>
+                                </div>
+                            </div>
+                            <label class="toggle-switch" onclick="event.stopPropagation()">
+                                <input type="checkbox" id="aiToggle" checked onchange="toggleAI()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div>
+                            <span class="toggle-status-pill active" id="aiStatusPill">
+                                <span class="pill-dot active" id="aiPillDot"></span>
+                                <span id="aiStatusText">AI is active and responding</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Toggle 2: Booking Type -->
+                    <div class="toggle-row" id="bookingToggleRow" onclick="toggleBooking()">
+                        <div class="toggle-row-top">
+                            <div class="toggle-row-left">
+                                <div class="toggle-icon-wrap">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </div>
+                                <div class="toggle-text">
+                                    <div class="toggle-title">AI Booking</div>
+                                    <div class="toggle-desc">Let the AI schedule conversion appointments automatically</div>
+                                </div>
+                            </div>
+                            <label class="toggle-switch" onclick="event.stopPropagation()">
+                                <input type="checkbox" id="bookingToggle" checked onchange="toggleBooking()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+
+                        <!-- Sub-options: shown when booking is ON -->
+                        <div class="toggle-sub-options visible" id="bookingSubOptions">
+                            <div class="booking-options">
+                                <div class="booking-option selected" id="optOnsite" onclick="selectBookingOption(event, 'onsite')">
+                                    <div class="booking-option-label">On-Site Visit</div>
+                                    <div class="booking-option-sub">Rep attends in person</div>
+                                </div>
+                                <div class="booking-option" id="optCallback" onclick="selectBookingOption(event, 'callback')">
+                                    <div class="booking-option-label">Call-Back</div>
+                                    <div class="booking-option-sub">Phone consultation</div>
+                                </div>
+                            </div>
+                            <div class="availability-hint">
+                                <span class="avail-dot"></span>
+                                <span id="availText">Booking based on rep availability in your territory</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer-note">
+                        Changes apply instantly. Your leads are never left waiting—if AI is paused, new leads are flagged for your immediate attention.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ============================================
+             END AI CONTROL SECTION
+        ============================================ -->
+
         <!-- FAQ -->
         <section class="faq-section">
             <div class="section-header" style="margin-bottom: 60px;">
@@ -2305,7 +2788,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <script>
-        // Space Particles System - Clean particles only (no connections)
+        // Space Particles System
         const canvas = document.getElementById('space-canvas');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -2337,13 +2820,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
         
-        window.addEventListener('resize', () => {
-            resize();
-        });
-        
-        window.addEventListener('orientationchange', () => {
-            setTimeout(resize, 100);
-        });
+        window.addEventListener('resize', () => { resize(); });
+        window.addEventListener('orientationchange', () => { setTimeout(resize, 100); });
 
         class Star {
             constructor() {
@@ -2356,9 +2834,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
             update() {
                 this.opacity += this.twinkleSpeed * this.twinkleDir;
-                if (this.opacity > 0.8 || this.opacity < 0.1) {
-                    this.twinkleDir *= -1;
-                }
+                if (this.opacity > 0.8 || this.opacity < 0.1) { this.twinkleDir *= -1; }
             }
             draw() {
                 ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
@@ -2394,32 +2870,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         let mouse = { x: null, y: null };
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-        window.addEventListener('mouseleave', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-        
+        window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
         window.addEventListener('touchmove', (e) => {
-            if(e.touches.length > 0) {
-                mouse.x = e.touches[0].clientX;
-                mouse.y = e.touches[0].clientY;
-            }
+            if(e.touches.length > 0) { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; }
         });
-        window.addEventListener('touchend', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
+        window.addEventListener('touchend', () => { mouse.x = null; mouse.y = null; });
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
-            stars.forEach(star => {
-                star.update();
-                star.draw();
-            });
+            stars.forEach(star => { star.update(); star.draw(); });
             particles.forEach(particle => {
                 particle.update();
                 if (mouse.x != null && mouse.y != null) {
@@ -2443,27 +2903,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         animate();
         
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                cancelAnimationFrame(animationId);
-            } else {
-                animate();
-            }
+            if (document.hidden) { cancelAnimationFrame(animationId); }
+            else { animate(); }
         });
 
+        // FAQ toggle
         function toggleFaq(element) {
             const item = element.parentElement;
             const isActive = item.classList.contains('active');
-            
-            document.querySelectorAll('.faq-item').forEach(faq => {
-                faq.classList.remove('active');
-            });
-            
-            if (!isActive) {
-                item.classList.add('active');
+            document.querySelectorAll('.faq-item').forEach(faq => { faq.classList.remove('active'); });
+            if (!isActive) { item.classList.add('active'); }
+        }
+
+        // ============================================
+        // AI CONTROL SECTION INTERACTIVITY
+        // ============================================
+
+        function toggleAI() {
+            const checkbox = document.getElementById('aiToggle');
+            const pill = document.getElementById('aiStatusPill');
+            const dot = document.getElementById('aiPillDot');
+            const text = document.getElementById('aiStatusText');
+            const iconWrap = document.getElementById('aiIconWrap');
+
+            if (checkbox.checked) {
+                pill.className = 'toggle-status-pill active';
+                dot.className = 'pill-dot active';
+                text.textContent = 'AI is active and responding';
+                iconWrap.style.opacity = '1';
+            } else {
+                pill.className = 'toggle-status-pill inactive';
+                dot.className = 'pill-dot inactive';
+                text.textContent = 'AI paused — leads flagged for manual follow-up';
+                iconWrap.style.opacity = '0.4';
+            }
+        }
+
+        function toggleBooking() {
+            const checkbox = document.getElementById('bookingToggle');
+            const subOptions = document.getElementById('bookingSubOptions');
+
+            if (checkbox.checked) {
+                subOptions.classList.add('visible');
+            } else {
+                subOptions.classList.remove('visible');
+            }
+        }
+
+        function selectBookingOption(event, type) {
+            event.stopPropagation();
+            const optOnsite = document.getElementById('optOnsite');
+            const optCallback = document.getElementById('optCallback');
+            const availText = document.getElementById('availText');
+
+            optOnsite.classList.remove('selected');
+            optCallback.classList.remove('selected');
+
+            if (type === 'onsite') {
+                optOnsite.classList.add('selected');
+                availText.textContent = 'Booking on-site visits based on rep availability in your territory';
+            } else {
+                optCallback.classList.add('selected');
+                availText.textContent = 'Scheduling phone call-backs around your team\'s availability';
             }
         }
     </script>
 </body>
 </html>
-
-
