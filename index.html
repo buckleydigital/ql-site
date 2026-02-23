@@ -1229,7 +1229,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         /* ============================================
-           AI CONTROL SECTION - NEW
+           AI CONTROL SECTION
         ============================================ */
         .ai-control-section {
             padding: 120px 24px;
@@ -1324,7 +1324,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-align: center;
         }
 
-        /* Toggle Row */
         .toggle-row {
             background: rgba(0,0,0,0.25);
             border: 1px solid rgba(255,255,255,0.07);
@@ -1400,7 +1399,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             line-height: 1.4;
         }
 
-        /* The actual toggle switch */
         .toggle-switch {
             position: relative;
             width: 48px;
@@ -1446,7 +1444,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: #ffffff;
         }
 
-        /* Sub-options that reveal when booking toggle is ON */
         .toggle-sub-options {
             overflow: hidden;
             max-height: 0;
@@ -1503,7 +1500,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: rgba(255,255,255,0.4);
         }
 
-        /* Availability indicator */
         .availability-hint {
             margin-top: 10px;
             display: flex;
@@ -1522,13 +1518,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             animation: pulse 2s infinite;
         }
 
-        /* AI sparkle icon (custom SVG path, no emoji) */
         .sparkle-icon {
             stroke: none;
             fill: currentColor;
         }
 
-        /* Status pill below AI row */
         .toggle-status-pill {
             display: inline-flex;
             align-items: center;
@@ -1579,10 +1573,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-align: center;
             line-height: 1.5;
         }
-
-        /* ============================================
-           END AI CONTROL SECTION
-        ============================================ */
         
         /* FAQ Accordion */
         .faq-section { 
@@ -1788,7 +1778,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .ai-control-panel { padding: 28px 22px; }
             .booking-options { flex-direction: column; }
             
-            /* Center trust badges on mobile */
             .trust-badges {
                 flex-direction: column;
                 gap: 12px;
@@ -1798,7 +1787,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 justify-content: center;
                 width: 100%;
             }
-            /* Hide the separator dots on mobile */
             .trust-badges span:nth-child(even) {
                 display: none;
             }
@@ -2566,9 +2554,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Every feature is engineered for high-ticket home service businesses. No generic software—just tools that work the way you work.</p>
         </section>
 
-        <!-- ============================================
-             AI CONTROL SECTION - NEW
-        ============================================ -->
+        <!-- AI CONTROL SECTION -->
         <section class="ai-control-section">
             <div class="section-header" style="margin-bottom: 64px;">
                 <span class="section-label">Your Controls</span>
@@ -2577,7 +2563,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="ai-control-grid">
-                <!-- Left: copy -->
                 <div class="ai-control-content">
                     <h2>You stay in control at every step.</h2>
                     <p>The AI is a tool—not a replacement. It handles the fast work so you can focus on the high-value conversations. Adjust what it does, when it engages, and how leads reach you, all from one place.</p>
@@ -2602,16 +2587,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
 
-                <!-- Right: interactive toggle panel -->
                 <div class="ai-control-panel">
                     <div class="panel-label">AI Settings — Your Account</div>
 
-                    <!-- Toggle 1: AI Response -->
                     <div class="toggle-row" id="aiToggleRow" onclick="toggleAI()">
                         <div class="toggle-row-top">
                             <div class="toggle-row-left">
                                 <div class="toggle-icon-wrap" id="aiIconWrap">
-                                    <!-- Sparkle / AI star icon -->
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color:#4797FF;">
                                         <path class="sparkle-icon" d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="currentColor" opacity="0.9"/>
                                         <path class="sparkle-icon" d="M19 3L19.8 5.2L22 6L19.8 6.8L19 9L18.2 6.8L16 6L18.2 5.2L19 3Z" fill="currentColor" opacity="0.6"/>
@@ -2636,7 +2618,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
 
-                    <!-- Toggle 2: Booking Type -->
                     <div class="toggle-row" id="bookingToggleRow" onclick="toggleBooking()">
                         <div class="toggle-row-top">
                             <div class="toggle-row-left">
@@ -2659,7 +2640,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </label>
                         </div>
 
-                        <!-- Sub-options: shown when booking is ON -->
                         <div class="toggle-sub-options visible" id="bookingSubOptions">
                             <div class="booking-options">
                                 <div class="booking-option selected" id="optOnsite" onclick="selectBookingOption(event, 'onsite')">
@@ -2684,54 +2664,91 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
         </section>
-        <!-- ============================================
-             END AI CONTROL SECTION
-        ============================================ -->
 
-        <!-- FAQ -->
+        <!-- FAQ — Updated from get-started page -->
         <section class="faq-section">
             <div class="section-header" style="margin-bottom: 60px;">
                 <span class="section-label">FAQ</span>
                 <h2 class="section-title">Common Questions</h2>
             </div>
-            
+
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>How quickly can I get started?</span>
+                    <span>How does QuoteLeads generate leads?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Campaigns go live within 24-48 hours of our strategy call. If you choose to buy leads from our network, you can start receiving them within 24 hours.</p>
+                    <p>QuoteLeads uses a combination of ad campaigns, hyper-targeted audience data, and high-converting landing pages tailored to your trade. We drive real customers to exclusive enquiry forms or quote requests. Every lead is 100% yours, never shared with competitors.</p>
                 </div>
             </div>
-            
+
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>What if I already run my own ads?</span>
+                    <span>How much does it cost?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>We can take over your existing campaigns and optimise them for exclusive lead generation, or you can keep running ads and just use our platform for lead handling and AI follow-up.</p>
+                    <p>The cost of your QuoteLeads plan depends on several factors, including the package you choose and your preferred lead volume. Growth starts at $590 one-time setup. For precise pricing on Scale or Exchange, reach out to our team and we'll prepare a tailored quote based on your goals and budget.</p>
                 </div>
             </div>
-            
+
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>What trades do you work with?</span>
+                    <span>Who does QuoteLeads work with?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>We specialise in high-value home services: solar, roofing, HVAC, painting, carpentry, renovations, landscaping, and similar trades. If your average job is $3k+, we can help.</p>
+                    <p>QuoteLeads systems are built specifically for specialised trades & home-services, the high-skill, project-based services that property owners actively seek out for larger jobs. We specialise in solar leads, roofing leads, HVAC leads, painting leads, carpentry leads, renovation leads, and landscaping leads.</p>
                 </div>
             </div>
-            
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Can I get leads sent to my existing CRM?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. QuoteLeads integrates with most existing CRM (Customer Relationship Management) systems. If you aren't yet using a CRM, QuoteLeads platform includes a streamlined lead management feature for tracking, nurturing and converting leads.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>When will I start receiving leads?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>In most cases, you'll start receiving leads in less than 24 hours upon QuoteLeads launching your custom advertising campaign, or about 48 hours upon signing up as a new client.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How does QuoteLeads AI work?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>QuoteLeads AI Assistants are advanced artificially intelligent SMS workflows trained on your business. They instantly follow up with new leads to qualify them and book call-backs all without you lifting a finger. The AI assistants can also analyse patterns, score lead quality and suggest next actions. The AI speaks just like a real team member and follows your preferred sales process. You stay in control: turn features on or off anytime depending on how hands-on or automated you want to be.</p>
+                </div>
+            </div>
+
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Is there a lock-in contract?</span>
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>No. Our service is month-to-month. If you're buying leads individually, there's no commitment at all—buy when you need them.</p>
+                    <p>No, there's no lock-in contract, and no mandatory ongoing fee. You have complete flexibility to pause, adjust, or cancel your service at any time.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do you provide customer support?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Our dedicated support team is available 24/7 via Phone, Email & WhatsApp to assist with any questions or other concerns you may have.</p>
                 </div>
             </div>
         </section>
@@ -2915,10 +2932,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             if (!isActive) { item.classList.add('active'); }
         }
 
-        // ============================================
         // AI CONTROL SECTION INTERACTIVITY
-        // ============================================
-
         function toggleAI() {
             const checkbox = document.getElementById('aiToggle');
             const pill = document.getElementById('aiStatusPill');
