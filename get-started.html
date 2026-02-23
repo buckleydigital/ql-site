@@ -742,7 +742,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <h2>What's your name?</h2>
                                 
                                 <div class="form-group">
-                                    <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+                                    <input type="text" name="first_name" id="first_name" placeholder="First name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="last_name" id="last_name" placeholder="Last name" required>
                                 </div>
                                 
                                 <div class="button-group">
@@ -1087,7 +1090,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             start_time: '',
             leads_per_month: '',
             current_ads: '',
-            name: '',
+            first_name: '',
+            last_name: '',
             company: '',
             phone: '',
             email: ''
@@ -1119,12 +1123,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         function nextStep() {
             if (currentStep === 4) {
-                const name = document.getElementById('name').value.trim();
-                if (!name) {
-                    alert('Please enter your name.');
+                const first_name = document.getElementById('first_name').value.trim();
+                const last_name = document.getElementById('last_name').value.trim();
+                if (!first_name || !last_name) {
+                    alert('Please enter your first and last name.');
                     return;
                 }
-                surveyData.name = name;
+                surveyData.first_name = first_name;
+                surveyData.last_name = last_name;
             }
             
             if (currentStep === 5) {
