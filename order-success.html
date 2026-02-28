@@ -208,6 +208,131 @@
         .timeline-step-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
         .timeline-step-desc  { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.4; }
 
+        /* DEMAND OS SECTION */
+        .demand-os-box {
+            width: 100%;
+            background: rgba(71,151,255,0.04);
+            border: 1px solid rgba(71,151,255,0.25);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            text-align: left;
+            position: relative;
+        }
+        .demand-os-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(71,151,255,0.5), transparent);
+        }
+        .demand-os-header {
+            padding: 20px 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .demand-os-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(71,151,255,0.12);
+            border: 1px solid rgba(71,151,255,0.25);
+            color: #4797FF; font-size: 11px; font-weight: 600;
+            padding: 4px 10px; border-radius: 20px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .demand-os-optional {
+            font-size: 11px;
+            color: rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+        .demand-os-body {
+            padding: 16px 24px 20px;
+        }
+        .demand-os-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        .demand-os-desc {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .demand-os-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .demand-os-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+        .demand-os-feature svg {
+            color: #4797FF;
+            flex-shrink: 0;
+        }
+        .demand-os-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.06);
+            margin-bottom: 20px;
+        }
+        .activation-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+        }
+        .activation-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.35);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .activation-key {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4797FF;
+            letter-spacing: 4px;
+            font-variant-numeric: tabular-nums;
+        }
+        .demand-os-instructions {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .demand-os-instructions strong {
+            color: rgba(255,255,255,0.55);
+            font-weight: 600;
+        }
+        .btn-demand-os {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%);
+            color: white; border: none; border-radius: 10px;
+            padding: 13px 24px; font-family: 'Poppins', sans-serif;
+            font-size: 13px; font-weight: 600; cursor: pointer;
+            text-decoration: none; transition: all 0.2s;
+            box-shadow: 0 4px 16px rgba(71,151,255,0.25);
+            width: 100%;
+            justify-content: center;
+        }
+        .btn-demand-os:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(71,151,255,0.35); }
+
         /* CTA BUTTONS */
         .success-actions {
             display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%;
@@ -239,6 +364,7 @@
         @media (max-width: 480px) {
             .timeline { grid-template-columns: 1fr; }
             .success-wrap { padding: 120px 20px 60px; }
+            .demand-os-features { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -298,6 +424,68 @@
                 <div class="timeline-step-num">3</div>
                 <div class="timeline-step-title">Ongoing</div>
                 <div class="timeline-step-desc">Leads arrive on your chosen schedule until your order is fulfilled.</div>
+            </div>
+        </div>
+
+        <!-- Demand OS Access — First Time Users -->
+        <div class="demand-os-box">
+            <div class="demand-os-header">
+                <div class="demand-os-badge">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    New Access Unlocked
+                </div>
+                <span class="demand-os-optional">Optional — First Time Users</span>
+            </div>
+            <div class="demand-os-body">
+                <div class="demand-os-title">You've gained full access to the QuoteLeads Demand OS.</div>
+                <div class="demand-os-desc">
+                    Your leads will be delivered via the methods you specified at checkout, but you can also receive them directly inside the platform. The Demand OS gives you a live pipeline, AI-powered follow-up, 2-way SMS, and auto quote drafting — all in one place built specifically for trade businesses.
+                </div>
+
+                <div class="demand-os-features">
+                    <div class="demand-os-feature">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Leads delivered to your dashboard
+                    </div>
+                    <div class="demand-os-feature">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        AI responds to leads in 60 seconds
+                    </div>
+                    <div class="demand-os-feature">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Visual pipeline & deal tracking
+                    </div>
+                    <div class="demand-os-feature">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        2-way SMS & auto follow-up
+                    </div>
+                    <div class="demand-os-feature">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Auto quote drafting
+                    </div>
+                    <div class="demand-os-feature">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Works alongside your existing tools
+                    </div>
+                </div>
+
+                <div class="demand-os-divider"></div>
+
+                <div class="demand-os-instructions">
+                    To get started, create a free account at <strong>app.quoteleads.com.au/sign-up</strong> and select <strong>"Exchange"</strong> as your account type. Enter your activation key below when prompted.
+                </div>
+
+                <div class="activation-row">
+                    <div>
+                        <div class="activation-label">Activation Key</div>
+                        <div class="activation-key">1122</div>
+                    </div>
+                </div>
+
+                <a href="https://app.quoteleads.com.au/sign-up" target="_blank" class="btn-demand-os">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                    Create Your Account — It's Free
+                </a>
             </div>
         </div>
 
