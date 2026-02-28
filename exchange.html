@@ -600,16 +600,16 @@
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
                     <div>
                         <span class="field-label-text">Business Name</span>
-                        <input type="text" id="businessName" class="loc-addr-input" placeholder="e.g. Apex Solar" autocomplete="organization">
+                        <input type="text" id="businessName" class="loc-addr-input" placeholder="Business Name" autocomplete="organization">
                     </div>
                     <div>
                         <span class="field-label-text">Website</span>
-                        <input type="text" id="businessWebsite" class="loc-addr-input" placeholder="e.g. apexsolar.com.au" autocomplete="url">
+                        <input type="text" id="businessWebsite" class="loc-addr-input" placeholder="e.g. com.au" autocomplete="url">
                     </div>
                 </div>
                 <div style="margin-bottom:20px;">
                     <span class="field-label-text">Email Address</span>
-                    <input type="email" id="businessEmail" class="loc-addr-input" placeholder="e.g. info@apexsolar.com.au" autocomplete="email">
+                    <input type="email" id="businessEmail" class="loc-addr-input" placeholder="e.g. info@.com.au" autocomplete="email">
                 </div>
                 <div class="config-divider"></div>
                 <div class="criteria-label" style="margin-bottom:4px;">Lead Delivery Method
@@ -622,7 +622,7 @@
                         <option value="CRM">🔗 CRM</option>
                     </select>
                     <input type="text" id="methodValueInput" class="loc-addr-input"
-                        placeholder="e.g. leads@apexsolar.com.au"
+                        placeholder="e.g. leads@.com.au"
                         onkeydown="if(event.key==='Enter'){event.preventDefault();addDeliveryMethod();}">
                     <button class="add-location-btn" onclick="addDeliveryMethod()">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
