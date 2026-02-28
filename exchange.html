@@ -286,7 +286,9 @@
         .feat-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
         .feat-card p { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
 
-        /* FOOTER */
+        /* =============================================
+           FOOTER — matched exactly to index page
+        ============================================= */
         .minimal-footer { padding: 60px 24px 40px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
         .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 30px; flex-wrap: wrap; }
         .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 15px; transition: color 0.3s ease; }
@@ -315,6 +317,9 @@
             .trust-strip { gap: 14px; }
             .price-main-amt { font-size: 40px; }
             .checkout-btn { font-size: 15px; padding: 15px 20px; }
+            /* Social links stack vertically on small screens — matches index */
+            .social-links { flex-direction: column; gap: 12px; align-items: center; }
+            .footer-links { gap: 16px; }
         }
     </style>
 <base target="_blank">
@@ -734,7 +739,7 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
+    <!-- FOOTER — identical structure to index page -->
     <footer class="minimal-footer">
         <div style="text-align:center;margin-bottom:30px;">
             <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" style="width:160px;height:auto;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto;">
@@ -821,12 +826,6 @@
         renovations: { standard: 65, premium: 65 },
     };
 
-    // ─── CRITERIA CONFIG ───────────────────────────────────────────────────────
-    // Changes:
-    //   Painting:     removed 'Interior' and 'Exterior' separately; kept 'Interior + Exterior' (no mod) and 'Roof Painting' (no mod)
-    //   Renovations:  'Bathroom' now +20%
-    //   Solar:        added 'Commercial Solar' at +75%
-    // ──────────────────────────────────────────────────────────────────────────
     const CRITERIA = {
         roofing: {
             jobTypes: [
