@@ -10,13 +10,13 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lead Marketplace — Buy Exclusive Trade Leads | QuoteLeads</title>
+    <title>QuoteLeads Exchange — Buy Exclusive Trade Leads</title>
     <meta name="description" content="Buy exclusive, pre-qualified trade leads. Roofing, solar, HVAC, painting, landscaping & more. Price locked on purchase.">
-    <link rel="canonical" href="https://quoteleads.com.au/marketplace">
+    <link rel="canonical" href="https://quoteleads.com.au/exchange">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://quoteleads.com.au/marketplace">
-    <meta property="og:title" content="Lead Marketplace — Buy Exclusive Trade Leads | QuoteLeads">
+    <meta property="og:url" content="https://quoteleads.com.au/exchange">
+    <meta property="og:title" content="QuoteLeads Exchange — Buy Exclusive Trade Leads">
     <meta property="og:description" content="Buy exclusive, pre-qualified trade leads. Price locked on purchase.">
     <meta property="og:image" content="https://github.com/buckleydigital/ql-site/raw/main/product-logo.png">
 
@@ -109,46 +109,69 @@
         .trust-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: rgba(255,255,255,0.45); }
         .trust-item svg { color: #22d3a0; width: 14px; height: 14px; flex-shrink: 0; }
 
+        /* PROGRESS BAR */
+        .progress-wrap { margin-bottom: 16px; }
+        .progress-steps { display: flex; align-items: center; gap: 0; margin-bottom: 0; }
+        .progress-step { display: flex; align-items: center; flex: 1; }
+        .progress-step-dot { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; z-index: 1; }
+        .progress-step-dot.active { border-color: #4797FF; background: rgba(71,151,255,0.15); color: #4797FF; box-shadow: 0 0 0 4px rgba(71,151,255,0.1); }
+        .progress-step-dot.done { border-color: #22d3a0; background: rgba(34,211,160,0.15); color: #22d3a0; }
+        .progress-step-line { flex: 1; height: 1.5px; background: rgba(255,255,255,0.08); margin: 0 4px; transition: background 0.3s; }
+        .progress-step-line.done { background: rgba(34,211,160,0.4); }
+        .progress-step-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.7px; color: rgba(255,255,255,0.25); margin-top: 6px; text-align: center; transition: color 0.3s; white-space: nowrap; }
+        .progress-step-label.active { color: #4797FF; }
+        .progress-step-label.done { color: rgba(34,211,160,0.7); }
+        .progress-step-inner { display: flex; flex-direction: column; align-items: center; }
+
+        /* NEXT BUTTON */
+        .step-next-btn { margin-top: 18px; width: 100%; background: rgba(71,151,255,0.1); border: 1px solid rgba(71,151,255,0.3); border-radius: 10px; color: #4797FF; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; padding: 13px 24px; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .step-next-btn:hover { background: rgba(71,151,255,0.18); border-color: #4797FF; }
+
+        /* CONFIGURATOR — STEPPED CARDS */
+        .configurator-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+        .config-card-top { background: rgba(71,151,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 10px; }
+        .config-card-title { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 1px; }
+        .step-block { border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); margin-bottom: 8px; transition: border-color 0.25s, background 0.25s; }
+        .step-block.active { border-color: rgba(71,151,255,0.3); background: rgba(71,151,255,0.03); }
+        .step-block.done { border-color: rgba(34,211,160,0.2); }
+        .step-header { display: flex; align-items: center; gap: 14px; padding: 16px 22px; cursor: default; }
+        .step-num { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.25s; }
+        .step-block.active .step-num { background: rgba(71,151,255,0.15); border-color: #4797FF; color: #4797FF; }
+        .step-block.done .step-num { background: rgba(34,211,160,0.12); border-color: #22d3a0; color: #22d3a0; }
+        .step-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: rgba(255,255,255,0.35); flex: 1; transition: color 0.25s; }
+        .step-block.active .step-title { color: rgba(255,255,255,0.9); }
+        .step-block.done .step-title { color: rgba(255,255,255,0.6); }
+        .step-summary { font-size: 12px; color: rgba(255,255,255,0.3); text-align: right; max-width: 200px; }
+        .step-block.done .step-summary { color: #22d3a0; }
+        .step-body { padding: 0 22px 22px; display: none; }
+        .step-block.active .step-body { display: block; }
+        .config-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 0 0 20px; }
+
         /* CONFIGURATOR */
-        .configurator-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
-        .config-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; overflow: hidden; }
-        .config-card-header { background: rgba(71,151,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-        .config-card-header-left { display: flex; align-items: center; gap: 12px; }
-        .config-step-dot { width: 28px; height: 28px; background: rgba(71,151,255,0.15); border: 1.5px solid rgba(71,151,255,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #4797FF; font-size: 13px; font-weight: 600; }
-        .config-card-title { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); text-transform: uppercase; letter-spacing: 1px; }
-        .avail-pill { display: flex; align-items: center; gap: 6px; background: rgba(34,211,160,0.08); border: 1px solid rgba(34,211,160,0.2); border-radius: 20px; padding: 5px 12px; font-size: 12px; color: #22d3a0; font-weight: 500; }
-        .avail-dot { width: 6px; height: 6px; background: #22d3a0; border-radius: 50%; animation: pulse 2s infinite; flex-shrink: 0; }
-        .config-body { padding: 32px; }
-        .config-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 0 0 24px; }
         .field-label-text { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.9px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
 
         /* NICHE */
-        .niche-wrap { margin-bottom: 24px; }
         .niche-select { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; padding: 13px 40px 13px 16px; outline: none; appearance: none; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234797FF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
         .niche-select:focus { border-color: #4797FF; box-shadow: 0 0 0 3px rgba(71,151,255,0.12); }
         .niche-select option { background: #12131e; }
 
         /* LOCATION BUILDER */
-        .location-section { margin-bottom: 24px; }
+        .location-section { }
         .loc-input-row { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; margin-bottom: 10px; align-items: end; }
         .loc-addr-wrap { position: relative; }
         .loc-addr-input { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; padding: 13px 16px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
         .loc-addr-input::placeholder { color: rgba(255,255,255,0.25); }
         .loc-addr-input:focus { border-color: #4797FF; box-shadow: 0 0 0 3px rgba(71,151,255,0.12); }
-
         .autocomplete-list { position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: rgba(18,20,35,0.98); border: 1px solid rgba(71,151,255,0.25); border-radius: 10px; overflow: hidden; z-index: 100; display: none; box-shadow: 0 12px 32px rgba(0,0,0,0.5); }
         .autocomplete-list.open { display: block; }
         .autocomplete-item { padding: 11px 16px; font-size: 13px; color: rgba(255,255,255,0.8); cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.15s; display: flex; align-items: center; gap: 8px; }
         .autocomplete-item:last-child { border-bottom: none; }
         .autocomplete-item:hover, .autocomplete-item.highlighted { background: rgba(71,151,255,0.1); color: #ffffff; }
-
         .radius-select { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; padding: 13px 36px 13px 14px; outline: none; appearance: none; cursor: pointer; transition: border-color 0.2s; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234797FF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; min-width: 110px; }
         .radius-select:focus { border-color: #4797FF; box-shadow: 0 0 0 3px rgba(71,151,255,0.12); }
         .radius-select option { background: #12131e; }
-
         .add-location-btn { background: rgba(71,151,255,0.1); border: 1px solid rgba(71,151,255,0.3); border-radius: 10px; color: #4797FF; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; padding: 13px 16px; cursor: pointer; transition: all 0.15s; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
         .add-location-btn:hover { background: rgba(71,151,255,0.18); border-color: #4797FF; }
-
         .location-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
         .location-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(71,151,255,0.1); border: 1px solid rgba(71,151,255,0.3); border-radius: 8px; padding: 7px 12px; font-size: 13px; color: rgba(255,255,255,0.85); animation: tagIn 0.2s ease; }
         @keyframes tagIn { from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)} }
@@ -156,19 +179,15 @@
         .location-tag-remove { background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer; font-size: 16px; line-height: 1; padding: 0; transition: color 0.15s; display: flex; align-items: center; }
         .location-tag-remove:hover { color: #ff6b6b; }
         .location-tag-radius { font-size: 11px; color: #4797FF; font-weight: 600; }
-
         .loc-tier-note { margin-top: 8px; font-size: 12px; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 6px; }
         .loc-tier-note span { color: rgba(255,255,255,0.55); }
-
-        /* MODE TOGGLE */
         .loc-mode-toggle { display: flex; gap: 8px; margin-bottom: 12px; }
         .loc-mode-btn { display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: rgba(255,255,255,0.5); font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 16px; cursor: pointer; transition: all 0.15s; }
         .loc-mode-btn:hover { border-color: rgba(71,151,255,0.3); color: rgba(255,255,255,0.8); }
         .loc-mode-btn.active { background: rgba(71,151,255,0.12); border-color: #4797FF; color: #4797FF; }
 
         /* CRITERIA */
-        .criteria-section { display: none; margin-bottom: 24px; }
-        .criteria-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.9px; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+        .criteria-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.9px; color: rgba(255,255,255,0.4); margin-bottom: 12px; display: block; }
         .criteria-sub { font-size: 12px; color: rgba(255,255,255,0.35); font-weight: 400; text-transform: none; letter-spacing: 0; margin-left: 6px; }
         .chips-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
         .chip { display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px 14px; font-size: 13px; cursor: pointer; transition: all 0.15s; user-select: none; }
@@ -177,11 +196,10 @@
         .chip-mod { font-size: 10px; font-weight: 600; padding: 1px 5px; border-radius: 4px; }
         .chip-mod.p10 { color: #f59e0b; background: rgba(245,158,11,0.12); }
         .chip-mod.p20 { color: #fb923c; background: rgba(251,146,60,0.12); }
-        .criteria-note { margin-top: 10px; font-size: 12px; color: rgba(255,255,255,0.35); }
+        .criteria-note { font-size: 12px; color: rgba(255,255,255,0.35); }
         .criteria-note a { color: #4797FF; text-decoration: none; }
 
-        /* DELIVERY */
-        .delivery-section { display: none; margin-bottom: 24px; }
+        /* DELIVERY SCHEDULE */
         .delivery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
         .delivery-opt { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px; text-align: center; cursor: pointer; transition: all 0.15s; }
         .delivery-opt:hover { border-color: rgba(71,151,255,0.3); }
@@ -191,16 +209,27 @@
         .delivery-opt.active .delivery-opt-val { color: #4797FF; }
 
         /* QTY */
-        .qty-row { align-items: center; gap: 16px; margin-bottom: 24px; display: none; }
-        .qty-label { font-size: 13px; color: rgba(255,255,255,0.5); white-space: nowrap; }
+        .qty-row { display: flex; align-items: center; gap: 16px; }
         .qty-ctrl { display: flex; align-items: center; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
         .qty-btn { width: 42px; height: 42px; background: none; border: none; color: #4797FF; font-size: 20px; cursor: pointer; transition: background 0.15s; display: flex; align-items: center; justify-content: center; }
         .qty-btn:hover { background: rgba(71,151,255,0.1); }
-        .qty-input { width: 72px; background: none; border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); border-top: none; border-bottom: none; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; text-align: center; padding: 10px; outline: none; }
+        .qty-input { width: 64px; background: none; border-left: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); border-top: none; border-bottom: none; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600; text-align: center; padding: 10px; outline: none; }
+        .qty-input::-webkit-inner-spin-button, .qty-input::-webkit-outer-spin-button { -webkit-appearance: none; }
         .qty-note { font-size: 12px; color: rgba(255,255,255,0.3); }
 
+        /* LEAD DELIVERY METHOD */
+        .delivery-method-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .delivery-method-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,211,160,0.07); border: 1px solid rgba(34,211,160,0.22); border-radius: 8px; padding: 7px 12px; font-size: 13px; color: rgba(255,255,255,0.85); animation: tagIn 0.2s ease; }
+        .delivery-method-tag-type { font-size: 10px; color: #22d3a0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; background: rgba(34,211,160,0.1); padding: 2px 6px; border-radius: 4px; }
+        .delivery-method-tag-remove { background: none; border: none; color: rgba(255,255,255,0.35); cursor: pointer; font-size: 15px; line-height: 1; padding: 0; transition: color 0.15s; display: flex; align-items: center; }
+        .delivery-method-tag-remove:hover { color: #ff6b6b; }
+        .delivery-method-input-row { display: grid; grid-template-columns: 130px 1fr auto; gap: 10px; align-items: end; }
+        .method-type-select { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; padding: 13px 32px 13px 14px; outline: none; appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234797FF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; transition: border-color 0.2s; width: 100%; }
+        .method-type-select:focus { border-color: #4797FF; box-shadow: 0 0 0 3px rgba(71,151,255,0.12); }
+        .method-type-select option { background: #12131e; }
+
         /* PRICE RESULT */
-        .price-result { display: none; background: rgba(71,151,255,0.05); border: 1px solid rgba(71,151,255,0.25); border-radius: 14px; padding: 24px; margin-bottom: 24px; }
+        .price-result { display: none; background: rgba(71,151,255,0.05); border: 1px solid rgba(71,151,255,0.25); border-radius: 16px; padding: 24px; margin-bottom: 10px; margin-top: 10px; }
         .price-result-row { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
         .price-label-sm { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.9px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
         .price-main-amt { font-size: 48px; font-weight: 700; color: #4797FF; letter-spacing: -1.5px; line-height: 1; }
@@ -213,15 +242,30 @@
         .price-fluctuate-note { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.07); font-size: 12px; color: rgba(255,255,255,0.35); }
 
         /* CTA */
-        .cta-row { display: none; }
+        .cta-row { display: none; margin-top: 0; }
         .checkout-btn { width: 100%; background: linear-gradient(135deg, #4797FF 0%, #2563eb 100%); color: white; border: none; border-radius: 12px; padding: 17px 24px; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(71,151,255,0.3); }
         .checkout-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(71,151,255,0.4); }
         .checkout-btn:active { transform: translateY(0); }
+        .checkout-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
         .cta-trust { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .cta-trust-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: rgba(255,255,255,0.35); }
         .cta-trust-item svg { color: #22d3a0; width: 13px; height: 13px; }
 
-        /* CUSTOM SECTION */
+        /* LEAD DELIVERY METHOD */
+        .delivery-method-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; min-height: 0; }
+        .delivery-method-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,211,160,0.08); border: 1px solid rgba(34,211,160,0.25); border-radius: 8px; padding: 7px 12px; font-size: 13px; color: rgba(255,255,255,0.85); animation: tagIn 0.2s ease; }
+        .delivery-method-tag-type { font-size: 11px; color: #22d3a0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; }
+        .delivery-method-tag-remove { background: none; border: none; color: rgba(255,255,255,0.35); cursor: pointer; font-size: 15px; line-height: 1; padding: 0; transition: color 0.15s; display: flex; align-items: center; }
+        .delivery-method-tag-remove:hover { color: #ff6b6b; }
+        .delivery-method-input-row { display: grid; grid-template-columns: 130px 1fr auto; gap: 10px; align-items: end; }
+        .method-type-select { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; padding: 13px 32px 13px 14px; outline: none; appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234797FF' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; transition: border-color 0.2s; width: 100%; }
+        .method-type-select:focus { border-color: #4797FF; box-shadow: 0 0 0 3px rgba(71,151,255,0.12); }
+        .method-type-select option { background: #12131e; }
+
+        /* CONFIG DIVIDER */
+        .config-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 0 0 24px; }
+
+        
         .custom-section { max-width: 860px; margin: 0 auto 80px; padding: 0 24px; }
         .custom-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 40px; text-align: center; }
         .custom-card h3 { font-size: 22px; font-weight: 500; margin-bottom: 10px; }
@@ -322,7 +366,7 @@
 
     <!-- HERO -->
     <section class="page-hero">
-        <img src="https://raw.githubusercontent.com/buckleydigital/ql-site/main/quoteleads-exchange.png" alt="QuoteLeads Exchange" style="height:56px;width:auto;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;">
+        <img src="https://raw.githubusercontent.com/buckleydigital/ql-site/main/quoteleads-exchange.png" alt="QuoteLeads Exchange" style="height:80px;width:auto;margin-bottom:24px;display:block;margin-left:auto;margin-right:auto;">
         <div class="page-hero-tag">Wide Availability — 10 to 2,000+ leads/month</div>
         <h1>Buy Exclusive Trade Leads.</h1>
         <p>Pre-qualified, 100% exclusive leads delivered to your business only. Configure your order below and checkout in minutes.</p>
@@ -355,25 +399,54 @@
 
     <!-- CONFIGURATOR -->
     <div class="configurator-wrap">
-        <div class="config-card">
-            <div class="config-card-header">
-                <div class="config-card-header-left">
-                    <div class="config-step-dot">1</div>
-                    <div class="config-card-title">Configure Your Lead Order</div>
+
+        <!-- Progress bar -->
+        <div class="progress-wrap">
+            <div class="progress-steps">
+                <div class="progress-step">
+                    <div class="progress-step-inner">
+                        <div class="progress-step-dot active" id="pdot1">1</div>
+                        <div class="progress-step-label active" id="plbl1">Trade & Area</div>
+                    </div>
+                    <div class="progress-step-line" id="pline1"></div>
                 </div>
-                <div class="avail-pill">
-                    <div class="avail-dot"></div>
-                    Wide Open Availability
+                <div class="progress-step">
+                    <div class="progress-step-inner">
+                        <div class="progress-step-dot" id="pdot2">2</div>
+                        <div class="progress-step-label" id="plbl2">Criteria</div>
+                    </div>
+                    <div class="progress-step-line" id="pline2"></div>
+                </div>
+                <div class="progress-step">
+                    <div class="progress-step-inner">
+                        <div class="progress-step-dot" id="pdot3">3</div>
+                        <div class="progress-step-label" id="plbl3">Schedule</div>
+                    </div>
+                    <div class="progress-step-line" id="pline3"></div>
+                </div>
+                <div class="progress-step" style="flex:0;">
+                    <div class="progress-step-inner">
+                        <div class="progress-step-dot" id="pdot4">4</div>
+                        <div class="progress-step-label" id="plbl4">Your Details</div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="config-body">
+        <!-- Step A: Trade + Location -->
+        <div class="step-block active" id="stepA">
+            <div class="step-header">
+                <div class="step-num" id="stepANum">1</div>
+                <div class="step-title">Trade & Service Area</div>
+                <div class="step-summary" id="stepASummary"></div>
+            </div>
+            <div class="step-body">
 
                 <!-- Niche -->
-                <div class="niche-wrap">
-                    <span class="field-label-text">Niche / Trade</span>
+                <div style="margin-bottom:20px;">
+                    <span class="field-label-text">Select Your Trade</span>
                     <select class="niche-select" id="nicheSelect" onchange="onNicheChange()">
-                        <option value="">— Select your trade —</option>
+                        <option value="">— Choose a trade —</option>
                         <option value="roofing">Roofing</option>
                         <option value="solar">Solar</option>
                         <option value="renovations">Renovations</option>
@@ -384,13 +457,10 @@
                     </select>
                 </div>
 
-                <div class="config-divider"></div>
-
                 <!-- Location Builder -->
                 <div class="location-section">
                     <span class="field-label-text">Service Area(s) — Add Multiple</span>
 
-                    <!-- Mode toggle -->
                     <div class="loc-mode-toggle">
                         <button class="loc-mode-btn active" id="modeAreaBtn" onclick="setLocMode('area')">
                             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -402,21 +472,15 @@
                         </button>
                     </div>
 
-                    <!-- By Area row -->
                     <div id="areaInputRow" class="loc-input-row">
                         <div class="loc-addr-wrap">
-                            <input
-                                type="text"
-                                class="loc-addr-input"
-                                id="addressInput"
+                            <input type="text" class="loc-addr-input" id="addressInput"
                                 placeholder="Search suburb, city or postcode…"
                                 autocomplete="off"
                                 oninput="onAddressInput()"
-                                onkeydown="onAddressKeydown(event)"
-                            >
+                                onkeydown="onAddressKeydown(event)">
                             <div class="autocomplete-list" id="autocompleteList"></div>
                         </div>
-
                         <select class="radius-select" id="radiusSelect">
                             <option value="30">30 km</option>
                             <option value="50" selected>50 km</option>
@@ -425,14 +489,12 @@
                             <option value="150">150 km</option>
                             <option value="200">200 km</option>
                         </select>
-
                         <button class="add-location-btn" onclick="addLocation()">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                             Add Area
                         </button>
                     </div>
 
-                    <!-- By State row -->
                     <div id="stateInputRow" class="loc-input-row" style="display:none;">
                         <select class="niche-select" id="stateSelect" style="flex:1;">
                             <option value="">— Select a state —</option>
@@ -455,30 +517,55 @@
 
                     <div class="loc-tier-note" id="tierNote" style="display:none;">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                        <span>Your order includes a premium market — pricing reflects the highest-tier area in your selection.</span>
+                        <span>Your order includes a premium market — pricing reflects the highest-tier area.</span>
                     </div>
                 </div>
 
-                <!-- Criteria -->
-                <div class="criteria-section" id="criteriaSection">
-                    <div class="config-divider"></div>
+                <button class="step-next-btn" id="nextBtn1" style="display:none;" onclick="goToStep(2)">
+                    Continue to Lead Criteria
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Step 2: Criteria -->
+        <div class="step-block" id="stepB" style="display:none;">
+            <div class="step-header">
+                <div class="step-num" id="stepBNum">2</div>
+                <div class="step-title">Lead Criteria</div>
+                <div class="step-summary" id="stepBSummary"></div>
+            </div>
+            <div class="step-body">
+                <div style="margin-bottom:16px;">
                     <div class="criteria-label">Job Type / Scope</div>
                     <div class="chips-wrap" id="chipsWrap"></div>
-
-                    <div id="surveySectionInner" style="display:none;margin-top:20px;">
-                        <div class="criteria-label" style="margin-top:0;">Lead Survey Fields
-                            <span class="criteria-sub">— additional data captured from each lead</span>
-                        </div>
-                        <div class="chips-wrap" id="surveyWrap"></div>
-                    </div>
-
-                    <p class="criteria-note" style="margin-top:12px;">Need something more specific? <a href="mailto:contact@quoteleads.com.au">Contact us</a> for a custom criteria package.</p>
                 </div>
+                <div id="surveySectionInner" style="display:none;margin-bottom:16px;">
+                    <div class="criteria-label">Lead Survey Fields
+                        <span class="criteria-sub">— extra data captured from each lead</span>
+                    </div>
+                    <div class="chips-wrap" id="surveyWrap"></div>
+                </div>
+                <p class="criteria-note" style="margin-bottom:0;">Need something specific? <a href="mailto:contact@quoteleads.com.au">Contact us</a> for a custom package.</p>
+                <button class="step-next-btn" onclick="goToStep(3)">
+                    Continue to Schedule & Volume
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
 
-                <!-- Delivery -->
-                <div class="delivery-section" id="deliverySection">
-                    <div class="config-divider"></div>
-                    <div class="criteria-label" style="margin-bottom:12px;">Delivery Schedule</div>
+        <!-- Step 3: Schedule + Qty -->
+        <div class="step-block" id="stepC" style="display:none;">
+            <div class="step-header">
+                <div class="step-num">3</div>
+                <div class="step-title">Schedule & Volume</div>
+                <div class="step-summary" id="stepCSummary"></div>
+            </div>
+            <div class="step-body">
+
+                <div style="margin-bottom:20px;">
+                    <span class="field-label-text" style="margin-bottom:10px;">Delivery Schedule</span>
                     <div class="delivery-grid">
                         <div class="delivery-opt active" onclick="selectDelivery(this,'weekly')">
                             <div class="delivery-opt-label">Frequency</div>
@@ -495,77 +582,110 @@
                     </div>
                 </div>
 
-                <!-- Qty -->
-                <div class="qty-row" id="qtyRow">
-                    <span class="qty-label">Leads per delivery:</span>
-                    <div class="qty-ctrl">
-                        <button class="qty-btn" onclick="adjustQty(-5)">−</button>
-                        <input class="qty-input" type="number" id="qtyInput" value="10" min="10" onchange="clampAndUpdate()">
-                        <button class="qty-btn" onclick="adjustQty(5)">+</button>
-                    </div>
-                    <span class="qty-note" id="qtyNote">Min. 10 per order</span>
-                </div>
-
-                <!-- Price result -->
-                <div class="price-result" id="priceResult">
-                    <div class="price-result-row">
-                        <div class="price-left">
-                            <div class="price-label-sm">Price Per Lead</div>
-                            <div class="price-main-amt" id="priceAmt">$55</div>
-                            <div class="price-per-lead">per lead + GST &nbsp;·&nbsp; inc. GST: <span id="priceIncGst">$60.50</span></div>
+                <div style="margin-bottom:0;">
+                    <span class="field-label-text" style="margin-bottom:10px;">Leads Per Delivery</span>
+                    <div class="qty-row" id="qtyRow" style="display:flex;">
+                        <div class="qty-ctrl">
+                            <button class="qty-btn" onclick="adjustQty(-5)">−</button>
+                            <input class="qty-input" type="number" id="qtyInput" value="10" min="10" onchange="clampAndUpdate()">
+                            <button class="qty-btn" onclick="adjustQty(5)">+</button>
                         </div>
-                        <div class="price-right">
-                            <div class="order-total-label">Order Total</div>
-                            <div class="order-total-amt" id="orderTotal">$550</div>
-                            <div class="order-total-inc" id="orderTotalInc">$605.00 inc. GST</div>
-                        </div>
-                    </div>
-                    <div class="price-fluctuate-note">
-                        Lead prices are subject to market fluctuation — your rate is locked in at the time of purchase and will not change for that order. <strong style="color:rgba(255,255,255,0.6);">First leads start delivering within 24–48 hours.</strong>
+                        <span class="qty-note" id="qtyNote">Min. 10 per order</span>
                     </div>
                 </div>
 
-                <!-- Business details -->
-                <div class="business-fields" id="businessFields" style="display:none;margin-bottom:20px;">
-                    <div class="config-divider" style="margin-bottom:20px;"></div>
-                    <div class="criteria-label" style="margin-bottom:12px;">Your Business</div>
-                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
-                        <div>
-                            <span class="field-label-text">Business Name</span>
-                            <input type="text" id="businessName" class="loc-addr-input" placeholder="e.g. Buckley Roofing" autocomplete="organization">
-                        </div>
-                        <div>
-                            <span class="field-label-text">Website</span>
-                            <input type="text" id="businessWebsite" class="loc-addr-input" placeholder="e.g. buckleyroofing.com.au" autocomplete="url">
-                        </div>
-                    </div>
-                    <div>
-                        <span class="field-label-text">Email Address</span>
-                        <input type="email" id="businessEmail" class="loc-addr-input" placeholder="e.g. jack@buckleyroofing.com.au" autocomplete="email">
-                    </div>
-                </div>
-
-                <!-- CTA -->
-                <div class="cta-row" id="ctaRow">
-                    <button class="checkout-btn" onclick="handleCheckout()">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        Proceed to Checkout
-                    </button>
-                    <div class="cta-trust">
-
-                        <div class="cta-trust-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            Rate Locked on Purchase
-                        </div>
-                        <div class="cta-trust-item">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                            Delivery Starts Next Cycle
-                        </div>
-                    </div>
-                </div>
+                <button class="step-next-btn" onclick="goToStep(4)">
+                    Continue to Your Details
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
 
             </div>
         </div>
+
+        <!-- Step 4: Your Business + Lead Delivery -->
+        <div class="step-block" id="stepD" style="display:none;">
+            <div class="step-header">
+                <div class="step-num">4</div>
+                <div class="step-title">Your Details & Delivery Method</div>
+            </div>
+            <div class="step-body">
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+                    <div>
+                        <span class="field-label-text">Business Name</span>
+                        <input type="text" id="businessName" class="loc-addr-input" placeholder="e.g. Apex Solar" autocomplete="organization">
+                    </div>
+                    <div>
+                        <span class="field-label-text">Website</span>
+                        <input type="text" id="businessWebsite" class="loc-addr-input" placeholder="e.g. apexsolar.com.au" autocomplete="url">
+                    </div>
+                </div>
+                <div style="margin-bottom:20px;">
+                    <span class="field-label-text">Email Address</span>
+                    <input type="email" id="businessEmail" class="loc-addr-input" placeholder="e.g. info@apexsolar.com.au" autocomplete="email">
+                </div>
+
+                <div class="config-divider"></div>
+
+                <div class="criteria-label" style="margin-bottom:4px;">Lead Delivery Method
+                    <span class="criteria-sub">— how you'd like to receive leads. Add multiple.</span>
+                </div>
+                <div class="delivery-method-input-row">
+                    <select class="method-type-select" id="methodTypeSelect" onchange="updateMethodPlaceholder()">
+                        <option value="Email">📧 Email</option>
+                        <option value="Phone">📞 Phone</option>
+                        <option value="CRM">🔗 CRM</option>
+                    </select>
+                    <input type="text" id="methodValueInput" class="loc-addr-input"
+                        placeholder="e.g. leads@apexsolar.com.au"
+                        onkeydown="if(event.key==='Enter'){event.preventDefault();addDeliveryMethod();}">
+                    <button class="add-location-btn" onclick="addDeliveryMethod()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Add
+                    </button>
+                </div>
+                <div class="delivery-method-tags" id="deliveryMethodTags"></div>
+
+            </div>
+        </div>
+
+        <!-- Price result -->
+        <div class="price-result" id="priceResult">
+            <div class="price-result-row">
+                <div class="price-left">
+                    <div class="price-label-sm">Price Per Lead</div>
+                    <div class="price-main-amt" id="priceAmt">$55</div>
+                    <div class="price-per-lead">per lead + GST &nbsp;·&nbsp; inc. GST: <span id="priceIncGst">$60.50</span></div>
+                </div>
+                <div class="price-right">
+                    <div class="order-total-label">Order Total</div>
+                    <div class="order-total-amt" id="orderTotal">$550</div>
+                    <div class="order-total-inc" id="orderTotalInc">$605.00 inc. GST</div>
+                </div>
+            </div>
+            <div class="price-fluctuate-note">
+                Your rate is locked at the time of purchase and won't change for this order. <strong style="color:rgba(255,255,255,0.6);">First leads start delivering within 24–48 hours.</strong>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-row" id="ctaRow">
+            <button class="checkout-btn" onclick="handleCheckout()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                Proceed to Checkout
+            </button>
+            <div class="cta-trust">
+                <div class="cta-trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Rate Locked on Purchase
+                </div>
+                <div class="cta-trust-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    Delivery Starts Next Cycle
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- FEATURES -->
@@ -870,6 +990,84 @@
     let deliveryVal = 'weekly';
     let locations = [];
     let locMode = 'area'; // 'area' | 'state'
+    let deliveryMethods = []; // [{type, value}]
+
+    const MAKE_HOOK = 'https://hook.eu2.make.com/wrlosbno7f5w4kpkblf2pnwj95kf6eov';
+
+    function addDeliveryMethod() {
+        const typeEl  = document.getElementById('methodTypeSelect');
+        const valEl   = document.getElementById('methodValueInput');
+        const type    = typeEl.value;
+        const value   = valEl.value.trim();
+        if (!value) { valEl.focus(); return; }
+        deliveryMethods.push({ type, value });
+        valEl.value = '';
+        renderDeliveryMethodTags();
+        // Update placeholder hint based on type
+        updateMethodPlaceholder();
+    }
+
+    function removeDeliveryMethod(idx) {
+        deliveryMethods.splice(idx, 1);
+        renderDeliveryMethodTags();
+    }
+
+    function renderDeliveryMethodTags() {
+        const wrap = document.getElementById('deliveryMethodTags');
+        const icons = { Email: '📧', Phone: '📞', CRM: '🔗' };
+        wrap.innerHTML = deliveryMethods.map((m, i) => `
+            <div class="delivery-method-tag">
+                <span class="delivery-method-tag-type">${icons[m.type] || ''} ${m.type}</span>
+                <span>${m.value}</span>
+                <button class="delivery-method-tag-remove" onclick="removeDeliveryMethod(${i})">×</button>
+            </div>
+        `).join('');
+    }
+
+    function updateMethodPlaceholder() {
+        const type = document.getElementById('methodTypeSelect').value;
+        const input = document.getElementById('methodValueInput');
+        const hints = {
+            Email: 'e.g. leads@apexsolar.com.au',
+            Phone: 'e.g. +61 400 000 000',
+            CRM: 'e.g. https://crm.example.com/webhook',
+        };
+        input.placeholder = hints[type] || 'Enter value';
+    }
+
+    function fireMakeWebhook() {
+        const nicheEl = document.getElementById('nicheSelect');
+        const nicheText = nicheEl.options[nicheEl.selectedIndex]?.text || '';
+        const areaList = locations.map(l => l.isState ? l.label : `${l.label} (${l.radius}km)`).join(', ');
+        const criteriaList = selectedCriteria.map(c => c.label).join(', ');
+        const qty = parseInt(document.getElementById('qtyInput').value) || getNicheMin();
+        const base = getBasePrice();
+        const perLead = base ? Math.round(base * getMultiplier()) : null;
+        const total = perLead ? perLead * qty : null;
+        const payload = {
+            event: 'checkout_created',
+            timestamp: new Date().toISOString(),
+            niche: nicheText,
+            areas: areaList,
+            delivery_schedule: deliveryVal,
+            qty: qty,
+            criteria: criteriaList,
+            per_lead_ex_gst: perLead,
+            total_ex_gst: total,
+            total_inc_gst: total ? +(total * 1.1).toFixed(2) : null,
+            business_name: document.getElementById('businessName').value.trim(),
+            business_website: document.getElementById('businessWebsite').value.trim(),
+            business_email: document.getElementById('businessEmail').value.trim(),
+            lead_delivery_methods: deliveryMethods.map(m => `${m.type}: ${m.value}`).join(' | '),
+            lead_delivery_detail: deliveryMethods,
+        };
+        // Fire and forget — don't await
+        fetch(MAKE_HOOK, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        }).catch(() => {}); // silent fail
+    }
 
     function setLocMode(mode) {
         locMode = mode;
@@ -992,7 +1190,6 @@
     function onNicheChange() {
         selectedCriteria = [];
         const niche = document.getElementById('nicheSelect').value;
-        const section = document.getElementById('criteriaSection');
         const jobWrap = document.getElementById('chipsWrap');
         const surveyWrap = document.getElementById('surveyWrap');
         const surveySection = document.getElementById('surveySectionInner');
@@ -1000,14 +1197,9 @@
         surveyWrap.innerHTML = '';
 
         if (niche && CRITERIA[niche]) {
-            section.style.display = 'block';
-
-            // Job types
             CRITERIA[niche].jobTypes.forEach(c => {
                 jobWrap.appendChild(makeChip(c));
             });
-
-            // Survey fields
             if (CRITERIA[niche].surveyFields && CRITERIA[niche].surveyFields.length) {
                 surveySection.style.display = 'block';
                 CRITERIA[niche].surveyFields.forEach(c => {
@@ -1016,8 +1208,6 @@
             } else {
                 surveySection.style.display = 'none';
             }
-        } else {
-            section.style.display = 'none';
         }
         maybeShowDelivery();
         updateQtyMin();
@@ -1042,22 +1232,94 @@
     function maybeShowDelivery() {
         const niche = document.getElementById('nicheSelect').value;
         const hasLoc = locations.length > 0;
-        if (niche && hasLoc) {
-            document.getElementById('deliverySection').style.display = 'block';
-            document.getElementById('qtyRow').style.display = 'flex';
-        } else {
-            document.getElementById('deliverySection').style.display = 'none';
-            document.getElementById('qtyRow').style.display = 'none';
+        const ready = niche && hasLoc;
+
+        // Show step B once niche is selected
+        if (niche && CRITERIA[niche]) {
+            const stepB = document.getElementById('stepB');
+            if (stepB) stepB.style.display = 'block';
+        }
+
+        // Show steps C and D once trade + location both set
+        if (ready) {
+            const stepC = document.getElementById('stepC');
+            const stepD = document.getElementById('stepD');
+            if (stepC) stepC.style.display = 'block';
+            if (stepD) stepD.style.display = 'block';
+        }
+
+        if (!ready) {
             document.getElementById('priceResult').style.display = 'none';
             document.getElementById('ctaRow').style.display = 'none';
-            document.getElementById('businessFields').style.display = 'none';
+        }
+
+        updateStepSummaries();
+    }
+
+    let currentStep = 1;
+
+    function goToStep(n) {
+        currentStep = n;
+        const steps = ['stepA','stepB','stepC','stepD'];
+        steps.forEach((id, i) => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.classList.remove('active', 'done');
+            if (i + 1 < n) el.classList.add('done');
+            else if (i + 1 === n) el.classList.add('active');
+        });
+        updateProgressBar();
+        updateStepSummaries();
+        // Scroll to configurator top
+        document.querySelector('.configurator-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function updateProgressBar() {
+        for (let i = 1; i <= 4; i++) {
+            const dot = document.getElementById(`pdot${i}`);
+            const lbl = document.getElementById(`plbl${i}`);
+            const line = document.getElementById(`pline${i}`);
+            if (!dot) continue;
+            dot.classList.remove('active','done');
+            lbl.classList.remove('active','done');
+            if (line) line.classList.remove('done');
+            if (i < currentStep) { dot.classList.add('done'); lbl.classList.add('done'); if (line) line.classList.add('done'); }
+            else if (i === currentStep) { dot.classList.add('active'); lbl.classList.add('active'); }
         }
     }
+
+    function updateStepSummaries() {
+        const niche = document.getElementById('nicheSelect').value;
+        const nicheEl = document.getElementById('nicheSelect');
+        const nicheText = nicheEl.options[nicheEl.selectedIndex]?.text || '';
+
+        // Step A summary
+        const sumA = document.getElementById('stepASummary');
+        if (niche && locations.length) {
+            sumA.textContent = `${nicheText} · ${locations.length} area${locations.length>1?'s':''}`;
+            document.getElementById('nextBtn1') && (document.getElementById('nextBtn1').style.display = 'flex');
+        } else {
+            sumA.textContent = '';
+            document.getElementById('nextBtn1') && (document.getElementById('nextBtn1').style.display = 'none');
+        }
+
+        // Step B summary
+        const sumB = document.getElementById('stepBSummary');
+        if (sumB) sumB.textContent = selectedCriteria.length ? selectedCriteria.map(c=>c.label).join(', ') : '';
+
+        // Step C summary
+        const sumC = document.getElementById('stepCSummary');
+        const qty = parseInt(document.getElementById('qtyInput').value) || getNicheMin();
+        if (sumC && deliveryVal) sumC.textContent = `${qty} leads · ${deliveryVal}`;
+    }
+
+    function setStepActive(id) {} // legacy stub
 
     function selectDelivery(el, val) {
         document.querySelectorAll('.delivery-opt').forEach(o=>o.classList.remove('active'));
         el.classList.add('active');
         deliveryVal = val;
+        updateStepSummaries();
     }
 
     function getBasePrice() {
@@ -1078,7 +1340,7 @@
         if (!base) {
             document.getElementById('priceResult').style.display = 'none';
             document.getElementById('ctaRow').style.display = 'none';
-            document.getElementById('businessFields').style.display = 'none';
+            updateStepSummaries();
             return;
         }
         const qty = Math.max(getNicheMin(), parseInt(document.getElementById('qtyInput').value)||getNicheMin());
@@ -1091,7 +1353,7 @@
         document.getElementById('orderTotalInc').textContent = `$${(total*(1+gst)).toLocaleString('en-AU',{minimumFractionDigits:2,maximumFractionDigits:2})} inc. GST`;
         document.getElementById('priceResult').style.display = 'block';
         document.getElementById('ctaRow').style.display = 'block';
-        document.getElementById('businessFields').style.display = 'block';
+        updateStepSummaries();
     }
 
     const NICHE_MIN_QTY = {
@@ -1138,8 +1400,10 @@
         const businessName    = document.getElementById('businessName').value.trim();
         const businessWebsite = document.getElementById('businessWebsite').value.trim();
         const businessEmail   = document.getElementById('businessEmail').value.trim();
+        const deliveryMethodsStr = deliveryMethods.map(m => `${m.type}: ${m.value}`).join(' | ');
 
-        // Fire tracking event
+        // Fire Make.com webhook (fire-and-forget)
+        fireMakeWebhook();
         if (typeof fbq !== 'undefined') {
             fbq('track', 'InitiateCheckout', {
                 value: total * 1.1,
@@ -1161,15 +1425,16 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    niche:           nicheText,
-                    areas:           areaList,
-                    delivery:        deliveryVal,
-                    qty:             qty,
-                    perLeadCents:    perLead * 100,
-                    criteria:        criteriaList,
-                    businessName:    businessName,
-                    businessWebsite: businessWebsite,
-                    businessEmail:   businessEmail,
+                    niche:                nicheText,
+                    areas:                areaList,
+                    delivery:             deliveryVal,
+                    qty:                  qty,
+                    perLeadCents:         perLead * 100,
+                    criteria:             criteriaList,
+                    businessName:         businessName,
+                    businessWebsite:      businessWebsite,
+                    businessEmail:        businessEmail,
+                    leadDeliveryMethods:  deliveryMethodsStr,
                 }),
             });
 
