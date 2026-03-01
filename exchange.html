@@ -838,9 +838,8 @@
         },
         solar: {
             jobTypes: [
-                {id:'solar_only',  label:'Solar Only',                 mod:1.0,  tier:''},
+                {id:'solar_only',  label:'Solar Installation',         mod:1.0,  tier:''},
                 {id:'battery',     label:'Battery Storage',            mod:1.20, tier:'p20'},
-                {id:'solar_batt',  label:'Solar + Battery Bundle',     mod:1.20, tier:'p20'},
                 {id:'commercial',  label:'Commercial Solar',           mod:1.75, tier:'p75'},
             ],
             surveyFields: [
@@ -1295,7 +1294,7 @@
         const sumC = document.getElementById('stepCSummary');
         const qty = parseInt(document.getElementById('qtyInput').value) || getNicheMin();
         const deliveryLabels = { weekly: '7 Days', fortnightly: '14 Days', monthly: '30 Days' };
-if (sumC && deliveryVal) sumC.textContent = `${qty} leads in ${deliveryLabels[deliveryVal]}`;
+        if (sumC && deliveryVal) sumC.textContent = `${qty} leads in ${deliveryLabels[deliveryVal]}`;
     }
 
     function selectDelivery(el, val) {
