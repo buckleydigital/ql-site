@@ -556,14 +556,6 @@
                 <div style="margin-bottom:20px;">
                     <span class="field-label-text" style="margin-bottom:10px;">Delivery Timeframe</span>
                     <div class="delivery-grid">
-                        <div class="delivery-opt active" onclick="selectDelivery(this,'weekly')">
-                            <div class="delivery-opt-label">Schedule</div>
-                            <div class="delivery-opt-val">7 Days</div>
-                        </div>
-                        <div class="delivery-opt" onclick="selectDelivery(this,'fortnightly')">
-                            <div class="delivery-opt-label">Schedule</div>
-                            <div class="delivery-opt-val">14 Days</div>
-                        </div>
                         <div class="delivery-opt" onclick="selectDelivery(this,'monthly')">
                             <div class="delivery-opt-label">Schedule</div>
                             <div class="delivery-opt-val">30 Days</div>
@@ -950,7 +942,7 @@
     ];
 
     let selectedCriteria = [];
-    let deliveryVal = 'weekly';
+    let deliveryVal = 'monthly';
     let locations = [];
     let locMode = 'area';
     let deliveryMethods = [];
@@ -1268,7 +1260,7 @@
 
         const sumC = document.getElementById('stepCSummary');
         const qty = parseInt(document.getElementById('qtyInput').value) || getNicheMin();
-        const deliveryLabels = { weekly: '7 Days', fortnightly: '14 Days', monthly: '30 Days' };
+        const deliveryLabels = { monthly: '30 Days' };
         if (sumC && deliveryVal) sumC.textContent = `${qty} leads in ${deliveryLabels[deliveryVal]}`;
     }
 
