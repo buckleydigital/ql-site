@@ -634,38 +634,62 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #4797FF;
         }
 
+        /* Two-col approach grid */
+        .approach-grid {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Lead quality inner fields grid */
+        .lead-fields-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 0 0 20px;
+        }
+
         /* Responsive */
-        @media (max-width: 1024px) { 
+        @media (max-width: 1024px) {
             .features-grid { grid-template-columns: 1fr; max-width: 600px; }
+            .approach-grid { grid-template-columns: 1fr; max-width: 600px; }
             .service-grid { grid-template-columns: repeat(2, 1fr); }
             .process-grid { grid-template-columns: 1fr; }
             .process-grid:before { display: none; }
-            .lead-quality-grid { grid-template-columns: 1fr; }
+            .lead-quality-grid { grid-template-columns: 1fr; gap: 40px; }
         }
-        @media (max-width: 768px) { 
+        @media (max-width: 768px) {
             .hero { padding: 40px 20px; }
-            .hero h1 { font-size: clamp(26px, 6vw, 40px); } 
-            .hero-subtitle { font-size: 16px; } 
-            .section { padding: 80px 24px; } 
+            .hero h1 { font-size: clamp(26px, 6vw, 40px); }
+            .hero-subtitle { font-size: 16px; }
+            .section { padding: 60px 20px; }
             .section-title { font-size: 28px; }
-            .service-grid { grid-template-columns: 1fr; }
-            .final-cta h2 { font-size: 32px; } 
-            .final-cta { padding: 100px 24px; }
+            .section-subtitle { font-size: 16px; }
+            .section-header { margin-bottom: 48px; }
+            .service-grid { grid-template-columns: repeat(2, 1fr); }
+            .final-cta h2 { font-size: 28px; }
+            .final-cta { padding: 80px 20px; }
+            .final-cta p { font-size: 16px; }
             .lead-grid { grid-template-columns: 1fr; }
+            .lead-fields-grid { grid-template-columns: 1fr; }
             .lead-info-mockup { padding: 24px; }
+            .lead-quality-visual { padding: 24px; }
             .hero-icon { width: 64px; height: 64px; }
         }
         @media (max-width: 480px) {
             .hero { padding: 40px 16px; }
             .hero h1 { padding: 0; line-height: 1.3; margin-bottom: 16px; }
-            .cta-button { padding: 16px 32px; font-size: 16px; width: 100%; max-width: 300px; }
-            .feature-card { padding: 32px 24px; }
-            .service-card { padding: 24px 20px; }
-            .lead-info-mockup { padding: 20px; border-radius: 16px; }
+            .cta-button { padding: 16px 24px; font-size: 16px; width: 100%; max-width: 320px; box-sizing: border-box; }
+            .feature-card { padding: 28px 20px; }
+            .service-card { padding: 24px 16px; }
+            .service-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .lead-info-mockup { padding: 16px; border-radius: 16px; }
             .lead-field { padding: 12px; }
-            .footer-links { gap: 16px; }
+            .footer-links { gap: 12px; flex-direction: column; align-items: center; }
             .social-links { flex-direction: column; gap: 12px; align-items: center; }
             .hero-icon { width: 56px; height: 56px; }
+            .step-number { width: 64px; height: 64px; font-size: 22px; }
+            .section { padding: 48px 16px; }
         }
     </style>
 </head>
@@ -824,7 +848,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h2 class="section-title">Leads Built to Convert, Not Just to Click</h2>
                 <p class="section-subtitle">The quality of a lead starts long before a form is submitted. Our strategy ensures every prospect arrives informed, positioned correctly, and ready to move forward.</p>
             </div>
-            <div class="features-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 0 auto;">
+            <div class="features-grid approach-grid">
                 <div class="feature-card" style="text-align: left;">
                     <svg class="feature-icon" style="margin: 0 0 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
@@ -923,13 +947,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h2>High Quality Solar Panel Installation Leads Delivered In Real-Time</h2>
                     <p>At QuoteLeads, we generate exclusive, high-intent solar leads. Each lead undergoes thorough real-time email and SMS verification, along with form qualification, ensuring prospects are genuinely interested and ready for immediate contact.</p>
                     <p>Every lead we deliver includes the verified details your sales team needs to qualify and convert on first contact:</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 20px;">
+                    <div class="lead-fields-grid">
                         <div class="lead-field">
                             <div class="field-label">
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.5;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                 Full Name
                             </div>
-                            <div class="field-value">First &amp; last name</div>
+                            <div class="field-value">Verified first &amp; last name</div>
                         </div>
                         <div class="lead-field">
                             <div class="field-label">
