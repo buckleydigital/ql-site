@@ -33,8 +33,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Cloudflare Turnstile -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Cloudflare Turnstile (explicit render mode) -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -102,7 +102,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-weight: 500;
         }
         
-        /* Space Particles Canvas - Clean style */
         #space-canvas { 
             position: fixed; 
             top: 0; 
@@ -115,7 +114,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .content { position: relative; z-index: 1; }
         
-        /* Section Styles */
         .section { padding: 120px 24px; max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 80px; }
         .section-label { 
@@ -144,7 +142,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 0 auto; 
         }
         
-        /* Get Started Specific */
         .get-started-section {
             padding: 160px 24px 80px;
             min-height: auto;
@@ -172,7 +169,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 0 auto;
         }
         
-        /* Survey Container Integration */
         .survey-wrapper {
             max-width: 600px;
             margin: 0 auto 40px;
@@ -386,7 +382,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: 1.1em;
         }
         
-        /* Disclaimer */
         .disclaimer {
             text-align: center;
             max-width: 600px;
@@ -396,7 +391,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             line-height: 1.6;
         }
         
-        /* FAQ Accordion */
         .faq-section { 
             max-width: 800px; 
             margin: 0 auto; 
@@ -441,7 +435,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding-bottom: 24px; 
         }
         
-        /* Footer */
         .minimal-footer { 
             padding: 60px 24px 40px; 
             border-top: 1px solid rgba(255,255,255,0.05); 
@@ -496,13 +489,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         /* Turnstile widget container */
-        .cf-turnstile {
+        #turnstile-container {
             margin: 0 auto;
             display: flex;
             justify-content: center;
         }
 
-        /* Responsive */
         @media (max-width: 1024px) { 
             .section-title { font-size: 36px; } 
         }
@@ -537,7 +529,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </style>
 </head>
 <body>
-    <!-- HEADER START - Paste on every page -->
+    <!-- HEADER START -->
 <header class="site-header">
     <nav class="header-nav">
         <a href="/" class="header-logo">
@@ -780,7 +772,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 </div>
                             </div>
                             
-                            <!-- Step 7: Email -->
+                            <!-- Step 7: Email + Turnstile -->
                             <div class="step" id="step7">
                                 <div class="step-number">Step 7 of 7</div>
                                 <h2>What's your email address?</h2>
@@ -789,14 +781,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <input type="email" name="email" id="email" placeholder="your@email.com" required>
                                 </div>
                                 
-                                <!-- Cloudflare Turnstile Widget -->
+                                <!-- Cloudflare Turnstile (rendered explicitly when step 7 is shown) -->
                                 <div class="form-group">
-                                    <div class="cf-turnstile" data-sitekey="0x4AAAAAACaqHFbjnV7BCTN7"></div>
+                                    <div id="turnstile-container"></div>
                                 </div>
                                 
                                 <div class="button-group">
                                     <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -924,12 +916,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="https://quoteleads.com.au/lead-integrity-standard">Lead Integrity Standard</a>
             </div>
             <p class="footer-tagline">Accelerating Demand for Trade & Home-Service Businesses.</p>
-            <p class="copyright">© 2026 QuoteLeads. All rights reserved.</p>
+            <p class="copyright">&copy; 2026 QuoteLeads. All rights reserved.</p>
         </footer>
     </div>
 
     <script>
-        // Space Particles System - Clean particles only (no connections)
+        // Space Particles System
         const canvas = document.getElementById('space-canvas');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -948,28 +940,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         function initParticles() {
             particles = [];
             stars = [];
-            
-            // Adjust particle count based on screen size to prevent clustering
             const isMobile = window.innerWidth < 768;
             const particleCount = isMobile ? 25 : 50;
             const starCount = isMobile ? 80 : 150;
-            
-            for (let i = 0; i < starCount; i++) {
-                stars.push(new Star());
-            }
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
+            for (let i = 0; i < starCount; i++) { stars.push(new Star()); }
+            for (let i = 0; i < particleCount; i++) { particles.push(new Particle()); }
         }
         
-        window.addEventListener('resize', () => {
-            resize();
-        });
-        
-        // Handle orientation change on mobile
-        window.addEventListener('orientationchange', () => {
-            setTimeout(resize, 100);
-        });
+        window.addEventListener('resize', () => { resize(); });
+        window.addEventListener('orientationchange', () => { setTimeout(resize, 100); });
 
         class Star {
             constructor() {
@@ -982,9 +961,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
             update() {
                 this.opacity += this.twinkleSpeed * this.twinkleDir;
-                if (this.opacity > 0.8 || this.opacity < 0.1) {
-                    this.twinkleDir *= -1;
-                }
+                if (this.opacity > 0.8 || this.opacity < 0.1) { this.twinkleDir *= -1; }
             }
             draw() {
                 ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
@@ -1020,33 +997,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         let mouse = { x: null, y: null };
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-        window.addEventListener('mouseleave', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-        
-        // Handle touch for mobile
-        window.addEventListener('touchmove', (e) => {
-            if(e.touches.length > 0) {
-                mouse.x = e.touches[0].clientX;
-                mouse.y = e.touches[0].clientY;
-            }
-        });
-        window.addEventListener('touchend', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
+        window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+        window.addEventListener('touchmove', (e) => { if(e.touches.length > 0) { mouse.x = e.touches[0].clientX; mouse.y = e.touches[0].clientY; } });
+        window.addEventListener('touchend', () => { mouse.x = null; mouse.y = null; });
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
-            stars.forEach(star => {
-                star.update();
-                star.draw();
-            });
+            stars.forEach(star => { star.update(); star.draw(); });
             particles.forEach(particle => {
                 particle.update();
                 if (mouse.x != null && mouse.y != null) {
@@ -1066,22 +1024,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             animationId = requestAnimationFrame(animate);
         }
         
-        // Initialize on load
         resize();
         animate();
         
-        // Cleanup on page hide
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                cancelAnimationFrame(animationId);
-            } else {
-                animate();
-            }
+            if (document.hidden) { cancelAnimationFrame(animationId); } else { animate(); }
         });
 
-        // Survey Logic
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        //  SURVEY LOGIC + TURNSTILE
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
         let currentStep = 1;
         const totalSteps = 7;
+        let turnstileToken = '';
+        let turnstileRendered = false;
+
         const surveyData = {
             start_time: '',
             leads_per_month: '',
@@ -1093,6 +1050,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             email: ''
         };
 
+        // Turnstile callbacks
+        function onTurnstileSuccess(token) {
+            turnstileToken = token;
+            document.getElementById('submitBtn').disabled = false;
+        }
+        function onTurnstileExpire() {
+            turnstileToken = '';
+            document.getElementById('submitBtn').disabled = true;
+        }
+
         function updateProgress() {
             const progress = (currentStep / totalSteps) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
@@ -1100,75 +1067,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         function selectOption(field, value, element) {
             surveyData[field] = value;
-            
             const parent = element.parentElement;
             const cards = parent.querySelectorAll('.option-card');
             cards.forEach(card => card.classList.remove('selected'));
             element.classList.add('selected');
-            
             const hiddenInput = parent.nextElementSibling;
             if (hiddenInput && hiddenInput.tagName === 'INPUT') {
                 hiddenInput.value = value;
             }
-            
             const nextButton = document.getElementById('step' + currentStep + 'Next');
-            if (nextButton) {
-                nextButton.disabled = false;
-            }
+            if (nextButton) { nextButton.disabled = false; }
         }
 
         function nextStep() {
             if (currentStep === 4) {
                 const first_name = document.getElementById('first_name').value.trim();
                 const last_name = document.getElementById('last_name').value.trim();
-                if (!first_name || !last_name) {
-                    alert('Please enter your first and last name.');
-                    return;
-                }
+                if (!first_name || !last_name) { alert('Please enter your first and last name.'); return; }
                 surveyData.first_name = first_name;
                 surveyData.last_name = last_name;
             }
-            
             if (currentStep === 5) {
                 const company = document.getElementById('company').value.trim();
-                if (!company) {
-                    alert('Please enter your company name.');
-                    return;
-                }
+                if (!company) { alert('Please enter your company name.'); return; }
                 surveyData.company = company;
             }
-            
             if (currentStep === 6) {
                 const phone = document.getElementById('phone').value.trim();
-                if (!phone) {
-                    alert('Please enter your phone number.');
-                    return;
-                }
+                if (!phone) { alert('Please enter your phone number.'); return; }
                 surveyData.phone = phone;
             }
             
             const currentStepEl = document.getElementById('step' + currentStep);
-            if (currentStepEl) {
-                currentStepEl.classList.remove('active');
-            }
+            if (currentStepEl) { currentStepEl.classList.remove('active'); }
             currentStep++;
             const nextStepEl = document.getElementById('step' + currentStep);
-            if (nextStepEl) {
-                nextStepEl.classList.add('active');
-            }
+            if (nextStepEl) { nextStepEl.classList.add('active'); }
             updateProgress();
+
+            // Render Turnstile explicitly when step 7 becomes visible
+            if (currentStep === 7 && !turnstileRendered && typeof turnstile !== 'undefined') {
+                turnstileRendered = true;
+                turnstile.render('#turnstile-container', {
+                    sitekey: '0x4AAAAAABj4xsGpuNPXeW_7',
+                    callback: function(token) { onTurnstileSuccess(token); },
+                    'expired-callback': function() { onTurnstileExpire(); }
+                });
+            }
         }
 
         function prevStep() {
             const currentStepEl = document.getElementById('step' + currentStep);
-            if (currentStepEl) {
-                currentStepEl.classList.remove('active');
-            }
+            if (currentStepEl) { currentStepEl.classList.remove('active'); }
             currentStep--;
             const prevStepEl = document.getElementById('step' + currentStep);
-            if (prevStepEl) {
-                prevStepEl.classList.add('active');
-            }
+            if (prevStepEl) { prevStepEl.classList.add('active'); }
             updateProgress();
         }
 
@@ -1176,13 +1129,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             e.preventDefault();
             
             const email = document.getElementById('email').value.trim();
-            if (!email) {
-                alert('Please enter your email address.');
-                return;
-            }
+            if (!email) { alert('Please enter your email address.'); return; }
             
-            // Get Turnstile token
-            const turnstileToken = document.querySelector('input[name="cf-turnstile-response"]')?.value;
             if (!turnstileToken) {
                 alert('Please complete the security verification.');
                 return;
@@ -1190,69 +1138,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             surveyData.email = email;
             
-            console.log('Submitting data:', surveyData);
-            
             // Show loading
             document.getElementById('step7').classList.remove('active');
             document.getElementById('loading').classList.add('active');
             
             try {
-                // Send to Make.com webhook (includes turnstileToken for verification)
-                await fetch('https://hook.eu2.make.com/5vkii7borhhqtu4nmuvroh43act7lj9g', {
+                await fetch('https://hook.eu2.make.com/w5ynqeovlpudd77g333ozthgfdv288hy', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         ...surveyData,
-                        turnstileToken: turnstileToken
+                        'cf-turnstile-response': turnstileToken
                     }),
                     keepalive: true
                 });
                 
-                console.log('Data sent to webhook');
-                
                 // Fire Meta Pixel Lead event
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead');
-                    console.log('Meta Pixel Lead event fired');
-                }
+                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
                 
-                // Redirect
-                setTimeout(() => {
-                    window.top.location.href = 'https://quoteleads.com.au/requested';
-                }, 100);
+                setTimeout(() => { window.top.location.href = 'https://quoteleads.com.au/requested'; }, 100);
                 
             } catch (error) {
                 console.error('Error submitting form:', error);
-                // Still redirect even on error
-                setTimeout(() => {
-                    window.top.location.href = 'https://quoteleads.com.au/requested';
-                }, 100);
+                setTimeout(() => { window.top.location.href = 'https://quoteleads.com.au/requested'; }, 100);
             }
         });
 
-        // Initialize
         updateProgress();
 
         // FAQ Toggle
         function toggleFaq(element) {
             const item = element.parentElement;
             const isActive = item.classList.contains('active');
-            
-            // Close all
-            document.querySelectorAll('.faq-item').forEach(faq => {
-                faq.classList.remove('active');
-            });
-            
-            // Open clicked if wasn't active
-            if (!isActive) {
-                item.classList.add('active');
-            }
+            document.querySelectorAll('.faq-item').forEach(faq => { faq.classList.remove('active'); });
+            if (!isActive) { item.classList.add('active'); }
         }
     </script>
 </body>
 </html>
-
-
-
