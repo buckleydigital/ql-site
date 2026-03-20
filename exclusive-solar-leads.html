@@ -234,6 +234,18 @@
             .btn-secondary{width:100%;text-align:center}
         }
 
+        /* ── Our Approach two-col ── */
+        .approach-section{padding:100px 24px}
+        .approach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:960px;margin:0 auto}
+        .approach-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:40px 32px;transition:all .3s ease;position:relative;overflow:hidden}
+        .approach-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#4797FF,transparent);opacity:0;transition:opacity .3s ease}
+        .approach-card:hover{border-color:rgba(71,151,255,.3);transform:translateY(-4px)}
+        .approach-card:hover::before{opacity:1}
+        .approach-icon{width:48px;height:48px;background:rgba(71,151,255,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:#4797FF}
+        .approach-card h3{font-size:20px;font-weight:500;margin-bottom:12px;line-height:1.3}
+        .approach-card p{font-size:15px;color:rgba(255,255,255,.55);line-height:1.7}
+        @media(max-width:768px){.approach-grid{grid-template-columns:1fr}}
+
         /* ── Compare table scrollable on mobile ── */
         .compare-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:20px}
         .compare-table-wrap .compare-table{min-width:520px}
@@ -310,9 +322,10 @@
             <div class="hero-badge"><span class="pulse"></span> Pay Per Lead &mdash; Solar Installers Only</div>
             <h1>Stop Competing for Leads.<br><span>Start Owning Them.</span></h1>
             <p class="hero-sub">Exclusive, verified solar leads delivered in real-time &mdash; only to you. Our installer partners consistently report 70%+ lead-to-appointment ratios. No lock-in contracts. No shared leads. Ever.</p>
+            <p style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:32px;margin-top:-24px;animation:fadeUp .8s ease .25s both">We only partner with a limited number of installers per region to protect exclusivity.</p>
             <div class="hero-cta">
                 <a href="#get-started" class="btn-primary">
-                    Get Exclusive Leads
+                    Claim Your Area Now
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
                 <a href="#how-it-works" class="btn-secondary">See How It Works</a>
@@ -401,6 +414,38 @@
             </div>
         </section>
 
+        <!-- ════════ OUR APPROACH ════════ -->
+        <section class="approach-section" style="background:rgba(255,255,255,.015)">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Our Approach</div>
+                    <h2 class="section-title">Leads Built to Convert, Not Just to Click</h2>
+                    <p class="section-sub">The quality of a lead starts long before a form is submitted. Our strategy ensures every prospect arrives informed, positioned correctly, and ready to move forward.</p>
+                </div>
+                <div class="approach-grid">
+                    <div class="approach-card">
+                        <div class="approach-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>Premium Positioning, Not Price-First Pitching</h3>
+                        <p>We never lead with low-floor pricing, rebate lures, or discount angles that attract the wrong type of customer. Every campaign frames your business as the premium choice in the market, drawing in homeowners who are serious about investing in quality solar, not just chasing the cheapest quote.</p>
+                    </div>
+                    <div class="approach-card">
+                        <div class="approach-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 11l3 3L22 4"></path>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                            </svg>
+                        </div>
+                        <h3>Prepared for a Real Assessment, Not a Rough Estimate</h3>
+                        <p>Prospects are set up from first contact to expect a thorough site evaluation, not a ballpark figure over the phone. Your team steps into every conversation with a buyer who understands the process, shortening your sales cycle and lifting your close rate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ════════ LEAD INTEGRITY ════════ -->
         <section class="section" style="background:rgba(255,255,255,.015)">
             <div class="container">
@@ -471,7 +516,7 @@
                             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Timeline &amp; purchase intent score</li>
                             <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Custom qualification fields</li>
                         </ul>
-                        <a href="#get-started" class="btn-primary">Start Receiving Leads <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                        <a href="#get-started" class="btn-primary">Lock In Your Exclusive Leads <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                     </div>
                     <div>
                         <div class="lead-card">
@@ -670,13 +715,21 @@
             </div>
         </section>
 
+        <!-- ════════ FINAL CTA ════════ -->
+        <section class="final-cta">
+            <h2>Stop Paying for Leads That Go to <span>Your Competitors</span></h2>
+            <p>Every day you run with shared leads is a day your close rate suffers. Most partners receive their first exclusive leads within 24 hours of going live.</p>
+            <a href="#get-started" class="btn-primary" style="font-size:19px;padding:22px 52px">Claim Your Area Now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <p style="font-size:13px;color:rgba(255,255,255,.3);margin-top:20px">Limited installer spots per postcode &mdash; check availability today.</p>
+        </section>
+
         <!-- ════════ GET STARTED — SURVEY ════════ -->
         <section class="survey-section" id="get-started" style="background:rgba(255,255,255,.015)">
             <div class="container">
                 <div class="section-header">
                     <div class="section-label">Get Started</div>
-                    <h2 class="section-title">Ready to Fill Your Pipeline?</h2>
-                    <p class="section-sub">Answer a few quick questions and our team will build your custom growth plan &mdash; obligation-free.</p>
+                    <h2 class="section-title">Check If Your Area Is Still Available</h2>
+                    <p class="section-sub">We limit the number of partners per postcode to protect lead exclusivity. Answer a few quick questions and our team will confirm availability &mdash; obligation-free.</p>
                 </div>
 
                 <div class="survey-wrapper">
