@@ -1218,11 +1218,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .integrity-banner {
             background: rgba(71, 151, 255, 0.05);
             border: 1px solid rgba(71, 151, 255, 0.2);
-            border-radius: 16px;
-            padding: 24px;
+            border-radius: 20px;
+            padding: 40px 32px;
             text-align: center;
-            max-width: 800px;
-            margin: 60px auto 0;
+            max-width: 980px;
+            margin: 40px auto 0;
         }
         .integrity-banner p {
             color: rgba(255,255,255,0.7);
@@ -1233,6 +1233,62 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #4797FF;
             text-decoration: none;
             font-weight: 500;
+        }
+        .integrity-banner h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 8px;
+        }
+        .integrity-banner .banner-subtitle {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            margin: 0 0 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .integrity-points {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .integrity-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.5;
+        }
+        .integrity-point .ip-icon {
+            color: #4797FF;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .integrity-banner .banner-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #4797FF;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .integrity-banner .banner-link:hover {
+            gap: 10px;
+        }
+        @media (max-width: 768px) {
+            .integrity-points {
+                grid-template-columns: 1fr;
+            }
+            .integrity-banner {
+                padding: 28px 20px;
+            }
         }
 
         /* ============================================
@@ -2312,8 +2368,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             </div>
 
-            <div class="integrity-banner" style="max-width: 980px; margin: 32px auto 0;">
-                <p><strong>100% Lead Integrity Guarantee</strong> - Your leads are verified, tracked, and auditable. <a href="/lead-integrity-standard">See our standards</a></p>
+            <div class="integrity-banner">
+                <h3>Every Lead Meets the Lead Integrity Standard&trade;</h3>
+                <p class="banner-subtitle">Your business is named in the consent text before the homeowner even hits submit.</p>
+                <div class="integrity-points">
+                    <div class="integrity-point">
+                        <span class="ip-icon">&check;</span>
+                        <span><strong>Named Consent</strong> &mdash; Your business name shown to the homeowner before they submit</span>
+                    </div>
+                    <div class="integrity-point">
+                        <span class="ip-icon">&check;</span>
+                        <span><strong>One Lead, One Installer</strong> &mdash; Never shared, never resold to competitors</span>
+                    </div>
+                    <div class="integrity-point">
+                        <span class="ip-icon">&check;</span>
+                        <span><strong>Postcode Matched</strong> &mdash; Only leads in your actual service area</span>
+                    </div>
+                </div>
+                <a href="/lead-integrity-standard" class="banner-link">See how we're ahead on compliance and exclusivity <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
             </div>
         </section>
             
