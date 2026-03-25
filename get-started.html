@@ -776,7 +776,7 @@
     function checkAndNext(fromStep){
         // Check if current selection is disqualifying
         if(pendingDisqualify.value){
-            triggerNotFit(formData, pendingDisqualify.reason);
+            triggerNotFit(pendingDisqualify.reason);
             return;
         }
         goNext(fromStep);
@@ -786,6 +786,7 @@
     }
 
     // ── DISQUALIFICATION ──
+    // No data is sent to the webhook for disqualified applicants.
     var notFitMessages = {
         revenue_below_threshold: "Your current revenue suggests the business may not yet be at the stage where our system would deliver its full value. We're built for established businesses generating $500K+ annually that have the foundation to scale — not those still building toward consistent revenue.",
         solo_operator: "Our system generates consistent, high-volume lead flow. Without a team in place to convert that volume, even the best infrastructure won't close jobs. We're not a fit for solo operators working end-to-end — yet.",
@@ -795,21 +796,11 @@
         wants_self_managed_tool: "We don't offer a platform or tool to manage yourself. What we do is design, build, and run the whole system for you. If you want control of the day-to-day operation of your ads and pipelines, you'd be better served by a self-serve platform."
     };
 
-    function triggerNotFit(data, reason){
-        // Send disqualified data to webhook
-        var payload = Object.assign({}, data, {
-            qualified: false,
-            disqualify_reason: reason,
-            disqualify_step: currentStep
-        });
-        sendToWebhook(payload, true);
-
-        // Show not-fit card
+    function triggerNotFit(reason){
+        // Show not-fit card only — nothing sent to the webhook
         document.getElementById('notFitMessage').textContent = notFitMessages[reason] || "Based on your answers, we don't think our system would deliver the results it's designed to right now.";
         document.getElementById('formCard').style.display = 'none';
         document.getElementById('notFitCard').style.display = 'block';
-
-        // Scroll to top of card
         document.getElementById('notFitCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
@@ -870,10 +861,10 @@
         document.getElementById('formProgress').style.display = 'none';
         document.getElementById('formLoading').classList.add('active');
 
-        sendToWebhook(formData, false);
+        sendToWebhook(formData);
     }
 
-    function sendToWebhook(payload, isDisqualified){
+    function sendToWebhook(payload){
         fetch('https://hook.eu2.make.com/w5ynqeovlpudd77g333ozthgfdv288hy', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -881,10 +872,8 @@
             keepalive: true
         }).catch(function(e){ console.error('Webhook error:', e); });
 
-        if(!isDisqualified){
-            if(typeof fbq !== 'undefined') fbq('track', 'Lead');
-            setTimeout(function(){ window.top.location.href = 'https://quoteleads.com.au/requested'; }, 600);
-        }
+        if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+        setTimeout(function(){ window.top.location.href = 'https://quoteleads.com.au/requested'; }, 600);
     }
 </script>
 </body>
