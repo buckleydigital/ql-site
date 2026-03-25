@@ -1,619 +1,414 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <script src="https://t.contentsquare.net/uxa/698e3fbcbf02b.js"></script>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WX58CBXS');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You're All Set - QuoteLeads</title>
-    <meta name="description" content="Thank you for your submission. Our team will be in touch shortly. Schedule your discovery call with QuoteLeads.">
+    <title>Application Received — QuoteLeads</title>
+    <meta name="description" content="Thank you for your application. Our team will be in touch within one business day to book your discovery call.">
     <link rel="canonical" href="https://quoteleads.com.au/requested">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://quoteleads.com.au/requested">
-    <meta property="og:title" content="You're All Set - QuoteLeads">
-    <meta property="og:description" content="Thank you for your submission. Our team will be in touch shortly.">
-    <meta property="og:image" content="https://github.com/buckleydigital/ql-site/raw/main/product-logo.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://quoteleads.com.au/requested">
-    <meta property="twitter:title" content="You're All Set - QuoteLeads">
-    <meta property="twitter:description" content="Thank you for your submission. Our team will be in touch shortly.">
-    <meta property="twitter:image" content="https://github.com/buckleydigital/ql-site/raw/main/product-logo.png">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '3264378767213114');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=3264378767213114&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "QuoteLeads",
-      "description": "Demand Infrastructure for Trade & Home-Service Businesses",
-      "url": "https://quoteleads.com.au",
-      "logo": "https://github.com/buckleydigital/ql-site/raw/main/product-logo.png",
-      "sameAs": [
-        "https://www.linkedin.com/company/quoteleads",
-        "https://www.instagram.com/quoteleads/",
-        "https://www.facebook.com/quoteleads"
-      ],
-      "offers": {
-        "@type": "Service",
-        "name": "Lead Generation & AI Automation",
-        "description": "Exclusive leads for trade businesses"
-      }
-    }
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-F36W0PEFR4');
-</script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background: #0a0a0f; 
-            color: #ffffff; 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-            font-weight: 400;
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root[data-theme="dark"] {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --bg-deep:     #0d0e12;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.16);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans:  'DM Sans', system-ui, sans-serif;
+            color-scheme: dark;
         }
-        
-        h1, h2, h3 {
-            font-weight: 500;
-        }
-        
-        /* Space Particles Canvas - Clean style */
-        #space-canvas { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            z-index: 0; 
-            pointer-events: none; 
-            background: radial-gradient(ellipse at bottom, #0a0a0f 0%, #000000 100%); 
-        }
-        .content { position: relative; z-index: 1; }
-        
-        /* Section Styles */
-        .section { padding: 120px 24px; max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 80px; }
-        .section-label { 
-            color: #4797FF; 
-            font-weight: 600; 
-            font-size: 14px; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin-bottom: 16px; 
-            display: block; 
-        }
-        .section-title { 
-            font-size: 44px; 
-            font-weight: 500; 
-            line-height: 1.2; 
-            margin-bottom: 20px; 
-            background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.9) 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            background-clip: text; 
-        }
-        .section-subtitle { 
-            font-size: 18px; 
-            color: rgba(255,255,255,0.5); 
-            max-width: 600px; 
-            margin: 0 auto; 
-        }
-        
-        /* Requested Page Specific */
-        .requested-section {
-            padding: 160px 24px 80px;
-            text-align: center;
-        }
-        
-        .requested-header {
-            margin-bottom: 40px;
-        }
-        
-        .requested-header h1 {
-            font-size: 48px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #ffffff 0%, #4797FF 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            background-clip: text;
-        }
-        
-        .requested-header p {
-            font-size: 18px;
-            color: rgba(255,255,255,0.6);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Calendly Container */
-        .calendly-container {
-            max-width: 1000px;
-            margin: 0 auto 40px;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 24px;
-            padding: 20px;
-            overflow: hidden;
-        }
-        
-        .calendly-inline-widget {
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        
-        /* FAQ Accordion */
-        .faq-section { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 80px 24px 120px; 
-        }
-        .faq-item { 
-            border-bottom: 1px solid rgba(255,255,255,0.1); 
-            margin-bottom: 0; 
-        }
-        .faq-question { 
-            padding: 24px 0; 
-            cursor: pointer; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            font-size: 19px; 
-            font-weight: 500; 
-            color: #ffffff; 
-            transition: color 0.3s ease; 
-        }
-        .faq-question:hover { 
-            color: #4797FF; 
-        }
-        .faq-icon { 
-            font-size: 24px; 
-            color: #4797FF; 
-            transition: transform 0.3s ease; 
-        }
-        .faq-item.active .faq-icon { 
-            transform: rotate(45deg); 
-        }
-        .faq-answer { 
-            max-height: 0; 
-            overflow: hidden; 
-            transition: max-height 0.3s ease, padding 0.3s ease; 
-            color: rgba(255,255,255,0.6); 
-            line-height: 1.8; 
-            font-size: 15px;
-        }
-        .faq-item.active .faq-answer { 
-            max-height: 500px; 
-            padding-bottom: 24px; 
-        }
-        
-        /* Footer */
-        .minimal-footer { 
-            padding: 60px 24px 40px; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            text-align: center; 
-        }
-        .footer-links { 
-            display: flex; 
-            justify-content: center; 
-            gap: 32px; 
-            margin-bottom: 30px; 
-            flex-wrap: wrap; 
-        }
-        .footer-links a { 
-            color: rgba(255,255,255,0.6); 
-            text-decoration: none; 
-            font-size: 15px; 
-            transition: color 0.3s ease; 
-        }
-        .footer-links a:hover { 
-            color: #4797FF; 
-        }
-        .copyright { 
-            color: rgba(255,255,255,0.3); 
-            font-size: 14px; 
-        }
-        .footer-tagline {
-            color: rgba(255,255,255,0.5);
-            font-size: 15px;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 30px;
-        }
-        
-        .social-links a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .social-links a:hover {
-            color: #4797FF;
+        :root[data-theme="light"] {
+            --bg:          #f5f3ef;
+            --bg-lift:     #edeae5;
+            --bg-card:     #f9f8f5;
+            --bg-deep:     #e8e4de;
+            --border:      rgba(14,14,14,0.10);
+            --border-mid:  rgba(14,14,14,0.16);
+            --ink:         #0e0e0e;
+            --ink-soft:    #2a2a2a;
+            --ink-muted:   #6b6b6b;
+            --ink-faint:   #9a9a9a;
+            --accent:      #2563eb;
+            --accent-dim:  rgba(37,99,235,0.07);
+            --accent-glow: rgba(37,99,235,0.12);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans:  'DM Sans', system-ui, sans-serif;
+            color-scheme: light;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) { 
-            .section-title { font-size: 36px; } 
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s, color 0.3s;
         }
-        @media (max-width: 768px) { 
-            .requested-header h1 {
-                font-size: 36px;
-            }
-            .calendly-container {
-                padding: 10px;
-            }
-            .section { padding: 80px 24px; } 
-            .section-title { font-size: 28px; } 
-            .faq-section { padding: 60px 24px 80px; }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px;
+            background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
         }
-        @media (max-width: 480px) {
-            .requested-section {
-                padding: 120px 24px 60px;
-            }
-            .footer-links { gap: 16px; }
-            .social-links { flex-direction: column; gap: 12px; align-items: center; }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-text { font-family: var(--serif); font-size: 20px; color: var(--ink); letter-spacing: -0.3px; display: none; }
+        .logo-text.show { display: block; }
+        .nav-links { display: flex; align-items: center; gap: 36px; }
+        .nav-links a { font-size: 14px; font-weight: 400; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--ink); }
+        .nav-cta { background: var(--accent) !important; color: #fff !important; padding: 10px 22px !important; border-radius: 6px !important; font-weight: 400 !important; font-size: 14px !important; transition: opacity 0.2s !important; }
+        .nav-cta:hover { opacity: 0.85 !important; }
+        .theme-btn { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border-mid); background: var(--bg-lift); cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0; }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; } .i-sun { display: none; }
+        [data-theme="light"] .i-moon { display: none; } [data-theme="light"] .i-sun { display: block; }
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+        .mob-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px 24px; }
+        .mob-menu.open { display: flex; flex-direction: column; }
+        .mob-menu a { padding: 14px 0; font-size: 16px; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--border); }
+        .mob-menu a:last-child { border-bottom: none; }
+
+        /* ── SHARED ── */
+        section { padding: 100px 48px; }
+        .si { max-width: 1200px; margin: 0 auto; }
+        .slbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .stitle { font-family: var(--serif); font-size: clamp(30px,4vw,46px); line-height: 1.15; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px; }
+        .stitle em { font-style: italic; color: var(--accent); }
+        .sbody { font-size: 17px; font-weight: 300; color: var(--ink-muted); line-height: 1.75; max-width: 640px; }
+        .btn-primary { background: var(--accent); color: #fff; padding: 15px 34px; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 400; letter-spacing: 0.02em; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+        .btn-ghost { color: var(--ink-muted); font-size: 14px; font-weight: 400; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s; }
+        .btn-ghost:hover { color: var(--ink); }
+        .btn-ghost svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+        /* ── CONFIRMATION HERO ── */
+        .conf-hero {
+            padding: 160px 48px 80px;
+            border-bottom: 1px solid var(--border);
+            position: relative; overflow: hidden;
+        }
+        .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; opacity: 0.4; pointer-events: none; }
+        .hero-glow { position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); pointer-events: none; }
+        .conf-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
+        .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+        .conf-hero h1 { font-family: var(--serif); font-size: clamp(40px,5vw,58px); line-height: 1.1; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 24px; }
+        .conf-hero h1 em { font-style: italic; color: var(--accent); }
+        .conf-hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 36px; }
+
+        /* What happens next panel */
+        .next-panel {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 14px; padding: 40px; position: relative; overflow: hidden;
+        }
+        .next-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; }
+        .np-lbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 28px; }
+        .np-step { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
+        .np-step:last-of-type { border-bottom: none; }
+        .np-num { font-family: var(--serif); font-size: 28px; color: var(--accent); line-height: 1; opacity: 0.3; flex-shrink: 0; width: 28px; }
+        .np-text h4 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; }
+        .np-text p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 300; }
+        .np-foot { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--ink-faint); display: flex; align-items: center; gap: 8px; }
+        .sdot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 3px var(--accent-dim); animation: sdpulse 2.5s ease infinite; }
+        @keyframes sdpulse { 0%,100%{box-shadow:0 0 0 3px var(--accent-dim)} 50%{box-shadow:0 0 0 6px transparent} }
+
+        /* ── CALENDLY SECTION ── */
+        .calendly-s { background: var(--bg-lift); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .calendly-wrap {
+            margin-top: 52px;
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 14px;
+            overflow: hidden; position: relative;
+        }
+        .calendly-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; z-index: 1; }
+        .calendly-inline-widget { border: none; }
+
+        /* ── WHAT TO EXPECT ── */
+        .expect-s { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .expect-grid {
+            display: grid; grid-template-columns: repeat(3,1fr);
+            gap: 1px; background: var(--border); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden; margin-top: 52px;
+        }
+        .expect-item { background: var(--bg-card); padding: 36px 32px; transition: background 0.2s; }
+        .expect-item:hover { background: var(--bg-lift); }
+        .expect-num { font-family: var(--serif); font-size: 38px; color: var(--accent); line-height: 1; margin-bottom: 18px; opacity: 0.2; }
+        .expect-item h3 { font-size: 16px; font-weight: 400; color: var(--ink); margin-bottom: 10px; }
+        .expect-item p { font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+
+        /* ── FAQ ── */
+        .faq-s { border-top: 1px solid var(--border); }
+        .faq-list { margin-top: 48px; }
+        .faq-item { border-top: 1px solid var(--border); }
+        .faq-item:last-child { border-bottom: 1px solid var(--border); }
+        .faq-q { width: 100%; background: none; border: none; cursor: pointer; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; text-align: left; gap: 20px; }
+        .faq-qt { font-size: 16px; font-weight: 400; color: var(--ink); }
+        .faq-qi { font-size: 20px; color: var(--accent); flex-shrink: 0; transition: transform 0.3s; }
+        .faq-item.open .faq-qi { transform: rotate(45deg); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; font-size: 15px; color: var(--ink-muted); line-height: 1.8; font-weight: 300; }
+        .faq-item.open .faq-a { max-height: 300px; padding-bottom: 28px; }
+
+        /* ── FOOTER ── */
+        footer { padding: 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:1024px){
+            section{padding:80px 32px;} .site-header{padding:0 32px;} footer{padding:40px 32px;}
+            .conf-hero{padding:140px 32px 64px;}
+            .conf-hero-inner{grid-template-columns:1fr; gap:48px;}
+            .expect-grid{grid-template-columns:1fr 1fr;}
+        }
+        @media(max-width:768px){
+            section{padding:64px 24px;} .site-header{padding:0 20px;} footer{padding:40px 24px; flex-direction:column; align-items:flex-start; gap:20px;}
+            .conf-hero{padding:120px 24px 56px;}
+            .nav-links{display:none;} .mob-btn{display:block;}
+            .expect-grid{grid-template-columns:1fr;}
+            .conf-hero-actions{flex-direction:column; align-items:flex-start;}
         }
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WX58CBXS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <canvas id="space-canvas"></canvas>
-    <div class="content">
-        
-        <!-- Requested Section -->
-        <section class="requested-section">
-            <div class="requested-header">
-                <h1>You're All Set</h1>
-                <p>Thanks, our team will shortly be in touch. Alternatively, you can schedule a call below.</p>
-            </div>
-            
-            <div class="calendly-container">
-                <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/quoteleads/discoverycall" style="min-width:320px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                <!-- Calendly inline widget end -->
-            </div>
-        </section>
 
-        <!-- FAQ -->
-        <section class="faq-section">
-            <div class="section-header" style="margin-bottom: 60px;">
-                <span class="section-label">FAQ</span>
-                <h2 class="section-title">Common Questions</h2>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>How does QuoteLeads generate leads?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>QuoteLeads uses a combination of ad campaigns, hyper-targeted audience data, and high-converting landing pages tailored to your trade. We drive real customers to exclusive enquiry forms or quote requests. Every lead is 100% yours, never shared with competitors.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>How much does it cost?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>The cost of your QuoteLeads plan depends on several factors, including your preferred lead volume. Growth starts at $590 one-time setup. For precise pricing, reach out to our team and we'll prepare a tailored quote based on your goals and budget.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Who does QuoteLeads work with?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>QuoteLeads systems are built specifically for specialised trades & home-services, the high-skill, project-based services that property owners actively seek out for larger jobs. We specialise in solar leads, roofing leads, HVAC leads, carpentry leads, and renovation leads.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Can I get leads sent to my existing CRM?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes. QuoteLeads integrates with most existing CRM (Customer Relationship Management) systems. If you aren't yet using a CRM, QuoteLeads platform includes a streamlined lead management feature for tracking, nurturing and converting leads.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>When will I start receiving leads?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>In most cases, you'll start receiving leads in less than 24 hours upon QuoteLeads launching your custom advertising campaign, or about 48 hours upon signing up as a new client.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>How does QuoteLeads AI work?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>QuoteLeads AI Assistants are advanced artificially intelligent SMS workflows trained on your business. They instantly follow up with new leads to qualify them and book call-backs all without you lifting a finger. The AI assistants can also analyse patterns, score lead quality and suggest next actions. The AI speaks just like a real team member and follows your preferred sales process. You stay in control: turn features on or off anytime depending on how hands-on or automated you want to be.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Is there a lock-in contract?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>No, there's no lock-in contract, and no mandatory ongoing fee. You have complete flexibility to pause, adjust, or cancel your service at any time.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Do you provide customer support?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes. Our dedicated support team is available 24/7 via Phone, Email & WhatsApp to assist with any questions or other concerns you may have.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="minimal-footer">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <a href="https://quoteleads.com.au">
-                    <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" style="width: 160px; height: auto; margin-bottom: 12px; display: block; margin-left: auto; margin-right: auto;">
-                </a>
-                <a href="mailto:contact@quoteleads.com.au" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 15px; transition: color 0.3s ease;">contact@quoteleads.com.au</a>
-            </div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/company/quoteleads" target="_blank" rel="noopener noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="https://www.instagram.com/quoteleads/" target="_blank" rel="noopener noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    Instagram
-                </a>
-                <a href="https://www.facebook.com/quoteleads" target="_blank" rel="noopener noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    Facebook
-                </a>
-            </div>
-            <div class="footer-links">
-                <a href="https://quoteleads.com.au/privacy">Privacy Policy</a>
-                <a href="https://quoteleads.com.au/terms">Terms & Conditions</a>
-                <a href="https://quoteleads.com.au/security">Security & Compliance</a>
-                <a href="https://quoteleads.com.au/lead-integrity-standard">Lead Integrity Standard</a>
-            </div>
-            <p class="footer-tagline">Accelerating Demand for Trade & Home-Service Businesses.</p>
-            <p class="copyright">© 2026 QuoteLeads. All rights reserved.</p>
-        </footer>
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo" id="logoLink">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+            <span class="logo-text" id="logoText">QuoteLeads</span>
+        </a>
+        <nav class="nav-links">
+            <a href="/#what-we-do">What We Do</a>
+            <a href="/#process">How It Works</a>
+            <a href="/#investment">Investment</a>
+            <a href="/#faq">FAQ</a>
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <a href="/" class="nav-cta">Back to Home</a>
+        </nav>
+        <button class="mob-btn" id="mobBtn" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
+    <nav class="mob-menu" id="mobMenu">
+        <a href="/#what-we-do">What We Do</a>
+        <a href="/#process">How It Works</a>
+        <a href="/#investment">Investment</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/">Back to Home</a>
+    </nav>
+</header>
 
-    <script>
-        // Space Particles System - Clean particles only (no connections)
-        const canvas = document.getElementById('space-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        let particles = [];
-        let stars = [];
-        let animationId;
+<!-- CONFIRMATION HERO -->
+<section class="conf-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="conf-hero-inner">
+        <div>
+            <div class="hero-eyebrow">Application received</div>
+            <h1>We'll be in<br>touch <em>shortly.</em></h1>
+            <p class="sbody">Your application has been submitted. We'll review it and reach out within one business day to book your discovery call. In the meantime, you can lock in a time below.</p>
+            <div class="conf-hero-actions">
+                <a href="#schedule" class="btn-primary">Schedule a call now</a>
+                <a href="/" class="btn-ghost">
+                    Back to home
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+            </div>
+        </div>
+        <div class="next-panel">
+            <div class="np-lbl">What happens next</div>
+            <div class="np-step">
+                <div class="np-num">01</div>
+                <div class="np-text">
+                    <h4>We review your application</h4>
+                    <p>We look over your answers and confirm the fit before reaching out. Usually within a few hours.</p>
+                </div>
+            </div>
+            <div class="np-step">
+                <div class="np-num">02</div>
+                <div class="np-text">
+                    <h4>We reach out to book a call</h4>
+                    <p>Expect a call or SMS within one business day. Or skip ahead and book a time below now.</p>
+                </div>
+            </div>
+            <div class="np-step">
+                <div class="np-num">03</div>
+                <div class="np-text">
+                    <h4>20-minute discovery call</h4>
+                    <p>No pitch deck, no hard sell. We map out what the system would look like for your trade and territory.</p>
+                </div>
+            </div>
+            <div class="np-step">
+                <div class="np-num">04</div>
+                <div class="np-text">
+                    <h4>Build starts within days</h4>
+                    <p>If we're aligned, the build phase begins. First leads typically arrive 7–10 days from sign-on.</p>
+                </div>
+            </div>
+            <div class="np-foot">
+                <span class="sdot"></span>
+                <span>We respond to all qualified applications within one business day</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-        function resize() {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-            initParticles();
-        }
-        
-        function initParticles() {
-            particles = [];
-            stars = [];
-            
-            // Adjust particle count based on screen size to prevent clustering
-            const isMobile = window.innerWidth < 768;
-            const particleCount = isMobile ? 25 : 50;
-            const starCount = isMobile ? 80 : 150;
-            
-            for (let i = 0; i < starCount; i++) {
-                stars.push(new Star());
-            }
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
-        }
-        
-        window.addEventListener('resize', () => {
-            resize();
-        });
-        
-        // Handle orientation change on mobile
-        window.addEventListener('orientationchange', () => {
-            setTimeout(resize, 100);
-        });
+<!-- CALENDLY -->
+<section class="calendly-s" id="schedule">
+    <div class="si">
+        <div class="slbl">Skip the wait</div>
+        <h2 class="stitle">Book your discovery<br>call <em>right now.</em></h2>
+        <p class="sbody">Select a time that works for you. The call is 20 minutes. No obligation, no pitch deck — just a straightforward conversation about your business and whether we're a fit.</p>
+        <div class="calendly-wrap">
+            <div class="calendly-inline-widget" data-url="https://calendly.com/quoteleads/discoverycall?hide_gdpr_banner=1&background_color=161820&text_color=f0f0ef&primary_color=4797ff" style="min-width:320px; height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+    </div>
+</section>
 
-        class Star {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 1.5;
-                this.opacity = Math.random() * 0.5 + 0.1;
-                this.twinkleSpeed = Math.random() * 0.02 + 0.005;
-                this.twinkleDir = 1;
-            }
-            update() {
-                this.opacity += this.twinkleSpeed * this.twinkleDir;
-                if (this.opacity > 0.8 || this.opacity < 0.1) {
-                    this.twinkleDir *= -1;
-                }
-            }
-            draw() {
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
+<!-- WHAT TO EXPECT ON THE CALL -->
+<section class="expect-s">
+    <div class="si">
+        <div class="slbl">On the call</div>
+        <h2 class="stitle">What the 20 minutes<br><em>covers.</em></h2>
+        <p class="sbody">We keep it focused. No slides, no sales theatre. Here's what we'll work through together.</p>
+        <div class="expect-grid">
+            <div class="expect-item">
+                <div class="expect-num">01</div>
+                <h3>Your business and trade</h3>
+                <p>We'll understand your service area, average job value, current volume, and what you've tried before. No assumptions — we ask and listen first.</p>
+            </div>
+            <div class="expect-item">
+                <div class="expect-num">02</div>
+                <h3>What the system looks like for you</h3>
+                <p>We'll map out the specific components that would be built for your trade, territory, and capacity — not a generic overview, but your actual setup.</p>
+            </div>
+            <div class="expect-item">
+                <div class="expect-num">03</div>
+                <h3>Investment and timeline</h3>
+                <p>We'll give you a clear range based on your scope, explain the build timeline, and answer any questions about how it all works. Then you decide.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.3;
-                this.speedY = (Math.random() - 0.5) * 0.3;
-                this.opacity = Math.random() * 0.5 + 0.2;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x < 0) this.x = width;
-                if (this.x > width) this.x = 0;
-                if (this.y < 0) this.y = height;
-                if (this.y > height) this.y = 0;
-            }
-            draw() {
-                ctx.fillStyle = `rgba(71, 151, 255, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
+<!-- FAQ -->
+<section class="faq-s">
+    <div class="si">
+        <div class="slbl">Common questions</div>
+        <h2 class="stitle">Before the call.</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do I need to prepare anything for the call?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">Nothing formal. It helps to have a rough sense of your current monthly job volume, your average job value, and what you've tried before for lead generation — but we'll guide the conversation. Just show up and be ready to talk about your business.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What does it cost?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">Most businesses invest between $7,000 and $15,000+ to have the system properly built and deployed. The scope varies depending on your trade, territory, and the infrastructure required. Ad spend is managed separately — we'll recommend a starting budget on the call based on your goals and capacity.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How quickly will I start receiving leads?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">The build phase typically takes 5–7 business days. In most cases, the first leads arrive within 24–48 hours of the campaign going live. From sign-on to first lead, you're typically looking at around 7–10 days total.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Are the leads exclusive to my business?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">Yes. The funnel is built in your business name. Homeowners see your branding before they submit. There's no shared database, no marketplace, no pool of buyers. We don't work with more than one client per trade in an overlapping postcode area.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is there a lock-in contract?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">No lock-in. The implementation fee covers the build. If you choose ongoing management, there's a 30-day notice period to cancel. The infrastructure we build belongs to you — it doesn't disappear if you stop working with us.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What if I need to reschedule?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">No problem. Use the link in your Calendly confirmation email to reschedule at any time. Alternatively, reach us directly at contact@quoteleads.com.au and we'll sort it out.</div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        let mouse = { x: null, y: null };
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-        window.addEventListener('mouseleave', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
-        
-        // Handle touch for mobile
-        window.addEventListener('touchmove', (e) => {
-            if(e.touches.length > 0) {
-                mouse.x = e.touches[0].clientX;
-                mouse.y = e.touches[0].clientY;
-            }
-        });
-        window.addEventListener('touchend', () => {
-            mouse.x = null;
-            mouse.y = null;
-        });
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span>QuoteLeads</span>
+    </div>
+    <div class="foot-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">© 2026 QuoteLeads</div>
+</footer>
 
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            stars.forEach(star => {
-                star.update();
-                star.draw();
-            });
-            particles.forEach(particle => {
-                particle.update();
-                if (mouse.x != null && mouse.y != null) {
-                    const dx = mouse.x - particle.x;
-                    const dy = mouse.y - particle.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < 200) {
-                        const forceDirectionX = dx / distance;
-                        const forceDirectionY = dy / distance;
-                        const force = (200 - distance) / 200;
-                        particle.x += forceDirectionX * force * 0.5;
-                        particle.y += forceDirectionY * force * 0.5;
-                    }
-                }
-                particle.draw();
-            });
-            animationId = requestAnimationFrame(animate);
-        }
-        
-        // Initialize on load
-        resize();
-        animate();
-        
-        // Cleanup on page hide
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                cancelAnimationFrame(animationId);
-            } else {
-                animate();
-            }
-        });
+<script>
+    (function(){
+        var saved = localStorage.getItem('ql-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+    })();
+    document.getElementById('themeBtn').addEventListener('click', function(){
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ql-theme', next);
+        updateLogos();
+    });
+    function updateLogos(){
+        var theme = document.documentElement.getAttribute('data-theme');
+        var w = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
+        var d = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
+        var hi = document.getElementById('logoImg'); if(hi) hi.src = theme === 'light' ? d : w;
+        var fi = document.getElementById('footLogoImg'); if(fi) fi.src = theme === 'light' ? d : w;
+    }
+    updateLogos();
+    var logoImg = document.getElementById('logoImg');
+    if(logoImg) logoImg.addEventListener('error', function(){ this.style.display='none'; var t=document.getElementById('logoText'); if(t) t.style.display='block'; });
 
-        // FAQ Toggle
-        function toggleFaq(element) {
-            const item = element.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Close all
-            document.querySelectorAll('.faq-item').forEach(faq => {
-                faq.classList.remove('active');
-            });
-            
-            // Open clicked if wasn't active
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        }
-    </script>
+    document.getElementById('mobBtn').addEventListener('click', function(){ document.getElementById('mobMenu').classList.toggle('open'); });
+    document.querySelectorAll('#mobMenu a').forEach(function(a){ a.addEventListener('click', function(){ document.getElementById('mobMenu').classList.remove('open'); }); });
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+            var target = document.querySelector(a.getAttribute('href'));
+            if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+        });
+    });
+
+    function toggleFaq(btn){
+        var item = btn.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+        if(!isOpen) item.classList.add('open');
+    }
+</script>
 </body>
 </html>
-
-
-
