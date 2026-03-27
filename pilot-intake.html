@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Pilot — Market Pulse by QuoteLeads</title>
+    <meta name="description" content="Complete the intake to start your Market Pulse pilot. 10–15 qualified, consented leads in 7 days. $997 flat.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --bg-deep:     #0d0e12;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.16);
+            --green:       #22c55e;
+            --green-dim:   rgba(34,197,94,0.10);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans:  'DM Sans', system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── HEADER ── */
+        .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(10,11,15,0.88); backdrop-filter: blur(20px); }
+        .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo-text { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); text-decoration: none; letter-spacing: -0.2px; }
+        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 300; margin-left: 10px; }
+        .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .header-link:hover { color: var(--ink); }
+
+        /* ── HERO ── */
+        .page-hero {
+            padding: 140px 48px 64px;
+            border-bottom: 1px solid var(--border);
+            position: relative; overflow: hidden;
+        }
+        .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; opacity: 0.3; pointer-events: none; }
+        .hero-glow { position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); pointer-events: none; }
+        .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+        .hero-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+        .page-hero h1 { font-family: var(--serif); font-size: clamp(36px,5vw,56px); line-height: 1.1; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 20px; }
+        .page-hero h1 em { font-style: italic; color: var(--accent); }
+        .hero-sub { font-size: 17px; font-weight: 300; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
+
+        /* ── LAYOUT ── */
+        .app-section { padding: 64px 48px 100px; }
+        .app-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start; }
+
+        /* ── FORM CARD ── */
+        .form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+        .form-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
+        }
+
+        /* Progress */
+        .form-progress { padding: 20px 40px 0; }
+        .progress-track { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.4s ease; width: 0%; }
+        .progress-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .progress-step-lbl { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+        .progress-pct { font-size: 11px; color: var(--accent); }
+
+        /* Steps */
+        .form-body { padding: 36px 40px 40px; }
+        .form-step { display: none; animation: stepIn 0.35s ease; }
+        .form-step.active { display: block; }
+        @keyframes stepIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+        .step-q { font-family: var(--serif); font-size: clamp(20px,2.5vw,26px); line-height: 1.25; color: var(--ink); margin-bottom: 8px; }
+        .step-hint { font-size: 13px; color: var(--ink-faint); margin-bottom: 28px; line-height: 1.55; }
+
+        /* Option grid */
+        .opt-grid { display: grid; gap: 10px; margin-bottom: 28px; }
+        .opt-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+        .opt-card {
+            background: var(--bg-lift);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 18px;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s, transform 0.15s;
+            user-select: none;
+        }
+        .opt-card:hover { border-color: var(--accent); background: var(--accent-dim); transform: translateY(-1px); }
+        .opt-card.selected { border-color: var(--accent); background: var(--accent-dim); }
+        .opt-card.selected .opt-label { color: var(--ink); }
+        .opt-label { font-size: 14px; font-weight: 400; color: var(--ink-soft); line-height: 1.4; display: flex; align-items: flex-start; gap: 10px; }
+        .opt-label::before { content: ''; width: 14px; height: 14px; border: 1px solid var(--border-mid); border-radius: 50%; flex-shrink: 0; margin-top: 1px; transition: all 0.2s; }
+        .opt-card.selected .opt-label::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+        .opt-sub { font-size: 12px; color: var(--ink-faint); margin-top: 3px; padding-left: 24px; }
+
+        /* Text inputs */
+        .field-group { margin-bottom: 18px; }
+        .field-group label { display: block; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
+        .field-group input, .field-group select {
+            width: 100%; padding: 14px 16px;
+            background: var(--bg-lift); border: 1px solid var(--border);
+            border-radius: 8px; color: var(--ink); font-family: var(--sans);
+            font-size: 15px; font-weight: 300; transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+        }
+        .field-group input::placeholder { color: var(--ink-faint); }
+        .field-group input:focus, .field-group select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+        /* Other text field */
+        .other-field { margin-top: 10px; margin-bottom: 18px; display: none; }
+        .other-field.show { display: block; }
+        .other-field input { width: 100%; padding: 12px 14px; background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px; color: var(--ink); font-family: var(--sans); font-size: 14px; font-weight: 300; }
+        .other-field input:focus { outline: none; border-color: var(--accent); }
+
+        /* Radius selector */
+        .radius-row { display: grid; grid-template-columns: 1fr 140px; gap: 14px; align-items: end; }
+        .radius-or { text-align: center; padding: 20px 0; font-size: 13px; color: var(--ink-faint); position: relative; }
+        .radius-or::before, .radius-or::after { content: ''; position: absolute; top: 50%; height: 1px; background: var(--border); width: 40%; }
+        .radius-or::before { left: 0; }
+        .radius-or::after { right: 0; }
+        .postcode-alt {
+            background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px;
+            padding: 16px 18px; text-align: center;
+        }
+        .postcode-alt p { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
+        .postcode-alt a { color: var(--accent); text-decoration: none; font-weight: 400; }
+
+        /* Delivery toggles */
+        .delivery-opts { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+        .delivery-opt {
+            background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px;
+            padding: 20px; display: flex; align-items: center; justify-content: space-between;
+            cursor: pointer; transition: border-color 0.2s, background 0.2s;
+            user-select: none;
+        }
+        .delivery-opt:hover { border-color: var(--border-mid); }
+        .delivery-opt.active { border-color: var(--accent); background: var(--accent-dim); }
+        .delivery-opt-left { display: flex; align-items: center; gap: 14px; }
+        .delivery-opt-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .delivery-opt-icon svg { width: 16px; height: 16px; stroke: var(--accent); stroke-width: 1.5; fill: none; }
+        .delivery-opt-label { font-size: 15px; font-weight: 400; color: var(--ink); }
+        .delivery-opt-desc { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+        .delivery-toggle {
+            width: 42px; height: 24px; border-radius: 12px; background: var(--border);
+            position: relative; transition: background 0.2s; flex-shrink: 0;
+        }
+        .delivery-toggle::after {
+            content: ''; position: absolute; top: 3px; left: 3px;
+            width: 18px; height: 18px; border-radius: 50%; background: var(--ink-faint);
+            transition: transform 0.2s, background 0.2s;
+        }
+        .delivery-opt.active .delivery-toggle { background: var(--accent); }
+        .delivery-opt.active .delivery-toggle::after { transform: translateX(18px); background: #fff; }
+        .delivery-note {
+            background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px;
+            padding: 14px 18px; font-size: 12px; color: var(--ink-faint); line-height: 1.6;
+        }
+        .delivery-note strong { color: var(--ink-muted); font-weight: 400; }
+
+        /* Checkboxes */
+        .confirm-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+        .confirm-item {
+            display: flex; align-items: flex-start; gap: 12px;
+            cursor: pointer; user-select: none;
+        }
+        .confirm-box {
+            width: 18px; height: 18px; border: 1px solid var(--border-mid);
+            border-radius: 4px; flex-shrink: 0; margin-top: 2px;
+            transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+        }
+        .confirm-box svg { width: 10px; height: 10px; stroke: #fff; stroke-width: 2.5; fill: none; opacity: 0; transition: opacity 0.2s; }
+        .confirm-item.checked .confirm-box { background: var(--accent); border-color: var(--accent); }
+        .confirm-item.checked .confirm-box svg { opacity: 1; }
+        .confirm-text { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
+        .confirm-text a { color: var(--accent); text-decoration: none; }
+
+        /* Buttons */
+        .btn-row { display: flex; gap: 12px; align-items: center; margin-top: 28px; }
+        .btn-back { background: none; border: 1px solid var(--border); color: var(--ink-muted); padding: 13px 22px; border-radius: 6px; font-family: var(--sans); font-size: 14px; font-weight: 400; cursor: pointer; transition: all 0.2s; }
+        .btn-back:hover { border-color: var(--border-mid); color: var(--ink); }
+        .btn-next { background: var(--accent); color: #fff; border: none; padding: 13px 32px; border-radius: 6px; font-family: var(--sans); font-size: 14px; font-weight: 400; cursor: pointer; transition: opacity 0.2s, transform 0.2s; flex: 1; }
+        .btn-next:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+        .btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+        .btn-submit { background: var(--accent); color: #fff; border: none; padding: 15px 32px; border-radius: 6px; font-family: var(--sans); font-size: 15px; font-weight: 400; cursor: pointer; transition: opacity 0.2s, transform 0.2s; flex: 1; }
+        .btn-submit:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+        .btn-submit:disabled { opacity: 0.35; cursor: not-allowed; }
+
+        /* Loading */
+        .form-loading { display: none; padding: 60px 40px; text-align: center; }
+        .form-loading.active { display: block; }
+        .spin { width: 40px; height: 40px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.9s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .form-loading p { font-size: 14px; color: var(--ink-muted); }
+
+        /* Success state */
+        .form-success { display: none; padding: 48px 40px; animation: stepIn 0.35s ease; }
+        .form-success.active { display: block; }
+        .success-icon {
+            width: 52px; height: 52px; border-radius: 50%;
+            background: var(--green-dim); border: 1px solid rgba(34,197,94,0.25);
+            display: flex; align-items: center; justify-content: center; margin-bottom: 28px;
+        }
+        .success-icon svg { width: 24px; height: 24px; stroke: var(--green); stroke-width: 2.5; fill: none; }
+        .form-success h2 { font-family: var(--serif); font-size: 30px; color: var(--ink); margin-bottom: 12px; line-height: 1.2; }
+        .form-success > p { font-size: 15px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 28px; font-weight: 300; }
+        .success-steps { display: flex; flex-direction: column; gap: 0; }
+        .success-step {
+            display: flex; align-items: flex-start; gap: 16px;
+            padding: 18px 0; border-bottom: 1px solid var(--border);
+        }
+        .success-step:last-child { border-bottom: none; }
+        .success-step-num {
+            width: 28px; height: 28px; border-radius: 6px;
+            background: var(--accent-dim); border: 1px solid rgba(71,151,255,0.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: 400; color: var(--accent); flex-shrink: 0; margin-top: 1px;
+        }
+        .success-step-title { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; }
+        .success-step-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 300; }
+        .success-divider { height: 1px; background: var(--border); margin: 28px 0; }
+        .success-note { font-size: 13px; color: var(--ink-faint); line-height: 1.6; margin-bottom: 0 !important; }
+        .success-note a { color: var(--accent); text-decoration: none; }
+        .success-link {
+            display: inline-block; margin-top: 20px; font-size: 13px;
+            color: var(--ink-faint); text-decoration: none; transition: color 0.2s;
+        }
+        .success-link:hover { color: var(--ink); }
+
+        /* ── SIDEBAR ── */
+        .app-sidebar { position: sticky; top: 96px; }
+        .sidebar-card { background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 12px; padding: 32px; margin-bottom: 16px; position: relative; overflow: hidden; }
+        .sidebar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; }
+        .sc-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
+
+        .sc-metric { padding: 14px 0; border-bottom: 1px solid var(--border); }
+        .sc-metric:last-of-type { border-bottom: none; }
+        .sc-val { font-family: var(--serif); font-size: 28px; color: var(--accent); line-height: 1; margin-bottom: 5px; }
+        .sc-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+        .sc-sub { font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
+
+        .checklist { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+        .checklist li { font-size: 13px; color: var(--ink-muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+        .checklist li::before { content: '→'; color: var(--accent); font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+
+        .sc-foot { margin-top: 4px; padding-top: 16px; font-size: 13px; color: var(--ink-faint); display: flex; align-items: center; gap: 8px; }
+        .sdot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 3px var(--accent-dim); animation: sdpulse 2.5s ease infinite; }
+        @keyframes sdpulse { 0%,100%{box-shadow:0 0 0 3px var(--accent-dim)} 50%{box-shadow:0 0 0 6px transparent} }
+
+        .disclaimer-txt { font-size: 12px; color: var(--ink-faint); line-height: 1.65; margin-top: 16px; }
+
+        /* ── FOOTER ── */
+        footer { padding: 36px 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        .foot-logo { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); }
+        .foot-links { display: flex; gap: 24px; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:1024px) {
+            .site-header { padding: 0 32px; }
+            .page-hero { padding: 130px 32px 56px; }
+            .app-section { padding: 48px 32px 80px; }
+            .app-layout { grid-template-columns: 1fr; gap: 40px; }
+            .app-sidebar { position: static; }
+            .sidebar-card:not(:first-child) { display: none; }
+            footer { padding: 32px; }
+        }
+        @media(max-width:768px) {
+            .site-header { padding: 0 20px; }
+            .page-hero { padding: 110px 24px 48px; }
+            .app-section { padding: 40px 24px 64px; }
+            .form-progress { padding: 16px 24px 0; }
+            .form-body { padding: 24px 24px 28px; }
+            .form-loading { padding: 48px 24px; }
+            .form-success { padding: 36px 24px; }
+            .opt-grid.cols-2 { grid-template-columns: 1fr; }
+            .field-row, .radius-row { grid-template-columns: 1fr; }
+            .btn-row { flex-direction: column-reverse; }
+            .btn-back { width: 100%; }
+            footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="https://quoteleads.com.au" class="logo-text">QuoteLeads <span>Market Pulse</span></a>
+        <a href="https://quoteleads.com.au/pilot" class="header-link">← Back to Pilot overview</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="page-hero-inner">
+        <div class="hero-eyebrow">Pilot Intake</div>
+        <h1>Lock in your<br><em>proof round.</em></h1>
+        <p class="hero-sub">Five quick steps. We'll use this to configure your Market Pulse campaign — your trade, your area, your delivery preferences. Leads start arriving within 48 hours of payment.</p>
+    </div>
+</section>
+
+<!-- APPLICATION -->
+<section class="app-section">
+    <div class="app-layout">
+
+        <!-- FORM -->
+        <div>
+            <div class="form-card" id="formCard">
+
+                <!-- Progress -->
+                <div class="form-progress" id="formProgress">
+                    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+                    <div class="progress-meta">
+                        <span class="progress-step-lbl" id="stepLbl">Step 1 of 5</span>
+                        <span class="progress-pct" id="stepPct">0%</span>
+                    </div>
+                </div>
+
+                <!-- Steps -->
+                <div class="form-body" id="formBody">
+
+                    <!-- STEP 1: Trade -->
+                    <div class="form-step active" id="step1">
+                        <div class="step-q">What trade are you in?</div>
+                        <div class="step-hint">We use this to target the right homeowners in your area.</div>
+                        <div class="opt-grid cols-2">
+                            <div class="opt-card" data-field="trade" data-value="Solar">
+                                <div class="opt-label">Solar</div>
+                            </div>
+                            <div class="opt-card" data-field="trade" data-value="Roofing">
+                                <div class="opt-label">Roofing</div>
+                            </div>
+                            <div class="opt-card" data-field="trade" data-value="HVAC">
+                                <div class="opt-label">HVAC</div>
+                            </div>
+                            <div class="opt-card" data-field="trade" data-value="Renovation / Building">
+                                <div class="opt-label">Renovation / Building</div>
+                            </div>
+                            <div class="opt-card" data-field="trade" data-value="Carpentry">
+                                <div class="opt-label">Carpentry</div>
+                            </div>
+                            <div class="opt-card" data-field="trade" data-value="Other">
+                                <div class="opt-label">Other high-ticket trade</div>
+                            </div>
+                        </div>
+                        <div class="other-field" id="otherTradeField">
+                            <div class="field-group" style="margin-bottom:0;">
+                                <label>Describe your trade</label>
+                                <input type="text" id="otherTradeInput" placeholder="e.g. Pool installation, Landscaping...">
+                            </div>
+                        </div>
+                        <div class="btn-row">
+                            <button class="btn-next" id="next1" disabled onclick="goNext(1)">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Service Area -->
+                    <div class="form-step" id="step2">
+                        <div class="step-q">Where do you service?</div>
+                        <div class="step-hint">Enter a central postcode and radius. We'll target homeowners within that zone.</div>
+                        <div class="radius-row">
+                            <div class="field-group" style="margin-bottom:0;">
+                                <label>Centre postcode</label>
+                                <input type="text" id="servicePostcode" placeholder="e.g. 2155" maxlength="4" inputmode="numeric">
+                            </div>
+                            <div class="field-group" style="margin-bottom:0;">
+                                <label>Radius</label>
+                                <select id="serviceRadius">
+                                    <option value="10km">10 km</option>
+                                    <option value="20km" selected>20 km</option>
+                                    <option value="30km">30 km</option>
+                                    <option value="40km">40 km</option>
+                                    <option value="50km">50 km</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="radius-or">or</div>
+                        <div class="postcode-alt">
+                            <p>Have a specific list of postcodes?<br>Send it to <a href="mailto:contact@quoteleads.com.au?subject=Pilot%20Postcode%20List">contact@quoteleads.com.au</a> and we'll configure it manually.</p>
+                        </div>
+                        <div class="btn-row">
+                            <button class="btn-back" onclick="goPrev(2)">Back</button>
+                            <button class="btn-next" id="next2" disabled onclick="goNext(2)">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Lead Delivery -->
+                    <div class="form-step" id="step3">
+                        <div class="step-q">How should we deliver your leads?</div>
+                        <div class="step-hint">Select one or both. Every lead hits you the moment they come in.</div>
+                        <div class="delivery-opts">
+                            <div class="delivery-opt active" id="delEmail" onclick="toggleDelivery('email')">
+                                <div class="delivery-opt-left">
+                                    <div class="delivery-opt-icon">
+                                        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="delivery-opt-label">Email</div>
+                                        <div class="delivery-opt-desc">Full lead details to your inbox instantly</div>
+                                    </div>
+                                </div>
+                                <div class="delivery-toggle"></div>
+                            </div>
+                            <div class="delivery-opt active" id="delSMS" onclick="toggleDelivery('sms')">
+                                <div class="delivery-opt-left">
+                                    <div class="delivery-opt-icon">
+                                        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div class="delivery-opt-label">SMS</div>
+                                        <div class="delivery-opt-desc">Lead alert straight to your phone</div>
+                                    </div>
+                                </div>
+                                <div class="delivery-toggle"></div>
+                            </div>
+                        </div>
+                        <div class="delivery-note">
+                            <strong>CRM integration isn't included in the pilot.</strong> That's part of the full system build — where leads flow directly into your pipeline, trigger follow-up sequences, and get tracked end-to-end.
+                        </div>
+                        <div class="btn-row">
+                            <button class="btn-back" onclick="goPrev(3)">Back</button>
+                            <button class="btn-next" id="next3" onclick="goNext(3)">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Contact Details -->
+                    <div class="form-step" id="step4">
+                        <div class="step-q">Your details.</div>
+                        <div class="step-hint">This is where your leads get delivered — double check everything.</div>
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label>First name</label>
+                                <input type="text" id="first_name" placeholder="First name">
+                            </div>
+                            <div class="field-group">
+                                <label>Last name</label>
+                                <input type="text" id="last_name" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label>Company name</label>
+                            <input type="text" id="company" placeholder="Your business name (as it appears to homeowners)">
+                        </div>
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label>Phone</label>
+                                <input type="tel" id="phone" placeholder="04XX XXX XXX">
+                            </div>
+                            <div class="field-group">
+                                <label>Email</label>
+                                <input type="email" id="email" placeholder="you@company.com.au">
+                            </div>
+                        </div>
+                        <div class="btn-row">
+                            <button class="btn-back" onclick="goPrev(4)">Back</button>
+                            <button class="btn-next" id="next4" disabled onclick="goNext(4)">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: Confirm & Submit -->
+                    <div class="form-step" id="step5">
+                        <div class="step-q">Confirm and start your pilot.</div>
+                        <div class="step-hint">Read each item and check the box. Once submitted, we'll configure your campaign and leads start within 48 hours.</div>
+
+                        <div class="confirm-list" id="confirmList">
+                            <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="guarantee">
+                                <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+                                <div class="confirm-text">I understand Market Pulse guarantees a minimum of <strong style="color:var(--ink)">10 phone-verified leads</strong>, generated through paid advertising with a full proof and audit trail, delivered within 7 days — or the balance is refunded pro-rata.</div>
+                            </div>
+                            <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="no_conversion">
+                                <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+                                <div class="confirm-text">I understand there are <strong style="color:var(--ink)">no guarantees on conversion, jobs won, or revenue</strong>. Market Pulse delivers the opportunity — closing it is mine to own.</div>
+                            </div>
+                            <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="consent">
+                                <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+                                <div class="confirm-text">I authorise QuoteLeads to insert my business name into consent text on branded surveys to <strong style="color:var(--ink)">exclusively match homeowners</strong> with my business in my service area.</div>
+                            </div>
+                            <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="terms">
+                                <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+                                <div class="confirm-text">I have read and agree to the <a href="https://quoteleads.com.au/pilot-terms" target="_blank">Pilot Terms &amp; Conditions</a>.</div>
+                            </div>
+                        </div>
+
+                        <div id="turnstile-container" style="margin-top:6px;"></div>
+
+                        <div class="btn-row">
+                            <button class="btn-back" onclick="goPrev(5)">Back</button>
+                            <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Submit &amp; Start Pilot — $997</button>
+                        </div>
+                        <p class="disclaimer-txt">By submitting, you agree to receive calls, texts, or emails from QuoteLeads at the contact details provided. See our <a href="https://quoteleads.com.au/privacy" style="color:var(--accent); text-decoration:none;">Privacy Policy</a>.</p>
+                    </div>
+
+                </div><!-- /form-body -->
+
+                <!-- Loading state -->
+                <div class="form-loading" id="formLoading">
+                    <div class="spin"></div>
+                    <p>Submitting your pilot intake…</p>
+                </div>
+
+                <!-- Success state -->
+                <div class="form-success" id="formSuccess">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="4,12 9,17 20,6"/></svg>
+                    </div>
+                    <h2>You're locked in.</h2>
+                    <p>Your pilot intake has been submitted. Here's what happens now:</p>
+                    <div class="success-steps">
+                        <div class="success-step">
+                            <div class="success-step-num">1</div>
+                            <div>
+                                <div class="success-step-title">Invoice incoming</div>
+                                <div class="success-step-desc">You'll receive a $997 invoice via email shortly. Pay via bank transfer — details are on the invoice.</div>
+                            </div>
+                        </div>
+                        <div class="success-step">
+                            <div class="success-step-num">2</div>
+                            <div>
+                                <div class="success-step-title">Campaign activates</div>
+                                <div class="success-step-desc">Within 24 hours of payment clearing, your Market Pulse campaign goes live.</div>
+                            </div>
+                        </div>
+                        <div class="success-step">
+                            <div class="success-step-num">3</div>
+                            <div>
+                                <div class="success-step-title">Leads start arriving</div>
+                                <div class="success-step-desc">Qualified, consented homeowners delivered to your phone and inbox. Follow up fast.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="success-divider"></div>
+                    <p class="success-note">Questions in the meantime? <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a></p>
+                    <a href="https://quoteleads.com.au" class="success-link">← Back to QuoteLeads</a>
+                </div>
+
+            </div><!-- /form-card -->
+        </div><!-- /left col -->
+
+        <!-- SIDEBAR -->
+        <div class="app-sidebar">
+            <div class="sidebar-card">
+                <div class="sc-lbl">Your Pilot</div>
+                <div class="sc-metric">
+                    <div class="sc-val">$997</div>
+                    <div class="sc-desc">Flat fee — no per-lead markup</div>
+                    <div class="sc-sub">One job covers it. The rest is upside.</div>
+                </div>
+                <div class="sc-metric">
+                    <div class="sc-val">10–15</div>
+                    <div class="sc-desc">Qualified, consented leads in 7 days</div>
+                    <div class="sc-sub">Minimum 10 guaranteed or pro-rata refund</div>
+                </div>
+                <div class="sc-metric">
+                    <div class="sc-val">48hrs</div>
+                    <div class="sc-desc">First leads arriving after campaign launch</div>
+                    <div class="sc-sub">Same engine as the full QuoteLeads system</div>
+                </div>
+                <div class="sc-foot">
+                    <span class="sdot"></span>
+                    <span>Limited spots each month per area</span>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sc-lbl">What you're getting</div>
+                <ul class="checklist">
+                    <li>1-to-1 consent — homeowner agreed to hear from your business</li>
+                    <li>Phone-verified leads generated through paid advertising</li>
+                    <li>Full proof and audit trail for every lead delivered</li>
+                    <li>Delivered via SMS + email the moment they come in</li>
+                    <li>Pre-qualified — renters and tyre-kickers filtered out</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sc-lbl">After the pilot</div>
+                <p style="font-size:13px; color:var(--ink-muted); line-height:1.65;">You'll have the data — lead quality, your close rate, the ROI. If the mechanism proved itself, we'll show you what the full system looks like built under your brand.</p>
+                <p style="font-size:13px; color:var(--ink-faint); margin-top:10px; line-height:1.55;"><a href="https://quoteleads.com.au" style="color:var(--accent); text-decoration:none;">Learn more about the full system →</a></p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">QuoteLeads</div>
+    <div class="foot-links">
+        <a href="https://quoteleads.com.au">Main Site</a>
+        <a href="https://quoteleads.com.au/privacy">Privacy</a>
+        <a href="https://quoteleads.com.au/pilot-terms">Pilot Terms</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">© 2026 QuoteLeads</div>
+</footer>
+
+<script>
+(function(){
+    // ── STATE ──
+    var TOTAL_STEPS = 5;
+    var currentStep = 1;
+    var turnstileToken = '';
+    var turnstileRendered = false;
+
+    var formData = {
+        trade: '', service_postcode: '', service_radius: '20km',
+        delivery_email: true, delivery_sms: true,
+        first_name: '', last_name: '', company: '', phone: '', email: '',
+        confirm_guarantee: false, confirm_no_conversion: false,
+        confirm_consent: false, confirm_terms: false
+    };
+
+    // ── OPTION CARDS ──
+    document.querySelectorAll('.opt-card').forEach(function(card){
+        card.addEventListener('click', function(){
+            var field = this.getAttribute('data-field');
+            document.querySelectorAll('.opt-card[data-field="' + field + '"]').forEach(function(c){ c.classList.remove('selected'); });
+            this.classList.add('selected');
+            formData[field] = this.getAttribute('data-value');
+
+            var nextBtn = document.getElementById('next' + currentStep);
+            if(nextBtn) nextBtn.disabled = false;
+
+            if(field === 'trade'){
+                var otherField = document.getElementById('otherTradeField');
+                if(formData.trade === 'Other'){
+                    otherField.classList.add('show');
+                } else {
+                    otherField.classList.remove('show');
+                    document.getElementById('otherTradeInput').value = '';
+                }
+            }
+        });
+    });
+
+    // ── POSTCODE VALIDATION ──
+    document.getElementById('servicePostcode').addEventListener('input', function(){
+        formData.service_postcode = this.value.trim();
+        document.getElementById('next2').disabled = formData.service_postcode.length < 4;
+    });
+    document.getElementById('serviceRadius').addEventListener('change', function(){
+        formData.service_radius = this.value;
+    });
+
+    // ── DELIVERY TOGGLES ──
+    window.toggleDelivery = function(type){
+        if(type === 'email'){
+            formData.delivery_email = !formData.delivery_email;
+            document.getElementById('delEmail').classList.toggle('active', formData.delivery_email);
+        } else {
+            formData.delivery_sms = !formData.delivery_sms;
+            document.getElementById('delSMS').classList.toggle('active', formData.delivery_sms);
+        }
+        // Must have at least one
+        var next3 = document.getElementById('next3');
+        if(next3) next3.disabled = !formData.delivery_email && !formData.delivery_sms;
+    };
+
+    // ── CONTACT VALIDATION ──
+    function checkStep4(){
+        var fn = document.getElementById('first_name').value.trim();
+        var ln = document.getElementById('last_name').value.trim();
+        var co = document.getElementById('company').value.trim();
+        var ph = document.getElementById('phone').value.trim();
+        var em = document.getElementById('email').value.trim();
+        document.getElementById('next4').disabled = !(fn && ln && co && ph && em);
+    }
+    ['first_name','last_name','company','phone','email'].forEach(function(id){
+        document.getElementById(id).addEventListener('input', checkStep4);
+    });
+
+    // ── CONFIRM CHECKBOXES ──
+    window.toggleConfirm = function(el){
+        el.classList.toggle('checked');
+        var key = 'confirm_' + el.getAttribute('data-confirm');
+        formData[key] = el.classList.contains('checked');
+        checkSubmitReady();
+    };
+
+    function checkSubmitReady(){
+        var allChecked = formData.confirm_guarantee && formData.confirm_no_conversion && formData.confirm_consent && formData.confirm_terms;
+        var hasToken = !!turnstileToken;
+        document.getElementById('submitBtn').disabled = !(allChecked && hasToken);
+    }
+
+    // ── PROGRESS ──
+    function updateProgress(){
+        var pct = Math.round(((currentStep - 1) / TOTAL_STEPS) * 100);
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('stepLbl').textContent = 'Step ' + currentStep + ' of ' + TOTAL_STEPS;
+        document.getElementById('stepPct').textContent = pct + '%';
+    }
+
+    function showStep(n){
+        document.querySelectorAll('.form-step').forEach(function(s){ s.classList.remove('active'); });
+        var el = document.getElementById('step' + n);
+        if(el) el.classList.add('active');
+        currentStep = n;
+        updateProgress();
+        // Scroll form into view
+        document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    window.goNext = function(fromStep){
+        // Validate step-specific
+        if(fromStep === 1 && formData.trade === 'Other'){
+            var otherVal = document.getElementById('otherTradeInput').value.trim();
+            if(!otherVal){ document.getElementById('otherTradeInput').focus(); return; }
+            formData.trade = otherVal;
+        }
+        if(fromStep === 4){
+            formData.first_name = document.getElementById('first_name').value.trim();
+            formData.last_name = document.getElementById('last_name').value.trim();
+            formData.company = document.getElementById('company').value.trim();
+            formData.phone = document.getElementById('phone').value.trim();
+            formData.email = document.getElementById('email').value.trim();
+        }
+
+        showStep(fromStep + 1);
+
+        // Render Turnstile on step 5
+        if(fromStep + 1 === 5 && !turnstileRendered && typeof turnstile !== 'undefined'){
+            turnstileRendered = true;
+            turnstile.render('#turnstile-container', {
+                sitekey: '0x4AAAAAABj4xsGpuNPXeW_7',
+                callback: function(token){ turnstileToken = token; checkSubmitReady(); },
+                'expired-callback': function(){ turnstileToken = ''; document.getElementById('submitBtn').disabled = true; }
+            });
+        }
+    };
+
+    window.goPrev = function(fromStep){
+        showStep(fromStep - 1);
+    };
+
+    // ── SUBMIT ──
+    window.submitForm = function(){
+        if(!formData.confirm_guarantee || !formData.confirm_no_conversion || !formData.confirm_consent || !formData.confirm_terms){
+            return;
+        }
+        if(!turnstileToken){ return; }
+
+        formData['cf-turnstile-response'] = turnstileToken;
+        formData.source = 'pilot-intake';
+
+        // Show loading
+        document.getElementById('formBody').style.display = 'none';
+        document.getElementById('formProgress').style.display = 'none';
+        document.getElementById('formLoading').classList.add('active');
+
+        // Send to webhook
+        fetch('https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+            keepalive: true
+        }).catch(function(e){ console.error('Webhook error:', e); });
+
+        if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+        setTimeout(function(){
+            document.getElementById('formLoading').classList.remove('active');
+            document.getElementById('formSuccess').classList.add('active');
+            document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 1200);
+    };
+
+    updateProgress();
+})();
+</script>
+
+</body>
+</html>
