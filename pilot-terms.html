@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Terms & Conditions - Market Pulse by QuoteLeads</title>
+    <meta name="description" content="Terms and conditions for the Market Pulse pilot. $997 flat fee, 10-lead minimum guarantee, 7-day delivery period.">
+    <link rel="canonical" href="https://quoteleads.com.au/pilot-terms">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans:  'DM Sans', system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(10,11,15,0.88); backdrop-filter: blur(20px); }
+        .header-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .logo-text { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); text-decoration: none; letter-spacing: -0.2px; }
+        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 300; margin-left: 10px; }
+        .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .header-link:hover { color: var(--ink); }
+
+        /* HERO */
+        .terms-hero {
+            padding: 140px 48px 64px;
+            border-bottom: 1px solid var(--border);
+        }
+        .terms-hero-inner { max-width: 900px; margin: 0 auto; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 24px;
+        }
+        .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+        .terms-hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(32px, 4.5vw, 48px); line-height: 1.1;
+            letter-spacing: -0.4px; color: var(--ink); margin-bottom: 16px;
+        }
+        .terms-hero h1 em { font-style: italic; color: var(--accent); }
+        .terms-meta { font-size: 14px; color: var(--ink-faint); }
+
+        /* TERMS BODY */
+        .terms-section { padding: 64px 48px 100px; }
+        .terms-inner { max-width: 900px; margin: 0 auto; }
+
+        .terms-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 14px;
+            padding: 48px;
+            position: relative;
+        }
+        .terms-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.3;
+        }
+
+        .terms-card h2 {
+            font-family: var(--serif);
+            font-size: 22px; color: var(--ink); font-weight: normal;
+            margin: 48px 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.3;
+        }
+        .terms-card h2:first-child { margin-top: 0; }
+
+        .terms-card h3 {
+            font-size: 14px; color: var(--accent); font-weight: 400;
+            margin: 28px 0 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .terms-card p {
+            font-size: 15px; color: var(--ink-muted); line-height: 1.8;
+            margin-bottom: 16px; font-weight: 300;
+        }
+
+        .terms-card strong { color: var(--ink-soft); font-weight: 400; }
+
+        .terms-card ul {
+            margin: 16px 0 16px 0;
+            padding: 0;
+            list-style: none;
+        }
+        .terms-card li {
+            font-size: 15px; color: var(--ink-muted); line-height: 1.75;
+            margin-bottom: 10px; font-weight: 300;
+            padding-left: 20px;
+            position: relative;
+        }
+        .terms-card li::before {
+            content: '-';
+            position: absolute; left: 0;
+            color: var(--ink-faint);
+        }
+
+        .terms-card a { color: var(--accent); text-decoration: none; }
+        .terms-card a:hover { text-decoration: underline; }
+
+        /* Highlight / Warning boxes */
+        .highlight-box {
+            background: var(--accent-dim);
+            border: 1px solid rgba(71,151,255,0.2);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin: 24px 0;
+        }
+        .highlight-box p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.7; }
+        .highlight-box strong { color: var(--ink); }
+
+        .warning-box {
+            background: rgba(255,180,60,0.05);
+            border: 1px solid rgba(255,180,60,0.2);
+            border-radius: 10px;
+            padding: 24px 28px;
+            margin: 24px 0;
+        }
+        .warning-box p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.7; }
+        .warning-box strong { color: var(--ink); }
+
+        /* FOOTER */
+        footer {
+            padding: 36px 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); }
+        .foot-links { display: flex; gap: 24px; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .site-header { padding: 0 24px; }
+            .terms-hero { padding: 110px 24px 48px; }
+            .terms-section { padding: 40px 24px 64px; }
+            .terms-card { padding: 28px 24px; }
+            .terms-card h2 { font-size: 20px; }
+            footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="https://quoteleads.com.au" class="logo-text">QuoteLeads <span>Market Pulse</span></a>
+        <a href="https://quoteleads.com.au/pilot" class="header-link">← Back to Pilot</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="terms-hero">
+    <div class="terms-hero-inner">
+        <div class="eyebrow">Legal</div>
+        <h1>Pilot Terms &<br><em>Conditions</em></h1>
+        <p class="terms-meta">Effective Date: 27 March 2026 · Version 1.0 · Applies to Market Pulse pilot engagements only.</p>
+    </div>
+</section>
+
+<!-- TERMS -->
+<section class="terms-section">
+    <div class="terms-inner">
+        <div class="terms-card">
+
+            <h2>1. Definitions</h2>
+            <p><strong>"Pilot"</strong> means the Market Pulse pilot engagement - a one-time, fixed-scope lead delivery campaign operated by QuoteLeads on behalf of the Client.</p>
+            <p><strong>"Lead"</strong> means a qualified homeowner enquiry generated through paid advertising, carrying 1-to-1 named consent, and delivered exclusively to the Client. Each lead comprises the data fields specified in Section 4.</p>
+            <p><strong>"Delivery Period"</strong> means 7 calendar days from the date the Pilot campaign is activated by QuoteLeads.</p>
+            <p><strong>"Client"</strong> means the business or individual who completes the Pilot intake and pays the Pilot Fee.</p>
+            <p><strong>"Pilot Fee"</strong> means $997 AUD, the fixed fee for the Pilot engagement.</p>
+
+            <h2>2. Product</h2>
+            <h3>2.1 Scope</h3>
+            <p>The Pilot is a contained, one-time engagement. QuoteLeads will generate and deliver between 10 and 15 qualified leads to the Client within the Delivery Period. Leads are generated through paid digital advertising on platforms owned or managed by QuoteLeads and delivered exclusively to the Client.</p>
+
+            <h3>2.2 Purpose</h3>
+            <p>The Pilot exists to demonstrate the QuoteLeads lead generation mechanism in the Client's trade and service area. It is not an ongoing lead supply arrangement. The Pilot is not designed to be repurchased. Subsequent engagements, if any, are subject to a separate full system build agreement.</p>
+
+            <h3>2.3 Not a Lead Reseller</h3>
+            <p>QuoteLeads is not a lead marketplace, lead aggregator, or lead reseller. Leads generated through the Pilot are created fresh via paid advertising, carry named consent specific to the Client's business, and are never shared, resold, or redistributed to any other party.</p>
+
+            <h2>3. Lead Delivery & Guarantee</h2>
+            <h3>3.1 Minimum Guarantee</h3>
+            <p>QuoteLeads guarantees delivery of a minimum of <strong>10 leads</strong> within the Delivery Period. The target range is 10–15 leads.</p>
+
+            <h3>3.2 Pro-Rata Refund</h3>
+            <p>If fewer than 10 leads are delivered within the Delivery Period, the Client is entitled to a pro-rata refund calculated at <strong>$99.70 per undelivered lead</strong> (Pilot Fee ÷ 10). For example, if 8 leads are delivered, the refund is $199.40 (2 × $99.70). This refund will be processed within 10 business days of the Delivery Period ending.</p>
+
+            <h3>3.3 No Obligation Beyond 10</h3>
+            <p>The guaranteed minimum is 10 leads. Leads delivered above 10, up to 15, are provided on a best-effort basis. No refund or credit applies if the total delivered falls between 10 and 15.</p>
+
+            <h3>3.4 Delivery Method</h3>
+            <p>Leads are delivered via the method(s) selected by the Client during the intake process (email, SMS, or both). Leads are delivered in real time - the moment the homeowner submits their enquiry.</p>
+
+            <h2>4. Lead Data</h2>
+            <h3>4.1 Standard Fields</h3>
+            <p>Each lead includes: homeowner's full name, mobile phone number, email address, property postcode, job type, property details, estimated timeline, and consent confirmation.</p>
+
+            <h3>4.2 Verification</h3>
+            <p>All leads are phone-verified and generated through paid advertising with a full proof and audit trail. QuoteLeads applies pre-delivery filtering including real-time contact verification, geographic validation, and bot protection.</p>
+
+            <h3>4.3 Audit Trail</h3>
+            <p>QuoteLeads maintains a complete audit trail for every lead delivered, including source, timestamp, consent record, and verification status. This documentation is available to the Client upon reasonable request.</p>
+
+            <h2>5. Consent & Exclusivity</h2>
+            <h3>5.1 Named Consent</h3>
+            <p>Every lead is generated using QuoteLeads' branded survey infrastructure. The Client's business name is inserted into the consent text on the survey form, so that each homeowner specifically consents to being contacted by the Client's business before submitting their details.</p>
+
+            <h3>5.2 Consent Authorisation</h3>
+            <p>By completing the Pilot intake, the Client authorises QuoteLeads to insert the Client's business name (as provided during intake) into consent text on QuoteLeads' branded survey and advertising assets for the purpose of exclusively matching homeowners with the Client's business in the Client's defined service area.</p>
+
+            <h3>5.3 Exclusive Delivery</h3>
+            <p>Each lead is delivered to one business only - the Client. Leads are never shared with, resold to, or made available to any other party.</p>
+
+            <h2>6. Payment</h2>
+            <h3>6.1 Pilot Fee</h3>
+            <p>The Pilot Fee is <strong>$997 AUD</strong>, payable in full prior to campaign activation. Payment is made via bank transfer to the account details specified on the invoice issued by QuoteLeads.</p>
+
+            <h3>6.2 Invoice & Activation</h3>
+            <p>Upon completion of the Pilot intake, QuoteLeads will issue an invoice to the Client. The Pilot campaign will be activated within 24 hours of payment clearing. The Delivery Period commences on the date of campaign activation.</p>
+
+            <h3>6.3 No Refunds on Delivered Leads</h3>
+            <p>The Pilot Fee is non-refundable except as provided in Section 3.2 (pro-rata refund for leads below the 10-lead minimum). All leads delivered within the Delivery Period are considered fulfilled and non-refundable.</p>
+
+            <div class="highlight-box">
+                <p><strong>To be clear:</strong> the Pilot Fee covers lead delivery - qualified homeowner enquiries generated and delivered to the Client's business. Payment is for the generation and delivery of leads, not for sales outcomes, conversion rates, jobs won, or revenue generated. QuoteLeads makes no representation regarding the Client's ability to convert leads into paying customers.</p>
+            </div>
+
+            <h2>7. No Conversion Guarantee</h2>
+            <p>QuoteLeads guarantees lead delivery as specified in Section 3. QuoteLeads does not guarantee and expressly disclaims any guarantee of:</p>
+            <ul>
+                <li>Contact success or response rates</li>
+                <li>Quote requests or appointments booked</li>
+                <li>Jobs won or contracts signed</li>
+                <li>Revenue, profit, or return on investment</li>
+            </ul>
+            <p>Conversion depends entirely on the Client's speed of response, sales process, quoting accuracy, pricing competitiveness, and market conditions. The Client acknowledges and accepts this by completing the Pilot intake.</p>
+
+            <h2>8. Client Obligations</h2>
+            <p>The Client agrees to:</p>
+            <ul>
+                <li>Provide accurate business information during the Pilot intake, including a trading name that the Client is legally entitled to use</li>
+                <li>Respond to leads promptly - lead quality and conversion are directly impacted by speed of follow-up</li>
+                <li>Not share, resell, or redistribute leads received through the Pilot to any third party</li>
+                <li>Not attempt to reverse-engineer, circumvent, or replicate QuoteLeads' advertising assets, survey infrastructure, or lead generation systems</li>
+                <li>Act in good faith in all dealings with QuoteLeads and with homeowners contacted through leads delivered under the Pilot</li>
+            </ul>
+
+            <h2>9. Disputes</h2>
+            <h3>9.1 Dispute Window</h3>
+            <p>The Client may dispute individual leads within <strong>7 business days</strong> of that lead being delivered. Disputes raised outside this window will not be accepted.</p>
+
+            <h3>9.2 Valid Dispute Grounds</h3>
+            <ul>
+                <li>Invalid or non-working contact details, evidenced by a minimum of two documented contact attempts on separate business days within the dispute window</li>
+                <li>Duplicate lead previously delivered to the Client within the same Pilot</li>
+                <li>Clearly fraudulent or spam submission</li>
+                <li>Lead outside the Client's agreed service area or trade</li>
+            </ul>
+
+            <h3>9.3 Resolution</h3>
+            <p>QuoteLeads will review disputed leads within 5 business days. Where a dispute is accepted, QuoteLeads will, at its discretion, deliver a replacement lead or adjust the lead count for the purposes of the Section 3.2 guarantee calculation. Disputed leads that do not meet the grounds in 9.2 will be rejected, and that decision is final.</p>
+
+            <div class="warning-box">
+                <p><strong>Note:</strong> a lead that is valid but does not convert - because the homeowner changed their mind, chose another provider, or did not answer the phone - is not a valid dispute. The Pilot guarantees lead delivery, not lead conversion.</p>
+            </div>
+
+            <h2>10. Intellectual Property & Non-Circumvention</h2>
+            <h3>10.1 QuoteLeads IP</h3>
+            <p>All advertising assets, survey designs, landing pages, consent frameworks, matching systems, and lead generation infrastructure used to deliver the Pilot remain the sole intellectual property of QuoteLeads.</p>
+
+            <h3>10.2 Non-Circumvention</h3>
+            <p>The Client agrees not to directly or indirectly contact, solicit, or engage any third party (including advertising platforms, media buyers, or technology providers) identified through the Pilot for the purpose of replicating or circumventing QuoteLeads' systems. This obligation survives termination of the Pilot.</p>
+
+            <h2>11. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, QuoteLeads' total liability arising out of or in connection with the Pilot is limited to the Pilot Fee ($997 AUD). QuoteLeads is not liable for any indirect, incidental, consequential, or special damages including but not limited to lost revenue, lost profits, or lost business opportunities, regardless of whether QuoteLeads has been advised of the possibility of such damages.</p>
+
+            <h2>12. Privacy & Data</h2>
+            <p>QuoteLeads collects and handles personal information in accordance with its <a href="https://quoteleads.com.au/privacy">Privacy Policy</a> and applicable Australian privacy legislation. Lead data provided to the Client is for the sole purpose of the Client following up on the homeowner's enquiry. The Client must handle all personal information received through the Pilot in compliance with the Privacy Act 1988 (Cth) and any applicable state or territory legislation.</p>
+
+            <h2>13. Termination</h2>
+            <h3>13.1 By QuoteLeads</h3>
+            <p>QuoteLeads may terminate the Pilot immediately upon written notice if the Client has breached these Terms, engaged in fraud or misrepresentation, misused leads, or attempted to circumvent QuoteLeads' systems. In the case of termination for cause, no refund applies for leads already delivered. A pro-rata refund for undelivered leads may be issued at QuoteLeads' discretion.</p>
+
+            <h3>13.2 By the Client</h3>
+            <p>The Client may request cancellation of the Pilot prior to campaign activation by contacting <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>. If the campaign has not yet been activated, a full refund of the Pilot Fee will be issued. Once the campaign is activated and the Delivery Period has commenced, the Pilot Fee is non-refundable except as provided in Section 3.2.</p>
+
+            <h2>14. Modifications</h2>
+            <p>QuoteLeads may update these Terms. Where a modification is material, QuoteLeads will provide the Client with no less than <strong>14 days' written notice</strong> by email before the change takes effect. The version of these Terms in effect at the time the Client completed the Pilot intake governs that Pilot engagement.</p>
+
+            <h2>15. Governing Law</h2>
+            <p>These Terms are governed by the laws of New South Wales, Australia. The parties submit to the non-exclusive jurisdiction of the courts of New South Wales.</p>
+
+            <h2>16. Entire Agreement</h2>
+            <p>These Terms, together with the Pilot intake submission and invoice, constitute the entire agreement between QuoteLeads and the Client regarding the Market Pulse pilot engagement and supersede all prior agreements, understandings, and representations, whether written or oral.</p>
+
+            <p style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 13px; color: var(--ink-faint);">
+                Questions about these terms? Contact <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">QuoteLeads</div>
+    <div class="foot-links">
+        <a href="https://quoteleads.com.au">Main Site</a>
+        <a href="https://quoteleads.com.au/pilot">Pilot</a>
+        <a href="https://quoteleads.com.au/privacy">Privacy</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">© 2026 QuoteLeads</div>
+</footer>
+
+</body>
+</html>
