@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Paid for That Lead. So Did Three Other Businesses. | QuoteLeads</title>
+    <meta name="description" content="Lead marketplaces sell the same enquiry to 4-5 trade businesses simultaneously. Here's why that model is broken - and what exclusive lead generation actually looks like.">
+    <link rel="canonical" href="https://quoteleads.com.au/blog/shared-leads-australia">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://quoteleads.com.au/blog/shared-leads-australia">
+    <meta property="og:title" content="You Paid for That Lead. So Did Three Other Businesses.">
+    <meta property="og:description" content="Lead marketplaces sell the same enquiry to 4-5 trade businesses simultaneously. Here is why that model is broken.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "You Paid for That Lead. So Did Three Other Businesses.",
+      "description": "Lead marketplaces sell the same consumer enquiry to multiple trade businesses simultaneously. This article breaks down the economics, psychology, and math behind why shared leads fail established trade businesses.",
+      "url": "https://quoteleads.com.au/blog/shared-leads-australia",
+      "author": { "@type": "Organization", "name": "QuoteLeads", "url": "https://quoteleads.com.au" },
+      "publisher": { "@type": "Organization", "name": "QuoteLeads", "url": "https://quoteleads.com.au" },
+      "mainEntityOfPage": "https://quoteleads.com.au/blog/shared-leads-australia",
+      "keywords": ["shared leads australia", "solar leads australia", "buy trade leads", "exclusive lead generation australia", "hipages alternatives", "lead generation for tradies"]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --bg-deep:     #0d0e12;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.18);
+            --red:         #f87171;
+            --red-dim:     rgba(248,113,113,0.10);
+            --green:       #34d399;
+            --green-dim:   rgba(52,211,153,0.10);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans:  'DM Sans', system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); }
+        .header-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-text { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); text-decoration: none; letter-spacing: -0.2px; }
+        .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .header-link:hover { color: var(--ink); }
+
+        /* HERO */
+        .hero {
+            padding: 90px 48px 80px;
+            position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-glow {
+            position: absolute; top: -30%; right: -5%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(248,113,113,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px; opacity: 0.3; pointer-events: none;
+        }
+        .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+        }
+        .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(34px, 5.5vw, 60px); line-height: 1.06;
+            letter-spacing: -0.6px; color: var(--ink); margin-bottom: 28px;
+            max-width: 780px;
+        }
+        .hero h1 em { font-style: italic; color: var(--red); }
+
+        .hero-sub {
+            font-size: 17px; font-weight: 300; color: var(--ink-muted);
+            line-height: 1.75; max-width: 600px; margin-bottom: 40px;
+        }
+
+        .article-meta {
+            display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+            font-size: 13px; color: var(--ink-faint);
+            padding-top: 32px; border-top: 1px solid var(--border);
+        }
+        .article-meta-tag {
+            background: var(--accent-dim); color: var(--accent);
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 3px;
+        }
+
+        /* SHARED LAYOUT */
+        .si { max-width: 900px; margin: 0 auto; }
+        .slbl {
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 16px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .stitle {
+            font-family: var(--serif); font-size: clamp(26px, 3.5vw, 42px);
+            line-height: 1.1; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px;
+        }
+        .stitle em { font-style: italic; color: var(--accent); }
+        .stitle.red em { color: var(--red); }
+
+        /* CONTENT SECTIONS */
+        .content-section { padding: 80px 48px; border-bottom: 1px solid var(--border); }
+        .content-section.lifted { background: var(--bg-lift); }
+
+        /* ARTICLE PROSE */
+        .prose {
+            font-size: 17px; font-weight: 300; color: var(--ink-muted);
+            line-height: 1.9; max-width: 680px; margin-top: 36px;
+        }
+        .prose p + p { margin-top: 22px; }
+        .prose strong { color: var(--ink); font-weight: 400; }
+        .prose h3 {
+            font-family: var(--serif); font-size: 26px; color: var(--ink);
+            line-height: 1.2; letter-spacing: -0.2px;
+            margin-top: 48px; margin-bottom: 16px;
+        }
+        .prose h3 em { font-style: italic; color: var(--accent); }
+        .prose h3.red em { color: var(--red); }
+
+        /* CALLOUT BOX */
+        .callout {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-left: 3px solid var(--red);
+            border-radius: 0 10px 10px 0; padding: 28px 32px;
+            margin: 40px 0;
+        }
+        .callout.blue { border-left-color: var(--accent); }
+        .callout.green { border-left-color: var(--green); }
+        .callout-lbl {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--red); margin-bottom: 12px;
+        }
+        .callout.blue .callout-lbl { color: var(--accent); }
+        .callout.green .callout-lbl { color: var(--green); }
+        .callout p { font-size: 15px; color: var(--ink-soft); line-height: 1.75; font-weight: 300; margin: 0; }
+        .callout p strong { color: var(--ink); font-weight: 400; }
+
+        /* COMPARISON TABLE */
+        .compare-wrap { margin-top: 48px; }
+        .compare-header {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px 12px 0 0;
+            overflow: hidden;
+        }
+        .compare-header-cell {
+            background: var(--bg-deep); padding: 18px 24px;
+            font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+            color: var(--ink-faint); font-weight: 400;
+        }
+        .compare-header-cell.highlight { color: var(--green); background: var(--green-dim); }
+        .compare-body {
+            border: 1px solid var(--border); border-top: none;
+            border-radius: 0 0 12px 12px; overflow: hidden;
+        }
+        .compare-row {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px; background: var(--border);
+        }
+        .compare-row:last-child { background: none; }
+        .compare-cell {
+            background: var(--bg-card); padding: 18px 24px;
+            font-size: 14px; color: var(--ink-muted); font-weight: 300; line-height: 1.5;
+        }
+        .compare-cell.metric { color: var(--ink-soft); font-size: 13px; }
+        .compare-cell.bad { color: var(--red); }
+        .compare-cell.good { color: var(--green); }
+
+        /* STATS BREAKDOWN */
+        .stat-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            margin-top: 48px;
+        }
+        .stat-card { background: var(--bg-card); padding: 32px 24px; }
+        .stat-num {
+            font-family: var(--serif); font-size: 48px; color: var(--red);
+            line-height: 1; margin-bottom: 10px;
+        }
+        .stat-num.blue { color: var(--accent); }
+        .stat-num.green { color: var(--green); }
+        .stat-title { font-size: 14px; font-weight: 400; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+        .stat-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 300; }
+
+        /* HOMEOWNER SIMULATION */
+        .simulation {
+            background: var(--bg-deep); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden; margin: 48px 0;
+        }
+        .simulation-header {
+            padding: 16px 24px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 12px;
+            background: var(--bg-card);
+        }
+        .sim-dots { display: flex; gap: 6px; }
+        .sim-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--border-mid); }
+        .sim-title { font-size: 12px; color: var(--ink-faint); }
+        .sim-body { padding: 32px; }
+        .sim-body-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
+        .sim-timeline { display: flex; flex-direction: column; gap: 0; }
+        .sim-event {
+            display: flex; gap: 20px; align-items: flex-start;
+            padding: 16px 0; position: relative;
+        }
+        .sim-event:not(:last-child)::after {
+            content: ''; position: absolute; left: 11px; top: 36px; bottom: -16px;
+            width: 1px; background: var(--border);
+        }
+        .sim-dot {
+            width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; margin-top: 1px;
+        }
+        .sim-dot.neutral { background: var(--bg-card); border: 1px solid var(--border-mid); color: var(--ink-faint); }
+        .sim-dot.warn { background: rgba(251,191,36,0.15); border: 1px solid rgba(251,191,36,0.3); color: #fbbf24; }
+        .sim-dot.bad { background: var(--red-dim); border: 1px solid rgba(248,113,113,0.3); color: var(--red); }
+        .sim-content-time { font-size: 11px; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 4px; }
+        .sim-content-text { font-size: 14px; color: var(--ink-soft); line-height: 1.55; font-weight: 300; }
+        .sim-content-text strong { color: var(--ink); font-weight: 400; }
+
+        /* PULL QUOTE */
+        .pull-quote {
+            margin: 48px 0; padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .pull-quote p {
+            font-family: var(--serif); font-size: clamp(22px, 3vw, 32px);
+            color: var(--ink); line-height: 1.3; letter-spacing: -0.2px;
+            max-width: 640px;
+        }
+        .pull-quote p em { font-style: italic; color: var(--accent); }
+
+        /* NOTE BOX */
+        .note-box {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 10px; padding: 28px 32px; margin-top: 32px;
+            position: relative;
+        }
+        .note-box-lbl {
+            position: absolute; top: -9px; left: 24px;
+            background: var(--bg-card); padding: 0 10px;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+        }
+        .note-box p { font-size: 14px; color: var(--ink-muted); line-height: 1.75; margin: 0; font-weight: 300; }
+        .note-box p + p { margin-top: 14px; }
+        .note-box strong { color: var(--ink); font-weight: 400; }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 100px 48px; text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-glow {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 700px; height: 400px;
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+        .cta-inner h2 {
+            font-family: var(--serif); font-size: clamp(28px, 4vw, 46px);
+            line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
+        }
+        .cta-inner h2 em { font-style: italic; color: var(--accent); }
+        .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 40px; font-weight: 300; }
+        .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            padding: 16px 36px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
+            display: inline-block; transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+        .btn-secondary {
+            background: none; border: 1px solid var(--border-mid); color: var(--ink-soft);
+            padding: 16px 36px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; display: inline-block; transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--ink); }
+        .cta-footnote { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
+        .cta-footnote span+span::before { content: ' · '; }
+
+        /* RELATED ARTICLES */
+        .related-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            margin-top: 48px;
+        }
+        .related-card { background: var(--bg-card); padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
+        .related-card:hover { background: var(--bg-lift); }
+        .related-tag {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); background: var(--accent-dim);
+            padding: 3px 10px; border-radius: 3px; display: inline-block; margin-bottom: 16px;
+        }
+        .related-title {
+            font-family: var(--serif); font-size: 18px; color: var(--ink);
+            line-height: 1.3; margin-bottom: 10px;
+        }
+        .related-title em { font-style: italic; color: var(--accent); }
+        .related-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 300; }
+
+        /* FOOTER */
+        footer {
+            padding: 36px 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo-text { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); }
+        .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .site-header { padding: 0 24px; }
+            .hero, .content-section, .cta-section { padding: 64px 24px; }
+            footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+            .stat-grid { grid-template-columns: 1fr; }
+            .compare-header, .compare-row { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
+            .cta-btns { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="https://quoteleads.com.au" class="logo">
+            <img class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+        </a>
+        <a href="https://quoteleads.com.au" class="header-link">← Back to QuoteLeads</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div class="eyebrow">Lead Generation - The Basics</div>
+        <h1>You paid for that lead.<br><em>So did three other businesses.</em></h1>
+        <p class="hero-sub">Most Australian trade businesses buying leads from online marketplaces have no idea the same enquiry is being sold to four or five competitors at the same moment. This is how the model actually works - and why it is costing established businesses far more than the invoice suggests.</p>
+        <div class="article-meta">
+            <span class="article-meta-tag">Lead Generation</span>
+            <span>QuoteLeads Editorial</span>
+            <span>12 min read</span>
+            <span>Updated 2026</span>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 1: HOW IT WORKS -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The Mechanism</div>
+        <h2 class="stitle red">How shared leads <em>actually work.</em></h2>
+
+        <div class="prose">
+            <p>A homeowner in Brisbane wants three quotes for a solar system. They fill out a form on a lead marketplace - takes about 90 seconds. They hit submit. What happens next is invisible to them, and almost always invisible to you.</p>
+
+            <p>That single enquiry - one person, one property, one job - is immediately sold to multiple trade businesses simultaneously. <strong>Typically three to five, sometimes more, depending on how many businesses are buying leads in that postcode that day.</strong> Each of them pays for it. Each of them gets the same name, same number, same address.</p>
+
+            <p>Every one of you is now in a race.</p>
+
+            <div class="callout">
+                <div class="callout-lbl">The model, plainly stated</div>
+                <p>A shared lead marketplace makes money by selling the same consumer enquiry as many times as possible. Their revenue goes up when more businesses compete for the same leads. <strong>Their incentives and your interests are structurally opposed.</strong></p>
+            </div>
+
+            <p>The marketplace gets paid regardless of who wins the job - or whether anyone does. They are not a lead generation partner. They are an auction house. You are a bidder. And every other tradie in your postcode who signed up last month is sitting at the same table.</p>
+
+            <p>This is not a knock on the platforms themselves. It is just what the model is. The problem is that most trade businesses signing up to buy leads have not had it described this way - and the performance data tells a very different story from the marketing material.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: THE HOMEOWNER EXPERIENCE -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">The Psychology</div>
+        <h2 class="stitle">What the homeowner <em>experiences.</em></h2>
+
+        <div class="prose">
+            <p>Understanding why shared leads convert so poorly starts with understanding what happens on the other side of the enquiry - the homeowner's phone in the minutes and hours after they submit.</p>
+
+            <p>They wanted quotes. They got a queue of callers.</p>
+        </div>
+
+        <div class="simulation">
+            <div class="simulation-header">
+                <div class="sim-dots"><span></span><span></span><span></span></div>
+                <div class="sim-title">Homeowner experience - after submitting a shared lead enquiry</div>
+            </div>
+            <div class="sim-body">
+                <div class="sim-body-lbl">What typically happens</div>
+                <div class="sim-timeline">
+                    <div class="sim-event">
+                        <div class="sim-dot neutral">1</div>
+                        <div>
+                            <div class="sim-content-time">T + 0 min</div>
+                            <div class="sim-content-text">Homeowner submits enquiry. Expects a couple of quotes over the next few days.</div>
+                        </div>
+                    </div>
+                    <div class="sim-event">
+                        <div class="sim-dot warn">2</div>
+                        <div>
+                            <div class="sim-content-time">T + 4 min</div>
+                            <div class="sim-content-text"><strong>First call arrives.</strong> Unfamiliar number. They pick up - it is a solar company they have never heard of.</div>
+                        </div>
+                    </div>
+                    <div class="sim-event">
+                        <div class="sim-dot warn">3</div>
+                        <div>
+                            <div class="sim-content-time">T + 11 min</div>
+                            <div class="sim-content-text"><strong>Second call.</strong> Another unfamiliar number. They let it go to voicemail.</div>
+                        </div>
+                    </div>
+                    <div class="sim-event">
+                        <div class="sim-dot warn">4</div>
+                        <div>
+                            <div class="sim-content-time">T + 23 min</div>
+                            <div class="sim-content-text"><strong>Third call and an SMS.</strong> Now they are wondering if something went wrong with the form. They feel overwhelmed.</div>
+                        </div>
+                    </div>
+                    <div class="sim-event">
+                        <div class="sim-dot bad">5</div>
+                        <div>
+                            <div class="sim-content-time">T + 2 hours</div>
+                            <div class="sim-content-text"><strong>Phone goes on silent.</strong> Two more missed calls. Three texts. The homeowner has mentally checked out. Nobody gets the job.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="prose">
+            <p>This is not an edge case. It is the typical experience for a homeowner who submits to a shared lead platform in a competitive market. <strong>The volume of contact does not build trust - it destroys it.</strong> By the time a measured, professional business calls two hours later, the homeowner has already decided they do not want to deal with any of them.</p>
+
+            <p>The result is not just a missed job. It is a missed job that you already paid for.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: THE ECONOMICS -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The Economics</div>
+        <h2 class="stitle red">You are paying for <em>a race, not a lead.</em></h2>
+
+        <div class="prose">
+            <p>Let us look at what shared leads actually cost when you account for the real close rate - not the number the platform uses in their pitch.</p>
+
+            <p>A typical shared lead in a competitive trade vertical in Australia costs between $30 and $90. At face value, that looks reasonable. But the relevant number is not the cost per lead. <strong>It is the cost per job won.</strong></p>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-num">5-15%</div>
+                <div class="stat-title">Typical close rate on shared leads</div>
+                <div class="stat-desc">Industry data for competitive trade verticals where 3-5 businesses receive the same enquiry. You win roughly 1 in 10 at best.</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num blue">40-70%</div>
+                <div class="stat-title">Close rate on exclusive, consented leads</div>
+                <div class="stat-desc">When the homeowner expects your call specifically and you are the only business following up, conversion rates shift dramatically.</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">$600+</div>
+                <div class="stat-title">True cost per job won on shared leads</div>
+                <div class="stat-desc">At $60/lead and a 10% close rate, you are spending $600 in lead costs alone per job - before your time, before follow-up, before any overhead.</div>
+            </div>
+        </div>
+
+        <div class="prose">
+            <h3>The math most businesses never run.</h3>
+
+            <p>Take a solar business buying 50 shared leads per month at $60 each. That is $3,000 in lead spend. At a 10% close rate, they win five jobs. <strong>Cost per job won: $600 in lead fees alone.</strong></p>
+
+            <p>Now consider the same business running an exclusive lead system at a 50% close rate. To win the same five jobs, they only need to generate ten leads. At a higher cost per exclusive lead - say $120 each - that is $1,200 in total. <strong>The cost per job won drops to $240 - less than half.</strong></p>
+
+            <p>The shared lead looks cheap on the invoice. The exclusive lead looks expensive. But the only number that matters to a business doing $500k a year is the cost per job actually won - and that number consistently favours exclusivity once you account for what you are actually competing against.</p>
+        </div>
+
+        <div class="callout blue">
+            <div class="callout-lbl">The real comparison</div>
+            <p>Shared leads are not a cheap version of exclusive leads. <strong>They are a fundamentally different product.</strong> One gives you an enquiry. The other gives you a chance in a race. Pricing them the same way makes about as much sense as paying the same amount for a lottery ticket as you would for a confirmed booking.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: COMPARISON -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">Side By Side</div>
+        <h2 class="stitle">Shared vs exclusive.<br><em>The full picture.</em></h2>
+
+        <div class="prose">
+            <p>Most businesses shopping for leads compare headline price per lead and nothing else. Here is what the comparison actually looks like across the metrics that determine whether leads turn into revenue.</p>
+        </div>
+
+        <div class="compare-wrap">
+            <div class="compare-header">
+                <div class="compare-header-cell">Metric</div>
+                <div class="compare-header-cell">Shared Lead Marketplace</div>
+                <div class="compare-header-cell highlight">Exclusive Lead System</div>
+            </div>
+            <div class="compare-body">
+                <div class="compare-row">
+                    <div class="compare-cell metric">Businesses receiving this lead</div>
+                    <div class="compare-cell bad">3 to 5 simultaneously</div>
+                    <div class="compare-cell good">1 - you only</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell metric">Homeowner's expectation</div>
+                    <div class="compare-cell bad">Multiple businesses will call</div>
+                    <div class="compare-cell good">Your business specifically</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell metric">Typical close rate</div>
+                    <div class="compare-cell bad">5 to 15%</div>
+                    <div class="compare-cell good">40 to 70%</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell metric">Contact rate</div>
+                    <div class="compare-cell bad">Low - homeowners become overwhelmed fast</div>
+                    <div class="compare-cell good">High - they submitted to you directly</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell metric">Brand visibility</div>
+                    <div class="compare-cell bad">None - generic platform branding</div>
+                    <div class="compare-cell good">Full - homeowner sees your brand before submitting</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell metric">Lead quality control</div>
+                    <div class="compare-cell bad">Minimal - you get what comes in</div>
+                    <div class="compare-cell good">Built-in - survey filters before contact info captured</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell metric">Infrastructure ownership</div>
+                    <div class="compare-cell bad">None - stop paying, lose everything</div>
+                    <div class="compare-cell good">Full - your accounts, your data, yours permanently</div>
+                </div>
+                <div class="compare-row">
+                    <div class="compare-cell metric">True cost per job won</div>
+                    <div class="compare-cell bad">$400 to $800+</div>
+                    <div class="compare-cell good">$150 to $300</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 5: WHO WINS -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The Honest Reality</div>
+        <h2 class="stitle">Who shared leads <em>actually work for.</em></h2>
+
+        <div class="prose">
+            <p>To be fair: shared leads are not useless for everyone. There are situations where the model can work - and being honest about that matters more than a blanket takedown.</p>
+
+            <h3>They can work for businesses that are brand new.</h3>
+
+            <p>If you have just started out, have no ad budget, and need volume fast to learn your sales process, shared lead marketplaces can generate activity while you build. The close rates are low, but the barrier to entry is minimal and you are not ready for a full lead system anyway. Use them to practise. Use them to build case studies. Do not use them as a long-term growth engine.</p>
+
+            <h3>They stop working <em>when you get good.</em></h3>
+
+            <p>This is the pattern that catches established businesses. They start on shared leads, get decent at converting, and scale up. But the economics never improve - they just get more expensive. A business closing at 12% on shared leads is spending a lot of money to compete against itself. <strong>The ceiling is baked into the model.</strong></p>
+
+            <p>The businesses doing $600k, $1m, $2m a year in trade revenue - the ones with proven teams, solid processes, and the capacity to handle consistent volume - are consistently the worst fit for shared lead marketplaces. The model does not scale with the business. It just gets louder and more expensive as you push more volume through it.</p>
+
+            <div class="callout green">
+                <div class="callout-lbl">The transition point</div>
+                <p>For most established trade businesses, the question is not whether to stop buying shared leads. <strong>It is whether to stop buying shared leads now, or wait until the pain is high enough to make the decision obvious.</strong> Most wait too long.</p>
+            </div>
+        </div>
+
+        <div class="pull-quote">
+            <p>A lead is not a lead if four other businesses received the same enquiry at the same moment. <em>That is an auction entry.</em></p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 6: THE ALTERNATIVE -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">The Alternative</div>
+        <h2 class="stitle">What exclusive lead generation <em>actually looks like.</em></h2>
+
+        <div class="prose">
+            <p>Exclusive lead generation is not a premium version of the shared lead marketplace. It is a structurally different approach - and understanding the difference matters before making any investment decision.</p>
+
+            <p>In a shared lead model, the platform sits between you and the homeowner. The homeowner submits to the platform. The platform distributes to you. <strong>The homeowner has no idea who you are until you call them cold.</strong></p>
+
+            <p>In an exclusive model, the homeowner submits directly to your business. They see your brand, your credentials, your offer - before they enter their contact details. They have opted in specifically to hear from you. When your team follows up, it is not a cold call. <strong>It is the call they were expecting.</strong></p>
+
+            <p>That single structural difference explains almost the entire gap in conversion rates between the two models.</p>
+
+            <h3>What gets built into a proper <em>exclusive system.</em></h3>
+
+            <p>The businesses getting the best results from exclusive lead generation are not running a better version of what a lead marketplace does. They own the entire mechanism - the ad campaigns, the landing pages, the qualification survey, the follow-up automation, the CRM pipeline. <strong>Everything sits in their own accounts and serves only their business.</strong></p>
+
+            <p>When a homeowner submits, no one else in the country receives that lead. The follow-up runs within 60 seconds under the business name the homeowner already recognises. The conversation starts from a completely different place.</p>
+        </div>
+
+        <div class="note-box">
+            <div class="note-box-lbl">On investment</div>
+            <p>Building an exclusive lead system costs more upfront than signing up for a lead marketplace subscription. That is true and worth stating plainly. <strong>The comparison is not the upfront cost - it is the cost per job won over 12 months.</strong></p>
+            <p>For a business generating 20 jobs a month from shared leads at $600 cost per job won, the annual lead spend to maintain that volume sits around $144,000 - with nothing owned, no brand built, and no compounding infrastructure at the end of it. The same 20 jobs per month from an owned exclusive system typically lands well under half that figure - with a system that belongs to you and improves over time.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 7: THE FRAME -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The Conclusion</div>
+        <h2 class="stitle red">A lead is not a lead<br><em>if it is not yours.</em></h2>
+
+        <div class="prose">
+            <p>The shared lead marketplace model has been around long enough for the data to be clear. It generates activity. It does not generate the kind of consistent, predictable, owned pipeline that serious trade businesses need to scale past the referral plateau.</p>
+
+            <p>That is not a criticism of the businesses running those platforms. It is just a description of what the model produces and who it is - and is not - suited for.</p>
+
+            <p>If your business is doing $500k a year or more, has a team that can handle consistent volume, and has a proven process for converting enquiries into jobs - you have outgrown the shared lead model. The infrastructure that helped you get here is now the ceiling on where you go next.</p>
+
+            <p><strong>The businesses growing past $1m, $2m, $5m in trade revenue are not buying leads from a marketplace.</strong> They have built a system that generates demand for their specific business, in their specific territory, at a cost per job won that makes sense at scale.</p>
+
+            <p>That is the only version of lead generation worth building toward. Everything else is renting someone else's race track.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-inner">
+        <div class="slbl" style="justify-content:center;">Ready to stop renting</div>
+        <h2>Your own system.<br><em>Your leads. Your data.</em></h2>
+        <p>QuoteLeads builds complete exclusive lead generation systems for established Australian trade businesses. Not a marketplace subscription. A system built into your business that you own from day one.</p>
+        <div class="cta-btns">
+            <a href="https://quoteleads.com.au/get-started" class="btn-primary">Book a Discovery Call</a>
+            <a href="https://quoteleads.com.au/pilot" class="btn-secondary">Start with a Pilot - $650</a>
+        </div>
+        <div class="cta-footnote">
+            <span>No lock-in contracts</span>
+            <span>Australian owned and operated</span>
+            <span>Limited availability</span>
+        </div>
+    </div>
+</section>
+
+<!-- RELATED ARTICLES -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">Keep Reading</div>
+        <h2 class="stitle">Related <em>articles.</em></h2>
+        <div class="related-grid">
+            <a href="#" class="related-card">
+                <div class="related-tag">Growth</div>
+                <div class="related-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>
+                <div class="related-desc">Why every trade business hits a growth ceiling on word-of-mouth and what the ones that break through do differently.</div>
+            </a>
+            <a href="#" class="related-card">
+                <div class="related-tag">Conversion</div>
+                <div class="related-title">The Trade Business That<br><em>Responds First Wins.</em></div>
+                <div class="related-desc">What actually happens to a lead between submission and first contact - and how the follow-up gap is where most jobs are lost.</div>
+            </a>
+            <a href="#" class="related-card">
+                <div class="related-tag">Strategy</div>
+                <div class="related-title">Why Marketing Agencies Are<br><em>Great at Reports, Not Results.</em></div>
+                <div class="related-desc">The difference between activity-based marketing and a system built to generate jobs - and how to tell them apart before you sign anything.</div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">
+        <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+    </div>
+    <div class="foot-links">
+        <a href="https://quoteleads.com.au">Main Site</a>
+        <a href="https://quoteleads.com.au/privacy">Privacy</a>
+        <a href="/cdn-cgi/l/email-protection#20434f4e544143546051554f54454c454144530e434f4d0e4155"><span class="__cf_email__" data-cfemail="1e7d71706a7f7d6a5e6f6b716a7b727
