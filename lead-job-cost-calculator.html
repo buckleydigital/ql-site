@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Cost Calculator — What Are You Actually Paying Per Job? | QuoteLeads</title>
+    <meta name="description" content="Calculate your real cost to acquire a customer (CAC). Enter your ad spend, leads per month, and close rate to see what each job actually costs you in marketing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --bg-deep:     #0d0e12;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.18);
+            --green:       #34d399;
+            --green-dim:   rgba(52,211,153,0.10);
+            --red:         #f87171;
+            --red-dim:     rgba(248,113,113,0.10);
+            --amber:       #fbbf24;
+            --amber-dim:   rgba(251,191,36,0.10);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans:  'DM Sans', system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); }
+        .header-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-text { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); text-decoration: none; letter-spacing: -0.2px; }
+        .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .header-link:hover { color: var(--ink); }
+
+        /* HERO */
+        .hero {
+            padding: 80px 48px 72px;
+            position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-glow {
+            position: absolute; top: -30%; right: -5%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px; opacity: 0.3; pointer-events: none;
+        }
+        .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+        }
+        .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(32px, 5vw, 56px); line-height: 1.06;
+            letter-spacing: -0.6px; color: var(--ink); margin-bottom: 24px;
+            max-width: 680px;
+        }
+        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero-sub {
+            font-size: 17px; font-weight: 300; color: var(--ink-muted);
+            line-height: 1.75; max-width: 560px;
+        }
+
+        /* CALCULATOR */
+        .calc-section { padding: 80px 48px; }
+        .calc-inner { max-width: 900px; margin: 0 auto; }
+
+        .calc-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* INPUTS PANEL */
+        .calc-inputs {
+            background: var(--bg-card);
+            padding: 44px 40px;
+        }
+        .calc-inputs-label {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 32px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .calc-inputs-label::before { content: ''; width: 16px; height: 1px; background: var(--accent); opacity: 0.5; }
+
+        .field { margin-bottom: 32px; }
+        .field:last-child { margin-bottom: 0; }
+
+        .field-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .field-label { font-size: 13px; font-weight: 400; color: var(--ink-soft); }
+        .field-value-display {
+            font-family: var(--serif); font-size: 22px; color: var(--ink);
+            line-height: 1; transition: color 0.2s;
+        }
+        .field-value-display.accent { color: var(--accent); }
+
+        .field-hint { font-size: 12px; color: var(--ink-faint); margin-bottom: 12px; line-height: 1.5; }
+
+        /* Custom range slider */
+        .slider-wrap { position: relative; }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 2px;
+            background: var(--border-mid);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: 2px solid var(--bg-card);
+            box-shadow: 0 0 0 1px var(--accent);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px var(--accent-dim);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: 2px solid var(--bg-card);
+        }
+
+        /* Filled track via JS */
+        .slider-track-fill {
+            position: absolute;
+            top: 0; left: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            pointer-events: none;
+            margin-top: 0;
+        }
+
+        .slider-minmax {
+            display: flex; justify-content: space-between;
+            margin-top: 8px; font-size: 11px; color: var(--ink-faint);
+        }
+
+        /* Text input */
+        .input-text-wrap {
+            position: relative;
+        }
+        .input-prefix {
+            position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+            font-size: 16px; color: var(--ink-muted); pointer-events: none;
+            font-family: var(--serif);
+        }
+        input[type="number"] {
+            width: 100%;
+            background: var(--bg-deep);
+            border: 1px solid var(--border-mid);
+            border-radius: 8px;
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 22px;
+            padding: 14px 16px 14px 32px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            -moz-appearance: textfield;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type="number"]:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-dim);
+        }
+
+        /* RESULTS PANEL */
+        .calc-results {
+            background: var(--bg-deep);
+            padding: 44px 40px;
+            display: flex;
+            flex-direction: column;
+        }
+        .calc-results-label {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--ink-faint); margin-bottom: 32px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .calc-results-label::before { content: ''; width: 16px; height: 1px; background: var(--ink-faint); opacity: 0.5; }
+
+        /* Primary result */
+        .result-primary {
+            background: var(--bg-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 12px;
+            padding: 32px 28px;
+            margin-bottom: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .result-primary.good { border-color: rgba(52,211,153,0.3); }
+        .result-primary.ok   { border-color: rgba(251,191,36,0.3); }
+        .result-primary.bad  { border-color: rgba(248,113,113,0.3); }
+
+        .result-primary-bg-glow {
+            position: absolute; top: -50%; right: -20%;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: background 0.5s;
+        }
+        .result-primary.good .result-primary-bg-glow { background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 70%); }
+        .result-primary.ok   .result-primary-bg-glow { background: radial-gradient(circle, rgba(251,191,36,0.08) 0%, transparent 70%); }
+        .result-primary.bad  .result-primary-bg-glow { background: radial-gradient(circle, rgba(248,113,113,0.08) 0%, transparent 70%); }
+
+        .result-primary-lbl {
+            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); margin-bottom: 12px; position: relative;
+        }
+        .result-cac {
+            font-family: var(--serif);
+            font-size: clamp(44px, 6vw, 72px);
+            line-height: 1;
+            margin-bottom: 8px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .result-cac.good { color: var(--green); }
+        .result-cac.ok   { color: var(--amber); }
+        .result-cac.bad  { color: var(--red); }
+        .result-cac.neutral { color: var(--ink); }
+
+        .result-cac-sublabel {
+            font-size: 13px; color: var(--ink-muted); font-weight: 300;
+            position: relative;
+        }
+
+        .result-verdict {
+            margin-top: 20px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 13px; line-height: 1.6; font-weight: 300;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .result-verdict.good { background: var(--green-dim); color: var(--green); }
+        .result-verdict.ok   { background: var(--amber-dim); color: var(--amber); }
+        .result-verdict.bad  { background: var(--red-dim); color: var(--red); }
+        .result-verdict.neutral { background: var(--accent-dim); color: var(--accent); }
+
+        /* Breakdown rows */
+        .result-breakdown {
+            margin-top: 24px;
+            display: flex; flex-direction: column; gap: 1px;
+        }
+        .result-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+        .result-row:last-child { border-bottom: none; }
+        .result-row-label { color: var(--ink-muted); font-weight: 300; }
+        .result-row-value { color: var(--ink-soft); font-weight: 400; font-family: var(--serif); font-size: 16px; }
+        .result-row-value.highlight { color: var(--accent); }
+
+        /* CTA at bottom */
+        .calc-cta {
+            margin-top: auto;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        .calc-cta p {
+            font-size: 13px; color: var(--ink-faint); line-height: 1.6; margin-bottom: 16px; font-weight: 300;
+        }
+        .calc-cta p strong { color: var(--ink-soft); font-weight: 400; }
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            padding: 14px 28px; border-radius: 6px; text-decoration: none;
+            font-size: 14px; font-weight: 400; letter-spacing: 0.02em;
+            display: inline-block; transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+        /* HOW IT'S CALCULATED */
+        .explainer {
+            padding: 0 48px 80px;
+        }
+        .explainer-inner { max-width: 900px; margin: 0 auto; }
+        .explainer-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+        }
+        .explainer-card { background: var(--bg-card); padding: 28px 24px; }
+        .explainer-card-step {
+            font-family: var(--serif); font-size: 40px; color: var(--accent-dim);
+            line-height: 1; margin-bottom: 12px;
+        }
+        .explainer-card h3 { font-size: 14px; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+        .explainer-card p { font-size: 12px; color: var(--ink-muted); line-height: 1.6; font-weight: 300; }
+        .explainer-formula {
+            margin-top: 28px;
+            background: var(--bg-deep);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px 28px;
+            font-size: 13px; color: var(--ink-muted); font-weight: 300; line-height: 1.7;
+        }
+        .explainer-formula code {
+            font-family: 'Courier New', monospace;
+            background: var(--accent-dim);
+            color: var(--accent);
+            padding: 2px 8px; border-radius: 3px;
+            font-size: 12px;
+        }
+        .explainer-lbl {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 24px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .explainer-lbl::before { content: ''; width: 16px; height: 1px; background: var(--accent); opacity: 0.5; }
+
+        /* FOOTER */
+        footer {
+            padding: 36px 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); }
+        .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .site-header { padding: 0 24px; }
+            .hero { padding: 56px 24px 52px; }
+            .calc-section { padding: 56px 24px; }
+            .explainer { padding: 0 24px 56px; }
+            footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+            .calc-layout { grid-template-columns: 1fr; }
+            .explainer-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Animated number */
+        .animating { animation: numPop 0.25s ease; }
+        @keyframes numPop {
+            0%   { transform: scale(0.96); opacity: 0.7; }
+            60%  { transform: scale(1.03); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Pulse on change */
+        .result-primary { transition: border-color 0.4s; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="https://quoteleads.com.au" class="logo">
+            <span class="logo-text">QuoteLeads</span>
+        </a>
+        <a href="https://quoteleads.com.au" class="header-link">← Back to QuoteLeads</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div class="eyebrow">Job Cost Calculator</div>
+        <h1>What are you <em>actually</em><br>paying per job?</h1>
+        <p class="hero-sub">Most tradies have no idea what a customer actually costs them to acquire. Plug in your numbers — ad spend, leads, close rate — and see your real CAC (cost to acquire a customer) in seconds.</p>
+    </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section">
+    <div class="calc-inner">
+        <div class="calc-layout">
+
+            <!-- INPUTS -->
+            <div class="calc-inputs">
+                <div class="calc-inputs-label">Your numbers</div>
+
+                <!-- Monthly Ad Spend -->
+                <div class="field">
+                    <div class="field-header">
+                        <label class="field-label" for="adSpend">Monthly ad spend</label>
+                        <span class="field-value-display accent" id="adSpendDisplay">$1,200</span>
+                    </div>
+                    <div class="field-hint">Total paid to Meta / Google each month. $40/day = ~$1,200/mo.</div>
+                    <div class="slider-wrap">
+                        <input type="range" id="adSpend" min="200" max="10000" step="50" value="1200">
+                    </div>
+                    <div class="slider-minmax"><span>$200</span><span>$10,000</span></div>
+                </div>
+
+                <!-- Leads per Month -->
+                <div class="field">
+                    <div class="field-header">
+                        <label class="field-label" for="leadsPerMonth">Leads per month</label>
+                        <span class="field-value-display accent" id="leadsDisplay">30</span>
+                    </div>
+                    <div class="field-hint">Qualified leads your system generates. At $40/day expect ~25–40.</div>
+                    <div class="slider-wrap">
+                        <input type="range" id="leadsPerMonth" min="1" max="300" step="1" value="30">
+                    </div>
+                    <div class="slider-minmax"><span>1</span><span>300</span></div>
+                </div>
+
+                <!-- Close Rate -->
+                <div class="field">
+                    <div class="field-header">
+                        <label class="field-label" for="closeRate">Close rate</label>
+                        <span class="field-value-display accent" id="closeRateDisplay">30%</span>
+                    </div>
+                    <div class="field-hint">% of leads that turn into paid jobs. Industry average: 20–40%.</div>
+                    <div class="slider-wrap">
+                        <input type="range" id="closeRate" min="1" max="100" step="1" value="30">
+                    </div>
+                    <div class="slider-minmax"><span>1%</span><span>100%</span></div>
+                </div>
+
+                <!-- Average Job Value -->
+                <div class="field">
+                    <div class="field-header">
+                        <label class="field-label" for="jobValue">Average job value</label>
+                        <span class="field-value-display accent" id="jobValueDisplay">$3,500</span>
+                    </div>
+                    <div class="field-hint">What each won job is worth in revenue. Used to calculate ROI.</div>
+                    <div class="slider-wrap">
+                        <input type="range" id="jobValue" min="200" max="50000" step="100" value="3500">
+                    </div>
+                    <div class="slider-minmax"><span>$200</span><span>$50,000</span></div>
+                </div>
+            </div>
+
+            <!-- RESULTS -->
+            <div class="calc-results">
+                <div class="calc-results-label">Your results</div>
+
+                <div class="result-primary neutral" id="resultPrimary">
+                    <div class="result-primary-bg-glow"></div>
+                    <div class="result-primary-lbl">Cost to Acquire a Customer (CAC)</div>
+                    <div class="result-cac neutral" id="cacDisplay">$133</div>
+                    <div class="result-cac-sublabel">per job won</div>
+                    <div class="result-verdict neutral" id="verdictBox">
+                        Enter your numbers on the left to see how your CAC stacks up.
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-row">
+                        <span class="result-row-label">Cost per lead</span>
+                        <span class="result-row-value" id="cplDisplay">—</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-row-label">Jobs won per month</span>
+                        <span class="result-row-value" id="jobsWonDisplay">—</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-row-label">Revenue generated</span>
+                        <span class="result-row-value highlight" id="revenueDisplay">—</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-row-label">Return on ad spend (ROAS)</span>
+                        <span class="result-row-value highlight" id="roasDisplay">—</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-row-label">Marketing as % of revenue</span>
+                        <span class="result-row-value" id="mktPctDisplay">—</span>
+                    </div>
+                </div>
+
+                <div class="calc-cta">
+                    <p>A well-built system at $40/day typically delivers a CAC of <strong>$80–$180</strong> for trade businesses. If your numbers are higher, the system pays for itself fast.</p>
+                    <a href="https://quoteleads.com.au/growth-implementation" class="btn-primary">See how the system works →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EXPLAINER -->
+<section class="explainer">
+    <div class="explainer-inner">
+        <div class="explainer-lbl">How it's calculated</div>
+        <div class="explainer-grid">
+            <div class="explainer-card">
+                <div class="explainer-card-step">01</div>
+                <h3>Cost per lead</h3>
+                <p>Ad spend divided by leads generated. This is what you pay to get someone to raise their hand and express interest.</p>
+            </div>
+            <div class="explainer-card">
+                <div class="explainer-card-step">02</div>
+                <h3>Jobs won</h3>
+                <p>Leads multiplied by your close rate. Not every lead becomes a job — your close rate determines how many do.</p>
+            </div>
+            <div class="explainer-card">
+                <div class="explainer-card-step">03</div>
+                <h3>CAC (your number)</h3>
+                <p>Ad spend divided by jobs won. This is the true marketing cost per customer — what every job actually costs you to acquire.</p>
+            </div>
+        </div>
+        <div class="explainer-formula">
+            <strong style="color: var(--ink-soft);">The formula:</strong>&nbsp;
+            <code>CAC = Monthly Ad Spend ÷ (Leads × Close Rate)</code>
+            &nbsp;&nbsp;·&nbsp;&nbsp;
+            <code>ROAS = Revenue ÷ Ad Spend</code>
+            &nbsp;&nbsp;·&nbsp;&nbsp;
+            This calculator only includes paid ad spend — not agency fees, tools, or your time.
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">QuoteLeads</div>
+    <div class="foot-links">
+        <a href="https://quoteleads.com.au">Main Site</a>
+        <a href="https://quoteleads.com.au/growth-implementation">Growth Implementation</a>
+        <a href="https://quoteleads.com.au/pilot">Market Pulse Pilot</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">© 2026 QuoteLeads</div>
+</footer>
+
+<script>
+    const inputs = {
+        adSpend:       { el: document.getElementById('adSpend'),       disp: document.getElementById('adSpendDisplay'),   fmt: v => '$' + Number(v).toLocaleString() },
+        leadsPerMonth: { el: document.getElementById('leadsPerMonth'), disp: document.getElementById('leadsDisplay'),     fmt: v => v },
+        closeRate:     { el: document.getElementById('closeRate'),     disp: document.getElementById('closeRateDisplay'), fmt: v => v + '%' },
+        jobValue:      { el: document.getElementById('jobValue'),      disp: document.getElementById('jobValueDisplay'),  fmt: v => '$' + Number(v).toLocaleString() },
+    };
+
+    function fmtCurrency(n) {
+        if (n >= 1000) return '$' + (n/1000).toFixed(n % 1000 === 0 ? 0 : 1) + 'k';
+        return '$' + Math.round(n).toLocaleString();
+    }
+
+    function getVerdict(cac, jobValue) {
+        const pct = (cac / jobValue) * 100;
+        if (pct <= 5)  return { cls: 'good', msg: '🟢 Excellent CAC. You\'re spending less than 5% of job value to win each customer. This is a highly efficient acquisition machine.' };
+        if (pct <= 10) return { cls: 'good', msg: '🟢 Strong CAC. Under 10% of job value — this is a healthy, profitable acquisition ratio for most trade businesses.' };
+        if (pct <= 20) return { cls: 'ok',   msg: '🟡 Decent CAC. You\'re spending 10–20% of job value on marketing. Solid, but there\'s room to improve close rate or cost per lead.' };
+        if (pct <= 35) return { cls: 'ok',   msg: '🟡 Moderate CAC. 20–35% of job value. Profitable, but tightening your close rate or audience targeting would meaningfully improve margins.' };
+        return { cls: 'bad', msg: '🔴 High CAC. You\'re spending more than 35% of job value to win each job. Close rate, targeting, or cost per lead needs attention.' };
+    }
+
+    function update() {
+        const adSpend = parseFloat(inputs.adSpend.el.value);
+        const leads   = parseFloat(inputs.leadsPerMonth.el.value);
+        const close   = parseFloat(inputs.closeRate.el.value) / 100;
+        const jobVal  = parseFloat(inputs.jobValue.el.value);
+
+        // Update display values
+        for (const [key, inp] of Object.entries(inputs)) {
+            inp.disp.textContent = inp.fmt(inp.el.value);
+        }
+
+        // Derived
+        const cpl      = leads > 0 ? adSpend / leads : 0;
+        const jobsWon  = leads * close;
+        const cac      = jobsWon > 0 ? adSpend / jobsWon : 0;
+        const revenue  = jobsWon * jobVal;
+        const roas     = adSpend > 0 ? revenue / adSpend : 0;
+        const mktPct   = revenue > 0 ? (adSpend / revenue) * 100 : 0;
+
+        // Update CAC
+        const cacEl = document.getElementById('cacDisplay');
+        const primaryEl = document.getElementById('resultPrimary');
+        const verdictEl = document.getElementById('verdictBox');
+
+        const verdict = getVerdict(cac, jobVal);
+
+        cacEl.textContent = fmtCurrency(cac);
+        cacEl.className = 'result-cac ' + verdict.cls;
+        primaryEl.className = 'result-primary ' + verdict.cls;
+        verdictEl.className = 'result-verdict ' + verdict.cls;
+        verdictEl.textContent = verdict.msg;
+
+        // Animate
+        cacEl.classList.remove('animating');
+        void cacEl.offsetWidth;
+        cacEl.classList.add('animating');
+
+        // Breakdown
+        document.getElementById('cplDisplay').textContent      = '$' + Math.round(cpl).toLocaleString();
+        document.getElementById('jobsWonDisplay').textContent  = jobsWon < 1 ? '< 1 job' : Math.round(jobsWon) + (Math.round(jobsWon) === 1 ? ' job' : ' jobs');
+        document.getElementById('revenueDisplay').textContent  = revenue >= 1000 ? '$' + (revenue/1000).toFixed(1) + 'k' : '$' + Math.round(revenue).toLocaleString();
+        document.getElementById('roasDisplay').textContent     = roas.toFixed(1) + 'x';
+        document.getElementById('mktPctDisplay').textContent   = mktPct.toFixed(1) + '%';
+    }
+
+    // Bind all inputs
+    for (const inp of Object.values(inputs)) {
+        inp.el.addEventListener('input', update);
+    }
+
+    // Initial render
+    update();
+</script>
+</body>
+</html>
