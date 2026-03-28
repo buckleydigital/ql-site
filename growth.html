@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Implementation - Own Your Lead System End-to-End | QuoteLeads</title>
+    <meta name="description" content="A fully built lead generation system - landing pages, ads, CRM, automated follow-up - owned by your business from day one. $2,550 + GST over 90 days. No lock-in.">
+    <link rel="canonical" href="https://quoteleads.com.au/growth-implementation">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quoteleads.com.au/growth-implementation">
+    <meta property="og:title" content="Growth Implementation - Own Your Lead System End-to-End">
+    <meta property="og:description" content="A fully built lead generation system owned by your business from day one. $2,550 + GST over 90 days. No lock-in.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Growth Implementation - Lead Generation System Build",
+      "description": "A fully built, owned lead generation system with landing pages, ad campaigns, CRM, and automated follow-up. $2,550 + GST over 90 days.",
+      "url": "https://quoteleads.com.au/growth-implementation",
+      "provider": {
+        "@type": "Organization",
+        "name": "QuoteLeads",
+        "url": "https://quoteleads.com.au"
+      },
+      "areaServed": { "@type": "Country", "name": "Australia" },
+      "serviceType": "Lead Generation System Build"
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --bg-deep:     #0d0e12;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.18);
+            --green:       #34d399;
+            --green-dim:   rgba(52,211,153,0.10);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans:  'DM Sans', system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); }
+        .header-inner {
+            max-width: 900px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .logo-text {
+            font-family: var(--serif); font-size: 18px; color: var(--ink-soft);
+            text-decoration: none; letter-spacing: -0.2px;
+        }
+        .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .header-link:hover { color: var(--ink); }
+
+        /* HERO */
+        .hero {
+            padding: 90px 48px 80px;
+            position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-glow {
+            position: absolute; top: -30%; right: -5%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px; opacity: 0.3; pointer-events: none;
+        }
+        .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+        }
+        .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5.5vw, 62px); line-height: 1.06;
+            letter-spacing: -0.6px; color: var(--ink); margin-bottom: 28px;
+            max-width: 740px;
+        }
+        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero-sub {
+            font-size: 17px; font-weight: 300; color: var(--ink-muted);
+            line-height: 1.75; max-width: 580px; margin-bottom: 48px;
+        }
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            padding: 16px 36px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
+            display: inline-block; transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+        .btn-secondary {
+            background: none; border: 1px solid var(--border-mid); color: var(--ink-soft);
+            padding: 16px 36px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; display: inline-block; transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--ink); }
+        .hero-trust { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
+        .hero-trust span+span::before { content: ' · '; }
+
+        /* SHARED */
+        .si { max-width: 900px; margin: 0 auto; }
+        .slbl {
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 16px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .stitle {
+            font-family: var(--serif); font-size: clamp(26px, 3.5vw, 42px);
+            line-height: 1.1; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px;
+        }
+        .stitle em { font-style: italic; color: var(--accent); }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: 80px 48px;
+            border-bottom: 1px solid var(--border);
+        }
+        .content-section.lifted { background: var(--bg-lift); }
+        .content-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; max-width: 680px; margin-top: 40px; }
+        .content-body p + p { margin-top: 20px; }
+        .content-body strong { color: var(--ink); font-weight: 400; }
+
+        /* INVESTMENT BREAKDOWN */
+        .invest-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            margin-top: 48px;
+        }
+        .invest-card { background: var(--bg-card); padding: 36px 28px; }
+        .invest-card-phase {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); margin-bottom: 6px;
+        }
+        .invest-card-label {
+            font-size: 14px; font-weight: 400; color: var(--ink-soft); margin-bottom: 16px; line-height: 1.4;
+        }
+        .invest-card-price {
+            font-family: var(--serif); font-size: 36px; color: var(--ink); line-height: 1;
+            margin-bottom: 4px;
+        }
+        .invest-card-price .currency { font-size: 22px; color: var(--ink-soft); vertical-align: top; margin-right: 2px; }
+        .invest-card-gst { font-size: 12px; color: var(--ink-faint); margin-bottom: 16px; }
+        .invest-card-detail { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 300; }
+        .invest-total {
+            margin-top: 1px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-top: none; border-radius: 0 0 12px 12px;
+            padding: 24px 28px;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 12px;
+        }
+        .invest-total-left { font-size: 14px; color: var(--ink-muted); font-weight: 300; }
+        .invest-total-left strong { color: var(--ink); font-weight: 400; }
+        .invest-total-right { font-size: 13px; color: var(--ink-faint); font-weight: 300; }
+
+        /* SYSTEM FLOW VISUAL */
+        .system-visual {
+            margin-top: 56px;
+            position: relative;
+        }
+        .flow-label {
+            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 24px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .flow-label::before { content: ''; width: 12px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .flow-container {
+            position: relative;
+            border: 1px solid var(--border); border-radius: 16px;
+            background: var(--bg-deep);
+            overflow: hidden;
+        }
+
+        /* Flow header */
+        .flow-header {
+            padding: 20px 28px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 12px;
+        }
+        .flow-header-dots { display: flex; gap: 6px; }
+        .flow-header-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--border-mid); }
+        .flow-header-title { font-size: 12px; color: var(--ink-faint); letter-spacing: 0.04em; }
+
+        /* Flow stages */
+        .flow-stages {
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+            position: relative;
+        }
+        .flow-stage {
+            padding: 32px 24px 28px;
+            position: relative;
+        }
+        .flow-stage:not(:last-child)::after {
+            content: '';
+            position: absolute; right: 0; top: 20%; bottom: 20%;
+            width: 1px; background: var(--border);
+        }
+        .flow-stage-label {
+            font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 20px;
+            padding: 3px 8px; background: var(--accent-dim); border-radius: 3px;
+            display: inline-block;
+        }
+        .flow-stage-title {
+            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            line-height: 1.2; margin-bottom: 14px;
+        }
+        .flow-stage-desc {
+            font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        /* Flow nodes */
+        .flow-nodes { display: flex; flex-direction: column; gap: 6px; }
+        .flow-node {
+            display: flex; align-items: center; gap: 10px;
+            padding: 8px 12px; border-radius: 6px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            font-size: 12px; color: var(--ink-soft); font-weight: 300;
+            transition: border-color 0.2s;
+        }
+        .flow-node:hover { border-color: var(--accent); }
+        .flow-node-icon {
+            width: 22px; height: 22px; border-radius: 5px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; flex-shrink: 0;
+        }
+        .flow-node-icon.blue { background: var(--accent-dim); color: var(--accent); }
+        .flow-node-icon.green { background: var(--green-dim); color: var(--green); }
+
+        /* Flow connector arrows */
+        .flow-connectors {
+            display: flex; align-items: center; justify-content: center;
+            padding: 0 28px 20px;
+            gap: 0;
+        }
+        .flow-connector-segment {
+            flex: 1; display: flex; align-items: center; justify-content: center;
+        }
+        .flow-arrow {
+            display: flex; align-items: center; gap: 0;
+            width: 100%;
+        }
+        .flow-arrow-line {
+            flex: 1; height: 1px;
+            background: linear-gradient(90deg, var(--accent-dim), var(--accent), var(--accent-dim));
+        }
+        .flow-arrow-head {
+            width: 0; height: 0;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 6px solid var(--accent);
+        }
+        .flow-arrow-label {
+            font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--ink-faint); white-space: nowrap; padding: 0 8px;
+        }
+
+        /* Flow bottom bar */
+        .flow-bottom {
+            border-top: 1px solid var(--border);
+            padding: 16px 28px;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 12px;
+        }
+        .flow-bottom-item {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 11px; color: var(--ink-faint);
+        }
+        .flow-bottom-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+        }
+        .flow-bottom-dot.blue { background: var(--accent); }
+        .flow-bottom-dot.green { background: var(--green); }
+
+        /* SCALING TIMELINE */
+        .timeline-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            margin-top: 48px;
+        }
+        .timeline-card { background: var(--bg-card); padding: 36px 28px; position: relative; }
+        .timeline-card-month {
+            font-family: var(--serif); font-size: 48px; color: var(--accent-dim);
+            line-height: 1; margin-bottom: 16px;
+        }
+        .timeline-card h3 {
+            font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3;
+        }
+        .timeline-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+        .timeline-tag {
+            display: inline-block; font-size: 10px; letter-spacing: 0.08em;
+            text-transform: uppercase; padding: 3px 10px; border-radius: 3px;
+            margin-bottom: 16px;
+        }
+        .timeline-tag.build { background: var(--accent-dim); color: var(--accent); }
+        .timeline-tag.scale { background: var(--green-dim); color: var(--green); }
+
+        /* BACKEND GRID */
+        .backend-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            margin-top: 48px;
+        }
+        .backend-card { background: var(--bg-card); padding: 32px 28px; }
+        .backend-card h3 {
+            font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3;
+        }
+        .backend-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+        .backend-card-tag {
+            display: inline-block; font-size: 10px; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--accent); background: var(--accent-dim);
+            padding: 3px 10px; border-radius: 3px; margin-bottom: 14px;
+        }
+
+        /* OWNERSHIP BOX */
+        .ownership-grid {
+            display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; margin-top: 48px;
+        }
+        .ownership-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; }
+        .ownership-body p + p { margin-top: 20px; }
+        .ownership-body strong { color: var(--ink); font-weight: 400; }
+        .ownership-list-box {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 10px; padding: 32px;
+        }
+        .ownership-list-box::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); opacity: 0.5; margin-bottom: 20px; }
+        .ownership-list-box-lbl { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
+        .ownership-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .ownership-list li {
+            font-size: 14px; color: var(--ink-soft); line-height: 1.55;
+            display: flex; align-items: flex-start; gap: 10px; font-weight: 300;
+        }
+        .ownership-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+
+        /* NOTE BOX */
+        .note-box {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 10px; padding: 28px 32px; margin-top: 32px;
+            position: relative;
+        }
+        .note-box-lbl {
+            position: absolute; top: -9px; left: 24px;
+            background: var(--bg-card); padding: 0 10px;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent);
+        }
+        .note-box p {
+            font-size: 14px; color: var(--ink-muted); line-height: 1.7; margin: 0; font-weight: 300;
+        }
+        .note-box strong { color: var(--ink); font-weight: 400; }
+
+        /* STATS */
+        .stats-row {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            margin-top: 48px;
+        }
+        .stat-cell { background: var(--bg-card); padding: 28px 20px; text-align: center; }
+        .stat-val {
+            font-family: var(--serif); font-size: 32px; color: var(--accent);
+            line-height: 1; margin-bottom: 6px;
+        }
+        .stat-label { font-size: 12px; color: var(--ink-muted); font-weight: 300; line-height: 1.4; }
+
+        /* DUAL CTA */
+        .dual-cta {
+            padding: 100px 48px;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .dual-cta-glow {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 700px; height: 400px;
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .dual-cta-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .dual-cta-inner h2 {
+            font-family: var(--serif); font-size: clamp(28px, 4vw, 48px);
+            line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
+        }
+        .dual-cta-inner h2 em { font-style: italic; color: var(--accent); }
+        .dual-cta-inner > p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 48px; font-weight: 300; max-width: 540px; margin-left: auto; margin-right: auto; }
+        .cta-paths {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            text-align: left;
+        }
+        .cta-path { background: var(--bg-card); padding: 40px 36px; }
+        .cta-path-lbl {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 20px;
+        }
+        .cta-path h3 {
+            font-family: var(--serif); font-size: 24px; color: var(--ink);
+            line-height: 1.2; margin-bottom: 12px;
+        }
+        .cta-path h3 em { font-style: italic; color: var(--accent); }
+        .cta-path p {
+            font-size: 14px; color: var(--ink-muted); line-height: 1.7; font-weight: 300;
+            margin-bottom: 28px;
+        }
+        .cta-path .btn-primary { padding: 14px 32px; font-size: 14px; }
+        .cta-path .btn-secondary { padding: 14px 32px; font-size: 14px; }
+        .cta-path-detail {
+            margin-top: 20px; font-size: 12px; color: var(--ink-faint); line-height: 1.55;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 36px 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); }
+        .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .site-header { padding: 0 24px; }
+            .hero { padding: 64px 24px 56px; }
+            .content-section, .dual-cta { padding: 64px 24px; }
+            footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+            .invest-grid { grid-template-columns: 1fr; }
+            .flow-stages { grid-template-columns: 1fr; }
+            .flow-stage:not(:last-child)::after { display: none; }
+            .flow-stage:not(:last-child) { border-bottom: 1px solid var(--border); }
+            .flow-connectors { display: none; }
+            .timeline-grid { grid-template-columns: 1fr; }
+            .backend-grid { grid-template-columns: 1fr; }
+            .ownership-grid { grid-template-columns: 1fr; gap: 40px; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .cta-paths { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; align-items: flex-start; }
+            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+            .invest-total { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="https://quoteleads.com.au" class="logo-text">QuoteLeads</a>
+        <a href="https://quoteleads.com.au" class="header-link">← Back to QuoteLeads</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div class="eyebrow">Growth Implementation</div>
+        <h1>Your own lead system.<br><em>Built, launched, owned.</em></h1>
+        <p class="hero-sub">Not a subscription to someone else's platform. Not a marketplace. A complete lead generation system - ads, landing pages, verification, CRM, automated follow-up - built for your business and owned by you from day one. $2,550 + GST over 90 days. No lock-in contract.</p>
+        <div class="hero-ctas">
+            <a href="https://quoteleads.com.au/get-started" class="btn-primary">Apply for the Growth Build</a>
+            <a href="https://quoteleads.com.au/pilot" class="btn-secondary">Start with a Pilot instead</a>
+        </div>
+        <div class="hero-trust">
+            <span>All assets yours from day 1</span>
+            <span>No lock-in</span>
+            <span>Full playbook handoff available</span>
+        </div>
+    </div>
+</section>
+
+<!-- THE INVESTMENT -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">The Investment</div>
+        <h2 class="stitle">Transparent pricing.<br><em>No surprises.</em></h2>
+        <div class="content-body">
+            <p>The build costs $1,250 + GST. Monthly management runs $650 + GST for the remaining two months. That's $2,550 + GST paid to QuoteLeads across the full 90-day engagement, broken down month to month with no lock-in contract. On top of that, we recommend $40 per day to Meta for the first 30 days - roughly $1,200 in ad spend to generate your first wave of leads. That's scalable from there.</p>
+        </div>
+
+        <div class="invest-grid">
+            <div class="invest-card">
+                <div class="invest-card-phase">Month 1</div>
+                <div class="invest-card-label">System Build + Launch</div>
+                <div class="invest-card-price"><span class="currency">$</span>1,250</div>
+                <div class="invest-card-gst">+ GST</div>
+                <div class="invest-card-detail">Full infrastructure built and deployed. Ad accounts, landing pages, survey, CRM, follow-up automation - everything configured and live. Ownership transferred immediately.</div>
+            </div>
+            <div class="invest-card">
+                <div class="invest-card-phase">Month 2</div>
+                <div class="invest-card-label">Management + Optimisation</div>
+                <div class="invest-card-price"><span class="currency">$</span>650</div>
+                <div class="invest-card-gst">+ GST</div>
+                <div class="invest-card-detail">Campaign management, performance optimisation, lead quality monitoring. Our team tunes the machine based on real data from month one.</div>
+            </div>
+            <div class="invest-card">
+                <div class="invest-card-phase">Month 3</div>
+                <div class="invest-card-label">Scale + Handoff</div>
+                <div class="invest-card-price"><span class="currency">$</span>650</div>
+                <div class="invest-card-gst">+ GST</div>
+                <div class="invest-card-detail">Scaling what works, refining what doesn't. Full playbook handoff available at end of term. No ongoing management required - or continue if you prefer.</div>
+            </div>
+        </div>
+        <div class="invest-total">
+            <div class="invest-total-left"><strong>$2,550 + GST</strong> total to QuoteLeads over 90 days</div>
+            <div class="invest-total-right">+ recommended $40/day Meta ad spend (~$1,200/mo)</div>
+        </div>
+
+        <div class="note-box" style="margin-top: 40px;">
+            <div class="note-box-lbl">Tailored proposals</div>
+            <p>The $1,250 build investment covers most standard implementations. <strong>Complex setups - multiple service areas, multiple reps, custom integrations, or multi-campaign configurations</strong> - may require a higher build investment. We break everything down in a tailored proposal before anything starts so there are no surprises.</p>
+        </div>
+    </div>
+</section>
+
+<!-- THE SYSTEM -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The System</div>
+        <h2 class="stitle">End-to-end infrastructure.<br><em>Nothing rented.</em></h2>
+        <div class="content-body">
+            <p>This isn't a dashboard you log into. It's a complete acquisition system built on your own ad accounts, your own domains, your own CRM. Traffic comes in through properly configured Meta campaigns. It lands on pages designed to educate, filter, and convert - not just collect a name and number. The backend handles everything from instant follow-up to quote drafting. <strong>Volume and quality scale together, not just volume.</strong></p>
+        </div>
+
+        <div class="system-visual">
+            <div class="flow-label">System Architecture</div>
+            <div class="flow-container">
+                <div class="flow-header">
+                    <div class="flow-header-dots"><span></span><span></span><span></span></div>
+                    <div class="flow-header-title">your-business.quoteleads.com.au — live system</div>
+                </div>
+                <div class="flow-stages">
+                    <!-- STAGE 1: Traffic -->
+                    <div class="flow-stage">
+                        <div class="flow-stage-label">Front End</div>
+                        <div class="flow-stage-title">Traffic + Conversion</div>
+                        <div class="flow-stage-desc">Paid campaigns drive targeted homeowners to landing pages built to educate, filter, and convert - not just capture.</div>
+                        <div class="flow-nodes">
+                            <div class="flow-node">
+                                <div class="flow-node-icon blue">▶</div>
+                                Meta ad campaigns (your accounts)
+                            </div>
+                            <div class="flow-node">
+                                <div class="flow-node-icon blue">◇</div>
+                                Landing page — educate + filter
+                            </div>
+                            <div class="flow-node">
+                                <div class="flow-node-icon blue">≡</div>
+                                3-question custom survey
+                            </div>
+                            <div class="flow-node">
+                                <div class="flow-node-icon blue">@</div>
+                                Contact info capture
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 2: Verification -->
+                    <div class="flow-stage">
+                        <div class="flow-stage-label">Qualification</div>
+                        <div class="flow-stage-title">Verification Layer</div>
+                        <div class="flow-stage-desc">Every submission passes through real-time validation. Bad data gets caught before it reaches you. Quality scales with volume.</div>
+                        <div class="flow-nodes">
+                            <div class="flow-node">
+                                <div class="flow-node-icon green">✓</div>
+                                Real-time phone verification
+                            </div>
+                            <div class="flow-node">
+                                <div class="flow-node-icon green">✓</div>
+                                Real-time email verification
+                            </div>
+                            <div class="flow-node">
+                                <div class="flow-node-icon green">✓</div>
+                                Named consent — your business
+                            </div>
+                            <div class="flow-node">
+                                <div class="flow-node-icon green">✓</div>
+                                Job type + location matching
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STAGE 3: Backend -->
+                    <div class="flow-stage">
+                        <div class="flow-stage-label">Backend</div>
+                        <div class="flow-stage-title">Delivery + Follow-Up</div>
+                        <div class="flow-stage-desc">Leads routable anywhere - phone, email, CRM, Slack, whatever you use. Instant response. Automated quote drafting. Nothing falls through.</div>
+                        <div class="flow-nodes">
+                            <div class="flow-node">
+                                <div class="flow-node-icon blue">⚡</div>
+                                Instant follow-up (60s, 24/7)
+                            </div>
+                            <div class="flow-node">
+                                <div class="flow-node-icon blue">⟳</div>
+                                14-day automated sequences
+                            </div>
+                            <div class="flow-node">
+                                <div class="flow-node-icon blue">✎</div>
+                                Quote drafting + delivery
+                            </div>
+                            <div class="flow-node">
+                                <div class="flow-node-icon blue">⊞</div>
+                                CRM + pipeline management
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flow-bottom">
+                    <div class="flow-bottom-item">
+                        <div class="flow-bottom-dot blue"></div>
+                        Your accounts, your data, your infrastructure
+                    </div>
+                    <div class="flow-bottom-item">
+                        <div class="flow-bottom-dot green"></div>
+                        Custom integrations available
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-row" style="margin-top: 24px;">
+            <div class="stat-cell">
+                <div class="stat-val">3</div>
+                <div class="stat-label">Survey questions<br>before contact info</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-val">60s</div>
+                <div class="stat-label">AI follow-up<br>24/7</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-val">100%</div>
+                <div class="stat-label">Verified phone<br>+ email</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-val">Day 1</div>
+                <div class="stat-label">Ownership<br>transferred</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SCALING TIMELINE -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">The Trajectory</div>
+        <h2 class="stitle">~30 leads month one.<br><em>Hundreds by month three.</em></h2>
+        <div class="content-body">
+            <p>Month one is about getting data. The system launches, leads come in, and we learn what's working. By month two, we know which audiences, creatives, and job types are converting and we double down. By month three, you're running a proven machine that scales as far as your ad budget and capacity allow. We hand off the full playbook if you want to run it yourself - or we keep managing it. Your call.</p>
+        </div>
+
+        <div class="timeline-grid">
+            <div class="timeline-card">
+                <div class="timeline-card-month">01</div>
+                <span class="timeline-tag build">Build + Launch</span>
+                <h3>System live. First leads in 24-48 hours.</h3>
+                <p>Infrastructure deployed, campaigns launched at $40/day. Roughly 30 qualified leads expected. We monitor everything - ad performance, lead quality, verification rates, follow-up engagement. This month is about building the data foundation.</p>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-card-month">02</div>
+                <span class="timeline-tag scale">Optimise</span>
+                <h3>Data-driven optimisation. Scale what converts.</h3>
+                <p>We know what's working. Audiences get refined, creatives rotate, underperforming angles get cut. Lead volume climbs as cost per lead drops. Ad spend scales based on your capacity and the data, not guesswork.</p>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-card-month">03</div>
+                <span class="timeline-tag scale">Scale + Handoff</span>
+                <h3>Proven system. Run it or hand it off.</h3>
+                <p>By now the system can generate hundreds of leads per month if required. Full playbook handoff available - you can run the whole thing in-house with no ongoing management fees, or keep us on. No lock-in either way.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BACKEND CAPABILITIES -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">Beyond Leads</div>
+        <h2 class="stitle">A backend that actually<br><em>works for you.</em></h2>
+        <div class="content-body">
+            <p>Generating leads is the first problem. What happens after they come in is what determines whether they turn into revenue. The system doesn't just capture enquiries and dump them in your inbox. It routes them, follows up instantly, drafts quotes, and keeps working leads through a 14-day sequence so nothing goes cold. And our marketing and development team is available throughout the engagement to customise, integrate your existing tools, and build whatever you need.</p>
+        </div>
+
+        <div class="backend-grid">
+            <div class="backend-card">
+                <div class="backend-card-tag">Delivery</div>
+                <h3>Leads Routable Anywhere</h3>
+                <p>Phone, email, SMS, CRM, Slack, webhook - leads go wherever your team works. Multiple reps? Route by postcode, job type, or round-robin. No dashboard to check. It comes to you.</p>
+            </div>
+            <div class="backend-card">
+                <div class="backend-card-tag">Speed</div>
+                <h3>Instant Follow-Up</h3>
+                <p>AI-powered response within 60 seconds, 24/7. The homeowner hears from your business before they've closed the browser tab. Speed-to-lead is the single biggest conversion factor and it's fully automated.</p>
+            </div>
+            <div class="backend-card">
+                <div class="backend-card-tag">Automation</div>
+                <h3>Quote Drafting + Delivery</h3>
+                <p>The system can draft and deliver preliminary quotes automatically based on job type, property details, and your pricing structure. You review and approve. It sends. No manual busywork.</p>
+            </div>
+            <div class="backend-card">
+                <div class="backend-card-tag">Flexible</div>
+                <h3>Custom Development</h3>
+                <p>Our marketing and development team works with you throughout the engagement. Need to integrate your existing CRM? Connect a quoting tool? Build custom reporting? We build it into the system as we go.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OWNERSHIP -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">Ownership</div>
+        <h2 class="stitle">Everything yours.<br><em>From day one.</em></h2>
+        <div class="ownership-grid">
+            <div class="ownership-body">
+                <p>Most lead gen companies keep you dependent. You rent access to their platform, their data, their system. Stop paying and you lose everything. That's by design - it's their business model, not yours.</p>
+                <p>This is different. <strong>Every asset we build is owned by your business from the moment it goes live.</strong> Your ad accounts. Your landing pages. Your CRM data. Your follow-up sequences. If you decide to part ways after 90 days, you keep everything and it keeps running. We can hand off a full playbook so your team - or any other agency - can manage it without us.</p>
+                <p>That's not a selling point. That's just how it should work.</p>
+            </div>
+            <div class="ownership-list-box">
+                <div class="ownership-list-box-lbl">You own all of it</div>
+                <ul class="ownership-list">
+                    <li>Meta & Google ad accounts in your name</li>
+                    <li>Custom landing pages on your domain</li>
+                    <li>Survey and qualification infrastructure</li>
+                    <li>CRM, pipeline, and all lead data</li>
+                    <li>Automated follow-up sequences</li>
+                    <li>Quote drafting and delivery system</li>
+                    <li>Full playbook handoff at end of term</li>
+                    <li>No ongoing fees required to keep it running</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DUAL CTA -->
+<section class="dual-cta">
+    <div class="dual-cta-glow"></div>
+    <div class="dual-cta-inner">
+        <div class="slbl" style="justify-content:center;">Two Ways In</div>
+        <h2>Ready to build.<br><em>Or ready to test.</em></h2>
+        <p>Apply for the full Growth Implementation if you know this is what you need - or start with a Pilot to see the mechanism before committing to the build.</p>
+
+        <div class="cta-paths">
+            <div class="cta-path">
+                <div class="cta-path-lbl">The full build</div>
+                <h3>Growth<br><em>Implementation</em></h3>
+                <p>Your complete lead generation system - ads, landing pages, verification, CRM, automated follow-up. Built, launched, and managed for 90 days. Owned by you from day one.</p>
+                <a href="https://quoteleads.com.au/get-started" class="btn-primary">Apply for the Growth Build</a>
+                <div class="cta-path-detail">$2,550 + GST over 90 days · No lock-in · Tailored proposal first</div>
+            </div>
+            <div class="cta-path">
+                <div class="cta-path-lbl">Test the mechanism</div>
+                <h3>Market Pulse<br><em>Pilot</em></h3>
+                <p>10 qualified, consented leads delivered in 7 days. Same engine, scoped to one week. See what it does before committing to the full system.</p>
+                <a href="https://quoteleads.com.au/pilot" class="btn-secondary">Start Pilot - $650 + GST</a>
+                <div class="cta-path-detail">10 leads guaranteed · Pro-rata refund if under 10 · No lock-in</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">QuoteLeads</div>
+    <div class="foot-links">
+        <a href="https://quoteleads.com.au">Main Site</a>
+        <a href="https://quoteleads.com.au/lead-integrity-standard">Lead Integrity Standard</a>
+        <a href="https://quoteleads.com.au/privacy">Privacy</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">© 2026 QuoteLeads</div>
+</footer>
+
+</body>
+</html>
