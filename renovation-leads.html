@@ -58,7 +58,12 @@
 
         .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); }
         .header-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-        .logo-text { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); text-decoration: none; letter-spacing: -0.2px; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-text {
+            font-family: var(--serif); font-size: 18px; color: var(--ink-soft);
+            text-decoration: none; letter-spacing: -0.2px; display: none;
+        }
         .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .header-link:hover { color: var(--ink); }
 
@@ -171,6 +176,8 @@
 
         footer { padding: 36px 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
         .foot-logo { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo span { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); display: none; }
         .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
         .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .foot-links a:hover { color: var(--ink); }
@@ -197,7 +204,10 @@
 
 <header class="site-header">
     <div class="header-inner">
-        <a href="https://quoteleads.com.au" class="logo-text">QuoteLeads</a>
+        <a href="https://quoteleads.com.au" class="logo">
+            <img class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="logo-text">QuoteLeads</span>
+        </a>
         <a href="https://quoteleads.com.au" class="header-link">← Back to QuoteLeads</a>
     </div>
 </header>
@@ -452,7 +462,10 @@
 </section>
 
 <footer>
-    <div class="foot-logo">QuoteLeads</div>
+    <div class="foot-logo">
+        <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span>QuoteLeads</span>
+    </div>
     <div class="foot-links">
         <a href="https://quoteleads.com.au">Main Site</a>
         <a href="https://quoteleads.com.au/lead-integrity-standard">Lead Integrity Standard</a>
