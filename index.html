@@ -237,6 +237,32 @@
         .q-col.no  .q-list li::before { content: '–'; color: var(--ink-faint); flex-shrink: 0; margin-top: 2px; font-size: 13px; }
         .q-note { margin-top: 40px; font-size: 14px; color: var(--ink-faint); font-style: italic; }
 
+        /* INDUSTRIES */
+        .industries { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .ind-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1px; background: var(--border); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden; margin-top: 60px;
+        }
+        .ind-item {
+            background: var(--bg-card); padding: 40px 32px;
+            text-decoration: none; transition: background 0.2s;
+            display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+        }
+        .ind-item:hover { background: var(--bg-lift); }
+        .ind-item h3 {
+            font-family: var(--serif); font-size: 22px; font-weight: 400;
+            color: var(--ink); line-height: 1.3;
+        }
+        .ind-item span {
+            font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 6px;
+            opacity: 0; transition: opacity 0.2s;
+        }
+        .ind-item:hover span { opacity: 1; }
+        @media(max-width:768px){
+            .ind-grid { grid-template-columns: 1fr 1fr; }
+        }
+
         /* PROBLEM */
         .problem { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .p-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
@@ -513,6 +539,33 @@
             </div>
         </div>
         <p class="q-note">We're not being exclusive for the sake of it. The system only works when the business behind it is ready. We'd rather tell you this now.</p>
+    </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries">
+    <div class="si">
+        <div class="slbl">Industry Specialisation</div>
+        <h2 class="stitle">Built for <em>high-value</em> trade &amp; home improvements.</h2>
+        <p class="sbody">Every system we build is tuned for your industry — the way homeowners search, the objections they raise, and the timeline they expect.</p>
+        <div class="ind-grid">
+            <a href="solar-leads.html" class="ind-item">
+                <h3>Solar</h3>
+                <span>Learn more →</span>
+            </a>
+            <a href="roofing-leads.html" class="ind-item">
+                <h3>Roofing</h3>
+                <span>Learn more →</span>
+            </a>
+            <a href="hvac-leads.html" class="ind-item">
+                <h3>HVAC</h3>
+                <span>Learn more →</span>
+            </a>
+            <a href="renovation-leads.html" class="ind-item">
+                <h3>Renovations</h3>
+                <span>Learn more →</span>
+            </a>
+        </div>
     </div>
 </section>
 
