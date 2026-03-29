@@ -18,7 +18,7 @@
     <meta property="twitter:image" content="https://github.com/buckleydigital/ql-site/raw/main/lead-integrity-standard.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
     <script type="application/ld+json">
     {
@@ -48,8 +48,8 @@
             --accent:      #4797FF;
             --accent-dim:  rgba(71,151,255,0.10);
             --accent-glow: rgba(71,151,255,0.18);
-            --serif: 'Instrument Serif', Georgia, serif;
-            --sans:  'DM Sans', system-ui, sans-serif;
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
         }
 
         body {
@@ -57,10 +57,11 @@
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
-            font-weight: 300;
+            font-weight: 400;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
         /* HEADER */
         .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(10,11,15,0.88); backdrop-filter: blur(20px); }
@@ -107,7 +108,7 @@
         }
         .hero h1 em { font-style: italic; color: var(--accent); }
         .hero-sub {
-            font-size: 17px; font-weight: 300; color: var(--ink-muted);
+            font-size: 17px; font-weight: 400; color: var(--ink-muted);
             line-height: 1.75; max-width: 600px;
         }
 
@@ -131,7 +132,7 @@
             border-bottom: 1px solid var(--border);
         }
         .content-section.lifted { background: var(--bg-lift); }
-        .content-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; max-width: 680px; margin-top: 40px; }
+        .content-body { font-size: 16px; font-weight: 400; color: var(--ink-muted); line-height: 1.85; max-width: 680px; margin-top: 40px; }
         .content-body p + p { margin-top: 20px; }
         .content-body strong { color: var(--ink); font-weight: 400; }
 
@@ -175,7 +176,7 @@
             font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.4;
         }
         .flow-content p {
-            font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; margin: 0;
+            font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; margin: 0;
         }
 
         /* STATS ROW */
@@ -192,7 +193,7 @@
             font-family: var(--serif); font-size: 36px; color: var(--accent);
             line-height: 1; margin-bottom: 6px;
         }
-        .stat-label { font-size: 13px; color: var(--ink-muted); font-weight: 300; }
+        .stat-label { font-size: 13px; color: var(--ink-muted); font-weight: 400; }
 
         /* DIMENSION CARDS */
         .dimensions { display: flex; flex-direction: column; gap: 16px; margin: 40px 0; }
@@ -213,7 +214,7 @@
             font-size: 11px; color: var(--accent); flex-shrink: 0;
         }
         .dimension-card p {
-            font-size: 14px; color: var(--ink-muted); line-height: 1.7; font-weight: 300;
+            font-size: 14px; color: var(--ink-muted); line-height: 1.7; font-weight: 400;
             padding-left: 36px; margin: 0;
         }
 
@@ -234,7 +235,7 @@
             flex-shrink: 0; margin-top: 1px;
         }
         .compliance-check svg { width: 10px; height: 10px; stroke: var(--accent); stroke-width: 2.5; fill: none; }
-        .compliance-item-text { font-size: 13px; color: var(--ink-soft); line-height: 1.55; font-weight: 300; }
+        .compliance-item-text { font-size: 13px; color: var(--ink-soft); line-height: 1.55; font-weight: 400; }
         .compliance-item-text strong { color: var(--ink); font-weight: 400; }
 
         /* VS TABLE */
@@ -252,7 +253,7 @@
         .vs-table th:first-child { width: 40%; }
         .vs-table td {
             padding: 14px 24px; border-bottom: 1px solid var(--border);
-            font-size: 14px; font-weight: 300;
+            font-size: 14px; font-weight: 400;
         }
         .vs-table tr:last-child td { border-bottom: none; }
         .vs-table .col-ql { color: var(--accent); font-weight: 400; }
@@ -273,7 +274,7 @@
             line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
         }
         .cta-inner h2 em { font-style: italic; color: var(--accent); }
-        .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 40px; font-weight: 300; }
+        .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 40px; font-weight: 400; }
         .btn-primary {
             background: var(--accent); color: #fff;
             padding: 16px 40px; border-radius: 6px; text-decoration: none;

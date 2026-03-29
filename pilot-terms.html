@@ -9,7 +9,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -26,8 +26,8 @@
             --ink-faint:   #50504a;
             --accent:      #4797FF;
             --accent-dim:  rgba(71,151,255,0.10);
-            --serif: 'Instrument Serif', Georgia, serif;
-            --sans:  'DM Sans', system-ui, sans-serif;
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
         }
 
         body {
@@ -35,10 +35,11 @@
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
-            font-weight: 300;
+            font-weight: 400;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
         /* HEADER */
         .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(10,11,15,0.88); backdrop-filter: blur(20px); }
@@ -49,7 +50,7 @@
             font-family: var(--serif); font-size: 18px; color: var(--ink-soft);
             text-decoration: none; letter-spacing: -0.2px; display: none;
         }
-        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 300; margin-left: 10px; }
+        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 400; margin-left: 10px; }
         .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .header-link:hover { color: var(--ink); }
 
@@ -107,7 +108,7 @@
 
         .terms-card p {
             font-size: 15px; color: var(--ink-muted); line-height: 1.8;
-            margin-bottom: 16px; font-weight: 300;
+            margin-bottom: 16px; font-weight: 400;
         }
 
         .terms-card strong { color: var(--ink-soft); font-weight: 400; }
@@ -119,7 +120,7 @@
         }
         .terms-card li {
             font-size: 15px; color: var(--ink-muted); line-height: 1.75;
-            margin-bottom: 10px; font-weight: 300;
+            margin-bottom: 10px; font-weight: 400;
             padding-left: 20px;
             position: relative;
         }

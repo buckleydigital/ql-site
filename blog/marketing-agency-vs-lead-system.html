@@ -27,7 +27,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,8 +53,8 @@
             --green-dim:   rgba(52,211,153,0.10);
             --red:         #f87171;
             --red-dim:     rgba(248,113,113,0.10);
-            --serif: 'Instrument Serif', Georgia, serif;
-            --sans:  'DM Sans', system-ui, sans-serif;
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
         }
 
         body {
@@ -62,10 +62,11 @@
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
-            font-weight: 300;
+            font-weight: 400;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
         /* HEADER */
         .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); }
@@ -115,7 +116,7 @@
         .hero h1 em { font-style: italic; color: var(--red); }
 
         .hero-sub {
-            font-size: 17px; font-weight: 300; color: var(--ink-muted);
+            font-size: 17px; font-weight: 400; color: var(--ink-muted);
             line-height: 1.75; max-width: 600px; margin-bottom: 40px;
         }
 
@@ -151,7 +152,7 @@
 
         /* PROSE */
         .prose {
-            font-size: 17px; font-weight: 300; color: var(--ink-muted);
+            font-size: 17px; font-weight: 400; color: var(--ink-muted);
             line-height: 1.9; max-width: 680px; margin-top: 36px;
         }
         .prose p + p { margin-top: 22px; }
@@ -181,7 +182,7 @@
         .callout.blue  .callout-lbl { color: var(--accent); }
         .callout.green .callout-lbl { color: var(--green); }
         .callout.red   .callout-lbl { color: var(--red); }
-        .callout p { font-size: 15px; color: var(--ink-soft); line-height: 1.75; font-weight: 300; margin: 0; }
+        .callout p { font-size: 15px; color: var(--ink-soft); line-height: 1.75; font-weight: 400; margin: 0; }
         .callout p + p { margin-top: 14px; }
         .callout p strong { color: var(--ink); font-weight: 400; }
 
@@ -209,7 +210,7 @@
         .compare-row:nth-child(even) .compare-cell { background: var(--bg-card); }
         .compare-row:nth-child(odd)  .compare-cell { background: var(--bg-lift); }
         .compare-cell {
-            padding: 18px 20px; font-size: 13px; line-height: 1.6; font-weight: 300;
+            padding: 18px 20px; font-size: 13px; line-height: 1.6; font-weight: 400;
             border-right: 1px solid var(--border);
         }
         .compare-cell:last-child { border-right: none; }
@@ -237,7 +238,7 @@
         .redflag-card h3 {
             font-size: 16px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3;
         }
-        .redflag-card p { font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+        .redflag-card p { font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; }
         .redflag-card p strong { color: var(--ink-soft); font-weight: 400; }
 
         /* MONEY FLOW VISUAL */
@@ -290,7 +291,7 @@
         .seg-scale .money-flow-arrow     { border-left: 12px solid rgba(71,151,255,0.15); }
         .seg-leads-good { background: rgba(71,151,255,0.10); color: var(--accent); }
         .money-flow-outcome {
-            font-size: 12px; margin-top: 6px; font-weight: 300;
+            font-size: 12px; margin-top: 6px; font-weight: 400;
         }
         .money-flow-outcome.bad  { color: var(--red); opacity: 0.8; }
         .money-flow-outcome.good { color: var(--green); opacity: 0.9; }
@@ -317,7 +318,7 @@
         .stage-tag.q3 { background: var(--green-dim); color: var(--green); }
         .stage-tag.proof { background: var(--accent-dim); color: var(--accent); }
         .stage-card h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
-        .stage-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+        .stage-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; }
 
         /* PULL QUOTE */
         .pull-quote {
@@ -342,7 +343,7 @@
         .checklist-items { display: flex; flex-direction: column; gap: 12px; }
         .checklist-item {
             display: flex; align-items: flex-start; gap: 12px;
-            font-size: 14px; color: var(--ink-soft); line-height: 1.55; font-weight: 300;
+            font-size: 14px; color: var(--ink-soft); line-height: 1.55; font-weight: 400;
         }
         .checklist-icon {
             width: 20px; height: 20px; border-radius: 50%;
@@ -362,7 +363,7 @@
             background: var(--bg-card); padding: 0 10px;
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
         }
-        .note-box p { font-size: 14px; color: var(--ink-muted); line-height: 1.75; margin: 0; font-weight: 300; }
+        .note-box p { font-size: 14px; color: var(--ink-muted); line-height: 1.75; margin: 0; font-weight: 400; }
         .note-box p + p { margin-top: 14px; }
         .note-box strong { color: var(--ink); font-weight: 400; }
 
@@ -382,7 +383,7 @@
         .stat-val.green { color: var(--green); }
         .stat-val.blue  { color: var(--accent); }
         .stat-val.red   { color: var(--red); }
-        .stat-label { font-size: 13px; color: var(--ink-muted); font-weight: 300; line-height: 1.5; }
+        .stat-label { font-size: 13px; color: var(--ink-muted); font-weight: 400; line-height: 1.5; }
         .stat-label strong { color: var(--ink); font-weight: 400; }
 
         /* CTA */
@@ -401,7 +402,7 @@
             line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
         }
         .cta-inner h2 em { font-style: italic; color: var(--accent); }
-        .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 40px; font-weight: 300; }
+        .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 40px; font-weight: 400; }
         .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
         .btn-primary {
             background: var(--accent); color: #fff;
@@ -438,7 +439,7 @@
             line-height: 1.3; margin-bottom: 10px;
         }
         .related-title em { font-style: italic; color: var(--accent); }
-        .related-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 300; }
+        .related-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400; }
 
         /* FOOTER */
         footer {

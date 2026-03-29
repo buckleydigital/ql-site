@@ -8,7 +8,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -27,8 +27,8 @@
             --accent:      #4797FF;
             --accent-dim:  rgba(71,151,255,0.10);
             --accent-glow: rgba(71,151,255,0.18);
-            --serif: 'Instrument Serif', Georgia, serif;
-            --sans:  'DM Sans', system-ui, sans-serif;
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
         }
 
         body {
@@ -36,10 +36,11 @@
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
-            font-weight: 300;
+            font-weight: 400;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
         /* HEADER */
         .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); }
@@ -54,7 +55,7 @@
             font-family: var(--serif); font-size: 18px; color: var(--ink-soft);
             text-decoration: none; letter-spacing: -0.2px; display: none;
         }
-        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 300; margin-left: 10px; }
+        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 400; margin-left: 10px; }
         .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .header-link:hover { color: var(--ink); }
 
@@ -94,7 +95,7 @@
         .hero h1 em { font-style: italic; color: var(--accent); }
 
         .hero-sub {
-            font-size: 17px; font-weight: 300; color: var(--ink-muted);
+            font-size: 17px; font-weight: 400; color: var(--ink-muted);
             line-height: 1.75; max-width: 560px; margin-bottom: 48px;
         }
 
@@ -129,7 +130,7 @@
             border-bottom: 1px solid var(--border);
         }
         .guarantee-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; margin-top: 48px; }
-        .guarantee-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; }
+        .guarantee-body { font-size: 16px; font-weight: 400; color: var(--ink-muted); line-height: 1.85; }
         .guarantee-body p+p { margin-top: 20px; }
         .guarantee-body strong { color: var(--ink); font-weight: 400; }
 
@@ -145,7 +146,7 @@
             line-height: 1.2; margin-bottom: 16px;
         }
         .guarantee-box-val em { font-style: italic; color: var(--accent); }
-        .guarantee-box-body { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+        .guarantee-box-body { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; }
         .guarantee-box-body strong { color: var(--ink-soft); font-weight: 400; }
 
         /* CONSENT */
@@ -154,7 +155,7 @@
             border-bottom: 1px solid var(--border);
         }
         .consent-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; margin-top: 48px; }
-        .consent-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; }
+        .consent-body { font-size: 16px; font-weight: 400; color: var(--ink-muted); line-height: 1.85; }
         .consent-body p+p { margin-top: 20px; }
         .consent-body strong { color: var(--ink); font-weight: 400; }
         .consent-box {
@@ -166,7 +167,7 @@
         .consent-pts { list-style: none; display: flex; flex-direction: column; gap: 14px; }
         .consent-pts li {
             font-size: 14px; color: var(--ink-soft); line-height: 1.55;
-            display: flex; align-items: flex-start; gap: 10px; font-weight: 300;
+            display: flex; align-items: flex-start; gap: 10px; font-weight: 400;
         }
         .consent-pts li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
 
@@ -189,7 +190,7 @@
             padding: 3px 10px; border-radius: 3px; margin-bottom: 16px;
         }
         .how-step h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
-        .how-step p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+        .how-step p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; }
 
         /* LEAD CARD */
         .lead-look {
@@ -218,12 +219,12 @@
         }
         .lead-field { background: var(--bg-card); padding: 20px 24px; }
         .lead-field-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
-        .lead-field-val { font-size: 15px; color: var(--ink-soft); font-weight: 300; }
+        .lead-field-val { font-size: 15px; color: var(--ink-soft); font-weight: 400; }
         .lead-field-val strong { color: var(--ink); font-weight: 400; }
         .lead-card-foot {
             padding: 20px 32px; background: var(--accent-dim);
             border-top: 1px solid rgba(71,151,255,0.15);
-            font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 300;
+            font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400;
         }
         .lead-card-foot strong { color: var(--ink); font-weight: 400; }
 
@@ -234,7 +235,7 @@
             border-bottom: 1px solid var(--border);
         }
         .economics-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; margin-top: 48px; }
-        .economics-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; }
+        .economics-body { font-size: 16px; font-weight: 400; color: var(--ink-muted); line-height: 1.85; }
         .economics-body p+p { margin-top: 20px; }
         .economics-body strong { color: var(--ink); font-weight: 400; }
         .economics-box {
@@ -247,7 +248,7 @@
         .economics-math li {
             font-size: 14px; color: var(--ink-soft); line-height: 1.55;
             padding: 12px 0; border-bottom: 1px solid var(--border);
-            display: flex; justify-content: space-between; font-weight: 300;
+            display: flex; justify-content: space-between; font-weight: 400;
         }
         .economics-math li:last-child { border-bottom: none; }
         .economics-math li span:last-child { color: var(--ink); font-weight: 400; }
@@ -260,7 +261,7 @@
             border-bottom: 1px solid var(--border);
         }
         .next-step-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; margin-top: 48px; }
-        .next-step-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; }
+        .next-step-body { font-size: 16px; font-weight: 400; color: var(--ink-muted); line-height: 1.85; }
         .next-step-body p+p { margin-top: 20px; }
         .next-step-body strong { color: var(--ink); font-weight: 400; }
         .next-step-box {
@@ -272,7 +273,7 @@
         .next-step-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
         .next-step-list li {
             font-size: 14px; color: var(--ink-soft); line-height: 1.55;
-            display: flex; align-items: flex-start; gap: 10px; font-weight: 300;
+            display: flex; align-items: flex-start; gap: 10px; font-weight: 400;
         }
         .next-step-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
 
@@ -293,7 +294,7 @@
         .fit-col.yes .fit-lbl { color: var(--accent); }
         .fit-col.no  .fit-lbl { color: var(--ink-faint); }
         .fit-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-        .fit-list li { font-size: 14px; font-weight: 300; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+        .fit-list li { font-size: 14px; font-weight: 400; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
         .fit-col.yes .fit-list li { color: var(--ink-soft); }
         .fit-col.no  .fit-list li { color: var(--ink-faint); }
         .fit-col.yes .fit-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
@@ -313,7 +314,7 @@
             line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
         }
         .cta-inner h2 em { font-style: italic; color: var(--accent); }
-        .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 40px; font-weight: 300; }
+        .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 40px; font-weight: 400; }
         .cta-trust { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
         .cta-trust span+span::before { content: ' · '; }
 
@@ -509,7 +510,7 @@
                     <li><span>Avg job value (solar, roofing, reno)</span> <span>$5,000+</span></li>
                     <li class="highlight"><span>Jobs to break even</span> <span>1</span></li>
                 </ul>
-                <p style="margin-top: 20px; font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300;">Close one job and you've covered the entire cost. Close two and you've returned multiples. That's the difference when leads are sourced properly, and it's why the full system, running continuously under your brand, changes the economics of your business entirely.</p>
+                <p style="margin-top: 20px; font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400;">Close one job and you've covered the entire cost. Close two and you've returned multiples. That's the difference when leads are sourced properly, and it's why the full system, running continuously under your brand, changes the economics of your business entirely.</p>
             </div>
         </div>
     </div>
