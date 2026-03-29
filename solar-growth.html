@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Lead Generation System — Built & Owned By You | QuoteLeads</title>
+    <meta name="description" content="Stop buying shared solar leads from aggregators. A fully built lead generation system — ads, landing pages, CRM, automated follow-up — owned by your solar business from day one.">
+    <link rel="canonical" href="https://quoteleads.com.au/solar">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quoteleads.com.au/solar">
+    <meta property="og:title" content="Solar Lead Generation System — Built & Owned By You">
+    <meta property="og:description" content="Stop buying shared solar leads. A complete lead generation system built for your solar business, owned by you from day one.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --bg-deep:     #0d0e12;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.18);
+            --solar:       #F5A623;
+            --solar-dim:   rgba(245,166,35,0.10);
+            --solar-glow:  rgba(245,166,35,0.12);
+            --green:       #34d399;
+            --green-dim:   rgba(52,211,153,0.10);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans:  'DM Sans', system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); }
+        .header-inner {
+            max-width: 960px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-text { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); text-decoration: none; letter-spacing: -0.2px; display: none; }
+        .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .header-link:hover { color: var(--ink); }
+
+        /* HERO */
+        .hero {
+            padding: 96px 48px 88px;
+            position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-rays {
+            position: absolute; top: -60%; right: -8%;
+            width: 700px; height: 700px;
+            background:
+                radial-gradient(circle at 60% 40%, var(--solar-glow) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, var(--accent-glow) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px; opacity: 0.25; pointer-events: none;
+        }
+        /* Animated sun pulse */
+        .hero-sun {
+            position: absolute; top: 10%; right: 6%;
+            width: 200px; height: 200px;
+            pointer-events: none; opacity: 0.18;
+        }
+        .hero-sun circle { fill: none; stroke: var(--solar); }
+        .hero-sun .ring1 { animation: sunpulse 4s ease infinite; }
+        .hero-sun .ring2 { animation: sunpulse 4s ease 1s infinite; }
+        .hero-sun .ring3 { animation: sunpulse 4s ease 2s infinite; }
+        @keyframes sunpulse {
+            0%   { opacity: 0.6; r: 30; }
+            50%  { opacity: 0.2; r: 80; }
+            100% { opacity: 0; r: 100; }
+        }
+
+        .hero-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--solar); margin-bottom: 28px;
+        }
+        .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--solar); }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(38px, 5.8vw, 68px); line-height: 1.04;
+            letter-spacing: -0.8px; color: var(--ink); margin-bottom: 28px;
+            max-width: 780px;
+        }
+        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero h1 .solar-em { font-style: italic; color: var(--solar); }
+
+        .hero-sub {
+            font-size: 18px; font-weight: 300; color: var(--ink-muted);
+            line-height: 1.75; max-width: 600px; margin-bottom: 48px;
+        }
+
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 28px; }
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            padding: 16px 36px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
+            display: inline-block; transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+        .btn-secondary {
+            background: none; border: 1px solid var(--border-mid); color: var(--ink-soft);
+            padding: 16px 36px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; display: inline-block; transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--ink); }
+
+        .hero-stats {
+            display: flex; gap: 0;
+            border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+            max-width: 560px;
+        }
+        .hero-stat {
+            flex: 1; padding: 18px 20px; border-right: 1px solid var(--border);
+            text-align: center;
+        }
+        .hero-stat:last-child { border-right: none; }
+        .hero-stat-val {
+            font-family: var(--serif); font-size: 28px; color: var(--solar);
+            line-height: 1; margin-bottom: 4px;
+        }
+        .hero-stat-label { font-size: 11px; color: var(--ink-faint); line-height: 1.4; }
+
+        /* SHARED */
+        .si { max-width: 960px; margin: 0 auto; }
+        .slbl {
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 16px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .slbl.solar-lbl { color: var(--solar); }
+        .slbl.solar-lbl::before { background: var(--solar); }
+        .stitle {
+            font-family: var(--serif); font-size: clamp(28px, 3.8vw, 46px);
+            line-height: 1.08; letter-spacing: -0.4px; color: var(--ink); margin-bottom: 20px;
+        }
+        .stitle em { font-style: italic; color: var(--accent); }
+        .stitle .solar-em { font-style: italic; color: var(--solar); }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: 88px 48px;
+            border-bottom: 1px solid var(--border);
+        }
+        .content-section.lifted { background: var(--bg-lift); }
+        .content-body {
+            font-size: 16px; font-weight: 300; color: var(--ink-muted);
+            line-height: 1.85; max-width: 700px; margin-top: 40px;
+        }
+        .content-body p + p { margin-top: 20px; }
+        .content-body strong { color: var(--ink); font-weight: 400; }
+
+        /* PROBLEM SECTION */
+        .problem-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+            background: var(--border); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden; margin-top: 48px;
+        }
+        .problem-card { background: var(--bg-card); padding: 36px 32px; }
+        .problem-card-lbl {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .problem-card-lbl.bad { color: var(--ink-faint); }
+        .problem-card-lbl.good { color: var(--solar); }
+        .problem-card h3 { font-size: 16px; font-weight: 400; color: var(--ink); margin-bottom: 12px; line-height: 1.35; }
+        .problem-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+        .problem-list li {
+            font-size: 13px; line-height: 1.6; font-weight: 300;
+            display: flex; align-items: flex-start; gap: 10px;
+        }
+        .problem-list.bad li { color: var(--ink-faint); }
+        .problem-list.bad li::before { content: '✕'; color: var(--ink-faint); flex-shrink: 0; font-size: 11px; margin-top: 2px; }
+        .problem-list.good li { color: var(--ink-soft); }
+        .problem-list.good li::before { content: '→'; color: var(--solar); flex-shrink: 0; font-size: 11px; margin-top: 2px; }
+
+        /* SYSTEM FLOW */
+        .flow-label {
+            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 24px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .flow-label::before { content: ''; width: 12px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .flow-container {
+            border: 1px solid var(--border); border-radius: 16px;
+            background: var(--bg-deep); overflow: hidden; margin-top: 56px;
+        }
+        .flow-header {
+            padding: 18px 28px; border-bottom: 1px solid var(--border);
+            display: flex; align-items: center; gap: 12px;
+        }
+        .flow-header-dots { display: flex; gap: 6px; }
+        .flow-header-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--border-mid); }
+        .flow-header-title { font-size: 12px; color: var(--ink-faint); letter-spacing: 0.04em; }
+
+        .flow-stages { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+        .flow-stage {
+            padding: 32px 24px 28px; position: relative;
+        }
+        .flow-stage:not(:last-child)::after {
+            content: ''; position: absolute; right: 0; top: 20%; bottom: 20%;
+            width: 1px; background: var(--border);
+        }
+        .flow-stage-label {
+            font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+            padding: 3px 8px; border-radius: 3px; display: inline-block; margin-bottom: 18px;
+        }
+        .flow-stage-label.blue { background: var(--accent-dim); color: var(--accent); }
+        .flow-stage-label.solar { background: var(--solar-dim); color: var(--solar); }
+        .flow-stage-label.green { background: var(--green-dim); color: var(--green); }
+        .flow-stage-title { font-family: var(--serif); font-size: 19px; color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
+        .flow-stage-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; margin-bottom: 16px; }
+        .flow-nodes { display: flex; flex-direction: column; gap: 6px; }
+        .flow-node {
+            display: flex; align-items: center; gap: 10px;
+            padding: 8px 12px; border-radius: 6px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            font-size: 12px; color: var(--ink-soft); font-weight: 300;
+            transition: border-color 0.2s;
+        }
+        .flow-node:hover { border-color: var(--accent); }
+        .flow-node-icon {
+            width: 22px; height: 22px; border-radius: 5px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; flex-shrink: 0;
+        }
+        .flow-node-icon.blue { background: var(--accent-dim); color: var(--accent); }
+        .flow-node-icon.solar { background: var(--solar-dim); color: var(--solar); }
+        .flow-node-icon.green { background: var(--green-dim); color: var(--green); }
+
+        .flow-bottom {
+            border-top: 1px solid var(--border); padding: 16px 28px;
+            display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+        }
+        .flow-bottom-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--ink-faint); }
+        .fbdot { width: 6px; height: 6px; border-radius: 50%; }
+        .fbdot.blue { background: var(--accent); }
+        .fbdot.solar { background: var(--solar); }
+        .fbdot.green { background: var(--green); }
+
+        /* SOLAR ECONOMICS */
+        .econ-grid {
+            display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; margin-top: 48px;
+        }
+        .econ-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; }
+        .econ-body p + p { margin-top: 20px; }
+        .econ-body strong { color: var(--ink); font-weight: 400; }
+        .econ-box {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 10px; overflow: hidden;
+        }
+        .econ-box-header {
+            padding: 18px 24px; border-bottom: 1px solid var(--border);
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint);
+        }
+        .econ-rows { display: flex; flex-direction: column; }
+        .econ-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 24px; border-bottom: 1px solid var(--border); font-weight: 300;
+        }
+        .econ-row:last-child { border-bottom: none; }
+        .econ-row-label { font-size: 13px; color: var(--ink-muted); }
+        .econ-row-val { font-size: 14px; color: var(--ink); font-weight: 400; }
+        .econ-row.highlight { background: var(--solar-dim); }
+        .econ-row.highlight .econ-row-label { color: var(--solar); }
+        .econ-row.highlight .econ-row-val { color: var(--solar); font-weight: 400; }
+
+        /* WHAT SOLAR HOMEOWNERS WANT */
+        .intent-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px;
+        }
+        .intent-card { background: var(--bg-card); padding: 32px 24px; }
+        .intent-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: var(--solar-dim); border: 1px solid rgba(245,166,35,0.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; margin-bottom: 18px;
+        }
+        .intent-card h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 8px; line-height: 1.3; }
+        .intent-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+
+        /* TIMELINE */
+        .timeline-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px;
+        }
+        .timeline-card { background: var(--bg-card); padding: 36px 28px; }
+        .timeline-card-month { font-family: var(--serif); font-size: 48px; color: var(--solar-dim); line-height: 1; margin-bottom: 16px; }
+        .timeline-tag {
+            display: inline-block; font-size: 10px; letter-spacing: 0.08em;
+            text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-bottom: 16px;
+        }
+        .timeline-tag.build { background: var(--accent-dim); color: var(--accent); }
+        .timeline-tag.scale { background: var(--solar-dim); color: var(--solar); }
+        .timeline-card h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
+        .timeline-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+
+        /* BACKEND */
+        .backend-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px;
+        }
+        .backend-card { background: var(--bg-card); padding: 32px 28px; }
+        .backend-card-tag {
+            display: inline-block; font-size: 10px; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--accent); background: var(--accent-dim);
+            padding: 3px 10px; border-radius: 3px; margin-bottom: 14px;
+        }
+        .backend-card-tag.solar { color: var(--solar); background: var(--solar-dim); }
+        .backend-card h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
+        .backend-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+
+        /* STATS ROW */
+        .stats-row {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 24px;
+        }
+        .stat-cell { background: var(--bg-card); padding: 28px 20px; text-align: center; }
+        .stat-val { font-family: var(--serif); font-size: 32px; color: var(--solar); line-height: 1; margin-bottom: 6px; }
+        .stat-label { font-size: 12px; color: var(--ink-muted); font-weight: 300; line-height: 1.4; }
+
+        /* OWNERSHIP */
+        .ownership-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; margin-top: 48px; }
+        .ownership-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; }
+        .ownership-body p + p { margin-top: 20px; }
+        .ownership-body strong { color: var(--ink); font-weight: 400; }
+        .ownership-box {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 10px; padding: 32px;
+        }
+        .ownership-box::before { content: ''; display: block; width: 24px; height: 2px; background: var(--solar); opacity: 0.6; margin-bottom: 20px; }
+        .ownership-box-lbl { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
+        .ownership-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .ownership-list li {
+            font-size: 14px; color: var(--ink-soft); line-height: 1.55;
+            display: flex; align-items: flex-start; gap: 10px; font-weight: 300;
+        }
+        .ownership-list li::before { content: '→'; color: var(--solar); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+
+        /* NOTE BOX */
+        .note-box {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 10px; padding: 28px 32px; margin-top: 32px; position: relative;
+        }
+        .note-box-lbl {
+            position: absolute; top: -9px; left: 24px;
+            background: var(--bg-card); padding: 0 10px;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+        }
+        .note-box p { font-size: 14px; color: var(--ink-muted); line-height: 1.7; margin: 0; font-weight: 300; }
+        .note-box strong { color: var(--ink); font-weight: 400; }
+
+        /* CTA */
+        .cta-section {
+            padding: 100px 48px; text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-glow {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 800px; height: 500px;
+            background: radial-gradient(ellipse, var(--solar-glow) 0%, var(--accent-glow) 40%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-inner { max-width: 580px; margin: 0 auto; position: relative; z-index: 1; }
+        .cta-inner h2 {
+            font-family: var(--serif); font-size: clamp(30px, 4.5vw, 52px);
+            line-height: 1.08; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.5px;
+        }
+        .cta-inner h2 em { font-style: italic; color: var(--solar); }
+        .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 40px; font-weight: 300; }
+        .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .cta-trust { margin-top: 24px; font-size: 13px; color: var(--ink-faint); }
+        .cta-trust span + span::before { content: ' · '; }
+
+        /* FOOTER */
+        footer {
+            padding: 36px 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo span { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); display: none; }
+        .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px) {
+            .site-header { padding: 0 24px; }
+            .hero { padding: 64px 24px 56px; }
+            .content-section, .cta-section { padding: 64px 24px; }
+            footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+            .problem-grid { grid-template-columns: 1fr; }
+            .flow-stages { grid-template-columns: 1fr; }
+            .flow-stage:not(:last-child)::after { display: none; }
+            .flow-stage:not(:last-child) { border-bottom: 1px solid var(--border); }
+            .intent-grid { grid-template-columns: 1fr; }
+            .timeline-grid { grid-template-columns: 1fr; }
+            .backend-grid { grid-template-columns: 1fr; }
+            .econ-grid, .ownership-grid { grid-template-columns: 1fr; gap: 40px; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .hero-stats { max-width: 100%; }
+            .hero-ctas { flex-direction: column; align-items: flex-start; }
+            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+            .hero-sun { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="https://quoteleads.com.au" class="logo">
+            <img class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="logo-text">QuoteLeads</span>
+        </a>
+        <a href="https://quoteleads.com.au" class="header-link">← Back to QuoteLeads</a>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-rays"></div>
+    <svg class="hero-sun" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle class="ring1" cx="100" cy="100" r="30" stroke-width="1"/>
+        <circle class="ring2" cx="100" cy="100" r="30" stroke-width="0.8"/>
+        <circle class="ring3" cx="100" cy="100" r="30" stroke-width="0.5"/>
+        <circle cx="100" cy="100" r="22" fill="rgba(245,166,35,0.15)" stroke="rgba(245,166,35,0.4)" stroke-width="1"/>
+    </svg>
+    <div class="hero-inner">
+        <div class="eyebrow">Solar Growth Infrastructure</div>
+        <h1>Stop renting leads.<br><span class="solar-em">Own the machine</span><br>that generates them.</h1>
+        <p class="hero-sub">Australian solar installers are bleeding margin buying shared leads from aggregators who resell the same homeowner to five other companies. There's a better model — your own system, your own pipeline, your own brand on every touchpoint. Built once. Owned forever.</p>
+        <div class="hero-ctas">
+            <a href="https://quoteleads.com.au/get-started" class="btn-primary">Book a Call to Get Started</a>
+            <a href="https://quoteleads.com.au/pilot" class="btn-secondary">Test it with a Pilot first</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-val">1-to-1</div>
+                <div class="hero-stat-label">Consent to<br>your business</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-val">60s</div>
+                <div class="hero-stat-label">AI follow-up<br>24/7</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-val">Day 1</div>
+                <div class="hero-stat-label">All assets<br>yours</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-val">0</div>
+                <div class="hero-stat-label">Lock-in<br>contracts</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl solar-lbl">The Problem With Solar Leads</div>
+        <h2 class="stitle">Every aggregator sells your<br>homeowner to <em>four other installers.</em></h2>
+        <div class="content-body">
+            <p>The Australian solar lead market is broken by design. Aggregators spend as little as possible to generate an enquiry, then sell it to as many companies as they can. The homeowner gets five calls in twenty minutes. The installer who calls fastest wins — and everyone else loses their money. <strong>The incentive was never to send you quality leads. It was to sell you as many as possible.</strong></p>
+        </div>
+
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-card-lbl bad">The old model</div>
+                <h3>Buying leads from a marketplace</h3>
+                <ul class="problem-list bad">
+                    <li>Same homeowner sold to 3–5 competitors simultaneously</li>
+                    <li>No named consent — just a generic "solar company may contact you"</li>
+                    <li>Recycled data — some leads weeks or months old</li>
+                    <li>Pay per lead, no quality filter, no accountability</li>
+                    <li>You own nothing — stop paying, lose everything</li>
+                    <li>Homeowner is annoyed before you even call</li>
+                    <li>Close rates tanking because you're competing on price before you speak</li>
+                </ul>
+            </div>
+            <div class="problem-card">
+                <div class="problem-card-lbl good">The QuoteLeads model</div>
+                <h3>Your own system, your leads only</h3>
+                <ul class="problem-list good">
+                    <li>Homeowner consents specifically to your business by name</li>
+                    <li>Generated fresh — your campaigns, your audience, your brand</li>
+                    <li>Real-time verification on every submission before it reaches you</li>
+                    <li>You own the ad accounts, the pages, the CRM, the data</li>
+                    <li>No ongoing per-lead cost once the system is running</li>
+                    <li>Homeowner only hears from one company — yours</li>
+                    <li>Close rates improve because you're first, exclusive, and expected</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOLAR ECONOMICS -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The Economics</div>
+        <h2 class="stitle">Solar jobs are high-value.<br><em>Your lead cost should reflect that.</em></h2>
+        <div class="econ-grid">
+            <div class="econ-body">
+                <p>A standard residential solar installation in Australia sits between $8,000 and $18,000 depending on system size, battery, and installation complexity. Your gross margin on a job like that is real money. Yet most solar companies spend that margin bleeding it back to aggregators — paying $150–$400 per shared lead that converts at less than 10%.</p>
+                <p>The maths only work when the lead is exclusive, qualified, and fresh. <strong>When a homeowner has specifically consented to hear from your business — not a marketplace — your close rate changes fundamentally.</strong> You're not competing on price before you've even said hello. You're the only call they're expecting.</p>
+                <p>The system we build runs continuously. The cost per lead drops the longer it runs as the algorithm optimises, creative improves, and your audience builds. You're not paying per lead — you're paying for infrastructure that generates them, and you own it outright.</p>
+            </div>
+            <div class="econ-box">
+                <div class="econ-box-header">Solar install economics</div>
+                <div class="econ-rows">
+                    <div class="econ-row">
+                        <div class="econ-row-label">Avg residential job value</div>
+                        <div class="econ-row-val">$8k–$18k</div>
+                    </div>
+                    <div class="econ-row">
+                        <div class="econ-row-label">Typical aggregator lead cost</div>
+                        <div class="econ-row-val">$150–$400</div>
+                    </div>
+                    <div class="econ-row">
+                        <div class="econ-row-label">Aggregator close rate (shared)</div>
+                        <div class="econ-row-val">&lt; 10%</div>
+                    </div>
+                    <div class="econ-row">
+                        <div class="econ-row-label">Effective cost per closed job</div>
+                        <div class="econ-row-val">$1,500–$4,000+</div>
+                    </div>
+                    <div class="econ-row highlight">
+                        <div class="econ-row-label">Exclusive, consented lead close rate</div>
+                        <div class="econ-row-val">3–5× higher</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT HOMEOWNERS WANT -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl solar-lbl">Qualifying Intent</div>
+        <h2 class="stitle">We only surface homeowners<br>who are <em>actually ready.</em></h2>
+        <div class="content-body">
+            <p>Not every solar enquiry is worth your time. The system pre-qualifies every homeowner before they reach you — filtering renters, filtering tire-kickers, and collecting the detail you need to give a meaningful quote before you've even made the call. By the time a lead arrives in your inbox, you know what you're working with.</p>
+        </div>
+
+        <div class="intent-grid">
+            <div class="intent-card">
+                <div class="intent-icon">🏠</div>
+                <h3>Owner-occupied property</h3>
+                <p>Renters filtered out at submission. Every lead is a homeowner with decision-making authority over the property. No wasted calls to tenants who can't sign off.</p>
+            </div>
+            <div class="intent-card">
+                <div class="intent-icon">⚡</div>
+                <h3>Active purchase intent</h3>
+                <p>Three survey questions before contact info. We understand system size preference, current energy spend, and timeline before you see the lead. Casual browsers don't make it through.</p>
+            </div>
+            <div class="intent-card">
+                <div class="intent-icon">📍</div>
+                <h3>Within your service area</h3>
+                <p>Geographic validation on every submission. Leads are matched to your exact service zone — no driving three hours for a consult that should never have come through.</p>
+            </div>
+            <div class="intent-card">
+                <div class="intent-icon">✓</div>
+                <h3>Verified contact details</h3>
+                <p>Real-time phone and email verification on every submission. Bad data is caught before it reaches you — not after you've called a disconnected number twice.</p>
+            </div>
+            <div class="intent-card">
+                <div class="intent-icon">📋</div>
+                <h3>Named consent — your brand</h3>
+                <p>The homeowner sees your business name in the consent text before they submit. They know who's calling. They're expecting your call. That changes every conversation.</p>
+            </div>
+            <div class="intent-card">
+                <div class="intent-icon">🔋</div>
+                <h3>Battery + system preferences</h3>
+                <p>Know upfront whether they're battery-curious, interested in a full system, or just panels. Tailor your opening call with real information, not a cold discovery script.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE SYSTEM -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The System</div>
+        <h2 class="stitle">End-to-end solar acquisition<br><em>infrastructure. Nothing rented.</em></h2>
+        <div class="content-body">
+            <p>This is a complete lead generation system built on your own accounts, your own domain, your own CRM. Traffic flows in from properly configured Meta campaigns targeting homeowners in your service area. It lands on pages designed around the solar buying decision — education, objection handling, and consent — before a homeowner ever gives you their number. The backend handles follow-up, quote drafting, and pipeline management automatically. <strong>You own every piece of it from the moment it goes live.</strong></p>
+        </div>
+
+        <div class="flow-container">
+            <div class="flow-header">
+                <div class="flow-header-dots"><span></span><span></span><span></span></div>
+                <div class="flow-header-title">your-solar-business.com — live system</div>
+            </div>
+            <div class="flow-stages">
+                <div class="flow-stage">
+                    <div class="flow-stage-label blue">Front End</div>
+                    <div class="flow-stage-title">Traffic + Conversion</div>
+                    <div class="flow-stage-desc">Meta campaigns target homeowners researching solar in your area. Purpose-built landing pages educate, filter intent, and collect consent.</div>
+                    <div class="flow-nodes">
+                        <div class="flow-node">
+                            <div class="flow-node-icon blue">▶</div>Meta campaigns (your ad account)
+                        </div>
+                        <div class="flow-node">
+                            <div class="flow-node-icon blue">◇</div>Solar landing page — educate + filter
+                        </div>
+                        <div class="flow-node">
+                            <div class="flow-node-icon blue">≡</div>3-question solar survey
+                        </div>
+                        <div class="flow-node">
+                            <div class="flow-node-icon blue">@</div>Named consent + contact capture
+                        </div>
+                    </div>
+                </div>
+                <div class="flow-stage">
+                    <div class="flow-stage-label solar">Qualification</div>
+                    <div class="flow-stage-title">Solar-Specific Verification</div>
+                    <div class="flow-stage-desc">Every submission is validated in real time. Owner-occupier check, contact verification, geographic match, bot protection — before it reaches you.</div>
+                    <div class="flow-nodes">
+                        <div class="flow-node">
+                            <div class="flow-node-icon solar">✓</div>Owner-occupier verification
+                        </div>
+                        <div class="flow-node">
+                            <div class="flow-node-icon solar">✓</div>Real-time phone + email check
+                        </div>
+                        <div class="flow-node">
+                            <div class="flow-node-icon solar">✓</div>Geographic + trade matching
+                        </div>
+                        <div class="flow-node">
+                            <div class="flow-node-icon solar">✓</div>Intent scoring + bot filtering
+                        </div>
+                    </div>
+                </div>
+                <div class="flow-stage">
+                    <div class="flow-stage-label green">Backend</div>
+                    <div class="flow-stage-title">Delivery + Follow-Up</div>
+                    <div class="flow-stage-desc">Lead routed to your phone, inbox, or CRM instantly. AI follow-up fires in 60 seconds. Quote drafting and 14-day sequences run automatically.</div>
+                    <div class="flow-nodes">
+                        <div class="flow-node">
+                            <div class="flow-node-icon green">⚡</div>Instant AI follow-up (60s, 24/7)
+                        </div>
+                        <div class="flow-node">
+                            <div class="flow-node-icon green">⟳</div>14-day automated sequences
+                        </div>
+                        <div class="flow-node">
+                            <div class="flow-node-icon green">✎</div>Solar quote drafting + delivery
+                        </div>
+                        <div class="flow-node">
+                            <div class="flow-node-icon green">⊞</div>CRM + pipeline management
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flow-bottom">
+                <div class="flow-bottom-item"><div class="fbdot blue"></div>Your accounts — Meta, domain, CRM</div>
+                <div class="flow-bottom-item"><div class="fbdot solar"></div>Solar-specific qualification layer</div>
+                <div class="flow-bottom-item"><div class="fbdot green"></div>Custom integrations available</div>
+            </div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-cell">
+                <div class="stat-val">3</div>
+                <div class="stat-label">Solar-specific survey<br>questions before contact</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-val">60s</div>
+                <div class="stat-label">AI follow-up<br>around the clock</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-val">100%</div>
+                <div class="stat-label">Verified phone<br>+ email on every lead</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-val">Day 1</div>
+                <div class="stat-label">Full ownership<br>transferred</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SCALING TIMELINE -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl solar-lbl">The Trajectory</div>
+        <h2 class="stitle">First installs in month one.<br><em>A pipeline in month three.</em></h2>
+        <div class="content-body">
+            <p>Month one is about building the data foundation — getting the system live and learning which audiences, creatives, and job types convert in your market. By month two, we know what works. By month three, you're running a proven solar lead machine that scales as far as your capacity and ad spend allows. At the end of the engagement, take the full playbook and run it yourself — or keep us on. Either way, you own the infrastructure.</p>
+        </div>
+
+        <div class="timeline-grid">
+            <div class="timeline-card">
+                <div class="timeline-card-month">01</div>
+                <span class="timeline-tag build">Build + Launch</span>
+                <h3>System live. First solar leads within 48 hours.</h3>
+                <p>Infrastructure deployed, Meta campaigns launched targeting homeowners researching solar in your territory. We monitor ad performance, lead quality, verification rates, and follow-up engagement. This month builds the data foundation everything else runs on.</p>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-card-month">02</div>
+                <span class="timeline-tag scale">Optimise</span>
+                <h3>Data-driven. Scale what converts.</h3>
+                <p>We know which audiences, creatives, and angles produce qualified solar buyers in your area. Underperforming campaigns get cut. Cost per qualified lead drops as volume climbs. Ad spend scales based on your close rate and capacity — not guesswork.</p>
+            </div>
+            <div class="timeline-card">
+                <div class="timeline-card-month">03</div>
+                <span class="timeline-tag scale">Scale + Handoff</span>
+                <h3>Proven machine. Run it however you like.</h3>
+                <p>The system can now generate consistent solar leads at volume. Full playbook handoff available — your team or any other agency can run it without us. No lock-in. If you want to keep us managing it, that's available too. Your call, your system.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BACKEND CAPABILITIES -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">Built for Solar Sales</div>
+        <h2 class="stitle">The backend actually built<br><em>for how solar gets sold.</em></h2>
+        <div class="content-body">
+            <p>Solar is a considered purchase. Homeowners research, compare, and take time before committing. The backend is built to handle the full sales cycle — instant response when they're hottest, automated nurturing when they go quiet, quote delivery when they're ready. Our team customises everything to your sales process, your pricing structure, and your existing tools.</p>
+        </div>
+
+        <div class="backend-grid">
+            <div class="backend-card">
+                <div class="backend-card-tag solar">Speed-to-Lead</div>
+                <h3>60-Second AI Response</h3>
+                <p>A homeowner fills in the form. Within 60 seconds, they hear from your business — day or night, weekday or weekend. Speed-to-lead is the single biggest conversion driver in solar. This makes it automatic.</p>
+            </div>
+            <div class="backend-card">
+                <div class="backend-card-tag solar">Nurturing</div>
+                <h3>14-Day Automated Sequences</h3>
+                <p>Not every homeowner buys in 24 hours. The system keeps working leads through a 14-day sequence — educational content, objection handling, rebate information — so you're still top of mind when they're ready to commit.</p>
+            </div>
+            <div class="backend-card">
+                <div class="backend-card-tag">Quoting</div>
+                <h3>Solar Quote Drafting + Delivery</h3>
+                <p>Based on system size preference, property type, and your pricing structure, the system can draft and deliver preliminary solar quotes automatically. You review and approve. It sends. Homeowners get a quote before your competitors have even called.</p>
+            </div>
+            <div class="backend-card">
+                <div class="backend-card-tag">Flexible</div>
+                <h3>Integrates With Your Stack</h3>
+                <p>Already using a quoting tool, a CRM, or a job management platform? We build the integration. Leads can route to your existing systems so nothing changes about how your team works — it just gets faster and more consistent.</p>
+            </div>
+        </div>
+
+        <div class="note-box" style="margin-top: 40px;">
+            <div class="note-box-lbl">Note on government incentives</div>
+            <p>The landing pages and survey are built to capture homeowner awareness of current rebates and STCs, and can be updated as incentive schemes change. <strong>Homeowners who know about rebates convert faster</strong> — the system surfaces that information in the right place in the funnel to push undecided buyers over the line.</p>
+        </div>
+    </div>
+</section>
+
+<!-- OWNERSHIP -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl solar-lbl">Ownership</div>
+        <h2 class="stitle">Everything yours.<br><em>From day one.</em></h2>
+        <div class="ownership-grid">
+            <div class="ownership-body">
+                <p>Solar aggregators keep you dependent because it's their business model, not yours. Stop paying and you lose access to every lead, every list, every pixel of data. You're renting someone else's system and they can cut you off whenever it suits them.</p>
+                <p><strong>This is the opposite.</strong> Every asset we build for your solar business is yours from the moment it goes live. Your ad accounts. Your landing pages. Your CRM data. Your follow-up sequences. Your homeowner consent records. The entire thing transfers to you immediately — there's no lock-in period, no account access held back, no gotcha at the end.</p>
+                <p>If you part ways after 90 days, the system keeps running exactly as it was. We hand off a full playbook so your team can manage it independently. That's not a feature — it's just how infrastructure you paid for should work.</p>
+            </div>
+            <div class="ownership-box">
+                <div class="ownership-box-lbl">You own all of it</div>
+                <ul class="ownership-list">
+                    <li>Meta ad accounts configured in your name</li>
+                    <li>Solar landing pages on your domain</li>
+                    <li>Survey and pre-qualification infrastructure</li>
+                    <li>All homeowner consent records + audit trail</li>
+                    <li>CRM, pipeline, and complete lead data</li>
+                    <li>Automated follow-up and nurture sequences</li>
+                    <li>Quote drafting and delivery system</li>
+                    <li>Full playbook — run it without us if you choose</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-inner">
+        <div class="slbl" style="justify-content:center;">Two Ways In</div>
+        <h2>Ready to own<br>your <em>solar pipeline.</em></h2>
+        <p>Apply for the full Growth Implementation to get your system built and running — or start with a Market Pulse pilot to see the lead quality before committing to the build.</p>
+        <div class="cta-btns">
+            <a href="https://quoteleads.com.au/get-started" class="btn-primary">Book a Call to Get Started</a>
+            <a href="https://quoteleads.com.au/pilot" class="btn-secondary">Try the Pilot first</a>
+        </div>
+        <div class="cta-trust">
+            <span>All assets yours from day 1</span>
+            <span>No lock-in</span>
+            <span>Australian solar only</span>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">
+        <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span>QuoteLeads</span>
+    </div>
+    <div class="foot-links">
+        <a href="https://quoteleads.com.au">Main Site</a>
+        <a href="https://quoteleads.com.au/pilot">Market Pulse Pilot</a>
+        <a href="https://quoteleads.com.au/privacy">Privacy</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">© 2026 QuoteLeads</div>
+</footer>
+
+</body>
+</html>
