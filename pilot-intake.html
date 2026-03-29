@@ -8,7 +8,7 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,8 +30,8 @@
             --accent-glow: rgba(71,151,255,0.16);
             --green:       #22c55e;
             --green-dim:   rgba(34,197,94,0.10);
-            --serif: 'Instrument Serif', Georgia, serif;
-            --sans:  'DM Sans', system-ui, sans-serif;
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
         }
 
         body {
@@ -39,10 +39,11 @@
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
-            font-weight: 300;
+            font-weight: 400;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
         /* ── HEADER ── */
         .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(10,11,15,0.88); backdrop-filter: blur(20px); }
@@ -53,7 +54,7 @@
             font-family: var(--serif); font-size: 18px; color: var(--ink-soft);
             text-decoration: none; letter-spacing: -0.2px; display: none;
         }
-        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 300; margin-left: 10px; }
+        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 400; margin-left: 10px; }
         .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .header-link:hover { color: var(--ink); }
 
@@ -70,7 +71,7 @@
         .hero-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
         .page-hero h1 { font-family: var(--serif); font-size: clamp(36px,5vw,56px); line-height: 1.1; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 20px; }
         .page-hero h1 em { font-style: italic; color: var(--accent); }
-        .hero-sub { font-size: 17px; font-weight: 300; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
+        .hero-sub { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
 
         /* ── LAYOUT ── */
         .app-section { padding: 64px 48px 100px; }
@@ -133,7 +134,7 @@
             width: 100%; padding: 14px 16px;
             background: var(--bg-lift); border: 1px solid var(--border);
             border-radius: 8px; color: var(--ink); font-family: var(--sans);
-            font-size: 15px; font-weight: 300; transition: border-color 0.2s, box-shadow 0.2s;
+            font-size: 15px; font-weight: 400; transition: border-color 0.2s, box-shadow 0.2s;
             appearance: none;
         }
         .field-group input::placeholder { color: var(--ink-faint); }
@@ -143,7 +144,7 @@
         /* Other text field */
         .other-field { margin-top: 10px; margin-bottom: 18px; display: none; }
         .other-field.show { display: block; }
-        .other-field input { width: 100%; padding: 12px 14px; background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px; color: var(--ink); font-family: var(--sans); font-size: 14px; font-weight: 300; }
+        .other-field input { width: 100%; padding: 12px 14px; background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px; color: var(--ink); font-family: var(--sans); font-size: 14px; font-weight: 400; }
         .other-field input:focus { outline: none; border-color: var(--accent); }
 
         /* Radius selector */
@@ -236,7 +237,7 @@
         }
         .success-icon svg { width: 24px; height: 24px; stroke: var(--green); stroke-width: 2.5; fill: none; }
         .form-success h2 { font-family: var(--serif); font-size: 30px; color: var(--ink); margin-bottom: 12px; line-height: 1.2; }
-        .form-success > p { font-size: 15px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 28px; font-weight: 300; }
+        .form-success > p { font-size: 15px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 28px; font-weight: 400; }
         .success-divider { height: 1px; background: var(--border); margin: 28px 0; }
         .success-note { font-size: 13px; color: var(--ink-faint); line-height: 1.6; margin-bottom: 0 !important; }
         .success-note a { color: var(--accent); text-decoration: none; }

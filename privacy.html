@@ -8,7 +8,7 @@
     <link rel="canonical" href="https://quoteleads.com.au/privacy">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -27,8 +27,8 @@
             --accent:      #4797FF;
             --accent-dim:  rgba(71,151,255,0.10);
             --accent-glow: rgba(71,151,255,0.16);
-            --serif: 'Instrument Serif', Georgia, serif;
-            --sans:  'DM Sans', system-ui, sans-serif;
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
             color-scheme: dark;
         }
         :root[data-theme="light"] {
@@ -45,8 +45,8 @@
             --accent:      #2563eb;
             --accent-dim:  rgba(37,99,235,0.07);
             --accent-glow: rgba(37,99,235,0.12);
-            --serif: 'Instrument Serif', Georgia, serif;
-            --sans:  'DM Sans', system-ui, sans-serif;
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
             color-scheme: light;
         }
 
@@ -55,11 +55,12 @@
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
-            font-weight: 300;
+            font-weight: 400;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             transition: background 0.3s, color 0.3s;
         }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
         /* HEADER */
         .site-header {
@@ -122,7 +123,7 @@
         .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
         .stitle { font-family: var(--serif); font-size: clamp(30px,4vw,46px); line-height: 1.15; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px; }
         .stitle em { font-style: italic; color: var(--accent); }
-        .sbody { font-size: 17px; font-weight: 300; color: var(--ink-muted); line-height: 1.75; max-width: 640px; }
+        .sbody { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 640px; }
         .btn-primary {
             background: var(--accent); color: #fff;
             padding: 15px 34px; border-radius: 6px; text-decoration: none;
@@ -190,7 +191,7 @@
         }
         .group-lbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
         .group-title { font-family: var(--serif); font-size: clamp(22px,2.5vw,30px); line-height: 1.2; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px; }
-        .group-body { font-size: 15px; font-weight: 300; color: var(--ink-muted); line-height: 1.8; }
+        .group-body { font-size: 15px; font-weight: 400; color: var(--ink-muted); line-height: 1.8; }
         .group-body p { margin-bottom: 14px; }
         .group-body p:last-child { margin-bottom: 0; }
         .group-body strong { color: var(--ink-soft); font-weight: 400; }
@@ -203,7 +204,7 @@
 
         /* LISTS */
         .p-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
-        .p-list li { font-size: 14px; font-weight: 300; color: var(--ink-muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
+        .p-list li { font-size: 14px; font-weight: 400; color: var(--ink-muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
         .p-list li::before { content: '→'; color: var(--accent); font-size: 11px; flex-shrink: 0; margin-top: 4px; }
         .p-list a { color: var(--accent); text-decoration: none; }
         .p-list a:hover { text-decoration: underline; }
@@ -230,7 +231,7 @@
         .data-card { background: var(--bg-card); padding: 22px 20px; }
         .data-card-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
         .data-card-val { font-family: var(--serif); font-size: 18px; color: var(--ink); margin-bottom: 6px; }
-        .data-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; font-weight: 300; }
+        .data-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; font-weight: 400; }
 
         /* PROVIDERS */
         .providers-grid {
@@ -240,7 +241,7 @@
         }
         .provider-item { background: var(--bg-card); padding: 18px 20px; }
         .provider-cat { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 5px; }
-        .provider-name { font-size: 14px; color: var(--ink-soft); font-weight: 300; }
+        .provider-name { font-size: 14px; color: var(--ink-soft); font-weight: 400; }
 
         /* SIDEBAR */
         .privacy-sidebar { position: sticky; top: 100px; }

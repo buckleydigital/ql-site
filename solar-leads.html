@@ -13,7 +13,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
     <script type="application/ld+json">
     {
@@ -50,8 +50,8 @@
             --accent:      #4797FF;
             --accent-dim:  rgba(71,151,255,0.10);
             --accent-glow: rgba(71,151,255,0.18);
-            --serif: 'Instrument Serif', Georgia, serif;
-            --sans:  'DM Sans', system-ui, sans-serif;
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
         }
 
         body {
@@ -59,10 +59,11 @@
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
-            font-weight: 300;
+            font-weight: 400;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
         /* HEADER */
         .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); }
@@ -113,7 +114,7 @@
         }
         .hero h1 em { font-style: italic; color: var(--accent); }
         .hero-sub {
-            font-size: 17px; font-weight: 300; color: var(--ink-muted);
+            font-size: 17px; font-weight: 400; color: var(--ink-muted);
             line-height: 1.75; max-width: 580px; margin-bottom: 48px;
         }
         .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
@@ -153,7 +154,7 @@
             border-bottom: 1px solid var(--border);
         }
         .content-section.lifted { background: var(--bg-lift); }
-        .content-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; max-width: 680px; margin-top: 40px; }
+        .content-body { font-size: 16px; font-weight: 400; color: var(--ink-muted); line-height: 1.85; max-width: 680px; margin-top: 40px; }
         .content-body p + p { margin-top: 20px; }
         .content-body strong { color: var(--ink); font-weight: 400; }
 
@@ -173,7 +174,7 @@
         .problem-card.good .problem-card-lbl { color: var(--accent); }
         .problem-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
         .problem-list li {
-            font-size: 14px; font-weight: 300; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
+            font-size: 14px; font-weight: 400; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5;
         }
         .problem-card.bad .problem-list li { color: var(--ink-faint); }
         .problem-card.bad .problem-list li::before { content: '×'; color: var(--ink-faint); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
@@ -212,7 +213,7 @@
             font-size: 12px; color: var(--accent); margin-bottom: 16px;
         }
         .how-step h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
-        .how-step p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; }
+        .how-step p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; }
 
         /* STATS */
         .stats-row {
@@ -226,7 +227,7 @@
             font-family: var(--serif); font-size: 32px; color: var(--accent);
             line-height: 1; margin-bottom: 6px;
         }
-        .stat-label { font-size: 12px; color: var(--ink-muted); font-weight: 300; line-height: 1.4; }
+        .stat-label { font-size: 12px; color: var(--ink-muted); font-weight: 400; line-height: 1.4; }
 
         /* LEAD CARD */
         .lead-card {
@@ -251,18 +252,18 @@
         }
         .lead-field { background: var(--bg-card); padding: 20px 24px; }
         .lead-field-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
-        .lead-field-val { font-size: 15px; color: var(--ink-soft); font-weight: 300; }
+        .lead-field-val { font-size: 15px; color: var(--ink-soft); font-weight: 400; }
         .lead-field-val strong { color: var(--ink); font-weight: 400; }
         .lead-card-foot {
             padding: 20px 32px; background: var(--accent-dim);
             border-top: 1px solid rgba(71,151,255,0.15);
-            font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 300;
+            font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400;
         }
         .lead-card-foot strong { color: var(--ink); font-weight: 400; }
 
         /* ECONOMICS */
         .economics-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; margin-top: 48px; }
-        .economics-body { font-size: 16px; font-weight: 300; color: var(--ink-muted); line-height: 1.85; }
+        .economics-body { font-size: 16px; font-weight: 400; color: var(--ink-muted); line-height: 1.85; }
         .economics-body p + p { margin-top: 20px; }
         .economics-body strong { color: var(--ink); font-weight: 400; }
         .economics-box {
@@ -274,7 +275,7 @@
         .economics-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
         .economics-list li {
             font-size: 14px; color: var(--ink-soft); line-height: 1.55;
-            display: flex; align-items: flex-start; gap: 10px; font-weight: 300;
+            display: flex; align-items: flex-start; gap: 10px; font-weight: 400;
         }
         .economics-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
 
@@ -295,7 +296,7 @@
             line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
         }
         .dual-cta-inner h2 em { font-style: italic; color: var(--accent); }
-        .dual-cta-inner > p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 48px; font-weight: 300; max-width: 540px; margin-left: auto; margin-right: auto; }
+        .dual-cta-inner > p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 48px; font-weight: 400; max-width: 540px; margin-left: auto; margin-right: auto; }
         .cta-paths {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: 1px; background: var(--border);
@@ -313,7 +314,7 @@
         }
         .cta-path h3 em { font-style: italic; color: var(--accent); }
         .cta-path p {
-            font-size: 14px; color: var(--ink-muted); line-height: 1.7; font-weight: 300;
+            font-size: 14px; color: var(--ink-muted); line-height: 1.7; font-weight: 400;
             margin-bottom: 28px;
         }
         .cta-path .btn-primary { padding: 14px 32px; font-size: 14px; }
