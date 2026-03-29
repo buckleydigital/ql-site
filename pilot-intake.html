@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start Your Pilot - Market Pulse by QuoteLeads</title>
-    <meta name="description" content="Complete the intake to start your Market Pulse pilot. 10 qualified, consented leads in 7 days. $650 + GST.">
+    <meta name="description" content="Complete the intake to start your Market Pulse pilot. 10 qualified, consented leads in 7 days.">
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -237,20 +237,6 @@
         .success-icon svg { width: 24px; height: 24px; stroke: var(--green); stroke-width: 2.5; fill: none; }
         .form-success h2 { font-family: var(--serif); font-size: 30px; color: var(--ink); margin-bottom: 12px; line-height: 1.2; }
         .form-success > p { font-size: 15px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 28px; font-weight: 300; }
-        .success-steps { display: flex; flex-direction: column; gap: 0; }
-        .success-step {
-            display: flex; align-items: flex-start; gap: 16px;
-            padding: 18px 0; border-bottom: 1px solid var(--border);
-        }
-        .success-step:last-child { border-bottom: none; }
-        .success-step-num {
-            width: 28px; height: 28px; border-radius: 6px;
-            background: var(--accent-dim); border: 1px solid rgba(71,151,255,0.2);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12px; font-weight: 400; color: var(--accent); flex-shrink: 0; margin-top: 1px;
-        }
-        .success-step-title { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; }
-        .success-step-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 300; }
         .success-divider { height: 1px; background: var(--border); margin: 28px 0; }
         .success-note { font-size: 13px; color: var(--ink-faint); line-height: 1.6; margin-bottom: 0 !important; }
         .success-note a { color: var(--accent); text-decoration: none; }
@@ -338,7 +324,7 @@
     <div class="page-hero-inner">
         <div class="hero-eyebrow">Pilot Intake</div>
         <h1>Lock in your<br><em>proof round.</em></h1>
-        <p class="hero-sub">Five quick steps. We'll use this to configure your Market Pulse campaign - your trade, your area, your delivery preferences. Leads start arriving within 48 hours of payment.</p>
+        <p class="hero-sub">Five quick steps. We'll use this to configure your Market Pulse campaign — your trade, your area, your delivery preferences. Our team will be in touch shortly after you submit.</p>
     </div>
 </section>
 
@@ -503,7 +489,7 @@
                     <!-- STEP 5: Confirm & Submit -->
                     <div class="form-step" id="step5">
                         <div class="step-q">Confirm and start your pilot.</div>
-                        <div class="step-hint">Read each item and check the box. Once submitted, we'll configure your campaign and leads start within 48 hours.</div>
+                        <div class="step-hint">Read each item and check the box. Once submitted, our team will be in touch to get things moving.</div>
 
                         <div class="confirm-list" id="confirmList">
                             <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="guarantee">
@@ -528,7 +514,7 @@
 
                         <div class="btn-row">
                             <button class="btn-back" onclick="goPrev(5)">Back</button>
-                            <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Submit &amp; Start Pilot - $650 + GST</button>
+                            <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Submit Intake</button>
                         </div>
                         <p class="disclaimer-txt">By submitting, you agree to receive calls, texts, or emails from QuoteLeads at the contact details provided. See our <a href="https://quoteleads.com.au/privacy" style="color:var(--accent); text-decoration:none;">Privacy Policy</a>.</p>
                     </div>
@@ -546,31 +532,8 @@
                     <div class="success-icon">
                         <svg viewBox="0 0 24 24"><polyline points="4,12 9,17 20,6"/></svg>
                     </div>
-                    <h2>You're locked in.</h2>
-                    <p>Your pilot intake has been submitted. Here's what happens now:</p>
-                    <div class="success-steps">
-                        <div class="success-step">
-                            <div class="success-step-num">1</div>
-                            <div>
-                                <div class="success-step-title">Invoice incoming</div>
-                                <div class="success-step-desc">You'll receive a $715 (incl GST) invoice via email shortly. Pay via bank transfer - details are on the invoice.</div>
-                            </div>
-                        </div>
-                        <div class="success-step">
-                            <div class="success-step-num">2</div>
-                            <div>
-                                <div class="success-step-title">Campaign activates</div>
-                                <div class="success-step-desc">Within 24 hours of payment clearing, your Market Pulse campaign goes live.</div>
-                            </div>
-                        </div>
-                        <div class="success-step">
-                            <div class="success-step-num">3</div>
-                            <div>
-                                <div class="success-step-title">Leads start arriving</div>
-                                <div class="success-step-desc">Qualified, consented homeowners delivered to your phone and inbox. Follow up fast.</div>
-                            </div>
-                        </div>
-                    </div>
+                    <h2>Thanks — we'll be<br><em style="font-style:italic; color:var(--accent);">in touch shortly.</em></h2>
+                    <p>Your intake has been received. Our team will review your details and reach out to you directly to get your Market Pulse campaign configured and underway.</p>
                     <div class="success-divider"></div>
                     <p class="success-note">Questions in the meantime? <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a></p>
                     <a href="https://quoteleads.com.au" class="success-link">← Back to QuoteLeads</a>
@@ -583,11 +546,6 @@
         <div class="app-sidebar">
             <div class="sidebar-card">
                 <div class="sc-lbl">Your Pilot</div>
-                <div class="sc-metric">
-                    <div class="sc-val">$650</div>
-                    <div class="sc-desc">+ GST</div>
-                    <div class="sc-sub">One job covers it. The rest is upside.</div>
-                </div>
                 <div class="sc-metric">
                     <div class="sc-val">10</div>
                     <div class="sc-desc">Qualified, consented leads in 7 days</div>
@@ -697,7 +655,6 @@
             formData.delivery_sms = !formData.delivery_sms;
             document.getElementById('delSMS').classList.toggle('active', formData.delivery_sms);
         }
-        // Must have at least one
         var next3 = document.getElementById('next3');
         if(next3) next3.disabled = !formData.delivery_email && !formData.delivery_sms;
     };
@@ -743,12 +700,10 @@
         if(el) el.classList.add('active');
         currentStep = n;
         updateProgress();
-        // Scroll form into view
         document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     window.goNext = function(fromStep){
-        // Validate step-specific
         if(fromStep === 1 && formData.trade === 'Other'){
             var otherVal = document.getElementById('otherTradeInput').value.trim();
             if(!otherVal){ document.getElementById('otherTradeInput').focus(); return; }
@@ -764,7 +719,6 @@
 
         showStep(fromStep + 1);
 
-        // Render Turnstile on step 5
         if(fromStep + 1 === 5 && !turnstileRendered && typeof turnstile !== 'undefined'){
             turnstileRendered = true;
             turnstile.render('#turnstile-container', {
@@ -781,20 +735,16 @@
 
     // ── SUBMIT ──
     window.submitForm = function(){
-        if(!formData.confirm_guarantee || !formData.confirm_no_conversion || !formData.confirm_consent || !formData.confirm_terms){
-            return;
-        }
+        if(!formData.confirm_guarantee || !formData.confirm_no_conversion || !formData.confirm_consent || !formData.confirm_terms){ return; }
         if(!turnstileToken){ return; }
 
         formData['cf-turnstile-response'] = turnstileToken;
         formData.source = 'pilot-intake';
 
-        // Show loading
         document.getElementById('formBody').style.display = 'none';
         document.getElementById('formProgress').style.display = 'none';
         document.getElementById('formLoading').classList.add('active');
 
-        // Send to webhook
         fetch('https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -803,6 +753,7 @@
         }).catch(function(e){ console.error('Webhook error:', e); });
 
         if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+
         setTimeout(function(){
             document.getElementById('formLoading').classList.remove('active');
             document.getElementById('formSuccess').classList.add('active');
