@@ -388,6 +388,41 @@
         }
         .faq-item.open .faq-a { max-height: 300px; padding-bottom: 28px; }
 
+        /* BLOG SECTION */
+        .blog-section { background: var(--bg-lift); }
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+        .blog-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            padding: 32px 28px; text-decoration: none; display: block;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .blog-card:hover { border-color: var(--accent); background: var(--bg-lift); }
+        .blog-card-tag {
+            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 14px; font-weight: 400;
+        }
+        .blog-card-title {
+            font-family: var(--serif); font-size: 22px; color: var(--ink);
+            line-height: 1.25; margin-bottom: 14px;
+        }
+        .blog-card-title em { font-style: italic; color: var(--accent); }
+        .blog-card-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-weight: 300; margin-bottom: 20px; }
+        .blog-card-read {
+            font-size: 13px; color: var(--accent); font-weight: 400;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .blog-card-read svg { width: 13px; height: 13px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
+        .blog-card:hover .blog-card-read svg { transform: translateX(3px); }
+        .blog-all { margin-top: 36px; text-align: center; }
+        .blog-all a {
+            font-size: 14px; color: var(--ink-muted); text-decoration: none;
+            border-bottom: 1px solid var(--border-mid); padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .blog-all a:hover { color: var(--ink); border-color: var(--accent); }
+        @media(max-width:768px){ .blog-grid { grid-template-columns: 1fr; } }
+        @media(min-width:769px) and (max-width:1024px){ .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+
         /* FINAL CTA */
         .final-cta { text-align: center; position: relative; overflow: hidden; }
         .final-cta::before {
@@ -447,6 +482,7 @@
             <a href="#process">How It Works</a>
             <a href="#investment">Investment</a>
             <a href="#faq">FAQ</a>
+            <a href="#blog">Blog</a>
             <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
                 <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -462,6 +498,7 @@
         <a href="#process">How It Works</a>
         <a href="#investment">Investment</a>
         <a href="#faq">FAQ</a>
+        <a href="#blog">Blog</a>
         <a href="/get-started">Book a Call</a>
     </nav>
 </header>
@@ -1130,6 +1167,36 @@
                 <div class="faq-a">At present, we focus exclusively on Australian businesses. We understand the local market, the compliance landscape, and the audience behaviour. We are not a global platform, and intentionally so.</div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section" id="blog">
+    <div class="si">
+        <div class="slbl">From the Blog</div>
+        <h2 class="stitle">Thinking on <em>trade growth.</em></h2>
+        <p class="sbody">Practical articles on lead generation, conversion, and building demand infrastructure for established trade businesses.</p>
+        <div class="blog-grid">
+            <a href="/blog/referral-plateau-trade-business.html" class="blog-card">
+                <div class="blog-card-tag">Growth Strategy</div>
+                <div class="blog-card-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>
+                <div class="blog-card-desc">Why every trade business eventually hits a referral ceiling — and what the ones that break through do differently.</div>
+                <span class="blog-card-read">Read article <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+            </a>
+            <a href="/blog/lead-response-time-trade-business.html" class="blog-card">
+                <div class="blog-card-tag">Conversion</div>
+                <div class="blog-card-title">The Trade Business That<br><em>Responds First Wins.</em></div>
+                <div class="blog-card-desc">What actually happens to a lead in the hours after it's submitted — and how the follow-up gap is where most jobs are quietly lost.</div>
+                <span class="blog-card-read">Read article <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+            </a>
+            <a href="/blog/scale-trade-business-australia.html" class="blog-card">
+                <div class="blog-card-tag">Strategy</div>
+                <div class="blog-card-title">Why Trade Businesses<br><em>Stall at $500K.</em></div>
+                <div class="blog-card-desc">The revenue ceiling that catches almost every established trade business — and the demand-side problem hiding behind what looks like an operational one.</div>
+                <span class="blog-card-read">Read article <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+            </a>
+        </div>
+        <div class="blog-all"><a href="/blog/shared-leads-australia.html">View all articles &rarr;</a></div>
     </div>
 </section>
 
