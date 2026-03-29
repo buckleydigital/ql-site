@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Cost Calculator — What Are You Actually Paying Per Job? | QuoteLeads</title>
+    <title>Job Cost Calculator - What Are You Actually Paying Per Job? | QuoteLeads</title>
     <meta name="description" content="Calculate your real cost to acquire a customer (CAC). Enter your ad spend, leads per month, and close rate to see what each job actually costs you in marketing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -417,7 +417,7 @@
     <div class="hero-inner">
         <div class="eyebrow">Job Cost Calculator</div>
         <h1>What are you <em>actually</em><br>paying per job?</h1>
-        <p class="hero-sub">Most tradies have no idea what a customer actually costs them to acquire. Plug in your numbers — ad spend, leads, close rate — and see your real CAC (cost to acquire a customer) in seconds.</p>
+        <p class="hero-sub">Most tradies have no idea what a customer actually costs them to acquire. Plug in your numbers - ad spend, leads, close rate - and see your real CAC (cost to acquire a customer) in seconds.</p>
     </div>
 </section>
 
@@ -500,23 +500,23 @@
                 <div class="result-breakdown">
                     <div class="result-row">
                         <span class="result-row-label">Cost per lead</span>
-                        <span class="result-row-value" id="cplDisplay">—</span>
+                        <span class="result-row-value" id="cplDisplay">-</span>
                     </div>
                     <div class="result-row">
                         <span class="result-row-label">Jobs won per month</span>
-                        <span class="result-row-value" id="jobsWonDisplay">—</span>
+                        <span class="result-row-value" id="jobsWonDisplay">-</span>
                     </div>
                     <div class="result-row">
                         <span class="result-row-label">Revenue generated</span>
-                        <span class="result-row-value highlight" id="revenueDisplay">—</span>
+                        <span class="result-row-value highlight" id="revenueDisplay">-</span>
                     </div>
                     <div class="result-row">
                         <span class="result-row-label">Return on ad spend (ROAS)</span>
-                        <span class="result-row-value highlight" id="roasDisplay">—</span>
+                        <span class="result-row-value highlight" id="roasDisplay">-</span>
                     </div>
                     <div class="result-row">
                         <span class="result-row-label">Marketing as % of revenue</span>
-                        <span class="result-row-value" id="mktPctDisplay">—</span>
+                        <span class="result-row-value" id="mktPctDisplay">-</span>
                     </div>
                 </div>
 
@@ -543,12 +543,12 @@
             <div class="explainer-card">
                 <div class="explainer-card-step">02</div>
                 <h3>Jobs won</h3>
-                <p>Leads multiplied by your close rate. Not every lead becomes a job — your close rate determines how many do.</p>
+                <p>Leads multiplied by your close rate. Not every lead becomes a job - your close rate determines how many do.</p>
             </div>
             <div class="explainer-card">
                 <div class="explainer-card-step">03</div>
                 <h3>CAC (your number)</h3>
-                <p>Ad spend divided by jobs won. This is the true marketing cost per customer — what every job actually costs you to acquire.</p>
+                <p>Ad spend divided by jobs won. This is the true marketing cost per customer - what every job actually costs you to acquire.</p>
             </div>
         </div>
         <div class="explainer-formula">
@@ -557,7 +557,7 @@
             &nbsp;&nbsp;·&nbsp;&nbsp;
             <code>ROAS = Revenue ÷ Ad Spend</code>
             &nbsp;&nbsp;·&nbsp;&nbsp;
-            This calculator only includes paid ad spend — not agency fees, tools, or your time.
+            This calculator only includes paid ad spend - not agency fees, tools, or your time.
         </div>
     </div>
 </section>
@@ -590,7 +590,7 @@
     function getVerdict(cac, jobValue) {
         const pct = (cac / jobValue) * 100;
         if (pct <= 5)  return { cls: 'good', msg: '🟢 Excellent CAC. You\'re spending less than 5% of job value to win each customer. This is a highly efficient acquisition machine.' };
-        if (pct <= 10) return { cls: 'good', msg: '🟢 Strong CAC. Under 10% of job value — this is a healthy, profitable acquisition ratio for most trade businesses.' };
+        if (pct <= 10) return { cls: 'good', msg: '🟢 Strong CAC. Under 10% of job value - this is a healthy, profitable acquisition ratio for most trade businesses.' };
         if (pct <= 20) return { cls: 'ok',   msg: '🟡 Decent CAC. You\'re spending 10–20% of job value on marketing. Solid, but there\'s room to improve close rate or cost per lead.' };
         if (pct <= 35) return { cls: 'ok',   msg: '🟡 Moderate CAC. 20–35% of job value. Profitable, but tightening your close rate or audience targeting would meaningfully improve margins.' };
         return { cls: 'bad', msg: '🔴 High CAC. You\'re spending more than 35% of job value to win each job. Close rate, targeting, or cost per lead needs attention.' };
