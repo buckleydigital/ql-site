@@ -591,11 +591,16 @@
                             <div class="field-group" style="margin-bottom:0;">
                                 <label>Radius</label>
                                 <select id="serviceRadius">
-                                    <option value="10km">10 km</option>
-                                    <option value="20km" selected>20 km</option>
-                                    <option value="30km">30 km</option>
+                                    <option value="30km" selected>30 km</option>
                                     <option value="40km">40 km</option>
                                     <option value="50km">50 km</option>
+                                    <option value="75km">75 km</option>
+                                    <option value="100km">100 km</option>
+                                    <option value="125km">125 km</option>
+                                    <option value="150km">150 km</option>
+                                    <option value="175km">175 km</option>
+                                    <option value="200km">200 km</option>
+                                    <option value="250km">250 km</option>
                                 </select>
                             </div>
                         </div>
@@ -868,7 +873,7 @@
     var turnstileRendered = false;
 
     var formData = {
-        trade: '', service_postcode: '', service_radius: '20km',
+        trade: '', service_postcode: '', service_radius: '30km',
         delivery_email: true, delivery_sms: true,
         first_name: '', last_name: '', company: '', phone: '', email: '',
         confirm_guarantee: false, confirm_no_conversion: false,
