@@ -889,9 +889,80 @@
 <!-- FOOTER -->
 <footer>
     <div class="foot-logo">
-        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span>QuoteLeads</span>
     </div>
     <div class="foot-links">
-        <a href="https://quoteleads.com.au">Main Site</a>
-        <a href="https://quoteleads.com.au/privacy">Privacy</a>
-        <a href="/cdn-cgi/l/email-protection#20434f4e544143546051554f54454c454144530e434f4d0e4155"><span class="__cf_email__" data-cfemail="1e7d71706a7f7d6a5e6f6b716a7b727
+        <a href="/">Home</a>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+</footer>
+
+<script>
+    // ── Theme: always default to dark, persist user choice ──
+    (function(){
+        var saved = localStorage.getItem('ql-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+    })();
+
+    function toggleTheme(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ql-theme', next);
+        updateLogos();
+    }
+
+    var themeBtn = document.getElementById('themeBtn');
+    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    var mobThemeBtn = document.getElementById('mobThemeBtn');
+    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+
+    // ── Logo swap ──
+    function updateLogos(){
+        var theme = document.documentElement.getAttribute('data-theme');
+        var headerImg = document.getElementById('logoImg');
+        var headerTxt = document.getElementById('logoText');
+        var footImg   = document.getElementById('footLogoImg');
+        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
+        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
+        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+    }
+    updateLogos();
+
+    // Handle broken logo image gracefully
+    var logoImg = document.getElementById('logoImg');
+    if(logoImg){
+        logoImg.addEventListener('error', function(){
+            this.style.display = 'none';
+            var txt = document.getElementById('logoText');
+            if(txt){ txt.style.display = 'block'; }
+        });
+    }
+
+    // ── Mobile menu ──
+    var mobBtn  = document.getElementById('mobBtn');
+    var mobMenu = document.getElementById('mobMenu');
+    if(mobBtn && mobMenu){
+        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
+        mobMenu.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
+        });
+    }
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+            var target = document.querySelector(a.getAttribute('href'));
+            if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+        });
+    });
+</script>
+</body>
+</html>

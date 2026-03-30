@@ -847,44 +847,12 @@
     function toggleFaq(btn){
         var item = btn.parentElement;
         var isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); }
+        document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+        if(!isOpen){ item.classList.add('open'); }
+    }
 </script>
 
 <script>
-    // ── Theme ──
-    (function(){
-        var saved = localStorage.getItem('ql-theme');
-        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
-    })();
-    document.getElementById('themeBtn').addEventListener('click', function(){
-        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('ql-theme', next);
-        updateLogos();
-    });
-    function updateLogos(){
-        var theme = document.documentElement.getAttribute('data-theme');
-        var w = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
-        var d = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
-        var hi = document.getElementById('logoImg'); if(hi) hi.src = theme === 'light' ? d : w;
-        var fi = document.getElementById('footLogoImg'); if(fi) fi.src = theme === 'light' ? d : w;
-    }
-    updateLogos();
-    var logoImg = document.getElementById('logoImg');
-    if(logoImg) logoImg.addEventListener('error', function(){ this.style.display='none'; var t=document.getElementById('logoText'); if(t) t.style.display='block'; });
-
-    // ── Mobile menu ──
-    document.getElementById('mobBtn').addEventListener('click', function(){ document.getElementById('mobMenu').classList.toggle('open'); });
-    document.querySelectorAll('#mobMenu a').forEach(function(a){ a.addEventListener('click', function(){ document.getElementById('mobMenu').classList.remove('open'); }); });
-
-    // ── FAQ ──
-    function toggleFaq(btn){
-        var item = btn.parentElement;
-        var isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
-        if(!isOpen) item.classList.add('open');
-    }
-
     // ── SURVEY STATE ──
     var TOTAL_STEPS = 7;
     var currentStep = 1;
