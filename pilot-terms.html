@@ -47,12 +47,7 @@
             --sans:  'Poppins', system-ui, sans-serif;
             color-scheme: light;
         }
-        .theme-btn { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border-mid); background: var(--bg-lift); cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0; }
-        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
-        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
-        .i-moon { display: block; } .i-sun { display: none; }
-        [data-theme="light"] .i-moon { display: none; } [data-theme="light"] .i-sun { display: block; }
-
+        
 
 
         body {
@@ -62,22 +57,10 @@
             line-height: 1.65;
             font-weight: 400;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+            -webkit-font-smoothing: antialiased; padding-top: 68px;}
         h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
-        /* HEADER */
-        .site-header { padding: 0 48px; border-bottom: 1px solid var(--border); position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(10,11,15,0.88); backdrop-filter: blur(20px); }
-        .header-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-img { height: 36px; width: auto; display: block; }
-        .logo-text {
-            font-family: var(--serif); font-size: 18px; color: var(--ink-soft);
-            text-decoration: none; letter-spacing: -0.2px; display: none;
-        }
-        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 400; margin-left: 10px; }
-        .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
-        .header-link:hover { color: var(--ink); }
+        
 
         /* HERO */
         .terms-hero {
@@ -179,27 +162,123 @@
         .warning-box p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.7; }
         .warning-box strong { color: var(--ink); }
 
+        
+
+        
+        /* HEADER */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px;
+            background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-img.hide { display: none; }
+        .logo-text {
+            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            letter-spacing: -0.3px; display: none;
+        }
+        .logo-text.show { display: block; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links > a {
+            font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links > a:hover { color: var(--ink); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-btn {
+            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
+            padding: 0; transition: color 0.2s;
+        }
+        .nav-dropdown-btn:hover { color: var(--ink); }
+        .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
+        .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
+        .nav-dropdown-menu {
+            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 10px;
+            padding: 8px 0; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            z-index: 300;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu::before {
+            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
+        }
+        .nav-dropdown-menu a {
+            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
+            text-decoration: none; transition: all 0.15s; white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
+        .nav-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 10px 22px !important; border-radius: 6px !important;
+            font-weight: 400 !important; font-size: 14px !important;
+            transition: opacity 0.2s !important; text-decoration: none !important;
+        }
+        .nav-cta:hover { opacity: 0.85 !important; }
+        .theme-btn {
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
+        }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; }
+        .i-sun  { display: none;  }
+        [data-theme="light"] .i-moon { display: none; }
+        [data-theme="light"] .i-sun  { display: block; }
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+        .mob-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px 24px;
+        }
+        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
+        .mob-menu a {
+            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
+            text-decoration: none; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu a:last-child { border-bottom: none; }
+        .mob-divider {
+            height: 0; border-bottom: 1px solid var(--accent-dim); margin: 4px 0;
+        }
+        .mob-section-label {
+            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); padding: 14px 0 4px; border-bottom: none;
+        }
+
+
         /* FOOTER */
         footer {
-            padding: 36px 48px; border-top: 1px solid var(--border);
+            padding: 48px; border-top: 1px solid var(--border);
             display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
         }
-        .foot-logo { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); }
+        .foot-logo { display: flex; align-items: center; gap: 10px; }
         .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
-        .foot-logo span { font-family: var(--serif); font-size: 16px; color: var(--ink-faint); display: none; }
-        .foot-links { display: flex; gap: 24px; }
+        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
         .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .foot-links a:hover { color: var(--ink); }
         .foot-copy { font-size: 13px; color: var(--ink-faint); }
 
         /* RESPONSIVE */
         @media(max-width: 768px) {
-            .site-header { padding: 0 24px; }
-            .terms-hero { padding: 110px 24px 48px; }
+            
+            .terms-hero { padding: 110px 24px 48px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
             .terms-section { padding: 40px 24px 64px; }
             .terms-card { padding: 28px 24px; }
             .terms-card h2 { font-size: 20px; }
-            footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+            
         }
     </style>
 </head>
@@ -208,12 +287,63 @@
 <!-- HEADER -->
 <header class="site-header">
     <div class="header-inner">
-        <a href="https://quoteleads.com.au" class="logo">
-            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-            <span class="logo-text">QuoteLeads <span>Market Pulse</span></span>
+        <a href="/" class="logo" id="logoLink">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+            <span class="logo-text" id="logoText">QuoteLeads</span>
         </a>
-        <a href="https://quoteleads.com.au/pilot" class="header-link">← Back to Pilot</a>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="/#what-we-do">What We Do</a>
+                    <a href="/#process">How It Works</a>
+                    <a href="/#investment">Investment</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/#blog">Blog</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">Industries <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="/solar-leads">Solar</a>
+                    <a href="/hvac-leads">HVAC</a>
+                    <a href="/roofing-leads">Roofing</a>
+                    <a href="/renovation-leads">Renovation</a>
+                </div>
+            </div>
+            <a href="/pilot">Pilot</a>
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <a href="/get-started" class="nav-cta">Get Started</a>
+        </nav>
+        <button class="mob-btn" id="mobBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </div>
+    <nav class="mob-menu" id="mobMenu">
+        <a href="/">Home</a>
+        <a href="/#what-we-do">What We Do</a>
+        <a href="/#process">How It Works</a>
+        <a href="/#investment">Investment</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#blog">Blog</a>
+        <div class="mob-divider"></div>
+        <div class="mob-section-label">Industries</div>
+        <a href="/solar-leads">Solar</a>
+        <a href="/hvac-leads">HVAC</a>
+        <a href="/roofing-leads">Roofing</a>
+        <a href="/renovation-leads">Renovation</a>
+        <div class="mob-divider"></div>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started">Get Started</a>
+        <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+            <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+    </nav>
 </header>
 
 <!-- HERO -->
@@ -377,12 +507,14 @@
         <span>QuoteLeads</span>
     </div>
     <div class="foot-links">
-        <a href="https://quoteleads.com.au">Main Site</a>
-        <a href="https://quoteleads.com.au/pilot">Pilot</a>
-        <a href="https://quoteleads.com.au/privacy">Privacy</a>
+        <a href="/">Home</a>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
         <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
     </div>
-    <div class="foot-copy">© 2026 QuoteLeads</div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
 </footer>
 
 <script>
@@ -409,6 +541,7 @@
     function updateLogos(){
         var theme = document.documentElement.getAttribute('data-theme');
         var headerImg = document.getElementById('logoImg');
+        var headerTxt = document.getElementById('logoText');
         var footImg   = document.getElementById('footLogoImg');
         var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
         var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
@@ -426,6 +559,25 @@
             if(txt){ txt.style.display = 'block'; }
         });
     }
+
+    // ── Mobile menu ──
+    var mobBtn  = document.getElementById('mobBtn');
+    var mobMenu = document.getElementById('mobMenu');
+    if(mobBtn && mobMenu){
+        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
+        mobMenu.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
+        });
+    }
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+            var target = document.querySelector(a.getAttribute('href'));
+            if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+        });
+    });
+
 </script>
 
 </body>
