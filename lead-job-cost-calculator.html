@@ -505,8 +505,12 @@
         .foot-copy { font-size: 13px; color: var(--ink-faint); }
 
         /* RESPONSIVE */
+        @media(max-width:1024px) {
+            .hero { padding: 80px 32px 72px; } .site-header{padding:0 32px;} footer{padding:40px 32px;}
+            .calc-section { padding: 80px 32px; }
+        }
         @media(max-width: 768px) {
-            
+
             .hero { padding: 100px 24px 52px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
             .calc-section { padding: 56px 24px; }
             .explainer { padding: 0 24px 56px; }

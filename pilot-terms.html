@@ -290,8 +290,12 @@
         .foot-copy { font-size: 13px; color: var(--ink-faint); }
 
         /* RESPONSIVE */
+        @media(max-width:1024px) {
+            .terms-hero { padding: 140px 32px 64px; } .site-header{padding:0 32px;} footer{padding:40px 32px;}
+            .terms-section { padding: 64px 32px 100px; }
+        }
         @media(max-width: 768px) {
-            
+
             .terms-hero { padding: 110px 24px 48px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
             .terms-section { padding: 40px 24px 64px; }
             .terms-card { padding: 28px 24px; }
