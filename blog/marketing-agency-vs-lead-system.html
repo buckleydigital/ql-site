@@ -488,6 +488,9 @@
             padding: 0; transition: color 0.2s;
         }
         .nav-dropdown-btn:hover { color: var(--ink); }
+        a.nav-dropdown-btn {
+            text-decoration: none;
+        }
         .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
         .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
         .nav-dropdown-menu {
@@ -528,20 +531,35 @@
         .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
         .mob-menu {
             display: none; position: absolute; top: 100%; left: 0; right: 0;
-            background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px 24px;
+            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
+            max-height: calc(100vh - 68px); overflow-y: auto;
         }
         .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
+        .mob-menu-top {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu-title {
+            font-size: 13px; font-weight: 500; color: var(--ink-faint);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
         .mob-menu a {
             padding: 14px 0; font-size: 16px; color: var(--ink-soft);
             text-decoration: none; border-bottom: 1px solid var(--border);
         }
-        .mob-menu a:last-child { border-bottom: none; }
-        .mob-divider {
-            height: 0; border-bottom: 1px solid var(--accent-dim); margin: 4px 0;
-        }
+        .mob-menu a:hover { color: var(--ink); }
         .mob-section-label {
-            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--ink-faint); padding: 14px 0 4px; border-bottom: none;
+            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
+        }
+        .mob-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 14px 0 !important; border-radius: 6px; text-align: center;
+            margin-top: 8px; border-bottom: none !important;
+        }
+        .mob-cta:hover { opacity: 0.85; }
+        .mob-theme-btn {
+            width: 36px; height: 36px; flex-shrink: 0;
         }
 
 
@@ -586,9 +604,8 @@
             <span class="logo-text" id="logoText">QuoteLeads</span>
         </a>
         <nav class="nav-links">
-            <a href="/">Home</a>
             <div class="nav-dropdown">
-                <button class="nav-dropdown-btn">About <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                 <div class="nav-dropdown-menu">
                     <a href="/#what-we-do">What We Do</a>
                     <a href="/#process">How It Works</a>
@@ -618,25 +635,27 @@
         </button>
     </div>
     <nav class="mob-menu" id="mobMenu">
+        <div class="mob-menu-top">
+            <span class="mob-menu-title">Menu</span>
+            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
         <a href="/">Home</a>
         <a href="/#what-we-do">What We Do</a>
         <a href="/#process">How It Works</a>
         <a href="/#investment">Investment</a>
         <a href="/#faq">FAQ</a>
         <a href="/#blog">Blog</a>
-        <div class="mob-divider"></div>
-        <div class="mob-section-label">Industries</div>
+        <span class="mob-section-label">Industries</span>
         <a href="/solar-leads">Solar</a>
         <a href="/hvac-leads">HVAC</a>
         <a href="/roofing-leads">Roofing</a>
         <a href="/renovation-leads">Renovation</a>
-        <div class="mob-divider"></div>
+        <span class="mob-section-label">&nbsp;</span>
         <a href="/pilot">Pilot</a>
-        <a href="/get-started">Get Started</a>
-        <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
-            <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        </button>
+        <a href="/get-started" class="mob-cta">Get Started</a>
     </nav>
 </header>
 
