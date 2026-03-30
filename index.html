@@ -671,6 +671,10 @@
         <a href="#faq">FAQ</a>
         <a href="#blog">Blog</a>
         <a href="/get-started">Book a Call</a>
+        <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+            <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
     </nav>
 </header>
 
@@ -1512,14 +1516,18 @@
         document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
     })();
 
-    var themeBtn = document.getElementById('themeBtn');
-    themeBtn.addEventListener('click', function(){
+    function toggleTheme(){
         var cur = document.documentElement.getAttribute('data-theme');
         var next = cur === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('ql-theme', next);
         updateLogos();
-    });
+    }
+
+    var themeBtn = document.getElementById('themeBtn');
+    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    var mobThemeBtn = document.getElementById('mobThemeBtn');
+    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
 
     // ── Logo swap ──
     function updateLogos(){
