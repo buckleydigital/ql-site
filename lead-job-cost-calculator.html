@@ -56,6 +56,7 @@
             height: 64px;
         }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; display: block; }
         .logo-text { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); text-decoration: none; letter-spacing: -0.2px; }
         .header-link { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .header-link:hover { color: var(--ink); }
@@ -405,7 +406,8 @@
 <header class="site-header">
     <div class="header-inner">
         <a href="https://quoteleads.com.au" class="logo">
-            <span class="logo-text">QuoteLeads</span>
+            <img class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+            <span class="logo-text" style="display:none">QuoteLeads</span>
         </a>
         <a href="https://quoteleads.com.au" class="header-link">← Back to QuoteLeads</a>
     </div>
