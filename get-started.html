@@ -89,6 +89,7 @@
         .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
         .i-moon { display: block; } .i-sun { display: none; }
         [data-theme="light"] .i-moon { display: none; } [data-theme="light"] .i-sun { display: block; }
+        .mob-theme-btn { margin: 14px 0 0; }
         .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
         .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
         .mob-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 20px 24px; }
@@ -312,6 +313,10 @@
         <a href="/#investment">Investment</a>
         <a href="/#faq">FAQ</a>
         <a href="/get-started">Book a Call</a>
+        <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+            <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
     </nav>
 </header>
 

@@ -33,7 +33,7 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
 
-        :root {
+        :root[data-theme="dark"] {
             --bg:          #0a0b0f;
             --bg-lift:     #111318;
             --bg-card:     #161820;
@@ -54,6 +54,33 @@
             --serif: 'Poppins', system-ui, sans-serif;
             --sans:  'Poppins', system-ui, sans-serif;
         }
+        :root[data-theme="light"] {
+            --bg:          #f5f3ef;
+            --bg-lift:     #edeae5;
+            --bg-card:     #f9f8f5;
+            --bg-deep:     #e8e4de;
+            --border:      rgba(14,14,14,0.10);
+            --border-mid:  rgba(14,14,14,0.16);
+            --ink:         #0e0e0e;
+            --ink-soft:    #2a2a2a;
+            --ink-muted:   #6b6b6b;
+            --ink-faint:   #9a9a9a;
+            --accent:      #2563eb;
+            --accent-dim:  rgba(37,99,235,0.07);
+            --accent-glow: rgba(37,99,235,0.12);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            --green:       #059669;
+            --green-dim:   rgba(5,150,105,0.10);
+            color-scheme: light;
+        }
+        .theme-btn { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border-mid); background: var(--bg-lift); cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0; }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; } .i-sun { display: none; }
+        [data-theme="light"] .i-moon { display: none; } [data-theme="light"] .i-sun { display: block; }
+
+
 
         body {
             font-family: var(--sans);
@@ -377,9 +404,15 @@
 <header class="site-header">
     <div class="header-inner">
         <a href="https://quoteleads.com.au" class="logo">
-            <img class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
         </a>
-        <a href="https://quoteleads.com.au" class="header-link">← Back to QuoteLeads</a>
+        <div style="display:flex;align-items:center;gap:12px;">
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <a href="https://quoteleads.com.au" class="header-link">← Back to QuoteLeads</a>
+        </div>
     </div>
 </header>
 
@@ -729,7 +762,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="foot-logo">
-        <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
     </div>
     <div class="foot-links">
         <a href="https://quoteleads.com.au">Main Site</a>
