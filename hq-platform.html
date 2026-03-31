@@ -280,6 +280,10 @@ h1,h2,h3,h4,h5,h6 { font-weight: 500; }
 [data-theme="dark"] .pipe-card-name { color: var(--ink); }
 [data-theme="dark"] .pipe-card-time { color: var(--ink-faint); }
 
+/* -- MOCKUP LIGHT MODE -- */
+[data-theme="light"] .mockup-bar { background: #e8e4de; }
+[data-theme="light"] .mockup-url { background: #f5f3ef; border-color: rgba(14,14,14,0.10); color: #6b6b6b; }
+
 /* BUTTONS */
 .btn-primary {
     background: var(--accent); color: #fff;
@@ -500,15 +504,9 @@ footer { border-top: 1px solid var(--border); padding: 48px; display: flex; alig
 <!-- HEADER -->
 <header class="site-header" id="mainNav">
     <div class="header-inner">
-        <div style="display:flex;align-items:center;gap:16px">
-            <a href="https://quoteleads.com.au" class="logo">
-                <img id="qlLogoImg" class="logo-ql" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
-            </a>
-            <div class="logo-sep"></div>
-            <div class="logo-product">
-                <img id="productLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/product-logo.png" alt="QuoteLeadsHQ" onerror="this.style.display='none'"/>
-                <span class="logo-product-name">QuoteLeadsHQ</span>
-            </div>
+        <div class="logo-product">
+            <img id="productLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/product-logo.png" alt="QuoteLeadsHQ" onerror="this.style.display='none'"/>
+            <span class="logo-product-name">QuoteLeadsHQ</span>
         </div>
         <nav class="nav-links">
             <a href="#how">How It Works</a>
@@ -530,7 +528,6 @@ footer { border-top: 1px solid var(--border); padding: 48px; display: flex; alig
         <a href="#how">How It Works</a>
         <a href="#features">Features</a>
         <a href="#results">Compare</a>
-        <a href="#pricing">Pricing</a>
         <a href="#cta" class="mob-cta">Get Access</a>
     </nav>
 </header>
@@ -821,9 +818,7 @@ function updateLogos(){
     var theme = document.documentElement.getAttribute('data-theme');
     var white = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
     var black = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
-    var ql = document.getElementById('qlLogoImg');
     var foot = document.getElementById('footLogoImg');
-    if(ql) ql.src = theme === 'light' ? black : white;
     if(foot) foot.src = theme === 'light' ? black : white;
 }
 
