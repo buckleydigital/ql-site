@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Accelerator Program Terms — QuoteLeads</title>
+    <meta name="description" content="Growth Accelerator Program Agreement Terms for QuoteLeads services. Please read these terms carefully before enrolling.">
+    <link rel="canonical" href="https://quoteleads.com.au/growth-program-terms">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root[data-theme="dark"] {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --bg-deep:     #0d0e12;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.16);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: dark;
+        }
+        :root[data-theme="light"] {
+            --bg:          #f5f3ef;
+            --bg-lift:     #edeae5;
+            --bg-card:     #f9f8f5;
+            --bg-deep:     #e8e4de;
+            --border:      rgba(14,14,14,0.10);
+            --border-mid:  rgba(14,14,14,0.16);
+            --ink:         #0e0e0e;
+            --ink-soft:    #2a2a2a;
+            --ink-muted:   #6b6b6b;
+            --ink-faint:   #9a9a9a;
+            --accent:      #2563eb;
+            --accent-dim:  rgba(37,99,235,0.07);
+            --accent-glow: rgba(37,99,235,0.12);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: light;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 400;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s, color 0.3s; padding-top: 68px;}
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+
+        /* SHARED */
+        section { padding: 100px 48px; }
+        .si { max-width: 1200px; margin: 0 auto; }
+        .slbl {
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 16px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .stitle { font-family: var(--serif); font-size: clamp(30px,4vw,46px); line-height: 1.15; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px; }
+        .stitle em { font-style: italic; color: var(--accent); }
+        .sbody { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 640px; }
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            padding: 15px 34px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
+            display: inline-block; transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+        /* PAGE HERO */
+        .page-hero {
+            padding: 160px 48px 80px;
+            border-bottom: 1px solid var(--border);
+            position: relative; overflow: hidden;
+        }
+        .hero-grid-bg {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px; opacity: 0.4; pointer-events: none;
+        }
+        .hero-glow {
+            position: absolute; top: -20%; right: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+        }
+        .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+        .page-hero h1 { font-family: var(--serif); font-size: clamp(40px,5vw,62px); line-height: 1.1; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 24px; }
+        .page-hero h1 em { font-style: italic; color: var(--accent); }
+        .page-hero-meta { margin-top: 20px; font-size: 13px; color: var(--ink-faint); display: flex; gap: 6px; flex-wrap: wrap; }
+        .page-hero-meta span+span::before { content: '·'; margin-right: 6px; }
+
+        /* TOC SECTION */
+        .toc-section { background: var(--bg-lift); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .toc-grid {
+            display: grid; grid-template-columns: repeat(2,1fr);
+            gap: 1px; background: var(--border); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden; margin-top: 48px;
+        }
+        .toc-col { background: var(--bg-card); padding: 32px 28px; }
+        .toc-col-lbl { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
+        .toc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .toc-list a { font-size: 14px; color: var(--ink-muted); text-decoration: none; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; transition: color 0.2s; }
+        .toc-list a:hover { color: var(--accent); }
+        .toc-list a::before { content: '→'; color: var(--accent); font-size: 11px; flex-shrink: 0; margin-top: 3px; opacity: 0.5; }
+
+        /* LAYOUT */
+        .terms-layout { display: grid; grid-template-columns: 1fr 272px; gap: 80px; align-items: start; }
+        .terms-body { min-width: 0; }
+
+        /* CONTENT GROUPS */
+        .content-group { padding: 56px 0; border-bottom: 1px solid var(--border); }
+        .content-group:first-child { padding-top: 0; }
+        .content-group:last-child { border-bottom: none; padding-bottom: 0; }
+        .group-lbl {
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 14px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .group-lbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .group-title { font-family: var(--serif); font-size: clamp(22px,2.5vw,30px); line-height: 1.2; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px; }
+        .group-body { font-size: 15px; font-weight: 400; color: var(--ink-muted); line-height: 1.8; }
+        .group-body p { margin-bottom: 14px; }
+        .group-body p:last-child { margin-bottom: 0; }
+        .group-body strong { color: var(--ink-soft); font-weight: 400; }
+        .group-body a { color: var(--accent); text-decoration: none; }
+        .group-body a:hover { text-decoration: underline; }
+
+        /* LISTS */
+        .p-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+        .p-list li { font-size: 14px; font-weight: 400; color: var(--ink-muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.6; }
+        .p-list li::before { content: '→'; color: var(--accent); font-size: 11px; flex-shrink: 0; margin-top: 4px; }
+
+        /* CALLOUT */
+        .callout {
+            background: var(--accent-dim);
+            border: 1px solid rgba(71,151,255,0.15);
+            border-left: 2px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 22px; margin: 24px 0;
+            font-size: 14px; color: var(--ink-soft); line-height: 1.7;
+        }
+        [data-theme="light"] .callout { border-color: rgba(37,99,235,0.15); border-left-color: var(--accent); }
+        .callout strong { color: var(--ink); font-weight: 400; }
+        .callout a { color: var(--accent); text-decoration: none; }
+
+        /* KEY TERMS GRID */
+        .terms-cards {
+            display: grid; grid-template-columns: repeat(2,1fr);
+            gap: 1px; background: var(--border); border: 1px solid var(--border);
+            border-radius: 10px; overflow: hidden; margin: 24px 0;
+        }
+        .terms-card { background: var(--bg-card); padding: 22px 20px; }
+        .terms-card-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+        .terms-card-val { font-family: var(--serif); font-size: 17px; color: var(--ink); margin-bottom: 6px; }
+        .terms-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; font-weight: 400; }
+
+        /* SIDEBAR */
+        .terms-sidebar { position: sticky; top: 100px; }
+        .sidebar-card {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 10px; padding: 26px; margin-bottom: 14px;
+            position: relative; overflow: hidden;
+        }
+        .sidebar-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.4;
+        }
+        .sidebar-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
+        .sidebar-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+        .sidebar-row:last-child { border-bottom: none; }
+        .sidebar-row span:first-child { color: var(--ink-muted); }
+        .sidebar-row span:last-child { color: var(--ink-soft); font-weight: 400; }
+        .sidebar-link { font-size: 14px; color: var(--ink-muted); text-decoration: none; display: flex; align-items: center; gap: 6px; padding: 6px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+        .sidebar-link:last-child { border-bottom: none; }
+        .sidebar-link:hover { color: var(--accent); }
+        .sidebar-link::before { content: '→'; color: var(--accent); font-size: 11px; flex-shrink: 0; }
+        .btn-sidebar { background: var(--accent); color: #fff; padding: 12px 20px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 400; display: block; text-align: center; transition: opacity 0.2s; }
+        .btn-sidebar:hover { opacity: 0.88; }
+
+        /* FINAL CTA */
+        .final-cta { text-align: center; position: relative; overflow: hidden; }
+        .final-cta::before {
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 800px; height: 400px;
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%); pointer-events: none;
+        }
+        .final-cta .si { position: relative; z-index: 1; }
+        .final-trust { margin-top: 24px; font-size: 13px; color: var(--ink-faint); }
+        .final-trust span+span::before { content: ' · '; }
+
+        /* HEADER */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px;
+            background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-img.hide { display: none; }
+        .logo-text {
+            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            letter-spacing: -0.3px; display: none;
+        }
+        .logo-text.show { display: block; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links > a {
+            font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links > a:hover { color: var(--ink); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-btn {
+            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
+            padding: 0; transition: color 0.2s;
+        }
+        .nav-dropdown-btn:hover { color: var(--ink); }
+        a.nav-dropdown-btn {
+            text-decoration: none;
+        }
+        .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
+        .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
+        .nav-dropdown-menu {
+            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 10px;
+            padding: 8px 0; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            z-index: 300;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu::before {
+            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
+        }
+        .nav-dropdown-menu a {
+            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
+            text-decoration: none; transition: all 0.15s; white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
+        .nav-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 10px 22px !important; border-radius: 6px !important;
+            font-weight: 400 !important; font-size: 14px !important;
+            transition: opacity 0.2s !important; text-decoration: none !important;
+        }
+        .nav-cta:hover { opacity: 0.85 !important; }
+        .theme-btn {
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
+        }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; }
+        .i-sun  { display: none;  }
+        [data-theme="light"] .i-moon { display: none; }
+        [data-theme="light"] .i-sun  { display: block; }
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+        .mob-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
+            max-height: calc(100vh - 68px); overflow-y: auto;
+        }
+        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
+        .mob-menu-top {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu-title {
+            font-size: 13px; font-weight: 500; color: var(--ink-faint);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .mob-menu a {
+            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
+            text-decoration: none; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu a:hover { color: var(--ink); }
+        .mob-section-label {
+            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
+        }
+        .mob-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 14px 0 !important; border-radius: 6px; text-align: center;
+            margin-top: 8px; border-bottom: none !important;
+        }
+        .mob-cta:hover { opacity: 0.85; }
+        .mob-theme-btn {
+            width: 36px; height: 36px; flex-shrink: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { display: flex; align-items: center; gap: 10px; }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            section{padding:80px 32px;} .site-header{padding:0 32px;} footer{padding:40px 32px;}  
+            .page-hero{padding:140px 32px 64px;}
+            .terms-layout{grid-template-columns:1fr; gap:48px;}
+            .terms-sidebar{position:static;}
+            .toc-grid{grid-template-columns:1fr;}
+        }
+        @media(max-width:768px){
+            section{padding:64px 24px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}  
+            .page-hero{padding:120px 24px 56px;}
+            .terms-cards{grid-template-columns:1fr;}
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo" id="logoLink">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+            <span class="logo-text" id="logoText">QuoteLeads</span>
+        </a>
+        <nav class="nav-links">
+            <div class="nav-dropdown">
+                <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <div class="nav-dropdown-menu">
+                    <a href="/#what-we-do">What We Do</a>
+                    <a href="/#process">How It Works</a>
+                    <a href="/#investment">Investment</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/#blog">Blog</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">Industries <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="/solar-leads">Solar</a>
+                    <a href="/hvac-leads">HVAC</a>
+                    <a href="/roofing-leads">Roofing</a>
+                    <a href="/renovation-leads">Renovation</a>
+                </div>
+            </div>
+            <a href="/pilot">Pilot</a>
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <a href="/get-started" class="nav-cta">Get Started</a>
+        </nav>
+        <button class="mob-btn" id="mobBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <nav class="mob-menu" id="mobMenu">
+        <div class="mob-menu-top">
+            <span class="mob-menu-title">Menu</span>
+            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
+        <a href="/">Home</a>
+        <a href="/#what-we-do">What We Do</a>
+        <a href="/#process">How It Works</a>
+        <a href="/#investment">Investment</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#blog">Blog</a>
+        <span class="mob-section-label">Industries</span>
+        <a href="/solar-leads">Solar</a>
+        <a href="/hvac-leads">HVAC</a>
+        <a href="/roofing-leads">Roofing</a>
+        <a href="/renovation-leads">Renovation</a>
+        <span class="mob-section-label">&nbsp;</span>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started" class="mob-cta">Get Started</a>
+    </nav>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="page-hero-inner">
+        <div class="hero-eyebrow">Program Agreement</div>
+        <h1>Growth Accelerator<br><em>Program Terms.</em></h1>
+        <p class="sbody">These terms govern your participation in the QuoteLeads Growth Accelerator Program. Please read carefully before enrolling.</p>
+        <div class="page-hero-meta">
+            <span>Effective: Upon Registration</span>
+            <span>Version: 2026</span>
+        </div>
+    </div>
+</section>
+
+<!-- TOC -->
+<section class="toc-section">
+    <div class="si">
+        <div class="slbl">What's covered</div>
+        <h2 class="stitle">Jump to any section.</h2>
+        <div class="toc-grid">
+            <div class="toc-col">
+                <div class="toc-col-lbl">Services & Commitments</div>
+                <ul class="toc-list">
+                    <li><a href="#services">1. Services provided</a></li>
+                    <li><a href="#no-guarantee">2. No revenue guarantee</a></li>
+                    <li><a href="#guarantee">3. 30-day satisfaction guarantee</a></li>
+                    <li><a href="#qualification">4. Qualification criteria</a></li>
+                    <li><a href="#responsibilities">5. Responsibilities</a></li>
+                </ul>
+            </div>
+            <div class="toc-col">
+                <div class="toc-col-lbl">Legal & Financial</div>
+                <ul class="toc-list">
+                    <li><a href="#communication">6. Communication method</a></li>
+                    <li><a href="#fees">7. Fees & billing</a></li>
+                    <li><a href="#refunds">8. Conditions for refund</a></li>
+                    <li><a href="#termination">9. Term & termination</a></li>
+                    <li><a href="#ip">10. Intellectual property</a></li>
+                    <li><a href="#confidentiality">11. Confidentiality</a></li>
+                    <li><a href="#liability">12. Limitation of liability</a></li>
+                    <li><a href="#governing-law">13. Governing law</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section style="padding-top:80px; padding-bottom:80px;">
+    <div class="si">
+        <div class="terms-layout">
+
+            <div class="terms-body">
+
+                <!-- INTRO -->
+                <div class="content-group">
+                    <div class="group-lbl">Overview</div>
+                    <h2 class="group-title">Program agreement.</h2>
+                    <div class="group-body">
+                        <p>This Growth Accelerator Program Agreement ("Agreement") becomes active upon successful completion of registration and onboarding. By participating in the QuoteLeads Growth Accelerator Program ("Program"), you ("Client") agree to be bound by these terms.</p>
+                        <p>This Agreement operates alongside our <a href="/terms">Terms & Conditions</a> and <a href="/privacy">Privacy Policy</a>. If you do not agree to these terms in their entirety, please do not enroll in the Program.</p>
+                    </div>
+                    <div class="terms-cards" style="margin-top:28px;">
+                        <div class="terms-card">
+                            <div class="terms-card-lbl">Initial term</div>
+                            <div class="terms-card-val">30 days</div>
+                            <div class="terms-card-desc">Minimum commitment period before month-to-month continuation.</div>
+                        </div>
+                        <div class="terms-card">
+                            <div class="terms-card-lbl">Billing</div>
+                            <div class="terms-card-val">Monthly</div>
+                            <div class="terms-card-desc">Following the initial 30-day term, service continues month-to-month.</div>
+                        </div>
+                        <div class="terms-card">
+                            <div class="terms-card-lbl">Guarantee</div>
+                            <div class="terms-card-val">30-day satisfaction</div>
+                            <div class="terms-card-desc">Subject to meeting all qualification criteria outlined below.</div>
+                        </div>
+                        <div class="terms-card">
+                            <div class="terms-card-lbl">Support</div>
+                            <div class="terms-card-val">WhatsApp primary</div>
+                            <div class="terms-card-desc">Email or phone available if WhatsApp is unavailable.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1. SERVICES -->
+                <div class="content-group" id="services">
+                    <div class="group-lbl">Section 01</div>
+                    <h2 class="group-title">Services provided.</h2>
+                    <div class="group-body">
+                        <p>QuoteLeads agrees to provide a done-for-you lead generation system to generate leads for the Client's business via the management of paid advertising channels under the Client's branding. During the term of this Agreement, QuoteLeads shall perform the following services:</p>
+                    </div>
+                    <ul class="p-list" style="margin-top:16px;">
+                        <li><strong>Marketing Channels Managed:</strong> Manage and optimize the Client's paid advertising channels</li>
+                        <li><strong>Streamlined CRM:</strong> Set up and manage a streamlined CRM system for tracking leads</li>
+                        <li><strong>Tailored Touchpoints:</strong> Implement customized communication strategies to engage leads</li>
+                        <li><strong>Dedicated Growth Management:</strong> Provide support relating to lead generation, marketing systems, and business growth</li>
+                        <li><strong>Automation & AI-Assisted Tools:</strong> Utilize automation and AI-assisted tools to support lead handling and follow-up processes where appropriate</li>
+                        <li><strong>Tracking & Analytics:</strong> Provide tracking and performance insights for campaigns</li>
+                    </ul>
+                    <div class="callout" style="margin-top:20px;">
+                        <strong>No Long-Term Lock-In:</strong> This Agreement operates on a month-to-month basis following the initial 30-day term.
+                    </div>
+                </div>
+
+                <!-- 2. NO REVENUE GUARANTEE -->
+                <div class="content-group" id="no-guarantee">
+                    <div class="group-lbl">Section 02</div>
+                    <h2 class="group-title">No revenue guarantee.</h2>
+                    <div class="group-body">
+                        <p>QuoteLeads does not guarantee specific revenue, sales, or profit outcomes. Results depend on multiple factors outside QuoteLeads' control, including but not limited to:</p>
+                    </div>
+                    <ul class="p-list" style="margin-top:16px;">
+                        <li>The Client's pricing structure and competitive positioning</li>
+                        <li>The Client's sales process and conversion capabilities</li>
+                        <li>Responsiveness to leads and follow-up speed</li>
+                        <li>Current market conditions and seasonal demand</li>
+                        <li>Operational capacity to fulfill new business</li>
+                        <li>Local competition and territory dynamics</li>
+                    </ul>
+                </div>
+
+                <!-- 3. 30-DAY GUARANTEE -->
+                <div class="content-group" id="guarantee">
+                    <div class="group-lbl">Section 03</div>
+                    <h2 class="group-title">30-day satisfaction guarantee.</h2>
+                    <div class="group-body">
+                        <p>If QuoteLeads fails to deploy and operate the lead generation system in accordance with this Agreement, and the Client has complied with all obligations herein, the Client may qualify for a refund of the upfront set-up fee if dissatisfied within the initial 30-day management period.</p>
+                    </div>
+                    <div class="callout" style="margin-top:20px;">
+                        <strong>Important:</strong> Refunds apply only to fees paid to QuoteLeads and do not include advertising spend paid to third-party platforms. Advertising spend paid to external platforms is non-refundable.
+                    </div>
+                </div>
+
+                <!-- 4. QUALIFICATION CRITERIA -->
+                <div class="content-group" id="qualification">
+                    <div class="group-lbl">Section 04</div>
+                    <h2 class="group-title">Qualification criteria for the 30-day guarantee.</h2>
+                    <div class="group-body">
+                        <p>To qualify for a refund, <strong>all</strong> conditions below must be met:</p>
+                    </div>
+
+                    <div class="group-body" style="margin-top:24px;">
+                        <p><strong>1. Advertising Budget</strong></p>
+                    </div>
+                    <ul class="p-list">
+                        <li>The Client must commit to spending the agreed advertising budget for a minimum of 30 days</li>
+                        <li>The Client must adhere to QuoteLeads' recommended budget aligned with campaign objectives</li>
+                    </ul>
+
+                    <div class="group-body" style="margin-top:20px;">
+                        <p><strong>2. Follow-Up and Engagement</strong></p>
+                    </div>
+                    <ul class="p-list">
+                        <li>The Client must demonstrate clear, documented efforts to follow up and engage with leads promptly</li>
+                        <li>Final conversion outcomes are dependent on the Client's sales and fulfilment process</li>
+                    </ul>
+
+                    <div class="group-body" style="margin-top:20px;">
+                        <p><strong>3. Performance Evaluation</strong></p>
+                    </div>
+                    <ul class="p-list">
+                        <li>Maintain records of follow-ups and interactions in the CRM or tracking system provided</li>
+                        <li>Notify QuoteLeads of required adjustments in strategy in a timely manner</li>
+                    </ul>
+
+                    <div class="group-body" style="margin-top:20px;">
+                        <p><strong>4. CRM Usage</strong></p>
+                    </div>
+                    <ul class="p-list">
+                        <li>Provide access to an existing CRM or actively use the CRM supplied by QuoteLeads</li>
+                    </ul>
+
+                    <div class="group-body" style="margin-top:20px;">
+                        <p><strong>5. Extended Pauses</strong></p>
+                    </div>
+                    <ul class="p-list">
+                        <li>A pause longer than 3 consecutive days or more than 7 cumulative days within the 30-day period disqualifies the Client from the guarantee</li>
+                    </ul>
+
+                    <div class="group-body" style="margin-top:20px;">
+                        <p><strong>6. Excessive Requests</strong></p>
+                    </div>
+                    <ul class="p-list">
+                        <li>Requests exceeding one campaign or creative change per week, or those contrary to QuoteLeads' recommendations, may disqualify the Client from the guarantee</li>
+                    </ul>
+                </div>
+
+                <!-- 5. RESPONSIBILITIES -->
+                <div class="content-group" id="responsibilities">
+                    <div class="group-lbl">Section 05</div>
+                    <h2 class="group-title">Responsibilities.</h2>
+
+                    <div class="group-body">
+                        <p><strong>QuoteLeads Responsibilities</strong></p>
+                    </div>
+                    <ul class="p-list">
+                        <li>Build, deploy, manage, and optimize the lead generation system</li>
+                        <li>Deliver leads into the Client's CRM or agreed system</li>
+                        <li>Provide operational and system-level support</li>
+                    </ul>
+
+                    <div class="group-body" style="margin-top:24px;">
+                        <p><strong>Client Responsibilities</strong></p>
+                    </div>
+                    <ul class="p-list">
+                        <li>Pay the set-up fee</li>
+                        <li>Grant access to required advertising accounts</li>
+                        <li>Use reasonable efforts to engage and follow up with leads</li>
+                        <li>Notify QuoteLeads of any operational or strategic changes impacting campaigns</li>
+                    </ul>
+                </div>
+
+                <!-- 6. COMMUNICATION -->
+                <div class="content-group" id="communication">
+                    <div class="group-lbl">Section 06</div>
+                    <h2 class="group-title">Communication method.</h2>
+                    <div class="group-body">
+                        <p><strong>Primary:</strong> WhatsApp</p>
+                        <p><strong>Secondary:</strong> Email or phone if WhatsApp is unavailable</p>
+                    </div>
+                </div>
+
+                <!-- 7. FEES -->
+                <div class="content-group" id="fees">
+                    <div class="group-lbl">Section 07</div>
+                    <h2 class="group-title">Fees & billing.</h2>
+
+                    <div class="group-body">
+                        <p><strong>Invoice Amount</strong></p>
+                        <p>Fees payable as stated on QuoteLeads' invoice.</p>
+                    </div>
+
+                    <div class="group-body" style="margin-top:24px;">
+                        <p><strong>Additional Charges</strong></p>
+                    </div>
+                    <ul class="p-list">
+                        <li>Clients are billed monthly for optional SMS credits used inside QuoteLeads CRM and additional services as outlined in proposals</li>
+                        <li>Clients pay ad spend directly to advertising platforms</li>
+                        <li>QuoteLeads covers the first 50 leads or 500 SMS sent per 30-day period (whichever comes first)</li>
+                        <li>Thereafter, SMS is billed at $0.10 per message</li>
+                    </ul>
+
+                    <div class="group-body" style="margin-top:24px;">
+                        <p><strong>Billing and Payment Terms</strong></p>
+                        <p>All fees are payable upon receipt of invoice unless otherwise stated.</p>
+                    </div>
+
+                    <div class="group-body" style="margin-top:20px;">
+                        <p><strong>Changes to Fees</strong></p>
+                        <p>Any changes will be communicated in advance and applied from the next billing cycle.</p>
+                    </div>
+                </div>
+
+                <!-- 8. REFUNDS -->
+                <div class="content-group" id="refunds">
+                    <div class="group-lbl">Section 08</div>
+                    <h2 class="group-title">Conditions for refund.</h2>
+                    <div class="group-body">
+                        <p>Refunds are only applicable where:</p>
+                    </div>
+                    <ul class="p-list" style="margin-top:16px;">
+                        <li>The Client meets all qualification criteria outlined in Section 04</li>
+                        <li>Written notice of dissatisfaction is provided within the initial 30-day period</li>
+                    </ul>
+                    <div class="callout" style="margin-top:20px;">
+                        Refunds outside these conditions are issued solely at the discretion of QuoteLeads and do not constitute an admission of fault or an ongoing obligation. Advertising spend paid to external platforms is non-refundable.
+                    </div>
+                </div>
+
+                <!-- 9. TERMINATION -->
+                <div class="content-group" id="termination">
+                    <div class="group-lbl">Section 09</div>
+                    <h2 class="group-title">Term & termination.</h2>
+                    <div class="group-body">
+                        <p>This Agreement commences upon onboarding and remains in effect for 30 days. Thereafter, it continues on a month-to-month basis unless terminated by either party with written notice.</p>
+                        <p>Confidentiality, IP, and limitation clauses survive termination.</p>
+                    </div>
+                </div>
+
+                <!-- 10. IP -->
+                <div class="content-group" id="ip">
+                    <div class="group-lbl">Section 10</div>
+                    <h2 class="group-title">Intellectual property.</h2>
+                    <div class="group-body">
+                        <p>Upon full payment, the Client owns all advertising accounts, creatives, and data generated under their brand.</p>
+                        <p>QuoteLeads retains ownership of all proprietary systems, templates, processes, frameworks, and methodologies used in delivering the services.</p>
+                    </div>
+                </div>
+
+                <!-- 11. CONFIDENTIALITY -->
+                <div class="content-group" id="confidentiality">
+                    <div class="group-lbl">Section 11</div>
+                    <h2 class="group-title">Confidentiality.</h2>
+                    <div class="group-body">
+                        <p>Both parties agree to keep confidential all non-public information shared during the term of this Agreement, including business strategies, data, and system designs.</p>
+                    </div>
+                </div>
+
+                <!-- 12. LIABILITY -->
+                <div class="content-group" id="liability">
+                    <div class="group-lbl">Section 12</div>
+                    <h2 class="group-title">Limitation of liability.</h2>
+                    <div class="group-body">
+                        <p>To the maximum extent permitted by law, QuoteLeads' total liability under this Agreement shall be limited to the total fees paid by the Client to QuoteLeads in the preceding 30 days.</p>
+                        <p>QuoteLeads shall not be liable for indirect, incidental, or consequential losses including lost profits or revenue.</p>
+                    </div>
+                </div>
+
+                <!-- 13. GOVERNING LAW -->
+                <div class="content-group" id="governing-law">
+                    <div class="group-lbl">Section 13</div>
+                    <h2 class="group-title">Governing law.</h2>
+                    <div class="group-body">
+                        <p>This Agreement shall be governed by and construed in accordance with the laws of Australia, and the parties submit to the exclusive jurisdiction of Australian courts.</p>
+                    </div>
+                </div>
+
+        
+
+            </div><!-- /terms-body -->
+
+            <!-- SIDEBAR -->
+            <div class="terms-sidebar">
+                <div class="sidebar-card">
+                    <div class="sidebar-lbl">At a glance</div>
+                    <div class="sidebar-row"><span>Initial term</span><span>30 days</span></div>
+                    <div class="sidebar-row"><span>Continues</span><span>Month-to-month</span></div>
+                    <div class="sidebar-row"><span>Satisfaction guarantee</span><span>30 days</span></div>
+                    <div class="sidebar-row"><span>SMS rate (after 500)</span><span>$0.10/msg</span></div>
+                    <div class="sidebar-row"><span>Jurisdiction</span><span>Australia</span></div>
+                </div>
+
+                <div class="sidebar-card">
+                    <div class="sidebar-lbl">Questions</div>
+                    <a href="mailto:contact@quoteleads.com.au" style="font-family:var(--serif); font-size:15px; color:var(--accent); text-decoration:none; display:block; margin-bottom:14px; word-break:break-all; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">contact@quoteleads.com.au</a>
+                    <p style="font-size:13px; color:var(--ink-muted); line-height:1.6;">For questions about the Growth Accelerator Program or this Agreement.</p>
+                </div>
+
+                <div class="sidebar-card">
+                    <div class="sidebar-lbl">Other legal pages</div>
+                    <a href="/terms" class="sidebar-link">Terms & Conditions</a>
+                    <a href="/privacy" class="sidebar-link">Privacy Policy</a>
+                    <a href="/security" class="sidebar-link">Security & Compliance</a>
+                    <a href="/lead-integrity-standard" class="sidebar-link">Lead Integrity Standard</a>
+                </div>
+
+                <a href="/get-started" class="btn-sidebar">Enroll in Program</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" style="border-top:1px solid var(--border);">
+    <div class="si">
+        <div class="slbl" style="justify-content:center;">Ready to accelerate?</div>
+        <h2 class="stitle" style="max-width:520px; margin:0 auto 20px; text-align:center;">Start generating qualified leads<br><em>in 30 days or less.</em></h2>
+        <p class="sbody" style="margin:0 auto 40px; text-align:center;">Join the Growth Accelerator Program and get a done-for-you lead generation system built specifically for your trade business.</p>
+        <div style="display:flex; justify-content:center;">
+            <a href="/get-started" class="btn-primary">Enroll Now</a>
+        </div>
+        <div class="final-trust">
+            <span>No long-term lock-in</span>
+            <span>30-day satisfaction guarantee</span>
+            <span>Australian owned and operated</span>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span>QuoteLeads</span>
+    </div>
+    <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="/growth-program-terms">Program Terms</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+</footer>
+
+<script>
+    // ── Theme: always default to dark, persist user choice ──
+    (function(){
+        var saved = localStorage.getItem('ql-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+    })();
+
+    function toggleTheme(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ql-theme', next);
+        updateLogos();
+    }
+
+    var themeBtn = document.getElementById('themeBtn');
+    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    var mobThemeBtn = document.getElementById('mobThemeBtn');
+    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+
+    // ── Logo swap ──
+    function updateLogos(){
+        var theme = document.documentElement.getAttribute('data-theme');
+        var headerImg = document.getElementById('logoImg');
+        var headerTxt = document.getElementById('logoText');
+        var footImg   = document.getElementById('footLogoImg');
+        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
+        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
+        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+    }
+    updateLogos();
+
+    // Handle broken logo image gracefully
+    var logoImg = document.getElementById('logoImg');
+    if(logoImg){
+        logoImg.addEventListener('error', function(){
+            this.style.display = 'none';
+            var txt = document.getElementById('logoText');
+            if(txt){ txt.style.display = 'block'; }
+        });
+    }
+
+    // ── Mobile menu ──
+    var mobBtn  = document.getElementById('mobBtn');
+    var mobMenu = document.getElementById('mobMenu');
+    if(mobBtn && mobMenu){
+        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
+        mobMenu.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
+        });
+    }
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+            var target = document.querySelector(a.getAttribute('href'));
+            if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+        });
+    });
+
+</script>
+
+</body>
+</html>
