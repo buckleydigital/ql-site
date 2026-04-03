@@ -214,7 +214,7 @@
         .sidebar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; }
         .sc-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
         .sc-metric { padding: 16px 0; border-bottom: 1px solid var(--border); }
-        .sc-metric:last-of-type { border-bottom: none; }
+        .sc-metric:has(+ .sc-foot) { border-bottom: none; }
         .sc-val { font-family: var(--serif); font-size: 32px; color: var(--accent); line-height: 1; margin-bottom: 5px; }
         .sc-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
         .sc-sub { font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
