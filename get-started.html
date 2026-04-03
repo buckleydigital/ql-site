@@ -233,7 +233,7 @@
         .faq-list { margin-top: 48px; }
         .faq-item { border-top: 1px solid var(--border); }
         .faq-item:last-child { border-bottom: 1px solid var(--border); }
-        .faq-q { width: 100%; background: none; border: none; cursor: pointer; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; text-align: left; gap: 20px; }
+        .faq-q { width: 100%; background: none; border: none; cursor: pointer; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; text-align: left; gap: 20px; font-family: inherit; }
         .faq-qt { font-size: 16px; font-weight: 400; color: var(--ink); }
         .faq-qi { font-size: 20px; color: var(--accent); flex-shrink: 0; transition: transform 0.3s; }
         .faq-item.open .faq-qi { transform: rotate(45deg); }
@@ -381,7 +381,7 @@
             .app-section{padding:60px 32px 80px;}
             .app-layout{grid-template-columns:1fr; gap:40px;}
             .app-sidebar{position:static;}
-            .sidebar-card:not(:first-child){display:none;}
+            .sidebar-card:not(:first-child){margin-top:24px;}
         }
         @media(max-width:768px){
             section{padding:64px 24px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}  
@@ -728,6 +728,7 @@
                     <div class="sc-val">100%</div>
                     <div class="sc-desc">Exclusive - never shared with competitors</div>
                     <div class="sc-sub">One business. One territory. Your leads.</div>
+                </div>
                 <div class="sc-foot">
                     <span class="sdot"></span>
                     <span>Accepting applications in select industries</span>
