@@ -82,61 +82,74 @@
 
         /* HEADER */
         .site-header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: var(--bg); border-bottom: 1px solid var(--border);
-            padding: 0 48px; height: 68px;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px;
+            background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
         }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
         .header-inner {
-            max-width: 1320px; margin: 0 auto;
-            display: flex; align-items: center; justify-content: space-between; height: 100%;
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
         }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-img { height: 30px; width: auto; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-img.hide { display: none; }
         .logo-text {
-            font-family: var(--serif); font-size: 20px; font-weight: 500;
-            color: var(--ink); display: none;
+            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            letter-spacing: -0.3px; display: none;
         }
-        .nav-links { display: flex; align-items: center; gap: 8px; }
+        .logo-text.show { display: block; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
         .nav-links > a {
-            font-size: 14px; color: var(--ink-soft); text-decoration: none;
-            padding: 8px 14px; transition: color 0.2s;
+            font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            text-decoration: none; transition: color 0.2s;
         }
         .nav-links > a:hover { color: var(--ink); }
-        .nav-cta {
-            background: var(--accent); color: #fff; font-size: 14px; font-weight: 500;
-            padding: 9px 22px; border-radius: 6px; text-decoration: none; margin-left: 8px;
-            transition: opacity 0.2s;
-        }
-        .nav-cta:hover { opacity: 0.85; }
-
-        /* NAV DROPDOWN */
         .nav-dropdown { position: relative; }
         .nav-dropdown-btn {
-            font-size: 14px; color: var(--ink-soft); background: none; border: none;
-            cursor: pointer; padding: 8px 14px; display: flex; align-items: center; gap: 4px;
-            font-family: inherit; text-decoration: none; transition: color 0.2s;
+            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
+            padding: 0; transition: color 0.2s;
         }
         .nav-dropdown-btn:hover { color: var(--ink); }
-        .nav-dropdown-btn svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+        a.nav-dropdown-btn {
+            text-decoration: none;
+        }
+        .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
+        .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
         .nav-dropdown-menu {
-            display: none; position: absolute; top: 100%; left: 0;
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; padding: 8px 0; min-width: 180px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 10px;
+            padding: 8px 0; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            z-index: 300;
         }
         .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-        .nav-dropdown-menu a {
-            display: block; padding: 10px 20px; font-size: 14px;
-            color: var(--ink-soft); text-decoration: none; transition: background 0.15s, color 0.15s;
+        .nav-dropdown-menu::before {
+            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
         }
-        .nav-dropdown-menu a:hover { background: var(--bg-lift); color: var(--ink); }
+        .nav-dropdown-menu a {
+            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
+            text-decoration: none; transition: all 0.15s; white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
+        .nav-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 10px 22px !important; border-radius: 6px !important;
+            font-weight: 400 !important; font-size: 14px !important;
+            transition: opacity 0.2s !important; text-decoration: none !important;
+        }
+        .nav-cta:hover { opacity: 0.85 !important; }
 
         /* THEME TOGGLE */
         .theme-btn {
-            width: 34px; height: 34px; border-radius: 50%;
-            border: 1px solid var(--border-mid); background: transparent;
-            color: var(--ink-muted); cursor: pointer;
-            display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s;
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
         }
         .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
         .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
