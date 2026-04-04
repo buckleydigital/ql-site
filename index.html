@@ -76,20 +76,21 @@
             background-size: 80px 80px; opacity: 0.4; pointer-events: none;
         }
         .hero-glow {
-            position: absolute; top: -20%; right: -10%;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            position: absolute; top: 50%; left: 50%;
+            width: 700px; height: 700px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(71,151,255,0.18) 0%, rgba(71,151,255,0.06) 40%, transparent 70%);
             pointer-events: none;
         }
         .hero-inner {
-            max-width: 1200px; margin: 0 auto; width: 100%;
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 80px; align-items: center; position: relative; z-index: 1;
+            max-width: 800px; margin: 0 auto; width: 100%;
+            text-align: center; position: relative; z-index: 1;
         }
         .hero-eyebrow {
             display: inline-flex; align-items: center; gap: 8px;
             font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
             text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+            justify-content: center;
         }
         .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
         .hero h1 {
@@ -100,9 +101,9 @@
         .hero h1 em { font-style: italic; color: var(--accent); }
         .hero-sub {
             font-size: 17px; font-weight: 400; color: var(--ink-muted);
-            line-height: 1.7; max-width: 480px; margin-bottom: 44px;
+            line-height: 1.7; max-width: 560px; margin: 0 auto 44px;
         }
-        .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+        .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: center; }
         .btn-primary {
             background: var(--accent); color: #fff;
             padding: 15px 34px; border-radius: 6px; text-decoration: none;
@@ -117,7 +118,7 @@
         }
         .btn-ghost:hover { color: var(--ink); }
         .btn-ghost svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
-        .hero-note { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
+        .hero-note { margin-top: 20px; font-size: 13px; color: var(--ink-faint); text-align: center; }
 
         .hero-panel {
             background: var(--bg-card); border: 1px solid var(--border-mid);
@@ -174,7 +175,7 @@
         }
         .logo-marquee:hover { animation-play-state: paused; }
         .logo-marquee img {
-            height: 32px;
+            height: 40px;
             width: auto;
             opacity: 0.45;
             filter: grayscale(1) brightness(1.4);
@@ -195,7 +196,7 @@
         }
         @media(max-width:768px) {
             .logo-marquee { gap: 40px; animation-duration: 20s; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
-            .logo-marquee img { height: 26px; }
+            .logo-marquee img { height: 32px; }
         }
 
         /* SHARED */
@@ -550,7 +551,7 @@
 
         /* BLOG SECTION */
         .blog-section { background: var(--bg-lift); }
-        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+        .blog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
         .blog-card {
             background: var(--bg-card); border: 1px solid var(--border);
             padding: 32px 28px; text-decoration: none; display: block;
@@ -724,7 +725,6 @@
         /* RESPONSIVE */
         @media(max-width:1024px){
             section{padding:80px 32px;} .site-header{padding:0 32px;} footer{padding:40px 32px;}   .hero{padding:120px 32px 80px;}
-            .hero-inner{grid-template-columns:1fr;gap:48px;} .hero-glow{display:none;} .hero-panel{max-width:480px;}
             .q-grid{grid-template-columns:1fr;} .q-col.yes{border-bottom:1px solid var(--border);}
             .p-grid{grid-template-columns:1fr;gap:48px;}
             .ph-grid{grid-template-columns:1fr;gap:40px;} .ph-aside{position:static;}
@@ -738,7 +738,7 @@
             .hero{padding:100px 24px 64px;}  
             .d-grid{grid-template-columns:1fr;} .pr-steps{grid-template-columns:1fr;} .pr-step:nth-child(2){border-right:1px solid var(--border);}
             .d- .inv-body{padding:32px 24px 24px;} .inv-foot{padding:24px;flex-direction:column;align-items:flex-start;}
-            .hero-actions{flex-direction:column;align-items:flex-start;}
+            .hero-actions{flex-direction:column;align-items:center;}
         }
     </style>
 </head>
@@ -823,27 +823,6 @@
                 </a>
             </div>
             <p class="hero-note">We work with a limited number of businesses at a time.</p>
-        </div>
-        <div class="hero-panel">
-            <div class="panel-lbl">What gets built into your business</div>
-            <div class="panel-m">
-                <div class="panel-m-val">$15M+</div>
-                <div class="panel-m-lbl">Ad spend managed across client systems</div>
-                <div class="panel-m-sub">Across solar, roofing, HVAC, and renovation</div>
-            </div>
-            <div class="panel-m">
-                <div class="panel-m-val">24-48hrs</div>
-                <div class="panel-m-lbl">Average time to first lead after system launch</div>
-                <div class="panel-m-sub">Built and tested before volume is turned on</div>
-            </div>
-            <div class="panel-m">
-                <div class="panel-m-val">100%</div>
-                <div class="panel-m-lbl">Exclusive - never shared with competitors</div>
-                <div class="panel-m-sub">One business. One territory. Your leads</div>
-            <div class="panel-foot">
-                <span class="sdot"></span>
-                <span>Currently accepting applications in select industries</span>
-            </div>
         </div>
     </div>
 </section>
@@ -1013,6 +992,15 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- OWNERSHIP THESIS -->
+<section style="padding:80px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-deep);text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;opacity:0.3;"></div>
+    <div style="max-width:680px;margin:0 auto;position:relative;z-index:1;">
+        <p style="font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);line-height:1.25;letter-spacing:-0.3px;color:var(--ink);margin-bottom:28px;">You cannot optimise what you do not <em style="font-style:italic;color:var(--accent);">own.</em></p>
+        <p style="font-size:16px;color:var(--ink-muted);line-height:1.8;font-weight:400;">Most trade businesses rent layer one from an agency and buy layer four from a marketplace. The middle is chaos. Nothing connects. Nothing is optimisable. And none of it stays when the contract ends.</p>
     </div>
 </section>
 
@@ -1639,6 +1627,12 @@
                 <div class="blog-card-tag">Lead Generation</div>
                 <div class="blog-card-title">You Paid For That Lead<br><em>So Did Three Others.</em></div>
                 <div class="blog-card-desc">How shared lead marketplaces actually work - and why the economics never improve no matter how much volume you push through them.</div>
+                <span class="blog-card-read">Read article <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
+            </a>
+            <a href="/blog/growth-constraint-model.html" class="blog-card">
+                <div class="blog-card-tag">Growth Strategy</div>
+                <div class="blog-card-title">When More Leads Won't<br><em>Fix Your Business.</em></div>
+                <div class="blog-card-desc">How to find the real constraint in your trade business - and what to fix first.</div>
                 <span class="blog-card-read">Read article <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
             </a>
         </div>

@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why More Leads Won't Fix Your Business | QuoteLeads</title>
+    <meta name="description" content="Growth stalls at one of six constraints in sequence. Demand is rarely the first one. Fixing the wrong constraint is the most common and expensive mistake a trade business makes.">
+    <link rel="canonical" href="https://quoteleads.com.au/blog/growth-constraint-model">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://quoteleads.com.au/blog/growth-constraint-model">
+    <meta property="og:title" content="Why More Leads Won't Fix Your Business">
+    <meta property="og:description" content="Growth stalls at one of six constraints in sequence. Demand is rarely the first one. Fixing the wrong constraint is the most common and expensive mistake a trade business makes.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why More Leads Won't Fix Your Business",
+      "description": "Most trade businesses assume growth is a demand problem. It rarely is. Growth stalls at one of six constraints in sequence - demand, response speed, quote velocity, crew capacity, backlog depth, and margin. Fixing the wrong constraint first is the most common and expensive mistake.",
+      "url": "https://quoteleads.com.au/blog/growth-constraint-model",
+      "author": { "@type": "Organization", "name": "QuoteLeads", "url": "https://quoteleads.com.au" },
+      "publisher": { "@type": "Organization", "name": "QuoteLeads", "url": "https://quoteleads.com.au" },
+      "mainEntityOfPage": "https://quoteleads.com.au/blog/growth-constraint-model",
+      "keywords": ["trade business growth strategy", "lead generation for tradies", "grow trade business australia", "tradie business constraints", "solar business growth", "scale trade business australia"]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root[data-theme="dark"] {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --bg-deep:     #0d0e12;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.18);
+            --amber:       #fbbf24;
+            --amber-dim:   rgba(251,191,36,0.10);
+            --green:       #34d399;
+            --green-dim:   rgba(52,211,153,0.10);
+            --red:         #f87171;
+            --red-dim:     rgba(248,113,113,0.10);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+        }
+        :root[data-theme="light"] {
+            --bg:          #f5f3ef;
+            --bg-lift:     #edeae5;
+            --bg-card:     #f9f8f5;
+            --bg-deep:     #e8e4de;
+            --border:      rgba(14,14,14,0.10);
+            --border-mid:  rgba(14,14,14,0.16);
+            --ink:         #0e0e0e;
+            --ink-soft:    #2a2a2a;
+            --ink-muted:   #6b6b6b;
+            --ink-faint:   #9a9a9a;
+            --accent:      #2563eb;
+            --accent-dim:  rgba(37,99,235,0.07);
+            --accent-glow: rgba(37,99,235,0.12);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            --green:       #059669;
+            --green-dim:   rgba(5,150,105,0.10);
+            color-scheme: light;
+        }
+        
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 400;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+
+        
+
+        /* HERO */
+        .hero {
+            padding: 120px 48px 80px;
+            position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-glow {
+            position: absolute; top: -30%; right: -5%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(71,151,255,0.10) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px; opacity: 0.3; pointer-events: none;
+        }
+        .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+        }
+        .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(34px, 5.5vw, 60px); line-height: 1.06;
+            letter-spacing: -0.6px; color: var(--ink); margin-bottom: 28px;
+            max-width: 780px;
+        }
+        .hero h1 em { font-style: italic; color: var(--accent); }
+
+        .hero-sub {
+            font-size: 17px; font-weight: 400; color: var(--ink-muted);
+            line-height: 1.75; max-width: 600px; margin-bottom: 40px;
+        }
+
+        .article-meta {
+            display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+            font-size: 13px; color: var(--ink-faint);
+            padding-top: 32px; border-top: 1px solid var(--border);
+        }
+        .article-meta-tag {
+            background: var(--accent-dim); color: var(--accent);
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 3px;
+        }
+
+        /* LAYOUT */
+        .si { max-width: 900px; margin: 0 auto; }
+        .slbl {
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 16px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .stitle {
+            font-family: var(--serif); font-size: clamp(26px, 3.5vw, 42px);
+            line-height: 1.1; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px;
+        }
+        .stitle em { font-style: italic; color: var(--accent); }
+
+        .content-section { padding: 80px 48px; border-bottom: 1px solid var(--border); }
+        .content-section.lifted { background: var(--bg-lift); }
+
+        /* PROSE */
+        .prose {
+            font-size: 17px; font-weight: 400; color: var(--ink-muted);
+            line-height: 1.9; max-width: 680px; margin-top: 36px;
+        }
+        .prose p + p { margin-top: 22px; }
+        .prose strong { color: var(--ink); font-weight: 400; }
+        .prose h3 {
+            font-family: var(--serif); font-size: 26px; color: var(--ink);
+            line-height: 1.2; letter-spacing: -0.2px;
+            margin-top: 48px; margin-bottom: 16px;
+        }
+        .prose h3 em { font-style: italic; color: var(--accent); }
+
+        /* CALLOUT */
+        .callout {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-left: 3px solid var(--amber);
+            border-radius: 0 10px 10px 0; padding: 28px 32px; margin: 40px 0;
+        }
+        .callout.blue { border-left-color: var(--accent); }
+        .callout.green { border-left-color: var(--green); }
+        .callout.red { border-left-color: var(--red); }
+        .callout-lbl {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--amber); margin-bottom: 12px;
+        }
+        .callout.blue .callout-lbl { color: var(--accent); }
+        .callout.green .callout-lbl { color: var(--green); }
+        .callout.red .callout-lbl { color: var(--red); }
+        .callout p { font-size: 15px; color: var(--ink-soft); line-height: 1.75; font-weight: 400; margin: 0; }
+        .callout p strong { color: var(--ink); font-weight: 400; }
+        .callout p + p { margin-top: 14px; }
+
+        /* PULL QUOTE */
+        .pull-quote {
+            margin: 48px 0; padding: 40px 0;
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+        }
+        .pull-quote p {
+            font-family: var(--serif); font-size: clamp(22px, 3vw, 32px);
+            color: var(--ink); line-height: 1.3; letter-spacing: -0.2px; max-width: 640px;
+        }
+        .pull-quote p em { font-style: italic; color: var(--accent); }
+
+        /* CTA */
+        .cta-section {
+            padding: 100px 48px; text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-glow {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 700px; height: 400px;
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+        .cta-inner h2 {
+            font-family: var(--serif); font-size: clamp(28px, 4vw, 46px);
+            line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
+        }
+        .cta-inner h2 em { font-style: italic; color: var(--accent); }
+        .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 40px; font-weight: 400; }
+        .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            padding: 16px 36px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
+            display: inline-block; transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+        .btn-secondary {
+            background: none; border: 1px solid var(--border-mid); color: var(--ink-soft);
+            padding: 16px 36px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; display: inline-block; transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--ink); }
+        .cta-footnote { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
+        .cta-footnote span+span::before { content: ' · '; }
+
+        /* RELATED */
+        .related-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            margin-top: 48px;
+        }
+        .related-card { background: var(--bg-card); padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
+        .related-card:hover { background: var(--bg-lift); }
+        .related-tag {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); background: var(--accent-dim);
+            padding: 3px 10px; border-radius: 3px; display: inline-block; margin-bottom: 16px;
+        }
+        .related-title {
+            font-family: var(--serif); font-size: 18px; color: var(--ink);
+            line-height: 1.3; margin-bottom: 10px;
+        }
+        .related-title em { font-style: italic; color: var(--accent); }
+        .related-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400; }
+        /* HEADER */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px;
+            background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-img.hide { display: none; }
+        .logo-text {
+            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            letter-spacing: -0.3px; display: none;
+        }
+        .logo-text.show { display: block; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links > a {
+            font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links > a:hover { color: var(--ink); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-btn {
+            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
+            padding: 0; transition: color 0.2s;
+        }
+        .nav-dropdown-btn:hover { color: var(--ink); }
+        a.nav-dropdown-btn {
+            text-decoration: none;
+        }
+        .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
+        .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
+        .nav-dropdown-menu {
+            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 10px;
+            padding: 8px 0; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            z-index: 300;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu::before {
+            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
+        }
+        .nav-dropdown-menu a {
+            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
+            text-decoration: none; transition: all 0.15s; white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
+        .nav-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 10px 22px !important; border-radius: 6px !important;
+            font-weight: 400 !important; font-size: 14px !important;
+            transition: opacity 0.2s !important; text-decoration: none !important;
+        }
+        .nav-cta:hover { opacity: 0.85 !important; }
+        .theme-btn {
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
+        }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; }
+        .i-sun  { display: none;  }
+        [data-theme="light"] .i-moon { display: none; }
+        [data-theme="light"] .i-sun  { display: block; }
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+        .mob-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
+            max-height: calc(100vh - 68px); overflow-y: auto;
+        }
+        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
+        .mob-menu-top {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu-title {
+            font-size: 13px; font-weight: 500; color: var(--ink-faint);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .mob-menu a {
+            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
+            text-decoration: none; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu a:hover { color: var(--ink); }
+        .mob-section-label {
+            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
+        }
+        .mob-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 14px 0 !important; border-radius: 6px; text-align: center;
+            margin-top: 8px; border-bottom: none !important;
+        }
+        .mob-cta:hover { opacity: 0.85; }
+        .mob-theme-btn {
+            width: 36px; height: 36px; flex-shrink: 0;
+        }
+
+
+        /* FOOTER */
+        footer {
+            padding: 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { display: flex; align-items: center; gap: 10px; }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+
+        
+
+        @media(max-width:1024px) {
+            .hero, .content-section, .cta-section { padding: 80px 32px; } .site-header{padding:0 32px;} footer{padding:40px 32px;}
+        }
+        @media(max-width: 768px) {
+
+            .hero, .content-section, .cta-section { padding: 64px 24px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
+            
+            .related-grid { grid-template-columns: 1fr; }
+            .cta-btns { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo" id="logoLink">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+            <span class="logo-text" id="logoText">QuoteLeads</span>
+        </a>
+        <nav class="nav-links">
+            <div class="nav-dropdown">
+                <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <div class="nav-dropdown-menu">
+                    <a href="/#what-we-do">What We Do</a>
+                    <a href="/#process">How It Works</a>
+                    <a href="/#investment">Investment</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/#blog">Blog</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">Industries <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="/solar-leads">Solar</a>
+                    <a href="/hvac-leads">HVAC</a>
+                    <a href="/roofing-leads">Roofing</a>
+                    <a href="/renovation-leads">Renovation</a>
+                </div>
+            </div>
+            <a href="/pilot">Pilot</a>
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <a href="/get-started" class="nav-cta">Get Started</a>
+        </nav>
+        <button class="mob-btn" id="mobBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <nav class="mob-menu" id="mobMenu">
+        <div class="mob-menu-top">
+            <span class="mob-menu-title">Menu</span>
+            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
+        <a href="/">Home</a>
+        <a href="/#what-we-do">What We Do</a>
+        <a href="/#process">How It Works</a>
+        <a href="/#investment">Investment</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#blog">Blog</a>
+        <span class="mob-section-label">Industries</span>
+        <a href="/solar-leads">Solar</a>
+        <a href="/hvac-leads">HVAC</a>
+        <a href="/roofing-leads">Roofing</a>
+        <a href="/renovation-leads">Renovation</a>
+        <span class="mob-section-label">&nbsp;</span>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started" class="mob-cta">Get Started</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div class="eyebrow">Growth Strategy</div>
+        <h1>Why more leads<br><em>won't fix your business.</em></h1>
+        <p class="hero-sub">Growth stalls at one of six constraints in sequence. Demand is rarely the first one. Fixing the wrong constraint is the most common and expensive mistake a trade business makes.</p>
+        <div class="article-meta">
+            <span class="article-meta-tag">Growth Strategy</span>
+            <span>QuoteLeads Editorial</span>
+            <span>6 min read</span>
+            <span>Updated 2026</span>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 1: THE HOOK -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The Assumption</div>
+        <h2 class="stitle">The problem is almost never <em>demand.</em></h2>
+
+        <div class="prose">
+            <p>Every trade business owner who has hit a wall assumes the same thing: we need more leads. More enquiries. More volume at the top of the funnel. And almost every time, that diagnosis is wrong.</p>
+
+            <p>The real constraint is rarely demand. It is one of six things in a chain, and only one of them is about lead volume. <strong>Fixing the wrong one first is the most common and expensive mistake a growing trade business makes.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: THE SIX CONSTRAINTS -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">The Constraint Chain</div>
+        <h2 class="stitle">Six stages. <em>They hit in order.</em></h2>
+
+        <div class="prose">
+            <p>Growth in a trade business stalls at one of six points, and they gate each other in sequence. Each one has to clear before the next one matters.</p>
+
+            <h3><em>Demand.</em></h3>
+            <p>You do not have enough enquiries coming in to fill your calendar. The phone is quiet. The pipeline is empty. This is the constraint most owners assume they have - but it is only the real constraint if every lead that does come in gets contacted fast, quoted efficiently, and either won or lost cleanly. If leads are falling through cracks, demand is not your problem.</p>
+
+            <h3><em>Response speed.</em></h3>
+            <p>Leads come in but sit in an inbox, a voicemail, or a text thread. By the time someone calls back, the homeowner has already spoken to two other businesses. You are not losing because you lack leads. You are losing because you are slow.</p>
+
+            <h3><em>Quote velocity.</em></h3>
+            <p>You contact the lead quickly, but the quote takes days. The homeowner goes cold. They got three quotes before yours arrived. Your close rate drops, and it looks like a lead quality problem when it is actually a quoting bottleneck.</p>
+
+            <h3><em>Crew capacity.</em></h3>
+            <p>You are winning jobs but cannot deliver them on time. Backlogs grow, timelines slip, reviews suffer. Adding more leads at this point does not grow the business - it degrades the customer experience and damages the brand that referrals were built on.</p>
+
+            <h3><em>Backlog depth.</em></h3>
+            <p>The business has work booked out for months. New enquiries hear a long wait time and go elsewhere. You are effectively paying for leads you cannot service. This is a scheduling and capacity planning problem, not a marketing one.</p>
+
+            <h3><em>Margin.</em></h3>
+            <p>Revenue is growing but profit is flat or falling. You are taking every job to keep crews busy, including low-margin work you should be declining. The business needs fewer, better jobs - not more jobs.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: THE MISTAKE -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The Expensive Mistake</div>
+        <h2 class="stitle">What happens when you <em>fix the wrong thing.</em></h2>
+
+        <div class="prose">
+            <p>A solar installer is getting 30 leads a month and closing four. The owner looks at those numbers and concludes: we need more leads. So they spend $3,000 a month on a new campaign. Now they are getting 50 leads a month - and closing five. The close rate actually dropped.</p>
+
+            <p>The problem was never the leads. The average response time was over four hours. By the time someone called back, most homeowners had already booked a site visit with a competitor. <strong>Doubling the lead volume just doubled the number of leads that went cold.</strong> The money went to the wrong constraint.</p>
+
+            <p>If that business had fixed response speed first - automated acknowledgement within 60 seconds, a call-back within 15 minutes - the original 30 leads would have closed eight or nine jobs instead of four. That is more revenue, at zero additional ad spend.</p>
+
+            <div class="callout blue">
+                <div class="callout-lbl">The pattern</div>
+                <p>More volume into a system that cannot process the volume it already has does not produce growth. <strong>It produces waste at a higher rate.</strong> The constraint does not move just because the input increases.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: FINDING YOUR CONSTRAINT -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">Diagnosis</div>
+        <h2 class="stitle">How to find <em>your constraint.</em></h2>
+
+        <div class="prose">
+            <p>Three questions. Answer them honestly.</p>
+
+            <p><strong>What happens to a lead in the first hour after it arrives?</strong> If you do not know, or the answer is "it depends who is free," your constraint is response speed. Not demand.</p>
+
+            <p><strong>Of the leads you do contact quickly, how many receive a quote within 48 hours?</strong> If the answer is less than 80%, your constraint is quote velocity. You are losing jobs in the gap between first contact and a number on paper.</p>
+
+            <p><strong>If you got 50% more jobs next month, could your crew deliver them without quality dropping?</strong> If not, your constraint is capacity. More leads would just create more pressure on a team that is already stretched.</p>
+
+            <p>If you passed all three, then yes - your constraint might actually be demand. That is the only scenario where more leads is the right next move.</p>
+
+            <div class="callout blue">
+                <div class="callout-lbl">The order matters</div>
+                <p>These constraints clear in sequence. There is no point optimising demand generation if response speed is broken. There is no point fixing response speed if the quoting process takes a week. <strong>Work backwards from the first point where leads are dying, and fix that first.</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLOSE -->
+<section class="content-section">
+    <div class="si">
+        <div class="pull-quote">
+            <p>The bottleneck is rarely where you think it is. <em>That is what makes it a bottleneck.</em></p>
+        </div>
+
+        <div class="prose">
+            <p>QuoteLeads addresses the first two stages of the constraint chain: generating demand and ensuring speed to contact. If those are your constraints, that is where to start. If they are not, fix what is actually broken first. More volume into a system that cannot handle the volume it already has is not growth. It is waste. <a href="/get-started" style="color:var(--accent);">Get started here</a>.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="cta-inner">
+        <div class="slbl" style="justify-content:center;">Fix the right constraint</div>
+        <h2>Demand and speed.<br><em>Solved.</em></h2>
+        <p>QuoteLeads builds exclusive lead generation systems for established Australian trade businesses - with automated follow-up built in. Not a marketplace. A system that addresses the first two constraints so you can focus on the rest.</p>
+        <div class="cta-btns">
+            <a href="https://quoteleads.com.au/get-started" class="btn-primary">Get Started</a>
+            <a href="https://quoteleads.com.au/pilot" class="btn-secondary">Start with a Pilot</a>
+        </div>
+        <div class="cta-footnote">
+            <span>No lock-in contracts</span>
+            <span>Australian owned and operated</span>
+            <span>Limited availability</span>
+        </div>
+    </div>
+</section>
+
+<!-- RELATED -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">Keep Reading</div>
+        <h2 class="stitle">Related <em>articles.</em></h2>
+        <div class="related-grid">
+            <a href="/blog/lead-response-time-trade-business.html" class="related-card">
+                <div class="related-tag">Conversion</div>
+                <div class="related-title">The Trade Business That<br><em>Responds First Wins.</em></div>
+                <div class="related-desc">What actually happens to a lead in the hours after it is submitted - and how the follow-up gap is where most jobs are quietly lost.</div>
+            </a>
+            <a href="/blog/referral-plateau-trade-business.html" class="related-card">
+                <div class="related-tag">Growth Strategy</div>
+                <div class="related-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>
+                <div class="related-desc">Word of mouth has a ceiling. Why established trade businesses hit a referral plateau and what the ones that break through do differently.</div>
+            </a>
+            <a href="/blog/shared-leads-australia.html" class="related-card">
+                <div class="related-tag">Lead Generation</div>
+                <div class="related-title">You Paid for That Lead.<br><em>So Did Three Others.</em></div>
+                <div class="related-desc">How shared lead marketplaces actually work - and why the economics never improve no matter how much volume you push through them.</div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span>QuoteLeads</span>
+    </div>
+    <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+</footer>
+
+<script>
+    // ── Theme: always default to dark, persist user choice ──
+    (function(){
+        var saved = localStorage.getItem('ql-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+    })();
+
+    function toggleTheme(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ql-theme', next);
+        updateLogos();
+    }
+
+    var themeBtn = document.getElementById('themeBtn');
+    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    var mobThemeBtn = document.getElementById('mobThemeBtn');
+    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+
+    // ── Logo swap ──
+    function updateLogos(){
+        var theme = document.documentElement.getAttribute('data-theme');
+        var headerImg = document.getElementById('logoImg');
+        var headerTxt = document.getElementById('logoText');
+        var footImg   = document.getElementById('footLogoImg');
+        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
+        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
+        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+    }
+    updateLogos();
+
+    // Handle broken logo image gracefully
+    var logoImg = document.getElementById('logoImg');
+    if(logoImg){
+        logoImg.addEventListener('error', function(){
+            this.style.display = 'none';
+            var txt = document.getElementById('logoText');
+            if(txt){ txt.style.display = 'block'; }
+        });
+    }
+
+    // ── Mobile menu ──
+    var mobBtn  = document.getElementById('mobBtn');
+    var mobMenu = document.getElementById('mobMenu');
+    if(mobBtn && mobMenu){
+        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
+        mobMenu.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
+        });
+    }
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+            var target = document.querySelector(a.getAttribute('href'));
+            if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+        });
+    });
+
+</script>
+
+</body>
+</html>
