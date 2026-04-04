@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Capacity Calculator - How Many Leads Can Your Team Handle? | QuoteLeads</title>
+    <meta name="description" content="Calculate your recommended weekly lead volume, expected revenue ceiling, and spot capacity risks. Enter your crews, average job value, and close rate to plan your growth.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root[data-theme="dark"] {
+            --bg:          #0a0b0f;
+            --bg-lift:     #111318;
+            --bg-card:     #161820;
+            --bg-deep:     #0d0e12;
+            --border:      rgba(255,255,255,0.08);
+            --border-mid:  rgba(255,255,255,0.13);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.18);
+            --green:       #34d399;
+            --green-dim:   rgba(52,211,153,0.10);
+            --red:         #f87171;
+            --red-dim:     rgba(248,113,113,0.10);
+            --amber:       #fbbf24;
+            --amber-dim:   rgba(251,191,36,0.10);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+        }
+        :root[data-theme="light"] {
+            --bg:          #f5f3ef;
+            --bg-lift:     #edeae5;
+            --bg-card:     #f9f8f5;
+            --bg-deep:     #e8e4de;
+            --border:      rgba(14,14,14,0.10);
+            --border-mid:  rgba(14,14,14,0.16);
+            --ink:         #0e0e0e;
+            --ink-soft:    #2a2a2a;
+            --ink-muted:   #6b6b6b;
+            --ink-faint:   #9a9a9a;
+            --accent:      #2563eb;
+            --accent-dim:  rgba(37,99,235,0.07);
+            --accent-glow: rgba(37,99,235,0.12);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            --green:       #059669;
+            --green-dim:   rgba(5,150,105,0.10);
+            --red:         #ef4444;
+            --red-dim:     rgba(239,68,68,0.10);
+            --amber:       #d97706;
+            --amber-dim:   rgba(217,119,6,0.10);
+            color-scheme: light;
+        }
+
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 400;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+
+
+        /* HERO */
+        .hero {
+            padding: 80px 48px 72px;
+            position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-glow {
+            position: absolute; top: -30%; right: -5%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px; opacity: 0.3; pointer-events: none;
+        }
+        .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+        }
+        .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(32px, 5vw, 56px); line-height: 1.06;
+            letter-spacing: -0.6px; color: var(--ink); margin-bottom: 24px;
+            max-width: 680px;
+        }
+        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero-sub {
+            font-size: 17px; font-weight: 400; color: var(--ink-muted);
+            line-height: 1.75; max-width: 560px;
+        }
+
+        /* CALCULATOR */
+        .calc-section { padding: 80px 48px; }
+        .calc-inner { max-width: 900px; margin: 0 auto; }
+
+        .calc-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* INPUTS PANEL */
+        .calc-inputs {
+            background: var(--bg-card);
+            padding: 44px 40px;
+        }
+        .calc-inputs-label {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 32px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .calc-inputs-label::before { content: ''; width: 16px; height: 1px; background: var(--accent); opacity: 0.5; }
+
+        .field { margin-bottom: 32px; }
+        .field:last-child { margin-bottom: 0; }
+
+        .field-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+        .field-label { font-size: 13px; font-weight: 400; color: var(--ink-soft); }
+        .field-value-display {
+            font-family: var(--serif); font-size: 22px; color: var(--ink);
+            line-height: 1; transition: color 0.2s;
+        }
+        .field-value-display.accent { color: var(--accent); }
+
+        .field-hint { font-size: 12px; color: var(--ink-faint); margin-bottom: 12px; line-height: 1.5; }
+
+        /* Custom range slider */
+        .slider-wrap { position: relative; }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 2px;
+            background: var(--border-mid);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: 2px solid var(--bg-card);
+            box-shadow: 0 0 0 1px var(--accent);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px var(--accent-dim);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: 2px solid var(--bg-card);
+        }
+
+        /* Filled track via JS */
+        .slider-track-fill {
+            position: absolute;
+            top: 0; left: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            pointer-events: none;
+            margin-top: 0;
+        }
+
+        .slider-minmax {
+            display: flex; justify-content: space-between;
+            margin-top: 8px; font-size: 11px; color: var(--ink-faint);
+        }
+
+        /* RESULTS PANEL */
+        .calc-results {
+            background: var(--bg-deep);
+            padding: 44px 40px;
+            display: flex;
+            flex-direction: column;
+        }
+        .calc-results-label {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--ink-faint); margin-bottom: 32px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .calc-results-label::before { content: ''; width: 16px; height: 1px; background: var(--ink-faint); opacity: 0.5; }
+
+        /* Primary result */
+        .result-primary {
+            background: var(--bg-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 12px;
+            padding: 32px 28px;
+            margin-bottom: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .result-primary.good { border-color: rgba(52,211,153,0.3); }
+        .result-primary.ok   { border-color: rgba(251,191,36,0.3); }
+        .result-primary.bad  { border-color: rgba(248,113,113,0.3); }
+
+        .result-primary-bg-glow {
+            position: absolute; top: -50%; right: -20%;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: background 0.5s;
+        }
+        .result-primary.good .result-primary-bg-glow { background: radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 70%); }
+        .result-primary.ok   .result-primary-bg-glow { background: radial-gradient(circle, rgba(251,191,36,0.08) 0%, transparent 70%); }
+        .result-primary.bad  .result-primary-bg-glow { background: radial-gradient(circle, rgba(248,113,113,0.08) 0%, transparent 70%); }
+
+        .result-primary-lbl {
+            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); margin-bottom: 12px; position: relative;
+        }
+        .result-big {
+            font-family: var(--serif);
+            font-size: clamp(44px, 6vw, 72px);
+            line-height: 1;
+            margin-bottom: 8px;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .result-big.good { color: var(--green); }
+        .result-big.ok   { color: var(--amber); }
+        .result-big.bad  { color: var(--red); }
+        .result-big.neutral { color: var(--ink); }
+
+        .result-big-sublabel {
+            font-size: 13px; color: var(--ink-muted); font-weight: 400;
+            position: relative;
+        }
+
+        .result-verdict {
+            margin-top: 20px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 13px; line-height: 1.6; font-weight: 400;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .result-verdict.good { background: var(--green-dim); color: var(--green); }
+        .result-verdict.ok   { background: var(--amber-dim); color: var(--amber); }
+        .result-verdict.bad  { background: var(--red-dim); color: var(--red); }
+        .result-verdict.neutral { background: var(--accent-dim); color: var(--accent); }
+
+        /* Breakdown rows */
+        .result-breakdown {
+            margin-top: 24px;
+            display: flex; flex-direction: column; gap: 1px;
+        }
+        .result-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+        .result-row:last-child { border-bottom: none; }
+        .result-row-label { color: var(--ink-muted); font-weight: 400; }
+        .result-row-value { color: var(--ink-soft); font-weight: 400; font-family: var(--serif); font-size: 16px; }
+        .result-row-value.highlight { color: var(--accent); }
+
+        /* Risk warnings */
+        .risk-warnings {
+            margin-top: 20px;
+            display: flex; flex-direction: column; gap: 8px;
+        }
+        .risk-warning {
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 13px; line-height: 1.6; font-weight: 400;
+            display: flex; align-items: flex-start; gap: 10px;
+        }
+        .risk-warning.amber { background: var(--amber-dim); color: var(--amber); }
+        .risk-warning.red   { background: var(--red-dim); color: var(--red); }
+        .risk-warning-icon { flex-shrink: 0; font-size: 15px; line-height: 1.6; }
+
+        /* CTA at bottom */
+        .calc-cta {
+            margin-top: auto;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+        .calc-cta p {
+            font-size: 13px; color: var(--ink-faint); line-height: 1.6; margin-bottom: 16px; font-weight: 400;
+        }
+        .calc-cta p strong { color: var(--ink-soft); font-weight: 400; }
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            padding: 14px 28px; border-radius: 6px; text-decoration: none;
+            font-size: 14px; font-weight: 400; letter-spacing: 0.02em;
+            display: inline-block; transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+        /* HOW IT'S CALCULATED */
+        .explainer {
+            padding: 0 48px 80px;
+        }
+        .explainer-inner { max-width: 900px; margin: 0 auto; }
+        .explainer-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+        }
+        .explainer-card { background: var(--bg-card); padding: 28px 24px; }
+        .explainer-card-step {
+            font-family: var(--serif); font-size: 40px; color: var(--accent-dim);
+            line-height: 1; margin-bottom: 12px;
+        }
+        .explainer-card h3 { font-size: 14px; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+        .explainer-card p { font-size: 12px; color: var(--ink-muted); line-height: 1.6; font-weight: 400; }
+        .explainer-formula {
+            margin-top: 28px;
+            background: var(--bg-deep);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px 28px;
+            font-size: 13px; color: var(--ink-muted); font-weight: 400; line-height: 1.7;
+        }
+        .explainer-formula code {
+            font-family: 'Courier New', monospace;
+            background: var(--accent-dim);
+            color: var(--accent);
+            padding: 2px 8px; border-radius: 3px;
+            font-size: 12px;
+        }
+        .explainer-lbl {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 24px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .explainer-lbl::before { content: ''; width: 16px; height: 1px; background: var(--accent); opacity: 0.5; }
+
+
+        /* HEADER */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px;
+            background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-img.hide { display: none; }
+        .logo-text {
+            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            letter-spacing: -0.3px; display: none;
+        }
+        .logo-text.show { display: block; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links > a {
+            font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links > a:hover { color: var(--ink); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-btn {
+            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
+            padding: 0; transition: color 0.2s;
+        }
+        .nav-dropdown-btn:hover { color: var(--ink); }
+        a.nav-dropdown-btn {
+            text-decoration: none;
+        }
+        .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
+        .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
+        .nav-dropdown-menu {
+            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 10px;
+            padding: 8px 0; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            z-index: 300;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu::before {
+            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
+        }
+        .nav-dropdown-menu a {
+            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
+            text-decoration: none; transition: all 0.15s; white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
+        .nav-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 10px 22px !important; border-radius: 6px !important;
+            font-weight: 400 !important; font-size: 14px !important;
+            transition: opacity 0.2s !important; text-decoration: none !important;
+        }
+        .nav-cta:hover { opacity: 0.85 !important; }
+        .theme-btn {
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
+        }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; }
+        .i-sun  { display: none;  }
+        [data-theme="light"] .i-moon { display: none; }
+        [data-theme="light"] .i-sun  { display: block; }
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+        .mob-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
+            max-height: calc(100vh - 68px); overflow-y: auto;
+        }
+        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
+        .mob-menu-top {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu-title {
+            font-size: 13px; font-weight: 500; color: var(--ink-faint);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .mob-menu a {
+            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
+            text-decoration: none; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu a:hover { color: var(--ink); }
+        .mob-section-label {
+            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
+        }
+        .mob-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 14px 0 !important; border-radius: 6px; text-align: center;
+            margin-top: 8px; border-bottom: none !important;
+        }
+        .mob-cta:hover { opacity: 0.85; }
+        .mob-theme-btn {
+            width: 36px; height: 36px; flex-shrink: 0;
+        }
+
+
+        /* FOOTER */
+        footer {
+            padding: 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { display: flex; align-items: center; gap: 10px; }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px) {
+            .hero { padding: 80px 32px 72px; } .site-header{padding:0 32px;} footer{padding:40px 32px;}
+            .calc-section { padding: 80px 32px; }
+        }
+        @media(max-width: 768px) {
+
+            .hero { padding: 100px 24px 52px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
+            .calc-section { padding: 56px 24px; }
+            .explainer { padding: 0 24px 56px; }
+
+            .calc-layout { grid-template-columns: 1fr; }
+            .explainer-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Animated number */
+        .animating { animation: numPop 0.25s ease; }
+        @keyframes numPop {
+            0%   { transform: scale(0.96); opacity: 0.7; }
+            60%  { transform: scale(1.03); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Pulse on change */
+        .result-primary { transition: border-color 0.4s; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo" id="logoLink">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+            <span class="logo-text" id="logoText">QuoteLeads</span>
+        </a>
+        <nav class="nav-links">
+            <div class="nav-dropdown">
+                <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <div class="nav-dropdown-menu">
+                    <a href="/#what-we-do">What We Do</a>
+                    <a href="/#process">How It Works</a>
+                    <a href="/#investment">Investment</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/#blog">Blog</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">Industries <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="/solar-leads">Solar</a>
+                    <a href="/hvac-leads">HVAC</a>
+                    <a href="/roofing-leads">Roofing</a>
+                    <a href="/renovation-leads">Renovation</a>
+                </div>
+            </div>
+            <a href="/pilot">Pilot</a>
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <a href="/get-started" class="nav-cta">Get Started</a>
+        </nav>
+        <button class="mob-btn" id="mobBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <nav class="mob-menu" id="mobMenu">
+        <div class="mob-menu-top">
+            <span class="mob-menu-title">Menu</span>
+            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
+        <a href="/">Home</a>
+        <a href="/#what-we-do">What We Do</a>
+        <a href="/#process">How It Works</a>
+        <a href="/#investment">Investment</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#blog">Blog</a>
+        <span class="mob-section-label">Industries</span>
+        <a href="/solar-leads">Solar</a>
+        <a href="/hvac-leads">HVAC</a>
+        <a href="/roofing-leads">Roofing</a>
+        <a href="/renovation-leads">Renovation</a>
+        <span class="mob-section-label">&nbsp;</span>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started" class="mob-cta">Get Started</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div class="eyebrow">Growth Capacity Calculator</div>
+        <h1>How many leads can your team <em>actually</em> handle?</h1>
+        <p class="hero-sub">Most trade businesses either starve their crews or drown them in leads. Plug in your numbers and see exactly how many leads you need each week to max out capacity without wasting a dollar.</p>
+    </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section">
+    <div class="calc-inner">
+        <div class="calc-layout">
+
+            <!-- INPUTS -->
+            <div class="calc-inputs">
+                <div class="calc-inputs-label">Your numbers</div>
+
+                <!-- Number of Crews -->
+                <div class="field">
+                    <div class="field-header">
+                        <label class="field-label" for="crews">Number of crews</label>
+                        <span class="field-value-display accent" id="crewsDisplay">2</span>
+                    </div>
+                    <div class="field-hint">Active crews or technicians that can run jobs each week.</div>
+                    <div class="slider-wrap">
+                        <input type="range" id="crews" min="1" max="20" step="1" value="2">
+                    </div>
+                    <div class="slider-minmax"><span>1</span><span>20</span></div>
+                </div>
+
+                <!-- Average Job Value -->
+                <div class="field">
+                    <div class="field-header">
+                        <label class="field-label" for="jobValue">Average job value</label>
+                        <span class="field-value-display accent" id="jobValueDisplay">$3,500</span>
+                    </div>
+                    <div class="field-hint">What each completed job is worth in revenue.</div>
+                    <div class="slider-wrap">
+                        <input type="range" id="jobValue" min="200" max="50000" step="100" value="3500">
+                    </div>
+                    <div class="slider-minmax"><span>$200</span><span>$50,000</span></div>
+                </div>
+
+                <!-- Close Rate -->
+                <div class="field">
+                    <div class="field-header">
+                        <label class="field-label" for="closeRate">Close rate</label>
+                        <span class="field-value-display accent" id="closeRateDisplay">30%</span>
+                    </div>
+                    <div class="field-hint">% of leads that turn into paid jobs. Industry average: 20–40%.</div>
+                    <div class="slider-wrap">
+                        <input type="range" id="closeRate" min="1" max="100" step="1" value="30">
+                    </div>
+                    <div class="slider-minmax"><span>1%</span><span>100%</span></div>
+                </div>
+            </div>
+
+            <!-- RESULTS -->
+            <div class="calc-results">
+                <div class="calc-results-label">Your results</div>
+
+                <div class="result-primary neutral" id="resultPrimary">
+                    <div class="result-primary-bg-glow"></div>
+                    <div class="result-primary-lbl">Recommended Weekly Lead Volume</div>
+                    <div class="result-big neutral" id="leadsDisplay">17</div>
+                    <div class="result-big-sublabel">leads per week to fill capacity</div>
+                    <div class="result-verdict neutral" id="verdictBox">
+                        Adjust your inputs to see your ideal weekly lead volume.
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-row">
+                        <span class="result-row-label">Max jobs per week</span>
+                        <span class="result-row-value" id="maxJobsDisplay">-</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-row-label">Monthly revenue ceiling</span>
+                        <span class="result-row-value highlight" id="monthlyRevDisplay">-</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-row-label">Annual revenue ceiling</span>
+                        <span class="result-row-value highlight" id="annualRevDisplay">-</span>
+                    </div>
+                    <div class="result-row">
+                        <span class="result-row-label">Leads needed per month</span>
+                        <span class="result-row-value" id="monthlyLeadsDisplay">-</span>
+                    </div>
+                </div>
+
+                <!-- Risk Warnings -->
+                <div class="risk-warnings" id="riskWarnings"></div>
+
+                <div class="calc-cta">
+                    <p>Knowing your capacity ceiling is the first step to <strong>sustainable growth</strong>. A well-built lead system matches volume to capacity - so every dollar works.</p>
+                    <a href="https://quoteleads.com.au/growth-implementation" class="btn-primary">Build your growth system →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EXPLAINER -->
+<section class="explainer">
+    <div class="explainer-inner">
+        <div class="explainer-lbl">How it's calculated</div>
+        <div class="explainer-grid">
+            <div class="explainer-card">
+                <div class="explainer-card-step">01</div>
+                <h3>Job capacity</h3>
+                <p>Each crew can complete roughly 2.5 jobs per week on average. Multiply by your crew count to find your weekly ceiling.</p>
+            </div>
+            <div class="explainer-card">
+                <div class="explainer-card-step">02</div>
+                <h3>Lead volume</h3>
+                <p>Divide your weekly job capacity by your close rate. This tells you exactly how many leads you need to keep every crew fully booked.</p>
+            </div>
+            <div class="explainer-card">
+                <div class="explainer-card-step">03</div>
+                <h3>Revenue ceiling</h3>
+                <p>Max jobs per month multiplied by your average job value. This is the revenue cap your current team can realistically deliver.</p>
+            </div>
+        </div>
+        <div class="explainer-formula">
+            <strong style="color: var(--ink-soft);">The formulas:</strong>&nbsp;
+            <code>Weekly Leads = (Crews &times; 2.5) &divide; Close Rate</code>
+            &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+            <code>Revenue Ceiling = Crews &times; 2.5 &times; 4.33 &times; Job Value</code>
+            &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+            Based on an industry average of 2.5 jobs per crew per week across trade verticals.
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span>QuoteLeads</span>
+    </div>
+    <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+</footer>
+
+<script>
+    // ── Theme: always default to dark, persist user choice ──
+    (function(){
+        var saved = localStorage.getItem('ql-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+    })();
+
+    function toggleTheme(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ql-theme', next);
+        updateLogos();
+    }
+
+    var themeBtn = document.getElementById('themeBtn');
+    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    var mobThemeBtn = document.getElementById('mobThemeBtn');
+    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+
+    // ── Logo swap ──
+    function updateLogos(){
+        var theme = document.documentElement.getAttribute('data-theme');
+        var headerImg = document.getElementById('logoImg');
+        var footImg   = document.getElementById('footLogoImg');
+        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
+        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
+        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+    }
+    updateLogos();
+
+    // Handle broken logo image gracefully
+    var logoImg = document.getElementById('logoImg');
+    if(logoImg){
+        logoImg.addEventListener('error', function(){
+            this.style.display = 'none';
+            var txt = document.getElementById('logoText');
+            if(txt){ txt.style.display = 'block'; }
+        });
+    }
+
+    // ── Mobile menu ──
+    var mobBtn  = document.getElementById('mobBtn');
+    var mobMenu = document.getElementById('mobMenu');
+    if(mobBtn && mobMenu){
+        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
+        mobMenu.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
+        });
+    }
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+            var target = document.querySelector(a.getAttribute('href'));
+            if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+        });
+    });
+
+    // ── Calculator Logic ──
+    var JOBS_PER_CREW_PER_WEEK = 2.5;
+    var WEEKS_PER_MONTH = 4.33;
+
+    var crewsInput    = document.getElementById('crews');
+    var jobValueInput = document.getElementById('jobValue');
+    var closeRateInput = document.getElementById('closeRate');
+
+    var crewsDisplay     = document.getElementById('crewsDisplay');
+    var jobValueDisplay  = document.getElementById('jobValueDisplay');
+    var closeRateDisplay = document.getElementById('closeRateDisplay');
+
+    var leadsDisplay       = document.getElementById('leadsDisplay');
+    var maxJobsDisplay     = document.getElementById('maxJobsDisplay');
+    var monthlyRevDisplay  = document.getElementById('monthlyRevDisplay');
+    var annualRevDisplay   = document.getElementById('annualRevDisplay');
+    var monthlyLeadsDisplay = document.getElementById('monthlyLeadsDisplay');
+    var verdictBox         = document.getElementById('verdictBox');
+    var resultPrimary      = document.getElementById('resultPrimary');
+    var riskWarnings       = document.getElementById('riskWarnings');
+
+    function fmtDollars(n){
+        return '$' + Math.round(n).toLocaleString('en-AU');
+    }
+
+    function animateEl(el){
+        el.classList.remove('animating');
+        void el.offsetWidth;
+        el.classList.add('animating');
+    }
+
+    function updateSliderFill(input){
+        var wrap = input.closest('.slider-wrap');
+        if(!wrap) return;
+        var fill = wrap.querySelector('.slider-track-fill');
+        if(!fill){
+            fill = document.createElement('div');
+            fill.className = 'slider-track-fill';
+            wrap.appendChild(fill);
+        }
+        var pct = ((input.value - input.min) / (input.max - input.min)) * 100;
+        fill.style.width = pct + '%';
+    }
+
+    function calculate(){
+        var crews     = parseInt(crewsInput.value);
+        var jobValue  = parseFloat(jobValueInput.value);
+        var closeRate = parseFloat(closeRateInput.value) / 100;
+
+        // Update input displays
+        crewsDisplay.textContent = crews;
+        jobValueDisplay.textContent = fmtDollars(jobValue);
+        closeRateDisplay.textContent = closeRateInput.value + '%';
+
+        // Update slider fills
+        updateSliderFill(crewsInput);
+        updateSliderFill(jobValueInput);
+        updateSliderFill(closeRateInput);
+
+        // Core calculations
+        var maxJobsPerWeek  = crews * JOBS_PER_CREW_PER_WEEK;
+        var maxJobsPerMonth = maxJobsPerWeek * WEEKS_PER_MONTH;
+        var weeklyLeads     = Math.ceil(maxJobsPerWeek / closeRate);
+        var monthlyLeads    = Math.ceil(maxJobsPerMonth / closeRate);
+        var monthlyRevenue  = maxJobsPerMonth * jobValue;
+        var annualRevenue   = monthlyRevenue * 12;
+
+        // Update result displays
+        leadsDisplay.textContent = weeklyLeads;
+        animateEl(leadsDisplay);
+
+        maxJobsDisplay.textContent = maxJobsPerWeek % 1 === 0 ? maxJobsPerWeek : maxJobsPerWeek.toFixed(1);
+        monthlyRevDisplay.textContent = fmtDollars(monthlyRevenue);
+        annualRevDisplay.textContent = fmtDollars(annualRevenue);
+        monthlyLeadsDisplay.textContent = monthlyLeads;
+
+        // Verdict & colour coding
+        var tier, verdictText;
+        if(weeklyLeads <= 15){
+            tier = 'good';
+            verdictText = 'Manageable volume. ' + weeklyLeads + ' leads/week is a sustainable target - your team can follow up properly and close at a high rate.';
+        } else if(weeklyLeads <= 40){
+            tier = 'ok';
+            verdictText = weeklyLeads + ' leads/week is achievable but requires a solid CRM and fast follow-up process. Make sure no leads slip through the cracks.';
+        } else {
+            tier = 'bad';
+            verdictText = weeklyLeads + ' leads/week is aggressive. At this volume you need automated follow-up, a dedicated sales process, or more crews to avoid wasted spend.';
+        }
+
+        resultPrimary.className = 'result-primary ' + tier;
+        leadsDisplay.className = 'result-big ' + tier;
+        verdictBox.className = 'result-verdict ' + tier;
+        verdictBox.textContent = verdictText;
+
+        // Risk warnings
+        var warnings = [];
+
+        if(crews === 1){
+            warnings.push({
+                level: 'amber',
+                text: 'Single crew risk — one sick day or holiday means zero revenue. Consider planning for backup capacity.'
+            });
+        }
+
+        if(closeRate < 0.15){
+            warnings.push({
+                level: 'red',
+                text: 'Close rate below 15% means you need a very high lead volume to fill capacity. Focus on improving your sales process or lead quality first.'
+            });
+        }
+
+        if(closeRate > 0.60){
+            warnings.push({
+                level: 'amber',
+                text: 'Close rate above 60% is unusually high. You may be under-quoting or leaving money on the table — consider raising prices.'
+            });
+        }
+
+        if(weeklyLeads > 50){
+            warnings.push({
+                level: 'red',
+                text: 'You need ' + weeklyLeads + '+ leads/week. Ensure your ad budget and CRM can handle this throughput without leads going cold.'
+            });
+        }
+
+        var revPerCrew = monthlyRevenue / crews;
+        if(revPerCrew < 15000){
+            warnings.push({
+                level: 'amber',
+                text: 'Revenue per crew is under $15k/month. Consider targeting higher-value jobs to improve profitability per crew.'
+            });
+        }
+
+        if(monthlyLeads > 100 && closeRate < 0.25){
+            warnings.push({
+                level: 'red',
+                text: 'High volume + low close rate is a recipe for wasted ad spend. Fix your conversion before scaling lead gen.'
+            });
+        }
+
+        riskWarnings.innerHTML = '';
+        if(warnings.length > 0){
+            for(var i = 0; i < warnings.length; i++){
+                var w = warnings[i];
+                var div = document.createElement('div');
+                div.className = 'risk-warning ' + w.level;
+                div.innerHTML = '<span class="risk-warning-icon">' + (w.level === 'red' ? '⚠' : '⚡') + '</span><span>' + w.text + '</span>';
+                riskWarnings.appendChild(div);
+            }
+        }
+    }
+
+    // Bind inputs
+    [crewsInput, jobValueInput, closeRateInput].forEach(function(input){
+        input.addEventListener('input', calculate);
+    });
+
+    // Initial calculation
+    calculate();
+</script>
+
+</body>
+</html>
