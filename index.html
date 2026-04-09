@@ -364,6 +364,46 @@
         .pr-step h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; }
         .pr-step p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400; }
 
+        /* PILOT CTA */
+        .pilot-cta {
+            background: var(--bg-deep);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .pilot-cta::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 700px; height: 500px; transform: translate(-50%, -50%);
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none; opacity: 0.3;
+        }
+        .pilot-cta .si { position: relative; z-index: 1; }
+        .pilot-cta .slbl { justify-content: center; }
+        .pilot-cta .stitle { max-width: 560px; margin: 0 auto 20px; }
+        .pilot-cta .sbody { margin: 0 auto 48px; text-align: center; max-width: 500px; }
+        .pilot-stats {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden;
+            max-width: 640px; margin: 0 auto 48px;
+        }
+        .pilot-stat {
+            padding: 36px 24px; background: var(--bg-card);
+        }
+        .pilot-stat-val {
+            font-family: var(--serif); font-size: 42px; color: var(--accent);
+            line-height: 1; margin-bottom: 8px;
+        }
+        .pilot-stat-lbl { font-size: 13px; color: var(--ink-muted); line-height: 1.4; }
+        .pilot-cta .pilot-note {
+            margin-top: 16px; font-size: 13px; color: var(--ink-faint); font-style: italic;
+        }
+        @media(max-width:640px){
+            .pilot-stats { grid-template-columns: 1fr; }
+        }
+
         /* RESULTS */
         .results { background: var(--bg-deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .r-grid {
@@ -1434,6 +1474,22 @@
             <div class="pr-step"><div class="pr-num">03</div><span class="pr-dur">Launch</span><h3>Campaigns go live</h3><p>Ads launch, funnels are live, AI is active. Leads begin arriving within days of launch. You're notified instantly via SMS, email, or your CRM.</p></div>
             <div class="pr-step"><div class="pr-num">04</div><span class="pr-dur">Ongoing</span><h3>Optimise and scale</h3><p>We review performance regularly. Optional ongoing management means we continue refining campaigns and scaling volume as your capacity grows.</p></div>
         </div>
+    </div>
+</section>
+
+<!-- PILOT CTA -->
+<section class="pilot-cta">
+    <div class="si">
+        <div class="slbl">Not ready for the full build?</div>
+        <h2 class="stitle">Start with <em>10 leads.</em></h2>
+        <p class="sbody">See if the system works for you. Fixed price. Your trade. Your territory. Leads delivered within 48 hours – before you commit to anything.</p>
+        <div class="pilot-stats">
+            <div class="pilot-stat"><div class="pilot-stat-val">10</div><div class="pilot-stat-lbl">exclusive leads</div></div>
+            <div class="pilot-stat"><div class="pilot-stat-val">48h</div><div class="pilot-stat-lbl">first lead arrives</div></div>
+            <div class="pilot-stat"><div class="pilot-stat-val">fixed</div><div class="pilot-stat-lbl">flat price, no extras</div></div>
+        </div>
+        <a href="/pilot" class="btn-primary">See the Pilot</a>
+        <p class="pilot-note">Most full build clients start here.</p>
     </div>
 </section>
 
