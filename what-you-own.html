@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F36W0PEFR4');
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '3264378767213114');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=3264378767213114&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What You Own - QuoteLeads</title>
+    <meta name="description" content="Everything we build stays with you. Ad accounts, landing pages, data, CRM — full ownership from day one. See exactly what gets built into your business.">
+    <link rel="canonical" href="https://quoteleads.com.au/what-you-own">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quoteleads.com.au/what-you-own">
+    <meta property="og:title" content="What You Own - QuoteLeads">
+    <meta property="og:description" content="Everything we build stays with you. Ad accounts, landing pages, data, CRM — full ownership from day one.">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://quoteleads.com.au/what-you-own">
+    <meta property="twitter:title" content="What You Own - QuoteLeads">
+    <meta property="twitter:description" content="Everything we build stays with you. Ad accounts, landing pages, data, CRM — full ownership from day one.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root[data-theme="dark"] {
+            --bg:          #06070A;
+            --bg-lift:     #0D0F14;
+            --bg-card:     #111318;
+            --bg-deep:     #09090D;
+            --border:      rgba(255,255,255,0.07);
+            --border-mid:  rgba(255,255,255,0.12);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.18);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: dark;
+        }
+        :root[data-theme="light"] {
+            --bg:          #f5f3ef;
+            --bg-lift:     #edeae5;
+            --bg-card:     #f9f8f5;
+            --bg-deep:     #e8e4de;
+            --border:      rgba(14,14,14,0.10);
+            --border-mid:  rgba(14,14,14,0.16);
+            --ink:         #0e0e0e;
+            --ink-soft:    #2a2a2a;
+            --ink-muted:   #6b6b6b;
+            --ink-faint:   #9a9a9a;
+            --accent:      #2563eb;
+            --accent-dim:  rgba(37,99,235,0.07);
+            --accent-glow: rgba(37,99,235,0.12);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: light;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 400;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+
+        /* HERO */
+        .hero {
+            padding: 140px 48px 80px;
+            position: relative; overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-grid-bg {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px; opacity: 0.4; pointer-events: none;
+        }
+        .hero-glow {
+            position: absolute; top: 50%; left: 50%;
+            width: 700px; height: 700px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(71,151,255,0.18) 0%, rgba(71,151,255,0.06) 40%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-inner {
+            max-width: 800px; margin: 0 auto; width: 100%;
+            text-align: center; position: relative; z-index: 1;
+        }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
+            justify-content: center;
+        }
+        .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(36px, 4.5vw, 54px); line-height: 1.15;
+            letter-spacing: -0.5px; color: var(--ink); margin-bottom: 28px;
+        }
+        .hero-sub {
+            font-size: 17px; font-weight: 400; color: var(--ink-muted);
+            line-height: 1.7; max-width: 600px; margin: 0 auto;
+        }
+
+        /* SHARED */
+        section { padding: 100px 48px; }
+        .si { max-width: 1200px; margin: 0 auto; }
+        .slbl {
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 16px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
+        .stitle {
+            font-family: var(--serif); font-size: clamp(30px,4vw,46px);
+            line-height: 1.15; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px;
+        }
+        .stitle em { font-style: italic; color: var(--accent); }
+        .sbody { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
+
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            padding: 15px 34px; border-radius: 6px; text-decoration: none;
+            font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
+            display: inline-block; transition: opacity 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+        /* ASSET GRID */
+        .asset-section {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-lift);
+        }
+        .asset-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 24px; margin-top: 60px;
+        }
+        .asset-card {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 14px; padding: 36px 32px 28px;
+            display: flex; flex-direction: column; gap: 0;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .asset-card:hover {
+            border-color: rgba(71,151,255,0.25);
+            box-shadow: 0 4px 24px rgba(71,151,255,0.06);
+        }
+        .asset-icon {
+            width: 44px; height: 44px; background: var(--accent-dim);
+            border: 1px solid rgba(71,151,255,0.25); border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px; flex-shrink: 0;
+        }
+        .asset-icon svg {
+            width: 20px; height: 20px; stroke: var(--accent); stroke-width: 1.5; fill: none;
+        }
+        .asset-name {
+            font-family: var(--serif); font-size: 18px; font-weight: 500;
+            color: var(--ink); margin-bottom: 8px; line-height: 1.3;
+        }
+        .asset-desc {
+            font-size: 14px; color: var(--ink-muted); line-height: 1.7;
+            font-weight: 400; margin-bottom: auto; padding-bottom: 20px;
+        }
+        .asset-own {
+            font-size: 13px; color: var(--accent); line-height: 1.5;
+            padding-top: 16px; border-top: 1px solid var(--accent-dim);
+            font-weight: 400;
+        }
+
+        /* CLOSING BAND */
+        .closing-band {
+            background: var(--bg-deep);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            position: relative; overflow: hidden;
+        }
+        .closing-band::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 700px; height: 500px; transform: translate(-50%, -50%);
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none; opacity: 0.2;
+        }
+        .closing-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 60px; position: relative; z-index: 1;
+        }
+        .closing-text { max-width: 640px; }
+        .closing-text h2 {
+            font-family: var(--serif); font-size: clamp(26px,3.5vw,38px);
+            line-height: 1.2; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 16px;
+        }
+        .closing-text p {
+            font-size: 16px; color: var(--ink-muted); line-height: 1.7; font-weight: 400;
+        }
+        .closing-cta { flex-shrink: 0; }
+
+        /* HEADER */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px;
+            background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-img.hide { display: none; }
+        .logo-text {
+            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            letter-spacing: -0.3px; display: none;
+        }
+        .logo-text.show { display: block; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links > a {
+            font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links > a:hover { color: var(--ink); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-btn {
+            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
+            padding: 0; transition: color 0.2s;
+        }
+        .nav-dropdown-btn:hover { color: var(--ink); }
+        a.nav-dropdown-btn { text-decoration: none; }
+        .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
+        .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
+        .nav-dropdown-menu {
+            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 10px;
+            padding: 8px 0; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            z-index: 300;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu::before {
+            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
+        }
+        .nav-dropdown-menu a {
+            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
+            text-decoration: none; transition: all 0.15s; white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
+        .nav-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 10px 22px !important; border-radius: 6px !important;
+            font-weight: 400 !important; font-size: 14px !important;
+            transition: opacity 0.2s !important; text-decoration: none !important;
+        }
+        .nav-cta:hover { opacity: 0.85 !important; }
+        .theme-btn {
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
+        }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; }
+        .i-sun  { display: none;  }
+        [data-theme="light"] .i-moon { display: none; }
+        [data-theme="light"] .i-sun  { display: block; }
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+        .mob-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
+            max-height: calc(100vh - 68px); overflow-y: auto;
+        }
+        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
+        .mob-menu-top {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu-title {
+            font-size: 13px; font-weight: 500; color: var(--ink-faint);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .mob-menu a {
+            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
+            text-decoration: none; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu a:hover { color: var(--ink); }
+        .mob-section-label {
+            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
+        }
+        .mob-section-label.compact { padding: 8px 0 2px; }
+        .mob-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 14px 0 !important; border-radius: 6px; text-align: center;
+            margin-top: 8px; border-bottom: none !important;
+        }
+        .mob-cta:hover { opacity: 0.85; }
+        .mob-theme-btn {
+            width: 36px; height: 36px; flex-shrink: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { display: flex; align-items: center; gap: 10px; }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* SEE WHAT YOU'RE GETTING */
+        .preview-section {
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+        }
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        /* Left — Landing page mockup */
+        .lp-mockup {
+            border: 1px solid var(--border-mid);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-card);
+        }
+        .lp-browser-bar {
+            display: flex; align-items: center; gap: 6px;
+            padding: 10px 14px;
+            background: var(--bg-deep);
+            border-bottom: 1px solid var(--border);
+        }
+        .lp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-mid); }
+        .lp-url {
+            flex: 1; margin-left: 8px; height: 22px; border-radius: 4px;
+            background: var(--bg-lift); border: 1px solid var(--border);
+            font-size: 11px; color: var(--ink-faint); line-height: 22px; padding: 0 10px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .lp-body { padding: 28px 24px 24px; }
+        .lp-header {
+            background: #0f1729; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .lp-logo-circle {
+            width: 28px; height: 28px; border-radius: 50%; background: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: 500; color: #fff;
+        }
+        .lp-brand { font-size: 13px; font-weight: 500; color: #fff; }
+        .lp-headline {
+            font-family: var(--serif); font-size: 17px; font-weight: 500;
+            color: var(--ink); line-height: 1.35; margin-bottom: 24px;
+        }
+        .lp-steps { display: flex; flex-direction: column; gap: 12px; }
+        .lp-step {
+            border: 1px solid var(--border-mid); border-radius: 10px;
+            padding: 16px 18px; transition: opacity 0.2s;
+        }
+        .lp-step.active { border-color: var(--accent); background: var(--accent-dim); }
+        .lp-step.faded { opacity: 0.35; }
+        .lp-step-label {
+            font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--ink-faint); margin-bottom: 8px; font-weight: 500;
+        }
+        .lp-step.active .lp-step-label { color: var(--accent); }
+        .lp-step-title {
+            font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 10px;
+        }
+        .lp-tiles { display: flex; gap: 8px; }
+        .lp-tile {
+            flex: 1; padding: 10px; border: 1px solid var(--border-mid); border-radius: 6px;
+            text-align: center; font-size: 13px; color: var(--ink-soft); cursor: default;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .lp-tile.selected {
+            border-color: var(--accent); background: var(--accent-dim); color: var(--accent);
+        }
+
+        /* Right — Stacked cards */
+        .preview-right { display: flex; flex-direction: column; gap: 24px; }
+        .preview-card {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 12px; overflow: hidden;
+        }
+        .preview-card-label {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); padding: 14px 20px 0; font-weight: 500;
+        }
+        .preview-card-body { padding: 16px 20px 20px; }
+
+        /* Lead card */
+        .lead-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .lead-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--accent-dim); border: 1px solid rgba(71,151,255,0.25);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; font-weight: 500; color: var(--accent);
+        }
+        .lead-name-block { flex: 1; }
+        .lead-name { font-size: 15px; font-weight: 500; color: var(--ink); }
+        .lead-location { font-size: 12px; color: var(--ink-muted); margin-top: 1px; }
+        .lead-badge {
+            font-size: 11px; font-weight: 500; color: #22c55e;
+            background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+            padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+        }
+        .lead-fields { display: flex; flex-direction: column; gap: 10px; }
+        .lead-field {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 10px; border-bottom: 1px solid var(--border);
+        }
+        .lead-field:last-child { border-bottom: none; padding-bottom: 0; }
+        .lead-field-key { font-size: 12px; color: var(--ink-faint); }
+        .lead-field-val { font-size: 13px; color: var(--ink-soft); font-weight: 400; }
+
+        /* SMS thread */
+        .sms-thread { display: flex; flex-direction: column; gap: 10px; }
+        .sms-bubble {
+            max-width: 82%; padding: 10px 14px;
+            border-radius: 14px; font-size: 13px; line-height: 1.5;
+        }
+        .sms-out {
+            align-self: flex-end; background: var(--accent); color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+        .sms-in {
+            align-self: flex-start; background: var(--bg-lift);
+            border: 1px solid var(--border-mid); color: var(--ink-soft);
+            border-bottom-left-radius: 4px;
+        }
+        .sms-sender {
+            font-size: 10px; color: var(--ink-faint); margin-bottom: 2px;
+            text-transform: uppercase; letter-spacing: 0.06em;
+        }
+
+        /* Lead flow strip */
+        .flow-strip {
+            margin-top: 48px;
+            display: flex; align-items: center; justify-content: center; gap: 0;
+            flex-wrap: nowrap;
+        }
+        .flow-node {
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            flex-shrink: 0;
+        }
+        .flow-dot {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .flow-dot svg { width: 16px; height: 16px; stroke-width: 2; fill: none; }
+        .flow-dot.navy { background: #0f1729; }
+        .flow-dot.navy svg { stroke: #fff; }
+        .flow-dot.green { background: rgba(34,197,94,0.15); }
+        .flow-dot.green svg { stroke: #22c55e; }
+        .flow-label { font-size: 11px; color: var(--ink-muted); white-space: nowrap; text-align: center; }
+        .flow-line {
+            width: 48px; height: 2px; flex-shrink: 0;
+            margin-bottom: 26px;
+        }
+        .flow-line.navy { background: #0f1729; }
+        .flow-line.green { background: rgba(34,197,94,0.3); }
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            section{padding:80px 32px;} .site-header{padding:0 32px;} footer{padding:40px 32px;}
+            .hero{padding:120px 32px 80px;}
+            .asset-grid{grid-template-columns:1fr 1fr;}
+            .preview-grid{grid-template-columns:1fr 1fr;}
+            .closing-inner{flex-direction:column;text-align:center;gap:32px;}
+            .closing-text{max-width:100%;}
+        }
+        @media(max-width:768px){
+            section{padding:64px 24px;} .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
+            .hero{padding:100px 24px 64px;}
+            .asset-grid{grid-template-columns:1fr;}
+            .preview-grid{grid-template-columns:1fr;}
+            .closing-inner{flex-direction:column;text-align:center;gap:28px;}
+            .flow-strip{flex-wrap:wrap;gap:4px 0;}
+            .flow-line{width:24px;}
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo" id="logoLink">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+            <span class="logo-text" id="logoText">QuoteLeads</span>
+        </a>
+        <nav class="nav-links">
+            <div class="nav-dropdown">
+                <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <div class="nav-dropdown-menu">
+                    <a href="/#what-we-do">What We Do</a>
+                    <a href="/#process">How It Works</a>
+                    <a href="/#investment">Investment</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/blog">Blog</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">Industries <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="/solar-leads">Solar</a>
+                    <a href="/hvac-leads">HVAC</a>
+                    <a href="/roofing-leads">Roofing</a>
+                    <a href="/renovation-leads">Renovation</a>
+                </div>
+            </div>
+            <a href="/pilot">Pilot</a>
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <a href="/get-started" class="nav-cta">Get Started</a>
+        </nav>
+        <button class="mob-btn" id="mobBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <nav class="mob-menu" id="mobMenu">
+        <div class="mob-menu-top">
+            <span class="mob-menu-title">Menu</span>
+            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
+        <a href="/">Home</a>
+        <a href="/#what-we-do">What We Do</a>
+        <a href="/#process">How It Works</a>
+        <a href="/#investment">Investment</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <span class="mob-section-label">Industries</span>
+        <a href="/solar-leads">Solar</a>
+        <a href="/hvac-leads">HVAC</a>
+        <a href="/roofing-leads">Roofing</a>
+        <a href="/renovation-leads">Renovation</a>
+        <span class="mob-section-label compact">&nbsp;</span>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started" class="mob-cta">Get Started</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+        <div class="hero-eyebrow">Ownership</div>
+        <h1>Most lead gen companies take it with them when they leave. Everything we build stays with you.</h1>
+        <p class="hero-sub">Here is exactly what gets built into your business — and what remains yours permanently, regardless of whether you continue working with us.</p>
+    </div>
+</section>
+
+<!-- ASSET GRID -->
+<section class="asset-section">
+    <div class="si">
+        <div class="slbl">What you own</div>
+        <div class="asset-grid">
+
+            <!-- Ad accounts -->
+            <div class="asset-card">
+                <div class="asset-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
+                <div class="asset-name">Ad accounts</div>
+                <div class="asset-desc">Meta and Google campaigns structured, built and launched for your trade and territory.</div>
+                <div class="asset-own">Admin ownership transferred to you on day one.</div>
+            </div>
+
+            <!-- Proven brand asset -->
+            <div class="asset-card">
+                <div class="asset-icon">
+                    <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div class="asset-name">Proven brand asset</div>
+                <div class="asset-desc">Existing brand with proven traffic and conversion rates delivering leads exclusively to your business.</div>
+                <div class="asset-own">Exclusive to your trade and territory. No shared access.</div>
+            </div>
+
+            <!-- Landing page & survey -->
+            <div class="asset-card">
+                <div class="asset-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <div class="asset-name">Landing page &amp; survey</div>
+                <div class="asset-desc">Custom high-converting landing page and qualification survey built for your area and trade.</div>
+                <div class="asset-own">GitHub repository and domain transferred directly to you.</div>
+            </div>
+
+            <!-- Backend & data -->
+            <div class="asset-card">
+                <div class="asset-icon">
+                    <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <div class="asset-name">Backend &amp; data</div>
+                <div class="asset-desc">Supabase backend provisioned under your own accounts. Your lead data lives in your system, not ours.</div>
+                <div class="asset-own">Full data ownership. Exportable and portable.</div>
+            </div>
+
+            <!-- CRM pipeline -->
+            <div class="asset-card">
+                <div class="asset-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="19" cy="7" r="2"/><path d="M22 21v-1a2 2 0 0 0-2-2h-1"/></svg>
+                </div>
+                <div class="asset-name">CRM pipeline</div>
+                <div class="asset-desc">Lead pipeline configured around your sales process. Optional custom integration into your existing system.</div>
+                <div class="asset-own">Managed through QuoteLeadsHQ. Optional custom integration into your existing system.</div>
+            </div>
+
+            <!-- AI follow-up sequences -->
+            <div class="asset-card">
+                <div class="asset-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="asset-name">AI follow-up sequences</div>
+                <div class="asset-desc">Automated SMS follow-up configured under your business name. Responds within 60 seconds around the clock.</div>
+                <div class="asset-own">Runs through QuoteLeadsHQ, configured under your business name.</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SEE WHAT YOU'RE GETTING -->
+<section class="preview-section">
+    <div class="si">
+        <div class="slbl">How it works</div>
+        <h2 class="stitle">See what you're <em>getting</em></h2>
+
+        <div class="preview-grid">
+
+            <!-- LEFT — Landing page mockup -->
+            <div class="lp-mockup">
+                <div class="lp-browser-bar">
+                    <span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-dot"></span>
+                    <span class="lp-url">sydneysolarco.quoteleads.com.au</span>
+                </div>
+                <div class="lp-body">
+                    <div class="lp-header">
+                        <div class="lp-logo-circle">S</div>
+                        <span class="lp-brand">Sydney Solar Co.</span>
+                    </div>
+                    <div class="lp-headline">Get a free solar quote from a trusted local installer</div>
+                    <div class="lp-steps">
+                        <div class="lp-step active">
+                            <div class="lp-step-label">Step 1</div>
+                            <div class="lp-step-title">Property type</div>
+                            <div class="lp-tiles">
+                                <div class="lp-tile selected">Home owner</div>
+                                <div class="lp-tile">Renting</div>
+                            </div>
+                        </div>
+                        <div class="lp-step faded">
+                            <div class="lp-step-label">Step 2</div>
+                            <div class="lp-step-title">Average quarterly bill</div>
+                        </div>
+                        <div class="lp-step faded">
+                            <div class="lp-step-label">Step 3</div>
+                            <div class="lp-step-title">Your details</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT — Stacked cards -->
+            <div class="preview-right">
+                <!-- Lead card -->
+                <div class="preview-card">
+                    <div class="preview-card-label">Lead delivered</div>
+                    <div class="preview-card-body">
+                        <div class="lead-card-header">
+                            <div class="lead-avatar">JM</div>
+                            <div class="lead-name-block">
+                                <div class="lead-name">James Mitchell</div>
+                                <div class="lead-location">Penrith NSW 2750</div>
+                            </div>
+                            <span class="lead-badge">New lead</span>
+                        </div>
+                        <div class="lead-fields">
+                            <div class="lead-field">
+                                <span class="lead-field-key">Phone</span>
+                                <span class="lead-field-val">0412 *** ***</span>
+                            </div>
+                            <div class="lead-field">
+                                <span class="lead-field-key">Email</span>
+                                <span class="lead-field-val">james.m@email.com</span>
+                            </div>
+                            <div class="lead-field">
+                                <span class="lead-field-key">Avg quarterly bill</span>
+                                <span class="lead-field-val">$600 – $900</span>
+                            </div>
+                            <div class="lead-field">
+                                <span class="lead-field-key">Purchase timeline</span>
+                                <span class="lead-field-val">Within 3 months</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI response card -->
+                <div class="preview-card">
+                    <div class="preview-card-label">AI responds in 60s</div>
+                    <div class="preview-card-body">
+                        <div class="sms-thread">
+                            <div>
+                                <div class="sms-sender">Sydney Solar Co.</div>
+                                <div class="sms-bubble sms-out">Hi James, thanks for your enquiry about solar. Are you free for a quick call this afternoon to go over your options?</div>
+                            </div>
+                            <div>
+                                <div class="sms-sender">James</div>
+                                <div class="sms-bubble sms-in">Yeah this arvo works</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Lead flow strip -->
+        <div class="flow-strip">
+            <div class="flow-node">
+                <div class="flow-dot navy"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <span class="flow-label">Ad shown</span>
+            </div>
+            <div class="flow-line navy"></div>
+            <div class="flow-node">
+                <div class="flow-dot navy"><svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></div>
+                <span class="flow-label">LP click</span>
+            </div>
+            <div class="flow-line green"></div>
+            <div class="flow-node">
+                <div class="flow-dot green"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <span class="flow-label">Qualified</span>
+            </div>
+            <div class="flow-line green"></div>
+            <div class="flow-node">
+                <div class="flow-dot green"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <span class="flow-label">AI reply (within 60s)</span>
+            </div>
+            <div class="flow-line green"></div>
+            <div class="flow-node">
+                <div class="flow-dot green"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <span class="flow-label">Job booked</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLOSING BAND -->
+<section class="closing-band">
+    <div class="closing-inner">
+        <div class="closing-text">
+            <h2>An agency's work lives in their accounts. Yours lives in yours.</h2>
+            <p>Everything above is transferred or configured under your ownership before we consider the build complete.</p>
+        </div>
+        <div class="closing-cta">
+            <a href="/get-started" class="btn-primary">Book a call</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="foot-logo">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span>QuoteLeads</span>
+    </div>
+    <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+</footer>
+
+<script>
+    // ── Theme: always default to dark, persist user choice ──
+    (function(){
+        var saved = localStorage.getItem('ql-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+    })();
+
+    function toggleTheme(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ql-theme', next);
+        updateLogos();
+    }
+
+    var themeBtn = document.getElementById('themeBtn');
+    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    var mobThemeBtn = document.getElementById('mobThemeBtn');
+    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+
+    // ── Logo swap ──
+    function updateLogos(){
+        var theme = document.documentElement.getAttribute('data-theme');
+        var headerImg = document.getElementById('logoImg');
+        var footImg   = document.getElementById('footLogoImg');
+        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
+        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
+        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+    }
+    updateLogos();
+
+    // Handle broken logo image gracefully
+    var logoImg = document.getElementById('logoImg');
+    if(logoImg){
+        logoImg.addEventListener('error', function(){
+            this.style.display = 'none';
+            var txt = document.getElementById('logoText');
+            if(txt){ txt.style.display = 'block'; }
+        });
+    }
+
+    // ── Mobile menu ──
+    var mobBtn  = document.getElementById('mobBtn');
+    var mobMenu = document.getElementById('mobMenu');
+    if(mobBtn && mobMenu){
+        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
+        mobMenu.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
+        });
+    }
+</script>
+</body>
+</html>
