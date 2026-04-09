@@ -364,6 +364,46 @@
         .pr-step h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; }
         .pr-step p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400; }
 
+        /* PILOT CTA */
+        .pilot-cta {
+            background: var(--bg-deep);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .pilot-cta::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            width: 700px; height: 500px; transform: translate(-50%, -50%);
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none; opacity: 0.3;
+        }
+        .pilot-cta .si { position: relative; z-index: 1; }
+        .pilot-cta .slbl { justify-content: center; }
+        .pilot-cta .stitle { max-width: 560px; margin: 0 auto 20px; }
+        .pilot-cta .sbody { margin: 0 auto 48px; text-align: center; max-width: 500px; }
+        .pilot-stats {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--border); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden;
+            max-width: 640px; margin: 0 auto 48px;
+        }
+        .pilot-stat {
+            padding: 36px 24px; background: var(--bg-card);
+        }
+        .pilot-stat-val {
+            font-family: var(--serif); font-size: 42px; color: var(--accent);
+            line-height: 1; margin-bottom: 8px;
+        }
+        .pilot-stat-lbl { font-size: 13px; color: var(--ink-muted); line-height: 1.4; }
+        .pilot-cta .pilot-note {
+            margin-top: 16px; font-size: 13px; color: var(--ink-faint); font-style: italic;
+        }
+        @media(max-width:640px){
+            .pilot-stats { grid-template-columns: 1fr; }
+        }
+
         /* RESULTS */
         .results { background: var(--bg-deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .r-grid {
@@ -968,7 +1008,9 @@
             <div class="ph-body">
                 <p>Most businesses approach lead generation by buying leads, hiring an agency, or running ads. None of these, on their own, solve the problem. The issue isn't any single component, it's that the pieces don't work together as a whole.</p>
                 <p>What we do is different. We design and build a complete demand generation system, specific to your business, your trade, and your territory. That means the advertising infrastructure, the qualification funnel, the automated response layer, the pipeline, and the follow-up sequences - all built to work together from the moment a homeowner sees your ad to the moment they accept your quote.</p>
-                <p><strong>We don't just hand you a login and wish you luck.</strong> We build and launch a working demand system. For clients who want ongoing management, we continue to run it, optimising campaigns, improving conversion rates, and scaling volume as capacity allows.</p>
+                <p><strong>We don't just hand you a login and wish you luck.</strong> We build and launch a working demand system.</p>
+                <p>When you stop working with an agency, the ads disappear. When you stop working with us, you keep everything.</p>
+                <p>For clients who want ongoing management, we continue to run it, optimising campaigns, improving conversion rates, and scaling volume as capacity allows.</p>
                 <p>What we've found is that the businesses that get the best results are the ones who already have a strong team and a clear process. Our system amplifies what's already working, it doesn't try to fix a broken operation.</p>
             </div>
             <div class="ph-aside">
@@ -1437,6 +1479,22 @@
     </div>
 </section>
 
+<!-- PILOT CTA -->
+<section class="pilot-cta">
+    <div class="si">
+        <div class="slbl">Not ready for the full build?</div>
+        <h2 class="stitle">Start with <em>10 leads.</em></h2>
+        <p class="sbody">See if the system works for you. Fixed price. Your trade. Your territory. Leads delivered within 48 hours – before you commit to anything.</p>
+        <div class="pilot-stats">
+            <div class="pilot-stat"><div class="pilot-stat-val">10</div><div class="pilot-stat-lbl">exclusive leads</div></div>
+            <div class="pilot-stat"><div class="pilot-stat-val">48h</div><div class="pilot-stat-lbl">first lead arrives</div></div>
+            <div class="pilot-stat"><div class="pilot-stat-val">fixed</div><div class="pilot-stat-lbl">flat price, no extras</div></div>
+        </div>
+        <a href="/pilot" class="btn-primary">See the Pilot</a>
+        <p class="pilot-note">Most full build clients start here.</p>
+    </div>
+</section>
+
 <!-- RESULTS -->
 <section class="results">
     <div class="si">
@@ -1566,6 +1624,10 @@
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do you work with businesses outside Australia?</span><span class="faq-qi">+</span></button>
                 <div class="faq-a">At present, we focus exclusively on Australian businesses. We understand the local market, the compliance landscape, and the audience behaviour. We are not a global platform, and intentionally so.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What happens after the pilot?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">Clients who move to the full build typically go live within 7 days of the pilot completing.</div>
             </div>
         </div>
     </div>
