@@ -352,11 +352,168 @@
         .foot-links a:hover { color: var(--ink); }
         .foot-copy { font-size: 13px; color: var(--ink-faint); }
 
+        /* SEE WHAT YOU'RE GETTING */
+        .preview-section {
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+        }
+        .preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        /* Left — Landing page mockup */
+        .lp-mockup {
+            border: 1px solid var(--border-mid);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-card);
+        }
+        .lp-browser-bar {
+            display: flex; align-items: center; gap: 6px;
+            padding: 10px 14px;
+            background: var(--bg-deep);
+            border-bottom: 1px solid var(--border);
+        }
+        .lp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-mid); }
+        .lp-url {
+            flex: 1; margin-left: 8px; height: 22px; border-radius: 4px;
+            background: var(--bg-lift); border: 1px solid var(--border);
+            font-size: 11px; color: var(--ink-faint); line-height: 22px; padding: 0 10px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .lp-body { padding: 28px 24px 24px; }
+        .lp-header {
+            background: #0f1729; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .lp-logo-circle {
+            width: 28px; height: 28px; border-radius: 50%; background: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: 500; color: #fff;
+        }
+        .lp-brand { font-size: 13px; font-weight: 500; color: #fff; }
+        .lp-headline {
+            font-family: var(--serif); font-size: 17px; font-weight: 500;
+            color: var(--ink); line-height: 1.35; margin-bottom: 24px;
+        }
+        .lp-steps { display: flex; flex-direction: column; gap: 12px; }
+        .lp-step {
+            border: 1px solid var(--border-mid); border-radius: 10px;
+            padding: 16px 18px; transition: opacity 0.2s;
+        }
+        .lp-step.active { border-color: var(--accent); background: var(--accent-dim); }
+        .lp-step.faded { opacity: 0.35; }
+        .lp-step-label {
+            font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--ink-faint); margin-bottom: 8px; font-weight: 500;
+        }
+        .lp-step.active .lp-step-label { color: var(--accent); }
+        .lp-step-title {
+            font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 10px;
+        }
+        .lp-tiles { display: flex; gap: 8px; }
+        .lp-tile {
+            flex: 1; padding: 10px; border: 1px solid var(--border-mid); border-radius: 6px;
+            text-align: center; font-size: 13px; color: var(--ink-soft); cursor: default;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .lp-tile.selected {
+            border-color: var(--accent); background: var(--accent-dim); color: var(--accent);
+        }
+
+        /* Right — Stacked cards */
+        .preview-right { display: flex; flex-direction: column; gap: 24px; }
+        .preview-card {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 12px; overflow: hidden;
+        }
+        .preview-card-label {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--accent); padding: 14px 20px 0; font-weight: 500;
+        }
+        .preview-card-body { padding: 16px 20px 20px; }
+
+        /* Lead card */
+        .lead-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .lead-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--accent-dim); border: 1px solid rgba(71,151,255,0.25);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; font-weight: 500; color: var(--accent);
+        }
+        .lead-name-block { flex: 1; }
+        .lead-name { font-size: 15px; font-weight: 500; color: var(--ink); }
+        .lead-location { font-size: 12px; color: var(--ink-muted); margin-top: 1px; }
+        .lead-badge {
+            font-size: 11px; font-weight: 500; color: #22c55e;
+            background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+            padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+        }
+        .lead-fields { display: flex; flex-direction: column; gap: 10px; }
+        .lead-field {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 10px; border-bottom: 1px solid var(--border);
+        }
+        .lead-field:last-child { border-bottom: none; padding-bottom: 0; }
+        .lead-field-key { font-size: 12px; color: var(--ink-faint); }
+        .lead-field-val { font-size: 13px; color: var(--ink-soft); font-weight: 400; }
+
+        /* SMS thread */
+        .sms-thread { display: flex; flex-direction: column; gap: 10px; }
+        .sms-bubble {
+            max-width: 82%; padding: 10px 14px;
+            border-radius: 14px; font-size: 13px; line-height: 1.5;
+        }
+        .sms-out {
+            align-self: flex-end; background: var(--accent); color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+        .sms-in {
+            align-self: flex-start; background: var(--bg-lift);
+            border: 1px solid var(--border-mid); color: var(--ink-soft);
+            border-bottom-left-radius: 4px;
+        }
+        .sms-sender {
+            font-size: 10px; color: var(--ink-faint); margin-bottom: 2px;
+            text-transform: uppercase; letter-spacing: 0.06em;
+        }
+
+        /* Lead flow strip */
+        .flow-strip {
+            margin-top: 48px;
+            display: flex; align-items: center; justify-content: center; gap: 0;
+            flex-wrap: nowrap;
+        }
+        .flow-node {
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            flex-shrink: 0;
+        }
+        .flow-dot {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .flow-dot svg { width: 16px; height: 16px; stroke-width: 2; fill: none; }
+        .flow-dot.navy { background: #0f1729; }
+        .flow-dot.navy svg { stroke: #fff; }
+        .flow-dot.green { background: rgba(34,197,94,0.15); }
+        .flow-dot.green svg { stroke: #22c55e; }
+        .flow-label { font-size: 11px; color: var(--ink-muted); white-space: nowrap; text-align: center; }
+        .flow-line {
+            width: 48px; height: 2px; flex-shrink: 0;
+            margin-bottom: 26px;
+        }
+        .flow-line.navy { background: #0f1729; }
+        .flow-line.green { background: rgba(34,197,94,0.3); }
+
         /* RESPONSIVE */
         @media(max-width:1024px){
             section{padding:80px 32px;} .site-header{padding:0 32px;} footer{padding:40px 32px;}
             .hero{padding:120px 32px 80px;}
             .asset-grid{grid-template-columns:1fr 1fr;}
+            .preview-grid{grid-template-columns:1fr 1fr;}
             .closing-inner{flex-direction:column;text-align:center;gap:32px;}
             .closing-text{max-width:100%;}
         }
@@ -364,7 +521,10 @@
             section{padding:64px 24px;} .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
             .hero{padding:100px 24px 64px;}
             .asset-grid{grid-template-columns:1fr;}
+            .preview-grid{grid-template-columns:1fr;}
             .closing-inner{flex-direction:column;text-align:center;gap:28px;}
+            .flow-strip{flex-wrap:wrap;gap:4px 0;}
+            .flow-line{width:24px;}
         }
     </style>
 </head>
@@ -509,6 +669,132 @@
                 <div class="asset-own">Runs through QuoteLeadsHQ, configured under your business name.</div>
             </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- SEE WHAT YOU'RE GETTING -->
+<section class="preview-section">
+    <div class="si">
+        <div class="slbl">How it works</div>
+        <h2 class="stitle">See what you're <em>getting</em></h2>
+
+        <div class="preview-grid">
+
+            <!-- LEFT — Landing page mockup -->
+            <div class="lp-mockup">
+                <div class="lp-browser-bar">
+                    <span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-dot"></span>
+                    <span class="lp-url">sydneysolarco.quoteleads.com.au</span>
+                </div>
+                <div class="lp-body">
+                    <div class="lp-header">
+                        <div class="lp-logo-circle">S</div>
+                        <span class="lp-brand">Sydney Solar Co.</span>
+                    </div>
+                    <div class="lp-headline">Get a free solar quote from a trusted local installer</div>
+                    <div class="lp-steps">
+                        <div class="lp-step active">
+                            <div class="lp-step-label">Step 1</div>
+                            <div class="lp-step-title">Property type</div>
+                            <div class="lp-tiles">
+                                <div class="lp-tile selected">Home owner</div>
+                                <div class="lp-tile">Renting</div>
+                            </div>
+                        </div>
+                        <div class="lp-step faded">
+                            <div class="lp-step-label">Step 2</div>
+                            <div class="lp-step-title">Average quarterly bill</div>
+                        </div>
+                        <div class="lp-step faded">
+                            <div class="lp-step-label">Step 3</div>
+                            <div class="lp-step-title">Your details</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT — Stacked cards -->
+            <div class="preview-right">
+                <!-- Lead card -->
+                <div class="preview-card">
+                    <div class="preview-card-label">Lead delivered</div>
+                    <div class="preview-card-body">
+                        <div class="lead-card-header">
+                            <div class="lead-avatar">JM</div>
+                            <div class="lead-name-block">
+                                <div class="lead-name">James Mitchell</div>
+                                <div class="lead-location">Penrith NSW 2750</div>
+                            </div>
+                            <span class="lead-badge">New lead</span>
+                        </div>
+                        <div class="lead-fields">
+                            <div class="lead-field">
+                                <span class="lead-field-key">Phone</span>
+                                <span class="lead-field-val">0412 *** ***</span>
+                            </div>
+                            <div class="lead-field">
+                                <span class="lead-field-key">Email</span>
+                                <span class="lead-field-val">james.m@email.com</span>
+                            </div>
+                            <div class="lead-field">
+                                <span class="lead-field-key">Avg quarterly bill</span>
+                                <span class="lead-field-val">$600 – $900</span>
+                            </div>
+                            <div class="lead-field">
+                                <span class="lead-field-key">Purchase timeline</span>
+                                <span class="lead-field-val">Within 3 months</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI response card -->
+                <div class="preview-card">
+                    <div class="preview-card-label">AI responds in 60s</div>
+                    <div class="preview-card-body">
+                        <div class="sms-thread">
+                            <div>
+                                <div class="sms-sender">Sydney Solar Co.</div>
+                                <div class="sms-bubble sms-out">Hi James, thanks for your enquiry about solar. Are you free for a quick call this afternoon to go over your options?</div>
+                            </div>
+                            <div>
+                                <div class="sms-sender">James</div>
+                                <div class="sms-bubble sms-in">Yeah this arvo works</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Lead flow strip -->
+        <div class="flow-strip">
+            <div class="flow-node">
+                <div class="flow-dot navy"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <span class="flow-label">Ad shown</span>
+            </div>
+            <div class="flow-line navy"></div>
+            <div class="flow-node">
+                <div class="flow-dot navy"><svg viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></div>
+                <span class="flow-label">LP click</span>
+            </div>
+            <div class="flow-line green"></div>
+            <div class="flow-node">
+                <div class="flow-dot green"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                <span class="flow-label">Qualified</span>
+            </div>
+            <div class="flow-line green"></div>
+            <div class="flow-node">
+                <div class="flow-dot green"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <span class="flow-label">AI reply (within 60s)</span>
+            </div>
+            <div class="flow-line green"></div>
+            <div class="flow-node">
+                <div class="flow-dot green"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <span class="flow-label">Job booked</span>
+            </div>
         </div>
     </div>
 </section>
