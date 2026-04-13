@@ -664,7 +664,10 @@
 (function () {
     'use strict';
 
-    /* ── Config ── */
+    /* ── Config ──
+       SUPABASE_ANON is the public anon key. It is safe to expose in
+       client-side code — Row Level Security policies on every table
+       ensure each authenticated user can only access their own data. */
     var SUPABASE_URL  = 'https://wmegoygrancfwxagqskh.supabase.co';
     var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWdveWdyYW5jZnd4YWdxc2toIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYxMzI3MzEsImV4cCI6MjA2MTcwODczMX0.OdJ5LBFMiMvxPNRGx_qumBt7iXFr5FujR39j1W_Kvq8';
 
