@@ -246,6 +246,9 @@ create policy "Buyers read own buyer_flags"
 -- 3. The stripe-webhook Edge Function already writes to pilot_orders
 --    using the service role key, so no anon insert policy is needed
 --    for the webhook path.
+-- 4. Add SITE_URL to the stripe-webhook Edge Function secrets:
+--       supabase secrets set SITE_URL=https://quoteleads.com.au
+--    This is the base URL used for the password-reset redirect link.
 -- 4. The buyer-dashboard.html page uses the anon key + magic link
 --    auth. After signInWithOtp, the JWT contains the verified email
 --    which is matched by the RLS policies above.

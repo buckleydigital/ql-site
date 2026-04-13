@@ -779,9 +779,16 @@
     var SUPABASE_URL  = 'https://wmegoygrancfwxagqskh.supabase.co';
     var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWdveWdyYW5jZnd4YWdxc2toIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYxMzI3MzEsImV4cCI6MjA2MTcwODczMX0.OdJ5LBFMiMvxPNRGx_qumBt7iXFr5FujR39j1W_Kvq8';
 
+    /* Dispute health thresholds — change here to update everywhere */
+    var DISPUTE_WARN_PCT  = 10;   // ≥ this % → warning banner
+    var DISPUTE_PAUSE_PCT = 20;   // ≥ this % → delivery paused
+
     var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
     var currentUser = null;
     var pendingDisputeLeadId = null;
+    /* Track raw counts so dispute rate stays accurate after incremental submits */
+    var _totalLeads    = 0;
+    var _disputedLeads = 0;
 
     /* ── Theme ── */
     (function initTheme() {
@@ -1001,6 +1008,8 @@
     function loadDisputeStatus(leads) {
         var leadIds = leads.map(function (l) { return l.id; });
         if (!leadIds.length) {
+            _totalLeads    = 0;
+            _disputedLeads = 0;
             updateDisputeHealth(0, 0);
             return;
         }
@@ -1026,7 +1035,9 @@
                     disputedLeads++;
                 });
                 document.getElementById('statDisputes').textContent = openCount;
-                updateDisputeHealth(leads.length, disputedLeads);
+                _totalLeads    = leads.length;
+                _disputedLeads = disputedLeads;
+                updateDisputeHealth(_totalLeads, _disputedLeads);
             });
     }
 
@@ -1055,18 +1066,18 @@
         rateEl.textContent = display;
         fillEl.style.width = pct + '%';
 
-        if (rate < 10) {
+        if (rate < DISPUTE_WARN_PCT) {
             // Healthy
             rateEl.className = 'stat-value green';
             fillEl.className = 'rate-bar-fill';
             banner.className = 'dispute-banner';
-        } else if (rate < 20) {
+        } else if (rate < DISPUTE_PAUSE_PCT) {
             // Warning
             rateEl.className = 'stat-value amber';
             fillEl.className = 'rate-bar-fill amber';
             banner.className = 'dispute-banner warning show';
             bTitle.textContent = 'Dispute rate warning — ' + display;
-            bBody.innerHTML   = 'Your dispute rate has exceeded 10%. If it reaches <strong>20%</strong>, lead delivery will be automatically paused. Please only dispute leads that genuinely don\'t meet the agreed criteria. Questions? <a href="mailto:contact@quoteleads.com.au">Contact us</a>.';
+            bBody.innerHTML   = 'Your dispute rate has exceeded ' + DISPUTE_WARN_PCT + '%. If it reaches <strong>' + DISPUTE_PAUSE_PCT + '%</strong>, lead delivery will be automatically paused. Please only dispute leads that genuinely don\'t meet the agreed criteria. Questions? <a href="mailto:contact@quoteleads.com.au">Contact us</a>.';
             bIcon.setAttribute('viewBox', '0 0 24 24');
         } else {
             // Paused
@@ -1074,7 +1085,7 @@
             fillEl.className = 'rate-bar-fill red';
             banner.className = 'dispute-banner paused show';
             bTitle.textContent = 'Lead delivery paused — ' + display + ' dispute rate';
-            bBody.innerHTML   = 'Your dispute rate has exceeded the 20% threshold. Lead delivery has been paused pending review. We have a zero-tolerance policy for dispute abuse. To resolve this, please <a href="mailto:contact@quoteleads.com.au">contact us</a>.';
+            bBody.innerHTML   = 'Your dispute rate has exceeded the ' + DISPUTE_PAUSE_PCT + '% threshold. Lead delivery has been paused pending review. We have a zero-tolerance policy for dispute abuse. To resolve this, please <a href="mailto:contact@quoteleads.com.au">contact us</a>.';
             bIcon.setAttribute('viewBox', '0 0 24 24');
             // Disable all remaining dispute buttons
             document.querySelectorAll('.dispute-btn:not([disabled])').forEach(function (b) {
@@ -1197,11 +1208,8 @@
                     // Update open dispute count and recalculate health
                     var curOpen = parseInt(document.getElementById('statDisputes').textContent, 10) || 0;
                     document.getElementById('statDisputes').textContent = curOpen + 1;
-                    var totalLeads     = parseInt(document.getElementById('statLeads').textContent, 10) || 0;
-                    var currentRateStr = document.getElementById('statRate').textContent;
-                    var currentPct     = currentRateStr === '—' ? 0 : parseFloat(currentRateStr);
-                    var prevDisputed   = totalLeads > 0 ? Math.round((currentPct / 100) * totalLeads) : 0;
-                    updateDisputeHealth(totalLeads, prevDisputed + 1);
+                    _disputedLeads += 1;
+                    updateDisputeHealth(_totalLeads, _disputedLeads);
                     setTimeout(closeDisputeModal, 1800);
                 }
             });

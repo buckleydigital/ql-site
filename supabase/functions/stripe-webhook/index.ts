@@ -12,6 +12,8 @@ const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
 const supabaseServiceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 // Anon key is auto-injected by Supabase and used for the non-admin resetPasswordForEmail call
 const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
+// Site URL for the password-reset redirect. Set SITE_URL in Edge Function secrets.
+const siteUrl = Deno.env.get("SITE_URL") ?? "https://quoteleads.com.au";
 
 serve(async (req: Request) => {
   if (req.method !== "POST") {
@@ -109,7 +111,7 @@ serve(async (req: Request) => {
     const supabaseAnon = createClient(supabaseUrl, supabaseAnonKey);
     const { error: resetError } = await supabaseAnon.auth.resetPasswordForEmail(
       customerEmail,
-      { redirectTo: "https://quoteleads.com.au/reset-password" },
+      { redirectTo: siteUrl + "/reset-password" },
     );
 
     if (resetError) {
