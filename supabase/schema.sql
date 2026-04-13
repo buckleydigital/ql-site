@@ -255,4 +255,14 @@ create policy "Buyers read own buyer_flags"
 --    into buyer_flags (flag_type = 'delivery_paused') via the admin
 --    panel or Make.com automation. The dashboard will reflect the
 --    paused state immediately on next login.
+-- 7. AUTH SETUP — required steps in Supabase Dashboard:
+--    a) Authentication → Providers → Email → enable "Confirm email"
+--    b) Authentication → URL Configuration → add these Redirect URLs:
+--         https://quoteleads.com.au/reset-password
+--         https://quoteleads.com.au/buyer-dashboard
+--    c) Authentication → Email Templates → "Reset Password" template:
+--       Update the link to point to https://quoteleads.com.au/reset-password
+--    d) Authentication → Email Templates → "Confirm signup" (optional — 
+--       buyers are created server-side with email_confirm:true so this
+--       template is not triggered in the normal purchase flow)
 -- ============================================================

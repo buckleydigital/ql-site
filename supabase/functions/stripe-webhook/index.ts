@@ -10,6 +10,8 @@ const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY")!, {
 const webhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET")!;
 const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
 const supabaseServiceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+// Anon key is auto-injected by Supabase and used for the non-admin resetPasswordForEmail call
+const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
 
 serve(async (req: Request) => {
   if (req.method !== "POST") {
@@ -99,19 +101,21 @@ serve(async (req: Request) => {
       }
     } else {
       console.log(`Created auth user for ${customerEmail}: ${newUser?.user?.id}`);
+    }
 
-      // Send password reset email so the customer can set their own password
-      const { error: resetError } =
-        await supabase.auth.admin.generateLink({
-          type: "recovery",
-          email: customerEmail,
-        });
+    // Send a password reset email so the customer can set their own password.
+    // We use the anon client (not service role) so Supabase sends its built-in
+    // templated email. SUPABASE_ANON_KEY is auto-injected in edge functions.
+    const supabaseAnon = createClient(supabaseUrl, supabaseAnonKey);
+    const { error: resetError } = await supabaseAnon.auth.resetPasswordForEmail(
+      customerEmail,
+      { redirectTo: "https://quoteleads.com.au/reset-password" },
+    );
 
-      if (resetError) {
-        console.error("Failed to send password reset email:", resetError);
-      } else {
-        console.log(`Password reset email sent to ${customerEmail}`);
-      }
+    if (resetError) {
+      console.error("Failed to send password reset email:", resetError);
+    } else {
+      console.log(`Password reset email sent to ${customerEmail}`);
     }
   }
 
