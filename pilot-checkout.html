@@ -678,7 +678,7 @@
     // ── Discount ──
     function updatePricing(){
         var subtotal = basePrice - discountApplied;
-        var gst = Math.round(subtotal * 10) / 100;
+        var gst = Math.round(subtotal * 0.1 * 100) / 100;
         var total = subtotal + gst;
 
         document.getElementById('gstAmount').textContent = '$' + gst.toFixed(2);
@@ -727,11 +727,18 @@
     window.handlePayment = function(){
         var phone = deliveryPhoneEl.value.trim();
         var email = deliveryEmailEl.value.trim();
+        var payBtn = document.getElementById('payBtn');
+        var payError = document.getElementById('payError');
 
         if(!phone || !email) return;
 
-        var payBtn = document.getElementById('payBtn');
-        var payError = document.getElementById('payError');
+        // Guard against deploying with placeholder Price ID
+        if(activePriceId === 'REPLACE_WITH_STRIPE_PRICE_ID'){
+            payError.textContent = 'Payment is not configured yet. Please contact contact@quoteleads.com.au for assistance.';
+            payError.classList.add('active');
+            return;
+        }
+
         payBtn.disabled = true;
         payBtn.querySelector('span').textContent = 'Processing…';
         payError.classList.remove('active');
@@ -778,7 +785,7 @@
                 payError.textContent = result.error.message;
                 payError.classList.add('active');
                 payBtn.disabled = false;
-                payBtn.querySelector('span').textContent = 'Pay $' + (basePrice - discountApplied + Math.round((basePrice - discountApplied) * 10) / 100).toFixed(2);
+                payBtn.querySelector('span').textContent = 'Pay $' + (basePrice - discountApplied + Math.round((basePrice - discountApplied) * 0.1 * 100) / 100).toFixed(2);
             }
         });
     };
