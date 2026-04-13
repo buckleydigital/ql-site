@@ -9,7 +9,7 @@ const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY")!, {
 
 const webhookSecret = Deno.env.get("STRIPE_WEBHOOK_SECRET")!;
 const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
+const supabaseServiceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
 serve(async (req: Request) => {
   if (req.method !== "POST") {
@@ -44,19 +44,21 @@ serve(async (req: Request) => {
 
     if (!customerEmail) {
       console.error("No customer email found in checkout session:", session.id);
-      return new Response("No customer email in session", { status: 200 });
+      return new Response("No customer email in session", { status: 400 });
     }
 
-    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+    const amountPaid = (session.amount_total ?? 0) / 100;
+    const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
 
     const { error } = await supabase
       .from("pilot_orders")
       .update({
         payment_status: "paid",
-        amount_paid: (session.amount_total ?? 0) / 100,
+        amount_paid: amountPaid,
         stripe_session_id: session.id,
       })
-      .eq("email", customerEmail);
+      .eq("email", customerEmail)
+      .eq("payment_status", "pending");
 
     if (error) {
       console.error("Supabase update failed:", error);
@@ -66,7 +68,7 @@ serve(async (req: Request) => {
     }
 
     console.log(
-      `Updated pilot_orders for ${customerEmail}: paid $${(session.amount_total ?? 0) / 100}, session ${session.id}`,
+      `Updated pilot_orders for ${customerEmail}: paid $${amountPaid}, session ${session.id}`,
     );
   }
 
