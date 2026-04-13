@@ -1033,6 +1033,16 @@
         document.getElementById('formProgress').style.display = 'none';
         document.getElementById('formLoading').classList.add('active');
 
+        // Save intake data for the checkout page
+        localStorage.setItem('ql-pilot-intake', JSON.stringify({
+            first_name: formData.first_name,
+            last_name: formData.last_name,
+            company: formData.company,
+            phone: formData.phone,
+            email: formData.email,
+            trade: formData.trade
+        }));
+
         fetch('https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -1042,10 +1052,9 @@
 
         if(typeof fbq !== 'undefined') fbq('track', 'Lead');
 
+        // Redirect to checkout page after brief loading animation
         setTimeout(function(){
-            document.getElementById('formLoading').classList.remove('active');
-            document.getElementById('formSuccess').classList.add('active');
-            document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.location.href = '/pilot-checkout';
         }, 1200);
     };
 
