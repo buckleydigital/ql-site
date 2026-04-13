@@ -277,7 +277,7 @@
         .tab-panel.active { display: block; }
 
         /* ── STATS ROW ── */
-        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 32px; }
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
         .stat-card {
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: 12px; padding: 20px 24px;
@@ -286,6 +286,57 @@
         .stat-value { font-size: 28px; font-weight: 500; color: var(--ink); letter-spacing: -0.5px; }
         .stat-value.green { color: var(--green); }
         .stat-value.amber { color: var(--amber); }
+        .stat-value.red   { color: var(--red); }
+
+        /* ── DISPUTE RATE CARD ── */
+        .rate-bar-track {
+            height: 4px; border-radius: 2px; background: var(--border-mid);
+            margin-top: 12px; overflow: hidden;
+        }
+        .rate-bar-fill {
+            height: 100%; border-radius: 2px;
+            background: var(--green); width: 0%;
+            transition: width 0.6s ease, background 0.4s ease;
+        }
+        .rate-bar-fill.amber { background: var(--amber); }
+        .rate-bar-fill.red   { background: var(--red); }
+        .rate-thresholds {
+            display: flex; justify-content: space-between;
+            margin-top: 6px;
+        }
+        .rate-thresholds span { font-size: 10px; color: var(--ink-faint); }
+
+        /* ── DISPUTE HEALTH BANNER ── */
+        .dispute-banner {
+            display: none; border-radius: 12px; padding: 18px 20px;
+            margin-bottom: 24px; border: 1px solid transparent;
+            position: relative; overflow: hidden;
+        }
+        .dispute-banner.show { display: flex; align-items: flex-start; gap: 14px; }
+        .dispute-banner.warning {
+            background: var(--amber-dim); border-color: rgba(245,158,11,0.3);
+        }
+        .dispute-banner.paused {
+            background: var(--red-dim); border-color: rgba(239,68,68,0.3);
+        }
+        .banner-icon {
+            flex-shrink: 0; width: 36px; height: 36px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .dispute-banner.warning .banner-icon { background: rgba(245,158,11,0.15); }
+        .dispute-banner.paused  .banner-icon { background: rgba(239,68,68,0.15); }
+        .banner-icon svg { width: 18px; height: 18px; stroke-width: 2; fill: none; stroke: currentColor; }
+        .dispute-banner.warning .banner-icon svg { stroke: var(--amber); }
+        .dispute-banner.paused  .banner-icon svg { stroke: var(--red); }
+        .banner-body { flex: 1; }
+        .banner-title {
+            font-size: 14px; font-weight: 500; margin-bottom: 4px;
+        }
+        .dispute-banner.warning .banner-title { color: var(--amber); }
+        .dispute-banner.paused  .banner-title { color: var(--red); }
+        .banner-body p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+        .banner-body a { color: var(--accent); text-decoration: none; }
+        .banner-body a:hover { text-decoration: underline; }
 
         /* ── ORDER CARD ── */
         .order-card {
@@ -457,10 +508,11 @@
             .sign-out-btn { align-self: flex-start; font-size: 13px; padding: 8px 14px; }
 
             /* stats */
-            .stats-row { grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
             .stat-card { padding: 14px 12px; border-radius: 10px; }
             .stat-label { font-size: 10px; margin-bottom: 6px; }
             .stat-value { font-size: 22px; }
+            .rate-thresholds { display: none; }
 
             /* tabs */
             .tabs { gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; }
@@ -503,7 +555,7 @@
             .foot-links { gap: 16px; }
         }
         @media(max-width:380px) {
-            .stats-row { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: 1fr 1fr; }
             .lead-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -584,6 +636,29 @@
             <div class="stat-card">
                 <div class="stat-label">Open Disputes</div>
                 <div class="stat-value amber" id="statDisputes">—</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Dispute Rate</div>
+                <div class="stat-value" id="statRate">—</div>
+                <div class="rate-bar-track">
+                    <div class="rate-bar-fill" id="rateBarFill"></div>
+                </div>
+                <div class="rate-thresholds">
+                    <span>0%</span>
+                    <span style="color:var(--amber)">10%</span>
+                    <span style="color:var(--red)">20%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dispute health banner (shown at ≥10%) -->
+        <div class="dispute-banner" id="disputeBanner">
+            <div class="banner-icon">
+                <svg id="bannerIcon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+            <div class="banner-body">
+                <div class="banner-title" id="bannerTitle"></div>
+                <p id="bannerBody"></p>
             </div>
         </div>
 
@@ -846,15 +921,22 @@
     /* ── Load dispute status for leads ── */
     function loadDisputeStatus(leads) {
         var leadIds = leads.map(function (l) { return l.id; });
-        if (!leadIds.length) return;
+        if (!leadIds.length) {
+            updateDisputeHealth(0, 0);
+            return;
+        }
 
         supabase
             .from('lead_disputes')
             .select('lead_id, status')
             .in('lead_id', leadIds)
             .then(function (result) {
-                if (result.error || !result.data) return;
+                if (result.error || !result.data) {
+                    updateDisputeHealth(leads.length, 0);
+                    return;
+                }
                 var openCount = 0;
+                var disputedLeads = 0;
                 result.data.forEach(function (dispute) {
                     var btn = document.querySelector('[data-lead-id="' + dispute.lead_id + '"]');
                     if (btn) {
@@ -862,9 +944,65 @@
                         btn.textContent = dispute.status === 'resolved' ? 'Dispute Resolved' : 'Dispute Submitted';
                     }
                     if (dispute.status !== 'resolved') openCount++;
+                    disputedLeads++;
                 });
                 document.getElementById('statDisputes').textContent = openCount;
+                updateDisputeHealth(leads.length, disputedLeads);
             });
+    }
+
+    /* ── Dispute health: <10% healthy · 10-20% warning · ≥20% paused ── */
+    function updateDisputeHealth(totalLeads, disputedLeads) {
+        var rateEl   = document.getElementById('statRate');
+        var fillEl   = document.getElementById('rateBarFill');
+        var banner   = document.getElementById('disputeBanner');
+        var bTitle   = document.getElementById('bannerTitle');
+        var bBody    = document.getElementById('bannerBody');
+        var bIcon    = document.getElementById('bannerIcon');
+
+        if (totalLeads === 0) {
+            rateEl.textContent = '—';
+            rateEl.className   = 'stat-value';
+            fillEl.style.width = '0%';
+            fillEl.className   = 'rate-bar-fill';
+            banner.className   = 'dispute-banner';
+            return;
+        }
+
+        var rate    = (disputedLeads / totalLeads) * 100;
+        var pct     = Math.min(rate, 100);
+        var display = rate.toFixed(1) + '%';
+
+        rateEl.textContent = display;
+        fillEl.style.width = pct + '%';
+
+        if (rate < 10) {
+            // Healthy
+            rateEl.className = 'stat-value green';
+            fillEl.className = 'rate-bar-fill';
+            banner.className = 'dispute-banner';
+        } else if (rate < 20) {
+            // Warning
+            rateEl.className = 'stat-value amber';
+            fillEl.className = 'rate-bar-fill amber';
+            banner.className = 'dispute-banner warning show';
+            bTitle.textContent = 'Dispute rate warning — ' + display;
+            bBody.innerHTML   = 'Your dispute rate has exceeded 10%. If it reaches <strong>20%</strong>, lead delivery will be automatically paused. Please only dispute leads that genuinely don\'t meet the agreed criteria. Questions? <a href="mailto:contact@quoteleads.com.au">Contact us</a>.';
+            bIcon.setAttribute('viewBox', '0 0 24 24');
+        } else {
+            // Paused
+            rateEl.className = 'stat-value red';
+            fillEl.className = 'rate-bar-fill red';
+            banner.className = 'dispute-banner paused show';
+            bTitle.textContent = 'Lead delivery paused — ' + display + ' dispute rate';
+            bBody.innerHTML   = 'Your dispute rate has exceeded the 20% threshold. Lead delivery has been paused pending review. We have a zero-tolerance policy for dispute abuse. To resolve this, please <a href="mailto:contact@quoteleads.com.au">contact us</a>.';
+            bIcon.setAttribute('viewBox', '0 0 24 24');
+            // Disable all remaining dispute buttons
+            document.querySelectorAll('.dispute-btn:not([disabled])').forEach(function (b) {
+                b.disabled = true;
+                b.textContent = 'Delivery Paused';
+            });
+        }
     }
 
     /* ── Render order card ── */
@@ -894,7 +1032,7 @@
     /* ── Render lead card ── */
     function renderLeadCard(l) {
         var dateStr = l.created_at ? new Date(l.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
-        var name    = [l.first_name, l.last_name].filter(Boolean).join(' ') || 'Lead #' + l.id;
+        var name    = [l.first_name, l.last_name].filter(Boolean).join(' ') || 'Delivered Lead';
         var type    = l.lead_type || l.type || '—';
 
         var fields = [
@@ -977,9 +1115,14 @@
                     // Disable the dispute button on the lead card
                     var leadBtn = document.querySelector('[data-lead-id="' + pendingDisputeLeadId + '"]');
                     if (leadBtn) { leadBtn.disabled = true; leadBtn.textContent = 'Dispute Submitted'; }
-                    // Update open dispute count
-                    var cur = parseInt(document.getElementById('statDisputes').textContent, 10) || 0;
-                    document.getElementById('statDisputes').textContent = cur + 1;
+                    // Update open dispute count and recalculate health
+                    var curOpen = parseInt(document.getElementById('statDisputes').textContent, 10) || 0;
+                    document.getElementById('statDisputes').textContent = curOpen + 1;
+                    var totalLeads     = parseInt(document.getElementById('statLeads').textContent, 10) || 0;
+                    var currentRateStr = document.getElementById('statRate').textContent;
+                    var currentPct     = currentRateStr === '—' ? 0 : parseFloat(currentRateStr);
+                    var prevDisputed   = totalLeads > 0 ? Math.round((currentPct / 100) * totalLeads) : 0;
+                    updateDisputeHealth(totalLeads, prevDisputed + 1);
                     setTimeout(closeDisputeModal, 1800);
                 }
             });

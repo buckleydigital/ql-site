@@ -51,12 +51,6 @@ create index if not exists pilot_orders_created_at_idx     on public.pilot_order
 -- RLS
 alter table public.pilot_orders enable row level security;
 
--- Anyone can insert a new order (intake → checkout flow)
-create policy "Anyone can insert pilot_orders"
-    on public.pilot_orders for insert
-    to anon
-    with check (true);
-
 -- Authenticated buyers can only read their own orders
 create policy "Buyers read own pilot_orders"
     on public.pilot_orders for select
@@ -179,17 +173,86 @@ create policy "Buyers read own lead_disputes"
 
 
 -- ────────────────────────────────────────────────────────────
+-- VIEW: buyer_dispute_rates
+-- Computes each buyer's dispute rate as
+--   disputed_leads / total_delivered_leads.
+-- Used as a reference for the thresholds enforced client-side:
+--   < 10%  → healthy
+--   10-20% → warning
+--   ≥ 20%  → delivery paused (zero tolerance)
+-- ────────────────────────────────────────────────────────────
+create or replace view public.buyer_dispute_rates as
+select
+    pl.buyer_email,
+    count(pl.id)                                        as total_leads,
+    count(ld.id)                                        as disputed_leads,
+    round(
+        count(ld.id)::numeric / nullif(count(pl.id), 0) * 100,
+        1
+    )                                                   as dispute_rate_pct
+from public.pilot_leads pl
+left join public.lead_disputes ld
+    on ld.lead_id = pl.id
+    and ld.status <> 'resolved'
+group by pl.buyer_email;
+
+
+-- ────────────────────────────────────────────────────────────
+-- TABLE: buyer_flags
+-- Admin-managed table to record account-level flags
+-- (e.g. delivery_paused when dispute rate exceeds 20%).
+-- The buyer_dashboard reads this to show the correct status
+-- even if disputes have since been resolved/removed.
+-- ────────────────────────────────────────────────────────────
+create table if not exists public.buyer_flags (
+    id              uuid primary key default uuid_generate_v4(),
+    created_at      timestamptz not null default now(),
+    updated_at      timestamptz not null default now(),
+
+    buyer_email     text not null unique,
+
+    -- Flag type: 'warning' | 'delivery_paused'
+    flag_type       text not null
+                        check (flag_type in ('warning', 'delivery_paused')),
+
+    reason          text,                       -- internal admin note
+    dispute_rate_at_flag numeric(5, 1)          -- rate % that triggered the flag
+);
+
+create index if not exists buyer_flags_email_idx on public.buyer_flags (buyer_email);
+
+create trigger buyer_flags_updated_at
+    before update on public.buyer_flags
+    for each row execute function public.set_updated_at();
+
+-- RLS
+alter table public.buyer_flags enable row level security;
+
+-- Buyers can only read their own flag
+create policy "Buyers read own buyer_flags"
+    on public.buyer_flags for select
+    to authenticated
+    using (buyer_email = (auth.jwt() ->> 'email'));
+
+
+-- ────────────────────────────────────────────────────────────
 -- NOTES FOR DEPLOYMENT
 -- ────────────────────────────────────────────────────────────
 -- 1. Run this entire script in: Supabase Dashboard → SQL Editor
--- 2. The stripe-webhook Edge Function already writes to pilot_orders
+-- 2. IMPORTANT — enable email confirmation in Supabase Auth settings
+--    (Authentication → Providers → Email → "Confirm email" ON).
+--    The RLS policies rely on email = jwt email; an unverified email
+--    address could otherwise be used to access another buyer's data.
+-- 3. The stripe-webhook Edge Function already writes to pilot_orders
 --    using the service role key, so no anon insert policy is needed
 --    for the webhook path.
--- 3. The buyer-dashboard.html page uses the anon key + magic link
---    auth. After signInWithOtp, the JWT contains the user's email
+-- 4. The buyer-dashboard.html page uses the anon key + magic link
+--    auth. After signInWithOtp, the JWT contains the verified email
 --    which is matched by the RLS policies above.
--- 4. pilot_leads rows should be inserted by your fulfilment
+-- 5. pilot_leads rows should be inserted by your fulfilment
 --    automation (e.g. Make.com scenario) using the service role key.
--- 5. To allow the service role to bypass RLS (default behaviour),
---    no additional policies are needed for service-role inserts.
+-- 6. When a buyer's computed dispute rate exceeds 20%, insert a row
+--    into buyer_flags (flag_type = 'delivery_paused') via the admin
+--    panel or Make.com automation. The dashboard will reflect the
+--    paused state immediately on next login.
 -- ============================================================
