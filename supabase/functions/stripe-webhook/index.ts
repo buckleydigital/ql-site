@@ -50,7 +50,7 @@ serve(async (req: Request) => {
     const amountPaid = (session.amount_total ?? 0) / 100;
     const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
 
-    const { error } = await supabase
+    const { data, error, count } = await supabase
       .from("pilot_orders")
       .update({
         payment_status: "paid",
@@ -58,7 +58,8 @@ serve(async (req: Request) => {
         stripe_session_id: session.id,
       })
       .eq("email", customerEmail)
-      .eq("payment_status", "pending");
+      .eq("payment_status", "pending")
+      .select("id", { count: "exact" });
 
     if (error) {
       console.error("Supabase update failed:", error);
@@ -67,9 +68,15 @@ serve(async (req: Request) => {
       });
     }
 
-    console.log(
-      `Updated pilot_orders for ${customerEmail}: paid $${amountPaid}, session ${session.id}`,
-    );
+    if (!count || count === 0) {
+      console.warn(
+        `No pending pilot_orders found for ${customerEmail} (session ${session.id}). Order may already be paid or email mismatch.`,
+      );
+    } else {
+      console.log(
+        `Updated ${count} pilot_orders for ${customerEmail}: paid $${amountPaid}, session ${session.id}`,
+      );
+    }
   }
 
   return new Response(JSON.stringify({ received: true }), {
