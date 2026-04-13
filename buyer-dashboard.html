@@ -436,13 +436,75 @@
             .page-section { padding: 48px 32px 80px; }
         }
         @media(max-width:768px) {
+            /* header */
             .nav-links { display: none; }
             .mob-btn { display: block; }
-            footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
-            .page-section { padding: 40px 24px 80px; }
-            .order-card { padding: 20px 20px; }
-            .lead-card { padding: 20px 20px; }
-            .modal { padding: 28px 24px; }
+
+            /* page */
+            .page-section { padding: 32px 16px 80px; }
+
+            /* login */
+            #loginPanel { padding: 32px 16px; align-items: flex-start; padding-top: 48px; }
+            .login-card { padding: 32px 20px; border-radius: 12px; }
+            .login-icon { width: 52px; height: 52px; margin-bottom: 20px; }
+            .login-card h1 { font-size: 22px; }
+            .login-card p { font-size: 13px; margin-bottom: 24px; }
+            .login-field input { font-size: 16px; } /* prevent iOS zoom */
+
+            /* dash header */
+            .dash-header { flex-direction: column; gap: 12px; margin-bottom: 28px; }
+            .dash-header-left h1 { font-size: 26px; }
+            .sign-out-btn { align-self: flex-start; font-size: 13px; padding: 8px 14px; }
+
+            /* stats */
+            .stats-row { grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+            .stat-card { padding: 14px 12px; border-radius: 10px; }
+            .stat-label { font-size: 10px; margin-bottom: 6px; }
+            .stat-value { font-size: 22px; }
+
+            /* tabs */
+            .tabs { gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; }
+            .tab-btn { padding: 10px 16px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+
+            /* order cards */
+            .order-card { padding: 18px 16px; border-radius: 12px; }
+            .order-top { flex-direction: column; gap: 10px; margin-bottom: 14px; }
+            .order-name { font-size: 15px; }
+            .order-meta { gap: 14px 20px; }
+            .order-meta-item { min-width: calc(50% - 10px); }
+            .order-meta-label { font-size: 10px; }
+            .order-meta-val { font-size: 13px; }
+
+            /* lead cards */
+            .lead-card { padding: 18px 16px; border-radius: 12px; }
+            .lead-top { flex-direction: column; gap: 10px; margin-bottom: 14px; }
+            .lead-name { font-size: 14px; }
+            .lead-grid { grid-template-columns: 1fr 1fr; gap: 10px 16px; margin-bottom: 14px; }
+            .lead-field-label { font-size: 10px; }
+            .lead-field-val { font-size: 13px; }
+            .dispute-btn { font-size: 12px; padding: 8px 14px; }
+
+            /* modal — full-screen sheet on mobile */
+            .modal-overlay { align-items: flex-end; padding: 0; }
+            .modal {
+                border-radius: 16px 16px 0 0; padding: 28px 20px 36px;
+                max-width: 100%; width: 100%;
+                max-height: 90vh; overflow-y: auto;
+            }
+            .modal h2 { font-size: 18px; }
+            .modal p { font-size: 13px; margin-bottom: 20px; }
+            .modal-field select,
+            .modal-field textarea { font-size: 16px; } /* prevent iOS zoom */
+            .modal-actions { flex-direction: column-reverse; gap: 10px; }
+            .modal-cancel, .modal-submit { width: 100%; text-align: center; padding: 13px; }
+
+            /* footer */
+            footer { padding: 32px 16px; flex-direction: column; align-items: flex-start; gap: 16px; }
+            .foot-links { gap: 16px; }
+        }
+        @media(max-width:380px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .lead-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
