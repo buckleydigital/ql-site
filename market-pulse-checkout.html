@@ -27,8 +27,8 @@
     <!-- End Meta Pixel Code -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Market Pulse Pilot | QuoteLeads</title>
-    <meta name="description" content="Complete your payment to start your Market Pulse pilot. $650 + GST for exclusive, qualified leads.">
+    <title>Checkout - Market Pulse | QuoteLeads</title>
+    <meta name="description" content="Complete your payment to start your Market Pulse order. $650 + GST for exclusive, qualified leads.">
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -393,7 +393,7 @@
                     <a href="/renovation-leads">Renovation</a>
                 </div>
             </div>
-            <a href="/pilot">Pilot</a>
+            <a href="/market-pulse">Buy Leads</a>
             <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
                 <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -424,7 +424,7 @@
         <a href="/roofing-leads">Roofing</a>
         <a href="/renovation-leads">Renovation</a>
         <span class="mob-section-label compact">&nbsp;</span>
-        <a href="/pilot">Pilot</a>
+        <a href="/market-pulse">Buy Leads</a>
         <a href="/get-started" class="mob-cta">Get Started</a>
     </nav>
 </header>
@@ -435,8 +435,8 @@
     <div class="hero-glow"></div>
     <div class="page-hero-inner">
         <div class="hero-eyebrow">Checkout</div>
-        <h1>Complete your<br><em>pilot payment.</em></h1>
-        <p class="hero-sub">One last step. Confirm your lead delivery details and complete payment to kick off your Market Pulse pilot.</p>
+        <h1>Complete your<br><em>payment.</em></h1>
+        <p class="hero-sub">One last step. Confirm your lead delivery details and complete payment to kick off your Market Pulse order.</p>
     </div>
 </section>
 
@@ -480,7 +480,7 @@
                     <div class="order-summary">
                         <div class="section-label" style="margin-bottom:12px;">Order Summary</div>
                         <div class="order-line">
-                            <span id="productName">Market Pulse Pilot</span>
+                            <span id="productName">Market Pulse</span>
                             <span id="productBasePrice">$650.00</span>
                         </div>
                         <div class="order-line discount" id="discountLine">
@@ -539,7 +539,7 @@
             <div class="sidebar-card">
                 <div class="sc-lbl">Need help?</div>
                 <p style="font-size:13px; color:var(--ink-muted); line-height:1.65;">
-                    If you have questions about pricing, your pilot, or anything else - reach out and we'll get back to you quickly.
+                    If you have questions about pricing, your order, or anything else - reach out and we'll get back to you quickly.
                 </p>
                 <div class="contact-block">
                     <p><a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a></p>
@@ -558,7 +558,7 @@
     </div>
     <div class="foot-links">
         <a href="/">Home</a>
-        <a href="/pilot">Pilot</a>
+        <a href="/market-pulse">Buy Leads</a>
         <a href="/get-started">Get Started</a>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms</a>
@@ -635,9 +635,9 @@
     };
 
     var PRODUCT_NAMES = {
-        '10': 'Market Pulse Pilot — 10 Leads',
-        '25': 'Market Pulse Pilot — 25 Leads',
-        '50': 'Market Pulse Pilot — 50 Leads'
+        '10': 'Market Pulse — 10 Leads',
+        '25': 'Market Pulse — 25 Leads',
+        '50': 'Market Pulse — 50 Leads'
     };
 
     /*  Discount codes - map code strings to display info (for local UI only).
@@ -655,7 +655,7 @@
 
     // ── Pre-fill from intake data ──
     var intakeData = {};
-    try { intakeData = JSON.parse(localStorage.getItem('ql-pilot-intake') || '{}'); } catch(e){}
+    try { intakeData = JSON.parse(localStorage.getItem('ql-market-pulse-intake') || '{}'); } catch(e){}
 
     // ── Resolve tier from intake lead_count ──
     var leadCount = String(intakeData.lead_count || '10');
@@ -747,7 +747,7 @@
 
         // Send checkout data to webhook
         var checkoutData = {
-            source: 'pilot-checkout',
+            source: 'market-pulse-checkout',
             delivery_phone: phone,
             delivery_email: email,
             lead_count: leadCount,
@@ -768,7 +768,7 @@
         }).catch(function(e){ console.error('Webhook error:', e); });
 
         // Save delivery details for confirmation page
-        localStorage.setItem('ql-pilot-checkout', JSON.stringify({
+        localStorage.setItem('ql-market-pulse-checkout', JSON.stringify({
             delivery_phone: phone,
             delivery_email: email,
             discount_code: activeDiscountCode
@@ -781,9 +781,9 @@
             body: JSON.stringify({
                 lead_count: leadCount,
                 customer_email: intakeData.email || email,
-                client_reference_id: 'pilot_' + (intakeData.email || '') + '_' + Date.now(),
-                success_url: window.location.origin + '/pilot-confirmed',
-                cancel_url: window.location.origin + '/pilot-checkout'
+                client_reference_id: 'market-pulse_' + (intakeData.email || '') + '_' + Date.now(),
+                success_url: window.location.origin + '/market-pulse-confirmed',
+                cancel_url: window.location.origin + '/market-pulse-checkout'
             })
         })
         .then(function(res){ return res.json(); })
