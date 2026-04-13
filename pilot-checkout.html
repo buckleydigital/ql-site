@@ -794,6 +794,7 @@
         stripe.redirectToCheckout({
             lineItems: [{ price: activePriceId, quantity: 1 }],
             mode: 'payment',
+            allow_promotion_codes: true,
             successUrl: window.location.origin + '/pilot-confirmed',
             cancelUrl: window.location.origin + '/pilot-checkout',
             clientReferenceId: 'pilot_' + (intakeData.email || '') + '_' + Date.now(),
