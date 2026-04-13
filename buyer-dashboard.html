@@ -754,7 +754,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="foot-logo">
-        <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span>QuoteLeads</span>
     </div>
     <div class="foot-links">
@@ -791,37 +791,49 @@
     var _disputedLeads = 0;
 
     /* ── Theme ── */
-    (function initTheme() {
+    (function(){
         var saved = localStorage.getItem('ql-theme');
-        if (saved) document.documentElement.setAttribute('data-theme', saved);
-        function applyTheme(t) {
-            document.documentElement.setAttribute('data-theme', t);
-            localStorage.setItem('ql-theme', t);
-            var logoImg  = document.getElementById('logoImg');
-            var logoText = document.getElementById('logoText');
-            if (t === 'light') {
-                if (logoImg)  { logoImg.classList.add('hide'); }
-                if (logoText) { logoText.classList.add('show'); }
-            } else {
-                if (logoImg)  { logoImg.classList.remove('hide'); }
-                if (logoText) { logoText.classList.remove('show'); }
-            }
-        }
-        applyTheme(saved || 'dark');
-        ['themeBtn','mobThemeBtn'].forEach(function(id) {
-            var btn = document.getElementById(id);
-            if (btn) btn.addEventListener('click', function() {
-                var cur = document.documentElement.getAttribute('data-theme');
-                applyTheme(cur === 'dark' ? 'light' : 'dark');
-            });
-        });
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
     })();
+
+    function toggleTheme(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ql-theme', next);
+        updateLogos();
+    }
+
+    var themeBtn = document.getElementById('themeBtn');
+    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    var mobThemeBtn = document.getElementById('mobThemeBtn');
+    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+
+    function updateLogos(){
+        var theme = document.documentElement.getAttribute('data-theme');
+        var headerImg = document.getElementById('logoImg');
+        var footImg   = document.getElementById('footLogoImg');
+        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
+        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
+        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+    }
+    updateLogos();
+
+    var logoImg = document.getElementById('logoImg');
+    if(logoImg){
+        logoImg.addEventListener('error', function(){
+            this.style.display = 'none';
+            var txt = document.getElementById('logoText');
+            if(txt){ txt.style.display = 'block'; }
+        });
+    }
 
     /* ── Mobile menu ── */
     var mobBtn  = document.getElementById('mobBtn');
     var mobMenu = document.getElementById('mobMenu');
-    if (mobBtn && mobMenu) {
-        mobBtn.addEventListener('click', function () { mobMenu.classList.toggle('open'); });
+    if(mobBtn && mobMenu){
+        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
     }
 
     /* ── Auth state ── */
@@ -1128,7 +1140,9 @@
         var fields = [
             { label: 'Phone',    val: l.phone    || '—' },
             { label: 'Email',    val: l.email    || '—' },
-            { label: 'Suburb',   val: l.suburb   || l.postcode || '—' },
+            { label: 'Postcode', val: l.postcode || l.suburb || '—' },
+            { label: 'Project',  val: l.project  || '—' },
+            { label: 'Source',   val: l.source   || '—' },
             { label: 'Lead Type',val: type },
             { label: 'Notes',    val: l.notes    || l.details || '—' }
         ];

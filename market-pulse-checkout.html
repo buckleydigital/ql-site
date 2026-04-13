@@ -774,7 +774,8 @@
             discount_code: activeDiscountCode
         }));
 
-        // Create Stripe Checkout Session via Edge Function and redirect
+        // Create Stripe Checkout Session via Edge Function and redirect.
+        // The Edge Function also inserts a pending order into pilot_orders.
         fetch(SUPABASE_FUNCTIONS_URL + '/create-checkout-session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -783,7 +784,19 @@
                 customer_email: intakeData.email || email,
                 client_reference_id: 'market-pulse_' + (intakeData.email || '') + '_' + Date.now(),
                 success_url: window.location.origin + '/market-pulse-confirmed',
-                cancel_url: window.location.origin + '/market-pulse-checkout'
+                cancel_url: window.location.origin + '/market-pulse-checkout',
+                delivery_email: email,
+                delivery_phone: phone,
+                intake_first_name: intakeData.first_name || '',
+                intake_last_name: intakeData.last_name || '',
+                intake_company: intakeData.company || '',
+                intake_phone: intakeData.phone || '',
+                lead_type: intakeData.trade || '',
+                lead_subtype: intakeData.lead_subtype || [],
+                service_postcode: intakeData.service_postcode || '',
+                service_radius: intakeData.service_radius || '',
+                discount_code: activeDiscountCode || '',
+                discount_amount: discountApplied
             })
         })
         .then(function(res){ return res.json(); })
