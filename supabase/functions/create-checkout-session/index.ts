@@ -47,8 +47,8 @@ serve(async (req: Request) => {
       line_items: [{ price: priceId, quantity: 1 }],
       mode: "payment",
       allow_promotion_codes: true,
-      success_url: success_url || "https://quoteleads.com.au/pilot-confirmed",
-      cancel_url: cancel_url || "https://quoteleads.com.au/pilot-checkout",
+      success_url: success_url || "https://quoteleads.com.au/market-pulse-confirmed",
+      cancel_url: cancel_url || "https://quoteleads.com.au/market-pulse-checkout",
       customer_email: customer_email || undefined,
       client_reference_id: client_reference_id || undefined,
     });

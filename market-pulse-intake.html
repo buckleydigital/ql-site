@@ -28,7 +28,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start Your Pilot - Market Pulse by QuoteLeads</title>
-    <meta name="description" content="Complete the intake to start your Market Pulse pilot. A batch of qualified, consented leads within an agreed timeframe.">
+    <meta name="description" content="Complete the intake to start your Market Pulse order. A batch of qualified, consented leads within an agreed timeframe.">
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -517,7 +517,7 @@
                     <a href="/renovation-leads">Renovation</a>
                 </div>
             </div>
-            <a href="/pilot">Pilot</a>
+            <a href="/market-pulse">Buy Leads</a>
             <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
                 <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -548,7 +548,7 @@
         <a href="/roofing-leads">Roofing</a>
         <a href="/renovation-leads">Renovation</a>
         <span class="mob-section-label compact">&nbsp;</span>
-        <a href="/pilot">Pilot</a>
+        <a href="/market-pulse">Buy Leads</a>
         <a href="/get-started" class="mob-cta">Get Started</a>
     </nav>
 </header>
@@ -671,7 +671,7 @@
                     <!-- STEP 3: Lead Count -->
                     <div class="form-step" id="step3">
                         <div class="step-q">How many leads do you want?</div>
-                        <div class="step-hint">Choose the batch size for your pilot. All leads are exclusive, consented, and phone-verified.</div>
+                        <div class="step-hint">Choose the batch size for your order. All leads are exclusive, consented, and phone-verified.</div>
                         <div class="opt-grid" id="leadCountGrid">
                             <div class="opt-card" data-field="lead_count" data-value="10">
                                 <div class="opt-label">10 Leads</div>
@@ -728,7 +728,7 @@
 
                     <!-- STEP 5: Confirm & Submit -->
                     <div class="form-step" id="step5">
-                        <div class="step-q">Confirm and start your pilot.</div>
+                        <div class="step-q">Confirm and start your order.</div>
                         <div class="step-hint">Read each item and check the box. Once submitted, our team will be in touch to get things moving.</div>
 
                         <div class="confirm-list" id="confirmList">
@@ -746,7 +746,7 @@
                             </div>
                             <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="terms">
                                 <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-                                <div class="confirm-text">I have read and agree to the <a href="https://quoteleads.com.au/pilot-terms" target="_blank">Pilot Terms &amp; Conditions</a>.</div>
+                                <div class="confirm-text">I have read and agree to the <a href="https://quoteleads.com.au/market-pulse-terms" target="_blank">Pilot Terms &amp; Conditions</a>.</div>
                             </div>
                         </div>
 
@@ -764,7 +764,7 @@
                 <!-- Loading state -->
                 <div class="form-loading" id="formLoading">
                     <div class="spin"></div>
-                    <p>Submitting your pilot intake…</p>
+                    <p>Submitting your intake…</p>
                 </div>
 
                 <!-- Success state -->
@@ -814,7 +814,7 @@
             </div>
 
             <div class="sidebar-card">
-                <div class="sc-lbl">After the pilot</div>
+                <div class="sc-lbl">After your leads are delivered</div>
                 <p style="font-size:13px; color:var(--ink-muted); line-height:1.65;">You'll have the data - lead quality, your close rate, the ROI. If the mechanism proved itself, we'll show you what the full system looks like built under your brand.</p>
                 <p style="font-size:13px; color:var(--ink-faint); margin-top:10px; line-height:1.55;"><a href="/what-you-own" style="color:var(--accent); text-decoration:none;">Learn more about the full system →</a></p>
             </div>
@@ -831,7 +831,7 @@
     </div>
     <div class="foot-links">
         <a href="/">Home</a>
-        <a href="/pilot">Pilot</a>
+        <a href="/market-pulse">Buy Leads</a>
         <a href="/get-started">Get Started</a>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms</a>
@@ -1076,14 +1076,14 @@
         if(!turnstileToken){ return; }
 
         formData['cf-turnstile-response'] = turnstileToken;
-        formData.source = 'pilot-intake';
+        formData.source = 'market-pulse-intake';
 
         document.getElementById('formBody').style.display = 'none';
         document.getElementById('formProgress').style.display = 'none';
         document.getElementById('formLoading').classList.add('active');
 
         // Save intake data for the checkout page
-        localStorage.setItem('ql-pilot-intake', JSON.stringify({
+        localStorage.setItem('ql-market-pulse-intake', JSON.stringify({
             first_name: formData.first_name,
             last_name: formData.last_name,
             company: formData.company,
@@ -1105,7 +1105,7 @@
 
         // Redirect to checkout page after brief loading animation
         setTimeout(function(){
-            window.location.href = '/pilot-checkout';
+            window.location.href = '/market-pulse-checkout';
         }, 1200);
     };
 
