@@ -77,6 +77,42 @@ serve(async (req: Request) => {
         `Updated ${count} pilot_orders for ${customerEmail}: paid $${amountPaid}, session ${session.id}`,
       );
     }
+
+    // Create auth user for the customer (skip if already exists)
+    const tempPassword = crypto.randomUUID();
+
+    const { data: newUser, error: createError } =
+      await supabase.auth.admin.createUser({
+        email: customerEmail,
+        password: tempPassword,
+        email_confirm: true,
+      });
+
+    if (createError) {
+      if (
+        createError.message?.toLowerCase().includes("already") ||
+        createError.message?.toLowerCase().includes("exists")
+      ) {
+        console.log(`Auth user already exists for ${customerEmail}, skipping creation`);
+      } else {
+        console.error("Failed to create auth user:", createError);
+      }
+    } else {
+      console.log(`Created auth user for ${customerEmail}: ${newUser?.user?.id}`);
+
+      // Send password reset email so the customer can set their own password
+      const { error: resetError } =
+        await supabase.auth.admin.generateLink({
+          type: "recovery",
+          email: customerEmail,
+        });
+
+      if (resetError) {
+        console.error("Failed to send password reset email:", resetError);
+      } else {
+        console.log(`Password reset email sent to ${customerEmail}`);
+      }
+    }
   }
 
   return new Response(JSON.stringify({ received: true }), {
