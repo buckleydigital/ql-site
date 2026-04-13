@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F36W0PEFR4');
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '3264378767213114');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=3264378767213114&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Market Pulse Pilot | QuoteLeads</title>
+    <meta name="description" content="Complete your payment to start your Market Pulse pilot. $650 + GST for exclusive, qualified leads.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root[data-theme="dark"] {
+            --bg:          #06070A;
+            --bg-lift:     #0D0F14;
+            --bg-card:     #111318;
+            --bg-deep:     #09090D;
+            --border:      rgba(255,255,255,0.07);
+            --border-mid:  rgba(255,255,255,0.12);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.16);
+            --green:       #22c55e;
+            --green-dim:   rgba(34,197,94,0.10);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: dark;
+        }
+        :root[data-theme="light"] {
+            --bg:          #f5f3ef;
+            --bg-lift:     #edeae5;
+            --bg-card:     #f9f8f5;
+            --bg-deep:     #e8e4de;
+            --border:      rgba(14,14,14,0.10);
+            --border-mid:  rgba(14,14,14,0.16);
+            --ink:         #0e0e0e;
+            --ink-soft:    #2a2a2a;
+            --ink-muted:   #6b6b6b;
+            --ink-faint:   #9a9a9a;
+            --accent:      #2563eb;
+            --accent-dim:  rgba(37,99,235,0.07);
+            --accent-glow: rgba(37,99,235,0.12);
+            --green:       #059669;
+            --green-dim:   rgba(5,150,105,0.10);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: light;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 400;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            padding-top: 68px;
+        }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px;
+            background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-img.hide { display: none; }
+        .logo-text {
+            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            letter-spacing: -0.3px; display: none;
+        }
+        .logo-text.show { display: block; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links > a {
+            font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links > a:hover { color: var(--ink); }
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-btn {
+            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
+            padding: 0; transition: color 0.2s;
+        }
+        .nav-dropdown-btn:hover { color: var(--ink); }
+        a.nav-dropdown-btn { text-decoration: none; }
+        .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
+        .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
+        .nav-dropdown-menu {
+            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 10px;
+            padding: 8px 0; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            z-index: 300;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+        .nav-dropdown-menu::before {
+            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
+        }
+        .nav-dropdown-menu a {
+            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
+            text-decoration: none; transition: all 0.15s; white-space: nowrap;
+        }
+        .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
+        .nav-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 10px 22px !important; border-radius: 6px !important;
+            font-weight: 400 !important; font-size: 14px !important;
+            transition: opacity 0.2s !important; text-decoration: none !important;
+        }
+        .nav-cta:hover { opacity: 0.85 !important; }
+        .theme-btn {
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
+        }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; }
+        .i-sun  { display: none;  }
+        [data-theme="light"] .i-moon { display: none; }
+        [data-theme="light"] .i-sun  { display: block; }
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+        .mob-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
+            max-height: calc(100vh - 68px); overflow-y: auto;
+        }
+        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
+        .mob-menu-top {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu-title {
+            font-size: 13px; font-weight: 500; color: var(--ink-faint);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .mob-menu a {
+            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
+            text-decoration: none; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu a:hover { color: var(--ink); }
+        .mob-section-label {
+            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
+        }
+        .mob-section-label.compact { padding: 8px 0 2px; }
+        .mob-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 14px 0 !important; border-radius: 6px; text-align: center;
+            margin-top: 8px; border-bottom: none !important;
+        }
+        .mob-cta:hover { opacity: 0.85; }
+        .mob-theme-btn { width: 36px; height: 36px; flex-shrink: 0; }
+
+        /* ── HERO ── */
+        .page-hero {
+            padding: 140px 48px 64px;
+            border-bottom: 1px solid var(--border);
+            position: relative; overflow: hidden;
+        }
+        .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; opacity: 0.3; pointer-events: none; }
+        .hero-glow { position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); pointer-events: none; }
+        .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+        .hero-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+        .page-hero h1 { font-family: var(--serif); font-size: clamp(36px,5vw,56px); line-height: 1.1; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 20px; }
+        .page-hero h1 em { font-style: italic; color: var(--accent); }
+        .hero-sub { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
+
+        /* ── LAYOUT ── */
+        .app-section { padding: 64px 48px 100px; }
+        .app-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start; }
+
+        /* ── CHECKOUT CARD ── */
+        .checkout-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+        .checkout-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
+        }
+        .checkout-body { padding: 36px 40px 40px; }
+
+        .section-label {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--ink-faint); margin-bottom: 20px;
+        }
+
+        /* ── FORM FIELDS ── */
+        .field-group { margin-bottom: 18px; }
+        .field-group label { display: block; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
+        .field-group input {
+            width: 100%; padding: 14px 16px;
+            background: var(--bg-lift); border: 1px solid var(--border);
+            border-radius: 8px; color: var(--ink); font-family: var(--sans);
+            font-size: 15px; font-weight: 400; transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .field-group input::placeholder { color: var(--ink-faint); }
+        .field-group input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+        /* ── DISCOUNT CODE ── */
+        .discount-row { display: flex; gap: 10px; align-items: flex-end; }
+        .discount-row .field-group { flex: 1; margin-bottom: 0; }
+        .btn-apply {
+            background: var(--bg-lift); border: 1px solid var(--border-mid);
+            color: var(--ink-muted); padding: 14px 20px; border-radius: 8px;
+            font-family: var(--sans); font-size: 14px; font-weight: 400;
+            cursor: pointer; transition: all 0.2s; white-space: nowrap;
+        }
+        .btn-apply:hover { border-color: var(--accent); color: var(--ink); }
+        .discount-msg {
+            font-size: 13px; margin-top: 10px; line-height: 1.5;
+            display: none;
+        }
+        .discount-msg.success { display: block; color: var(--green); }
+        .discount-msg.error { display: block; color: #ef4444; }
+
+        /* ── ORDER SUMMARY ── */
+        .order-summary {
+            background: var(--bg-lift); border: 1px solid var(--border);
+            border-radius: 10px; padding: 24px; margin-top: 28px;
+        }
+        .order-line {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 8px 0; font-size: 14px; color: var(--ink-muted);
+        }
+        .order-line.discount { color: var(--green); display: none; }
+        .order-line.discount.active { display: flex; }
+        .order-divider { height: 1px; background: var(--border); margin: 8px 0; }
+        .order-total {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 8px 0; font-size: 18px; color: var(--ink); font-weight: 500;
+        }
+
+        /* ── PAY BUTTON ── */
+        .btn-pay {
+            width: 100%; margin-top: 28px;
+            background: var(--accent); color: #fff; border: none;
+            padding: 16px 32px; border-radius: 8px;
+            font-family: var(--sans); font-size: 16px; font-weight: 500;
+            cursor: pointer; transition: opacity 0.2s, transform 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .btn-pay:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+        .btn-pay:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+        .btn-pay svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+        .pay-note {
+            text-align: center; font-size: 12px; color: var(--ink-faint);
+            margin-top: 14px; line-height: 1.55;
+        }
+        .pay-note a { color: var(--accent); text-decoration: none; }
+
+        .pay-error {
+            display: none; margin-top: 14px; padding: 14px 18px;
+            background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2);
+            border-radius: 8px; font-size: 13px; color: #ef4444; line-height: 1.55;
+        }
+        .pay-error.active { display: block; }
+
+        /* ── SECURE BADGE ── */
+        .secure-badge {
+            display: flex; align-items: center; justify-content: center;
+            gap: 8px; margin-top: 16px; font-size: 12px; color: var(--ink-faint);
+        }
+        .secure-badge svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+        /* ── SIDEBAR ── */
+        .app-sidebar { position: sticky; top: 96px; }
+        .sidebar-card { background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 12px; padding: 32px; margin-bottom: 16px; position: relative; overflow: hidden; }
+        .sidebar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; }
+        .sc-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
+        .checklist { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+        .checklist li { font-size: 13px; color: var(--ink-muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+        .checklist li::before { content: '→'; color: var(--accent); font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+        .sc-foot { margin-top: 4px; padding-top: 16px; font-size: 13px; color: var(--ink-faint); display: flex; align-items: center; gap: 8px; }
+        .sdot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 3px var(--accent-dim); animation: sdpulse 2.5s ease infinite; }
+        @keyframes sdpulse { 0%,100%{box-shadow:0 0 0 3px var(--accent-dim)} 50%{box-shadow:0 0 0 6px transparent} }
+
+        .contact-block {
+            margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+        }
+        .contact-block p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; }
+        .contact-block a { color: var(--accent); text-decoration: none; }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { display: flex; align-items: center; gap: 10px; }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:1024px) {
+            .page-hero { padding: 130px 32px 56px; } .site-header{padding:0 32px;} footer{padding:40px 32px;}
+            .app-section { padding: 48px 32px 80px; }
+            .app-layout { grid-template-columns: 1fr; gap: 40px; }
+            .app-sidebar { position: static; }
+        }
+        @media(max-width:768px) {
+            .page-hero { padding: 110px 24px 48px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
+            .app-section { padding: 40px 24px 64px; }
+            .checkout-body { padding: 24px 24px 28px; }
+            .field-row { grid-template-columns: 1fr; }
+            .discount-row { flex-direction: column; }
+            .btn-apply { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo" id="logoLink">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+            <span class="logo-text" id="logoText">QuoteLeads</span>
+        </a>
+        <nav class="nav-links">
+            <div class="nav-dropdown">
+                <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                <div class="nav-dropdown-menu">
+                    <a href="/#what-we-do">What We Do</a>
+                    <a href="/#process">How It Works</a>
+                    <a href="/#investment">Investment</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/blog">Blog</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <button class="nav-dropdown-btn">Industries <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="nav-dropdown-menu">
+                    <a href="/solar-leads">Solar</a>
+                    <a href="/hvac-leads">HVAC</a>
+                    <a href="/roofing-leads">Roofing</a>
+                    <a href="/renovation-leads">Renovation</a>
+                </div>
+            </div>
+            <a href="/pilot">Pilot</a>
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <a href="/get-started" class="nav-cta">Get Started</a>
+        </nav>
+        <button class="mob-btn" id="mobBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <nav class="mob-menu" id="mobMenu">
+        <div class="mob-menu-top">
+            <span class="mob-menu-title">Menu</span>
+            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
+        <a href="/">Home</a>
+        <a href="/#what-we-do">What We Do</a>
+        <a href="/#process">How It Works</a>
+        <a href="/#investment">Investment</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog">Blog</a>
+        <span class="mob-section-label">Industries</span>
+        <a href="/solar-leads">Solar</a>
+        <a href="/hvac-leads">HVAC</a>
+        <a href="/roofing-leads">Roofing</a>
+        <a href="/renovation-leads">Renovation</a>
+        <span class="mob-section-label compact">&nbsp;</span>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started" class="mob-cta">Get Started</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="page-hero-inner">
+        <div class="hero-eyebrow">Checkout</div>
+        <h1>Complete your<br><em>pilot payment.</em></h1>
+        <p class="hero-sub">One last step. Confirm your lead delivery details and complete payment to kick off your Market Pulse pilot.</p>
+    </div>
+</section>
+
+<!-- CHECKOUT -->
+<section class="app-section">
+    <div class="app-layout">
+
+        <!-- FORM -->
+        <div>
+            <div class="checkout-card" id="checkoutCard">
+                <div class="checkout-body">
+
+                    <!-- Lead Delivery Details -->
+                    <div class="section-label">Lead Delivery Details</div>
+                    <p style="font-size:13px; color:var(--ink-faint); margin-bottom:20px; line-height:1.55;">
+                        These are the contact details where your exclusive leads will be sent. They may be different from your account contact info.
+                    </p>
+
+                    <div class="field-group">
+                        <label>Lead Delivery Phone Number</label>
+                        <input type="tel" id="deliveryPhone" placeholder="04XX XXX XXX">
+                    </div>
+                    <div class="field-group">
+                        <label>Lead Delivery Email</label>
+                        <input type="email" id="deliveryEmail" placeholder="leads@yourcompany.com.au">
+                    </div>
+
+                    <!-- Discount Code -->
+                    <div style="margin-top:28px; padding-top:28px; border-top:1px solid var(--border);">
+                        <div class="section-label">Discount Code</div>
+                        <div class="discount-row">
+                            <div class="field-group">
+                                <input type="text" id="discountCode" placeholder="Enter code (optional)">
+                            </div>
+                            <button class="btn-apply" id="applyBtn" onclick="applyDiscount()">Apply</button>
+                        </div>
+                        <div class="discount-msg" id="discountMsg"></div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="order-summary">
+                        <div class="section-label" style="margin-bottom:12px;">Order Summary</div>
+                        <div class="order-line">
+                            <span>Market Pulse Pilot</span>
+                            <span>$650.00</span>
+                        </div>
+                        <div class="order-line discount" id="discountLine">
+                            <span id="discountLabel">Discount</span>
+                            <span id="discountAmount"></span>
+                        </div>
+                        <div class="order-line">
+                            <span>GST (10%)</span>
+                            <span id="gstAmount">$65.00</span>
+                        </div>
+                        <div class="order-divider"></div>
+                        <div class="order-total">
+                            <span>Total</span>
+                            <span id="totalAmount">$715.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Pay Button -->
+                    <button class="btn-pay" id="payBtn" disabled onclick="handlePayment()">
+                        <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                        <span id="payBtnText">Pay $715.00</span>
+                    </button>
+
+                    <div class="pay-error" id="payError"></div>
+
+                    <p class="pay-note">
+                        Secure payment powered by Stripe. Questions? <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+                    </p>
+
+                    <div class="secure-badge">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span>256-bit SSL encrypted &middot; PCI compliant</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="app-sidebar">
+            <div class="sidebar-card">
+                <div class="sc-lbl">What happens next</div>
+                <ul class="checklist">
+                    <li>Payment is processed securely via Stripe</li>
+                    <li>Our team configures your campaign within 24 hours</li>
+                    <li>Exclusive, qualified leads start arriving within 24-48 hours</li>
+                    <li>Every lead is phone-verified with a full audit trail</li>
+                    <li>Delivered instantly via SMS + email to your chosen details</li>
+                </ul>
+                <div class="sc-foot">
+                    <span class="sdot"></span>
+                    <span>Limited spots each month per area</span>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sc-lbl">Need help?</div>
+                <p style="font-size:13px; color:var(--ink-muted); line-height:1.65;">
+                    If you have questions about pricing, your pilot, or anything else - reach out and we'll get back to you quickly.
+                </p>
+                <div class="contact-block">
+                    <p><a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span>QuoteLeads</span>
+    </div>
+    <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/pilot">Pilot</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+</footer>
+
+<script>
+    // ── Theme ──
+    (function(){
+        var saved = localStorage.getItem('ql-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+    })();
+
+    function toggleTheme(){
+        var cur = document.documentElement.getAttribute('data-theme');
+        var next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ql-theme', next);
+        updateLogos();
+    }
+
+    var themeBtn = document.getElementById('themeBtn');
+    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    var mobThemeBtn = document.getElementById('mobThemeBtn');
+    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+
+    function updateLogos(){
+        var theme = document.documentElement.getAttribute('data-theme');
+        var headerImg = document.getElementById('logoImg');
+        var footImg   = document.getElementById('footLogoImg');
+        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
+        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
+        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
+    }
+    updateLogos();
+
+    var logoImg = document.getElementById('logoImg');
+    if(logoImg){
+        logoImg.addEventListener('error', function(){
+            this.style.display = 'none';
+            var txt = document.getElementById('logoText');
+            if(txt){ txt.style.display = 'block'; }
+        });
+    }
+
+    // ── Mobile menu ──
+    var mobBtn  = document.getElementById('mobBtn');
+    var mobMenu = document.getElementById('mobMenu');
+    if(mobBtn && mobMenu){
+        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
+        mobMenu.querySelectorAll('a').forEach(function(a){
+            a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
+        });
+    }
+</script>
+
+<script>
+(function(){
+    /* ================================================================
+       CONFIGURATION
+       ================================================================
+       Create a Product + Price in your Stripe Dashboard:
+       1. Go to https://dashboard.stripe.com/products
+       2. Create a product "Market Pulse Pilot" at $650.00 AUD
+       3. Enable tax if desired, or set the price to $715.00 (inc GST)
+       4. Copy the Price ID (starts with price_) and paste below
+       5. To support discount codes, create Promotion Codes in
+          Stripe Dashboard > Coupons, then add them to DISCOUNT_CODES
+
+       For discount codes: add entries below mapping code → price ID.
+       Create a separate Price for each discounted amount in Stripe.
+       ================================================================ */
+    var STRIPE_PUBLISHABLE_KEY = 'pk_live_51R8lfGGDfpSvNOmBPSXrD7uHeR9Xu5VE26lKzkpBb2PImwmdrj1ckqujXM6chUqPLFzwYp4HVJmRAj0qPTfiS9wW00jqLkG1S4';
+    var DEFAULT_PRICE_ID = 'REPLACE_WITH_STRIPE_PRICE_ID';
+
+    /*  Discount codes - map code strings to Stripe Price IDs + display info.
+        Example:
+        var DISCOUNT_CODES = {
+            'EARLYBIRD': { priceId: 'price_xxx', discount: 65, label: '10% off' },
+            'PARTNER50': { priceId: 'price_yyy', discount: 50, label: '$50 off' }
+        };
+        discount = dollar amount off the $650 base (before GST).
+    */
+    var DISCOUNT_CODES = {};
+
+    var WEBHOOK_URL = 'https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5';
+
+    // ── State ──
+    var basePrice = 650;
+    var discountApplied = 0;
+    var activePriceId = DEFAULT_PRICE_ID;
+    var activeDiscountCode = '';
+
+    // ── Pre-fill from intake data ──
+    var intakeData = {};
+    try { intakeData = JSON.parse(localStorage.getItem('ql-pilot-intake') || '{}'); } catch(e){}
+
+    var deliveryPhoneEl = document.getElementById('deliveryPhone');
+    var deliveryEmailEl = document.getElementById('deliveryEmail');
+
+    if(intakeData.phone) deliveryPhoneEl.value = intakeData.phone;
+    if(intakeData.email) deliveryEmailEl.value = intakeData.email;
+
+    // ── Validation ──
+    function checkReady(){
+        var phone = deliveryPhoneEl.value.trim();
+        var email = deliveryEmailEl.value.trim();
+        document.getElementById('payBtn').disabled = !(phone && email);
+    }
+    deliveryPhoneEl.addEventListener('input', checkReady);
+    deliveryEmailEl.addEventListener('input', checkReady);
+    checkReady();
+
+    // ── Discount ──
+    function updatePricing(){
+        var subtotal = basePrice - discountApplied;
+        var gst = Math.round(subtotal * 0.1 * 100) / 100;
+        var total = subtotal + gst;
+
+        document.getElementById('gstAmount').textContent = '$' + gst.toFixed(2);
+        document.getElementById('totalAmount').textContent = '$' + total.toFixed(2);
+        document.getElementById('payBtnText').textContent = 'Pay $' + total.toFixed(2);
+
+        var discountLine = document.getElementById('discountLine');
+        if(discountApplied > 0){
+            discountLine.classList.add('active');
+            document.getElementById('discountLabel').textContent = 'Discount (' + activeDiscountCode + ')';
+            document.getElementById('discountAmount').textContent = '-$' + discountApplied.toFixed(2);
+        } else {
+            discountLine.classList.remove('active');
+        }
+    }
+
+    window.applyDiscount = function(){
+        var code = document.getElementById('discountCode').value.trim().toUpperCase();
+        var msg = document.getElementById('discountMsg');
+
+        if(!code){
+            msg.className = 'discount-msg error';
+            msg.textContent = 'Please enter a discount code.';
+            return;
+        }
+
+        if(DISCOUNT_CODES[code]){
+            var dc = DISCOUNT_CODES[code];
+            activePriceId = dc.priceId;
+            discountApplied = dc.discount;
+            activeDiscountCode = code;
+            msg.className = 'discount-msg success';
+            msg.textContent = '✓ Code applied — ' + dc.label;
+            updatePricing();
+        } else {
+            activePriceId = DEFAULT_PRICE_ID;
+            discountApplied = 0;
+            activeDiscountCode = '';
+            msg.className = 'discount-msg error';
+            msg.textContent = 'Invalid discount code. Please try again.';
+            updatePricing();
+        }
+    };
+
+    // ── Payment ──
+    window.handlePayment = function(){
+        var phone = deliveryPhoneEl.value.trim();
+        var email = deliveryEmailEl.value.trim();
+        var payBtn = document.getElementById('payBtn');
+        var payError = document.getElementById('payError');
+
+        if(!phone || !email) return;
+
+        // Guard against deploying with placeholder Price ID
+        if(activePriceId === 'REPLACE_WITH_STRIPE_PRICE_ID'){
+            payError.textContent = 'Payment is not configured yet. Please contact contact@quoteleads.com.au for assistance.';
+            payError.classList.add('active');
+            return;
+        }
+
+        payBtn.disabled = true;
+        payBtn.querySelector('span').textContent = 'Processing…';
+        payError.classList.remove('active');
+
+        // Send checkout data to webhook
+        var checkoutData = {
+            source: 'pilot-checkout',
+            delivery_phone: phone,
+            delivery_email: email,
+            discount_code: activeDiscountCode || '',
+            discount_amount: discountApplied,
+            intake_first_name: intakeData.first_name || '',
+            intake_last_name: intakeData.last_name || '',
+            intake_company: intakeData.company || '',
+            intake_email: intakeData.email || '',
+            intake_phone: intakeData.phone || ''
+        };
+
+        fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(checkoutData),
+            keepalive: true
+        }).catch(function(e){ console.error('Webhook error:', e); });
+
+        // Save delivery details for confirmation page
+        localStorage.setItem('ql-pilot-checkout', JSON.stringify({
+            delivery_phone: phone,
+            delivery_email: email,
+            discount_code: activeDiscountCode
+        }));
+
+        // Redirect to Stripe Checkout
+        var stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+        stripe.redirectToCheckout({
+            lineItems: [{ price: activePriceId, quantity: 1 }],
+            mode: 'payment',
+            successUrl: window.location.origin + '/pilot-confirmed',
+            cancelUrl: window.location.origin + '/pilot-checkout',
+            clientReferenceId: 'pilot_' + (intakeData.email || '') + '_' + Date.now(),
+            customerEmail: intakeData.email || email
+        }).then(function(result){
+            if(result.error){
+                payError.textContent = result.error.message;
+                payError.classList.add('active');
+                payBtn.disabled = false;
+                payBtn.querySelector('span').textContent = 'Pay $' + (basePrice - discountApplied + Math.round((basePrice - discountApplied) * 0.1 * 100) / 100).toFixed(2);
+            }
+        });
+    };
+
+    updatePricing();
+})();
+</script>
+</body>
+</html>

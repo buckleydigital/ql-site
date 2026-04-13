@@ -448,6 +448,20 @@
         .foot-copy { font-size: 13px; color: var(--ink-faint); }
 
 
+        /* Sub-type grid */
+        .subtype-grid { display: none; margin-top: 16px; }
+        .subtype-grid.show { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; animation: stepIn 0.35s ease; }
+        .opt-card.multi .opt-label::before { border-radius: 3px; }
+
+        /* Radius slider */
+        .radius-slider-wrap { margin-top: 18px; }
+        .radius-slider-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .radius-val { font-family: var(--serif); font-size: 22px; color: var(--accent); }
+        .radius-range { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 3px; background: var(--border); outline: none; }
+        .radius-range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); cursor: pointer; box-shadow: 0 0 0 4px var(--accent-dim); }
+        .radius-range::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); cursor: pointer; border: none; box-shadow: 0 0 0 4px var(--accent-dim); }
+        .radius-bounds { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: var(--ink-faint); }
+
         @media(max-width:1024px) {
             
             .page-hero { padding: 130px 32px 56px; } .site-header{padding:0 32px;} footer{padding:40px 32px;}
@@ -466,6 +480,7 @@
             .form-loading { padding: 48px 24px; }
             .form-success { padding: 36px 24px; }
             .opt-grid.cols-2 { grid-template-columns: 1fr; }
+            .subtype-grid.show { grid-template-columns: 1fr; }
             .field-row, .radius-row { grid-template-columns: 1fr; }
             .btn-row { flex-direction: column-reverse; }
             .btn-back { width: 100%; }
@@ -545,7 +560,7 @@
     <div class="page-hero-inner">
         <div class="hero-eyebrow">Pilot Intake</div>
         <h1>Lock in your<br><em>proof round.</em></h1>
-        <p class="hero-sub">Five quick steps. We'll use this to configure your Market Pulse campaign - your trade, your area, your delivery preferences. Our team will be in touch shortly after you submit.</p>
+        <p class="hero-sub">Select your lead type, set your area, and choose your package. We'll configure everything from there.</p>
     </div>
 </section>
 
@@ -569,31 +584,57 @@
                 <!-- Steps -->
                 <div class="form-body" id="formBody">
 
-                    <!-- STEP 1: Trade -->
+                    <!-- STEP 1: Lead Type -->
                     <div class="form-step active" id="step1">
-                        <div class="step-q">What trade are you in?</div>
-                        <div class="step-hint">We use this to target the right homeowners in your area.</div>
-                        <div class="opt-grid cols-2">
+                        <div class="step-q">What type of leads do you need?</div>
+                        <div class="step-hint">Select your industry, then choose your lead type.</div>
+                        <div class="opt-grid cols-2" id="industryGrid">
                             <div class="opt-card" data-field="trade" data-value="Solar">
                                 <div class="opt-label">Solar</div>
                             </div>
                             <div class="opt-card" data-field="trade" data-value="Roofing">
                                 <div class="opt-label">Roofing</div>
                             </div>
+                            <div class="opt-card" data-field="trade" data-value="Renovations">
+                                <div class="opt-label">Renovations</div>
+                            </div>
                             <div class="opt-card" data-field="trade" data-value="HVAC">
                                 <div class="opt-label">HVAC</div>
                             </div>
-                            <div class="opt-card" data-field="trade" data-value="Renovation / Building">
-                                <div class="opt-label">Renovation / Building</div>
+                        </div>
+                        <div class="subtype-grid" id="subtypeSolar">
+                            <div class="opt-card multi" data-subtype="Solar + Battery">
+                                <div class="opt-label">Solar + Battery</div>
                             </div>
-                            <div class="opt-card" data-field="trade" data-value="Other">
-                                <div class="opt-label">Other high-ticket trade</div>
+                            <div class="opt-card multi" data-subtype="Battery">
+                                <div class="opt-label">Battery</div>
                             </div>
                         </div>
-                        <div class="other-field" id="otherTradeField">
-                            <div class="field-group" style="margin-bottom:0;">
-                                <label>Describe your trade</label>
-                                <input type="text" id="otherTradeInput" placeholder="e.g. Pool installation, Landscaping...">
+                        <div class="subtype-grid" id="subtypeRoofing">
+                            <div class="opt-card multi" data-subtype="Roof Restorations">
+                                <div class="opt-label">Roof Restorations</div>
+                            </div>
+                            <div class="opt-card multi" data-subtype="Roof Replacements">
+                                <div class="opt-label">Roof Replacements</div>
+                            </div>
+                        </div>
+                        <div class="subtype-grid" id="subtypeRenovations">
+                            <div class="opt-card multi" data-subtype="Bathrooms">
+                                <div class="opt-label">Bathrooms</div>
+                            </div>
+                            <div class="opt-card multi" data-subtype="Kitchens">
+                                <div class="opt-label">Kitchens</div>
+                            </div>
+                            <div class="opt-card multi" data-subtype="Decks">
+                                <div class="opt-label">Decks</div>
+                            </div>
+                            <div class="opt-card multi" data-subtype="Fencing">
+                                <div class="opt-label">Fencing</div>
+                            </div>
+                        </div>
+                        <div class="subtype-grid" id="subtypeHVAC">
+                            <div class="opt-card multi" data-subtype="Split + Ducted System Installs">
+                                <div class="opt-label">Split + Ducted System Installs</div>
                             </div>
                         </div>
                         <div class="btn-row">
@@ -604,27 +645,18 @@
                     <!-- STEP 2: Service Area -->
                     <div class="form-step" id="step2">
                         <div class="step-q">Where do you service?</div>
-                        <div class="step-hint">Enter a central postcode and radius. We'll target homeowners within that zone.</div>
-                        <div class="radius-row">
-                            <div class="field-group" style="margin-bottom:0;">
-                                <label>Centre postcode</label>
-                                <input type="text" id="servicePostcode" placeholder="e.g. 2155" maxlength="4" inputmode="numeric">
+                        <div class="step-hint">Enter a central postcode and slide to set your radius.</div>
+                        <div class="field-group" style="margin-bottom:0;">
+                            <label>Centre postcode</label>
+                            <input type="text" id="servicePostcode" placeholder="e.g. 2155" maxlength="4" inputmode="numeric">
+                        </div>
+                        <div class="radius-slider-wrap">
+                            <div class="radius-slider-label">
+                                <label style="font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-faint);margin:0;">Radius</label>
+                                <span class="radius-val" id="radiusVal">30km radius</span>
                             </div>
-                            <div class="field-group" style="margin-bottom:0;">
-                                <label>Radius</label>
-                                <select id="serviceRadius">
-                                    <option value="30km" selected>30 km</option>
-                                    <option value="40km">40 km</option>
-                                    <option value="50km">50 km</option>
-                                    <option value="75km">75 km</option>
-                                    <option value="100km">100 km</option>
-                                    <option value="125km">125 km</option>
-                                    <option value="150km">150 km</option>
-                                    <option value="175km">175 km</option>
-                                    <option value="200km">200 km</option>
-                                    <option value="250km">250 km</option>
-                                </select>
-                            </div>
+                            <input type="range" class="radius-range" id="serviceRadius" min="30" max="250" step="10" value="30">
+                            <div class="radius-bounds"><span>30km</span><span>250km</span></div>
                         </div>
                         <div class="radius-or">or</div>
                         <div class="postcode-alt">
@@ -636,49 +668,10 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3: Lead Delivery -->
+                    <!-- STEP 3: Your Details -->
                     <div class="form-step" id="step3">
-                        <div class="step-q">How should we deliver your leads?</div>
-                        <div class="step-hint">Select one or both. Every lead hits you the moment they come in.</div>
-                        <div class="delivery-opts">
-                            <div class="delivery-opt active" id="delEmail" onclick="toggleDelivery('email')">
-                                <div class="delivery-opt-left">
-                                    <div class="delivery-opt-icon">
-                                        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
-                                    </div>
-                                    <div>
-                                        <div class="delivery-opt-label">Email</div>
-                                        <div class="delivery-opt-desc">Full lead details to your inbox instantly</div>
-                                    </div>
-                                </div>
-                                <div class="delivery-toggle"></div>
-                            </div>
-                            <div class="delivery-opt active" id="delSMS" onclick="toggleDelivery('sms')">
-                                <div class="delivery-opt-left">
-                                    <div class="delivery-opt-icon">
-                                        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                                    </div>
-                                    <div>
-                                        <div class="delivery-opt-label">SMS</div>
-                                        <div class="delivery-opt-desc">Lead alert straight to your phone</div>
-                                    </div>
-                                </div>
-                                <div class="delivery-toggle"></div>
-                            </div>
-                        </div>
-                        <div class="delivery-note">
-                            <strong>CRM integration isn't included in the pilot.</strong> That's part of the full system build - where leads flow directly into your pipeline, trigger follow-up sequences, and get tracked end-to-end.
-                        </div>
-                        <div class="btn-row">
-                            <button class="btn-back" onclick="goPrev(3)">Back</button>
-                            <button class="btn-next" id="next3" onclick="goNext(3)">Continue</button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 4: Contact Details -->
-                    <div class="form-step" id="step4">
-                        <div class="step-q">Your details.</div>
-                        <div class="step-hint">This is where your leads get delivered - double check everything.</div>
+                        <div class="step-q">Where should we deliver your leads?</div>
+                        <div class="step-hint">Leads are sent to the email and phone below the moment they come in.</div>
                         <div class="field-row">
                             <div class="field-group">
                                 <label>First name</label>
@@ -695,12 +688,32 @@
                         </div>
                         <div class="field-row">
                             <div class="field-group">
+                                <label>Email</label>
+                                <input type="email" id="email" placeholder="you@company.com.au">
+                            </div>
+                            <div class="field-group">
                                 <label>Phone</label>
                                 <input type="tel" id="phone" placeholder="04XX XXX XXX">
                             </div>
-                            <div class="field-group">
-                                <label>Email</label>
-                                <input type="email" id="email" placeholder="you@company.com.au">
+                        </div>
+                        <div class="btn-row">
+                            <button class="btn-back" onclick="goPrev(3)">Back</button>
+                            <button class="btn-next" id="next3" disabled onclick="goNext(3)">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Package -->
+                    <div class="form-step" id="step4">
+                        <div class="step-q">What are you after?</div>
+                        <div class="step-hint">Choose the option that fits where you're at.</div>
+                        <div class="opt-grid">
+                            <div class="opt-card" data-field="package" data-value="Starter — Custom Integration">
+                                <div class="opt-label">Starter — Custom Integration</div>
+                                <div class="opt-sub">Plug QuoteLeads into your existing workflow. We configure lead delivery, branding, and targeting.</div>
+                            </div>
+                            <div class="opt-card" data-field="package" data-value="Full Build">
+                                <div class="opt-label">Full Build</div>
+                                <div class="opt-sub">End-to-end system under your brand. Landing pages, AI follow-up, CRM integration, and ongoing management.</div>
                             </div>
                         </div>
                         <div class="btn-row">
@@ -895,72 +908,109 @@
     var turnstileRendered = false;
 
     var formData = {
-        trade: '', service_postcode: '', service_radius: '30km',
-        delivery_email: true, delivery_sms: true,
+        trade: '', lead_subtype: [], service_postcode: '', service_radius: '30km',
         first_name: '', last_name: '', company: '', phone: '', email: '',
+        package: '',
         confirm_guarantee: false, confirm_no_conversion: false,
         confirm_consent: false, confirm_terms: false
     };
 
-    // ── OPTION CARDS ──
-    document.querySelectorAll('.opt-card').forEach(function(card){
+    var subtypeMap = {
+        'Solar': 'subtypeSolar',
+        'Roofing': 'subtypeRoofing',
+        'Renovations': 'subtypeRenovations',
+        'HVAC': 'subtypeHVAC'
+    };
+
+    // ── STEP 1: INDUSTRY CARDS ──
+    document.querySelectorAll('#industryGrid .opt-card').forEach(function(card){
         card.addEventListener('click', function(){
-            var field = this.getAttribute('data-field');
-            document.querySelectorAll('.opt-card[data-field="' + field + '"]').forEach(function(c){ c.classList.remove('selected'); });
+            var val = this.getAttribute('data-value');
+            // Deselect all industry cards
+            document.querySelectorAll('#industryGrid .opt-card').forEach(function(c){ c.classList.remove('selected'); });
             this.classList.add('selected');
-            formData[field] = this.getAttribute('data-value');
+            formData.trade = val;
 
-            var nextBtn = document.getElementById('next' + currentStep);
-            if(nextBtn) nextBtn.disabled = false;
+            // Reset sub-types
+            formData.lead_subtype = [];
+            document.querySelectorAll('.subtype-grid').forEach(function(g){
+                g.classList.remove('show');
+                g.querySelectorAll('.opt-card').forEach(function(c){ c.classList.remove('selected'); });
+            });
 
-            if(field === 'trade'){
-                var otherField = document.getElementById('otherTradeField');
-                if(formData.trade === 'Other'){
-                    otherField.classList.add('show');
-                } else {
-                    otherField.classList.remove('show');
-                    document.getElementById('otherTradeInput').value = '';
+            // Show the correct sub-type grid
+            var gridId = subtypeMap[val];
+            if(gridId){
+                var grid = document.getElementById(gridId);
+                grid.classList.add('show');
+                // HVAC: auto-select the single option
+                if(val === 'HVAC'){
+                    var hvacCard = grid.querySelector('.opt-card');
+                    hvacCard.classList.add('selected');
+                    formData.lead_subtype = [hvacCard.getAttribute('data-subtype')];
                 }
             }
+            checkStep1();
         });
     });
 
-    // ── POSTCODE VALIDATION ──
+    // ── STEP 1: SUB-TYPE CARDS (multi-select) ──
+    document.querySelectorAll('.subtype-grid .opt-card').forEach(function(card){
+        card.addEventListener('click', function(){
+            this.classList.toggle('selected');
+            // Rebuild lead_subtype from visible grid
+            var visibleGrid = this.closest('.subtype-grid');
+            formData.lead_subtype = [];
+            visibleGrid.querySelectorAll('.opt-card.selected').forEach(function(c){
+                formData.lead_subtype.push(c.getAttribute('data-subtype'));
+            });
+            checkStep1();
+        });
+    });
+
+    function checkStep1(){
+        var btn = document.getElementById('next1');
+        btn.disabled = !(formData.trade && formData.lead_subtype.length > 0);
+    }
+
+    // ── STEP 2: POSTCODE + SLIDER ──
     document.getElementById('servicePostcode').addEventListener('input', function(){
         formData.service_postcode = this.value.trim();
         document.getElementById('next2').disabled = formData.service_postcode.length < 4;
     });
-    document.getElementById('serviceRadius').addEventListener('change', function(){
-        formData.service_radius = this.value;
+
+    var radiusSlider = document.getElementById('serviceRadius');
+    var radiusLabel = document.getElementById('radiusVal');
+    radiusSlider.addEventListener('input', function(){
+        var v = this.value;
+        formData.service_radius = v + 'km';
+        radiusLabel.textContent = v + 'km radius';
     });
 
-    // ── DELIVERY TOGGLES ──
-    window.toggleDelivery = function(type){
-        if(type === 'email'){
-            formData.delivery_email = !formData.delivery_email;
-            document.getElementById('delEmail').classList.toggle('active', formData.delivery_email);
-        } else {
-            formData.delivery_sms = !formData.delivery_sms;
-            document.getElementById('delSMS').classList.toggle('active', formData.delivery_sms);
-        }
-        var next3 = document.getElementById('next3');
-        if(next3) next3.disabled = !formData.delivery_email && !formData.delivery_sms;
-    };
-
-    // ── CONTACT VALIDATION ──
-    function checkStep4(){
+    // ── STEP 3: CONTACT VALIDATION ──
+    function checkStep3(){
         var fn = document.getElementById('first_name').value.trim();
         var ln = document.getElementById('last_name').value.trim();
         var co = document.getElementById('company').value.trim();
         var ph = document.getElementById('phone').value.trim();
         var em = document.getElementById('email').value.trim();
-        document.getElementById('next4').disabled = !(fn && ln && co && ph && em);
+        document.getElementById('next3').disabled = !(fn && ln && co && ph && em);
     }
     ['first_name','last_name','company','phone','email'].forEach(function(id){
-        document.getElementById(id).addEventListener('input', checkStep4);
+        document.getElementById(id).addEventListener('input', checkStep3);
     });
 
-    // ── CONFIRM CHECKBOXES ──
+    // ── STEP 4: PACKAGE CARDS (single select) ──
+    document.querySelectorAll('#step4 .opt-card').forEach(function(card){
+        card.addEventListener('click', function(){
+            document.querySelectorAll('#step4 .opt-card').forEach(function(c){ c.classList.remove('selected'); });
+            this.classList.add('selected');
+            formData.package = this.getAttribute('data-value');
+            document.getElementById('next4').disabled = false;
+        });
+    });
+
+    // ── STEP 5: CONFIRM CHECKBOXES ──
     window.toggleConfirm = function(el){
         el.classList.toggle('checked');
         var key = 'confirm_' + el.getAttribute('data-confirm');
@@ -992,12 +1042,7 @@
     }
 
     window.goNext = function(fromStep){
-        if(fromStep === 1 && formData.trade === 'Other'){
-            var otherVal = document.getElementById('otherTradeInput').value.trim();
-            if(!otherVal){ document.getElementById('otherTradeInput').focus(); return; }
-            formData.trade = otherVal;
-        }
-        if(fromStep === 4){
+        if(fromStep === 3){
             formData.first_name = document.getElementById('first_name').value.trim();
             formData.last_name = document.getElementById('last_name').value.trim();
             formData.company = document.getElementById('company').value.trim();
@@ -1033,6 +1078,18 @@
         document.getElementById('formProgress').style.display = 'none';
         document.getElementById('formLoading').classList.add('active');
 
+        // Save intake data for the checkout page
+        localStorage.setItem('ql-pilot-intake', JSON.stringify({
+            first_name: formData.first_name,
+            last_name: formData.last_name,
+            company: formData.company,
+            phone: formData.phone,
+            email: formData.email,
+            trade: formData.trade,
+            lead_subtype: formData.lead_subtype,
+            package: formData.package
+        }));
+
         fetch('https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -1042,10 +1099,9 @@
 
         if(typeof fbq !== 'undefined') fbq('track', 'Lead');
 
+        // Redirect to checkout page after brief loading animation
         setTimeout(function(){
-            document.getElementById('formLoading').classList.remove('active');
-            document.getElementById('formSuccess').classList.add('active');
-            document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.location.href = '/pilot-checkout';
         }, 1200);
     };
 
