@@ -84,6 +84,8 @@ create table if not exists public.pilot_leads (
     -- Lead classification
     lead_type       text,                       -- e.g. 'Solar', 'Roofing'
     lead_subtype    text,                       -- e.g. 'Solar + Battery'
+    project         text,                       -- project description / scope
+    source          text,                       -- where the lead came from
     notes           text,                       -- additional context / job scope
 
     -- Status
@@ -249,16 +251,16 @@ create policy "Buyers read own buyer_flags"
 -- 4. Add SITE_URL to the stripe-webhook Edge Function secrets:
 --       supabase secrets set SITE_URL=https://quoteleads.com.au
 --    This is the base URL used for the password-reset redirect link.
--- 4. The buyer-dashboard.html page uses the anon key + magic link
---    auth. After signInWithOtp, the JWT contains the verified email
+-- 5. The buyer-dashboard.html page uses the anon key + password
+--    auth. After signIn, the JWT contains the verified email
 --    which is matched by the RLS policies above.
--- 5. pilot_leads rows should be inserted by your fulfilment
+-- 6. pilot_leads rows should be inserted by your fulfilment
 --    automation (e.g. Make.com scenario) using the service role key.
--- 6. When a buyer's computed dispute rate exceeds 20%, insert a row
+-- 7. When a buyer's computed dispute rate exceeds 20%, insert a row
 --    into buyer_flags (flag_type = 'delivery_paused') via the admin
 --    panel or Make.com automation. The dashboard will reflect the
 --    paused state immediately on next login.
--- 7. AUTH SETUP — required steps in Supabase Dashboard:
+-- 8. AUTH SETUP — required steps in Supabase Dashboard:
 --    a) Authentication → Providers → Email → enable "Confirm email"
 --    b) Authentication → URL Configuration → add these Redirect URLs:
 --         https://quoteleads.com.au/reset-password
@@ -268,4 +270,7 @@ create policy "Buyers read own buyer_flags"
 --    d) Authentication → Email Templates → "Confirm signup" (optional — 
 --       buyers are created server-side with email_confirm:true so this
 --       template is not triggered in the normal purchase flow)
+-- 9. MIGRATION — if pilot_leads already exists, add the new columns:
+--       ALTER TABLE public.pilot_leads ADD COLUMN IF NOT EXISTS project text;
+--       ALTER TABLE public.pilot_leads ADD COLUMN IF NOT EXISTS source text;
 -- ============================================================
