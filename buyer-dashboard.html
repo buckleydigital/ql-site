@@ -1144,7 +1144,7 @@
             { label: 'Project',  val: l.project  || '—' },
             { label: 'Source',   val: l.source   || '—' },
             { label: 'Lead Type',val: type },
-            { label: 'Notes',    val: l.notes    || '—' }
+            { label: 'Notes',    val: l.notes    || l.details || '—' }
         ];
 
         var fieldHtml = fields.map(function (f) {
