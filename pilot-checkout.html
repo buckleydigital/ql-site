@@ -480,8 +480,8 @@
                     <div class="order-summary">
                         <div class="section-label" style="margin-bottom:12px;">Order Summary</div>
                         <div class="order-line">
-                            <span>Market Pulse Pilot</span>
-                            <span>$650.00</span>
+                            <span id="productName">Market Pulse Pilot</span>
+                            <span id="productBasePrice">$650.00</span>
                         </div>
                         <div class="order-line discount" id="discountLine">
                             <span id="discountLabel">Discount</span>
@@ -623,19 +623,28 @@
     /* ================================================================
        CONFIGURATION
        ================================================================
-       Create a Product + Price in your Stripe Dashboard:
-       1. Go to https://dashboard.stripe.com/products
-       2. Create a product "Market Pulse Pilot" at $650.00 AUD
-       3. Enable tax if desired, or set the price to $715.00 (inc GST)
-       4. Copy the Price ID (starts with price_) and paste below
-       5. To support discount codes, create Promotion Codes in
-          Stripe Dashboard > Coupons, then add them to DISCOUNT_CODES
-
-       For discount codes: add entries below mapping code → price ID.
-       Create a separate Price for each discounted amount in Stripe.
+       Stripe Price IDs for each lead count tier.
+       Product IDs: 10 → prod_UKTm1dNCFsjtN4, 25 → prod_UKUAxRVqchMWpA, 50 → prod_UKUB69ekZjkw3O
        ================================================================ */
     var STRIPE_PUBLISHABLE_KEY = 'pk_live_51R8lfGGDfpSvNOmBPSXrD7uHeR9Xu5VE26lKzkpBb2PImwmdrj1ckqujXM6chUqPLFzwYp4HVJmRAj0qPTfiS9wW00jqLkG1S4';
-    var DEFAULT_PRICE_ID = 'REPLACE_WITH_STRIPE_PRICE_ID';
+
+    var PRICE_MAP = {
+        '10': 'price_1TLop5GDfpSvNOmBGwLGotyg',
+        '25': 'price_1TLpCcGDfpSvNOmBsSazf71k',
+        '50': 'price_1TLpD9GDfpSvNOmBifhrmf4L'
+    };
+
+    var BASE_PRICE_MAP = {
+        '10': 650,
+        '25': 1250,
+        '50': 2000
+    };
+
+    var PRODUCT_NAMES = {
+        '10': 'Market Pulse Pilot — 10 Leads',
+        '25': 'Market Pulse Pilot — 25 Leads',
+        '50': 'Market Pulse Pilot — 50 Leads'
+    };
 
     /*  Discount codes - map code strings to Stripe Price IDs + display info.
         Example:
@@ -643,27 +652,35 @@
             'EARLYBIRD': { priceId: 'price_xxx', discount: 65, label: '10% off' },
             'PARTNER50': { priceId: 'price_yyy', discount: 50, label: '$50 off' }
         };
-        discount = dollar amount off the $650 base (before GST).
+        discount = dollar amount off the base (before GST).
     */
     var DISCOUNT_CODES = {};
 
     var WEBHOOK_URL = 'https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5';
 
-    // ── State ──
-    var basePrice = 650;
-    var discountApplied = 0;
-    var activePriceId = DEFAULT_PRICE_ID;
-    var activeDiscountCode = '';
-
     // ── Pre-fill from intake data ──
     var intakeData = {};
     try { intakeData = JSON.parse(localStorage.getItem('ql-pilot-intake') || '{}'); } catch(e){}
+
+    // ── Resolve tier from intake lead_count ──
+    var leadCount = String(intakeData.lead_count || '10');
+    if(!PRICE_MAP[leadCount]) leadCount = '10';
+
+    // ── State ──
+    var basePrice = BASE_PRICE_MAP[leadCount];
+    var discountApplied = 0;
+    var activePriceId = PRICE_MAP[leadCount];
+    var activeDiscountCode = '';
 
     var deliveryPhoneEl = document.getElementById('deliveryPhone');
     var deliveryEmailEl = document.getElementById('deliveryEmail');
 
     if(intakeData.phone) deliveryPhoneEl.value = intakeData.phone;
     if(intakeData.email) deliveryEmailEl.value = intakeData.email;
+
+    // Set the product name in the order summary
+    document.getElementById('productName').textContent = PRODUCT_NAMES[leadCount];
+    document.getElementById('productBasePrice').textContent = '$' + basePrice.toFixed(2);
 
     // ── Validation ──
     function checkReady(){
@@ -714,7 +731,7 @@
             msg.textContent = '✓ Code applied — ' + dc.label;
             updatePricing();
         } else {
-            activePriceId = DEFAULT_PRICE_ID;
+            activePriceId = PRICE_MAP[leadCount];
             discountApplied = 0;
             activeDiscountCode = '';
             msg.className = 'discount-msg error';
@@ -732,8 +749,8 @@
 
         if(!phone || !email) return;
 
-        // Guard against deploying with placeholder Price ID
-        if(activePriceId === 'REPLACE_WITH_STRIPE_PRICE_ID'){
+        // Guard against missing Price ID
+        if(!activePriceId || activePriceId === 'REPLACE_WITH_STRIPE_PRICE_ID'){
             payError.textContent = 'Payment is not configured yet. Please contact contact@quoteleads.com.au for assistance.';
             payError.classList.add('active');
             return;
@@ -748,6 +765,7 @@
             source: 'pilot-checkout',
             delivery_phone: phone,
             delivery_email: email,
+            lead_count: leadCount,
             discount_code: activeDiscountCode || '',
             discount_amount: discountApplied,
             intake_first_name: intakeData.first_name || '',

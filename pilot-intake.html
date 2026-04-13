@@ -668,8 +668,32 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3: Your Details -->
+                    <!-- STEP 3: Lead Count -->
                     <div class="form-step" id="step3">
+                        <div class="step-q">How many leads do you want?</div>
+                        <div class="step-hint">Choose the batch size for your pilot. All leads are exclusive, consented, and phone-verified.</div>
+                        <div class="opt-grid" id="leadCountGrid">
+                            <div class="opt-card" data-field="lead_count" data-value="10">
+                                <div class="opt-label">10 Leads</div>
+                                <div class="opt-sub">Great to test the waters</div>
+                            </div>
+                            <div class="opt-card" data-field="lead_count" data-value="25">
+                                <div class="opt-label">25 Leads</div>
+                                <div class="opt-sub">Most popular — enough to measure ROI</div>
+                            </div>
+                            <div class="opt-card" data-field="lead_count" data-value="50">
+                                <div class="opt-label">50 Leads</div>
+                                <div class="opt-sub">Best value per lead</div>
+                            </div>
+                        </div>
+                        <div class="btn-row">
+                            <button class="btn-back" onclick="goPrev(3)">Back</button>
+                            <button class="btn-next" id="next3" disabled onclick="goNext(3)">Continue</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Your Details -->
+                    <div class="form-step" id="step4">
                         <div class="step-q">Where should we deliver your leads?</div>
                         <div class="step-hint">Leads are sent to the email and phone below the moment they come in.</div>
                         <div class="field-row">
@@ -697,13 +721,13 @@
                             </div>
                         </div>
                         <div class="btn-row">
-                            <button class="btn-back" onclick="goPrev(3)">Back</button>
-                            <button class="btn-next" id="next3" disabled onclick="goNext(3)">Continue</button>
+                            <button class="btn-back" onclick="goPrev(4)">Back</button>
+                            <button class="btn-next" id="next4" disabled onclick="goNext(4)">Continue</button>
                         </div>
                     </div>
 
-                    <!-- STEP 4: Package -->
-                    <div class="form-step" id="step4">
+                    <!-- STEP 5: Package -->
+                    <div class="form-step" id="step5">
                         <div class="step-q">What are you after?</div>
                         <div class="step-hint">Choose the option that fits where you're at.</div>
                         <div class="opt-grid">
@@ -717,13 +741,13 @@
                             </div>
                         </div>
                         <div class="btn-row">
-                            <button class="btn-back" onclick="goPrev(4)">Back</button>
-                            <button class="btn-next" id="next4" disabled onclick="goNext(4)">Continue</button>
+                            <button class="btn-back" onclick="goPrev(5)">Back</button>
+                            <button class="btn-next" id="next5" disabled onclick="goNext(5)">Continue</button>
                         </div>
                     </div>
 
-                    <!-- STEP 5: Confirm & Submit -->
-                    <div class="form-step" id="step5">
+                    <!-- STEP 6: Confirm & Submit -->
+                    <div class="form-step" id="step6">
                         <div class="step-q">Confirm and start your pilot.</div>
                         <div class="step-hint">Read each item and check the box. Once submitted, our team will be in touch to get things moving.</div>
 
@@ -749,7 +773,7 @@
                         <div id="turnstile-container" style="margin-top:6px;"></div>
 
                         <div class="btn-row">
-                            <button class="btn-back" onclick="goPrev(5)">Back</button>
+                            <button class="btn-back" onclick="goPrev(6)">Back</button>
                             <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Submit Intake</button>
                         </div>
                         <p class="disclaimer-txt">By submitting, you agree to receive calls, texts, or emails from QuoteLeads at the contact details provided. See our <a href="https://quoteleads.com.au/privacy" style="color:var(--accent); text-decoration:none;">Privacy Policy</a>.</p>
@@ -902,13 +926,14 @@
 <script>
 (function(){
     // ── STATE ──
-    var TOTAL_STEPS = 5;
+    var TOTAL_STEPS = 6;
     var currentStep = 1;
     var turnstileToken = '';
     var turnstileRendered = false;
 
     var formData = {
         trade: '', lead_subtype: [], service_postcode: '', service_radius: '30km',
+        lead_count: '',
         first_name: '', last_name: '', company: '', phone: '', email: '',
         package: '',
         confirm_guarantee: false, confirm_no_conversion: false,
@@ -987,30 +1012,40 @@
         radiusLabel.textContent = v + 'km radius';
     });
 
-    // ── STEP 3: CONTACT VALIDATION ──
-    function checkStep3(){
+    // ── STEP 3: LEAD COUNT CARDS (single select) ──
+    document.querySelectorAll('#leadCountGrid .opt-card').forEach(function(card){
+        card.addEventListener('click', function(){
+            document.querySelectorAll('#leadCountGrid .opt-card').forEach(function(c){ c.classList.remove('selected'); });
+            this.classList.add('selected');
+            formData.lead_count = this.getAttribute('data-value');
+            document.getElementById('next3').disabled = false;
+        });
+    });
+
+    // ── STEP 4: CONTACT VALIDATION ──
+    function checkStep4(){
         var fn = document.getElementById('first_name').value.trim();
         var ln = document.getElementById('last_name').value.trim();
         var co = document.getElementById('company').value.trim();
         var ph = document.getElementById('phone').value.trim();
         var em = document.getElementById('email').value.trim();
-        document.getElementById('next3').disabled = !(fn && ln && co && ph && em);
+        document.getElementById('next4').disabled = !(fn && ln && co && ph && em);
     }
     ['first_name','last_name','company','phone','email'].forEach(function(id){
-        document.getElementById(id).addEventListener('input', checkStep3);
+        document.getElementById(id).addEventListener('input', checkStep4);
     });
 
-    // ── STEP 4: PACKAGE CARDS (single select) ──
-    document.querySelectorAll('#step4 .opt-card').forEach(function(card){
+    // ── STEP 5: PACKAGE CARDS (single select) ──
+    document.querySelectorAll('#step5 .opt-card').forEach(function(card){
         card.addEventListener('click', function(){
-            document.querySelectorAll('#step4 .opt-card').forEach(function(c){ c.classList.remove('selected'); });
+            document.querySelectorAll('#step5 .opt-card').forEach(function(c){ c.classList.remove('selected'); });
             this.classList.add('selected');
             formData.package = this.getAttribute('data-value');
-            document.getElementById('next4').disabled = false;
+            document.getElementById('next5').disabled = false;
         });
     });
 
-    // ── STEP 5: CONFIRM CHECKBOXES ──
+    // ── STEP 6: CONFIRM CHECKBOXES ──
     window.toggleConfirm = function(el){
         el.classList.toggle('checked');
         var key = 'confirm_' + el.getAttribute('data-confirm');
@@ -1042,7 +1077,7 @@
     }
 
     window.goNext = function(fromStep){
-        if(fromStep === 3){
+        if(fromStep === 4){
             formData.first_name = document.getElementById('first_name').value.trim();
             formData.last_name = document.getElementById('last_name').value.trim();
             formData.company = document.getElementById('company').value.trim();
@@ -1052,7 +1087,7 @@
 
         showStep(fromStep + 1);
 
-        if(fromStep + 1 === 5 && !turnstileRendered && typeof turnstile !== 'undefined'){
+        if(fromStep + 1 === 6 && !turnstileRendered && typeof turnstile !== 'undefined'){
             turnstileRendered = true;
             turnstile.render('#turnstile-container', {
                 sitekey: '0x4AAAAAABj4xsGpuNPXeW_7',
@@ -1087,6 +1122,7 @@
             email: formData.email,
             trade: formData.trade,
             lead_subtype: formData.lead_subtype,
+            lead_count: formData.lead_count,
             package: formData.package
         }));
 
