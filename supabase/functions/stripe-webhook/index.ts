@@ -116,6 +116,7 @@ serve(async (req: Request) => {
         email: customerEmail,
         password: tempPassword,
         email_confirm: true,
+        app_metadata: { account_type: "lead_buyer" },
       });
 
     if (createError) {
@@ -123,7 +124,22 @@ serve(async (req: Request) => {
         createError.message?.toLowerCase().includes("already") ||
         createError.message?.toLowerCase().includes("exists")
       ) {
-        console.log(`Auth user already exists for ${customerEmail}, skipping creation`);
+        console.log(`Auth user already exists for ${customerEmail}, stamping account_type`);
+        // Ensure existing users also carry the lead_buyer account_type so they
+        // cannot access internal dashboards that gate on this metadata field.
+        const { data: existingUsers } = await supabase.auth.admin.listUsers();
+        const existingUser = existingUsers?.users?.find((u) => u.email === customerEmail);
+        if (existingUser) {
+          const { error: updateError } = await supabase.auth.admin.updateUserById(
+            existingUser.id,
+            { app_metadata: { account_type: "lead_buyer" } },
+          );
+          if (updateError) {
+            console.error("Failed to stamp account_type on existing user:", updateError);
+          } else {
+            console.log(`Stamped account_type=lead_buyer on existing user ${existingUser.id}`);
+          }
+        }
       } else {
         console.error("Failed to create auth user:", createError);
       }
