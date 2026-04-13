@@ -839,6 +839,18 @@
     /* ── Auth state ── */
     supabase.auth.onAuthStateChange(function (event, session) {
         if (session && session.user) {
+            var accountType = session.user.app_metadata && session.user.app_metadata.account_type;
+            if (accountType !== 'lead_buyer') {
+                supabase.auth.signOut();
+                currentUser = null;
+                showLogin();
+                var msg = document.getElementById('loginMsg');
+                if (msg) {
+                    msg.className = 'login-msg error';
+                    msg.textContent = 'Access denied. This portal is for lead buyers only.';
+                }
+                return;
+            }
             currentUser = session.user;
             showDashboard();
         } else {
