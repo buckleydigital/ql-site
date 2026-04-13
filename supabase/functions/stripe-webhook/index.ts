@@ -127,9 +127,19 @@ serve(async (req: Request) => {
         console.log(`Auth user already exists for ${customerEmail}, stamping account_type`);
         // Ensure existing users also carry the lead_buyer account_type so they
         // cannot access internal dashboards that gate on this metadata field.
-        const { data: existingUsers } = await supabase.auth.admin.listUsers();
-        const existingUser = existingUsers?.users?.find((u) => u.email === customerEmail);
-        if (existingUser) {
+        // Use the admin REST endpoint filtered by email to avoid fetching all users.
+        const lookupResp = await fetch(
+          `${supabaseUrl}/auth/v1/admin/users?email=${encodeURIComponent(customerEmail)}`,
+          {
+            headers: {
+              Authorization: `Bearer ${supabaseServiceRoleKey}`,
+              apikey: supabaseServiceRoleKey,
+            },
+          },
+        );
+        const lookupJson = await lookupResp.json();
+        const existingUser = lookupJson?.users?.[0];
+        if (existingUser?.id) {
           const { error: updateError } = await supabase.auth.admin.updateUserById(
             existingUser.id,
             { app_metadata: { account_type: "lead_buyer" } },
