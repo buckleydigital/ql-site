@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-    <script src="https://js.stripe.com/v3/"></script>
+
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -623,16 +623,10 @@
     /* ================================================================
        CONFIGURATION
        ================================================================
-       Stripe Price IDs for each lead count tier.
        Product IDs: 10 → prod_UKTm1dNCFsjtN4, 25 → prod_UKUAxRVqchMWpA, 50 → prod_UKUB69ekZjkw3O
+       Stripe Price IDs are now managed server-side in the create-checkout-session Edge Function.
        ================================================================ */
-    var STRIPE_PUBLISHABLE_KEY = 'pk_live_51R8lfGGDfpSvNOmBPSXrD7uHeR9Xu5VE26lKzkpBb2PImwmdrj1ckqujXM6chUqPLFzwYp4HVJmRAj0qPTfiS9wW00jqLkG1S4';
-
-    var PRICE_MAP = {
-        '10': 'price_1TLop5GDfpSvNOmBGwLGotyg',
-        '25': 'price_1TLpCcGDfpSvNOmBsSazf71k',
-        '50': 'price_1TLpD9GDfpSvNOmBifhrmf4L'
-    };
+    var SUPABASE_FUNCTIONS_URL = 'https://wmegoygrancfwxagqskh.supabase.co/functions/v1';
 
     var BASE_PRICE_MAP = {
         '10': 650,
@@ -646,11 +640,12 @@
         '50': 'Market Pulse Pilot — 50 Leads'
     };
 
-    /*  Discount codes - map code strings to Stripe Price IDs + display info.
+    /*  Discount codes - map code strings to display info (for local UI only).
+        Stripe promotion codes are handled server-side via allow_promotion_codes.
         Example:
         var DISCOUNT_CODES = {
-            'EARLYBIRD': { priceId: 'price_xxx', discount: 65, label: '10% off' },
-            'PARTNER50': { priceId: 'price_yyy', discount: 50, label: '$50 off' }
+            'EARLYBIRD': { discount: 65, label: '10% off' },
+            'PARTNER50': { discount: 50, label: '$50 off' }
         };
         discount = dollar amount off the base (before GST).
     */
@@ -664,12 +659,11 @@
 
     // ── Resolve tier from intake lead_count ──
     var leadCount = String(intakeData.lead_count || '10');
-    if(!PRICE_MAP[leadCount]) leadCount = '10';
+    if(!BASE_PRICE_MAP[leadCount]) leadCount = '10';
 
     // ── State ──
     var basePrice = BASE_PRICE_MAP[leadCount];
     var discountApplied = 0;
-    var activePriceId = PRICE_MAP[leadCount];
     var activeDiscountCode = '';
 
     var deliveryPhoneEl = document.getElementById('deliveryPhone');
@@ -724,14 +718,12 @@
 
         if(DISCOUNT_CODES[code]){
             var dc = DISCOUNT_CODES[code];
-            activePriceId = dc.priceId;
             discountApplied = dc.discount;
             activeDiscountCode = code;
             msg.className = 'discount-msg success';
             msg.textContent = '✓ Code applied — ' + dc.label;
             updatePricing();
         } else {
-            activePriceId = PRICE_MAP[leadCount];
             discountApplied = 0;
             activeDiscountCode = '';
             msg.className = 'discount-msg error';
@@ -748,13 +740,6 @@
         var payError = document.getElementById('payError');
 
         if(!phone || !email) return;
-
-        // Guard against missing Price ID
-        if(!activePriceId || activePriceId === 'REPLACE_WITH_STRIPE_PRICE_ID'){
-            payError.textContent = 'Payment is not configured yet. Please contact contact@quoteleads.com.au for assistance.';
-            payError.classList.add('active');
-            return;
-        }
 
         payBtn.disabled = true;
         payBtn.querySelector('span').textContent = 'Processing…';
@@ -789,22 +774,31 @@
             discount_code: activeDiscountCode
         }));
 
-        // Redirect to Stripe Checkout
-        var stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-        stripe.redirectToCheckout({
-            lineItems: [{ price: activePriceId, quantity: 1 }],
-            mode: 'payment',
-            successUrl: window.location.origin + '/pilot-confirmed',
-            cancelUrl: window.location.origin + '/pilot-checkout',
-            clientReferenceId: 'pilot_' + (intakeData.email || '') + '_' + Date.now(),
-            customerEmail: intakeData.email || email
-        }).then(function(result){
-            if(result.error){
-                payError.textContent = result.error.message;
-                payError.classList.add('active');
-                payBtn.disabled = false;
-                payBtn.querySelector('span').textContent = 'Pay $' + (basePrice - discountApplied + Math.round((basePrice - discountApplied) * 0.1 * 100) / 100).toFixed(2);
+        // Create Stripe Checkout Session via Edge Function and redirect
+        fetch(SUPABASE_FUNCTIONS_URL + '/create-checkout-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                lead_count: leadCount,
+                customer_email: intakeData.email || email,
+                client_reference_id: 'pilot_' + (intakeData.email || '') + '_' + Date.now(),
+                success_url: window.location.origin + '/pilot-confirmed',
+                cancel_url: window.location.origin + '/pilot-checkout'
+            })
+        })
+        .then(function(res){ return res.json(); })
+        .then(function(data){
+            if(data.url){
+                window.location.href = data.url;
+            } else {
+                throw new Error(data.error || 'Failed to create checkout session');
             }
+        })
+        .catch(function(err){
+            payError.textContent = err.message || 'Something went wrong. Please try again.';
+            payError.classList.add('active');
+            payBtn.disabled = false;
+            payBtn.querySelector('span').textContent = 'Pay $' + (basePrice - discountApplied + Math.round((basePrice - discountApplied) * 0.1 * 100) / 100).toFixed(2);
         });
     };
 

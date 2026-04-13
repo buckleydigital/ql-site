@@ -560,7 +560,7 @@
     <div class="page-hero-inner">
         <div class="hero-eyebrow">Pilot Intake</div>
         <h1>Lock in your<br><em>proof round.</em></h1>
-        <p class="hero-sub">Select your lead type, set your area, and choose your package. We'll configure everything from there.</p>
+        <p class="hero-sub">Select your lead type, set your area, and confirm your details. We'll configure everything from there.</p>
     </div>
 </section>
 
@@ -726,28 +726,8 @@
                         </div>
                     </div>
 
-                    <!-- STEP 5: Package -->
+                    <!-- STEP 5: Confirm & Submit -->
                     <div class="form-step" id="step5">
-                        <div class="step-q">What are you after?</div>
-                        <div class="step-hint">Choose the option that fits where you're at.</div>
-                        <div class="opt-grid">
-                            <div class="opt-card" data-field="package" data-value="Starter — Custom Integration">
-                                <div class="opt-label">Starter — Custom Integration</div>
-                                <div class="opt-sub">Plug QuoteLeads into your existing workflow. We configure lead delivery, branding, and targeting.</div>
-                            </div>
-                            <div class="opt-card" data-field="package" data-value="Full Build">
-                                <div class="opt-label">Full Build</div>
-                                <div class="opt-sub">End-to-end system under your brand. Landing pages, AI follow-up, CRM integration, and ongoing management.</div>
-                            </div>
-                        </div>
-                        <div class="btn-row">
-                            <button class="btn-back" onclick="goPrev(5)">Back</button>
-                            <button class="btn-next" id="next5" disabled onclick="goNext(5)">Continue</button>
-                        </div>
-                    </div>
-
-                    <!-- STEP 6: Confirm & Submit -->
-                    <div class="form-step" id="step6">
                         <div class="step-q">Confirm and start your pilot.</div>
                         <div class="step-hint">Read each item and check the box. Once submitted, our team will be in touch to get things moving.</div>
 
@@ -773,7 +753,7 @@
                         <div id="turnstile-container" style="margin-top:6px;"></div>
 
                         <div class="btn-row">
-                            <button class="btn-back" onclick="goPrev(6)">Back</button>
+                            <button class="btn-back" onclick="goPrev(5)">Back</button>
                             <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Submit Intake</button>
                         </div>
                         <p class="disclaimer-txt">By submitting, you agree to receive calls, texts, or emails from QuoteLeads at the contact details provided. See our <a href="https://quoteleads.com.au/privacy" style="color:var(--accent); text-decoration:none;">Privacy Policy</a>.</p>
@@ -926,7 +906,7 @@
 <script>
 (function(){
     // ── STATE ──
-    var TOTAL_STEPS = 6;
+    var TOTAL_STEPS = 5;
     var currentStep = 1;
     var turnstileToken = '';
     var turnstileRendered = false;
@@ -935,7 +915,6 @@
         trade: '', lead_subtype: [], service_postcode: '', service_radius: '30km',
         lead_count: '',
         first_name: '', last_name: '', company: '', phone: '', email: '',
-        package: '',
         confirm_guarantee: false, confirm_no_conversion: false,
         confirm_consent: false, confirm_terms: false
     };
@@ -1035,17 +1014,7 @@
         document.getElementById(id).addEventListener('input', checkStep4);
     });
 
-    // ── STEP 5: PACKAGE CARDS (single select) ──
-    document.querySelectorAll('#step5 .opt-card').forEach(function(card){
-        card.addEventListener('click', function(){
-            document.querySelectorAll('#step5 .opt-card').forEach(function(c){ c.classList.remove('selected'); });
-            this.classList.add('selected');
-            formData.package = this.getAttribute('data-value');
-            document.getElementById('next5').disabled = false;
-        });
-    });
-
-    // ── STEP 6: CONFIRM CHECKBOXES ──
+    // ── STEP 5: CONFIRM CHECKBOXES ──
     window.toggleConfirm = function(el){
         el.classList.toggle('checked');
         var key = 'confirm_' + el.getAttribute('data-confirm');
@@ -1087,7 +1056,7 @@
 
         showStep(fromStep + 1);
 
-        if(fromStep + 1 === 6 && !turnstileRendered && typeof turnstile !== 'undefined'){
+        if(fromStep + 1 === 5 && !turnstileRendered && typeof turnstile !== 'undefined'){
             turnstileRendered = true;
             turnstile.render('#turnstile-container', {
                 sitekey: '0x4AAAAAABj4xsGpuNPXeW_7',
@@ -1122,8 +1091,7 @@
             email: formData.email,
             trade: formData.trade,
             lead_subtype: formData.lead_subtype,
-            lead_count: formData.lead_count,
-            package: formData.package
+            lead_count: formData.lead_count
         }));
 
         fetch('https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5', {
