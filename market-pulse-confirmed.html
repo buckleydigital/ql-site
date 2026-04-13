@@ -296,6 +296,29 @@
             color: var(--accent); text-decoration: none; font-weight: 400;
         }
 
+        /* ── ACCOUNT CARD ── */
+        .account-card {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 14px; padding: 32px; text-align: left;
+            position: relative; overflow: hidden; margin-bottom: 16px;
+            display: flex; align-items: flex-start; gap: 20px;
+        }
+        .account-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--green), transparent); opacity: 0.5;
+        }
+        .account-card-icon {
+            width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+            background: var(--green-dim); border: 1px solid rgba(34,197,94,0.2);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .account-card-icon svg { width: 20px; height: 20px; stroke: var(--green); stroke-width: 2; fill: none; }
+        .account-card-body h3 { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+        .account-card-body p  { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+        .account-card-body a  { color: var(--accent); text-decoration: none; }
+        .account-card-body a:hover { text-decoration: underline; }
+        @media(max-width:480px) { .account-card { flex-direction: column; gap: 14px; } }
+
         .back-link {
             display: inline-block; margin-top: 32px;
             font-size: 14px; color: var(--ink-faint); text-decoration: none;
@@ -441,6 +464,17 @@
                         <p>Exclusive, phone-verified leads delivered directly to your nominated phone and email. Every lead comes with a full consent and audit trail.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Account access -->
+        <div class="account-card">
+            <div class="account-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <div class="account-card-body">
+                <h3>Set up your dashboard access</h3>
+                <p>We've created your buyer account. Check your email for a link to set your password, then log in at <a href="/buyer-dashboard">quoteleads.com.au/buyer-dashboard</a> to track your orders and leads.</p>
             </div>
         </div>
 

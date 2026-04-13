@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F36W0PEFR4');
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '3264378767213114');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=3264378767213114&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard | QuoteLeads</title>
+    <meta name="description" content="View your Market Pulse orders and leads in your QuoteLeads buyer dashboard.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root[data-theme="dark"] {
+            --bg:          #06070A;
+            --bg-lift:     #0D0F14;
+            --bg-card:     #111318;
+            --bg-deep:     #09090D;
+            --border:      rgba(255,255,255,0.07);
+            --border-mid:  rgba(255,255,255,0.12);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.16);
+            --green:       #22c55e;
+            --green-dim:   rgba(34,197,94,0.10);
+            --amber:       #f59e0b;
+            --amber-dim:   rgba(245,158,11,0.10);
+            --red:         #ef4444;
+            --red-dim:     rgba(239,68,68,0.10);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: dark;
+        }
+        :root[data-theme="light"] {
+            --bg:          #f5f3ef;
+            --bg-lift:     #edeae5;
+            --bg-card:     #f9f8f5;
+            --bg-deep:     #e8e4de;
+            --border:      rgba(14,14,14,0.10);
+            --border-mid:  rgba(14,14,14,0.16);
+            --ink:         #0e0e0e;
+            --ink-soft:    #2a2a2a;
+            --ink-muted:   #6b6b6b;
+            --ink-faint:   #9a9a9a;
+            --accent:      #2563eb;
+            --accent-dim:  rgba(37,99,235,0.07);
+            --accent-glow: rgba(37,99,235,0.12);
+            --green:       #059669;
+            --green-dim:   rgba(5,150,105,0.10);
+            --amber:       #d97706;
+            --amber-dim:   rgba(217,119,6,0.10);
+            --red:         #dc2626;
+            --red-dim:     rgba(220,38,38,0.10);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: light;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            font-weight: 400;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            padding-top: 68px;
+        }
+        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px;
+            background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-img.hide { display: none; }
+        .logo-text {
+            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            letter-spacing: -0.3px; display: none;
+        }
+        .logo-text.show { display: block; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links > a {
+            font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links > a:hover { color: var(--ink); }
+        .nav-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 10px 22px !important; border-radius: 6px !important;
+            font-weight: 400 !important; font-size: 14px !important;
+            transition: opacity 0.2s !important; text-decoration: none !important;
+        }
+        .nav-cta:hover { opacity: 0.85 !important; }
+        .theme-btn {
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
+        }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; }
+        .i-sun  { display: none; }
+        [data-theme="light"] .i-moon { display: none; }
+        [data-theme="light"] .i-sun  { display: block; }
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+        .mob-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
+            max-height: calc(100vh - 68px); overflow-y: auto;
+        }
+        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
+        .mob-menu-top {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu-title {
+            font-size: 13px; font-weight: 500; color: var(--ink-faint);
+            text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .mob-menu a {
+            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
+            text-decoration: none; border-bottom: 1px solid var(--border);
+        }
+        .mob-menu a:hover { color: var(--ink); }
+        .mob-section-label {
+            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
+        }
+        .mob-section-label.compact { padding: 8px 0 2px; }
+        .mob-cta {
+            background: var(--accent) !important; color: #fff !important;
+            padding: 14px 0 !important; border-radius: 6px; text-align: center;
+            margin-top: 8px; border-bottom: none !important;
+        }
+        .mob-cta:hover { opacity: 0.85; }
+        .mob-theme-btn { width: 36px; height: 36px; flex-shrink: 0; }
+
+        /* ── PAGE ── */
+        .page-section {
+            max-width: 1200px; margin: 0 auto;
+            padding: 60px 48px 100px;
+            min-height: calc(100vh - 68px);
+        }
+
+        /* ── LOGIN PANEL ── */
+        #loginPanel {
+            display: flex; align-items: center; justify-content: center;
+            min-height: calc(100vh - 68px);
+            padding: 60px 24px;
+        }
+        .login-card {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 16px; padding: 48px 40px;
+            max-width: 440px; width: 100%; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .login-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
+        }
+        .login-icon {
+            width: 64px; height: 64px; border-radius: 50%;
+            background: var(--accent-dim); border: 2px solid rgba(71,151,255,0.25);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 28px;
+        }
+        .login-icon svg { width: 28px; height: 28px; stroke: var(--accent); stroke-width: 2; fill: none; }
+        .login-card h1 {
+            font-size: 26px; font-weight: 500; color: var(--ink);
+            margin-bottom: 10px; letter-spacing: -0.3px;
+        }
+        .login-card p {
+            font-size: 14px; color: var(--ink-muted); line-height: 1.65;
+            margin-bottom: 32px;
+        }
+        .login-field { text-align: left; margin-bottom: 16px; }
+        .login-field label { display: block; font-size: 13px; color: var(--ink-soft); margin-bottom: 6px; }
+        .login-field input {
+            width: 100%; padding: 12px 14px;
+            background: var(--bg-lift); border: 1px solid var(--border-mid);
+            border-radius: 8px; color: var(--ink); font-family: var(--sans);
+            font-size: 15px; font-weight: 400; transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .login-field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+        .login-btn {
+            width: 100%; padding: 13px 24px;
+            background: var(--accent); color: #fff;
+            border: none; border-radius: 8px;
+            font-family: var(--sans); font-size: 15px; font-weight: 400;
+            cursor: pointer; transition: opacity 0.2s;
+            margin-top: 8px;
+        }
+        .login-btn:hover { opacity: 0.85; }
+        .login-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+        .login-msg {
+            font-size: 13px; color: var(--ink-muted); margin-top: 16px;
+            min-height: 20px; transition: color 0.2s;
+        }
+        .login-msg.success { color: var(--green); }
+        .login-msg.error   { color: var(--red); }
+        .forgot-link {
+            display: inline-block; margin-top: 16px;
+            background: none; border: none; padding: 0;
+            font-family: var(--sans); font-size: 13px; color: var(--ink-faint);
+            cursor: pointer; transition: color 0.2s; text-decoration: none;
+        }
+        .forgot-link:hover { color: var(--accent); }
+
+        /* ── DASHBOARD ── */
+        #dashPanel { display: none; }
+        .dash-header {
+            display: flex; align-items: flex-start; justify-content: space-between;
+            gap: 16px; flex-wrap: wrap; margin-bottom: 40px;
+        }
+        .dash-header-left h1 {
+            font-size: clamp(24px, 3vw, 36px); font-weight: 500;
+            letter-spacing: -0.5px; color: var(--ink);
+        }
+        .dash-header-left p { font-size: 14px; color: var(--ink-muted); margin-top: 4px; }
+        .sign-out-btn {
+            padding: 10px 20px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            color: var(--ink-muted); font-family: var(--sans); font-size: 14px;
+            cursor: pointer; transition: all 0.2s; white-space: nowrap;
+        }
+        .sign-out-btn:hover { color: var(--ink); border-color: var(--border-mid); background: var(--bg-card); }
+
+        /* ── TABS ── */
+        .tabs { display: flex; gap: 4px; margin-bottom: 32px; border-bottom: 1px solid var(--border); }
+        .tab-btn {
+            padding: 10px 20px; background: none; border: none;
+            font-family: var(--sans); font-size: 14px; color: var(--ink-muted);
+            cursor: pointer; border-bottom: 2px solid transparent;
+            margin-bottom: -1px; transition: color 0.2s, border-color 0.2s;
+        }
+        .tab-btn:hover { color: var(--ink); }
+        .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        /* ── STATS ROW ── */
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+        .stat-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 20px 24px;
+        }
+        .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
+        .stat-value { font-size: 28px; font-weight: 500; color: var(--ink); letter-spacing: -0.5px; }
+        .stat-value.green { color: var(--green); }
+        .stat-value.amber { color: var(--amber); }
+        .stat-value.red   { color: var(--red); }
+
+        /* ── DISPUTE RATE CARD ── */
+        .rate-bar-track {
+            height: 4px; border-radius: 2px; background: var(--border-mid);
+            margin-top: 12px; overflow: hidden;
+        }
+        .rate-bar-fill {
+            height: 100%; border-radius: 2px;
+            background: var(--green); width: 0%;
+            transition: width 0.6s ease, background 0.4s ease;
+        }
+        .rate-bar-fill.amber { background: var(--amber); }
+        .rate-bar-fill.red   { background: var(--red); }
+        .rate-thresholds {
+            display: flex; justify-content: space-between;
+            margin-top: 6px;
+        }
+        .rate-thresholds span { font-size: 10px; color: var(--ink-faint); }
+
+        /* ── DISPUTE HEALTH BANNER ── */
+        .dispute-banner {
+            display: none; border-radius: 12px; padding: 18px 20px;
+            margin-bottom: 24px; border: 1px solid transparent;
+            position: relative; overflow: hidden;
+        }
+        .dispute-banner.show { display: flex; align-items: flex-start; gap: 14px; }
+        .dispute-banner.warning {
+            background: var(--amber-dim); border-color: rgba(245,158,11,0.3);
+        }
+        .dispute-banner.paused {
+            background: var(--red-dim); border-color: rgba(239,68,68,0.3);
+        }
+        .banner-icon {
+            flex-shrink: 0; width: 36px; height: 36px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .dispute-banner.warning .banner-icon { background: rgba(245,158,11,0.15); }
+        .dispute-banner.paused  .banner-icon { background: rgba(239,68,68,0.15); }
+        .banner-icon svg { width: 18px; height: 18px; stroke-width: 2; fill: none; stroke: currentColor; }
+        .dispute-banner.warning .banner-icon svg { stroke: var(--amber); }
+        .dispute-banner.paused  .banner-icon svg { stroke: var(--red); }
+        .banner-body { flex: 1; }
+        .banner-title {
+            font-size: 14px; font-weight: 500; margin-bottom: 4px;
+        }
+        .dispute-banner.warning .banner-title { color: var(--amber); }
+        .dispute-banner.paused  .banner-title { color: var(--red); }
+        .banner-body p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+        .banner-body a { color: var(--accent); text-decoration: none; }
+        .banner-body a:hover { text-decoration: underline; }
+
+        /* ── ORDER CARD ── */
+        .order-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 28px 32px; margin-bottom: 16px;
+            position: relative; overflow: hidden;
+        }
+        .order-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-mid), transparent);
+        }
+        .order-top {
+            display: flex; align-items: flex-start; justify-content: space-between;
+            gap: 16px; flex-wrap: wrap; margin-bottom: 16px;
+        }
+        .order-name { font-size: 16px; font-weight: 500; color: var(--ink); }
+        .order-date { font-size: 12px; color: var(--ink-faint); margin-top: 3px; }
+        .badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 4px 12px; border-radius: 20px;
+            font-size: 12px; font-weight: 400; white-space: nowrap;
+        }
+        .badge-green { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
+        .badge-amber { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
+        .badge-muted { background: var(--bg-lift); color: var(--ink-muted); border: 1px solid var(--border); }
+        .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+        .order-meta {
+            display: flex; gap: 32px; flex-wrap: wrap;
+        }
+        .order-meta-item { }
+        .order-meta-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 3px; }
+        .order-meta-val { font-size: 14px; color: var(--ink-soft); }
+
+        /* ── LEAD CARD ── */
+        .lead-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 24px 28px; margin-bottom: 16px;
+            position: relative; overflow: hidden;
+        }
+        .lead-top {
+            display: flex; align-items: flex-start; justify-content: space-between;
+            gap: 16px; flex-wrap: wrap; margin-bottom: 16px;
+        }
+        .lead-name { font-size: 15px; font-weight: 500; color: var(--ink); }
+        .lead-subtext { font-size: 12px; color: var(--ink-faint); margin-top: 3px; }
+        .lead-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px 24px; margin-bottom: 16px;
+        }
+        .lead-field-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 3px; }
+        .lead-field-val { font-size: 14px; color: var(--ink-soft); word-break: break-word; }
+        .lead-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .dispute-btn {
+            padding: 8px 16px; border-radius: 6px;
+            border: 1px solid rgba(239,68,68,0.3); background: var(--red-dim);
+            color: var(--red); font-family: var(--sans); font-size: 13px;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .dispute-btn:hover { background: rgba(239,68,68,0.18); border-color: var(--red); }
+        .dispute-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+        /* ── EMPTY STATE ── */
+        .empty-state {
+            text-align: center; padding: 64px 24px;
+        }
+        .empty-state svg { width: 48px; height: 48px; stroke: var(--ink-faint); stroke-width: 1.5; fill: none; margin-bottom: 16px; }
+        .empty-state h3 { font-size: 18px; font-weight: 500; color: var(--ink-soft); margin-bottom: 8px; }
+        .empty-state p { font-size: 14px; color: var(--ink-muted); max-width: 380px; margin: 0 auto; }
+
+        /* ── LOADING ── */
+        .loading-state { text-align: center; padding: 64px 24px; }
+        .spinner {
+            width: 32px; height: 32px; border: 2px solid var(--border-mid);
+            border-top-color: var(--accent); border-radius: 50%;
+            animation: spin 0.7s linear infinite; margin: 0 auto 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-state p { font-size: 14px; color: var(--ink-muted); }
+
+        /* ── DISPUTE MODAL ── */
+        .modal-overlay {
+            display: none; position: fixed; inset: 0; z-index: 500;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+            align-items: center; justify-content: center; padding: 24px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 16px; padding: 40px;
+            max-width: 480px; width: 100%;
+            position: relative; overflow: hidden;
+        }
+        .modal::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--red), transparent); opacity: 0.4;
+        }
+        .modal h2 { font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+        .modal p { font-size: 14px; color: var(--ink-muted); line-height: 1.65; margin-bottom: 24px; }
+        .modal-field { margin-bottom: 16px; }
+        .modal-field label { display: block; font-size: 13px; color: var(--ink-soft); margin-bottom: 6px; }
+        .modal-field select,
+        .modal-field textarea {
+            width: 100%; padding: 12px 14px;
+            background: var(--bg-lift); border: 1px solid var(--border-mid);
+            border-radius: 8px; color: var(--ink); font-family: var(--sans);
+            font-size: 14px; font-weight: 400; transition: border-color 0.2s;
+        }
+        .modal-field select:focus,
+        .modal-field textarea:focus { outline: none; border-color: var(--accent); }
+        .modal-field textarea { resize: vertical; min-height: 90px; }
+        .modal-actions { display: flex; gap: 12px; justify-content: flex-end; }
+        .modal-cancel {
+            padding: 10px 20px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            color: var(--ink-muted); font-family: var(--sans); font-size: 14px;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .modal-cancel:hover { color: var(--ink); }
+        .modal-submit {
+            padding: 10px 20px; border-radius: 8px;
+            border: none; background: var(--red);
+            color: #fff; font-family: var(--sans); font-size: 14px;
+            cursor: pointer; transition: opacity 0.2s;
+        }
+        .modal-submit:hover { opacity: 0.85; }
+        .modal-submit:disabled { opacity: 0.45; cursor: not-allowed; }
+        .modal-msg { font-size: 13px; margin-top: 12px; min-height: 20px; }
+        .modal-msg.success { color: var(--green); }
+        .modal-msg.error   { color: var(--red); }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { display: flex; align-items: center; gap: 10px; }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:1024px) {
+            .site-header { padding: 0 32px; }
+            footer { padding: 40px 32px; }
+            .page-section { padding: 48px 32px 80px; }
+        }
+        @media(max-width:768px) {
+            /* header */
+            .nav-links { display: none; }
+            .mob-btn { display: block; }
+
+            /* page */
+            .page-section { padding: 32px 16px 80px; }
+
+            /* login */
+            #loginPanel { padding: 32px 16px; align-items: flex-start; padding-top: 48px; }
+            .login-card { padding: 32px 20px; border-radius: 12px; }
+            .login-icon { width: 52px; height: 52px; margin-bottom: 20px; }
+            .login-card h1 { font-size: 22px; }
+            .login-card p { font-size: 13px; margin-bottom: 24px; }
+            .login-field input { font-size: 16px; } /* prevent iOS zoom */
+
+            /* dash header */
+            .dash-header { flex-direction: column; gap: 12px; margin-bottom: 28px; }
+            .dash-header-left h1 { font-size: 26px; }
+            .sign-out-btn { align-self: flex-start; font-size: 13px; padding: 8px 14px; }
+
+            /* stats */
+            .stats-row { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+            .stat-card { padding: 14px 12px; border-radius: 10px; }
+            .stat-label { font-size: 10px; margin-bottom: 6px; }
+            .stat-value { font-size: 22px; }
+            .rate-thresholds { display: none; }
+
+            /* tabs */
+            .tabs { gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; }
+            .tab-btn { padding: 10px 16px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+
+            /* order cards */
+            .order-card { padding: 18px 16px; border-radius: 12px; }
+            .order-top { flex-direction: column; gap: 10px; margin-bottom: 14px; }
+            .order-name { font-size: 15px; }
+            .order-meta { gap: 14px 20px; }
+            .order-meta-item { min-width: calc(50% - 10px); }
+            .order-meta-label { font-size: 10px; }
+            .order-meta-val { font-size: 13px; }
+
+            /* lead cards */
+            .lead-card { padding: 18px 16px; border-radius: 12px; }
+            .lead-top { flex-direction: column; gap: 10px; margin-bottom: 14px; }
+            .lead-name { font-size: 14px; }
+            .lead-grid { grid-template-columns: 1fr 1fr; gap: 10px 16px; margin-bottom: 14px; }
+            .lead-field-label { font-size: 10px; }
+            .lead-field-val { font-size: 13px; }
+            .dispute-btn { font-size: 12px; padding: 8px 14px; }
+
+            /* modal — full-screen sheet on mobile */
+            .modal-overlay { align-items: flex-end; padding: 0; }
+            .modal {
+                border-radius: 16px 16px 0 0; padding: 28px 20px 36px;
+                max-width: 100%; width: 100%;
+                max-height: 90vh; overflow-y: auto;
+            }
+            .modal h2 { font-size: 18px; }
+            .modal p { font-size: 13px; margin-bottom: 20px; }
+            .modal-field select,
+            .modal-field textarea { font-size: 16px; } /* prevent iOS zoom */
+            .modal-actions { flex-direction: column-reverse; gap: 10px; }
+            .modal-cancel, .modal-submit { width: 100%; text-align: center; padding: 13px; }
+
+            /* footer */
+            footer { padding: 32px 16px; flex-direction: column; align-items: flex-start; gap: 16px; }
+            .foot-links { gap: 16px; }
+        }
+        @media(max-width:380px) {
+            .stats-row { grid-template-columns: 1fr 1fr; }
+            .lead-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo" id="logoLink">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+            <span class="logo-text" id="logoText">QuoteLeads</span>
+        </a>
+        <nav class="nav-links">
+            <a href="/market-pulse">Buy Leads</a>
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <a href="/get-started" class="nav-cta">Get Started</a>
+        </nav>
+        <button class="mob-btn" id="mobBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <nav class="mob-menu" id="mobMenu">
+        <div class="mob-menu-top">
+            <span class="mob-menu-title">Menu</span>
+            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
+                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+        </div>
+        <a href="/">Home</a>
+        <a href="/market-pulse">Buy Leads</a>
+        <a href="/get-started" class="mob-cta">Get Started</a>
+    </nav>
+</header>
+
+<!-- LOGIN PANEL -->
+<div id="loginPanel">
+    <div class="login-card">
+
+        <!-- ── View: Sign in ── -->
+        <div id="viewSignIn">
+            <div class="login-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            </div>
+            <h1>Buyer Dashboard</h1>
+            <p>Sign in to view your orders and leads.</p>
+            <div class="login-field">
+                <label for="loginEmail">Email address</label>
+                <input type="email" id="loginEmail" placeholder="you@yourcompany.com.au" autocomplete="email">
+            </div>
+            <div class="login-field">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Your password" autocomplete="current-password">
+            </div>
+            <button class="login-btn" id="loginBtn" onclick="signIn()">Sign In</button>
+            <div class="login-msg" id="loginMsg"></div>
+            <button class="forgot-link" onclick="showView('forgot')">Forgot password?</button>
+        </div>
+
+        <!-- ── View: Forgot password ── -->
+        <div id="viewForgot" style="display:none">
+            <div class="login-icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h1>Reset Password</h1>
+            <p>Enter your email and we'll send you a link to set a new password.</p>
+            <div class="login-field">
+                <label for="forgotEmail">Email address</label>
+                <input type="email" id="forgotEmail" placeholder="you@yourcompany.com.au" autocomplete="email">
+            </div>
+            <button class="login-btn" id="forgotBtn" onclick="sendReset()">Send Reset Link</button>
+            <div class="login-msg" id="forgotMsg"></div>
+            <button class="forgot-link" onclick="showView('signIn')">← Back to sign in</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- DASHBOARD PANEL -->
+<div id="dashPanel">
+    <div class="page-section">
+        <div class="dash-header">
+            <div class="dash-header-left">
+                <h1>Your Dashboard</h1>
+                <p id="dashEmail" style="font-size:14px;color:var(--ink-muted);margin-top:4px;"></p>
+            </div>
+            <button class="sign-out-btn" onclick="signOut()">Sign Out</button>
+        </div>
+
+        <!-- Stats row -->
+        <div class="stats-row" id="statsRow">
+            <div class="stat-card">
+                <div class="stat-label">Total Orders</div>
+                <div class="stat-value" id="statOrders">—</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Leads Received</div>
+                <div class="stat-value green" id="statLeads">—</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Open Disputes</div>
+                <div class="stat-value amber" id="statDisputes">—</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Dispute Rate</div>
+                <div class="stat-value" id="statRate">—</div>
+                <div class="rate-bar-track">
+                    <div class="rate-bar-fill" id="rateBarFill"></div>
+                </div>
+                <div class="rate-thresholds">
+                    <span>0%</span>
+                    <span style="color:var(--amber)">10%</span>
+                    <span style="color:var(--red)">20%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dispute health banner (shown at ≥10%) -->
+        <div class="dispute-banner" id="disputeBanner">
+            <div class="banner-icon">
+                <svg id="bannerIcon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+            <div class="banner-body">
+                <div class="banner-title" id="bannerTitle"></div>
+                <p id="bannerBody"></p>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('orders', this)">Orders</button>
+            <button class="tab-btn" onclick="switchTab('leads', this)">Leads</button>
+        </div>
+
+        <!-- Orders tab -->
+        <div class="tab-panel active" id="tabOrders">
+            <div class="loading-state" id="ordersLoading">
+                <div class="spinner"></div>
+                <p>Loading your orders…</p>
+            </div>
+            <div id="ordersList"></div>
+        </div>
+
+        <!-- Leads tab -->
+        <div class="tab-panel" id="tabLeads">
+            <div class="loading-state" id="leadsLoading">
+                <div class="spinner"></div>
+                <p>Loading your leads…</p>
+            </div>
+            <div id="leadsList"></div>
+        </div>
+    </div>
+</div>
+
+<!-- DISPUTE MODAL -->
+<div class="modal-overlay" id="disputeModal">
+    <div class="modal">
+        <h2>Dispute a Lead</h2>
+        <p>Submit a dispute if this lead is invalid, unreachable, or does not meet the agreed criteria. Our team reviews all disputes within 2 business days.</p>
+        <input type="hidden" id="disputeLeadId">
+        <div class="modal-field">
+            <label for="disputeReason">Reason for dispute</label>
+            <select id="disputeReason">
+                <option value="">Select a reason…</option>
+                <option value="unreachable">Cannot reach — phone/email invalid</option>
+                <option value="duplicate">Duplicate lead</option>
+                <option value="out_of_area">Outside agreed service area</option>
+                <option value="wrong_type">Wrong lead type</option>
+                <option value="no_intent">No genuine interest / test submission</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="modal-field">
+            <label for="disputeNotes">Additional notes (optional)</label>
+            <textarea id="disputeNotes" placeholder="Describe the issue…"></textarea>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-cancel" onclick="closeDisputeModal()">Cancel</button>
+            <button class="modal-submit" id="disputeSubmitBtn" onclick="submitDispute()">Submit Dispute</button>
+        </div>
+        <div class="modal-msg" id="disputeMsg"></div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-logo">
+        <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
+        <span>QuoteLeads</span>
+    </div>
+    <div class="foot-links">
+        <a href="/terms">Terms</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/market-pulse-terms">Market Pulse Terms</a>
+        <a href="mailto:contact@quoteleads.com.au">Contact</a>
+    </div>
+    <div class="foot-copy">© 2025 QuoteLeads</div>
+</footer>
+
+<!-- Supabase JS client -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function () {
+    'use strict';
+
+    /* ── Config ──
+       SUPABASE_ANON is the public anon key. It is safe to expose in
+       client-side code — Row Level Security policies on every table
+       ensure each authenticated user can only access their own data. */
+    var SUPABASE_URL  = 'https://wmegoygrancfwxagqskh.supabase.co';
+    var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWdveWdyYW5jZnd4YWdxc2toIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYxMzI3MzEsImV4cCI6MjA2MTcwODczMX0.OdJ5LBFMiMvxPNRGx_qumBt7iXFr5FujR39j1W_Kvq8';
+
+    /* Dispute health thresholds — change here to update everywhere */
+    var DISPUTE_WARN_PCT  = 10;   // ≥ this % → warning banner
+    var DISPUTE_PAUSE_PCT = 20;   // ≥ this % → delivery paused
+
+    var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+    var currentUser = null;
+    var pendingDisputeLeadId = null;
+    /* Track raw counts so dispute rate stays accurate after incremental submits */
+    var _totalLeads    = 0;
+    var _disputedLeads = 0;
+
+    /* ── Theme ── */
+    (function initTheme() {
+        var saved = localStorage.getItem('ql-theme');
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+        function applyTheme(t) {
+            document.documentElement.setAttribute('data-theme', t);
+            localStorage.setItem('ql-theme', t);
+            var logoImg  = document.getElementById('logoImg');
+            var logoText = document.getElementById('logoText');
+            if (t === 'light') {
+                if (logoImg)  { logoImg.classList.add('hide'); }
+                if (logoText) { logoText.classList.add('show'); }
+            } else {
+                if (logoImg)  { logoImg.classList.remove('hide'); }
+                if (logoText) { logoText.classList.remove('show'); }
+            }
+        }
+        applyTheme(saved || 'dark');
+        ['themeBtn','mobThemeBtn'].forEach(function(id) {
+            var btn = document.getElementById(id);
+            if (btn) btn.addEventListener('click', function() {
+                var cur = document.documentElement.getAttribute('data-theme');
+                applyTheme(cur === 'dark' ? 'light' : 'dark');
+            });
+        });
+    })();
+
+    /* ── Mobile menu ── */
+    var mobBtn  = document.getElementById('mobBtn');
+    var mobMenu = document.getElementById('mobMenu');
+    if (mobBtn && mobMenu) {
+        mobBtn.addEventListener('click', function () { mobMenu.classList.toggle('open'); });
+    }
+
+    /* ── Auth state ── */
+    supabase.auth.onAuthStateChange(function (event, session) {
+        if (session && session.user) {
+            currentUser = session.user;
+            showDashboard();
+        } else {
+            currentUser = null;
+            showLogin();
+        }
+    });
+
+    /* ── View switcher ── */
+    window.showView = function (name) {
+        document.getElementById('viewSignIn').style.display  = name === 'signIn'  ? '' : 'none';
+        document.getElementById('viewForgot').style.display  = name === 'forgot'  ? '' : 'none';
+        document.getElementById('loginMsg').textContent  = '';
+        document.getElementById('loginMsg').className    = 'login-msg';
+        document.getElementById('forgotMsg').textContent = '';
+        document.getElementById('forgotMsg').className   = 'login-msg';
+    };
+
+    /* ── Sign in with password ── */
+    window.signIn = function () {
+        var email    = document.getElementById('loginEmail').value.trim();
+        var password = document.getElementById('loginPassword').value;
+        var msg      = document.getElementById('loginMsg');
+        var btn      = document.getElementById('loginBtn');
+
+        if (!email || !email.includes('@')) {
+            msg.className = 'login-msg error';
+            msg.textContent = 'Please enter a valid email address.';
+            return;
+        }
+        if (!password) {
+            msg.className = 'login-msg error';
+            msg.textContent = 'Please enter your password.';
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Signing in…';
+        msg.className = 'login-msg';
+        msg.textContent = '';
+
+        supabase.auth.signInWithPassword({ email: email, password: password })
+            .then(function (result) {
+                if (result.error) {
+                    var errMsg = result.error.message || 'Sign in failed.';
+                    if (errMsg.toLowerCase().includes('invalid') || errMsg.toLowerCase().includes('credentials')) {
+                        errMsg = 'Incorrect email or password. Use "Forgot password?" to reset.';
+                    }
+                    msg.className = 'login-msg error';
+                    msg.textContent = errMsg;
+                    btn.disabled = false;
+                    btn.textContent = 'Sign In';
+                }
+                // On success onAuthStateChange fires and showDashboard() is called
+            });
+    };
+
+    /* ── Send password reset email ── */
+    window.sendReset = function () {
+        var email = document.getElementById('forgotEmail').value.trim();
+        var msg   = document.getElementById('forgotMsg');
+        var btn   = document.getElementById('forgotBtn');
+
+        if (!email || !email.includes('@')) {
+            msg.className = 'login-msg error';
+            msg.textContent = 'Please enter a valid email address.';
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        msg.className = 'login-msg';
+        msg.textContent = '';
+
+        supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: window.location.origin + '/reset-password'
+        }).then(function (result) {
+            if (result.error) {
+                msg.className = 'login-msg error';
+                msg.textContent = result.error.message || 'Something went wrong. Please try again.';
+                btn.disabled = false;
+                btn.textContent = 'Send Reset Link';
+            } else {
+                msg.className = 'login-msg success';
+                msg.textContent = '✓ Reset link sent — check your inbox.';
+                btn.textContent = 'Link Sent';
+            }
+        });
+    };
+
+    /* ── Sign out ── */
+    window.signOut = function () {
+        supabase.auth.signOut().then(function () {
+            currentUser = null;
+            showLogin();
+        });
+    };
+
+    /* ── Tab switching ── */
+    window.switchTab = function (tab, btn) {
+        document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+        document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        document.getElementById('tab' + tab.charAt(0).toUpperCase() + tab.slice(1)).classList.add('active');
+    };
+
+    /* ── Show / hide panels ── */
+    function showLogin() {
+        document.getElementById('loginPanel').style.display = 'flex';
+        document.getElementById('dashPanel').style.display  = 'none';
+    }
+
+    function showDashboard() {
+        document.getElementById('loginPanel').style.display = 'none';
+        document.getElementById('dashPanel').style.display  = 'block';
+        document.getElementById('dashEmail').textContent    = currentUser.email || '';
+        loadOrders();
+        loadLeads();
+    }
+
+    /* ── Load orders ── */
+    function loadOrders() {
+        var loadingEl = document.getElementById('ordersLoading');
+        var listEl    = document.getElementById('ordersList');
+        loadingEl.style.display = 'block';
+        listEl.innerHTML = '';
+
+        supabase
+            .from('pilot_orders')
+            .select('*')
+            .eq('email', currentUser.email)
+            .order('created_at', { ascending: false })
+            .then(function (result) {
+                loadingEl.style.display = 'none';
+                if (result.error) {
+                    listEl.innerHTML = '<p style="color:var(--red);font-size:14px;">Failed to load orders: ' + escHtml(result.error.message) + '</p>';
+                    return;
+                }
+                var orders = result.data || [];
+                document.getElementById('statOrders').textContent = orders.length;
+                if (orders.length === 0) {
+                    listEl.innerHTML = emptyState('No orders yet', 'Your orders will appear here after your first Market Pulse purchase.');
+                    return;
+                }
+                listEl.innerHTML = orders.map(renderOrderCard).join('');
+            });
+    }
+
+    /* ── Load leads ── */
+    function loadLeads() {
+        var loadingEl = document.getElementById('leadsLoading');
+        var listEl    = document.getElementById('leadsList');
+        loadingEl.style.display = 'block';
+        listEl.innerHTML = '';
+
+        supabase
+            .from('pilot_leads')
+            .select('*')
+            .eq('buyer_email', currentUser.email)
+            .order('created_at', { ascending: false })
+            .then(function (result) {
+                loadingEl.style.display = 'none';
+                if (result.error) {
+                    listEl.innerHTML = '<p style="color:var(--red);font-size:14px;">Failed to load leads: ' + escHtml(result.error.message) + '</p>';
+                    return;
+                }
+                var leads = result.data || [];
+                document.getElementById('statLeads').textContent = leads.length;
+                if (leads.length === 0) {
+                    listEl.innerHTML = emptyState('No leads yet', 'Your leads will appear here once they start being delivered. Expect your first leads within 24–48 hours of payment.');
+                    return;
+                }
+                listEl.innerHTML = leads.map(renderLeadCard).join('');
+                loadDisputeStatus(leads);
+            });
+    }
+
+    /* ── Load dispute status for leads ── */
+    function loadDisputeStatus(leads) {
+        var leadIds = leads.map(function (l) { return l.id; });
+        if (!leadIds.length) {
+            _totalLeads    = 0;
+            _disputedLeads = 0;
+            updateDisputeHealth(0, 0);
+            return;
+        }
+
+        supabase
+            .from('lead_disputes')
+            .select('lead_id, status')
+            .in('lead_id', leadIds)
+            .then(function (result) {
+                if (result.error || !result.data) {
+                    updateDisputeHealth(leads.length, 0);
+                    return;
+                }
+                var openCount = 0;
+                var disputedLeads = 0;
+                result.data.forEach(function (dispute) {
+                    var btn = document.querySelector('[data-lead-id="' + dispute.lead_id + '"]');
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.textContent = dispute.status === 'resolved' ? 'Dispute Resolved' : 'Dispute Submitted';
+                    }
+                    if (dispute.status !== 'resolved') openCount++;
+                    disputedLeads++;
+                });
+                document.getElementById('statDisputes').textContent = openCount;
+                _totalLeads    = leads.length;
+                _disputedLeads = disputedLeads;
+                updateDisputeHealth(_totalLeads, _disputedLeads);
+            });
+    }
+
+    /* ── Dispute health: <10% healthy · 10-20% warning · ≥20% paused ── */
+    function updateDisputeHealth(totalLeads, disputedLeads) {
+        var rateEl   = document.getElementById('statRate');
+        var fillEl   = document.getElementById('rateBarFill');
+        var banner   = document.getElementById('disputeBanner');
+        var bTitle   = document.getElementById('bannerTitle');
+        var bBody    = document.getElementById('bannerBody');
+        var bIcon    = document.getElementById('bannerIcon');
+
+        if (totalLeads === 0) {
+            rateEl.textContent = '—';
+            rateEl.className   = 'stat-value';
+            fillEl.style.width = '0%';
+            fillEl.className   = 'rate-bar-fill';
+            banner.className   = 'dispute-banner';
+            return;
+        }
+
+        var rate    = (disputedLeads / totalLeads) * 100;
+        var pct     = Math.min(rate, 100);
+        var display = rate.toFixed(1) + '%';
+
+        rateEl.textContent = display;
+        fillEl.style.width = pct + '%';
+
+        if (rate < DISPUTE_WARN_PCT) {
+            // Healthy
+            rateEl.className = 'stat-value green';
+            fillEl.className = 'rate-bar-fill';
+            banner.className = 'dispute-banner';
+        } else if (rate < DISPUTE_PAUSE_PCT) {
+            // Warning
+            rateEl.className = 'stat-value amber';
+            fillEl.className = 'rate-bar-fill amber';
+            banner.className = 'dispute-banner warning show';
+            bTitle.textContent = 'Dispute rate warning — ' + display;
+            bBody.innerHTML   = 'Your dispute rate has exceeded ' + DISPUTE_WARN_PCT + '%. If it reaches <strong>' + DISPUTE_PAUSE_PCT + '%</strong>, lead delivery will be automatically paused. Please only dispute leads that genuinely don\'t meet the agreed criteria. Questions? <a href="mailto:contact@quoteleads.com.au">Contact us</a>.';
+            bIcon.setAttribute('viewBox', '0 0 24 24');
+        } else {
+            // Paused
+            rateEl.className = 'stat-value red';
+            fillEl.className = 'rate-bar-fill red';
+            banner.className = 'dispute-banner paused show';
+            bTitle.textContent = 'Lead delivery paused — ' + display + ' dispute rate';
+            bBody.innerHTML   = 'Your dispute rate has exceeded the ' + DISPUTE_PAUSE_PCT + '% threshold. Lead delivery has been paused pending review. We have a zero-tolerance policy for dispute abuse. To resolve this, please <a href="mailto:contact@quoteleads.com.au">contact us</a>.';
+            bIcon.setAttribute('viewBox', '0 0 24 24');
+            // Disable all remaining dispute buttons
+            document.querySelectorAll('.dispute-btn:not([disabled])').forEach(function (b) {
+                b.disabled = true;
+                b.textContent = 'Delivery Paused';
+            });
+        }
+    }
+
+    /* ── Render order card ── */
+    function renderOrderCard(o) {
+        var statusBadge = o.payment_status === 'paid'
+            ? '<span class="badge badge-green">Paid</span>'
+            : '<span class="badge badge-amber">Pending</span>';
+
+        var dateStr = o.created_at ? new Date(o.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+        var amount  = o.amount_paid ? '$' + Number(o.amount_paid).toFixed(2) : '—';
+        var leads   = o.lead_count  ? o.lead_count + ' leads' : '—';
+
+        return '<div class="order-card">' +
+            '<div class="order-top">' +
+                '<div><div class="order-name">Market Pulse — ' + escHtml(leads) + '</div>' +
+                '<div class="order-date">' + escHtml(dateStr) + '</div></div>' +
+                statusBadge +
+            '</div>' +
+            '<div class="order-meta">' +
+                '<div class="order-meta-item"><div class="order-meta-label">Amount</div><div class="order-meta-val">' + escHtml(amount) + '</div></div>' +
+                '<div class="order-meta-item"><div class="order-meta-label">Leads Ordered</div><div class="order-meta-val">' + escHtml(leads) + '</div></div>' +
+                '<div class="order-meta-item"><div class="order-meta-label">Delivery Email</div><div class="order-meta-val">' + escHtml(o.delivery_email || o.email || '—') + '</div></div>' +
+            '</div>' +
+        '</div>';
+    }
+
+    /* ── Render lead card ── */
+    function renderLeadCard(l) {
+        var dateStr = l.created_at ? new Date(l.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+        var name    = [l.first_name, l.last_name].filter(Boolean).join(' ') || 'Delivered Lead';
+        var type    = l.lead_type || l.type || '—';
+
+        var fields = [
+            { label: 'Phone',    val: l.phone    || '—' },
+            { label: 'Email',    val: l.email    || '—' },
+            { label: 'Suburb',   val: l.suburb   || l.postcode || '—' },
+            { label: 'Lead Type',val: type },
+            { label: 'Notes',    val: l.notes    || l.details || '—' }
+        ];
+
+        var fieldHtml = fields.map(function (f) {
+            return '<div><div class="lead-field-label">' + escHtml(f.label) + '</div>' +
+                   '<div class="lead-field-val">' + escHtml(String(f.val)) + '</div></div>';
+        }).join('');
+
+        return '<div class="lead-card">' +
+            '<div class="lead-top">' +
+                '<div><div class="lead-name">' + escHtml(name) + '</div>' +
+                '<div class="lead-subtext">' + escHtml(dateStr) + ' · ' + escHtml(type) + '</div></div>' +
+                '<span class="badge badge-green">Delivered</span>' +
+            '</div>' +
+            '<div class="lead-grid">' + fieldHtml + '</div>' +
+            '<div class="lead-actions">' +
+                '<button class="dispute-btn" data-lead-id="' + escHtml(String(l.id)) + '" onclick="openDisputeModal(\'' + escHtml(String(l.id)) + '\', this)">Dispute Lead</button>' +
+            '</div>' +
+        '</div>';
+    }
+
+    /* ── Dispute modal ── */
+    window.openDisputeModal = function (leadId, btn) {
+        pendingDisputeLeadId = leadId;
+        document.getElementById('disputeReason').value = '';
+        document.getElementById('disputeNotes').value  = '';
+        document.getElementById('disputeMsg').className = 'modal-msg';
+        document.getElementById('disputeMsg').textContent = '';
+        document.getElementById('disputeSubmitBtn').disabled = false;
+        document.getElementById('disputeModal').classList.add('open');
+    };
+
+    window.closeDisputeModal = function () {
+        document.getElementById('disputeModal').classList.remove('open');
+        pendingDisputeLeadId = null;
+    };
+
+    window.submitDispute = function () {
+        var reason = document.getElementById('disputeReason').value;
+        var notes  = document.getElementById('disputeNotes').value.trim();
+        var msg    = document.getElementById('disputeMsg');
+        var btn    = document.getElementById('disputeSubmitBtn');
+
+        if (!reason) {
+            msg.className = 'modal-msg error';
+            msg.textContent = 'Please select a reason for the dispute.';
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Submitting…';
+        msg.className = 'modal-msg';
+        msg.textContent = '';
+
+        supabase
+            .from('lead_disputes')
+            .insert({
+                lead_id:    pendingDisputeLeadId,
+                buyer_email: currentUser.email,
+                reason:     reason,
+                notes:      notes || null,
+                status:     'open'
+            })
+            .then(function (result) {
+                if (result.error) {
+                    msg.className = 'modal-msg error';
+                    msg.textContent = result.error.message || 'Failed to submit dispute. Please try again.';
+                    btn.disabled = false;
+                    btn.textContent = 'Submit Dispute';
+                } else {
+                    msg.className = 'modal-msg success';
+                    msg.textContent = '✓ Dispute submitted. We\'ll review it within 2 business days.';
+                    // Disable the dispute button on the lead card
+                    var leadBtn = document.querySelector('[data-lead-id="' + pendingDisputeLeadId + '"]');
+                    if (leadBtn) { leadBtn.disabled = true; leadBtn.textContent = 'Dispute Submitted'; }
+                    // Update open dispute count and recalculate health
+                    var curOpen = parseInt(document.getElementById('statDisputes').textContent, 10) || 0;
+                    document.getElementById('statDisputes').textContent = curOpen + 1;
+                    _disputedLeads += 1;
+                    updateDisputeHealth(_totalLeads, _disputedLeads);
+                    setTimeout(closeDisputeModal, 1800);
+                }
+            });
+    };
+
+    /* ── Close modal on overlay click ── */
+    document.getElementById('disputeModal').addEventListener('click', function (e) {
+        if (e.target === this) closeDisputeModal();
+    });
+
+    /* ── Handle magic link token in URL hash (PKCE / implicit flow) ── */
+    supabase.auth.getSession().then(function (result) {
+        if (result.data && result.data.session && result.data.session.user) {
+            currentUser = result.data.session.user;
+            showDashboard();
+        } else {
+            showLogin();
+        }
+    });
+
+    /* ── Helpers ── */
+    function escHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function emptyState(title, body) {
+        return '<div class="empty-state">' +
+            '<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>' +
+            '<h3>' + escHtml(title) + '</h3>' +
+            '<p>' + escHtml(body) + '</p>' +
+        '</div>';
+    }
+
+    /* Allow pressing Enter in sign-in fields */
+    document.getElementById('loginEmail').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') document.getElementById('loginPassword').focus();
+    });
+    document.getElementById('loginPassword').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') window.signIn();
+    });
+    document.getElementById('forgotEmail').addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') window.sendReset();
+    });
+
+})();
+</script>
+</body>
+</html>
