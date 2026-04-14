@@ -53,6 +53,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -226,7 +227,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .failure-card { background: var(--bg-card); padding: 36px 28px; }
+        .failure-card { padding: 36px 28px; }
         .failure-num {
             font-family: var(--serif); font-size: 52px; color: var(--amber-dim);
             line-height: 1; margin-bottom: 14px; color: rgba(251,191,36,0.15);
@@ -271,7 +272,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .stage-card { background: var(--bg-card); padding: 32px 24px; position: relative; }
+        .stage-card { padding: 32px 24px; position: relative; }
         .stage-num {
             font-family: var(--serif); font-size: 48px;
             line-height: 1; margin-bottom: 16px;
@@ -393,8 +394,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .related-card { background: var(--bg-card); padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
-        .related-card:hover { background: var(--bg-lift); }
+        .related-card { padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
         .related-tag {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             color: var(--accent); background: var(--accent-dim);
@@ -663,25 +663,25 @@
         </div>
 
         <div class="failure-grid">
-            <div class="failure-card">
+            <div class="card failure-card">
                 <div class="failure-num">01</div>
                 <div class="failure-tag">Volume Cap</div>
                 <h3>There is a ceiling you cannot move.</h3>
                 <p>Referrals grow proportionally to your existing customer base. Double your customer base and you roughly double your referral volume - but you cannot double your customer base without volume in the first place. The model is self-limiting. You can only refer what you have already been given, and you have already been given what you could close from the last round of referrals.</p>
             </div>
-            <div class="failure-card">
+            <div class="card failure-card">
                 <div class="failure-num">02</div>
                 <div class="failure-tag">Timing</div>
                 <h3>You cannot predict when jobs will come in.</h3>
                 <p>Referrals arrive when they arrive. A quiet January is not a reflection of your quality - it is a reflection of the fact that nobody your past customers know happens to need your trade right now. Feast and famine cycles are not a business performance problem when you are referral-dependent. They are a structural inevitability. You cannot will a referral into existence in a slow month.</p>
             </div>
-            <div class="failure-card">
+            <div class="card failure-card">
                 <div class="failure-num">03</div>
                 <div class="failure-tag">Control</div>
                 <h3>You cannot choose what comes through the door.</h3>
                 <p>Referrals bring whatever jobs your existing customers happen to know about. That might be exactly the work you want to do more of. It might also be the jobs you have been trying to move away from. You have no lever to pull on job type, location, job size, or timing. The business shapes itself around what referrals happen to deliver rather than a deliberate growth strategy.</p>
             </div>
-            <div class="failure-card">
+            <div class="card failure-card">
                 <div class="failure-num">04</div>
                 <div class="failure-tag">Dependency</div>
                 <h3>The owner becomes the business.</h3>
@@ -776,19 +776,19 @@
         </div>
 
         <div class="stages-grid">
-            <div class="stage-card">
+            <div class="card stage-card">
                 <div class="stage-num">01</div>
                 <span class="stage-tag early">Years 1-2</span>
                 <h3>Strong early growth on quality work</h3>
                 <p>Every job done well feeds the next. Referrals compound quickly when the customer base is small. Revenue climbs, the owner feels like the model is working - because it is.</p>
             </div>
-            <div class="stage-card">
+            <div class="card stage-card">
                 <div class="stage-num">02</div>
                 <span class="stage-tag plateau">Years 3-4</span>
                 <h3>Growth slows. The ceiling appears.</h3>
                 <p>The referral network reaches saturation. People who are going to refer have referred. Month-to-month revenue oscillates rather than climbing. The owner works harder but the needle barely moves.</p>
             </div>
-            <div class="stage-card">
+            <div class="card stage-card">
                 <div class="stage-num">03</div>
                 <span class="stage-tag next">The fork</span>
                 <h3>Build a demand engine. Or stay at the ceiling.</h3>
@@ -962,17 +962,17 @@
         <div class="slbl">Keep Reading</div>
         <h2 class="stitle">Related <em>articles.</em></h2>
         <div class="related-grid">
-            <a href="/blog/shared-leads-australia.html" class="related-card">
+            <a href="/blog/shared-leads-australia.html" class="card card--interactive related-card">
                 <div class="related-tag">Lead Generation</div>
                 <div class="related-title">You Paid for That Lead.<br><em>So Did Three Others.</em></div>
                 <div class="related-desc">How shared lead marketplaces actually work - and why the economics never improve no matter how much volume you push through them.</div>
             </a>
-            <a href="/blog/lead-response-time-trade-business.html" class="related-card">
+            <a href="/blog/lead-response-time-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Conversion</div>
                 <div class="related-title">The Trade Business That<br><em>Responds First Wins.</em></div>
                 <div class="related-desc">What actually happens to a lead in the hours after it is submitted - and how the follow-up gap is where most jobs are quietly lost.</div>
             </a>
-            <a href="/blog/marketing-agency-vs-lead-system.html" class="related-card">
+            <a href="/blog/marketing-agency-vs-lead-system.html" class="card card--interactive related-card">
                 <div class="related-tag">Strategy</div>
                 <div class="related-title">Why Markeing Agencies Are<br><em>Great at Reports, Not Results.</em></div>
                 <div class="related-desc">The difference between activity-based marketing and a system built to generate jobs - and how to tell them apart before you sign anything.</div>

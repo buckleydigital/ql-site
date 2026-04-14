@@ -53,6 +53,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -269,7 +270,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .failure-card { background: var(--bg-card); padding: 36px 28px; }
+        .failure-card { padding: 36px 28px; }
         .failure-num {
             font-family: var(--serif); font-size: 52px;
             line-height: 1; margin-bottom: 14px; color: rgba(71,151,255,0.12);
@@ -291,7 +292,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .stage-card { background: var(--bg-card); padding: 32px 24px; position: relative; }
+        .stage-card { padding: 32px 24px; position: relative; }
         .stage-num {
             font-family: var(--serif); font-size: 48px;
             line-height: 1; margin-bottom: 16px;
@@ -380,7 +381,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .scenario-card { background: var(--bg-card); padding: 36px 28px; }
+        .scenario-card { padding: 36px 28px; }
         .scenario-card.bad  { border-top: 3px solid var(--red); }
         .scenario-card.good { border-top: 3px solid var(--green); }
         .scenario-label {
@@ -448,8 +449,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .related-card { background: var(--bg-card); padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
-        .related-card:hover { background: var(--bg-lift); }
+        .related-card { padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
         .related-tag {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             color: var(--accent); background: var(--accent-dim);
@@ -786,25 +786,25 @@
         </div>
 
         <div class="failure-grid">
-            <div class="failure-card">
+            <div class="card failure-card">
                 <div class="failure-num">01</div>
                 <div class="failure-tag">The Setup</div>
                 <h3>Leads land in a general inbox nobody monitors.</h3>
                 <p>Most enquiry forms send a notification to a shared email address or a contact form inbox that gets checked between jobs, at lunch, or at end of day. The lead is not urgent to the business in the way it is urgent to the homeowner - because the business does not know yet that this particular lead is serious. By the time someone checks and calls back, the window has closed.</p>
             </div>
-            <div class="failure-card">
+            <div class="card failure-card">
                 <div class="failure-num">02</div>
                 <div class="failure-tag">The Team</div>
                 <h3>The person who handles leads is also on the tools.</h3>
                 <p>In most trade businesses at the plateau stage, the owner is the person who responds to leads - and the owner is also on the tools, quoting, managing crews, or in meetings. There is no dedicated person whose job is lead response. So leads accumulate until there is a gap in the day to handle them. That gap is usually not within the first hour.</p>
             </div>
-            <div class="failure-card">
+            <div class="card failure-card">
                 <div class="failure-num">03</div>
                 <div class="failure-tag">The Process</div>
                 <h3>No qualification means every lead looks the same.</h3>
                 <p>When there is no qualification step before a lead reaches the phone stage, the business has no way to triage. A serious homeowner with a real job looks identical in the inbox to a renter asking for a ballpark price. So instead of calling the high-intent enquiries immediately, everything gets queued together - and the serious ones wait alongside the ones that were never going to convert.</p>
             </div>
-            <div class="failure-card">
+            <div class="card failure-card">
                 <div class="failure-num">04</div>
                 <div class="failure-tag">Measurement</div>
                 <h3>Nobody is measuring what they are losing.</h3>
@@ -872,7 +872,7 @@
         </div>
 
         <div class="scenario-compare">
-            <div class="scenario-card bad">
+            <div class="card scenario-card bad">
                 <div class="scenario-label">Without a system</div>
                 <h3>Sarah submits an enquiry at 10:47am on a Tuesday.</h3>
                 <div class="scenario-steps">
@@ -899,7 +899,7 @@
                 </div>
                 <div class="scenario-outcome">Job lost. Never logged as a loss.</div>
             </div>
-            <div class="scenario-card good">
+            <div class="card scenario-card good">
                 <div class="scenario-label">With a system</div>
                 <h3>Sarah submits the same enquiry at 10:47am on a Tuesday.</h3>
                 <div class="scenario-steps">
@@ -949,19 +949,19 @@
         </div>
 
         <div class="stages-grid">
-            <div class="stage-card">
+            <div class="card stage-card">
                 <div class="stage-num">01</div>
                 <span class="stage-tag step1">Instant acknowledgement</span>
                 <h3>The lead hears from you before anyone else does.</h3>
                 <p>An automated SMS and email confirmation within 60 seconds of submission does two things. It tells the homeowner they are in the system and someone will call. And it plants your business name in their mind before they open the next search result. Most homeowners will wait for that call rather than submitting three more forms - if the acknowledgement feels personal and specific.</p>
             </div>
-            <div class="stage-card">
+            <div class="card stage-card">
                 <div class="stage-num">02</div>
                 <span class="stage-tag step2">Qualification at the form stage</span>
                 <h3>Every lead that reaches the phone is worth calling.</h3>
                 <p>A form that captures suburb, job type, ownership status, and timeline filters out unqualified enquiries before anyone picks up the phone. The person making calls is not triaging - they are talking to pre-qualified homeowners who have already confirmed the basic eligibility criteria. Response time drops because every call is worth making immediately.</p>
             </div>
-            <div class="stage-card">
+            <div class="card stage-card">
                 <div class="stage-num">03</div>
                 <span class="stage-tag step3">Routing that does not need the owner</span>
                 <h3>The process runs whether the owner is available or not.</h3>
@@ -1079,17 +1079,17 @@
         <div class="slbl">Keep Reading</div>
         <h2 class="stitle">Related <em>articles.</em></h2>
         <div class="related-grid">
-            <a href="/blog/referral-plateau-trade-business.html" class="related-card">
+            <a href="/blog/referral-plateau-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Growth Strategy</div>
                 <div class="related-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>
                 <div class="related-desc">Word of mouth has a ceiling. Here is why established trade businesses hit a referral plateau and what the ones that break through do differently.</div>
             </a>
-            <a href="/blog/shared-leads-australia.html" class="related-card">
+            <a href="/blog/shared-leads-australia.html" class="card card--interactive related-card">
                 <div class="related-tag">Lead Generation</div>
                 <div class="related-title">You Paid for That Lead.<br><em>So Did Three Others.</em></div>
                 <div class="related-desc">How shared lead marketplaces actually work - and why the economics never improve no matter how much volume you push through them.</div>
             </a>
-            <a href="/blog/marketing-agency-vs-lead-system.html" class="related-card">
+            <a href="/blog/marketing-agency-vs-lead-system.html" class="card card--interactive related-card">
                 <div class="related-tag">Strategy</div>
                 <div class="related-title">Why Marketing Agencies Are<br><em>Great at Reports, Not Results.</em></div>
                 <div class="related-desc">The difference between activity based marketing and a system built to generate jobs - and how to tell them apart before you sign anything.</div>

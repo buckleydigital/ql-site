@@ -53,6 +53,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -255,7 +256,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .stat-card { background: var(--bg-card); padding: 32px 24px; }
+        .stat-card { padding: 32px 24px; }
         .stat-num {
             font-family: var(--serif); font-size: 48px; color: var(--red);
             line-height: 1; margin-bottom: 10px;
@@ -368,8 +369,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .related-card { background: var(--bg-card); padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
-        .related-card:hover { background: var(--bg-lift); }
+        .related-card { padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
         .related-tag {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             color: var(--accent); background: var(--accent-dim);
@@ -712,17 +712,17 @@
         </div>
 
         <div class="stat-grid">
-            <div class="stat-card">
+            <div class="card stat-card">
                 <div class="stat-num">5-15%</div>
                 <div class="stat-title">Typical close rate on shared leads</div>
                 <div class="stat-desc">Industry data for competitive trade verticals where 3-5 businesses receive the same enquiry. You win roughly 1 in 10 at best.</div>
             </div>
-            <div class="stat-card">
+            <div class="card stat-card">
                 <div class="stat-num blue">40-70%</div>
                 <div class="stat-title">Close rate on exclusive, consented leads</div>
                 <div class="stat-desc">When the homeowner expects your call specifically and you are the only business following up, conversion rates shift dramatically.</div>
             </div>
-            <div class="stat-card">
+            <div class="card stat-card">
                 <div class="stat-num">$600+</div>
                 <div class="stat-title">True cost per job won on shared leads</div>
                 <div class="stat-desc">At $60/lead and a 10% close rate, you are spending $600 in lead costs alone per job - before your time, before follow-up, before any overhead.</div>
@@ -914,17 +914,17 @@
         <div class="slbl">Keep Reading</div>
         <h2 class="stitle">Related <em>articles.</em></h2>
         <div class="related-grid">
-            <a href="/blog/referral-plateau-trade-business.html" class="related-card">
+            <a href="/blog/referral-plateau-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Growth</div>
                 <div class="related-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>
                 <div class="related-desc">Why every trade business hits a growth ceiling on word-of-mouth and what the ones that break through do differently.</div>
             </a>
-            <a href="/blog/lead-response-time-trade-business.html" class="related-card">
+            <a href="/blog/lead-response-time-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Conversion</div>
                 <div class="related-title">The Trade Business That<br><em>Responds First Wins.</em></div>
                 <div class="related-desc">What actually happens to a lead between submission and first contact - and how the follow-up gap is where most jobs are lost.</div>
             </a>
-            <a href="/blog/marketing-agency-vs-lead-system.html" class="related-card">
+            <a href="/blog/marketing-agency-vs-lead-system.html" class="card card--interactive related-card">
                 <div class="related-tag">Strategy</div>
                 <div class="related-title">Why Marketing Agencies Are<br><em>Great at Reports, Not Results.</em></div>
                 <div class="related-desc">The difference between activity-based marketing and a system built to generate jobs - and how to tell them apart before you sign anything.</div>

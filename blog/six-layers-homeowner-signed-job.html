@@ -53,6 +53,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -227,7 +228,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .layer-card { background: var(--bg-card); padding: 36px 28px; }
+        .layer-card { padding: 36px 28px; }
         .layer-num {
             font-family: var(--serif); font-size: 52px;
             line-height: 1; margin-bottom: 14px; color: rgba(251,191,36,0.15);
@@ -369,8 +370,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .related-card { background: var(--bg-card); padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
-        .related-card:hover { background: var(--bg-lift); }
+        .related-card { padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
         .related-tag {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             color: var(--accent); background: var(--accent-dim);
@@ -639,37 +639,37 @@
         </div>
 
         <div class="layer-grid">
-            <div class="layer-card">
+            <div class="card layer-card">
                 <div class="layer-num">01</div>
                 <div class="layer-tag">Attention</div>
                 <h3>The homeowner sees that your business exists.</h3>
                 <p>An ad, a search result, a social post. This is the first impression - and for most businesses, the only layer they actively invest in. <strong>Attention without a destination is just noise.</strong></p>
             </div>
-            <div class="layer-card">
+            <div class="card layer-card">
                 <div class="layer-num">02</div>
                 <div class="layer-tag">Engagement</div>
                 <h3>They land somewhere and decide whether to enquire.</h3>
                 <p>A landing page, a website, a form. This is where intent turns into action - or evaporates. Most trade businesses send paid traffic to a homepage that was built for SEO, not conversion. <strong>The page is doing two jobs and failing at both.</strong></p>
             </div>
-            <div class="layer-card">
+            <div class="card layer-card">
                 <div class="layer-num">03</div>
                 <div class="layer-tag">Qualification</div>
                 <h3>The enquiry gets filtered before it reaches a human.</h3>
                 <p>Job type, suburb, ownership status, timeline, budget range. This layer decides whether the lead is worth a phone call - or whether it is a renter, a tyre-kicker, or someone three suburbs outside your service area. <strong>Without it, every lead costs the same amount of your time.</strong></p>
             </div>
-            <div class="layer-card">
+            <div class="card layer-card">
                 <div class="layer-num">04</div>
                 <div class="layer-tag">Delivery</div>
                 <h3>The qualified lead reaches someone who can act on it.</h3>
                 <p>CRM pipeline, SMS alert, email notification - simultaneously, within seconds. This is the layer that determines whether a lead sits in an inbox for six hours or reaches a salesperson while the homeowner is still standing in the room they want renovated. <strong>Delivery speed is the single highest-leverage variable in the entire chain.</strong></p>
             </div>
-            <div class="layer-card">
+            <div class="card layer-card">
                 <div class="layer-num">05</div>
                 <div class="layer-tag">Response</div>
                 <h3>The homeowner hears back before they contact someone else.</h3>
                 <p>Automated SMS, personalised follow-up, appointment booking. The response layer runs 24 hours a day under your business name - or it does not exist, and every lead that comes in after 5pm on a Friday is gone by Monday morning. <strong>The business that responds first wins the job in over 70% of cases.</strong></p>
             </div>
-            <div class="layer-card">
+            <div class="card layer-card">
                 <div class="layer-num">06</div>
                 <div class="layer-tag">Conversion</div>
                 <h3>The quote is sent, followed up, and the job is signed.</h3>
@@ -931,17 +931,17 @@
         <div class="slbl">Keep Reading</div>
         <h2 class="stitle">Related <em>articles.</em></h2>
         <div class="related-grid">
-            <a href="/blog/marketing-agency-vs-lead-system.html" class="related-card">
+            <a href="/blog/marketing-agency-vs-lead-system.html" class="card card--interactive related-card">
                 <div class="related-tag">Industry Comparison</div>
                 <div class="related-title">Marketing Agency vs Lead System.<br><em>There Is a Difference.</em></div>
                 <div class="related-desc">Paying a retainer to run ads is not the same as owning a lead generation system. Here is what most trade businesses find out the hard way.</div>
             </a>
-            <a href="/blog/lead-response-time-trade-business.html" class="related-card">
+            <a href="/blog/lead-response-time-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Conversion</div>
                 <div class="related-title">The Trade Business That<br><em>Responds First Wins.</em></div>
                 <div class="related-desc">What actually happens to a lead in the hours after it is submitted - and how the follow-up gap is where most jobs are quietly lost.</div>
             </a>
-            <a href="/blog/referral-plateau-trade-business.html" class="related-card">
+            <a href="/blog/referral-plateau-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Growth Strategy</div>
                 <div class="related-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>
                 <div class="related-desc">Word of mouth has a ceiling. Here is why established trade businesses hit a referral plateau and what the ones that break through do differently.</div>

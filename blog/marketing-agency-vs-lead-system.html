@@ -53,6 +53,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -261,7 +262,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .redflag-card { background: var(--bg-card); padding: 36px 28px; }
+        .redflag-card { padding: 36px 28px; }
         .redflag-num {
             font-family: var(--serif); font-size: 52px;
             line-height: 1; margin-bottom: 14px; color: rgba(248,113,113,0.10);
@@ -339,7 +340,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .stage-card { background: var(--bg-card); padding: 32px 24px; position: relative; }
+        .stage-card { padding: 32px 24px; position: relative; }
         .stage-num {
             font-family: var(--serif); font-size: 48px;
             line-height: 1; margin-bottom: 16px;
@@ -463,8 +464,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .related-card { background: var(--bg-card); padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
-        .related-card:hover { background: var(--bg-lift); }
+        .related-card { padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
         .related-tag {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             color: var(--accent); background: var(--accent-dim);
@@ -816,37 +816,37 @@
         </div>
 
         <div class="redflag-grid">
-            <div class="redflag-card">
+            <div class="card redflag-card">
                 <div class="redflag-num">01</div>
                 <div class="redflag-tag">Red Flag</div>
                 <h3>The "proprietary platform" that has no direct URL.</h3>
                 <p>If the agency presents a portal, dashboard, or CRM as their own technology but cannot tell you what the underlying platform is, ask directly. <strong>If it has a generic login page at a subdomain like yourname.agencydashboard.com, it is a white-label resell.</strong> You are paying a software line item for something you could access at a fraction of the cost if you held the account yourself.</p>
             </div>
-            <div class="redflag-card">
+            <div class="card redflag-card">
                 <div class="redflag-num">02</div>
                 <div class="redflag-tag">Red Flag</div>
                 <h3>No itemised breakdown of where ad spend actually goes.</h3>
                 <p>A reputable operator will give you a clear split: this is the management fee, this is the ad spend, this is the platform cost. If the retainer is presented as a single line item with vague descriptions of what is included, the agency is almost certainly blending a software margin into the fee. <strong>You cannot optimise what you cannot see - and that opacity is not accidental.</strong></p>
             </div>
-            <div class="redflag-card">
+            <div class="card redflag-card">
                 <div class="redflag-num">03</div>
                 <div class="redflag-tag">Red Flag</div>
                 <h3>Leads that are not actually exclusive to your business.</h3>
                 <p>Most agency-generated leads through standard campaign setups are not exclusive. The same homeowner who clicked your ad may have clicked three others. The landing page may feed a lead pool that is distributed to multiple businesses in the same trade - including competitors in your territory. <strong>If the contract does not explicitly say "exclusive, single-business leads," assume they are not.</strong></p>
             </div>
-            <div class="redflag-card">
+            <div class="card redflag-card">
                 <div class="redflag-num">04</div>
                 <div class="redflag-tag">Red Flag</div>
                 <h3>Reporting that measures leads, not jobs.</h3>
                 <p>Any agency that reports on cost per lead without connecting it to cost per booked job is measuring the wrong thing - and they know it. Cost per lead is a vanity metric when the leads are unqualified, shared, or not being followed up quickly enough to convert. <strong>The only number that matters to a trade business is the cost of acquiring a job they actually completed.</strong> If the agency cannot report on that, the system is not integrated with reality.</p>
             </div>
-            <div class="redflag-card">
+            <div class="card redflag-card">
                 <div class="redflag-num">05</div>
                 <div class="redflag-tag">Red Flag</div>
                 <h3>No trial offer. Minimum 3 to 6 month commitment upfront.</h3>
                 <p>An agency that cannot offer a trial or proof-of-concept is an agency that does not have confidence in what the first 30 days will produce. Long minimum commitments exist to give the agency time to show results before a client can leave - not because lead generation genuinely requires six months to prove itself. <strong>A provider that knows its system works should be willing to prove it before asking for a long-term commitment.</strong></p>
             </div>
-            <div class="redflag-card">
+            <div class="card redflag-card">
                 <div class="redflag-num">06</div>
                 <div class="redflag-tag">Red Flag</div>
                 <h3>The account manager has never run a trade business.</h3>
@@ -945,19 +945,19 @@
         </div>
 
         <div class="stages-grid">
-            <div class="stage-card">
+            <div class="card stage-card">
                 <div class="stage-num">01</div>
                 <span class="stage-tag q1">Ask this</span>
                 <h3>Can I start with Market Pulse before committing to a retainer?</h3>
                 <p>A yes with a clear structure means the provider is confident. A no, or a pivot to why you need six months for the algorithm to "learn," means the provider needs the contract length to protect themselves from early results - not to serve you better.</p>
             </div>
-            <div class="stage-card">
+            <div class="card stage-card">
                 <div class="stage-num">02</div>
                 <span class="stage-tag q2">Ask this</span>
                 <h3>Who owns the ad account and pixel data - me or you?</h3>
                 <p>The answer should be you, from day one. If the provider runs your ads inside their master account and only gives you reporting access, you are building their data asset, not yours. After 12 months of campaigns, that pixel data is genuinely valuable - make sure it belongs to you when the contract ends.</p>
             </div>
-            <div class="stage-card">
+            <div class="card stage-card">
                 <div class="stage-num">03</div>
                 <span class="stage-tag proof">Ask this</span>
                 <h3>Show me a trade business in my category that you currently run leads for.</h3>
@@ -1123,17 +1123,17 @@
         <div class="slbl">Keep Reading</div>
         <h2 class="stitle">Related <em>articles.</em></h2>
         <div class="related-grid">
-            <a href="/blog/referral-plateau-trade-business.html" class="related-card">
+            <a href="/blog/referral-plateau-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Growth Strategy</div>
                 <div class="related-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>
                 <div class="related-desc">Word of mouth has a ceiling. Here is why established trade businesses hit a referral plateau and what the ones that break through do differently.</div>
             </a>
-            <a href="/blog/lead-response-time-trade-business.html" class="related-card">
+            <a href="/blog/lead-response-time-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Conversion</div>
                 <div class="related-title">The Trade Business That<br><em>Responds First Wins.</em></div>
                 <div class="related-desc">What actually happens to a lead in the hours after it is submitted - and how the follow-up gap is where most jobs are quietly lost.</div>
             </a>
-            <a href="/blog/shared-leads-australia.html" class="related-card">
+            <a href="/blog/shared-leads-australia.html" class="card card--interactive related-card">
                 <div class="related-tag">Lead Generation</div>
                 <div class="related-title">You Paid for That Lead.<br><em>So Did Three Others.</em></div>
                 <div class="related-desc">How shared lead marketplaces actually work - and why the economics never improve no matter how much volume you push through them.</div>
