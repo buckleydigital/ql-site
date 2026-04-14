@@ -33,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -195,7 +196,7 @@
             gap: 1px; background: var(--border); border: 1px solid var(--border);
             border-radius: 10px; overflow: hidden; margin: 24px 0;
         }
-        .terms-card { background: var(--bg-card); padding: 22px 20px; }
+        .terms-card { padding: 22px 20px; }
         .terms-card-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
         .terms-card-val { font-family: var(--serif); font-size: 17px; color: var(--ink); margin-bottom: 6px; }
         .terms-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; font-weight: 400; }
@@ -203,13 +204,8 @@
         /* SIDEBAR */
         .terms-sidebar { position: sticky; top: 100px; }
         .sidebar-card {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 10px; padding: 26px; margin-bottom: 14px;
+            padding: 26px; margin-bottom: 14px;
             position: relative; overflow: hidden;
-        }
-        .sidebar-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.4;
         }
         .sidebar-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
         .sidebar-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; padding: 7px 0; border-bottom: 1px solid var(--border); }
@@ -502,22 +498,22 @@
                         <p>This Agreement operates alongside our <a href="/terms">Terms & Conditions</a> and <a href="/privacy">Privacy Policy</a>. If you do not agree to these terms in their entirety, please do not enroll in the Program.</p>
                     </div>
                     <div class="terms-cards" style="margin-top:28px;">
-                        <div class="terms-card">
+                        <div class="card terms-card">
                             <div class="terms-card-lbl">Initial term</div>
                             <div class="terms-card-val">30 days</div>
                             <div class="terms-card-desc">Minimum commitment period before month-to-month continuation.</div>
                         </div>
-                        <div class="terms-card">
+                        <div class="card terms-card">
                             <div class="terms-card-lbl">Billing</div>
                             <div class="terms-card-val">Monthly</div>
                             <div class="terms-card-desc">Following the initial 30-day term, service continues month-to-month.</div>
                         </div>
-                        <div class="terms-card">
+                        <div class="card terms-card">
                             <div class="terms-card-lbl">Guarantee</div>
                             <div class="terms-card-val">30-day satisfaction</div>
                             <div class="terms-card-desc">Subject to meeting all qualification criteria outlined below.</div>
                         </div>
-                        <div class="terms-card">
+                        <div class="card terms-card">
                             <div class="terms-card-lbl">Support</div>
                             <div class="terms-card-val">WhatsApp primary</div>
                             <div class="terms-card-desc">Email or phone available if WhatsApp is unavailable.</div>
@@ -764,7 +760,7 @@
 
             <!-- SIDEBAR -->
             <div class="terms-sidebar">
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">At a glance</div>
                     <div class="sidebar-row"><span>Initial term</span><span>30 days</span></div>
                     <div class="sidebar-row"><span>Continues</span><span>Month-to-month</span></div>
@@ -773,13 +769,13 @@
                     <div class="sidebar-row"><span>Jurisdiction</span><span>Australia</span></div>
                 </div>
 
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">Questions</div>
                     <a href="mailto:contact@quoteleads.com.au" style="font-family:var(--serif); font-size:15px; color:var(--accent); text-decoration:none; display:block; margin-bottom:14px; word-break:break-all; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">contact@quoteleads.com.au</a>
                     <p style="font-size:13px; color:var(--ink-muted); line-height:1.6;">For questions about the Growth Accelerator Program or this Agreement.</p>
                 </div>
 
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">Other legal pages</div>
                     <a href="/terms" class="sidebar-link">Terms & Conditions</a>
                     <a href="/privacy" class="sidebar-link">Privacy Policy</a>
