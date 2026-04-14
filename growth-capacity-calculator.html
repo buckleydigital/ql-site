@@ -413,12 +413,12 @@
             letter-spacing: -0.3px; display: none;
         }
         .logo-text.show { display: block; }
-        .nav-links { display: flex; align-items: center; gap: 32px; }
-        .nav-links > a {
+        .nav-links { display: flex; align-items: center; gap: 24px; }
+        .nav-links> a {
             font-size: 14px; font-weight: 400; color: var(--ink-muted);
             text-decoration: none; transition: color 0.2s;
         }
-        .nav-links > a:hover { color: var(--ink); }
+        .nav-links> a:hover { color: var(--ink); }
         .nav-dropdown { position: relative; }
         .nav-dropdown-btn {
             font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
@@ -576,7 +576,7 @@
                 <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
             </button>
-            <a href="/get-started" class="nav-cta">Get Started</a>
+            <a href="/get-started">Build Your System</a>
         </nav>
         <button class="mob-btn" id="mobBtn" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -603,7 +603,7 @@
         <a href="/renovation-leads">Renovation</a>
         <span class="mob-section-label compact">&nbsp;</span>
         <a href="/market-pulse">Buy Leads</a>
-        <a href="/get-started" class="mob-cta">Get Started</a>
+        <a href="/get-started">Build Your System</a>
     </nav>
 </header>
 
@@ -936,14 +936,14 @@
             });
         }
 
-        if(closeRate > 0.60){
+        if(closeRate> 0.60){
             warnings.push({
                 level: 'amber',
                 text: 'Close rate above 60% is unusually high. You may be under-quoting or leaving money on the table - consider raising prices.'
             });
         }
 
-        if(weeklyLeads > 50){
+        if(weeklyLeads> 50){
             warnings.push({
                 level: 'red',
                 text: 'You need ' + weeklyLeads + '+ leads/week. Ensure your ad budget and CRM can handle this throughput without leads going cold.'
@@ -958,7 +958,7 @@
             });
         }
 
-        if(monthlyLeads > 100 && closeRate < 0.25){
+        if(monthlyLeads> 100 && closeRate < 0.25){
             warnings.push({
                 level: 'red',
                 text: 'High volume + low close rate is a recipe for wasted ad spend. Fix your conversion before scaling lead gen.'
@@ -966,7 +966,7 @@
         }
 
         riskWarnings.innerHTML = '';
-        if(warnings.length > 0){
+        if(warnings.length> 0){
             for(var i = 0; i < warnings.length; i++){
                 var w = warnings[i];
                 var div = document.createElement('div');
