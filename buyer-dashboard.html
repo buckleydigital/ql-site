@@ -33,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -194,14 +195,9 @@
             padding: 60px 24px;
         }
         .login-card {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; padding: 48px 40px;
+            padding: 48px 40px;
             max-width: 440px; width: 100%; text-align: center;
-            position: relative; overflow: hidden;
-        }
-        .login-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
+            overflow: hidden;
         }
         .login-icon {
             width: 64px; height: 64px; border-radius: 50%;
@@ -286,8 +282,7 @@
         /* ── STATS ROW ── */
         .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
         .stat-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 8px; padding: 20px 24px;
+            padding: 20px 24px;
         }
         .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
         .stat-value { font-size: 28px; font-weight: 500; color: var(--ink); letter-spacing: -0.5px; }
@@ -347,13 +342,8 @@
 
         /* ── ORDER CARD ── */
         .order-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 8px; padding: 28px 32px; margin-bottom: 16px;
-            position: relative; overflow: hidden;
-        }
-        .order-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-mid), transparent);
+            padding: 28px 32px; margin-bottom: 16px;
+            overflow: hidden;
         }
         .order-top {
             display: flex; align-items: flex-start; justify-content: space-between;
@@ -379,9 +369,8 @@
 
         /* ── LEAD CARD ── */
         .lead-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 8px; padding: 24px 28px; margin-bottom: 16px;
-            position: relative; overflow: hidden;
+            padding: 24px 28px; margin-bottom: 16px;
+            overflow: hidden;
         }
         .lead-top {
             display: flex; align-items: flex-start; justify-content: space-between;
@@ -503,7 +492,7 @@
 
             /* login */
             #loginPanel { padding: 32px 16px; align-items: flex-start; padding-top: 48px; }
-            .login-card { padding: 32px 20px; border-radius: 8px; }
+            .login-card { padding: 32px 20px; }
             .login-icon { width: 52px; height: 52px; margin-bottom: 20px; }
             .login-card h1 { font-size: 22px; }
             .login-card p { font-size: 13px; margin-bottom: 24px; }
@@ -516,7 +505,7 @@
 
             /* stats */
             .stats-row { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
-            .stat-card { padding: 14px 12px; border-radius: 10px; }
+            .stat-card { padding: 14px 12px; }
             .stat-label { font-size: 10px; margin-bottom: 6px; }
             .stat-value { font-size: 22px; }
             .rate-thresholds { display: none; }
@@ -526,7 +515,7 @@
             .tab-btn { padding: 10px 16px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
 
             /* order cards */
-            .order-card { padding: 18px 16px; border-radius: 8px; }
+            .order-card { padding: 18px 16px; }
             .order-top { flex-direction: column; gap: 10px; margin-bottom: 14px; }
             .order-name { font-size: 15px; }
             .order-meta { gap: 14px 20px; }
@@ -535,7 +524,7 @@
             .order-meta-val { font-size: 13px; }
 
             /* lead cards */
-            .lead-card { padding: 18px 16px; border-radius: 8px; }
+            .lead-card { padding: 18px 16px; }
             .lead-top { flex-direction: column; gap: 10px; margin-bottom: 14px; }
             .lead-name { font-size: 14px; }
             .lead-grid { grid-template-columns: 1fr 1fr; gap: 10px 16px; margin-bottom: 14px; }
@@ -604,7 +593,7 @@
 
 <!-- LOGIN PANEL -->
 <div id="loginPanel">
-    <div class="login-card">
+    <div class="login-card card">
 
         <!-- ── View: Sign in ── -->
         <div id="viewSignIn">
@@ -658,19 +647,19 @@
 
         <!-- Stats row -->
         <div class="stats-row" id="statsRow">
-            <div class="stat-card">
+            <div class="stat-card card">
                 <div class="stat-label">Total Orders</div>
                 <div class="stat-value" id="statOrders">-</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card card">
                 <div class="stat-label">Leads Received</div>
                 <div class="stat-value green" id="statLeads">-</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card card">
                 <div class="stat-label">Open Disputes</div>
                 <div class="stat-value amber" id="statDisputes">-</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card card">
                 <div class="stat-label">Dispute Rate</div>
                 <div class="stat-value" id="statRate">-</div>
                 <div class="rate-bar-track">
@@ -1134,7 +1123,7 @@
         var amount  = o.amount_paid ? '$' + Number(o.amount_paid).toFixed(2) : '-';
         var leads   = o.lead_count  ? o.lead_count + ' leads' : '-';
 
-        return '<div class="order-card">' +
+        return '<div class="order-card card card--interactive">' +
             '<div class="order-top">' +
                 '<div><div class="order-name">Market Pulse - ' + escHtml(leads) + '</div>' +
                 '<div class="order-date">' + escHtml(dateStr) + '</div></div>' +
@@ -1169,7 +1158,7 @@
                    '<div class="lead-field-val">' + escHtml(String(f.val)) + '</div></div>';
         }).join('');
 
-        return '<div class="lead-card">' +
+        return '<div class="lead-card card card--interactive">' +
             '<div class="lead-top">' +
                 '<div><div class="lead-name">' + escHtml(name) + '</div>' +
                 '<div class="lead-subtext">' + escHtml(dateStr) + ' · ' + escHtml(type) + '</div></div>' +

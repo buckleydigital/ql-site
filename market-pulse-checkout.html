@@ -33,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
 
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -219,15 +220,8 @@
 
         /* ── CHECKOUT CARD ── */
         .checkout-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-mid);
-            border-radius: 8px;
             overflow: hidden;
             position: relative;
-        }
-        .checkout-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
         }
         .checkout-body { padding: 36px 40px 40px; }
 
@@ -318,8 +312,7 @@
 
         /* ── SIDEBAR ── */
         .app-sidebar { position: sticky; top: 96px; }
-        .sidebar-card { background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px; padding: 32px; margin-bottom: 16px; position: relative; overflow: hidden; }
-        .sidebar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; }
+        .sidebar-card { padding: 32px; margin-bottom: 16px; overflow: hidden; }
         .sc-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
         .checklist { list-style: none; display: flex; flex-direction: column; gap: 11px; }
         .checklist li { font-size: 13px; color: var(--ink-muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
@@ -446,7 +439,7 @@
 
         <!-- FORM -->
         <div>
-            <div class="checkout-card" id="checkoutCard">
+            <div class="card checkout-card" id="checkoutCard">
                 <div class="checkout-body">
 
                     <!-- Lead Delivery Details -->
@@ -521,7 +514,7 @@
 
         <!-- SIDEBAR -->
         <div class="app-sidebar">
-            <div class="sidebar-card">
+            <div class="card sidebar-card">
                 <div class="sc-lbl">What happens next</div>
                 <ul class="checklist">
                     <li>Payment is processed securely via Stripe</li>
@@ -536,7 +529,7 @@
                 </div>
             </div>
 
-            <div class="sidebar-card">
+            <div class="card sidebar-card">
                 <div class="sc-lbl">Need help?</div>
                 <p style="font-size:13px; color:var(--ink-muted); line-height:1.65;">
                     If you have questions about pricing, your order, or anything else - email and expect a reply within 2 business hours.

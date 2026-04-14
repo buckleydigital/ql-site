@@ -33,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -203,7 +204,7 @@
             gap: 1px; background: var(--border); border: 1px solid var(--border);
             border-radius: 10px; overflow: hidden; margin: 24px 0;
         }
-        .data-card { background: var(--bg-card); padding: 22px 20px; }
+        .data-card { padding: 22px 20px; }
         .data-card-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
         .data-card-val { font-family: var(--serif); font-size: 18px; color: var(--ink); margin-bottom: 6px; }
         .data-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; font-weight: 400; }
@@ -221,13 +222,8 @@
         /* SIDEBAR */
         .privacy-sidebar { position: sticky; top: 100px; }
         .sidebar-card {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 10px; padding: 26px; margin-bottom: 14px;
+            padding: 26px; margin-bottom: 14px;
             position: relative; overflow: hidden;
-        }
-        .sidebar-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.4;
         }
         .sidebar-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
         .sidebar-email { font-family: var(--serif); font-size: 15px; color: var(--accent); text-decoration: none; display: block; margin-bottom: 16px; transition: opacity 0.2s; word-break: break-all; }
@@ -538,22 +534,22 @@
                     <h2 class="group-title">The short version.</h2>
                     <div class="group-body"><p>QuoteLeads ("we," "us," or "our") is committed to protecting your privacy. Here's what matters most before the full detail.</p></div>
                     <div class="data-cards" style="margin-top:28px;">
-                        <div class="data-card">
+                        <div class="card data-card">
                             <div class="data-card-lbl">What we collect</div>
                             <div class="data-card-val">Contact &amp; usage data</div>
                             <div class="data-card-desc">Business details, lead data, and how you use the platform. No sensitive financial or health data.</div>
                         </div>
-                        <div class="data-card">
+                        <div class="card data-card">
                             <div class="data-card-lbl">Why we collect it</div>
                             <div class="data-card-val">To run the system</div>
                             <div class="data-card-desc">Generating leads, managing pipelines, providing support, and improving the platform.</div>
                         </div>
-                        <div class="data-card">
+                        <div class="card data-card">
                             <div class="data-card-lbl">Who we share with</div>
                             <div class="data-card-val">Service providers only</div>
                             <div class="data-card-desc">Hosting, CRM, AI tools, and analytics partners. Never sold to third parties.</div>
                         </div>
-                        <div class="data-card">
+                        <div class="card data-card">
                             <div class="data-card-lbl">Security standard</div>
                             <div class="data-card-val">256-bit encryption</div>
                         </div>
@@ -712,22 +708,22 @@
                     <div class="group-lbl">Section 07</div>
                     <h2 class="group-title">How long we keep<br>your information.</h2>
                     <div class="data-cards" style="margin-top:8px;">
-                        <div class="data-card">
+                        <div class="card data-card">
                             <div class="data-card-lbl">Active account data</div>
                             <div class="data-card-val">While active</div>
                             <div class="data-card-desc">All account, lead, and usage data retained for the duration of your account.</div>
                         </div>
-                        <div class="data-card">
+                        <div class="card data-card">
                             <div class="data-card-lbl">Closed account data</div>
                             <div class="data-card-val">90 days</div>
                             <div class="data-card-desc">Retained to allow reactivation and resolve disputes. Then deleted or anonymized.</div>
                         </div>
-                        <div class="data-card">
+                        <div class="card data-card">
                             <div class="data-card-lbl">Business records</div>
                             <div class="data-card-val">7 years</div>
                             <div class="data-card-desc">Invoices, payments, and contracts retained for legal and tax obligations.</div>
                         </div>
-                        <div class="data-card">
+                        <div class="card data-card">
                             <div class="data-card-lbl">Communication records</div>
                             <div class="data-card-val">3 years</div>
                             <div class="data-card-desc">From last communication, for support and dispute resolution.</div>
@@ -946,7 +942,7 @@
 
             <!-- SIDEBAR -->
             <div class="privacy-sidebar">
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">Privacy contact</div>
                     <a href="mailto:contact@quoteleads.com.au" class="sidebar-email">contact@quoteleads.com.au</a>
                     <div class="sidebar-row"><span>General inquiries</span><span>5 days</span></div>
@@ -954,7 +950,7 @@
                     <div class="sidebar-row"><span>Security issues</span><span>24 hours</span></div>
                 </div>
 
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">Quick facts</div>
                     <div class="sidebar-row"><span>Data sold?</span><span style="color:var(--accent);">Never</span></div>
                     <div class="sidebar-row"><span>AI model training?</span><span style="color:var(--accent);">No</span></div>
@@ -962,7 +958,7 @@
                     <div class="sidebar-row"><span>Effective</span><span>Jan 3, 2026</span></div>
                 </div>
 
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">System status</div>
                     <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
                         <span class="sdot"></span>
@@ -971,7 +967,7 @@
                     <p style="font-size:13px; color:var(--ink-muted); line-height:1.6;">Australian owned and operated. Data primarily processed in Australia.</p>
                 </div>
 
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">Other legal pages</div>
                     <a href="/terms" class="sidebar-link">Terms &amp; Conditions</a>
                 </div>

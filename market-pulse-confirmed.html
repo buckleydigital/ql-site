@@ -34,6 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -239,13 +240,8 @@
 
         /* ── TIMELINE ── */
         .timeline-card {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; padding: 40px; text-align: left;
-            position: relative; overflow: hidden; margin-bottom: 32px;
-        }
-        .timeline-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--green), transparent); opacity: 0.5;
+            padding: 40px; text-align: left;
+            overflow: hidden; margin-bottom: 32px;
         }
         .timeline-label {
             font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
@@ -281,13 +277,8 @@
 
         /* ── CONTACT CARD ── */
         .contact-card {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; padding: 32px; text-align: center;
-            position: relative; overflow: hidden;
-        }
-        .contact-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
+            padding: 32px; text-align: center;
+            overflow: hidden;
         }
         .contact-card p {
             font-size: 14px; color: var(--ink-muted); line-height: 1.65;
@@ -298,14 +289,9 @@
 
         /* ── ACCOUNT CARD ── */
         .account-card {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; padding: 32px; text-align: left;
-            position: relative; overflow: hidden; margin-bottom: 16px;
+            padding: 32px; text-align: left;
+            overflow: hidden; margin-bottom: 16px;
             display: flex; align-items: flex-start; gap: 20px;
-        }
-        .account-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--green), transparent); opacity: 0.5;
         }
         .account-card-icon {
             width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
@@ -431,7 +417,7 @@
         </p>
 
         <!-- Timeline -->
-        <div class="timeline-card">
+        <div class="card timeline-card">
             <div class="timeline-label">What happens now</div>
             <div class="timeline-items">
                 <div class="timeline-item">
@@ -468,7 +454,7 @@
         </div>
 
         <!-- Account access -->
-        <div class="account-card">
+        <div class="card card--interactive account-card">
             <div class="account-card-icon">
                 <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </div>
@@ -479,7 +465,7 @@
         </div>
 
         <!-- Contact -->
-        <div class="contact-card">
+        <div class="card contact-card">
             <p>Questions about your order or need to update your details?</p>
             <p style="margin-top:8px;"><a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a></p>
         </div>

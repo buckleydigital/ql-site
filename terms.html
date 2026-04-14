@@ -33,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -197,7 +198,7 @@
             gap: 1px; background: var(--border); border: 1px solid var(--border);
             border-radius: 10px; overflow: hidden; margin: 24px 0;
         }
-        .terms-card { background: var(--bg-card); padding: 22px 20px; }
+        .terms-card { padding: 22px 20px; }
         .terms-card-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
         .terms-card-val { font-family: var(--serif); font-size: 17px; color: var(--ink); margin-bottom: 6px; }
         .terms-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; font-weight: 400; }
@@ -205,13 +206,8 @@
         /* SIDEBAR */
         .terms-sidebar { position: sticky; top: 100px; }
         .sidebar-card {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 10px; padding: 26px; margin-bottom: 14px;
+            padding: 26px; margin-bottom: 14px;
             position: relative; overflow: hidden;
-        }
-        .sidebar-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.4;
         }
         .sidebar-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
         .sidebar-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; padding: 7px 0; border-bottom: 1px solid var(--border); }
@@ -508,22 +504,22 @@
                         <p>These Terms operate alongside our <a href="/privacy">Privacy Policy</a> and any additional guidelines that may apply to specific sections or services of the Site. If you do not agree, please do not use the Site or Services.</p>
                     </div>
                     <div class="terms-cards" style="margin-top:28px;">
-                        <div class="terms-card">
+                        <div class="card terms-card">
                             <div class="terms-card-lbl">Governed by</div>
                             <div class="terms-card-val">Queensland law</div>
                             <div class="terms-card-desc">These Terms are construed under the laws of Queensland, Australia.</div>
                         </div>
-                        <div class="terms-card">
+                        <div class="card terms-card">
                             <div class="terms-card-lbl">Minimum age</div>
                             <div class="terms-card-val">18 years</div>
                             <div class="terms-card-desc">Or the legal age of majority in your jurisdiction, whichever is higher.</div>
                         </div>
-                        <div class="terms-card">
+                        <div class="card terms-card">
                             <div class="terms-card-lbl">Effective date</div>
                             <div class="terms-card-val">January 3, 2026</div>
                             <div class="terms-card-desc">Continued use after any update constitutes acceptance of revised terms.</div>
                         </div>
-                        <div class="terms-card">
+                        <div class="card terms-card">
                             <div class="terms-card-lbl">Contact</div>
                             <div class="terms-card-val">contact@quoteleads.com.au</div>
                             <div class="terms-card-desc">For questions about these Terms or your account.</div>
@@ -708,7 +704,7 @@
 
             <!-- SIDEBAR -->
             <div class="terms-sidebar">
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">At a glance</div>
                     <div class="sidebar-row"><span>Effective</span><span>Jan 3, 2026</span></div>
                     <div class="sidebar-row"><span>Jurisdiction</span><span>Queensland, AU</span></div>
@@ -716,13 +712,13 @@
                     <div class="sidebar-row"><span>Notice period</span><span>30 days</span></div>
                 </div>
 
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">Questions</div>
                     <a href="mailto:contact@quoteleads.com.au" style="font-family:var(--serif); font-size:15px; color:var(--accent); text-decoration:none; display:block; margin-bottom:14px; word-break:break-all; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">contact@quoteleads.com.au</a>
                     <p style="font-size:13px; color:var(--ink-muted); line-height:1.6;">For questions about these Terms, your account, or service agreements.</p>
                 </div>
 
-                <div class="sidebar-card">
+                <div class="card sidebar-card">
                     <div class="sidebar-lbl">Other legal pages</div>
                     <a href="/privacy" class="sidebar-link">Privacy Policy</a>
                     <a href="/security" class="sidebar-link">Security &amp; Compliance</a>

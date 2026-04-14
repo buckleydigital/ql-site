@@ -33,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -121,15 +122,8 @@
 
         /* ── FORM CARD ── */
         .form-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-mid);
-            border-radius: 8px;
             overflow: hidden;
             position: relative;
-        }
-        .form-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
         }
 
         /* Progress */
@@ -153,15 +147,11 @@
         .opt-grid { display: grid; gap: 10px; margin-bottom: 28px; }
         .opt-grid.cols-2 { grid-template-columns: 1fr 1fr; }
         .opt-card {
-            background: var(--bg-lift);
-            border: 1px solid var(--border);
-            border-radius: 8px;
             padding: 16px 18px;
             cursor: pointer;
-            transition: border-color 0.2s, background 0.2s, transform 0.15s;
             user-select: none;
         }
-        .opt-card:hover { border-color: var(--accent); background: var(--accent-dim); transform: translateY(-1px); }
+        .opt-card:hover { border-color: var(--accent); background: var(--accent-dim); }
         .opt-card.selected { border-color: var(--accent); background: var(--accent-dim); }
         .opt-card.selected .opt-label { color: var(--ink); }
         .opt-label { font-size: 14px; font-weight: 400; color: var(--ink-soft); line-height: 1.4; display: flex; align-items: flex-start; gap: 10px; }
@@ -291,8 +281,7 @@
 
         /* ── SIDEBAR ── */
         .app-sidebar { position: sticky; top: 96px; }
-        .sidebar-card { background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px; padding: 32px; margin-bottom: 16px; position: relative; overflow: hidden; }
-        .sidebar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; }
+        .sidebar-card { padding: 32px; margin-bottom: 16px; overflow: hidden; }
         .sc-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
 
         .sc-metric { padding: 14px 0; border-bottom: 1px solid var(--border); }
@@ -570,7 +559,7 @@
 
         <!-- FORM -->
         <div>
-            <div class="form-card" id="formCard">
+            <div class="card form-card" id="formCard">
 
                 <!-- Progress -->
                 <div class="form-progress" id="formProgress">
@@ -589,51 +578,51 @@
                         <div class="step-q">What type of leads do you need?</div>
                         <div class="step-hint">Select your industry, then choose your lead type.</div>
                         <div class="opt-grid cols-2" id="industryGrid">
-                            <div class="opt-card" data-field="trade" data-value="Solar">
+                            <div class="card card--interactive opt-card" data-field="trade" data-value="Solar">
                                 <div class="opt-label">Solar</div>
                             </div>
-                            <div class="opt-card" data-field="trade" data-value="Roofing">
+                            <div class="card card--interactive opt-card" data-field="trade" data-value="Roofing">
                                 <div class="opt-label">Roofing</div>
                             </div>
-                            <div class="opt-card" data-field="trade" data-value="Renovations">
+                            <div class="card card--interactive opt-card" data-field="trade" data-value="Renovations">
                                 <div class="opt-label">Renovations</div>
                             </div>
-                            <div class="opt-card" data-field="trade" data-value="HVAC">
+                            <div class="card card--interactive opt-card" data-field="trade" data-value="HVAC">
                                 <div class="opt-label">HVAC</div>
                             </div>
                         </div>
                         <div class="subtype-grid" id="subtypeSolar">
-                            <div class="opt-card multi" data-subtype="Solar + Battery">
+                            <div class="card card--interactive opt-card multi" data-subtype="Solar + Battery">
                                 <div class="opt-label">Solar + Battery</div>
                             </div>
-                            <div class="opt-card multi" data-subtype="Battery">
+                            <div class="card card--interactive opt-card multi" data-subtype="Battery">
                                 <div class="opt-label">Battery</div>
                             </div>
                         </div>
                         <div class="subtype-grid" id="subtypeRoofing">
-                            <div class="opt-card multi" data-subtype="Roof Restorations">
+                            <div class="card card--interactive opt-card multi" data-subtype="Roof Restorations">
                                 <div class="opt-label">Roof Restorations</div>
                             </div>
-                            <div class="opt-card multi" data-subtype="Roof Replacements">
+                            <div class="card card--interactive opt-card multi" data-subtype="Roof Replacements">
                                 <div class="opt-label">Roof Replacements</div>
                             </div>
                         </div>
                         <div class="subtype-grid" id="subtypeRenovations">
-                            <div class="opt-card multi" data-subtype="Bathrooms">
+                            <div class="card card--interactive opt-card multi" data-subtype="Bathrooms">
                                 <div class="opt-label">Bathrooms</div>
                             </div>
-                            <div class="opt-card multi" data-subtype="Kitchens">
+                            <div class="card card--interactive opt-card multi" data-subtype="Kitchens">
                                 <div class="opt-label">Kitchens</div>
                             </div>
-                            <div class="opt-card multi" data-subtype="Decks">
+                            <div class="card card--interactive opt-card multi" data-subtype="Decks">
                                 <div class="opt-label">Decks</div>
                             </div>
-                            <div class="opt-card multi" data-subtype="Fencing">
+                            <div class="card card--interactive opt-card multi" data-subtype="Fencing">
                                 <div class="opt-label">Fencing</div>
                             </div>
                         </div>
                         <div class="subtype-grid" id="subtypeHVAC">
-                            <div class="opt-card multi" data-subtype="Split + Ducted System Installs">
+                            <div class="card card--interactive opt-card multi" data-subtype="Split + Ducted System Installs">
                                 <div class="opt-label">Split + Ducted System Installs</div>
                             </div>
                         </div>
@@ -673,15 +662,15 @@
                         <div class="step-q">How many leads do you want?</div>
                         <div class="step-hint">Choose the batch size for your order. All leads are exclusive, consented, and phone-verified.</div>
                         <div class="opt-grid" id="leadCountGrid">
-                            <div class="opt-card" data-field="lead_count" data-value="10">
+                            <div class="card card--interactive opt-card" data-field="lead_count" data-value="10">
                                 <div class="opt-label">10 Leads</div>
                                 <div class="opt-sub">Great to test the waters</div>
                             </div>
-                            <div class="opt-card" data-field="lead_count" data-value="25">
+                            <div class="card card--interactive opt-card" data-field="lead_count" data-value="25">
                                 <div class="opt-label">25 Leads</div>
                                 <div class="opt-sub">Most popular - enough to measure ROI</div>
                             </div>
-                            <div class="opt-card" data-field="lead_count" data-value="50">
+                            <div class="card card--interactive opt-card" data-field="lead_count" data-value="50">
                                 <div class="opt-label">50 Leads</div>
                                 <div class="opt-sub">Best value per lead</div>
                             </div>
@@ -784,7 +773,7 @@
 
         <!-- SIDEBAR -->
         <div class="app-sidebar">
-            <div class="sidebar-card">
+            <div class="card sidebar-card">
                 <div class="sc-lbl">Your Market Pulse</div>
                 <div class="sc-metric">
                     <div class="sc-val">Exclusive</div>
@@ -802,7 +791,7 @@
                 </div>
             </div>
 
-            <div class="sidebar-card">
+            <div class="card sidebar-card">
                 <div class="sc-lbl">What you're getting</div>
                 <ul class="checklist">
                     <li>1-to-1 consent - homeowner agreed to hear from your business</li>
@@ -813,7 +802,7 @@
                 </ul>
             </div>
 
-            <div class="sidebar-card">
+            <div class="card sidebar-card">
                 <div class="sc-lbl">After your leads are delivered</div>
                 <p style="font-size:13px; color:var(--ink-muted); line-height:1.65;">You'll have the data - lead quality, your close rate, the ROI. Ready to scale? See what the full system looks like built under your brand.</p>
                 <p style="font-size:13px; color:var(--ink-faint); margin-top:10px; line-height:1.55;"><a href="/what-you-own" style="color:var(--accent); text-decoration:none;">Learn more about the full system →</a></p>

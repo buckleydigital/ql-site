@@ -38,6 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -225,7 +226,7 @@
             background: var(--border); border: 1px solid var(--border);
             border-radius: 8px; overflow: hidden; margin-top: 48px;
         }
-        .problem-card { background: var(--bg-card); padding: 36px 32px; }
+        .problem-card { padding: 36px 32px; }
         .problem-card-lbl {
             font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
             margin-bottom: 16px;
@@ -340,7 +341,7 @@
             gap: 1px; background: var(--border);
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px;
         }
-        .intent-card { background: var(--bg-card); padding: 32px 24px; }
+        .intent-card { padding: 32px 24px; }
         .intent-icon {
             width: 40px; height: 40px; border-radius: 10px;
             background: var(--solar-dim); border: 1px solid rgba(245,166,35,0.2);
@@ -356,7 +357,7 @@
             gap: 1px; background: var(--border);
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px;
         }
-        .timeline-card { background: var(--bg-card); padding: 36px 28px; }
+        .timeline-card { padding: 36px 28px; }
         .timeline-card-month { font-family: var(--serif); font-size: 48px; color: var(--solar-dim); line-height: 1; margin-bottom: 16px; }
         .timeline-tag {
             display: inline-block; font-size: 10px; letter-spacing: 0.08em;
@@ -373,7 +374,7 @@
             gap: 1px; background: var(--border);
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px;
         }
-        .backend-card { background: var(--bg-card); padding: 32px 28px; }
+        .backend-card { padding: 32px 28px; }
         .backend-card-tag {
             display: inline-block; font-size: 10px; letter-spacing: 0.08em;
             text-transform: uppercase; color: var(--accent); background: var(--accent-dim);
@@ -713,7 +714,7 @@
         </div>
 
         <div class="problem-grid">
-            <div class="problem-card">
+            <div class="card problem-card">
                 <div class="problem-card-lbl bad">The old model</div>
                 <h3>Buying leads from a marketplace</h3>
                 <ul class="problem-list bad">
@@ -726,7 +727,7 @@
                     <li>Close rates tanking because you're competing on price before you speak</li>
                 </ul>
             </div>
-            <div class="problem-card">
+            <div class="card problem-card">
                 <div class="problem-card-lbl good">The QuoteLeads model</div>
                 <h3>Your own system, your leads only</h3>
                 <ul class="problem-list good">
@@ -792,32 +793,32 @@
         </div>
 
         <div class="intent-grid">
-            <div class="intent-card">
+            <div class="card intent-card">
                 <div class="intent-icon">🏠</div>
                 <h3>Owner-occupied property</h3>
                 <p>Renters filtered at submission. Every lead is a homeowner with authority to sign off.</p>
             </div>
-            <div class="intent-card">
+            <div class="card intent-card">
                 <div class="intent-icon">⚡</div>
                 <h3>Active purchase intent</h3>
                 <p>Three survey questions before contact info. System size, energy spend, and timeline captured before you see the lead.</p>
             </div>
-            <div class="intent-card">
+            <div class="card intent-card">
                 <div class="intent-icon">📍</div>
                 <h3>Within your service area</h3>
                 <p>Matched to your exact service zone - no driving three hours for a job outside your territory.</p>
             </div>
-            <div class="intent-card">
+            <div class="card intent-card">
                 <div class="intent-icon">✓</div>
                 <h3>Verified contact details</h3>
                 <p>Real-time phone and email verification. Bad data caught before it reaches you.</p>
             </div>
-            <div class="intent-card">
+            <div class="card intent-card">
                 <div class="intent-icon">📋</div>
                 <h3>Named consent - your brand</h3>
                 <p>Your business name in the consent text. They know who's calling - and they're expecting it.</p>
             </div>
-            <div class="intent-card">
+            <div class="card intent-card">
                 <div class="intent-icon">🔋</div>
                 <h3>Battery + system preferences</h3>
                 <p>Battery-curious, full system, or panels only - captured upfront so you don't open cold.</p>
@@ -934,19 +935,19 @@
         <h2 class="stitle">First installs in month one.<br><em>A pipeline in month three.</em></h2>
 
         <div class="timeline-grid">
-            <div class="timeline-card">
+            <div class="card timeline-card">
                 <div class="timeline-card-month">01</div>
                 <span class="timeline-tag build">Build + Launch</span>
                 <h3>System live. First solar leads within 48 hours.</h3>
                 <p>Meta campaigns launched at $40/day. ~30 qualified leads expected. Ad performance and lead quality monitored.</p>
             </div>
-            <div class="timeline-card">
+            <div class="card timeline-card">
                 <div class="timeline-card-month">02</div>
                 <span class="timeline-tag scale">Improve</span>
                 <h3>Scale what converts.</h3>
                 <p>Weak audiences and angles cut. Cost per qualified lead drops as volume climbs.</p>
             </div>
-            <div class="timeline-card">
+            <div class="card timeline-card">
                 <div class="timeline-card-month">03</div>
                 <span class="timeline-tag scale">Scale + Handoff</span>
                 <h3>Proven system. Run it or hand it off.</h3>
@@ -963,22 +964,22 @@
         <h2 class="stitle">The backend that<br><em>closes solar jobs.</em></h2>
 
         <div class="backend-grid">
-            <div class="backend-card">
+            <div class="card backend-card">
                 <div class="backend-card-tag solar">Speed-to-Lead</div>
                 <h3>60-Second AI Response</h3>
                 <p>AI responds in your name within 60 seconds - day or night. Speed-to-lead is the single biggest conversion driver in solar.</p>
             </div>
-            <div class="backend-card">
+            <div class="card backend-card">
                 <div class="backend-card-tag solar">Nurturing</div>
                 <h3>14-Day Automated Sequences</h3>
                 <p>14-day sequence of follow-ups - educational content, objection handling, rebate info - keeps leads warm until they're ready to commit.</p>
             </div>
-            <div class="backend-card">
+            <div class="card backend-card">
                 <div class="backend-card-tag">Quoting</div>
                 <h3>Solar Quote Drafting + Delivery</h3>
                 <p>Preliminary quotes drafted automatically from job details and your pricing. You approve. It sends. Homeowners get a quote before competitors have called.</p>
             </div>
-            <div class="backend-card">
+            <div class="card backend-card">
                 <div class="backend-card-tag">Flexible</div>
                 <h3>Integrates With Your Stack</h3>
                 <p>Already using a quoting tool, CRM, or job management platform? The integration gets built in.</p>

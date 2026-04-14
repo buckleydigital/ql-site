@@ -33,6 +33,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -453,7 +454,6 @@
         }
         .outcome-card {
             padding: 40px 28px;
-            background: var(--bg-card);
         }
         .outcome-val {
             font-family: var(--serif);
@@ -542,7 +542,7 @@
             .compare-table-mobile { display: flex !important; }
             .compare-tier-cards { display: flex; flex-direction: column; gap: 16px; }
             .compare-tier-card {
-                border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg-card);
+                overflow: hidden;
             }
             .compare-tier-card-header {
                 padding: 16px; border-bottom: 1px solid var(--border-mid);
@@ -859,7 +859,7 @@
         <h2 class="stitle" style="text-align:center;max-width:600px;margin:0 auto 16px;">Leads on demand, or a full system - <em>pick your path.</em></h2>
         <p class="sbody" style="text-align:center;margin:0 auto 60px;">Pick the path that matches where you are right now.</p>
         <div class="path-grid">
-            <div class="path-card path-card--leads">
+            <div class="card card--interactive path-card path-card--leads">
                 <div class="path-card-tag">Market Pulse</div>
                 <h3 class="path-card-title">Buy Leads</h3>
                 <p class="path-card-body">Fixed-price, exclusive inbound leads. Your trade, your territory. Delivered within 48 hours. No system required to start.</p>
@@ -871,7 +871,7 @@
                 </ul>
                 <a href="/market-pulse-intake" class="btn-primary" style="margin-top:32px;display:inline-block;">Buy Leads →</a>
             </div>
-            <div class="path-card path-card--system">
+            <div class="card card--interactive path-card path-card--system">
                 <div class="path-card-tag">System Deployment</div>
                 <h3 class="path-card-title">Build Your System</h3>
                 <p class="path-card-body">A complete lead generation system built for your trade and territory. Ads, funnel, AI follow-up, CRM, and quote delivery - all owned by you.</p>
@@ -1229,19 +1229,19 @@
 
             <!-- SIDE STATS -->
             <div class="sf-stats">
-                <div class="sf-stat-card">
+                <div class="card sf-stat-card">
                     <div class="sf-stat-val">60s</div>
                     <div class="sf-stat-lbl">AI response time after lead submits</div>
                 </div>
-                <div class="sf-stat-card">
+                <div class="card sf-stat-card">
                     <div class="sf-stat-val">100%</div>
                     <div class="sf-stat-lbl">Exclusive - no shared leads, ever</div>
                 </div>
-                <div class="sf-stat-card">
+                <div class="card sf-stat-card">
                     <div class="sf-stat-val">24-48h</div>
                     <div class="sf-stat-lbl">Average time to first lead after launch</div>
                 </div>
-                <div class="sf-stat-card sf-stat-card--note">
+                <div class="card card--highlight sf-stat-card sf-stat-card--note">
                     <div class="sf-stat-note-head">You own it.</div>
                     <div class="sf-stat-note-body">Ad account, CRM, funnels - all yours. Permanently.</div>
                 </div>
@@ -1464,9 +1464,6 @@
 }
 
 .sf-stat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-mid);
-    border-radius: 6px;
     padding: 24px;
 }
 
@@ -1483,11 +1480,6 @@
     color: var(--ink-muted);
     line-height: 1.5;
     font-weight: 400;
-}
-
-.sf-stat-card--note {
-    background: var(--accent-dim);
-    border-color: rgba(71,151,255,0.2);
 }
 
 .sf-stat-note-head {
@@ -1526,13 +1518,8 @@
     gap: 24px;
 }
 .path-card {
-    background: var(--bg-card); border: 1px solid var(--border-mid);
-    border-radius: 8px; padding: 40px; position: relative; overflow: hidden;
+    padding: 40px; overflow: hidden;
     display: flex; flex-direction: column;
-}
-.path-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
 }
 .path-card-tag {
     font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
@@ -1604,22 +1591,22 @@
         <div class="slbl">Outcomes</div>
         <h2 class="stitle">What the platform delivers.</h2>
         <div class="outcomes-grid">
-            <div class="outcome-card">
+            <div class="card outcome-card">
                 <div class="outcome-val">70%</div>
                 <div class="outcome-lbl">Lead-to-appointment rate</div>
                 <div class="outcome-sub">When AI follow-up activates within 60 seconds</div>
             </div>
-            <div class="outcome-card">
+            <div class="card outcome-card">
                 <div class="outcome-val">&lt;60s</div>
                 <div class="outcome-lbl">Average first response</div>
                 <div class="outcome-sub">AI SMS follow-up, 24/7 - branded to the business</div>
             </div>
-            <div class="outcome-card">
+            <div class="card outcome-card">
                 <div class="outcome-val">5–7 days</div>
                 <div class="outcome-lbl">System deployment</div>
                 <div class="outcome-sub">Ads, funnel, CRM and AI configured before launch</div>
             </div>
-            <div class="outcome-card">
+            <div class="card outcome-card">
                 <div class="outcome-val">100%</div>
                 <div class="outcome-lbl">Lead exclusivity</div>
                 <div class="outcome-sub">One business per trade per territory. No shared leads.</div>

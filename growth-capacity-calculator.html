@@ -32,6 +32,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -360,7 +361,7 @@
             gap: 1px; background: var(--border);
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
         }
-        .explainer-card { background: var(--bg-card); padding: 28px 24px; }
+        .explainer-card { padding: 28px 24px; }
         .explainer-card-step {
             font-family: var(--serif); font-size: 40px; color: var(--accent-dim);
             line-height: 1; margin-bottom: 12px;
@@ -718,17 +719,17 @@
     <div class="explainer-inner">
         <div class="explainer-lbl">How it's calculated</div>
         <div class="explainer-grid">
-            <div class="explainer-card">
+            <div class="card explainer-card">
                 <div class="explainer-card-step">01</div>
                 <h3>Job capacity</h3>
                 <p>Each crew can complete roughly 2.5 jobs per week on average. Multiply by your crew count to find your weekly ceiling.</p>
             </div>
-            <div class="explainer-card">
+            <div class="card explainer-card">
                 <div class="explainer-card-step">02</div>
                 <h3>Lead volume</h3>
                 <p>Divide your weekly job capacity by your close rate. This tells you exactly how many leads you need to keep every crew fully booked.</p>
             </div>
-            <div class="explainer-card">
+            <div class="card explainer-card">
                 <div class="explainer-card-step">03</div>
                 <h3>Revenue ceiling</h3>
                 <p>Max jobs per month multiplied by your average job value. This is the revenue cap your current team can realistically deliver.</p>
