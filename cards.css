@@ -24,6 +24,6 @@
 }
 
 :root[data-theme="light"] .card {
-  background: #0f0f0f;
-  border-color: rgba(255, 255, 255, 0.07);
+  background: #ffffff;
+  border-color: rgba(15, 20, 25, 0.10);
 }

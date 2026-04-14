@@ -55,23 +55,23 @@
             color-scheme: dark;
         }
         :root[data-theme="light"] {
-            --bg:          #000000;
-            --bg-lift:     #080808;
-            --bg-card:     #0F0F0F;
-            --bg-deep:     #080808;
-            --border:      rgba(255,255,255,0.07);
-            --border-mid:  rgba(255,255,255,0.10);
-            --ink:         #E8E8E8;
-            --ink-soft:    #627080;
-            --ink-muted:   #627080;
-            --ink-faint:   #2E3A42;
+            --bg:          #f7f8fa;
+            --bg-lift:     #f1f4f7;
+            --bg-card:     #ffffff;
+            --bg-deep:     #edf1f4;
+            --border:      rgba(15,20,25,0.10);
+            --border-mid:  rgba(15,20,25,0.14);
+            --ink:         #13181f;
+            --ink-soft:    #43505f;
+            --ink-muted:   #5a6675;
+            --ink-faint:   #8792a0;
             --accent:      #B4BEC8;
-            --accent-dim:  rgba(180,190,200,0.12);
-            --accent-glow: rgba(255,255,255,0.02);
+            --accent-dim:  rgba(180,190,200,0.20);
+            --accent-glow: rgba(180,190,200,0.08);
             --button-primary: #4797FF;
             --serif: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
             --sans:  system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-            color-scheme: dark;
+            color-scheme: light;
         }
 
         body {
@@ -125,7 +125,7 @@
         }
         .btn-primary:hover { opacity: 0.92; }
         .btn-ghost {
-            color: #fff; font-size: 14px; font-weight: 400;
+            color: var(--ink); font-size: 14px; font-weight: 400;
             text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
             transition: border-color 0.2s;
             border: 1px solid rgba(255,255,255,0.1);
@@ -564,11 +564,11 @@
         .site-header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
             padding: 0 48px;
-            background: rgba(0,0,0,0.92);
+            background: rgba(0,0,0,0.98);
             border-bottom: 1px solid var(--border);
             transition: background 0.3s, border-color 0.3s;
         }
-        [data-theme="light"] .site-header { background: rgba(0,0,0,0.92); }
+        [data-theme="light"] .site-header { background: rgba(247,248,250,0.98); }
         .header-inner {
             max-width: 1120px; margin: 0 auto;
             display: flex; align-items: center; justify-content: space-between;
@@ -587,8 +587,8 @@
             font-size: 14px; font-weight: 400; color: var(--ink-muted);
             text-decoration: none; transition: color 0.2s;
         }
-        .nav-links> a:hover { color: var(--ink); }
         .nav-links > a:hover, .nav-dropdown-btn:hover {
+            color: var(--ink);
             text-decoration: underline;
             text-decoration-thickness: 1px;
             text-underline-offset: 4px;
@@ -633,7 +633,7 @@
             border: 1px solid rgba(255,255,255,0.10); border-radius: 4px;
             padding: 7px 16px; transition: color 0.2s, border-color 0.2s;
         }
-        .nav-signin:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+        .nav-signin:hover { color: var(--ink); border-color: rgba(255,255,255,0.2); }
         .theme-btn {
             width: 36px; height: 36px; border-radius: 8px;
             border: 1px solid var(--border-mid); background: var(--bg-lift);
@@ -708,12 +708,12 @@
             background: var(--accent);
         }
 
-        .reveal {
+        section, .logo-banner, .zone-divider {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        .reveal.is-visible {
+        section.is-visible, .logo-banner.is-visible, .zone-divider.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -812,7 +812,7 @@
     <div class="hero-inner">
         <div>
             <div class="hero-eyebrow">Lead Generation Systems</div>
-            <h1>Exclusive Leads. More Customers. <span style="color:var(--accent)">No Shared Marketplaces.</span></h1>
+            <h1>Exclusive Leads. More Customers. <em>No Shared Marketplaces.</em></h1>
             <p class="hero-sub">A complete lead generation platform for established trade and home service businesses that are ready to scale.</p>
             <div class="hero-actions">
                 <a href="/market-pulse-intake" class="btn-primary">Buy Leads</a>
@@ -1724,20 +1724,25 @@
 
     // ── Scroll reveal ──
     var revealTargets = document.querySelectorAll('section, .logo-banner, .zone-divider');
-    revealTargets.forEach(function(el){
-        if(!el.classList.contains('reveal')) el.classList.add('reveal');
-    });
+    var MAX_STAGGER_ITEMS = 6;
+    var STAGGER_DELAY = 0.1;
+    var revealIndexMap = new Map();
+    revealTargets.forEach(function(el, idx){ revealIndexMap.set(el, idx); });
+    if(!('IntersectionObserver' in window)){
+        revealTargets.forEach(function(el){ el.classList.add('is-visible'); });
+    } else {
     var revealObserver = new IntersectionObserver(function(entries){
         entries.forEach(function(entry){
             if(entry.isIntersecting){
-                var index = Array.prototype.indexOf.call(revealTargets, entry.target);
-                entry.target.style.transitionDelay = (Math.max(0, index % 6) * 0.1) + 's';
+                var index = revealIndexMap.get(entry.target) || 0;
+                entry.target.style.transitionDelay = (Math.max(0, index % MAX_STAGGER_ITEMS) * STAGGER_DELAY) + 's';
                 entry.target.classList.add('is-visible');
                 revealObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.15 });
     revealTargets.forEach(function(el){ revealObserver.observe(el); });
+    }
 </script>
 
 </body>
