@@ -79,9 +79,6 @@
         }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-img { height: 36px; width: auto; display: block; }
-        .logo-img.hide { display: none; }
-        .logo-text { font-family: var(--serif); font-size: 20px; color: var(--ink); letter-spacing: -0.3px; display: none; }
-        .logo-text.show { display: block; }
         .theme-btn {
             width: 36px; height: 36px; border-radius: 8px;
             border: 1px solid var(--border-mid); background: var(--bg-lift);
@@ -192,8 +189,7 @@
 <header class="site-header">
     <div class="header-inner">
         <a href="/" class="logo">
-            <img class="logo-img dark-logo" src="https://github.com/buckleydigital/ql-site/raw/main/ql-logo-full-white.png" alt="QuoteLeads">
-            <img class="logo-img light-logo hide" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png" alt="QuoteLeads">
+            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
         </a>
         <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
             <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -237,8 +233,7 @@
 
 <footer>
     <div class="foot-logo">
-        <img class="dark-logo" src="https://github.com/buckleydigital/ql-site/raw/main/ql-logo-full-white.png" alt="QuoteLeads">
-        <img class="light-logo hide" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png" alt="QuoteLeads">
+        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
     </div>
     <div class="foot-links">
         <a href="/">Home</a>
@@ -253,17 +248,21 @@
         var saved = localStorage.getItem('ql-theme');
         var theme = saved || 'dark';
         document.documentElement.setAttribute('data-theme', theme);
-        function applyLogos() {
+        var whiteSrc = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
+        var darkSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
+        function updateLogos() {
             var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            document.querySelectorAll('.dark-logo').forEach(function(el){ el.classList.toggle('hide', !isDark); });
-            document.querySelectorAll('.light-logo').forEach(function(el){ el.classList.toggle('hide', isDark); });
+            var headerImg = document.getElementById('logoImg');
+            var footImg   = document.getElementById('footLogoImg');
+            if(headerImg){ headerImg.src = isDark ? whiteSrc : darkSrc; }
+            if(footImg){ footImg.src = isDark ? whiteSrc : darkSrc; }
         }
-        applyLogos();
+        updateLogos();
         document.getElementById('themeBtn').addEventListener('click', function(){
             var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('ql-theme', next);
-            applyLogos();
+            updateLogos();
         });
     })();
 </script>
