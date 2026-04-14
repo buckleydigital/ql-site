@@ -122,7 +122,7 @@
             font-size: clamp(40px, 5vw, 62px); line-height: 1.1;
             letter-spacing: -0.5px; color: var(--ink); margin-bottom: 28px;
         }
-        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero h1 em, .hero h1 span { font-style: normal; color: var(--accent); font-weight: 600; }
         .hero-sub {
             font-size: 17px; font-weight: 400; color: var(--ink-muted);
             line-height: 1.7; max-width: 560px; margin: 0 auto 44px;
@@ -146,7 +146,7 @@
 
         .hero-panel {
             background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 14px; padding: 40px; position: relative; overflow: hidden;
+            border-radius: 8px; padding: 40px; position: relative; overflow: hidden;
         }
         .hero-panel::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
@@ -174,49 +174,36 @@
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             background: var(--bg-lift);
-            padding: 28px 0;
+            padding: 28px 48px;
             overflow: hidden;
         }
-        .logo-banner-lbl {
-            text-align: center;
-            font-size: 11px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--ink-faint);
-            margin-bottom: 24px;
-        }
-        .logo-marquee-wrap {
-            overflow: hidden;
-            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
-            mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
-        }
-        .logo-marquee {
+        .platform-stats {
             display: flex;
             align-items: center;
-            gap: 64px;
-            width: max-content;
-            animation: marqueeScroll 28s linear infinite;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .logo-marquee:hover { animation-play-state: paused; }
-        .logo-marquee img {
-            height: 40px;
-            width: auto;
-            opacity: 0.45;
-            filter: grayscale(1) brightness(1.4);
-            transition: opacity 0.3s, filter 0.3s;
-            flex-shrink: 0;
-            object-fit: contain;
+        .platform-stat {
+            font-size: 14px;
+            color: var(--ink-muted);
+            font-weight: 400;
+            white-space: nowrap;
         }
-        [data-theme="light"] .logo-marquee img {
-            filter: grayscale(1) brightness(0.4);
+        .platform-stat-val {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 15px;
         }
-        .logo-marquee img:hover {
-            opacity: 0.8;
-            filter: grayscale(0) brightness(1);
+        .platform-stat-sep {
+            color: var(--ink-faint);
+            font-size: 16px;
         }
-        @keyframes marqueeScroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        @media(max-width:640px) {
+            .platform-stat-sep { display: none; }
+            .platform-stats { gap: 12px 24px; }
         }
         /* SHARED */
         section { padding: 100px 48px; }
@@ -231,15 +218,45 @@
             font-family: var(--serif); font-size: clamp(30px,4vw,46px);
             line-height: 1.15; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px;
         }
-        .stitle em { font-style: italic; color: var(--accent); }
+        .stitle em { font-style: normal; color: var(--accent); font-weight: 600; }
         .sbody { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
+
+        /* OWNERSHIP STRIP */
+        .ownership-strip {
+            display: flex; align-items: center; justify-content: center;
+            gap: 32px; flex-wrap: wrap; margin-top: 20px;
+        }
+        .own-item {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; color: var(--ink-soft); font-weight: 400;
+        }
+        .own-item svg { color: var(--accent); flex-shrink: 0; }
+        @media(max-width:640px) {
+            .ownership-strip { gap: 16px 24px; }
+        }
+
+        /* INTEGRATIONS STRIP */
+        .integrations-strip {
+            display: flex; align-items: center; justify-content: center;
+            gap: 40px; flex-wrap: wrap; margin-top: 24px;
+        }
+        .integ-item {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 14px; color: var(--ink-muted); font-weight: 400;
+            opacity: 0.7; transition: opacity 0.2s;
+        }
+        .integ-item:hover { opacity: 1; }
+        .integ-item svg { color: var(--ink-faint); flex-shrink: 0; }
+        @media(max-width:640px) {
+            .integrations-strip { gap: 16px 24px; }
+        }
 
         /* QUALIFIER */
         .qualifier { background: var(--bg-lift); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .q-grid {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: 1px; background: var(--border); border: 1px solid var(--border);
-            border-radius: 12px; overflow: hidden; margin-top: 60px;
+            border-radius: 6px; overflow: hidden; margin-top: 60px;
         }
         .q-col { padding: 48px 40px; background: var(--bg-card); }
         .q-lbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 28px; }
@@ -251,7 +268,7 @@
         .q-col.no  .q-list li { color: var(--ink-faint); }
         .q-col.yes .q-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 2px; font-size: 13px; }
         .q-col.no  .q-list li::before { content: '-'; color: var(--ink-faint); flex-shrink: 0; margin-top: 2px; font-size: 13px; }
-        .q-note { margin-top: 40px; font-size: 14px; color: var(--ink-faint); font-style: italic; }
+        .q-note { margin-top: 40px; font-size: 14px; color: var(--ink-faint); }
 
         /* INDUSTRIES */
         .industries {
@@ -271,13 +288,13 @@
         }
         .ind-item {
             background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 16px; overflow: hidden;
+            border-radius: 8px; overflow: hidden;
             text-decoration: none; transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
             display: grid; grid-template-columns: 160px 1fr; align-items: center;
             position: relative;
         }
         .ind-item::after {
-            content: ''; position: absolute; inset: 0; border-radius: 16px;
+            content: ''; position: absolute; inset: 0; border-radius: 8px;
             background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 50%);
             opacity: 0; transition: opacity 0.35s ease; pointer-events: none;
         }
@@ -330,7 +347,7 @@
         .p-item p { font-size: 15px; color: var(--ink-muted); line-height: 1.7; font-weight: 400; }
         .p-pull {
             font-family: var(--serif); font-size: clamp(22px,2.5vw,30px);
-            line-height: 1.4; color: var(--ink); font-style: italic;
+            line-height: 1.4; color: var(--ink);
             padding-left: 28px; border-left: 2px solid var(--accent);
         }
 
@@ -342,7 +359,7 @@
         .ph-body strong { color: var(--ink); font-weight: 400; }
         .ph-aside { position: sticky; top: 100px; }
         .ph-box {
-            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 10px; padding: 36px;
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 6px; padding: 36px;
         }
         .ph-box::before { content: ''; display: block; width: 28px; height: 2px; background: var(--accent); opacity: 0.5; margin-bottom: 20px; }
         .ph-lbl { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
@@ -355,7 +372,7 @@
         .d-grid {
             display: grid; grid-template-columns: repeat(3,1fr);
             gap: 1px; background: var(--border); border: 1px solid var(--border);
-            border-radius: 12px; overflow: hidden; margin-top: 60px;
+            border-radius: 6px; overflow: hidden; margin-top: 60px;
         }
         .d-item { background: var(--bg-card); padding: 36px 32px; transition: background 0.2s; }
         .d-item:hover { background: var(--bg-lift); }
@@ -368,7 +385,7 @@
         /* PROCESS */
         .pr-steps {
             display: grid; grid-template-columns: repeat(4,1fr);
-            margin-top: 60px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+            margin-top: 60px; border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
         }
         .pr-step { padding: 36px 28px; border-right: 1px solid var(--border); }
         .pr-step:last-child { border-right: none; }
@@ -402,7 +419,7 @@
         .pilot-stats {
             display: grid; grid-template-columns: repeat(3, 1fr);
             gap: 1px; background: var(--border); border: 1px solid var(--border);
-            border-radius: 12px; overflow: hidden;
+            border-radius: 6px; overflow: hidden;
             max-width: 640px; margin: 0 auto 48px;
         }
         .pilot-stat {
@@ -414,7 +431,7 @@
         }
         .pilot-stat-lbl { font-size: 13px; color: var(--ink-muted); line-height: 1.4; }
         .pilot-cta .pilot-note {
-            margin-top: 16px; font-size: 13px; color: var(--ink-faint); font-style: italic;
+            margin-top: 16px; font-size: 13px; color: var(--ink-faint);
         }
         @media(max-width:640px){
             .pilot-stats { grid-template-columns: 1fr; }
@@ -425,137 +442,59 @@
         .r-grid {
             display: grid; grid-template-columns: repeat(3,1fr);
             gap: 1px; background: var(--border); border: 1px solid var(--border);
-            border-radius: 12px; overflow: hidden; margin: 60px 0;
+            border-radius: 6px; overflow: hidden; margin: 60px 0;
         }
         .r-item { padding: 48px 36px; background: var(--bg-card); }
         .r-val { font-family: var(--serif); font-size: 54px; color: var(--accent); line-height: 1; margin-bottom: 12px; }
         .r-lbl { font-size: 14px; color: var(--ink-muted); line-height: 1.5; }
         .r-lbl strong { display: block; color: var(--ink-soft); font-weight: 400; margin-bottom: 4px; }
-        .r-note { font-size: 13px; color: var(--ink-faint); font-style: italic; text-align: center; margin-top: -16px; }
+        .r-note { font-size: 13px; color: var(--ink-faint); text-align: center; margin-top: -16px; }
 
-        /* TESTIMONIALS */
-        .t-stack {
+        /* OUTCOMES */
+        .outcomes-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 20px;
-            margin-top: 60px;
-        }
-        .t-item {
-            grid-column: span 2;
-            padding: 32px 28px 28px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            background: var(--bg-card);
-            position: relative;
+            border-radius: 6px;
             overflow: hidden;
-            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-            display: flex;
-            flex-direction: column;
+            margin: 60px 0 24px;
         }
-        .t-item:hover {
-            border-color: rgba(71,151,255,0.35);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+        .outcome-card {
+            padding: 40px 28px;
+            background: var(--bg-card);
         }
-        [data-theme="light"] .t-item:hover {
-            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-        }
-        /* Wide cards for items 4 and 5 */
-        .t-item:nth-child(4),
-        .t-item:nth-child(5) {
-            grid-column: span 3;
-        }
-        /* Decorative quote mark */
-        .t-item::before {
-            content: '\201C';
-            position: absolute;
-            top: -10px;
-            right: 20px;
+        .outcome-val {
             font-family: var(--serif);
-            font-size: 96px;
+            font-size: 42px;
+            font-weight: 600;
             color: var(--accent);
-            opacity: 0.06;
             line-height: 1;
-            pointer-events: none;
-            transition: opacity 0.25s;
+            margin-bottom: 12px;
         }
-        .t-item:hover::before { opacity: 0.1; }
-        /* Top accent line on hover */
-        .t-item::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .t-item:hover::after { opacity: 0.6; }
-
-        .t-stars {
-            display: flex;
-            gap: 3px;
-            margin-bottom: 18px;
-        }
-        .t-stars span {
-            color: #4797ff;
+        .outcome-lbl {
             font-size: 15px;
-            line-height: 1;
+            font-weight: 500;
+            color: var(--ink);
+            margin-bottom: 8px;
         }
-        .t-text {
-            font-size: 15px;
-            color: var(--ink-soft);
-            font-weight: 400;
-            line-height: 1.75;
-            font-style: italic;
-            flex: 1;
-            margin-bottom: 24px;
+        .outcome-sub {
+            font-size: 13px;
+            color: var(--ink-muted);
+            line-height: 1.5;
         }
-        .t-foot {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-top: auto;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-        }
-        .t-logo {
-            height: 28px;
-            width: auto;
-            max-width: 80px;
-            object-fit: contain;
-            opacity: 0.55;
-            filter: grayscale(1) brightness(1.4);
-            flex-shrink: 0;
-            transition: opacity 0.2s, filter 0.2s;
-        }
-        [data-theme="light"] .t-logo {
-            filter: grayscale(1) brightness(0.4);
-        }
-        .t-item:hover .t-logo {
-            opacity: 0.8;
-            filter: grayscale(0) brightness(1);
-        }
-        .t-auth {
-            font-size: 12px;
-            color: var(--ink-faint);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            line-height: 1.4;
-        }
-
         @media(max-width:1024px) {
-            .t-stack { grid-template-columns: 1fr 1fr; }
-            .t-item, .t-item:nth-child(4), .t-item:nth-child(5) { grid-column: span 1; }
+            .outcomes-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media(max-width:640px) {
-            .t-stack { grid-template-columns: 1fr; }
+            .outcomes-grid { grid-template-columns: 1fr; }
         }
 
         /* INVESTMENT */
         .pricing { border-top: 1px solid var(--border); }
         .inv-card {
-            border: 1px solid var(--border-mid); border-radius: 14px; overflow: hidden;
+            border: 1px solid var(--border-mid); border-radius: 6px; overflow: hidden;
         }
         .inv-card::before {
             content: ''; display: block; height: 2px;
@@ -569,14 +508,49 @@
             font-size: 15px; color: var(--ink-muted); font-weight: 400;
             line-height: 1.7; margin-bottom: 16px;
         }
-        .inv-range em { font-style: italic; color: var(--accent); }
-        .inv-filter { font-size: 14px; color: var(--ink-faint); font-style: italic; line-height: 1.7; }
+        .inv-range em { font-style: normal; color: var(--accent); font-weight: 600; }
+        .inv-filter { font-size: 14px; color: var(--ink-faint); line-height: 1.7; }
         .inv-foot {
             padding: 20px 32px; background: var(--bg-lift);
             border-top: 1px solid var(--border);
             display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
         }
         .inv-foot-note { font-size: 14px; color: var(--ink-faint); max-width: 440px; line-height: 1.6; }
+
+        /* COMPARISON TABLE */
+        .compare-table-wrap { margin-top: 40px; overflow-x: auto; }
+        .compare-table {
+            width: 100%; border-collapse: collapse;
+            border: 1px solid var(--border); border-radius: 6px;
+        }
+        .compare-table th, .compare-table td {
+            padding: 14px 20px; text-align: center;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px; font-weight: 400; color: var(--ink-muted);
+        }
+        .compare-table thead th {
+            background: var(--bg-card); padding: 24px 20px;
+            border-bottom: 1px solid var(--border-mid);
+        }
+        .compare-feature-col {
+            text-align: left !important; width: 40%; color: var(--ink-soft) !important;
+        }
+        .compare-table tbody td:first-child {
+            text-align: left; color: var(--ink-soft); font-weight: 400;
+        }
+        .compare-tier { min-width: 160px; }
+        .compare-tier-name {
+            font-size: 17px; font-weight: 500; color: var(--ink); margin-bottom: 4px;
+        }
+        .compare-tier-price {
+            font-size: 13px; color: var(--ink-faint);
+        }
+        .compare-table tfoot td {
+            padding: 24px 20px; border-bottom: none;
+        }
+        @media(max-width:640px) {
+            .compare-table th, .compare-table td { padding: 10px 12px; font-size: 13px; }
+        }
 
         /* FAQ */
         .faq-list { margin-top: 48px; }
@@ -614,7 +588,7 @@
             font-family: var(--serif); font-size: 22px; color: var(--ink);
             line-height: 1.25; margin-bottom: 14px;
         }
-        .blog-card-title em { font-style: italic; color: var(--accent); }
+        .blog-card-title em { font-style: normal; color: var(--accent); font-weight: 600; }
         .blog-card-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; margin-bottom: 20px; }
         .blog-card-read {
             font-size: 13px; color: var(--accent); font-weight: 400;
@@ -690,7 +664,7 @@
         .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
         .nav-dropdown-menu {
             display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
-            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 10px;
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 6px;
             padding: 8px 0; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
             z-index: 300;
         }
@@ -710,6 +684,12 @@
             transition: opacity 0.2s !important; text-decoration: none !important;
         }
         .nav-cta:hover { opacity: 0.85 !important; }
+        .nav-signin {
+            font-size: 13px; color: var(--ink-muted); text-decoration: none;
+            border: 1px solid var(--border-mid); border-radius: 6px;
+            padding: 7px 16px; transition: color 0.2s, border-color 0.2s;
+        }
+        .nav-signin:hover { color: var(--ink); border-color: var(--accent); }
         .theme-btn {
             width: 36px; height: 36px; border-radius: 8px;
             border: 1px solid var(--border-mid); background: var(--bg-lift);
@@ -825,6 +805,7 @@
                 </div>
             </div>
             <a href="/market-pulse">Buy Leads</a>
+            <a href="/buyer-dashboard" class="nav-signin">Sign In</a>
             <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
                 <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -856,6 +837,7 @@
         <a href="/renovation-leads">Renovation</a>
         <span class="mob-section-label compact">&nbsp;</span>
         <a href="/market-pulse">Buy Leads</a>
+        <a href="/buyer-dashboard">Sign In</a>
         <a href="/get-started" class="mob-cta">Get Started</a>
     </nav>
 </header>
@@ -881,29 +863,16 @@
     </div>
 </section>
 
-<!-- LOGO BANNER -->
+<!-- PLATFORM STATS BAR -->
 <div class="logo-banner">
-    <p class="logo-banner-lbl">Used by trade businesses across Australia</p>
-    <div class="logo-marquee-wrap">
-        <div class="logo-marquee">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo1.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo2.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo3.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo4.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo5.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo6.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo7.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo8.png" alt="Client">
-            <!-- Duplicate set for seamless loop -->
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo1.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo2.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo3.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo4.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo5.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo6.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo7.png" alt="Client">
-            <img src="https://github.com/buckleydigital/ql-site/raw/main/client-logo8.png" alt="Client">
-        </div>
+    <div class="platform-stats">
+        <div class="platform-stat"><span class="platform-stat-val">1.8M+</span> leads delivered</div>
+        <div class="platform-stat-sep">&middot;</div>
+        <div class="platform-stat"><span class="platform-stat-val">70%</span> avg appointment rate</div>
+        <div class="platform-stat-sep">&middot;</div>
+        <div class="platform-stat"><span class="platform-stat-val">$15M+</span> ad spend managed</div>
+        <div class="platform-stat-sep">&middot;</div>
+        <div class="platform-stat"><span class="platform-stat-val">&lt;60s</span> AI response time</div>
     </div>
 </div>
 
@@ -1071,12 +1040,37 @@
     </div>
 </section>
 
-<!-- OWNERSHIP THESIS -->
-<section style="padding:80px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-deep);text-align:center;position:relative;overflow:hidden;">
-    <div style="position:absolute;top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;opacity:0.3;"></div>
-    <div style="max-width:680px;margin:0 auto;position:relative;z-index:1;">
-        <p style="font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);line-height:1.25;letter-spacing:-0.3px;color:var(--ink);margin-bottom:28px;">You can't improve what you don't <em style="font-style:italic;color:var(--accent);">own.</em></p>
-        <p style="font-size:16px;color:var(--ink-muted);line-height:1.8;font-weight:400;">Renting ads from an agency and buying leads from a marketplace leaves you with nothing when you stop paying.</p>
+<!-- OWNERSHIP STRIP -->
+<section style="padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-deep);">
+    <div style="max-width:1200px;margin:0 auto;">
+        <div class="slbl" style="justify-content:center;">What You Own</div>
+        <div class="ownership-strip">
+            <div class="own-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <span>Ad accounts</span>
+            </div>
+            <div class="own-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Landing pages</span>
+            </div>
+            <div class="own-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                <span>Lead data</span>
+            </div>
+            <div class="own-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>AI follow-up</span>
+            </div>
+            <div class="own-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+                <span>CRM pipeline</span>
+            </div>
+            <div class="own-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span>Domain &amp; brand</span>
+            </div>
+        </div>
+        <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--ink-faint);">Everything stays yours — even if you cancel. <a href="/what-you-own" style="color:var(--accent);text-decoration:none;">See full breakdown →</a></p>
     </div>
 </section>
 
@@ -1269,7 +1263,7 @@
     position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border-mid);
-    border-radius: 12px;
+    border-radius: 6px;
     padding: 24px 28px;
     width: 100%;
     display: flex;
@@ -1454,7 +1448,7 @@
 .sf-stat-card {
     background: var(--bg-card);
     border: 1px solid var(--border-mid);
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 24px;
 }
 
@@ -1483,7 +1477,8 @@
     font-size: 18px;
     color: var(--ink);
     margin-bottom: 10px;
-    font-style: italic;
+    font-style: normal;
+    font-weight: 600;
 }
 
 .sf-stat-note-body {
@@ -1521,75 +1516,34 @@
     </div>
 </section>
 
-<!-- RESULTS -->
+<!-- OUTCOMES -->
 <section class="results">
     <div class="si">
-        <div class="slbl">Client Stories</div>
-        <h2 class="stitle">What our clients say.</h2>
-
-        <div class="t-stack">
-
-            <!-- 1: AB Built -->
-            <div class="t-item">
-                <div class="t-stars">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <p class="t-text">"I've been getting good local leads which are filling next year rather quickly and converting around 50% at the moment."</p>
-                <div class="t-foot">
-                    <img class="t-logo" src="https://github.com/buckleydigital/ql-site/raw/main/client-logo4.png" alt="AB Built">
-                    <div class="t-auth">AB Built<br>Building &amp; Renovation</div>
-                </div>
+        <div class="slbl">Outcomes</div>
+        <h2 class="stitle">What the platform delivers.</h2>
+        <div class="outcomes-grid">
+            <div class="outcome-card">
+                <div class="outcome-val">70%</div>
+                <div class="outcome-lbl">Lead-to-appointment rate</div>
+                <div class="outcome-sub">When AI follow-up activates within 60 seconds</div>
             </div>
-
-            <!-- 2: Lamm Solar -->
-            <div class="t-item">
-                <div class="t-stars">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <p class="t-text">"70% of leads turn into appointments on average."</p>
-                <div class="t-foot">
-                    <img class="t-logo" src="https://github.com/buckleydigital/ql-site/raw/main/client-logo2.png" alt="Lamm Solar">
-                    <div class="t-auth">Lamm Solar<br>Solar Installation</div>
-                </div>
+            <div class="outcome-card">
+                <div class="outcome-val">&lt;60s</div>
+                <div class="outcome-lbl">Average first response</div>
+                <div class="outcome-sub">AI SMS follow-up, 24/7 — branded to the business</div>
             </div>
-
-            <!-- 3: Stanleys -->
-            <div class="t-item">
-                <div class="t-stars">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <p class="t-text">"QuoteLeads helped us scale our roof painting company with high quality leads."</p>
-                <div class="t-foot">
-                    <img class="t-logo" src="https://github.com/buckleydigital/ql-site/raw/main/client-logo3.png" alt="Stanleys Painting">
-                    <div class="t-auth">Stanleys Painting<br>Roof Painting</div>
-                </div>
+            <div class="outcome-card">
+                <div class="outcome-val">5–7 days</div>
+                <div class="outcome-lbl">System deployment</div>
+                <div class="outcome-sub">Ads, funnel, CRM and AI configured before launch</div>
             </div>
-
-            <!-- 4: Max & Mitchell (wide) -->
-            <div class="t-item">
-                <div class="t-stars">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <p class="t-text">"We engaged with QuoteLeads last year and ever since we've been receiving really high quality leads."</p>
-                <div class="t-foot">
-                    <img class="t-logo" src="https://github.com/buckleydigital/ql-site/raw/main/client-logo1.png" alt="Max & Mitchell">
-                    <div class="t-auth">Max &amp; Mitchell<br>Renovations</div>
-                </div>
+            <div class="outcome-card">
+                <div class="outcome-val">100%</div>
+                <div class="outcome-lbl">Lead exclusivity</div>
+                <div class="outcome-sub">One business per trade per territory. No shared leads.</div>
             </div>
-
-            <!-- 5: SolarHarvest (wide) -->
-            <div class="t-item">
-                <div class="t-stars">
-                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                </div>
-                <p class="t-text">"Great end to end job. The speed of setup, after hours support, higher-intent solar leads."</p>
-                <div class="t-foot">
-                    <img class="t-logo" src="https://github.com/buckleydigital/ql-site/raw/main/client-logo7.png" alt="SolarHarvest">
-                    <div class="t-auth">SolarHarvest<br>Solar Installation</div>
-                </div>
-            </div>
-
         </div>
+        <p class="r-note">Figures represent typical outcomes across trade businesses in Australia.</p>
     </div>
 </section>
 
@@ -1598,29 +1552,41 @@
     <div class="si">
         <div class="slbl">Pricing</div>
         <h2 class="stitle">Two ways to start.</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:32px;">
-            <div class="inv-card">
-                <div class="inv-body">
-                    <h3>Market Pulse</h3>
-                    <div class="inv-range">Self-serve. Pick your trade, territory and volume. Exclusive, qualified leads delivered to your phone.</div>
-                    <p class="inv-filter">From <strong>$650 + GST</strong></p>
-                </div>
-                <div class="inv-foot">
-                    <a href="/market-pulse-intake" class="btn-primary">Get Started</a>
-                </div>
-            </div>
-            <div class="inv-card">
-                <div class="inv-body">
-                    <h3>Full Infrastructure Build</h3>
-                    <div class="inv-range">Custom landing pages, ad campaigns, AI follow-up, CRM pipeline - configured end-to-end for your trade and territory.</div>
-                    <p class="inv-filter"><strong>Quoted per build</strong> &middot; <a href="/get-started" class="nli-link">request pricing</a></p>
-                </div>
-                <div class="inv-foot">
-                    <a href="/get-started" class="btn-primary">Build Your System</a>
-                </div>
-            </div>
+        <div class="compare-table-wrap">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th class="compare-feature-col"></th>
+                        <th class="compare-tier">
+                            <div class="compare-tier-name">Market Pulse</div>
+                            <div class="compare-tier-price">From $650 + GST</div>
+                        </th>
+                        <th class="compare-tier">
+                            <div class="compare-tier-name">System Deployment</div>
+                            <div class="compare-tier-price">Quoted per build</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Exclusive leads</td><td>✓</td><td>✓</td></tr>
+                    <tr><td>Trade &amp; territory targeting</td><td>✓</td><td>✓</td></tr>
+                    <tr><td>Custom landing pages</td><td>—</td><td>✓</td></tr>
+                    <tr><td>Ad campaigns (your accounts)</td><td>—</td><td>✓</td></tr>
+                    <tr><td>AI follow-up &amp; SMS</td><td>—</td><td>✓</td></tr>
+                    <tr><td>CRM pipeline</td><td>—</td><td>✓</td></tr>
+                    <tr><td>Quote drafting</td><td>—</td><td>✓</td></tr>
+                    <tr><td>Full asset ownership</td><td>—</td><td>✓</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td><a href="/market-pulse-intake" class="btn-primary" style="font-size:14px;padding:10px 24px;">Buy Leads</a></td>
+                        <td><a href="/get-started" class="btn-primary" style="font-size:14px;padding:10px 24px;">Build Your System</a></td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
-        <p class="inv-foot-note" style="margin-top:24px;text-align:center;"><strong>No lock-in</strong> - <a href="/what-you-own" class="nli-link">you own everything</a>. 30-day notice to cancel ongoing management.</p>
+        <p class="inv-foot-note" style="margin-top:24px;text-align:center;"><strong>No lock-in</strong> — <a href="/what-you-own" class="nli-link">you own everything</a>. 30-day notice to cancel ongoing management.</p>
     </div>
 </section>
 
@@ -1647,7 +1613,7 @@
                 <div class="faq-a">AI sends an SMS in your name within 60 seconds of a new lead. Asks qualifying questions, books appointments, follows up - 24/7. Pause any time.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Can leads be pushed to our existing CRM?</span><span class="faq-qi">+</span></button>
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Does it integrate with my CRM?</span><span class="faq-qi">+</span></button>
                 <div class="faq-a">Yes. Integrates with most CRM and job management platforms. No CRM? A pipeline is included.</div>
             </div>
             <div class="faq-item">
@@ -1655,16 +1621,50 @@
                 <div class="faq-a">No lock-in. 30-day notice to cancel ongoing management. Everything built stays yours.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What industries do you work with?</span><span class="faq-qi">+</span></button>
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What trades does the system support?</span><span class="faq-qi">+</span></button>
                 <div class="faq-a">Solar, roofing, HVAC, renovation, and similar high-ticket trades. Average job value above $5,000.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do you work with businesses outside Australia?</span><span class="faq-qi">+</span></button>
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is QuoteLeads available outside Australia?</span><span class="faq-qi">+</span></button>
                 <div class="faq-a">Australian businesses only.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What happens after Market Pulse?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">Clients who move to the full system typically go live within 7 days of their Market Pulse leads being delivered.</div>
+                <div class="faq-a">Businesses that upgrade to the full system typically go live within 7 days of their Market Pulse leads being delivered.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section style="padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-deep);">
+    <div style="max-width:1200px;margin:0 auto;">
+        <div class="slbl" style="justify-content:center;">Integrations</div>
+        <p style="text-align:center;font-size:15px;color:var(--ink-muted);margin-bottom:28px;">Connects to the tools you already use.</p>
+        <div class="integrations-strip">
+            <div class="integ-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                GoHighLevel
+            </div>
+            <div class="integ-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                HubSpot
+            </div>
+            <div class="integ-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Zapier
+            </div>
+            <div class="integ-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Slack
+            </div>
+            <div class="integ-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                Webhooks
+            </div>
+            <div class="integ-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                SMS &amp; Email
             </div>
         </div>
     </div>
@@ -1712,7 +1712,7 @@
         <h2 class="stitle" style="max-width:520px;margin:0 auto 20px;text-align:center;">Ready to fill<br><em>your pipeline?</em></h2>
         <p class="sbody" style="margin:0 auto 40px;text-align:center;">Pick your trade, territory and volume. Done in minutes.</p>
         <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
-            <a href="/market-pulse-intake" class="btn-primary">Get Started</a>
+            <a href="/market-pulse-intake" class="btn-primary">Buy Leads</a>
             <a href="/get-started" class="btn-primary" style="background:transparent;border:1px solid var(--accent);color:var(--accent);">Build Your System</a>
         </div>
         <div class="final-trust">
@@ -1732,12 +1732,16 @@
     <div class="foot-links">
         <a href="/">Home</a>
         <a href="/market-pulse">Buy Leads</a>
-        <a href="/get-started">Get Started</a>
-        <a href="/privacy">Privacy Policy</a>
+        <a href="/get-started">Build Your System</a>
+        <a href="/buyer-dashboard">Dashboard</a>
+    </div>
+    <div class="foot-links">
+        <a href="/lead-integrity-standard">Lead Integrity</a>
+        <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
     </div>
-    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads Pty Ltd</div>
 </footer>
 
 <script>
