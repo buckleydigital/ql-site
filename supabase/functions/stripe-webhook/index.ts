@@ -9,6 +9,8 @@ const PRICE_TO_LEADS: Record<string, number> = {
   "price_1TLpD9GDfpSvNOmBifhrmf4L": 50,
 };
 
+const DEFAULT_LEAD_COUNT = 10;
+
 const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY")!, {
   apiVersion: "2023-10-16",
   httpClient: Stripe.createFetchHttpClient(),
@@ -128,13 +130,19 @@ serve(async (req: Request) => {
         console.log(`Order already paid for session ${session.id}, skipping insert.`);
       } else {
         // Retrieve expanded session to infer lead_count from the Stripe price
-        let leadCount = 10;
+        let leadCount = DEFAULT_LEAD_COUNT;
         try {
           const expanded = await stripe.checkout.sessions.retrieve(session.id, {
             expand: ["line_items"],
           });
-          const priceId = expanded.line_items?.data?.[0]?.price?.id ?? "";
-          leadCount = PRICE_TO_LEADS[priceId] ?? 10;
+          const priceId = expanded.line_items?.data?.[0]?.price?.id;
+          if (priceId && PRICE_TO_LEADS[priceId] !== undefined) {
+            leadCount = PRICE_TO_LEADS[priceId];
+          } else {
+            console.warn(
+              `Unknown or missing price ID "${priceId ?? "none"}" for session ${session.id}. Defaulting to ${DEFAULT_LEAD_COUNT} leads.`,
+            );
+          }
         } catch (expandErr) {
           console.error("Failed to retrieve session line_items:", expandErr);
         }
