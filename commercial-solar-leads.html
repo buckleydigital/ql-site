@@ -56,6 +56,7 @@
     }
     </script>
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -191,7 +192,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .problem-card { background: var(--bg-card); padding: 32px 28px; }
+        .problem-card { padding: 32px 28px; }
         .problem-card-lbl {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             margin-bottom: 14px;
@@ -258,8 +259,7 @@
         /* LEAD CARD */
         .lead-card {
             margin-top: 48px;
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; overflow: hidden;
+            overflow: hidden;
         }
         .lead-card-top {
             padding: 20px 32px; border-bottom: 1px solid var(--border);
@@ -608,7 +608,7 @@
             <p>LinkedIn caps at 15–20 connections per day. Cold email gets 2–5% response. The Australian commercial solar market grew 16% in 2024 - most installers still fill their pipeline through relationships.</p>
         </div>
         <div class="problem-grid">
-            <div class="problem-card bad">
+            <div class="card problem-card bad">
                 <div class="problem-card-lbl">The old way</div>
                 <ul class="problem-list">
                     <li>LinkedIn outreach with 15-20 connection limits daily</li>
@@ -619,7 +619,7 @@
                     <li>No control over when leads arrive</li>
                 </ul>
             </div>
-            <div class="problem-card good">
+            <div class="card problem-card good">
                 <div class="problem-card-lbl">Paid infrastructure</div>
                 <ul class="problem-list">
                     <li>Meta & Google ads targeting high-intent businesses</li>
@@ -745,7 +745,7 @@
     <div class="si">
         <div class="slbl">What You Receive</div>
         <h2 class="stitle">What a commercial lead<br>looks like.</h2>
-        <div class="lead-card">
+        <div class="card card--highlight lead-card">
             <div class="lead-card-top">
                 <div class="lead-card-dot"></div>
                 <div class="lead-card-tag">New commercial lead - delivered now</div>

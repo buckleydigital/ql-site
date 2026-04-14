@@ -56,6 +56,7 @@
     }
     </script>
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -147,7 +148,7 @@
         .content-body strong { color: var(--ink); font-weight: 400; }
 
         .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px; }
-        .problem-card { background: var(--bg-card); padding: 32px 28px; }
+        .problem-card { padding: 32px 28px; }
         .problem-card-lbl { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
         .problem-card.bad .problem-card-lbl { color: var(--ink-faint); }
         .problem-card.good .problem-card-lbl { color: var(--accent); }
@@ -159,7 +160,7 @@
         .problem-card.good .problem-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
 
         .target-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px; }
-        .target-card { background: var(--bg-card); padding: 32px 24px; }
+        .target-card { padding: 32px 24px; }
         .target-card h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
         .target-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; }
         .target-card-tag { display: inline-block; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 3px 10px; border-radius: 3px; margin-bottom: 14px; }
@@ -182,7 +183,7 @@
         .stat-val { font-family: var(--serif); font-size: 32px; color: var(--accent); line-height: 1; margin-bottom: 6px; }
         .stat-label { font-size: 12px; color: var(--ink-muted); font-weight: 400; line-height: 1.4; }
 
-        .lead-card { margin-top: 48px; background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px; overflow: hidden; }
+        .lead-card { margin-top: 48px; overflow: hidden; }
         .lead-card-top { padding: 20px 32px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px; }
         .lead-card-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); flex-shrink: 0; animation: sdpulse 2.5s ease infinite; }
         @keyframes sdpulse { 0%,100%{box-shadow:0 0 0 4px var(--accent-dim)} 50%{box-shadow:0 0 0 8px transparent} }
@@ -472,7 +473,7 @@
             <p>Same lead sent to every air con company in a 50km radius. Four businesses race to call first - whoever answers cheapest wins.</p>
         </div>
         <div class="problem-grid">
-            <div class="problem-card bad">
+            <div class="card problem-card bad">
                 <div class="problem-card-lbl">Typical HVAC lead gen</div>
                 <ul class="problem-list">
                     <li>Generic "need air con" enquiries with no detail</li>
@@ -483,7 +484,7 @@
                     <li>You rent a listing on someone else's platform</li>
                 </ul>
             </div>
-            <div class="problem-card good">
+            <div class="card problem-card good">
                 <div class="problem-card-lbl">A QuoteLeads system</div>
                 <ul class="problem-list">
                     <li>Leads targeted to specific job types and systems</li>
@@ -508,7 +509,7 @@
         </div>
 
         <div class="target-grid">
-            <div class="target-card">
+            <div class="card target-card">
                 <span class="target-card-tag">High volume</span>
                 <h3>Split System Installs</h3>
                 <p>Single or multi-head split installs. Qualified on room count, property type, and replacement vs. new install.</p>
@@ -519,7 +520,7 @@
                     <span>New install</span>
                 </div>
             </div>
-            <div class="target-card">
+            <div class="card target-card">
                 <span class="target-card-tag">High ticket</span>
                 <h3>Ducted System Installs</h3>
                 <p>Full ducted installs and replacements. $8k–$20k+ jobs. Qualified on property size, zones, existing ductwork, and budget.</p>
@@ -530,7 +531,7 @@
                     <span>Add-on zones</span>
                 </div>
             </div>
-            <div class="target-card">
+            <div class="card target-card">
                 <span class="target-card-tag">Recurring</span>
                 <h3>Service & Maintenance</h3>
                 <p>Service calls, seasonal maintenance, system health checks. Filtered for owner-occupiers - not renters chasing their landlord.</p>
@@ -603,7 +604,7 @@
     <div class="si">
         <div class="slbl">What You Receive</div>
         <h2 class="stitle">What an HVAC lead<br>looks like.</h2>
-        <div class="lead-card">
+        <div class="card card--highlight lead-card">
             <div class="lead-card-top">
                 <div class="lead-card-dot"></div>
                 <div class="lead-card-tag">New HVAC lead - delivered now</div>

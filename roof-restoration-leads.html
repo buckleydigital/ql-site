@@ -56,6 +56,7 @@
     }
     </script>
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -195,7 +196,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .problem-card { background: var(--bg-card); padding: 32px 28px; }
+        .problem-card { padding: 32px 28px; }
         .problem-card-lbl {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             margin-bottom: 14px;
@@ -218,7 +219,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .target-card { background: var(--bg-card); padding: 32px 24px; }
+        .target-card { padding: 32px 24px; }
         .target-card h3 {
             font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3;
         }
@@ -280,8 +281,7 @@
         /* LEAD CARD */
         .lead-card {
             margin-top: 48px;
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; overflow: hidden;
+            overflow: hidden;
         }
         .lead-card-top {
             padding: 20px 32px; border-bottom: 1px solid var(--border);
@@ -617,7 +617,7 @@
             <p>Generic restoration leads mean no scope detail, shared with 3–5 operators. By the time you call, they're price-shopping between five companies.</p>
         </div>
         <div class="problem-grid">
-            <div class="problem-card bad">
+            <div class="card problem-card bad">
                 <div class="problem-card-lbl">Typical roofing lead gen</div>
                 <ul class="problem-list">
                     <li>Generic "roofing" enquiries with no restoration detail</li>
@@ -628,7 +628,7 @@
                     <li>You rent access to someone else's platform</li>
                 </ul>
             </div>
-            <div class="problem-card good">
+            <div class="card problem-card good">
                 <div class="problem-card-lbl">A QuoteLeads system</div>
                 <ul class="problem-list">
                     <li>Leads targeted to specific restoration job types</li>
@@ -653,32 +653,32 @@
         </div>
 
         <div class="target-grid">
-            <div class="target-card">
+            <div class="card target-card">
                 <span class="target-card-tag">Full package</span>
                 <h3>Full Roof Restorations</h3>
                 <p>Homeowners ready for full restoration - repointing, rebedding, sealing, painting. $5k–$12k+ jobs, pre-qualified on roof age and ownership.</p>
             </div>
-            <div class="target-card">
+            <div class="card target-card">
                 <span class="target-card-tag">Volume</span>
                 <h3>Repointing &amp; Rebedding</h3>
                 <p>Owner-occupiers with ageing mortar and loose ridge caps. Ready to book.</p>
             </div>
-            <div class="target-card">
+            <div class="card target-card">
                 <span class="target-card-tag">Consistent</span>
                 <h3>Roof Painting</h3>
                 <p>Standalone painting enquiries - quick turnaround jobs that keep your crew busy between larger packages.</p>
             </div>
-            <div class="target-card">
+            <div class="card target-card">
                 <span class="target-card-tag">Protection</span>
                 <h3>Roof Sealing &amp; Waterproofing</h3>
                 <p>Seal and waterproof enquiries - qualified on roof type, material, and property age.</p>
             </div>
-            <div class="target-card">
+            <div class="card target-card">
                 <span class="target-card-tag">Maintenance</span>
                 <h3>Roof Cleaning &amp; Moss Treatment</h3>
                 <p>Homeowners preparing for full restoration who need assessment and surface prep first.</p>
             </div>
-            <div class="target-card">
+            <div class="card target-card">
                 <span class="target-card-tag">Custom</span>
                 <h3>Your Call</h3>
                 <p>Specific tile types, specific suburbs, commercial properties, insurance work - the system is configured around your business, not a template.</p>
@@ -745,7 +745,7 @@
     <div class="si">
         <div class="slbl">What You Receive</div>
         <h2 class="stitle">What a roof restoration lead<br>looks like.</h2>
-        <div class="lead-card">
+        <div class="card card--highlight lead-card">
             <div class="lead-card-top">
                 <div class="lead-card-dot"></div>
                 <div class="lead-card-tag">New roof restoration lead - delivered now</div>
