@@ -358,11 +358,9 @@
         /* STATS ROW */
         .stats-row {
             display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-            margin-top: 48px;
+            gap: 16px; border-radius: 8px; margin-top: 48px;
         }
-        .stat-cell { background: var(--bg-card); padding: 28px 24px; }
+        .stat-cell { padding: 28px 24px; }
         .stat-val {
             font-family: var(--serif); font-size: 40px;
             line-height: 1; margin-bottom: 8px;
@@ -825,30 +823,30 @@
         </div>
 
         <div class="stats-row">
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val red">78%</div>
                 <div class="stat-label"><strong>of jobs go</strong> to the first business that makes contact</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val amber">21x</div>
                 <div class="stat-label"><strong>more likely to qualify</strong> a lead contacted within 5 minutes vs 30 minutes</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val red">3.2 hrs</div>
                 <div class="stat-label"><strong>average response time</strong> at a typical Australian trade business</div>
             </div>
         </div>
 
-        <div class="stats-row" style="margin-top: 1px;">
-            <div class="stat-cell">
+        <div class="stats-row" style="margin-top: 16px;">
+            <div class="card stat-cell">
                 <div class="stat-val green">60 sec</div>
                 <div class="stat-label"><strong>automated response time</strong> with a proper system in place</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val amber">50%</div>
                 <div class="stat-label"><strong>of buyers choose</strong> the vendor who responds first, regardless of price</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val red">9x</div>
                 <div class="stat-label"><strong>lower conversion rate</strong> when the first contact happens after 5 minutes vs within 1 minute</div>
             </div>

@@ -267,11 +267,9 @@
         /* STATS */
         .stats-row {
             display: grid; grid-template-columns: repeat(4, 1fr);
-            gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-            margin-top: 48px;
+            gap: 16px; border-radius: 8px; margin-top: 48px;
         }
-        .stat-cell { background: var(--bg-card); padding: 28px 20px; text-align: center; }
+        .stat-cell { padding: 28px 20px; text-align: center; }
         .stat-val {
             font-family: var(--serif); font-size: 32px; color: var(--accent);
             line-height: 1; margin-bottom: 6px;
@@ -720,19 +718,19 @@
         </div>
 
         <div class="stats-row">
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val">1</div>
                 <div class="stat-label">Business per lead</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val">0</div>
                 <div class="stat-label">Leads shared</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val">100%</div>
                 <div class="stat-label">Exclusive to you</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val">24-48h</div>
                 <div class="stat-label">To first lead</div>
             </div>
