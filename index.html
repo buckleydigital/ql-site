@@ -91,7 +91,7 @@
         /* HERO */
         .hero {
             min-height: 100vh; display: flex; align-items: center;
-            padding: 120px 48px 80px; position: relative; overflow: hidden;
+            padding: 140px 48px 80px; position: relative; overflow: hidden;
         }
         .hero-grid-bg {
             position: absolute; inset: 0;
@@ -338,19 +338,6 @@
         }
         .ind-item:hover .ind-link { gap: 10px; }
 
-        /* PROBLEM */
-        .problem { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .p-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
-        .p-item { padding: 32px 0; border-top: 1px solid var(--border); }
-        .p-item:first-child { padding-top: 0; border-top: none; }
-        .p-item h3 { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink); margin-bottom: 12px; }
-        .p-item p { font-size: 15px; color: var(--ink-muted); line-height: 1.7; font-weight: 400; }
-        .p-pull {
-            font-family: var(--serif); font-size: clamp(22px,2.5vw,30px);
-            line-height: 1.4; color: var(--ink);
-            padding-left: 28px; border-left: 2px solid var(--accent);
-        }
-
         /* PHILOSOPHY */
         .philosophy { background: var(--bg-lift); border-bottom: 1px solid var(--border); }
         .ph-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 100px; align-items: start; }
@@ -571,40 +558,6 @@
         }
         .faq-item.open .faq-a { max-height: 300px; padding-bottom: 28px; }
 
-        /* BLOG SECTION */
-        .blog-section { background: var(--bg-lift); }
-        .blog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
-        .blog-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            padding: 32px 28px; text-decoration: none; display: block;
-            transition: border-color 0.2s, background 0.2s;
-        }
-        .blog-card:hover { border-color: var(--accent); background: var(--bg-lift); }
-        .blog-card-tag {
-            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 14px; font-weight: 400;
-        }
-        .blog-card-title {
-            font-family: var(--serif); font-size: 22px; color: var(--ink);
-            line-height: 1.25; margin-bottom: 14px;
-        }
-        .blog-card-title em { font-style: normal; color: var(--accent); font-weight: 500; }
-        .blog-card-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; margin-bottom: 20px; }
-        .blog-card-read {
-            font-size: 13px; color: var(--accent); font-weight: 400;
-            display: inline-flex; align-items: center; gap: 6px;
-        }
-        .blog-card-read svg { width: 13px; height: 13px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
-        .blog-card:hover .blog-card-read svg { transform: translateX(3px); }
-        .blog-all { margin-top: 36px; text-align: center; }
-        .blog-all a {
-            font-size: 14px; color: var(--ink-muted); text-decoration: none;
-            border-bottom: 1px solid var(--border-mid); padding-bottom: 2px;
-            transition: color 0.2s, border-color 0.2s;
-        }
-        .blog-all a:hover { color: var(--ink); border-color: var(--accent); }
-        @media(min-width:769px) and (max-width:1024px){ .blog-grid { grid-template-columns: repeat(2, 1fr); } }
-
         /* FINAL CTA */
         .final-cta { text-align: center; position: relative; overflow: hidden; }
         .final-cta::before {
@@ -756,7 +709,6 @@
         @media(max-width:1024px){
             section{padding:80px 32px;} .site-header{padding:0 32px;} footer{padding:40px 32px;}   .hero{padding:120px 32px 80px;}
             .q-grid{grid-template-columns:1fr;} .q-col.yes{border-bottom:1px solid var(--border);}
-            .p-grid{grid-template-columns:1fr;gap:48px;}
             .ph-grid{grid-template-columns:1fr;gap:40px;} .ph-aside{position:static;}
             .d-grid{grid-template-columns:1fr 1fr;}
             .pr-steps{grid-template-columns:1fr 1fr;} .pr-step:nth-child(2){border-right:none;}
@@ -771,7 +723,6 @@
             .ind-item{grid-template-columns:120px 1fr;} .ind-img{width:120px;height:120px;padding:12px;} .ind-body{padding:24px 24px 24px 8px;} .ind-item h3{font-size:20px;}
             .d-grid{grid-template-columns:1fr;} .pr-steps{grid-template-columns:1fr;} .pr-step:nth-child(2){border-right:1px solid var(--border);}
             .inv-body{padding:32px 24px 24px;} .inv-foot{padding:24px;flex-direction:column;align-items:flex-start;}
-            .blog-grid{grid-template-columns:1fr;}
             .hero-actions{flex-direction:column;align-items:center;}
         }
     </style>
@@ -986,32 +937,7 @@
 </section>
 
 <!-- PROBLEM -->
-<section class="problem">
-    <div class="si">
-        <div class="slbl">The Problem</div>
-        <h2 class="stitle">Referrals have a ceiling.</h2>
-        <div class="p-grid">
-            <div>
-                <div class="p-item">
-                    <h3>Referrals plateau</h3>
-                    <p>Volume is unpredictable. You can't plan your team around word of mouth.</p>
-                </div>
-                <div class="p-item">
-                    <h3>Agencies report, not results</h3>
-                    <p>Agencies track impressions. They don't understand what a profitable job looks like for your trade.</p>
-                </div>
-                <div class="p-item">
-                    <h3>Tools aren't systems</h3>
-                    <p>A CRM and an ad account without a connected system generates chaos, not leads.</p>
-                </div>
-                <div class="p-item">
-                    <h3>Speed wins jobs</h3>
-                    <p>The business that calls first wins. Most trades lose jobs before they even pick up the phone.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!-- PHILOSOPHY -->
 <section class="philosophy">
@@ -1671,39 +1597,7 @@
 </section>
 
 <!-- BLOG -->
-<section class="blog-section" id="blog">
-    <div class="si">
-        <div class="slbl">From the Blog</div>
-        <h2 class="stitle">Latest articles.</h2>
-        <div class="blog-grid">
-            <a href="/blog/six-layers-homeowner-signed-job.html" class="blog-card">
-                <div class="blog-card-tag">System Design</div>
-                <div class="blog-card-title">The Six Layers Between a Homeowner and <em>a Signed Job.</em></div>
-                <div class="blog-card-desc">Six layers. Most trade businesses own one or two.</div>
-                <span class="blog-card-read">Read article <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-            </a>
-            <a href="/blog/referral-plateau-trade-business.html" class="blog-card">
-                <div class="blog-card-tag">Growth Strategy</div>
-                <div class="blog-card-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>
-                <div class="blog-card-desc">Why referrals plateau - and how trade businesses break through.</div>
-                <span class="blog-card-read">Read article <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-            </a>
-            <a href="/blog/lead-response-time-trade-business.html" class="blog-card">
-                <div class="blog-card-tag">Conversion</div>
-                <div class="blog-card-title">The Trade Business That<br><em>Responds First Wins.</em></div>
-                <div class="blog-card-desc">The follow-up gap is where most jobs are quietly lost.</div>
-                <span class="blog-card-read">Read article <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-            </a>
-            <a href="/blog/shared-leads-australia.html" class="blog-card">
-                <div class="blog-card-tag">Lead Generation</div>
-                <div class="blog-card-title">You Paid For That Lead<br><em>So Did Three Others.</em></div>
-                <div class="blog-card-desc">Why shared lead economics never improve, no matter the volume.</div>
-                <span class="blog-card-read">Read article <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-            </a>
-        </div>
-        <div class="blog-all"><a href="/blog">View all articles &rarr;</a></div>
-    </div>
-</section>
+
 
 <!-- FINAL CTA -->
 <section class="final-cta">
