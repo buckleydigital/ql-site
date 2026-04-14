@@ -338,11 +338,9 @@
         /* STATS ROW */
         .stats-row {
             display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-            margin-top: 48px;
+            gap: 16px; border-radius: 8px; margin-top: 48px;
         }
-        .stat-cell { background: var(--bg-card); padding: 28px 24px; }
+        .stat-cell { padding: 28px 24px; }
         .stat-val {
             font-family: var(--serif); font-size: 40px;
             line-height: 1; margin-bottom: 8px;
@@ -873,15 +871,15 @@
         </div>
 
         <div class="stats-row">
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val amber">78%</div>
                 <div class="stat-label"><strong>of leads</strong> go to the first business that responds</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val amber">3.2hrs</div>
                 <div class="stat-label"><strong>average response time</strong> at a typical trade business</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val green">60s</div>
                 <div class="stat-label"><strong>automated response time</strong> with a proper system in place</div>
             </div>

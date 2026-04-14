@@ -288,11 +288,9 @@
         /* STATS ROW */
         .stats-row {
             display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-            margin-top: 48px;
+            gap: 16px; border-radius: 8px; margin-top: 48px;
         }
-        .stat-cell { background: var(--bg-card); padding: 28px 24px; }
+        .stat-cell { padding: 28px 24px; }
         .stat-val {
             font-family: var(--serif); font-size: 40px;
             line-height: 1; margin-bottom: 8px;
@@ -835,15 +833,15 @@
         </div>
 
         <div class="stats-row">
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val red">6hrs</div>
                 <div class="stat-label"><strong>average response time</strong> for trade businesses without an automated response layer</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val amber">60s</div>
                 <div class="stat-label"><strong>response time</strong> with an AI follow-up layer running under your business name</div>
             </div>
-            <div class="stat-cell">
+            <div class="card stat-cell">
                 <div class="stat-val green">2-3x</div>
                 <div class="stat-label"><strong>conversion improvement</strong> when all six layers are owned and connected</div>
             </div>
