@@ -443,6 +443,12 @@
             transition: opacity 0.2s !important; text-decoration: none !important;
         }
         .nav-cta:hover { opacity: 0.85 !important; }
+        .nav-signin {
+            font-size: 13px; color: var(--ink-muted); text-decoration: none;
+            border: 1px solid var(--border-mid); border-radius: 8px;
+            padding: 7px 16px; transition: color 0.2s, border-color 0.2s;
+        }
+        .nav-signin:hover { color: var(--ink); border-color: var(--accent); }
         .theme-btn {
             width: 36px; height: 36px; border-radius: 8px;
             border: 1px solid var(--border-mid); background: var(--bg-lift);
@@ -536,10 +542,9 @@
             <div class="nav-dropdown">
                 <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                 <div class="nav-dropdown-menu">
-                    <a href="/#what-we-do">What We Do</a>
-                    <a href="/#process">How It Works</a>
-                    <a href="/#pricing">Pricing</a>
-                    <a href="/#faq">FAQ</a>
+                    <a href="/#market-pulse-zone">Buy Leads</a>
+                    <a href="/#system-zone">Build Your System</a>
+                    <a href="/#process">System Process</a>
                     <a href="/blog">Blog</a>
                 </div>
             </div>
@@ -553,6 +558,7 @@
                 </div>
             </div>
             <a href="/market-pulse">Buy Leads</a>
+            <a href="/sign-in" class="nav-signin">Sign In</a>
             <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
                 <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -572,17 +578,17 @@
             </button>
         </div>
         <a href="/">Home</a>
-        <a href="/#what-we-do">What We Do</a>
-        <a href="/#pricing">Pricing</a>
-        <a href="/#faq">FAQ</a>
+        <a href="/#market-pulse-zone">Buy Leads</a>
+        <a href="/#system-zone">Build Your System</a>
+        <a href="/#process">System Process</a>
         <a href="/blog">Blog</a>
-        <a href="/market-pulse">Buy Leads</a>
-        <a href="/get-started">Build Your System</a>
         <span class="mob-section-label">Industries</span>
         <a href="/solar-leads">Solar</a>
         <a href="/hvac-leads">HVAC</a>
         <a href="/roofing-leads">Roofing</a>
         <a href="/renovation-leads">Renovation</a>
+        <span class="mob-section-label compact">&nbsp;</span>
+        <a href="/sign-in">Sign In</a>
     </nav>
 </header>
 
