@@ -63,7 +63,7 @@ serve(async (req: Request) => {
     const amountPaid = (session.amount_total ?? 0) / 100;
     const supabase = createClient(supabaseUrl, supabaseServiceRoleKey);
 
-    // Try matching by stripe_session_id first (most reliable — set during
+    // Try matching by stripe_session_id first (most reliable - set during
     // the create-checkout-session flow). Fall back to email + pending for
     // orders created before this change.
     let matchedCount = 0;
@@ -112,7 +112,7 @@ serve(async (req: Request) => {
         `Updated ${matchedCount} pilot_orders for ${customerEmail}: paid $${amountPaid}, session ${session.id}`,
       );
     } else {
-      // No pending row existed — this happens when the create-checkout-session
+      // No pending row existed - this happens when the create-checkout-session
       // insert failed (e.g. missing DB columns in production). Insert a paid
       // order now so the record is never lost.
       console.warn(

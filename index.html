@@ -222,6 +222,7 @@
         .sbody { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
 
         /* OWNERSHIP STRIP */
+        .ownership-section { padding: 60px 48px; }
         .ownership-strip {
             display: flex; align-items: center; justify-content: center;
             gap: 32px; flex-wrap: wrap; margin-top: 20px;
@@ -233,6 +234,7 @@
         .own-item svg { color: var(--accent); flex-shrink: 0; }
         @media(max-width:640px) {
             .ownership-strip { gap: 16px 24px; }
+            .ownership-section { padding: 48px 24px; }
         }
 
         /* INTEGRATIONS STRIP */
@@ -383,6 +385,7 @@
         }
         .pr-step h3 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; }
         .pr-step p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400; }
+        .pr-steps--3col { grid-template-columns: repeat(3,1fr); }
 
         /* MARKET PULSE CTA */
         .pilot-cta {
@@ -732,6 +735,7 @@
             .ph-grid{grid-template-columns:1fr;gap:40px;} .ph-aside{position:static;}
             .d-grid{grid-template-columns:1fr 1fr;}
             .pr-steps{grid-template-columns:1fr 1fr;} .pr-step:nth-child(2){border-right:none;}
+            .pr-steps--3col{grid-template-columns:1fr 1fr;}
             .r-grid{grid-template-columns:1fr;}
             .inv-body{padding:40px 36px 32px;} .inv-foot{padding:24px 36px;}
         }
@@ -741,9 +745,10 @@
             .logo-marquee{gap:40px;animation-duration:20s;} .logo-marquee img{height:32px;}
             .ind-grid{grid-template-columns:1fr;}
             .ind-item{grid-template-columns:120px 1fr;} .ind-img{width:120px;height:120px;padding:12px;} .ind-body{padding:24px 24px 24px 8px;} .ind-item h3{font-size:20px;}
-            .d-grid{grid-template-columns:1fr;} .pr-steps{grid-template-columns:1fr;} .pr-step:nth-child(2){border-right:1px solid var(--border);}
+            .d-grid{grid-template-columns:1fr;} .pr-steps{grid-template-columns:1fr;} .pr-steps--3col{grid-template-columns:1fr;} .pr-step:nth-child(2){border-right:1px solid var(--border);}
             .inv-body{padding:32px 24px 24px;} .inv-foot{padding:24px;flex-direction:column;align-items:flex-start;}
             .hero-actions{flex-direction:column;align-items:center;}
+            .path-card{padding:32px 24px;}
         }
     </style>
 </head>
@@ -851,7 +856,7 @@
 <section class="path-chooser">
     <div class="si">
         <div class="slbl" style="justify-content:center;">Two Ways to Start</div>
-        <h2 class="stitle" style="text-align:center;max-width:600px;margin:0 auto 16px;">Leads on demand, or a full system — <em>pick your path.</em></h2>
+        <h2 class="stitle" style="text-align:center;max-width:600px;margin:0 auto 16px;">Leads on demand, or a full system - <em>pick your path.</em></h2>
         <p class="sbody" style="text-align:center;margin:0 auto 60px;">Pick the path that matches where you are right now.</p>
         <div class="path-grid">
             <div class="path-card path-card--leads">
@@ -869,12 +874,12 @@
             <div class="path-card path-card--system">
                 <div class="path-card-tag">System Deployment</div>
                 <h3 class="path-card-title">Build Your System</h3>
-                <p class="path-card-body">A complete lead generation system built for your trade and territory. Ads, funnel, AI follow-up, CRM, and quote delivery — all owned by you.</p>
+                <p class="path-card-body">A complete lead generation system built for your trade and territory. Ads, funnel, AI follow-up, CRM, and quote delivery - all owned by you.</p>
                 <ul class="path-card-pts">
                     <li>Custom ads &amp; landing pages</li>
                     <li>AI follow-up within 60 seconds</li>
                     <li>CRM pipeline + quote drafting</li>
-                    <li>You own every asset — permanently</li>
+                    <li>You own every asset - permanently</li>
                 </ul>
                 <a href="/get-started" class="btn-primary" style="margin-top:32px;display:inline-block;">Build Your System →</a>
             </div>
@@ -963,10 +968,10 @@
     <div class="si">
         <div class="slbl">How Market Pulse Works</div>
         <h2 class="stitle">From order to inbox<br><em>in 48 hours.</em></h2>
-        <div class="pr-steps" style="grid-template-columns:repeat(3,1fr);margin-top:60px;">
+        <div class="pr-steps pr-steps--3col" style="margin-top:60px;">
             <div class="pr-step">
                 <div class="pr-num">01</div>
-                <span class="pr-dur">Online — 5 min</span>
+                <span class="pr-dur">Online - 5 min</span>
                 <h3>Choose your trade &amp; territory</h3>
                 <p>Pick your industry, set your service area, select your lead pack size. Done entirely online.</p>
             </div>
@@ -992,12 +997,12 @@
 <!-- MARKET PULSE FAQs -->
 <section class="faq-s">
     <div class="si">
-        <div class="slbl">Market Pulse — Questions</div>
+        <div class="slbl">Market Pulse - Questions</div>
         <h2 class="stitle">Answered directly.</h2>
         <div class="faq-list">
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How are leads exclusive to my business?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">The funnel runs under your brand. No shared database. One business per trade per territory — the lead contacts you directly and only you.</div>
+                <div class="faq-a">The funnel runs under your brand. No shared database. One business per trade per territory - the lead contacts you directly and only you.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How quickly do leads arrive after payment?</span><span class="faq-qi">+</span></button>
@@ -1005,11 +1010,11 @@
             </div>
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What trades and locations are available?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">Solar, roofing, HVAC, and renovation — across major Australian metro and regional areas. Territory availability is confirmed during the intake process.</div>
+                <div class="faq-a">Solar, roofing, HVAC, and renovation - across major Australian metro and regional areas. Territory availability is confirmed during the intake process.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What happens after I've used my lead pack?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">You can order another pack, or upgrade to System Deployment — a full build that includes AI follow-up, CRM, ad accounts, and everything you need to run lead generation yourself.</div>
+                <div class="faq-a">You can order another pack, or upgrade to System Deployment - a full build that includes AI follow-up, CRM, ad accounts, and everything you need to run lead generation yourself.</div>
             </div>
         </div>
     </div>
@@ -1021,7 +1026,7 @@
         <span class="zone-tag">System Deployment</span>
         <div>
             <div class="zone-title">Build Your System</div>
-            <p class="zone-desc">A complete lead generation system — ads, AI, CRM, funnel — built for your trade and owned by you.</p>
+            <p class="zone-desc">A complete lead generation system - ads, AI, CRM, funnel - built for your trade and owned by you.</p>
         </div>
     </div>
 </div>
@@ -1054,7 +1059,7 @@
 </section>
 
 <!-- OWNERSHIP STRIP -->
-<section style="padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-deep);">
+<section class="ownership-section" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-deep);">
     <div style="max-width:1200px;margin:0 auto;">
         <div class="slbl" style="justify-content:center;">What You Own</div>
         <div class="ownership-strip">
@@ -1083,7 +1088,7 @@
                 <span>Domain &amp; brand</span>
             </div>
         </div>
-        <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--ink-faint);">Everything stays yours — even if you cancel. <a href="/what-you-own" style="color:var(--accent);text-decoration:none;">See full breakdown →</a></p>
+        <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--ink-faint);">Everything stays yours - even if you cancel. <a href="/what-you-own" style="color:var(--accent);text-decoration:none;">See full breakdown →</a></p>
     </div>
 </section>
 
@@ -1553,7 +1558,7 @@
 
 /* ZONE DIVIDERS */
 .zone-divider {
-    padding: 48px 48px 0;
+    padding: 48px 48px 48px;
     border-top: 2px solid var(--accent);
     background: var(--bg-deep);
 }
@@ -1575,7 +1580,7 @@
     font-size: 15px; color: var(--ink-muted); margin-top: 10px; line-height: 1.6;
 }
 @media(max-width:768px) {
-    .zone-divider { padding: 40px 24px 0; }
+    .zone-divider { padding: 40px 24px 40px; }
 }
 </style>
 
@@ -1607,7 +1612,7 @@
             <div class="outcome-card">
                 <div class="outcome-val">&lt;60s</div>
                 <div class="outcome-lbl">Average first response</div>
-                <div class="outcome-sub">AI SMS follow-up, 24/7 — branded to the business</div>
+                <div class="outcome-sub">AI SMS follow-up, 24/7 - branded to the business</div>
             </div>
             <div class="outcome-card">
                 <div class="outcome-val">5–7 days</div>
@@ -1627,12 +1632,12 @@
 <!-- SYSTEM DEPLOYMENT FAQs -->
 <section class="faq-s" style="border-top:1px solid var(--border);">
     <div class="si">
-        <div class="slbl">System Deployment — Questions</div>
+        <div class="slbl">System Deployment - Questions</div>
         <h2 class="stitle">Answered directly.</h2>
         <div class="faq-list">
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What's included in System Deployment?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">Custom landing pages, ad campaigns (on your accounts), AI follow-up, CRM pipeline, and quote drafting — all configured for your trade and territory and tested before launch. Ad spend is a separate budget you control.</div>
+                <div class="faq-a">Custom landing pages, ad campaigns (on your accounts), AI follow-up, CRM pipeline, and quote drafting - all configured for your trade and territory and tested before launch. Ad spend is a separate budget you control.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How long until the system is live?</span><span class="faq-qi">+</span></button>
@@ -1640,7 +1645,7 @@
             </div>
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How does the AI follow-up work?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">AI sends an SMS in your name within 60 seconds of a new lead. Asks qualifying questions, books appointments, follows up for 14 days — 24/7. Pause any time.</div>
+                <div class="faq-a">AI sends an SMS in your name within 60 seconds of a new lead. Asks qualifying questions, books appointments, follows up for 14 days - 24/7. Pause any time.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Does it integrate with my existing CRM?</span><span class="faq-qi">+</span></button>
@@ -1648,7 +1653,7 @@
             </div>
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is there a lock-in contract?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">No lock-in. 30-day notice to cancel ongoing management. Everything built stays yours — permanently.</div>
+                <div class="faq-a">No lock-in. 30-day notice to cancel ongoing management. Everything built stays yours - permanently.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is QuoteLeads available outside Australia?</span><span class="faq-qi">+</span></button>

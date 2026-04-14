@@ -543,7 +543,7 @@
             .lead-field-val { font-size: 13px; }
             .dispute-btn { font-size: 12px; padding: 8px 14px; }
 
-            /* modal — full-screen sheet on mobile */
+            /* modal - full-screen sheet on mobile */
             .modal-overlay { align-items: flex-end; padding: 0; }
             .modal {
                 border-radius: 8px 16px 0 0; padding: 28px 20px 36px;
@@ -660,19 +660,19 @@
         <div class="stats-row" id="statsRow">
             <div class="stat-card">
                 <div class="stat-label">Total Orders</div>
-                <div class="stat-value" id="statOrders">—</div>
+                <div class="stat-value" id="statOrders">-</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Leads Received</div>
-                <div class="stat-value green" id="statLeads">—</div>
+                <div class="stat-value green" id="statLeads">-</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Open Disputes</div>
-                <div class="stat-value amber" id="statDisputes">—</div>
+                <div class="stat-value amber" id="statDisputes">-</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Dispute Rate</div>
-                <div class="stat-value" id="statRate">—</div>
+                <div class="stat-value" id="statRate">-</div>
                 <div class="rate-bar-track">
                     <div class="rate-bar-fill" id="rateBarFill"></div>
                 </div>
@@ -731,7 +731,7 @@
             <label for="disputeReason">Reason for dispute</label>
             <select id="disputeReason">
                 <option value="">Select a reason…</option>
-                <option value="unreachable">Cannot reach — phone/email invalid</option>
+                <option value="unreachable">Cannot reach - phone/email invalid</option>
                 <option value="duplicate">Duplicate lead</option>
                 <option value="out_of_area">Outside agreed service area</option>
                 <option value="wrong_type">Wrong lead type</option>
@@ -779,12 +779,12 @@
 
     /* ── Config ──
        SUPABASE_ANON is the public anon key. It is safe to expose in
-       client-side code — Row Level Security policies on every table
+       client-side code - Row Level Security policies on every table
        ensure each authenticated user can only access their own data. */
     var SUPABASE_URL  = 'https://wmegoygrancfwxagqskh.supabase.co';
     var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWdveWdyYW5jZnd4YWdxc2toIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NTI3MTEsImV4cCI6MjA4ODUyODcxMX0._CwgEq0OwCuz0NA2L2LDRM9xHl9riNO5pr_qZsIXzAs';
 
-    /* Dispute health thresholds — change here to update everywhere */
+    /* Dispute health thresholds - change here to update everywhere */
     var DISPUTE_WARN_PCT  = 10;   // ≥ this % → warning banner
     var DISPUTE_PAUSE_PCT = 20;   // ≥ this % → delivery paused
 
@@ -940,7 +940,7 @@
                 btn.textContent = 'Send Reset Link';
             } else {
                 msg.className = 'login-msg success';
-                msg.textContent = '✓ Reset link sent — check your inbox.';
+                msg.textContent = '✓ Reset link sent - check your inbox.';
                 btn.textContent = 'Link Sent';
             }
         });
@@ -1080,7 +1080,7 @@
         var bIcon    = document.getElementById('bannerIcon');
 
         if (totalLeads === 0) {
-            rateEl.textContent = '—';
+            rateEl.textContent = '-';
             rateEl.className   = 'stat-value';
             fillEl.style.width = '0%';
             fillEl.className   = 'rate-bar-fill';
@@ -1105,7 +1105,7 @@
             rateEl.className = 'stat-value amber';
             fillEl.className = 'rate-bar-fill amber';
             banner.className = 'dispute-banner warning show';
-            bTitle.textContent = 'Dispute rate warning — ' + display;
+            bTitle.textContent = 'Dispute rate warning - ' + display;
             bBody.innerHTML   = 'Your dispute rate has exceeded ' + DISPUTE_WARN_PCT + '%. If it reaches <strong>' + DISPUTE_PAUSE_PCT + '%</strong>, lead delivery will be automatically paused. Please only dispute leads that genuinely don\'t meet the agreed criteria. Questions? <a href="mailto:contact@quoteleads.com.au">Contact us</a>.';
             bIcon.setAttribute('viewBox', '0 0 24 24');
         } else {
@@ -1113,7 +1113,7 @@
             rateEl.className = 'stat-value red';
             fillEl.className = 'rate-bar-fill red';
             banner.className = 'dispute-banner paused show';
-            bTitle.textContent = 'Lead delivery paused — ' + display + ' dispute rate';
+            bTitle.textContent = 'Lead delivery paused - ' + display + ' dispute rate';
             bBody.innerHTML   = 'Your dispute rate has exceeded the ' + DISPUTE_PAUSE_PCT + '% threshold. Lead delivery has been paused pending review. We have a zero-tolerance policy for dispute abuse. To resolve this, please <a href="mailto:contact@quoteleads.com.au">contact us</a>.';
             bIcon.setAttribute('viewBox', '0 0 24 24');
             // Disable all remaining dispute buttons
@@ -1130,38 +1130,38 @@
             ? '<span class="badge badge-green">Paid</span>'
             : '<span class="badge badge-amber">Pending</span>';
 
-        var dateStr = o.created_at ? new Date(o.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
-        var amount  = o.amount_paid ? '$' + Number(o.amount_paid).toFixed(2) : '—';
-        var leads   = o.lead_count  ? o.lead_count + ' leads' : '—';
+        var dateStr = o.created_at ? new Date(o.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '-';
+        var amount  = o.amount_paid ? '$' + Number(o.amount_paid).toFixed(2) : '-';
+        var leads   = o.lead_count  ? o.lead_count + ' leads' : '-';
 
         return '<div class="order-card">' +
             '<div class="order-top">' +
-                '<div><div class="order-name">Market Pulse — ' + escHtml(leads) + '</div>' +
+                '<div><div class="order-name">Market Pulse - ' + escHtml(leads) + '</div>' +
                 '<div class="order-date">' + escHtml(dateStr) + '</div></div>' +
                 statusBadge +
             '</div>' +
             '<div class="order-meta">' +
                 '<div class="order-meta-item"><div class="order-meta-label">Amount</div><div class="order-meta-val">' + escHtml(amount) + '</div></div>' +
                 '<div class="order-meta-item"><div class="order-meta-label">Leads Ordered</div><div class="order-meta-val">' + escHtml(leads) + '</div></div>' +
-                '<div class="order-meta-item"><div class="order-meta-label">Delivery Email</div><div class="order-meta-val">' + escHtml(o.delivery_email || o.email || '—') + '</div></div>' +
+                '<div class="order-meta-item"><div class="order-meta-label">Delivery Email</div><div class="order-meta-val">' + escHtml(o.delivery_email || o.email || '-') + '</div></div>' +
             '</div>' +
         '</div>';
     }
 
     /* ── Render lead card ── */
     function renderLeadCard(l) {
-        var dateStr = l.created_at ? new Date(l.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+        var dateStr = l.created_at ? new Date(l.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '-';
         var name    = [l.first_name, l.last_name].filter(Boolean).join(' ') || 'Delivered Lead';
-        var type    = l.lead_type || l.type || '—';
+        var type    = l.lead_type || l.type || '-';
 
         var fields = [
-            { label: 'Phone',    val: l.phone    || '—' },
-            { label: 'Email',    val: l.email    || '—' },
-            { label: 'Postcode', val: l.postcode || l.suburb || '—' },
-            { label: 'Project',  val: l.project  || '—' },
-            { label: 'Source',   val: l.source   || '—' },
+            { label: 'Phone',    val: l.phone    || '-' },
+            { label: 'Email',    val: l.email    || '-' },
+            { label: 'Postcode', val: l.postcode || l.suburb || '-' },
+            { label: 'Project',  val: l.project  || '-' },
+            { label: 'Source',   val: l.source   || '-' },
             { label: 'Lead Type',val: type },
-            { label: 'Notes',    val: l.notes    || l.details || '—' }
+            { label: 'Notes',    val: l.notes    || l.details || '-' }
         ];
 
         var fieldHtml = fields.map(function (f) {
