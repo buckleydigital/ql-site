@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -116,22 +117,11 @@
             display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
         }
         .signin-card {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; padding: 40px 28px;
-            text-decoration: none; position: relative; overflow: hidden;
+            padding: 40px 28px;
+            text-decoration: none; overflow: hidden;
             transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
             display: flex; flex-direction: column; align-items: center;
         }
-        .signin-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .signin-card:hover {
-            border-color: rgba(71,151,255,0.35); transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
-        }
-        .signin-card:hover::before { opacity: 0.6; }
         [data-theme="light"] .signin-card:hover {
             box-shadow: 0 12px 40px rgba(0,0,0,0.08);
         }
@@ -206,7 +196,7 @@
         <div class="signin-grid">
 
             <!-- Lead Buyers -->
-            <a href="https://quoteleads.com.au/buyer-dashboard" class="signin-card">
+            <a href="https://quoteleads.com.au/buyer-dashboard" class="card card--interactive signin-card">
                 <div class="signin-icon">
                     <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 </div>
@@ -217,7 +207,7 @@
             </a>
 
             <!-- System Owners -->
-            <a href="https://quoteleadshq.com/dashboard" class="signin-card">
+            <a href="https://quoteleadshq.com/dashboard" class="card card--interactive signin-card">
                 <div class="signin-icon">
                     <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                 </div>
