@@ -150,8 +150,8 @@
             letter-spacing: -0.8px; color: var(--ink); margin-bottom: 28px;
             max-width: 780px;
         }
-        .hero h1 em { font-style: italic; color: var(--accent); }
-        .hero h1 .solar-em { font-style: italic; color: var(--solar); }
+        .hero h1 em { font-style: normal; color: var(--accent); }
+        .hero h1 .solar-em { font-style: normal; color: var(--solar); }
 
         .hero-sub {
             font-size: 18px; font-weight: 400; color: var(--ink-muted);
@@ -203,8 +203,8 @@
             font-family: var(--serif); font-size: clamp(28px, 3.8vw, 46px);
             line-height: 1.08; letter-spacing: -0.4px; color: var(--ink); margin-bottom: 20px;
         }
-        .stitle em { font-style: italic; color: var(--accent); }
-        .stitle .solar-em { font-style: italic; color: var(--solar); }
+        .stitle em { font-style: normal; color: var(--accent); }
+        .stitle .solar-em { font-style: normal; color: var(--solar); }
 
         /* CONTENT SECTIONS */
         .content-section {
@@ -223,7 +223,7 @@
         .problem-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
             background: var(--border); border: 1px solid var(--border);
-            border-radius: 12px; overflow: hidden; margin-top: 48px;
+            border-radius: 8px; overflow: hidden; margin-top: 48px;
         }
         .problem-card { background: var(--bg-card); padding: 36px 32px; }
         .problem-card-lbl {
@@ -251,7 +251,7 @@
         }
         .flow-label::before { content: ''; width: 12px; height: 1px; background: var(--accent); opacity: 0.5; }
         .flow-container {
-            border: 1px solid var(--border); border-radius: 16px;
+            border: 1px solid var(--border); border-radius: 8px;
             background: var(--bg-deep); overflow: hidden; margin-top: 56px;
         }
         .flow-header {
@@ -338,7 +338,7 @@
         .intent-grid {
             display: grid; grid-template-columns: repeat(3, 1fr);
             gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px;
+            border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px;
         }
         .intent-card { background: var(--bg-card); padding: 32px 24px; }
         .intent-icon {
@@ -354,7 +354,7 @@
         .timeline-grid {
             display: grid; grid-template-columns: repeat(3, 1fr);
             gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px;
+            border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px;
         }
         .timeline-card { background: var(--bg-card); padding: 36px 28px; }
         .timeline-card-month { font-family: var(--serif); font-size: 48px; color: var(--solar-dim); line-height: 1; margin-bottom: 16px; }
@@ -371,7 +371,7 @@
         .backend-grid {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 48px;
+            border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px;
         }
         .backend-card { background: var(--bg-card); padding: 32px 28px; }
         .backend-card-tag {
@@ -387,7 +387,7 @@
         .stats-row {
             display: grid; grid-template-columns: repeat(4, 1fr);
             gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 24px;
+            border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 24px;
         }
         .stat-cell { background: var(--bg-card); padding: 28px 20px; text-align: center; }
         .stat-val { font-family: var(--serif); font-size: 32px; color: var(--solar); line-height: 1; margin-bottom: 6px; }
@@ -439,7 +439,7 @@
             font-family: var(--serif); font-size: clamp(30px, 4.5vw, 52px);
             line-height: 1.08; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.5px;
         }
-        .cta-inner h2 em { font-style: italic; color: var(--solar); }
+        .cta-inner h2 em { font-style: normal; color: var(--solar); }
         .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 40px; font-weight: 400; }
         .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
         .cta-trust { margin-top: 24px; font-size: 13px; color: var(--ink-faint); }

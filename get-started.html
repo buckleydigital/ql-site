@@ -115,7 +115,7 @@
         .slbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
         .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
         .stitle { font-family: var(--serif); font-size: clamp(30px,4vw,46px); line-height: 1.15; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px; }
-        .stitle em { font-style: italic; color: var(--accent); }
+        .stitle em { font-style: normal; color: var(--accent); }
         .sbody { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 640px; }
 
         /* ── PAGE HERO ── */
@@ -126,7 +126,7 @@
         .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
         .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
         .page-hero h1 { font-family: var(--serif); font-size: clamp(40px,5vw,62px); line-height: 1.1; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 24px; }
-        .page-hero h1 em { font-style: italic; color: var(--accent); }
+        .page-hero h1 em { font-style: normal; color: var(--accent); }
 
         /* ── APPLICATION LAYOUT ── */
         .app-section { padding: 72px 48px 100px; }
@@ -136,7 +136,7 @@
         .form-card {
             background: var(--bg-card);
             border: 1px solid var(--border-mid);
-            border-radius: 14px;
+            border-radius: 8px;
             overflow: hidden;
             position: relative;
         }
@@ -228,13 +228,13 @@
         .not-fit p { font-size: 15px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 14px; font-weight: 400; }
         .not-fit p:last-of-type { margin-bottom: 0; }
         .not-fit-divider { height: 1px; background: var(--border); margin: 28px 0; }
-        .not-fit-note { font-size: 13px; color: var(--ink-faint); line-height: 1.7; font-style: italic; }
+        .not-fit-note { font-size: 13px; color: var(--ink-faint); line-height: 1.7; font-style: normal; }
         .not-fit-back { margin-top: 28px; background: none; border: 1px solid var(--border); color: var(--ink-muted); padding: 11px 22px; border-radius: 6px; font-family: var(--sans); font-size: 14px; cursor: pointer; transition: all 0.2s; }
         .not-fit-back:hover { border-color: var(--border-mid); color: var(--ink); }
 
         /* ── SIDEBAR ── */
         .app-sidebar { position: sticky; top: 100px; }
-        .sidebar-card { background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 12px; padding: 32px; margin-bottom: 16px; position: relative; overflow: hidden; }
+        .sidebar-card { background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px; padding: 32px; margin-bottom: 16px; position: relative; overflow: hidden; }
         .sidebar-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; }
         .sc-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
         .sc-metric { padding: 16px 0; border-bottom: 1px solid var(--border); }
