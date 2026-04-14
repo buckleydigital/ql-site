@@ -113,7 +113,7 @@
         .slbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
         .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
         .stitle { font-family: var(--serif); font-size: clamp(30px,4vw,46px); line-height: 1.15; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px; }
-        .stitle em { font-style: italic; color: var(--accent); }
+        .stitle em { font-style: normal; color: var(--accent); }
         .sbody { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 640px; }
         .btn-primary { background: var(--accent); color: #fff; padding: 15px 34px; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 400; letter-spacing: 0.02em; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
         .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -134,13 +134,13 @@
         .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
         .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
         .conf-hero h1 { font-family: var(--serif); font-size: clamp(40px,5vw,58px); line-height: 1.1; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 24px; }
-        .conf-hero h1 em { font-style: italic; color: var(--accent); }
+        .conf-hero h1 em { font-style: normal; color: var(--accent); }
         .conf-hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 36px; }
 
         /* What happens next panel */
         .next-panel {
             background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 14px; padding: 40px; position: relative; overflow: hidden;
+            border-radius: 8px; padding: 40px; position: relative; overflow: hidden;
         }
         .next-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; }
         .np-lbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 28px; }
@@ -157,7 +157,7 @@
         .calendly-s { background: var(--bg-lift); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         .calendly-wrap {
             margin-top: 52px;
-            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 14px;
+            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px;
             overflow: hidden; position: relative;
         }
         .calendly-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5; z-index: 1; }
@@ -168,7 +168,7 @@
         .expect-grid {
             display: grid; grid-template-columns: repeat(3,1fr);
             gap: 1px; background: var(--border); border: 1px solid var(--border);
-            border-radius: 12px; overflow: hidden; margin-top: 52px;
+            border-radius: 8px; overflow: hidden; margin-top: 52px;
         }
         .expect-item { background: var(--bg-card); padding: 36px 32px; transition: background 0.2s; }
         .expect-item:hover { background: var(--bg-lift); }

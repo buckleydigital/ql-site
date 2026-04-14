@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-F36W0PEFR4');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | QuoteLeads</title>
+    <meta name="description" content="Sign in to your QuoteLeads dashboard.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        :root[data-theme="dark"] {
+            --bg:          #06070A;
+            --bg-lift:     #0D0F14;
+            --bg-card:     #111318;
+            --bg-deep:     #09090D;
+            --border:      rgba(255,255,255,0.07);
+            --border-mid:  rgba(255,255,255,0.12);
+            --ink:         #f0f0ef;
+            --ink-soft:    #c4c4c0;
+            --ink-muted:   #808078;
+            --ink-faint:   #50504a;
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.10);
+            --accent-glow: rgba(71,151,255,0.16);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: dark;
+        }
+        :root[data-theme="light"] {
+            --bg:          #f5f3ef;
+            --bg-lift:     #edeae5;
+            --bg-card:     #f9f8f5;
+            --bg-deep:     #e8e4de;
+            --border:      rgba(14,14,14,0.10);
+            --border-mid:  rgba(14,14,14,0.16);
+            --ink:         #0e0e0e;
+            --ink-soft:    #2a2a2a;
+            --ink-muted:   #6b6b6b;
+            --ink-faint:   #9a9a9a;
+            --accent:      #2563eb;
+            --accent-dim:  rgba(37,99,235,0.07);
+            --accent-glow: rgba(37,99,235,0.12);
+            --serif: 'Poppins', system-ui, sans-serif;
+            --sans:  'Poppins', system-ui, sans-serif;
+            color-scheme: light;
+        }
+
+        body {
+            font-family: var(--sans); background: var(--bg); color: var(--ink);
+            line-height: 1.65; font-weight: 400; overflow-x: hidden;
+            -webkit-font-smoothing: antialiased; padding-top: 68px;
+        }
+        h1, h2, h3 { font-weight: 500; }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            padding: 0 48px; background: rgba(10,11,15,0.88);
+            backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; height: 68px;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+        .logo-img.hide { display: none; }
+        .logo-text { font-family: var(--serif); font-size: 20px; color: var(--ink); letter-spacing: -0.3px; display: none; }
+        .logo-text.show { display: block; }
+        .theme-btn {
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            color: var(--ink-muted); transition: all 0.2s;
+        }
+        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
+        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
+        .i-moon { display: block; }
+        .i-sun  { display: none; }
+        [data-theme="light"] .i-moon { display: none; }
+        [data-theme="light"] .i-sun  { display: block; }
+
+        /* ── PAGE ── */
+        .page {
+            display: flex; align-items: center; justify-content: center;
+            min-height: calc(100vh - 68px); padding: 60px 24px;
+        }
+
+        /* ── CONTAINER ── */
+        .signin-container {
+            max-width: 640px; width: 100%; text-align: center;
+        }
+        .signin-container h1 {
+            font-family: var(--serif); font-size: clamp(24px, 3vw, 32px);
+            font-weight: 500; color: var(--ink); margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        .signin-container .subtitle {
+            font-size: 15px; color: var(--ink-muted); margin-bottom: 40px;
+        }
+
+        /* ── CARDS ── */
+        .signin-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+        .signin-card {
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+            border-radius: 8px; padding: 40px 28px;
+            text-decoration: none; position: relative; overflow: hidden;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .signin-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .signin-card:hover {
+            border-color: rgba(71,151,255,0.35); transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+        }
+        .signin-card:hover::before { opacity: 0.6; }
+        [data-theme="light"] .signin-card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+        .signin-icon {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: var(--accent-dim); border: 2px solid rgba(71,151,255,0.25);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+        }
+        .signin-icon svg { width: 24px; height: 24px; stroke: var(--accent); stroke-width: 2; fill: none; }
+        .signin-label {
+            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 12px; font-weight: 500;
+        }
+        .signin-title {
+            font-family: var(--serif); font-size: 20px; font-weight: 500;
+            color: var(--ink); margin-bottom: 10px;
+        }
+        .signin-desc {
+            font-size: 14px; color: var(--ink-muted); line-height: 1.65; margin-bottom: 24px;
+        }
+        .signin-btn {
+            display: inline-block; padding: 11px 28px;
+            background: var(--accent); color: #fff; border-radius: 6px;
+            font-family: var(--sans); font-size: 14px; font-weight: 400;
+            text-decoration: none; transition: opacity 0.2s; margin-top: auto;
+        }
+        .signin-btn:hover { opacity: 0.85; }
+
+        @media(max-width:640px) {
+            .signin-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 40px 48px; border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+        }
+        .foot-logo { display: flex; align-items: center; gap: 10px; }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        @media(max-width:768px) {
+            .site-header { padding: 0 24px; }
+            .page { padding: 40px 16px; align-items: flex-start; padding-top: 48px; }
+            footer { padding: 32px 16px; flex-direction: column; align-items: flex-start; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo">
+            <img class="logo-img dark-logo" src="https://github.com/buckleydigital/ql-site/raw/main/ql-logo-full-white.png" alt="QuoteLeads">
+            <img class="logo-img light-logo hide" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png" alt="QuoteLeads">
+        </a>
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+            <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+    </div>
+</header>
+
+<main class="page">
+    <div class="signin-container">
+        <h1>Sign In</h1>
+        <p class="subtitle">Choose your dashboard to continue.</p>
+
+        <div class="signin-grid">
+
+            <!-- Lead Buyers -->
+            <a href="https://quoteleads.com.au/buyer-dashboard" class="signin-card">
+                <div class="signin-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="signin-label">Lead Buyers</div>
+                <div class="signin-title">Buyer Dashboard</div>
+                <div class="signin-desc">Access your Market Pulse leads, order history and account.</div>
+                <span class="signin-btn">Sign In →</span>
+            </a>
+
+            <!-- System Owners -->
+            <a href="https://quoteleadshq.com/dashboard" class="signin-card">
+                <div class="signin-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="signin-label">System Owners</div>
+                <div class="signin-title">System Dashboard</div>
+                <div class="signin-desc">Manage your lead system, campaigns, AI follow-up and pipeline.</div>
+                <span class="signin-btn">Sign In →</span>
+            </a>
+
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="foot-logo">
+        <img class="dark-logo" src="https://github.com/buckleydigital/ql-site/raw/main/ql-logo-full-white.png" alt="QuoteLeads">
+        <img class="light-logo hide" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png" alt="QuoteLeads">
+    </div>
+    <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+</footer>
+
+<script>
+    (function(){
+        var saved = localStorage.getItem('ql-theme');
+        var theme = saved || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        function applyLogos() {
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.querySelectorAll('.dark-logo').forEach(function(el){ el.classList.toggle('hide', !isDark); });
+            document.querySelectorAll('.light-logo').forEach(function(el){ el.classList.toggle('hide', isDark); });
+        }
+        applyLogos();
+        document.getElementById('themeBtn').addEventListener('click', function(){
+            var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('ql-theme', next);
+            applyLogos();
+        });
+    })();
+</script>
+</body>
+</html>
