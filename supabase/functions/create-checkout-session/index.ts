@@ -106,7 +106,7 @@ serve(async (req: Request) => {
 
       if (insertError) {
         console.error("Failed to insert pending order:", insertError);
-        // Don't block checkout — the order can still be reconciled via the webhook
+        // Don't block checkout - the order can still be reconciled via the webhook
       } else {
         console.log(
           `Inserted pending order for ${orderEmail}, session ${session.id}`,
