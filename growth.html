@@ -55,6 +55,7 @@
     }
     </script>
 
+    <link rel="stylesheet" href="/cards.css">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -198,7 +199,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .invest-card { background: var(--bg-card); padding: 36px 28px; }
+        .invest-card { padding: 36px 28px; }
         .invest-card-phase {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             color: var(--ink-faint); margin-bottom: 6px;
@@ -352,7 +353,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .timeline-card { background: var(--bg-card); padding: 36px 28px; position: relative; }
+        .timeline-card { padding: 36px 28px; }
         .timeline-card-month {
             font-family: var(--serif); font-size: 48px; color: var(--accent-dim);
             line-height: 1; margin-bottom: 16px;
@@ -376,7 +377,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .backend-card { background: var(--bg-card); padding: 32px 28px; }
+        .backend-card { padding: 32px 28px; }
         .backend-card h3 {
             font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3;
         }
@@ -731,21 +732,21 @@
         </div>
 
         <div class="invest-grid">
-            <div class="invest-card">
+            <div class="card invest-card">
                 <div class="invest-card-phase">Month 1</div>
                 <div class="invest-card-label">System Build + Launch</div>
                 <div class="invest-card-price"><span class="currency">$</span>1,250</div>
                 <div class="invest-card-gst">+ GST</div>
                 <div class="invest-card-detail">Full infrastructure built and deployed. Ad accounts, landing pages, survey, CRM, follow-up automation - everything configured and live. Ownership transferred immediately.</div>
             </div>
-            <div class="invest-card">
+            <div class="card invest-card">
                 <div class="invest-card-phase">Month 2</div>
                 <div class="invest-card-label">Management + Performance</div>
                 <div class="invest-card-price"><span class="currency">$</span>650</div>
                 <div class="invest-card-gst">+ GST</div>
                 <div class="invest-card-detail">Campaign management, lead quality monitoring, performance tuning based on month one data.</div>
             </div>
-            <div class="invest-card">
+            <div class="card invest-card">
                 <div class="invest-card-phase">Month 3</div>
                 <div class="invest-card-label">Scale + Handoff</div>
                 <div class="invest-card-price"><span class="currency">$</span>650</div>
@@ -897,19 +898,19 @@
         <div class="slbl">The Trajectory</div>
         <h2 class="stitle">~30 leads month one.<br><em>Hundreds by month three.</em></h2>
         <div class="timeline-grid">
-            <div class="timeline-card">
+            <div class="card timeline-card">
                 <div class="timeline-card-month">01</div>
                 <span class="timeline-tag build">Build + Launch</span>
                 <h3>System live. First leads in 24-48 hours.</h3>
                 <p>Campaigns launched at $40/day. ~30 qualified leads expected. Ad performance, lead quality, and follow-up engagement all monitored.</p>
             </div>
-            <div class="timeline-card">
+            <div class="card timeline-card">
                 <div class="timeline-card-month">02</div>
                 <span class="timeline-tag scale">Improve</span>
                 <h3>Data-driven improvement. Scale what converts.</h3>
                 <p>Audiences refined, creatives rotated, weak angles cut. Lead volume climbs as cost per lead drops.</p>
             </div>
-            <div class="timeline-card">
+            <div class="card timeline-card">
                 <div class="timeline-card-month">03</div>
                 <span class="timeline-tag scale">Scale + Handoff</span>
                 <h3>Proven system. Run it or hand it off.</h3>
@@ -929,22 +930,22 @@
         </div>
 
         <div class="backend-grid">
-            <div class="backend-card">
+            <div class="card backend-card">
                 <div class="backend-card-tag">Delivery</div>
                 <h3>Leads Routable Anywhere</h3>
                 <p>Phone, email, SMS, CRM, Slack, webhook - leads go wherever your team works. Route by postcode, job type, or round-robin.</p>
             </div>
-            <div class="backend-card">
+            <div class="card backend-card">
                 <div class="backend-card-tag">Speed</div>
                 <h3>Instant Follow-Up</h3>
                 <p>AI response within 60 seconds, 24/7. Your business responds before they close the tab.</p>
             </div>
-            <div class="backend-card">
+            <div class="card backend-card">
                 <div class="backend-card-tag">Automation</div>
                 <h3>Quote Drafting + Delivery</h3>
                 <p>Drafts and delivers preliminary quotes based on job type and your pricing. You approve. It sends.</p>
             </div>
-            <div class="backend-card">
+            <div class="card backend-card">
                 <div class="backend-card-tag">Flexible</div>
                 <h3>Custom Development</h3>
                 <p>Need to integrate your CRM, connect a quoting tool, or build custom reporting? It gets built into the system.</p>
