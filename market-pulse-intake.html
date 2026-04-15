@@ -702,6 +702,7 @@
                             <div class="os-row"><span class="os-key">Volume</span><span class="os-val" id="sum-volume">—</span></div>
                             <div class="os-row"><span class="os-key">Total</span><span class="os-val highlight" id="sum-total">—</span></div>
                         </div>
+                        <p style="font-size:11px; color:var(--ink-faint); margin-top:8px; margin-bottom:20px;">Discount codes can be applied at payment.</p>
 
                         <div class="confirm-list" id="confirmList">
                             <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="guarantee">
@@ -726,7 +727,7 @@
 
                         <div class="btn-row">
                             <button class="btn-back" onclick="goPrev(5)">Back</button>
-                            <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Launch my campaign</button>
+                            <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Continue to payment</button>
                         </div>
                         <p class="disclaimer-txt">By submitting, you agree to receive calls, texts, or emails from QuoteLeads at the contact details provided. See our <a href="https://quoteleads.com.au/privacy" style="color:var(--accent); text-decoration:none;">Privacy Policy</a>.</p>
                     </div>
@@ -736,7 +737,7 @@
                 <!-- Loading state -->
                 <div class="form-loading" id="formLoading">
                     <div class="spin"></div>
-                    <p>Launching your campaign...</p>
+                    <p>Redirecting to secure checkout...</p>
                 </div>
 
                 <!-- Success state -->
@@ -897,6 +898,9 @@
     // Pricing map for summary
     var pricingMap = { '10': '$650', '25': '$1,375', '50': '$2,450' };
 
+    var SUPABASE_FUNCTIONS_URL = 'https://wmegoygrancfwxagqskh.supabase.co/functions/v1';
+    var WEBHOOK_URL = 'https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5';
+
     var formData = {
         trade: '', lead_subtype: [], service_postcode: '', service_radius: '30km',
         lead_count: '',
@@ -1053,7 +1057,7 @@
 
     window.goPrev = function(fromStep){ showStep(fromStep - 1); };
 
-    // ── SUBMIT — all existing functionality preserved ──
+    // ── SUBMIT — creates Stripe Checkout Session directly (no separate checkout page) ──
     window.submitForm = function(){
         if(!formData.confirm_guarantee || !formData.confirm_no_conversion || !formData.confirm_consent || !formData.confirm_terms){ return; }
         if(!turnstileToken){ return; }
@@ -1065,6 +1069,17 @@
         document.getElementById('formProgress').style.display = 'none';
         document.getElementById('formLoading').classList.add('active');
 
+        // Single webhook call with all intake data (no duplicate from checkout page)
+        fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+            keepalive: true
+        }).catch(function(e){ console.error('Webhook error:', e); });
+
+        if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+
+        // Save intake data for confirmation page
         localStorage.setItem('ql-market-pulse-intake', JSON.stringify({
             first_name:      formData.first_name,
             last_name:       formData.last_name,
@@ -1078,18 +1093,44 @@
             service_radius:  formData.service_radius
         }));
 
-        fetch('https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5', {
+        // Create Stripe Checkout Session via Edge Function and redirect
+        var leadCount = String(formData.lead_count || '10');
+
+        fetch(SUPABASE_FUNCTIONS_URL + '/create-checkout-session', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData),
-            keepalive: true
-        }).catch(function(e){ console.error('Webhook error:', e); });
-
-        if(typeof fbq !== 'undefined') fbq('track', 'Lead');
-
-        setTimeout(function(){
-            window.location.href = '/market-pulse-checkout';
-        }, 1200);
+            body: JSON.stringify({
+                lead_count: leadCount,
+                customer_email: formData.email,
+                client_reference_id: 'market-pulse_' + (formData.email || '') + '_' + Date.now(),
+                success_url: window.location.origin + '/market-pulse-confirmed',
+                cancel_url: window.location.origin + '/market-pulse-intake',
+                delivery_email: formData.email,
+                delivery_phone: formData.phone,
+                intake_first_name: formData.first_name || '',
+                intake_last_name: formData.last_name || '',
+                intake_company: formData.company || '',
+                intake_phone: formData.phone || '',
+                lead_type: formData.trade || '',
+                lead_subtype: formData.lead_subtype || [],
+                service_postcode: formData.service_postcode || '',
+                service_radius: formData.service_radius || ''
+            })
+        })
+        .then(function(res){ return res.json(); })
+        .then(function(data){
+            if(data.url){
+                window.location.href = data.url;
+            } else {
+                throw new Error(data.error || 'Failed to create checkout session');
+            }
+        })
+        .catch(function(err){
+            document.getElementById('formLoading').classList.remove('active');
+            document.getElementById('formBody').style.display    = 'block';
+            document.getElementById('formProgress').style.display = 'block';
+            alert(err.message || 'Something went wrong. Please try again.');
+        });
     };
 
     updateProgress();

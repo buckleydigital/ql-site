@@ -71,7 +71,7 @@ serve(async (req: Request) => {
       mode: "payment",
       allow_promotion_codes: true,
       success_url: success_url || "https://quoteleads.com.au/market-pulse-confirmed",
-      cancel_url: cancel_url || "https://quoteleads.com.au/market-pulse-checkout",
+      cancel_url: cancel_url || "https://quoteleads.com.au/market-pulse-intake",
       customer_email: customer_email || undefined,
       client_reference_id: client_reference_id || undefined,
     });
