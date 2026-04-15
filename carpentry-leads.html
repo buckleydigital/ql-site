@@ -34,12 +34,7 @@
     <meta property="og:url" content="https://quoteleads.com.au/carpentry-leads">
     <meta property="og:title" content="Carpentry Leads Australia - Exclusive Decking & Pergola Enquiries">
     <meta property="og:description" content="Exclusive carpentry leads for decking and pergola builders. Named homeowner consent, qualified on scope and budget. No shared leads, no marketplaces.">
-    <meta property="twitter:card" content="summary_large_image">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-
-    <script type="application/ld+json">
+    <meta property="twitter:card" content="summary_large_image">    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -62,38 +57,41 @@
         html { scroll-behavior: smooth; font-size: 16px; }
 
         :root[data-theme="dark"] {
-            --bg:          #06070A;
-            --bg-lift:     #0D0F14;
-            --bg-card:     #111318;
-            --bg-deep:     #09090D;
+            --bg:          #000000;
+            --bg-lift:     #080808;
+            --bg-card:     #0F0F0F;
+            --bg-deep:     #080808;
             --border:      rgba(255,255,255,0.07);
-            --border-mid:  rgba(255,255,255,0.12);
-            --ink:         #f0f0ef;
-            --ink-soft:    #c4c4c0;
-            --ink-muted:   #808078;
-            --ink-faint:   #50504a;
-            --accent:      #4797FF;
-            --accent-dim:  rgba(71,151,255,0.10);
-            --accent-glow: rgba(71,151,255,0.18);
-            --serif: 'Poppins', system-ui, sans-serif;
-            --sans:  'Poppins', system-ui, sans-serif;
+            --border-mid:  rgba(255,255,255,0.10);
+            --ink:         #E8E8E8;
+            --ink-soft:    #627080;
+            --ink-muted:   #627080;
+            --ink-faint:   #2E3A42;
+            --accent:      #B4BEC8;
+            --accent-dim:  rgba(180,190,200,0.12);
+            --accent-glow: rgba(255,255,255,0.02);
+            --button-primary: #4797FF;
+            --serif: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            --sans:  system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            color-scheme: dark;
         }
         :root[data-theme="light"] {
-            --bg:          #f5f3ef;
-            --bg-lift:     #edeae5;
-            --bg-card:     #f9f8f5;
-            --bg-deep:     #e8e4de;
-            --border:      rgba(14,14,14,0.10);
-            --border-mid:  rgba(14,14,14,0.16);
-            --ink:         #0e0e0e;
-            --ink-soft:    #2a2a2a;
-            --ink-muted:   #5a5a5a;
-            --ink-faint:   #858585;
-            --accent:      #2563eb;
-            --accent-dim:  rgba(37,99,235,0.07);
-            --accent-glow: rgba(37,99,235,0.12);
-            --serif: 'Poppins', system-ui, sans-serif;
-            --sans:  'Poppins', system-ui, sans-serif;
+            --bg:          #f7f8fa;
+            --bg-lift:     #f1f4f7;
+            --bg-card:     #ffffff;
+            --bg-deep:     #edf1f4;
+            --border:      rgba(15,20,25,0.10);
+            --border-mid:  rgba(15,20,25,0.14);
+            --ink:         #13181f;
+            --ink-soft:    #43505f;
+            --ink-muted:   #5a6675;
+            --ink-faint:   #8792a0;
+            --accent:      #B4BEC8;
+            --accent-dim:  rgba(180,190,200,0.20);
+            --accent-glow: rgba(180,190,200,0.08);
+            --button-primary: #4797FF;
+            --serif: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            --sans:  system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
             color-scheme: light;
         }
 
@@ -102,7 +100,7 @@
         h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
         .hero { padding: 140px 48px 80px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
-        .hero-glow { position: absolute; top: -30%; right: -5%; width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%); pointer-events: none; }
+        .hero-glow { position: absolute; top: -30%; right: -5%; width: 600px; height: 600px; background: transparent; pointer-events: none; }
         .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; opacity: 0.3; pointer-events: none; }
         .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
         .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
@@ -111,8 +109,8 @@
         .hero h1 em { font-style: normal; color: var(--accent); font-weight: 500; }
         .hero-sub { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 580px; margin-bottom: 48px; }
         .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-        .btn-primary { background: var(--accent); color: #fff; padding: 16px 36px; border-radius: 8px; text-decoration: none; font-size: 15px; font-weight: 400; letter-spacing: 0.02em; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
-        .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+        .btn-primary { background: var(--button-primary); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 400; letter-spacing: 0.02em; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
+        .btn-primary:hover { opacity: 0.92; }
         .btn-secondary { background: none; border: 1px solid var(--border-mid); color: var(--ink-soft); padding: 16px 36px; border-radius: 8px; text-decoration: none; font-size: 15px; font-weight: 400; display: inline-block; transition: all 0.2s; }
         .btn-secondary:hover { border-color: var(--accent); color: var(--ink); }
         .hero-trust { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
@@ -170,8 +168,8 @@
 
         .lead-card { margin-top: 48px; overflow: hidden; }
         .lead-card-top { padding: 20px 32px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px; }
-        .lead-card-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); flex-shrink: 0; animation: sdpulse 2.5s ease infinite; }
-        @keyframes sdpulse { 0%,100%{box-shadow:0 0 0 4px var(--accent-dim)} 50%{box-shadow:0 0 0 8px transparent} }
+        .lead-card-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent);  flex-shrink: 0; }
+         }
         .lead-card-tag { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
         .lead-card-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
         .lead-field { background: var(--bg-card); padding: 20px 24px; }
@@ -193,7 +191,7 @@
         .economics-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
 
         .dual-cta { padding: 100px 48px; text-align: center; position: relative; overflow: hidden; }
-        .dual-cta-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 400px; background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%); pointer-events: none; }
+        .dual-cta-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 400px; background: transparent; pointer-events: none; }
         .dual-cta-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
         .dual-cta-inner h2 { font-family: var(--serif); font-size: clamp(28px, 4vw, 48px); line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px; }
         .dual-cta-inner h2 em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -212,12 +210,11 @@
         .site-header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
             padding: 0 48px;
-            background: rgba(10,11,15,0.88);
-            backdrop-filter: blur(20px);
+            background: rgba(0,0,0,0.98);
             border-bottom: 1px solid var(--border);
             transition: background 0.3s, border-color 0.3s;
         }
-        [data-theme="light"] .site-header { background: rgba(245,243,239,0.88); }
+        [data-theme="light"] .site-header { background: rgba(247,248,250,0.98); }
         .header-inner {
             max-width: 1200px; margin: 0 auto;
             display: flex; align-items: center; justify-content: space-between;
@@ -252,7 +249,7 @@
         .nav-dropdown-menu {
             display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
             background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px;
-            padding: 8px 0; min-width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            padding: 8px 0; min-width: 180px; 
             z-index: 300;
         }
         .nav-dropdown:hover .nav-dropdown-menu { display: block; }
@@ -265,18 +262,18 @@
         }
         .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
         .nav-cta {
-            background: var(--accent) !important; color: #fff !important;
-            padding: 10px 22px !important; border-radius: 8px !important;
+            background: var(--button-primary) !important; color: #fff !important;
+            padding: 10px 22px !important; border-radius: 4px !important;
             font-weight: 400 !important; font-size: 14px !important;
             transition: opacity 0.2s !important; text-decoration: none !important;
         }
         .nav-cta:hover { opacity: 0.85 !important; }
         .nav-signin {
             font-size: 13px; color: var(--ink-muted); text-decoration: none;
-            border: 1px solid var(--border-mid); border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.10); border-radius: 4px;
             padding: 7px 16px; transition: color 0.2s, border-color 0.2s;
         }
-        .nav-signin:hover { color: var(--ink); border-color: var(--accent); }
+        .nav-signin:hover { color: var(--ink); border-color: rgba(255,255,255,0.2); }
         .theme-btn {
             width: 36px; height: 36px; border-radius: 8px;
             border: 1px solid var(--border-mid); background: var(--bg-lift);
@@ -316,8 +313,8 @@
         }
         .mob-section-label.compact { padding: 8px 0 2px; }
         .mob-cta {
-            background: var(--accent) !important; color: #fff !important;
-            padding: 14px 0 !important; border-radius: 8px; text-align: center;
+            background: var(--button-primary) !important; color: #fff !important;
+            padding: 14px 0 !important; border-radius: 4px; text-align: center;
             margin-top: 8px; border-bottom: none !important;
         }
         .mob-cta:hover { opacity: 0.85; }
