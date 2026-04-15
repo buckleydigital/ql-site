@@ -210,7 +210,7 @@
         .login-field input:focus { outline: none; border-color: var(--accent);  }
         .login-btn {
             width: 100%; padding: 13px 24px;
-            background: var(--accent); color: #fff;
+            background: var(--button-primary); color: #fff;
             border: none; border-radius: 8px;
             font-family: var(--sans); font-size: 15px; font-weight: 400;
             cursor: pointer; transition: opacity 0.2s;
@@ -412,7 +412,7 @@
         }
         .modal::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--red), transparent); opacity: 0.4;
+            display: none;
         }
         .modal h2 { font-size: 20px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
         .modal p { font-size: 14px; color: var(--ink-muted); line-height: 1.65; margin-bottom: 24px; }

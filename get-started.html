@@ -119,8 +119,8 @@
 
         /* ── PAGE HERO ── */
         .page-hero { padding: 140px 48px 72px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
-        .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; opacity: 0.4; pointer-events: none; }
-        .hero-glow { position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: transparent; pointer-events: none; }
+        .hero-grid-bg { display: none; }
+        .hero-glow { display: none; }
         .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
         .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
         .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
@@ -192,10 +192,10 @@
         .btn-row { display: flex; gap: 12px; align-items: center; margin-top: 28px; }
         .btn-back { background: none; border: 1px solid var(--border); color: var(--ink-muted); padding: 13px 22px; border-radius: 8px; font-family: var(--sans); font-size: 14px; font-weight: 400; cursor: pointer; transition: all 0.2s; }
         .btn-back:hover { border-color: var(--border-mid); color: var(--ink); }
-        .btn-next { background: var(--accent); color: #fff; border: none; padding: 13px 32px; border-radius: 8px; font-family: var(--sans); font-size: 14px; font-weight: 400; cursor: pointer; transition: opacity 0.2s, transform 0.2s; flex: 1; }
+        .btn-next { background: var(--button-primary); color: #fff; border: none; padding: 13px 32px; border-radius: 4px; font-family: var(--sans); font-size: 14px; font-weight: 400; cursor: pointer; transition: opacity 0.2s, transform 0.2s; flex: 1; }
         .btn-next:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
         .btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
-        .btn-submit { background: var(--accent); color: #fff; border: none; padding: 15px 32px; border-radius: 8px; font-family: var(--sans); font-size: 15px; font-weight: 400; cursor: pointer; transition: opacity 0.2s, transform 0.2s; flex: 1; }
+        .btn-submit { background: var(--button-primary); color: #fff; border: none; padding: 15px 32px; border-radius: 8px; font-family: var(--sans); font-size: 15px; font-weight: 400; cursor: pointer; transition: opacity 0.2s, transform 0.2s; flex: 1; }
         .btn-submit:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
         .btn-submit:disabled { opacity: 0.35; cursor: not-allowed; }
 

@@ -110,18 +110,8 @@
             border-bottom: 1px solid var(--border);
             position: relative; overflow: hidden;
         }
-        .hero-grid-bg {
-            position: absolute; inset: 0;
-            background-image: linear-gradient(var(--border) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 80px 80px; opacity: 0.4; pointer-events: none;
-        }
-        .hero-glow {
-            position: absolute; top: -20%; right: -10%;
-            width: 500px; height: 500px;
-            background: transparent;
-            pointer-events: none;
-        }
+        .hero-grid-bg { display: none; }
+        .hero-glow { display: none; }
         .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
         .hero-eyebrow {
             display: inline-flex; align-items: center; gap: 8px;
@@ -214,7 +204,7 @@
         .sidebar-link:last-child { border-bottom: none; }
         .sidebar-link:hover { color: var(--accent); }
         .sidebar-link::before { content: '→'; color: var(--accent); font-size: 11px; flex-shrink: 0; }
-        .btn-sidebar { background: var(--accent); color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 400; display: block; text-align: center; transition: opacity 0.2s; }
+        .btn-sidebar { background: var(--button-primary); color: #fff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 400; display: block; text-align: center; transition: opacity 0.2s; }
         .btn-sidebar:hover { opacity: 0.88; }
 
         /* FINAL CTA */

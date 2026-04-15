@@ -101,17 +101,10 @@
         .hero-rays {
             position: absolute; top: -60%; right: -8%;
             width: 700px; height: 700px;
-            background:
-                radial-gradient(circle at 60% 40%, var(--solar-glow) 0%, transparent 50%),
-                radial-gradient(circle at 70% 60%, var(--accent-glow) 0%, transparent 60%);
+            background: var(--bg);
             pointer-events: none;
         }
-        .hero-grid {
-            position: absolute; inset: 0;
-            background-image: linear-gradient(var(--border) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 80px 80px; opacity: 0.25; pointer-events: none;
-        }
+        .hero-grid { display: none; }
         /* Animated sun pulse */
         .hero-sun {
             position: absolute; top: 10%; right: 6%;
@@ -119,12 +112,10 @@
             pointer-events: none; opacity: 0.18;
         }
         .hero-sun circle { fill: none; stroke: var(--solar); }
-        .hero-sun .ring1 { animation: sunpulse 4s ease infinite; }
-        .hero-sun .ring2 { animation: sunpulse 4s ease 1s infinite; }
-        .hero-sun .ring3 { animation: sunpulse 4s ease 2s infinite; }
-        @keyframes sunpulse {
-            0%   { opacity: 0.6; r: 30; }
-            50%  { opacity: 0.2; r: 80; }
+        .hero-sun .ring1 { }
+        .hero-sun .ring2 { }
+        .hero-sun .ring3 { }
+        
             100% { opacity: 0; r: 100; }
         }
 
@@ -422,7 +413,7 @@
         .cta-glow {
             position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 800px; height: 500px;
-            background: radial-gradient(ellipse, var(--solar-glow) 0%, var(--accent-glow) 40%, transparent 70%);
+            background: transparent;
             pointer-events: none;
         }
         .cta-inner { max-width: 580px; margin: 0 auto; position: relative; z-index: 1; }

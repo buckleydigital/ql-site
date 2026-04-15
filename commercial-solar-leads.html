@@ -112,18 +112,8 @@
             position: relative; overflow: hidden;
             border-bottom: 1px solid var(--border);
         }
-        .hero-glow {
-            position: absolute; top: -30%; right: -5%;
-            width: 600px; height: 600px;
-            background: transparent;
-            pointer-events: none;
-        }
-        .hero-grid {
-            position: absolute; inset: 0;
-            background-image: linear-gradient(var(--border) 1px, transparent 1px),
-                              linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 80px 80px; opacity: 0.3; pointer-events: none;
-        }
+        .hero-glow { display: none; }
+        .hero-grid { display: none; }
         .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
         .eyebrow {
             display: inline-flex; align-items: center; gap: 8px;
