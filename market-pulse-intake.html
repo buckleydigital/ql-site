@@ -29,7 +29,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start Market Pulse - Buy Leads by QuoteLeads</title>
     <meta name="description" content="Complete the intake to start your Market Pulse order. A batch of qualified, consented leads within an agreed timeframe.">
-    <meta name="robots" content="noindex, nofollow">    <link rel="stylesheet" href="/cards.css">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="/cards.css">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,8 +77,6 @@
             --sans:  'Poppins', system-ui, -apple-system, sans-serif;
             color-scheme: light;
         }
-        
-
 
         body {
             font-family: var(--sans);
@@ -86,76 +85,102 @@
             line-height: 1.65;
             font-weight: 400;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; padding-top: 68px;}
+            -webkit-font-smoothing: antialiased;
+            padding-top: 68px;
+        }
         h1, h2, h3, h4, h5, h6 { font-weight: 500; }
-
-        /* ── HEADER ── */
-        
-        
-        
-        
-        
-        .logo-text span { color: var(--ink-faint); font-size: 13px; font-family: var(--sans); font-weight: 400; margin-left: 10px; }
-        
-        
 
         /* ── HERO ── */
         .page-hero {
-            padding: 140px 48px 64px;
+            padding: 100px 48px 56px;
             border-bottom: 1px solid var(--border);
             position: relative; overflow: hidden;
         }
-        .hero-grid-bg { display: none; }
-        .hero-glow { display: none; }
         .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+        }
         .hero-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
-        .page-hero h1 { font-family: var(--serif); font-size: clamp(36px,5vw,56px); line-height: 1.1; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 20px; }
+        .page-hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(32px, 4.5vw, 52px);
+            line-height: 1.1; letter-spacing: -0.5px;
+            color: var(--ink); margin-bottom: 16px;
+        }
         .page-hero h1 em { font-style: normal; color: var(--accent); font-weight: 500; }
-        .hero-sub { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 600px; }
-
-        /* ── LAYOUT ── */
-        .app-section { padding: 64px 48px 100px; }
-        .app-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start; }
-
-        /* ── FORM CARD ── */
-        .form-card {
-            overflow: hidden;
-            position: relative;
+        .hero-sub {
+            font-size: 16px; font-weight: 400; color: var(--ink-muted);
+            line-height: 1.7; max-width: 560px;
+        }
+        /* trust strip below hero */
+        .hero-trust {
+            display: flex; align-items: center; gap: 28px;
+            margin-top: 28px; flex-wrap: wrap;
+        }
+        .ht-item {
+            display: flex; align-items: center; gap: 8px;
+            font-size: 12px; color: var(--ink-faint);
+        }
+        .ht-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--accent); flex-shrink: 0;
         }
 
+        /* ── LAYOUT ── */
+        .app-section { padding: 56px 48px 100px; }
+        .app-layout { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: start; }
+
+        /* ── FORM CARD ── */
+        .form-card { overflow: hidden; position: relative; }
+
         /* Progress */
-        .form-progress { padding: 20px 40px 0; }
-        .progress-track { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.4s ease; width: 0%; }
+        .form-progress { padding: 24px 40px 0; }
+        .progress-track { height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--button-primary); border-radius: 2px; transition: width 0.4s ease; width: 20%; }
         .progress-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
         .progress-step-lbl { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
         .progress-pct { font-size: 11px; color: var(--accent); }
 
         /* Steps */
         .form-body { padding: 36px 40px 40px; }
-        .form-step { display: none; animation: stepIn 0.35s ease; }
+        .form-step { display: none; animation: stepIn 0.3s ease; }
         .form-step.active { display: block; }
-        @keyframes stepIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes stepIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .step-q { font-family: var(--serif); font-size: clamp(20px,2.5vw,26px); line-height: 1.25; color: var(--ink); margin-bottom: 8px; }
+        .step-q { font-family: var(--serif); font-size: clamp(20px, 2.5vw, 26px); line-height: 1.25; color: var(--ink); margin-bottom: 6px; }
         .step-hint { font-size: 13px; color: var(--ink-faint); margin-bottom: 28px; line-height: 1.55; }
 
         /* Option grid */
         .opt-grid { display: grid; gap: 10px; margin-bottom: 28px; }
         .opt-grid.cols-2 { grid-template-columns: 1fr 1fr; }
-        .opt-card {
-            padding: 16px 18px;
-            cursor: pointer;
-            user-select: none;
-        }
+        .opt-card { padding: 16px 18px; cursor: pointer; user-select: none; }
         .opt-card:hover { border-color: var(--accent); background: var(--accent-dim); }
         .opt-card.selected { border-color: var(--accent); background: var(--accent-dim); }
         .opt-card.selected .opt-label { color: var(--ink); }
         .opt-label { font-size: 14px; font-weight: 400; color: var(--ink-soft); line-height: 1.4; display: flex; align-items: flex-start; gap: 10px; }
         .opt-label::before { content: ''; width: 14px; height: 14px; border: 1px solid var(--border-mid); border-radius: 50%; flex-shrink: 0; margin-top: 1px; transition: all 0.2s; }
-        .opt-card.selected .opt-label::before { background: var(--accent); border-color: var(--accent);  }
-        .opt-sub { font-size: 12px; color: var(--ink-faint); margin-top: 3px; padding-left: 24px; }
+        .opt-card.selected .opt-label::before { background: var(--accent); border-color: var(--accent); }
+        .opt-sub { font-size: 12px; color: var(--ink-faint); margin-top: 4px; padding-left: 24px; }
+
+        /* Volume cards — extended layout with pricing */
+        .vol-card-wrap { position: relative; }
+        .vol-badge {
+            position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+            background: var(--button-primary); color: #fff;
+            font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+            padding: 3px 12px; border-radius: 20px; white-space: nowrap; z-index: 1;
+        }
+        .vol-card-inner { padding: 20px 18px 18px; }
+        .vol-card-inner .opt-label { margin-bottom: 2px; }
+        .vol-price-row {
+            padding-left: 24px; margin-top: 8px;
+            display: flex; align-items: baseline; gap: 8px;
+        }
+        .vol-total { font-size: 18px; font-weight: 500; color: var(--ink); }
+        .vol-per { font-size: 12px; color: var(--ink-faint); }
+        .opt-card.selected .vol-total { color: var(--ink); }
 
         /* Text inputs */
         .field-group { margin-bottom: 18px; }
@@ -164,21 +189,22 @@
             width: 100%; padding: 14px 16px;
             background: var(--bg-lift); border: 1px solid var(--border);
             border-radius: 8px; color: var(--ink); font-family: var(--sans);
-            font-size: 15px; font-weight: 400; transition: border-color 0.2s, box-shadow 0.2s;
+            font-size: 15px; font-weight: 400; transition: border-color 0.2s;
             appearance: none;
         }
         .field-group input::placeholder { color: var(--ink-faint); }
-        .field-group input:focus, .field-group select:focus { outline: none; border-color: var(--accent);  }
+        .field-group input:focus, .field-group select:focus { outline: none; border-color: var(--accent); }
         .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
-        /* Other text field */
-        .other-field { margin-top: 10px; margin-bottom: 18px; display: none; }
-        .other-field.show { display: block; }
-        .other-field input { width: 100%; padding: 12px 14px; background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px; color: var(--ink); font-family: var(--sans); font-size: 14px; font-weight: 400; }
-        .other-field input:focus { outline: none; border-color: var(--accent); }
+        /* Radius slider */
+        .radius-slider-wrap { margin-top: 18px; }
+        .radius-slider-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .radius-val { font-family: var(--serif); font-size: 22px; color: var(--accent); }
+        .radius-range { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 3px; background: var(--border); outline: none; }
+        .radius-range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); cursor: pointer; }
+        .radius-range::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); cursor: pointer; border: none; }
+        .radius-bounds { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: var(--ink-faint); }
 
-        /* Radius selector */
-        .radius-row { display: grid; grid-template-columns: 1fr 140px; gap: 14px; align-items: end; }
         .radius-or { text-align: center; padding: 20px 0; font-size: 13px; color: var(--ink-faint); position: relative; }
         .radius-or::before, .radius-or::after { content: ''; position: absolute; top: 50%; height: 1px; background: var(--border); width: 40%; }
         .radius-or::before { left: 0; }
@@ -188,46 +214,37 @@
             padding: 16px 18px; text-align: center;
         }
         .postcode-alt p { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
-        .postcode-alt a { color: var(--accent); text-decoration: none; font-weight: 400; }
+        .postcode-alt a { color: var(--accent); text-decoration: none; }
 
-        /* Delivery toggles */
-        .delivery-opts { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
-        .delivery-opt {
-            background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px;
-            padding: 20px; display: flex; align-items: center; justify-content: space-between;
-            cursor: pointer; transition: border-color 0.2s, background 0.2s;
-            user-select: none;
+        /* Order summary (step 5) */
+        .order-summary {
+            background: var(--bg-lift); border: 1px solid var(--border);
+            border-radius: 8px; padding: 20px 20px 8px; margin-bottom: 24px;
         }
-        .delivery-opt:hover { border-color: var(--border-mid); }
-        .delivery-opt.active { border-color: var(--accent); background: var(--accent-dim); }
-        .delivery-opt-left { display: flex; align-items: center; gap: 14px; }
-        .delivery-opt-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--accent-dim); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .delivery-opt-icon svg { width: 16px; height: 16px; stroke: var(--accent); stroke-width: 1.5; fill: none; }
-        .delivery-opt-label { font-size: 15px; font-weight: 400; color: var(--ink); }
-        .delivery-opt-desc { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
-        .delivery-toggle {
-            width: 42px; height: 24px; border-radius: 12px; background: var(--border);
-            position: relative; transition: background 0.2s; flex-shrink: 0;
+        .order-summary-lbl {
+            font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--ink-faint); margin-bottom: 14px;
         }
-        .delivery-toggle::after {
-            content: ''; position: absolute; top: 3px; left: 3px;
-            width: 18px; height: 18px; border-radius: 50%; background: var(--ink-faint);
-            transition: transform 0.2s, background 0.2s;
+        .os-row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            padding: 8px 0; border-bottom: 1px solid var(--border);
+            font-size: 13px;
         }
-        .delivery-opt.active .delivery-toggle { background: var(--accent); }
-        .delivery-opt.active .delivery-toggle::after { transform: translateX(18px); background: #fff; }
-        .delivery-note {
-            background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px;
-            padding: 14px 18px; font-size: 12px; color: var(--ink-faint); line-height: 1.6;
-        }
-        .delivery-note strong { color: var(--ink-muted); font-weight: 400; }
+        .os-row:last-child { border-bottom: none; padding-bottom: 12px; }
+        .os-key { color: var(--ink-faint); }
+        .os-val { color: var(--ink); font-weight: 400; }
+        .os-val.highlight { color: var(--button-primary); font-size: 15px; font-weight: 500; }
 
         /* Checkboxes */
-        .confirm-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+        .confirm-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
         .confirm-item {
             display: flex; align-items: flex-start; gap: 12px;
             cursor: pointer; user-select: none;
+            background: var(--bg-lift); border: 1px solid var(--border);
+            border-radius: 8px; padding: 14px 16px;
+            transition: border-color 0.2s;
         }
+        .confirm-item.checked { border-color: var(--border-mid); }
         .confirm-box {
             width: 18px; height: 18px; border: 1px solid var(--border-mid);
             border-radius: 4px; flex-shrink: 0; margin-top: 2px;
@@ -238,6 +255,12 @@
         .confirm-item.checked .confirm-box svg { opacity: 1; }
         .confirm-text { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
         .confirm-text a { color: var(--accent); text-decoration: none; }
+        .confirm-text strong { color: var(--ink); font-weight: 500; }
+
+        /* Sub-type grid */
+        .subtype-grid { display: none; margin-top: 14px; }
+        .subtype-grid.show { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; animation: stepIn 0.3s ease; }
+        .opt-card.multi .opt-label::before { border-radius: 3px; }
 
         /* Buttons */
         .btn-row { display: flex; gap: 12px; align-items: center; margin-top: 28px; }
@@ -246,7 +269,13 @@
         .btn-next { background: var(--button-primary); color: #fff; border: none; padding: 13px 32px; border-radius: 4px; font-family: var(--sans); font-size: 14px; font-weight: 400; cursor: pointer; transition: opacity 0.2s, transform 0.2s; flex: 1; }
         .btn-next:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
         .btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
-        .btn-submit { background: var(--button-primary); color: #fff; border: none; padding: 15px 32px; border-radius: 8px; font-family: var(--sans); font-size: 15px; font-weight: 400; cursor: pointer; transition: opacity 0.2s, transform 0.2s; flex: 1; }
+        .btn-submit {
+            background: var(--button-primary); color: #fff; border: none;
+            padding: 15px 32px; border-radius: 4px; font-family: var(--sans);
+            font-size: 15px; font-weight: 400; cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s; flex: 1;
+            letter-spacing: -0.1px;
+        }
         .btn-submit:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
         .btn-submit:disabled { opacity: 0.35; cursor: not-allowed; }
 
@@ -262,29 +291,34 @@
         .form-success.active { display: block; }
         .success-icon {
             width: 52px; height: 52px; border-radius: 50%;
-            background: var(--green-dim); border: 1px solid rgba(34,197,94,0.25);
+            background: var(--accent-dim); border: 1px solid var(--border-mid);
             display: flex; align-items: center; justify-content: center; margin-bottom: 28px;
         }
-        .success-icon svg { width: 24px; height: 24px; stroke: var(--green); stroke-width: 2.5; fill: none; }
+        .success-icon svg { width: 24px; height: 24px; stroke: var(--accent); stroke-width: 2.5; fill: none; }
         .form-success h2 { font-family: var(--serif); font-size: 30px; color: var(--ink); margin-bottom: 12px; line-height: 1.2; }
-        .form-success> p { font-size: 15px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 28px; font-weight: 400; }
+        .form-success > p { font-size: 15px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 28px; font-weight: 400; }
         .success-divider { height: 1px; background: var(--border); margin: 28px 0; }
         .success-note { font-size: 13px; color: var(--ink-faint); line-height: 1.6; margin-bottom: 0 !important; }
         .success-note a { color: var(--accent); text-decoration: none; }
-        .success-link {
-            display: inline-block; margin-top: 20px; font-size: 13px;
-            color: var(--ink-faint); text-decoration: none; transition: color 0.2s;
-        }
+        .success-link { display: inline-block; margin-top: 20px; font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .success-link:hover { color: var(--ink); }
 
         /* ── SIDEBAR ── */
         .app-sidebar { position: sticky; top: 96px; }
-        .sidebar-card { padding: 32px; margin-bottom: 16px; overflow: hidden; }
-        .sc-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
+        .sidebar-card { padding: 28px 28px 24px; margin-bottom: 14px; overflow: hidden; }
+        .sc-lbl { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 18px; }
 
-        .sc-metric { padding: 14px 0; border-bottom: 1px solid var(--border); }
+        /* social proof block */
+        .sc-proof {
+            background: var(--bg-lift); border: 1px solid var(--border);
+            border-radius: 8px; padding: 18px; margin-bottom: 14px;
+        }
+        .sc-proof-num { font-family: var(--serif); font-size: 32px; color: var(--accent); line-height: 1; }
+        .sc-proof-label { font-size: 12px; color: var(--ink-faint); margin-top: 4px; line-height: 1.5; }
+
+        .sc-metric { padding: 12px 0; border-bottom: 1px solid var(--border); }
         .sc-metric:last-of-type { border-bottom: none; }
-        .sc-val { font-family: var(--serif); font-size: 28px; color: var(--accent); line-height: 1; margin-bottom: 5px; }
+        .sc-val { font-family: var(--serif); font-size: 24px; color: var(--accent); line-height: 1; margin-bottom: 4px; }
         .sc-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
         .sc-sub { font-size: 11px; color: var(--ink-faint); margin-top: 2px; }
 
@@ -294,22 +328,10 @@
 
         .sc-foot { margin-top: 4px; padding-top: 16px; font-size: 13px; color: var(--ink-faint); display: flex; align-items: center; gap: 8px; }
         .sdot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
-         }
 
         .disclaimer-txt { font-size: 12px; color: var(--ink-faint); line-height: 1.65; margin-top: 16px; }
 
-        /* ── FOOTER ── */
-        
-        
-        
-        
-        
-        
-        
-        
-
-        /* ── RESPONSIVE ── */
-        /* HEADER */
+        /* ── HEADER ── */
         .site-header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
             padding: 0 48px;
@@ -326,111 +348,49 @@
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .logo-img { height: 36px; width: auto; display: block; }
         .logo-img.hide { display: none; }
-        .logo-text {
-            font-family: var(--serif); font-size: 20px; color: var(--ink);
-            letter-spacing: -0.3px; display: none;
-        }
+        .logo-text { font-family: var(--serif); font-size: 20px; color: var(--ink); letter-spacing: -0.3px; display: none; }
         .logo-text.show { display: block; }
         .nav-links { display: flex; align-items: center; gap: 24px; }
-        .nav-links> a {
-            font-size: 14px; font-weight: 400; color: var(--ink-muted);
-            text-decoration: none; transition: color 0.2s;
-        }
-        .nav-links> a:hover { color: var(--ink); }
+        .nav-links > a { font-size: 14px; font-weight: 400; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+        .nav-links > a:hover { color: var(--ink); }
         .nav-dropdown { position: relative; }
-        .nav-dropdown-btn {
-            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
-            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
-            padding: 0; transition: color 0.2s;
-        }
+        .nav-dropdown-btn { font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted); background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px; padding: 0; transition: color 0.2s; }
         .nav-dropdown-btn:hover { color: var(--ink); }
-        a.nav-dropdown-btn {
-            text-decoration: none;
-        }
+        a.nav-dropdown-btn { text-decoration: none; }
         .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
         .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
-        .nav-dropdown-menu {
-            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
-            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px;
-            padding: 8px 0; min-width: 180px; 
-            z-index: 300;
-        }
+        .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px; padding: 8px 0; min-width: 180px; z-index: 300; }
         .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-        .nav-dropdown-menu::before {
-            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
-        }
-        .nav-dropdown-menu a {
-            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
-            text-decoration: none; transition: all 0.15s; white-space: nowrap;
-        }
+        .nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+        .nav-dropdown-menu a { display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted); text-decoration: none; transition: all 0.15s; white-space: nowrap; }
         .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
-        .nav-cta {
-            background: var(--button-primary) !important; color: #fff !important;
-            padding: 10px 22px !important; border-radius: 4px !important;
-            font-weight: 400 !important; font-size: 14px !important;
-            transition: opacity 0.2s !important; text-decoration: none !important;
-        }
+        .nav-cta { background: var(--button-primary) !important; color: #fff !important; padding: 10px 22px !important; border-radius: 4px !important; font-weight: 400 !important; font-size: 14px !important; transition: opacity 0.2s !important; text-decoration: none !important; }
         .nav-cta:hover { opacity: 0.85 !important; }
-        .nav-signin {
-            font-size: 13px; color: var(--ink-muted); text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.10); border-radius: 4px;
-            padding: 7px 16px; transition: color 0.2s, border-color 0.2s;
-        }
+        .nav-signin { font-size: 13px; color: var(--ink-muted); text-decoration: none; border: 1px solid rgba(255,255,255,0.10); border-radius: 4px; padding: 7px 16px; transition: color 0.2s, border-color 0.2s; }
         .nav-signin:hover { color: var(--ink); border-color: rgba(255,255,255,0.2); }
-        .theme-btn {
-            width: 36px; height: 36px; border-radius: 8px;
-            border: 1px solid var(--border-mid); background: var(--bg-lift);
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
-        }
+        .theme-btn { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border-mid); background: var(--bg-lift); cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0; }
         .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
         .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
         .i-moon { display: block; }
-        .i-sun  { display: none;  }
+        .i-sun  { display: none; }
         [data-theme="light"] .i-moon { display: none; }
         [data-theme="light"] .i-sun  { display: block; }
         .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
         .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
-        .mob-menu {
-            display: none; position: absolute; top: 100%; left: 0; right: 0;
-            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
-            max-height: calc(100vh - 68px); overflow-y: auto;
-        }
+        .mob-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px; max-height: calc(100vh - 68px); overflow-y: auto; }
         .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
-        .mob-menu-top {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 16px 0; border-bottom: 1px solid var(--border);
-        }
-        .mob-menu-title {
-            font-size: 13px; font-weight: 500; color: var(--ink-faint);
-            text-transform: uppercase; letter-spacing: 0.08em;
-        }
-        .mob-menu a {
-            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
-            text-decoration: none; border-bottom: 1px solid var(--border);
-        }
+        .mob-menu-top { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--border); }
+        .mob-menu-title { font-size: 13px; font-weight: 500; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; }
+        .mob-menu a { padding: 14px 0; font-size: 16px; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--border); }
         .mob-menu a:hover { color: var(--ink); }
-        .mob-section-label {
-            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
-        }
+        .mob-section-label { display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none; }
         .mob-section-label.compact { padding: 8px 0 2px; }
-        .mob-cta {
-            background: var(--button-primary) !important; color: #fff !important;
-            padding: 14px 0 !important; border-radius: 4px; text-align: center;
-            margin-top: 8px; border-bottom: none !important;
-        }
+        .mob-cta { background: var(--button-primary) !important; color: #fff !important; padding: 14px 0 !important; border-radius: 4px; text-align: center; margin-top: 8px; border-bottom: none !important; }
         .mob-cta:hover { opacity: 0.85; }
-        .mob-theme-btn {
-            width: 36px; height: 36px; flex-shrink: 0;
-        }
+        .mob-theme-btn { width: 36px; height: 36px; flex-shrink: 0; }
 
-
-        /* FOOTER */
-        footer {
-            padding: 48px; border-top: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-        }
+        /* ── FOOTER ── */
+        footer { padding: 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
         .foot-logo { display: flex; align-items: center; gap: 10px; }
         .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
         .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
@@ -439,44 +399,33 @@
         .foot-links a:hover { color: var(--ink); }
         .foot-copy { font-size: 13px; color: var(--ink-faint); }
 
-
-        /* Sub-type grid */
-        .subtype-grid { display: none; margin-top: 16px; }
-        .subtype-grid.show { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; animation: stepIn 0.35s ease; }
-        .opt-card.multi .opt-label::before { border-radius: 3px; }
-
-        /* Radius slider */
-        .radius-slider-wrap { margin-top: 18px; }
-        .radius-slider-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .radius-val { font-family: var(--serif); font-size: 22px; color: var(--accent); }
-        .radius-range { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 3px; background: var(--border); outline: none; }
-        .radius-range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); cursor: pointer;  }
-        .radius-range::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); cursor: pointer; border: none;  }
-        .radius-bounds { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: var(--ink-faint); }
-
+        /* ── RESPONSIVE ── */
         @media(max-width:1024px) {
-            
-            .page-hero { padding: 120px 32px 56px; } .site-header{padding:0 32px;} footer{padding:40px 32px;}
-            .app-section { padding: 48px 32px 80px; }
-            .app-layout { grid-template-columns: 1fr; gap: 40px; }
+            .page-hero { padding: 100px 32px 48px; }
+            .site-header { padding: 0 32px; }
+            footer { padding: 40px 32px; }
+            .app-section { padding: 40px 32px 72px; }
+            .app-layout { grid-template-columns: 1fr; gap: 36px; }
             .app-sidebar { position: static; }
             .sidebar-card:not(:first-child) { display: none; }
-            
+            .sc-proof { display: none; }
         }
         @media(max-width:768px) {
-            
-            .page-hero { padding: 100px 24px 48px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
-            .app-section { padding: 40px 24px 64px; }
+            .page-hero { padding: 88px 24px 40px; }
+            .nav-links { display: none; }
+            .mob-btn { display: block; }
+            footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; gap: 20px; }
+            .app-section { padding: 32px 24px 56px; }
             .form-progress { padding: 16px 24px 0; }
             .form-body { padding: 24px 24px 28px; }
             .form-loading { padding: 48px 24px; }
-            .form-success { padding: 36px 24px; }
+            .form-success { padding: 32px 24px; }
             .opt-grid.cols-2 { grid-template-columns: 1fr; }
             .subtype-grid.show { grid-template-columns: 1fr; }
-            .field-row, .radius-row { grid-template-columns: 1fr; }
+            .field-row { grid-template-columns: 1fr; }
             .btn-row { flex-direction: column-reverse; }
             .btn-back { width: 100%; }
-            
+            .hero-trust { gap: 16px; }
         }
     </style>
 </head>
@@ -543,12 +492,16 @@
 
 <!-- HERO -->
 <section class="page-hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-glow"></div>
     <div class="page-hero-inner">
-        <div class="hero-eyebrow">Market Pulse Intake</div>
-        <h1>Start your<br><em>Exclusive Lead order</em></h1>
-        <p class="hero-sub">Select your lead type, set your area, and confirm your details. Your campaign will be configured from there.</p>
+        <div class="hero-eyebrow">Market Pulse</div>
+        <h1>Your first leads,<br><em>live within 24 hours.</em></h1>
+        <p class="hero-sub">Select your trade, set your territory, and confirm your order. Your campaign is configured and running within 24 hours.</p>
+        <div class="hero-trust">
+            <div class="ht-item"><div class="ht-dot"></div>Phone-verified leads</div>
+            <div class="ht-item"><div class="ht-dot"></div>100% exclusive to your business</div>
+            <div class="ht-item"><div class="ht-dot"></div>7-day replacement policy</div>
+            <div class="ht-item"><div class="ht-dot"></div>Pro-rata refund guarantee</div>
+        </div>
     </div>
 </section>
 
@@ -565,7 +518,7 @@
                     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
                     <div class="progress-meta">
                         <span class="progress-step-lbl" id="stepLbl">Step 1 of 5</span>
-                        <span class="progress-pct" id="stepPct">0%</span>
+                        <span class="progress-pct" id="stepPct">20%</span>
                     </div>
                 </div>
 
@@ -574,20 +527,24 @@
 
                     <!-- STEP 1: Lead Type -->
                     <div class="form-step active" id="step1">
-                        <div class="step-q">What type of leads do you need?</div>
-                        <div class="step-hint">Select your industry, then choose your lead type.</div>
+                        <div class="step-q">What industry are you in?</div>
+                        <div class="step-hint">Pick your trade, then select your lead type below.</div>
                         <div class="opt-grid cols-2" id="industryGrid">
                             <div class="card card--interactive opt-card" data-field="trade" data-value="Solar">
                                 <div class="opt-label">Solar</div>
+                                <div class="opt-sub">Panels, battery, hybrid systems</div>
                             </div>
                             <div class="card card--interactive opt-card" data-field="trade" data-value="Roofing">
                                 <div class="opt-label">Roofing</div>
+                                <div class="opt-sub">Restorations and replacements</div>
                             </div>
                             <div class="card card--interactive opt-card" data-field="trade" data-value="Renovations">
                                 <div class="opt-label">Renovations</div>
+                                <div class="opt-sub">Kitchens, bathrooms, decks</div>
                             </div>
                             <div class="card card--interactive opt-card" data-field="trade" data-value="HVAC">
                                 <div class="opt-label">HVAC</div>
+                                <div class="opt-sub">Split and ducted installs</div>
                             </div>
                         </div>
                         <div class="subtype-grid" id="subtypeSolar">
@@ -595,7 +552,7 @@
                                 <div class="opt-label">Solar + Battery</div>
                             </div>
                             <div class="card card--interactive opt-card multi" data-subtype="Battery">
-                                <div class="opt-label">Battery</div>
+                                <div class="opt-label">Battery only</div>
                             </div>
                         </div>
                         <div class="subtype-grid" id="subtypeRoofing">
@@ -633,7 +590,7 @@
                     <!-- STEP 2: Service Area -->
                     <div class="form-step" id="step2">
                         <div class="step-q">Where do you service?</div>
-                        <div class="step-hint">Enter a central postcode and slide to set your radius.</div>
+                        <div class="step-hint">Enter a central postcode — we'll only match homeowners within your radius.</div>
                         <div class="field-group" style="margin-bottom:0;">
                             <label>Centre postcode</label>
                             <input type="text" id="servicePostcode" placeholder="e.g. 2155" maxlength="4" inputmode="numeric">
@@ -648,7 +605,7 @@
                         </div>
                         <div class="radius-or">or</div>
                         <div class="postcode-alt">
-                            <p>Have a specific list of postcodes?<br>Send it to <a href="mailto:contact@quoteleads.com.au?subject=Market%20Pulse%20Postcode%20List">contact@quoteleads.com.au</a> and it will be configured manually.</p>
+                            <p>Have a specific list of postcodes? Send it to <a href="mailto:contact@quoteleads.com.au?subject=Market%20Pulse%20Postcode%20List">contact@quoteleads.com.au</a> and it will be configured manually.</p>
                         </div>
                         <div class="btn-row">
                             <button class="btn-back" onclick="goPrev(2)">Back</button>
@@ -656,22 +613,39 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3: Lead Count -->
+                    <!-- STEP 3: Lead Count + Pricing -->
                     <div class="form-step" id="step3">
                         <div class="step-q">How many leads do you want?</div>
-                        <div class="step-hint">Choose the batch size for your order. All leads are exclusive, consented, and phone-verified.</div>
+                        <div class="step-hint">All leads are exclusive, consented, and phone-verified before delivery.</div>
                         <div class="opt-grid" id="leadCountGrid">
                             <div class="card card--interactive opt-card" data-field="lead_count" data-value="10">
-                                <div class="opt-label">10 Leads</div>
-                                <div class="opt-sub">Great to test the waters</div>
+                                <div class="vol-card-inner" style="padding:0;">
+                                    <div class="opt-label">10 leads</div>
+                                    <div class="opt-sub">Test the waters</div>
+                                    <div class="vol-price-row">
+                                        <span class="vol-total">$650</span>
+                                        <span class="vol-per">$65 per lead</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card card--interactive opt-card" data-field="lead_count" data-value="25">
-                                <div class="opt-label">25 Leads</div>
-                                <div class="opt-sub">Most popular - enough to measure ROI</div>
+                            <div class="vol-card-wrap">
+                                <div class="vol-badge">Most popular</div>
+                                <div class="card card--interactive opt-card" data-field="lead_count" data-value="25">
+                                    <div class="opt-label">25 leads</div>
+                                    <div class="opt-sub">Save $250 vs 10-pack rate</div>
+                                    <div class="vol-price-row">
+                                        <span class="vol-total">$1,375</span>
+                                        <span class="vol-per">$55 per lead</span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card card--interactive opt-card" data-field="lead_count" data-value="50">
-                                <div class="opt-label">50 Leads</div>
-                                <div class="opt-sub">Best value per lead</div>
+                                <div class="opt-label">50 leads</div>
+                                <div class="opt-sub">Save $800 vs 10-pack rate</div>
+                                <div class="vol-price-row">
+                                    <span class="vol-total">$2,450</span>
+                                    <span class="vol-per">$49 per lead</span>
+                                </div>
                             </div>
                         </div>
                         <div class="btn-row">
@@ -683,7 +657,7 @@
                     <!-- STEP 4: Your Details -->
                     <div class="form-step" id="step4">
                         <div class="step-q">Where should leads be delivered?</div>
-                        <div class="step-hint">Leads are sent to the email and phone below the moment they come in.</div>
+                        <div class="step-hint">Leads are sent to the email and phone below the moment they come in — no batching, no delays.</div>
                         <div class="field-row">
                             <div class="field-group">
                                 <label>First name</label>
@@ -716,21 +690,31 @@
 
                     <!-- STEP 5: Confirm & Submit -->
                     <div class="form-step" id="step5">
-                        <div class="step-q">Confirm and start your order.</div>
-                        <div class="step-hint">Read each item and check the box. Once submitted, your order will be processed and your campaign configured within 24 hours.</div>
+                        <div class="step-q">Review and launch your campaign.</div>
+                        <div class="step-hint">Your campaign goes live within 24 hours of confirmation.</div>
+
+                        <!-- Order summary -->
+                        <div class="order-summary">
+                            <div class="order-summary-lbl">Your order</div>
+                            <div class="os-row"><span class="os-key">Industry</span><span class="os-val" id="sum-trade">—</span></div>
+                            <div class="os-row"><span class="os-key">Lead type</span><span class="os-val" id="sum-subtype">—</span></div>
+                            <div class="os-row"><span class="os-key">Service area</span><span class="os-val" id="sum-area">—</span></div>
+                            <div class="os-row"><span class="os-key">Volume</span><span class="os-val" id="sum-volume">—</span></div>
+                            <div class="os-row"><span class="os-key">Total</span><span class="os-val highlight" id="sum-total">—</span></div>
+                        </div>
 
                         <div class="confirm-list" id="confirmList">
                             <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="guarantee">
                                 <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-                                <div class="confirm-text">I understand Market Pulse guarantees a batch of <strong style="color:var(--ink)">phone-verified leads</strong>, generated through paid advertising with a full audit trail, delivered within the agreed timeframe - or the balance is refunded pro-rata.</div>
+                                <div class="confirm-text">I confirm Market Pulse will deliver a batch of <strong>phone-verified, exclusive leads</strong> with a full audit trail within the agreed timeframe — or the balance is refunded pro-rata.</div>
                             </div>
                             <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="no_conversion">
                                 <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-                                <div class="confirm-text">I understand there are <strong style="color:var(--ink)">no guarantees on conversion, jobs won, or revenue</strong>. Market Pulse delivers the opportunity - closing it is mine to own.</div>
+                                <div class="confirm-text">I understand Market Pulse delivers <strong>qualified, consented opportunities</strong> — converting them into jobs is my responsibility and I'm ready to follow up.</div>
                             </div>
                             <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="consent">
                                 <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-                                <div class="confirm-text">I authorise QuoteLeads to insert my business name into consent text on branded surveys to <strong style="color:var(--ink)">exclusively match homeowners</strong> with my business in my service area.</div>
+                                <div class="confirm-text">I authorise QuoteLeads to use my business name in homeowner consent flows to <strong>exclusively match leads to my business</strong> in my service area.</div>
                             </div>
                             <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="terms">
                                 <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
@@ -742,7 +726,7 @@
 
                         <div class="btn-row">
                             <button class="btn-back" onclick="goPrev(5)">Back</button>
-                            <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Submit Intake</button>
+                            <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Launch my campaign</button>
                         </div>
                         <p class="disclaimer-txt">By submitting, you agree to receive calls, texts, or emails from QuoteLeads at the contact details provided. See our <a href="https://quoteleads.com.au/privacy" style="color:var(--accent); text-decoration:none;">Privacy Policy</a>.</p>
                     </div>
@@ -752,7 +736,7 @@
                 <!-- Loading state -->
                 <div class="form-loading" id="formLoading">
                     <div class="spin"></div>
-                    <p>Submitting your intake…</p>
+                    <p>Launching your campaign...</p>
                 </div>
 
                 <!-- Success state -->
@@ -764,7 +748,7 @@
                     <p>Your intake has been received. Your Market Pulse campaign will be configured and live within 24 hours. Expect your first leads within 24–48 hours of launch.</p>
                     <div class="success-divider"></div>
                     <p class="success-note">Questions in the meantime? <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a></p>
-                    <a href="https://quoteleads.com.au" class="success-link">← Back to QuoteLeads</a>
+                    <a href="https://quoteleads.com.au" class="success-link">Back to QuoteLeads</a>
                 </div>
 
             </div><!-- /form-card -->
@@ -772,26 +756,33 @@
 
         <!-- SIDEBAR -->
         <div class="app-sidebar">
+
+            <!-- Social proof -->
+            <div class="sc-proof">
+                <div class="sc-proof-num">340+</div>
+                <div class="sc-proof-label">trade businesses running active campaigns across Australia</div>
+            </div>
+
             <div class="card sidebar-card">
-                <div class="sc-lbl">Your Market Pulse</div>
+                <div class="sc-lbl">What you're getting</div>
                 <div class="sc-metric">
                     <div class="sc-val">Exclusive</div>
-                    <div class="sc-desc">Qualified, consented leads within an agreed timeframe</div>
+                    <div class="sc-desc">One business per trade per territory — your leads go to no one else</div>
                     <div class="sc-sub">Guaranteed or pro-rata refund</div>
                 </div>
                 <div class="sc-metric">
                     <div class="sc-val">Real-Time</div>
-                    <div class="sc-desc">Leads delivered the moment they're generated and qualified by our systems</div>
-                    <div class="sc-sub">Via SMS + email, no delay</div>
+                    <div class="sc-desc">Leads delivered the moment they're qualified — via SMS and email</div>
+                    <div class="sc-sub">No batching, no delay</div>
                 </div>
                 <div class="sc-metric">
-                    <div class="sc-val">24-48hrs</div>
-                    <div class="sc-desc">First leads arriving after campaign launch</div>
+                    <div class="sc-val">24–48hrs</div>
+                    <div class="sc-desc">First leads arriving after your campaign goes live</div>
                     <div class="sc-sub">Same engine as the full QuoteLeads system</div>
                 </div>
                 <div class="sc-metric">
-                    <div class="sc-val">7 Day Replacement Policy</div>
-                    <div class="sc-desc">On the rare occasion a lead falls outside your set criteria</div>
+                    <div class="sc-val">7-Day Replace</div>
+                    <div class="sc-desc">Any lead outside your criteria is replaced — no questions asked</div>
                 </div>
                 <div class="sc-foot">
                     <span class="sdot"></span>
@@ -800,19 +791,19 @@
             </div>
 
             <div class="card sidebar-card">
-                <div class="sc-lbl">What you're getting</div>
+                <div class="sc-lbl">Every lead includes</div>
                 <ul class="checklist">
-                    <li>1-to-1 consent - homeowner agreed to hear from your business</li>
-                    <li>Phone-verified leads generated through paid advertising</li>
-                    <li>Full audit trail for every lead delivered</li>
-                    <li>Delivered via SMS + email the moment they come in</li>
-                    <li>Pre-qualified - renters and tyre-kickers filtered out</li>
+                    <li>1-to-1 consent — homeowner agreed to hear from your business</li>
+                    <li>Phone-verified before delivery</li>
+                    <li>Full audit trail on every lead</li>
+                    <li>Renters and tyre-kickers filtered out</li>
+                    <li>Delivered via SMS and email instantly</li>
                 </ul>
             </div>
 
             <div class="card sidebar-card">
-                <div class="sc-lbl">After your leads are delivered</div>
-                <p style="font-size:13px; color:var(--ink-muted); line-height:1.65;">You'll have the data - lead quality, your close rate, the ROI. Ready to scale? See what the full system looks like built under your brand.</p>
+                <div class="sc-lbl">After your leads arrive</div>
+                <p style="font-size:13px; color:var(--ink-muted); line-height:1.65;">You'll have the data — lead quality, close rate, ROI. Ready to scale? See what a full system built under your brand looks like.</p>
                 <p style="font-size:13px; color:var(--ink-faint); margin-top:10px; line-height:1.55;"><a href="/what-you-own" style="color:var(--accent); text-decoration:none;">Learn more about the full system →</a></p>
             </div>
         </div>
@@ -841,7 +832,6 @@
 </footer>
 
 <script>
-    // ── Theme: always default to dark, persist user choice ──
     (function(){
         var saved = localStorage.getItem('ql-theme');
         document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
@@ -860,11 +850,9 @@
     var mobThemeBtn = document.getElementById('mobThemeBtn');
     if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
 
-    // ── Logo swap ──
     function updateLogos(){
         var theme = document.documentElement.getAttribute('data-theme');
         var headerImg = document.getElementById('logoImg');
-        var headerTxt = document.getElementById('logoText');
         var footImg   = document.getElementById('footLogoImg');
         var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
         var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
@@ -873,7 +861,6 @@
     }
     updateLogos();
 
-    // Handle broken logo image gracefully
     var logoImg = document.getElementById('logoImg');
     if(logoImg){
         logoImg.addEventListener('error', function(){
@@ -883,7 +870,6 @@
         });
     }
 
-    // ── Mobile menu ──
     var mobBtn  = document.getElementById('mobBtn');
     var mobMenu = document.getElementById('mobMenu');
     if(mobBtn && mobMenu){
@@ -893,23 +879,23 @@
         });
     }
 
-    // ── Smooth scroll ──
     document.querySelectorAll('a[href^="#"]').forEach(function(a){
         a.addEventListener('click', function(e){
             var target = document.querySelector(a.getAttribute('href'));
             if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
         });
     });
-
 </script>
 
 <script>
 (function(){
-    // ── STATE ──
     var TOTAL_STEPS = 5;
     var currentStep = 1;
     var turnstileToken = '';
     var turnstileRendered = false;
+
+    // Pricing map for summary
+    var pricingMap = { '10': '$650', '25': '$1,375', '50': '$2,450' };
 
     var formData = {
         trade: '', lead_subtype: [], service_postcode: '', service_radius: '30km',
@@ -930,24 +916,18 @@
     document.querySelectorAll('#industryGrid .opt-card').forEach(function(card){
         card.addEventListener('click', function(){
             var val = this.getAttribute('data-value');
-            // Deselect all industry cards
             document.querySelectorAll('#industryGrid .opt-card').forEach(function(c){ c.classList.remove('selected'); });
             this.classList.add('selected');
             formData.trade = val;
-
-            // Reset sub-types
             formData.lead_subtype = [];
             document.querySelectorAll('.subtype-grid').forEach(function(g){
                 g.classList.remove('show');
                 g.querySelectorAll('.opt-card').forEach(function(c){ c.classList.remove('selected'); });
             });
-
-            // Show the correct sub-type grid
             var gridId = subtypeMap[val];
             if(gridId){
                 var grid = document.getElementById(gridId);
                 grid.classList.add('show');
-                // HVAC: auto-select the single option
                 if(val === 'HVAC'){
                     var hvacCard = grid.querySelector('.opt-card');
                     hvacCard.classList.add('selected');
@@ -958,11 +938,10 @@
         });
     });
 
-    // ── STEP 1: SUB-TYPE CARDS (multi-select) ──
+    // ── STEP 1: SUB-TYPE CARDS ──
     document.querySelectorAll('.subtype-grid .opt-card').forEach(function(card){
         card.addEventListener('click', function(){
             this.classList.toggle('selected');
-            // Rebuild lead_subtype from visible grid
             var visibleGrid = this.closest('.subtype-grid');
             formData.lead_subtype = [];
             visibleGrid.querySelectorAll('.opt-card.selected').forEach(function(c){
@@ -973,25 +952,24 @@
     });
 
     function checkStep1(){
-        var btn = document.getElementById('next1');
-        btn.disabled = !(formData.trade && formData.lead_subtype.length> 0);
+        document.getElementById('next1').disabled = !(formData.trade && formData.lead_subtype.length > 0);
     }
 
-    // ── STEP 2: POSTCODE + SLIDER ──
+    // ── STEP 2 ──
     document.getElementById('servicePostcode').addEventListener('input', function(){
         formData.service_postcode = this.value.trim();
         document.getElementById('next2').disabled = formData.service_postcode.length < 4;
     });
 
     var radiusSlider = document.getElementById('serviceRadius');
-    var radiusLabel = document.getElementById('radiusVal');
+    var radiusLabel  = document.getElementById('radiusVal');
     radiusSlider.addEventListener('input', function(){
         var v = this.value;
         formData.service_radius = v + 'km';
         radiusLabel.textContent = v + 'km radius';
     });
 
-    // ── STEP 3: LEAD COUNT CARDS (single select) ──
+    // ── STEP 3: LEAD COUNT ──
     document.querySelectorAll('#leadCountGrid .opt-card').forEach(function(card){
         card.addEventListener('click', function(){
             document.querySelectorAll('#leadCountGrid .opt-card').forEach(function(c){ c.classList.remove('selected'); });
@@ -1024,13 +1002,21 @@
 
     function checkSubmitReady(){
         var allChecked = formData.confirm_guarantee && formData.confirm_no_conversion && formData.confirm_consent && formData.confirm_terms;
-        var hasToken = !!turnstileToken;
-        document.getElementById('submitBtn').disabled = !(allChecked && hasToken);
+        document.getElementById('submitBtn').disabled = !(allChecked && !!turnstileToken);
+    }
+
+    // ── POPULATE ORDER SUMMARY ──
+    function populateSummary(){
+        document.getElementById('sum-trade').textContent   = formData.trade || '—';
+        document.getElementById('sum-subtype').textContent = formData.lead_subtype.length ? formData.lead_subtype.join(', ') : '—';
+        document.getElementById('sum-area').textContent    = formData.service_postcode ? formData.service_postcode + ' + ' + formData.service_radius + ' radius' : '—';
+        document.getElementById('sum-volume').textContent  = formData.lead_count ? formData.lead_count + ' leads' : '—';
+        document.getElementById('sum-total').textContent   = formData.lead_count ? (pricingMap[formData.lead_count] || '—') + ' + GST' : '—';
     }
 
     // ── PROGRESS ──
     function updateProgress(){
-        var pct = Math.round(((currentStep - 1) / TOTAL_STEPS) * 100);
+        var pct = Math.round((currentStep / TOTAL_STEPS) * 100);
         document.getElementById('progressFill').style.width = pct + '%';
         document.getElementById('stepLbl').textContent = 'Step ' + currentStep + ' of ' + TOTAL_STEPS;
         document.getElementById('stepPct').textContent = pct + '%';
@@ -1048,14 +1034,13 @@
     window.goNext = function(fromStep){
         if(fromStep === 4){
             formData.first_name = document.getElementById('first_name').value.trim();
-            formData.last_name = document.getElementById('last_name').value.trim();
-            formData.company = document.getElementById('company').value.trim();
-            formData.phone = document.getElementById('phone').value.trim();
-            formData.email = document.getElementById('email').value.trim();
+            formData.last_name  = document.getElementById('last_name').value.trim();
+            formData.company    = document.getElementById('company').value.trim();
+            formData.phone      = document.getElementById('phone').value.trim();
+            formData.email      = document.getElementById('email').value.trim();
         }
-
+        if(fromStep + 1 === 5){ populateSummary(); }
         showStep(fromStep + 1);
-
         if(fromStep + 1 === 5 && !turnstileRendered && typeof turnstile !== 'undefined'){
             turnstileRendered = true;
             turnstile.render('#turnstile-container', {
@@ -1066,11 +1051,9 @@
         }
     };
 
-    window.goPrev = function(fromStep){
-        showStep(fromStep - 1);
-    };
+    window.goPrev = function(fromStep){ showStep(fromStep - 1); };
 
-    // ── SUBMIT ──
+    // ── SUBMIT — all existing functionality preserved ──
     window.submitForm = function(){
         if(!formData.confirm_guarantee || !formData.confirm_no_conversion || !formData.confirm_consent || !formData.confirm_terms){ return; }
         if(!turnstileToken){ return; }
@@ -1078,22 +1061,21 @@
         formData['cf-turnstile-response'] = turnstileToken;
         formData.source = 'market-pulse-intake';
 
-        document.getElementById('formBody').style.display = 'none';
+        document.getElementById('formBody').style.display    = 'none';
         document.getElementById('formProgress').style.display = 'none';
         document.getElementById('formLoading').classList.add('active');
 
-        // Save intake data for the checkout page
         localStorage.setItem('ql-market-pulse-intake', JSON.stringify({
-            first_name: formData.first_name,
-            last_name: formData.last_name,
-            company: formData.company,
-            phone: formData.phone,
-            email: formData.email,
-            trade: formData.trade,
-            lead_subtype: formData.lead_subtype,
-            lead_count: formData.lead_count,
+            first_name:      formData.first_name,
+            last_name:       formData.last_name,
+            company:         formData.company,
+            phone:           formData.phone,
+            email:           formData.email,
+            trade:           formData.trade,
+            lead_subtype:    formData.lead_subtype,
+            lead_count:      formData.lead_count,
             service_postcode: formData.service_postcode,
-            service_radius: formData.service_radius
+            service_radius:  formData.service_radius
         }));
 
         fetch('https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5', {
@@ -1105,7 +1087,6 @@
 
         if(typeof fbq !== 'undefined') fbq('track', 'Lead');
 
-        // Redirect to checkout page after brief loading animation
         setTimeout(function(){
             window.location.href = '/market-pulse-checkout';
         }, 1200);
