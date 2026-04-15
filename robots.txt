@@ -6,7 +6,6 @@ Disallow: /buyer-dashboard.html
 Disallow: /sign-in.html
 Disallow: /reset-password.html
 Disallow: /market-pulse-intake.html
-Disallow: /market-pulse-checkout.html
 Disallow: /market-pulse-confirmed.html
 Disallow: /requested.html
 
