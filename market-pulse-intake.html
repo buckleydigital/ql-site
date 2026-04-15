@@ -400,6 +400,24 @@
         .foot-copy { font-size: 13px; color: var(--ink-faint); }
 
         /* ── RESPONSIVE ── */
+        /* ROI Anchor */
+        #roi-anchor { margin-bottom: 24px; }
+        .roi-label { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.1em; }
+        .roi-controls { display: flex; gap: 24px; margin: 16px 0; align-items: flex-end; }
+        .roi-ctrl-group { display: flex; flex-direction: column; gap: 6px; }
+        .roi-ctrl-label { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
+        .roi-input-wrap { display: flex; align-items: center; background: var(--bg-lift); border: 1px solid var(--border); border-radius: 6px; }
+        .roi-dollar { padding: 10px 0 10px 12px; font-size: 15px; color: var(--ink); user-select: none; pointer-events: none; }
+        #roi-job-val { background: transparent; border: none; padding: 10px 12px 10px 4px; font-size: 15px; color: var(--ink); width: 130px; font-family: var(--sans); outline: none; -moz-appearance: textfield; }
+        #roi-job-val::-webkit-inner-spin-button,
+        #roi-job-val::-webkit-outer-spin-button { display: none; }
+        #roi-rate-val { color: var(--accent); font-size: 16px; font-weight: 500; margin-left: 8px; }
+        .roi-results { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 16px; }
+        .roi-res-card { background: var(--bg-lift); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; transition: border-color 0.2s; }
+        .roi-res-label { font-size: 11px; color: var(--ink-faint); margin-bottom: 4px; }
+        .roi-res-value { font-size: 17px; font-weight: 500; color: var(--ink); }
+        .roi-disclaimer { font-size: 11px; color: var(--ink-faint); line-height: 1.6; margin-top: 12px; }
+
         @media(max-width:1024px) {
             .page-hero { padding: 100px 32px 48px; }
             .site-header { padding: 0 32px; }
@@ -426,6 +444,8 @@
             .btn-row { flex-direction: column-reverse; }
             .btn-back { width: 100%; }
             .hero-trust { gap: 16px; }
+            .roi-controls { flex-direction: column; }
+            .roi-results { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -617,6 +637,40 @@
                     <div class="form-step" id="step3">
                         <div class="step-q">How many leads do you want?</div>
                         <div class="step-hint">All leads are exclusive, consented, and phone-verified before delivery.</div>
+                        <div id="roi-anchor">
+                            <div class="roi-label">Estimated return at your close rate</div>
+                            <div class="roi-controls">
+                                <div class="roi-ctrl-group">
+                                    <span class="roi-ctrl-label">Avg job value</span>
+                                    <div class="roi-input-wrap">
+                                        <span class="roi-dollar">$</span>
+                                        <input type="number" id="roi-job-val" value="9000" aria-label="Average job value">
+                                    </div>
+                                </div>
+                                <div class="roi-ctrl-group">
+                                    <span class="roi-ctrl-label">Close rate</span>
+                                    <div style="display:flex;align-items:center;gap:8px;">
+                                        <input type="range" class="radius-range" id="roi-rate" min="10" max="60" step="5" value="30" aria-label="Close rate percentage">
+                                        <span id="roi-rate-val">30%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="roi-results">
+                                <div class="roi-res-card" data-leads="10">
+                                    <div class="roi-res-label">10 leads</div>
+                                    <div class="roi-res-value" id="roi-res-10">--</div>
+                                </div>
+                                <div class="roi-res-card" data-leads="25">
+                                    <div class="roi-res-label">25 leads</div>
+                                    <div class="roi-res-value" id="roi-res-25">--</div>
+                                </div>
+                                <div class="roi-res-card" data-leads="50">
+                                    <div class="roi-res-label">50 leads</div>
+                                    <div class="roi-res-value" id="roi-res-50">--</div>
+                                </div>
+                            </div>
+                            <div class="roi-disclaimer">Estimated only. Based on your inputs — not a guarantee of revenue, jobs won, or lead quality. Actual results depend on your follow-up speed, pricing, and market conditions.</div>
+                        </div>
                         <div class="opt-grid" id="leadCountGrid">
                             <div class="card card--interactive opt-card" data-field="lead_count" data-value="10">
                                 <div class="vol-card-inner" style="padding:0;">
@@ -973,6 +1027,38 @@
         radiusLabel.textContent = v + 'km radius';
     });
 
+    // ── ROI ESTIMATOR ──
+    var tradeDefaults = {
+        'Solar':       9000,
+        'HVAC':        3500,
+        'Roofing':     12000,
+        'Renovations': 22000
+    };
+
+    function updateROI(){
+        var jobVal = Number(document.getElementById('roi-job-val').value) || 0;
+        var rate   = Number(document.getElementById('roi-rate').value) / 100;
+        [10, 25, 50].forEach(function(leads){
+            var low  = Math.round((leads * rate * jobVal * 0.8) / 500) * 500;
+            var high = Math.round((leads * rate * jobVal * 1.2) / 500) * 500;
+            document.getElementById('roi-res-' + leads).textContent = '$' + low.toLocaleString() + ' \u2013 $' + high.toLocaleString();
+        });
+        document.getElementById('roi-rate-val').textContent = document.getElementById('roi-rate').value + '%';
+        // Highlight active result card
+        var active = formData.lead_count;
+        document.querySelectorAll('.roi-res-card').forEach(function(c){
+            c.style.borderColor = (c.getAttribute('data-leads') === active) ? 'var(--accent)' : '';
+        });
+    }
+
+    function initROI(){
+        document.getElementById('roi-job-val').value = tradeDefaults[formData.trade] || 9000;
+        updateROI();
+    }
+
+    document.getElementById('roi-job-val').addEventListener('input', updateROI);
+    document.getElementById('roi-rate').addEventListener('input', updateROI);
+
     // ── STEP 3: LEAD COUNT ──
     document.querySelectorAll('#leadCountGrid .opt-card').forEach(function(card){
         card.addEventListener('click', function(){
@@ -980,6 +1066,7 @@
             this.classList.add('selected');
             formData.lead_count = this.getAttribute('data-value');
             document.getElementById('next3').disabled = false;
+            updateROI();
         });
     });
 
@@ -1045,6 +1132,7 @@
         }
         if(fromStep + 1 === 5){ populateSummary(); }
         showStep(fromStep + 1);
+        if(fromStep === 2){ initROI(); }
         if(fromStep + 1 === 5 && !turnstileRendered && typeof turnstile !== 'undefined'){
             turnstileRendered = true;
             turnstile.render('#turnstile-container', {
