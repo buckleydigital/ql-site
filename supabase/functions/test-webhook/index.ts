@@ -92,10 +92,10 @@ serve(async (req: Request) => {
       statusCode = resp.status;
       responseBody = await resp.text().catch(() => "");
       responseBody = responseBody.slice(0, 500);
-    } catch (err) {
+    } catch (_fetchErr) {
       clearTimeout(timeout);
       statusCode = 0;
-      responseBody = String(err).slice(0, 500);
+      responseBody = "Connection failed or timed out";
     }
 
     const success = statusCode >= 200 && statusCode < 300;

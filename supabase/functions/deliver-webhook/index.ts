@@ -25,9 +25,9 @@ async function fireWebhook(
     clearTimeout(timeout);
     const body = await resp.text().catch(() => "");
     return { statusCode: resp.status, body: body.slice(0, 1000) };
-  } catch (err) {
+  } catch (_fetchErr) {
     clearTimeout(timeout);
-    return { statusCode: 0, body: String(err).slice(0, 500) };
+    return { statusCode: 0, body: "Connection failed or timed out" };
   }
 }
 

@@ -120,26 +120,25 @@ serve(async (req: Request) => {
     // If auto-resolved, queue a replacement lead by incrementing the order's lead_count
     let replacementQueued = false;
     if (shouldAutoResolve && lead.order_id) {
-      const { error: updateError } = await supabase.rpc("increment_order_lead_count", {
-        p_order_id: lead.order_id,
-      });
+      // Fetch current lead_count then update with incremented value
+      const { data: currentOrder } = await supabase
+        .from("pilot_orders")
+        .select("lead_count")
+        .eq("id", lead.order_id)
+        .maybeSingle();
 
-      // If the RPC doesn't exist yet, fall back to a direct update
-      if (updateError) {
-        const { error: fallbackError } = await supabase
+      if (currentOrder) {
+        const { error: updateError } = await supabase
           .from("pilot_orders")
-          .update({ lead_count: supabase.rpc ? undefined : undefined })
+          .update({ lead_count: (currentOrder.lead_count || 0) + 1 })
           .eq("id", lead.order_id);
 
-        // Simple fallback: just increment lead_count by 1
-        await supabase.rpc("sql", {
-          query: `UPDATE pilot_orders SET lead_count = lead_count + 1 WHERE id = '${lead.order_id}'`,
-        }).catch(() => {
-          // If RPC sql doesn't exist, we'll just log it
-          console.warn("Could not increment lead_count for replacement. Manual action may be needed.");
-        });
+        if (updateError) {
+          console.warn("Could not increment lead_count for replacement:", updateError.message);
+        } else {
+          replacementQueued = true;
+        }
       }
-      replacementQueued = true;
     }
 
     return new Response(

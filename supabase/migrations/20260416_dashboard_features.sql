@@ -82,6 +82,10 @@ ALTER TABLE webhook_delivery_log ENABLE ROW LEVEL SECURITY;
 CREATE POLICY webhook_log_select ON webhook_delivery_log
   FOR SELECT USING (customer_email = auth.jwt() ->> 'email');
 
+-- Add order_id to pilot_leads if not exists (links lead to order)
+ALTER TABLE pilot_leads
+  ADD COLUMN IF NOT EXISTS order_id uuid REFERENCES pilot_orders(id);
+
 -- Update pilot_orders status based on leads_delivered vs lead_count
 -- This function can be called by a trigger or cron
 CREATE OR REPLACE FUNCTION update_order_status()
@@ -108,7 +112,3 @@ CREATE TRIGGER trg_lead_delivered
   FOR EACH ROW
   WHEN (NEW.order_id IS NOT NULL)
   EXECUTE FUNCTION update_order_status();
-
--- Add order_id to pilot_leads if not exists (links lead to order)
-ALTER TABLE pilot_leads
-  ADD COLUMN IF NOT EXISTS order_id uuid REFERENCES pilot_orders(id);

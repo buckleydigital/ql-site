@@ -1735,7 +1735,7 @@
             { value: 'no_answer', label: 'No Answer' },
             { value: 'not_interested', label: 'Not Interested' }
         ];
-        var outcomeHtml = '<select class="outcome-select" onchange="updateLeadOutcome(\'' + escHtml(String(l.id)) + '\', this)">';
+        var outcomeHtml = '<select class="outcome-select" data-lead-id="' + escHtml(String(l.id)) + '">';
         outcomeOptions.forEach(function (opt) {
             var selected = l.outcome === opt.value ? ' selected' : ((!l.outcome && !opt.value) ? ' selected' : '');
             outcomeHtml += '<option value="' + escHtml(opt.value) + '"' + selected + '>' + escHtml(opt.label) + '</option>';
@@ -1764,8 +1764,8 @@
             '<div class="lead-grid">' + fieldHtml + '</div>' +
             '<div class="lead-actions" style="align-items:center;">' +
                 outcomeHtml +
-                '<button class="dispute-btn" data-lead-id="' + escHtml(String(l.id)) + '" onclick="openDisputeModal(\'' + escHtml(String(l.id)) + '\', this)">Dispute Lead</button>' +
-                '<button class="lead-expand-btn" onclick="toggleAuditTrail(this)" aria-label="Show details"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>Details</button>' +
+                '<button class="dispute-btn" data-lead-id="' + escHtml(String(l.id)) + '">Dispute Lead</button>' +
+                '<button class="lead-expand-btn" aria-label="Show details"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>Details</button>' +
             '</div>' +
             auditHtml +
         '</div>';
@@ -1786,7 +1786,7 @@
 
         var consentText = l.consent_record || 'Standard opt-in consent';
 
-        var html = '<div class="lead-audit-trail" data-audit="' + escHtml(String(l.id)) + '">' +
+        var html = '<div class="lead-audit-trail">' +
             '<div class="audit-grid">' +
                 '<div class="audit-item"><div class="audit-label">Ad Source</div><div class="audit-val">' + escHtml(l.ad_source || l.source || 'Not recorded') + '</div></div>' +
                 '<div class="audit-item"><div class="audit-label">Submission Timestamp</div><div class="audit-val">' + escHtml(submissionDate) + '</div></div>' +
@@ -2142,6 +2142,32 @@
                 }
             });
     };
+
+    /* ══════════════════════════════════════
+       EVENT DELEGATION FOR LEAD ACTIONS
+       ══════════════════════════════════════ */
+
+    document.getElementById('leadsList').addEventListener('click', function (e) {
+        var disputeBtn = e.target.closest('.dispute-btn');
+        if (disputeBtn && !disputeBtn.disabled) {
+            var leadId = disputeBtn.getAttribute('data-lead-id');
+            if (leadId) openDisputeModal(leadId, disputeBtn);
+            return;
+        }
+        var expandBtn = e.target.closest('.lead-expand-btn');
+        if (expandBtn) {
+            toggleAuditTrail(expandBtn);
+            return;
+        }
+    });
+
+    document.getElementById('leadsList').addEventListener('change', function (e) {
+        var select = e.target.closest('.outcome-select');
+        if (select) {
+            var leadId = select.getAttribute('data-lead-id');
+            if (leadId) updateLeadOutcome(leadId, select);
+        }
+    });
 
     /* ══════════════════════════════════════
        HANDLE MAGIC LINK + INIT
