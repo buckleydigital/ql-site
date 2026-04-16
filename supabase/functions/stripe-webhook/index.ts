@@ -144,6 +144,7 @@ serve(async (req: Request) => {
 
     // Create auth user for the customer (skip if already exists)
     const tempPassword = crypto.randomUUID();
+    const intakeFirstName = session.metadata?.intake_first_name || "";
 
     const { data: newUser, error: createError } =
       await supabase.auth.admin.createUser({
@@ -151,6 +152,7 @@ serve(async (req: Request) => {
         password: tempPassword,
         email_confirm: true,
         app_metadata: { account_type: "lead_buyer" },
+        user_metadata: intakeFirstName ? { first_name: intakeFirstName } : {},
       });
 
     if (createError) {
@@ -174,9 +176,15 @@ serve(async (req: Request) => {
         const lookupJson = await lookupResp.json();
         const existingUser = lookupJson?.users?.[0];
         if (existingUser?.id) {
+          const updatePayload: Record<string, unknown> = {
+            app_metadata: { account_type: "lead_buyer" },
+          };
+          if (intakeFirstName) {
+            updatePayload.user_metadata = { first_name: intakeFirstName };
+          }
           const { error: updateError } = await supabase.auth.admin.updateUserById(
             existingUser.id,
-            { app_metadata: { account_type: "lead_buyer" } },
+            updatePayload,
           );
           if (updateError) {
             console.error("Failed to stamp account_type on existing user:", updateError);
