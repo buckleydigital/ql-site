@@ -10,11 +10,20 @@ const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY")!, {
 const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
 const supabaseServiceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
-const PRICE_MAP: Record<string, string> = {
-  "10": "price_1TLop5GDfpSvNOmBGwLGotyg",
-  "25": "price_1TLpCcGDfpSvNOmBsSazf71k",
-  "50": "price_1TLpD9GDfpSvNOmBifhrmf4L",
+const PRICING: Record<string, { tiers: { min: number; price: number }[] }> = {
+  Solar:       { tiers: [{ min: 50, price: 58.50 }, { min: 25, price: 61.75 }, { min: 10, price: 65.00 }] },
+  HVAC:        { tiers: [{ min: 50, price: 54.00 }, { min: 25, price: 57.00 }, { min: 10, price: 60.00 }] },
+  Roofing:     { tiers: [{ min: 50, price: 58.50 }, { min: 25, price: 61.75 }, { min: 10, price: 65.00 }] },
+  Renovations: { tiers: [{ min: 50, price: 58.50 }, { min: 25, price: 61.75 }, { min: 10, price: 65.00 }] },
 };
+
+function getPricePerLead(trade: string, leadCount: number): number {
+  const config = PRICING[trade] ?? PRICING["Solar"];
+  for (const tier of config.tiers) {
+    if (leadCount >= tier.min) return tier.price;
+  }
+  return config.tiers[config.tiers.length - 1].price;
+}
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -57,23 +66,48 @@ serve(async (req: Request) => {
       discount_amount,
     } = await req.json();
 
-    const priceId = PRICE_MAP[String(lead_count)];
-    if (!priceId) {
+    const leadCount = parseInt(String(lead_count), 10);
+    if (isNaN(leadCount) || leadCount < 10 || leadCount > 100) {
       return new Response(
-        JSON.stringify({ error: "Invalid lead_count. Must be 10, 25, or 50." }),
+        JSON.stringify({ error: "Invalid lead_count. Must be between 10 and 100." }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } },
       );
     }
 
     // 1. Create the Stripe Checkout Session
     const session = await stripe.checkout.sessions.create({
-      line_items: [{ price: priceId, quantity: 1 }],
+      line_items: [
+        {
+          price_data: {
+            currency: "aud",
+            product_data: {
+              name: `Market Pulse – ${leadCount} ${lead_type || "Trade"} Leads`,
+              description: `Exclusive, phone-verified leads · ${service_postcode} + ${service_radius} radius · ${Array.isArray(lead_subtype) ? lead_subtype.join(", ") : lead_subtype}`,
+            },
+            unit_amount: Math.round(getPricePerLead(lead_type || "Solar", leadCount) * 1.1 * 100),
+          },
+          quantity: leadCount,
+        },
+      ],
       mode: "payment",
       allow_promotion_codes: true,
       success_url: success_url || "https://quoteleads.com.au/market-pulse-confirmed",
       cancel_url: cancel_url || "https://quoteleads.com.au/market-pulse-intake",
       customer_email: customer_email || undefined,
       client_reference_id: client_reference_id || undefined,
+      metadata: {
+        lead_count: String(leadCount),
+        price_per_lead_ex_gst: String(getPricePerLead(lead_type || "Solar", leadCount)),
+        lead_type: lead_type || "",
+        lead_subtype: Array.isArray(lead_subtype) ? lead_subtype.join(", ") : (lead_subtype || ""),
+        service_postcode: service_postcode || "",
+        service_radius: service_radius || "",
+        intake_first_name: intake_first_name || "",
+        intake_last_name: intake_last_name || "",
+        intake_company: intake_company || "",
+        intake_phone: intake_phone || "",
+        customer_email: customer_email || "",
+      },
     });
 
     // 2. Insert a pending order into pilot_orders so the stripe-webhook can
@@ -89,7 +123,7 @@ serve(async (req: Request) => {
           email: orderEmail,
           delivery_email: delivery_email || null,
           delivery_phone: delivery_phone || null,
-          lead_count: Number(lead_count) || 10,
+          lead_count: leadCount,
           payment_status: "pending",
           stripe_session_id: session.id,
           discount_code: discount_code || null,

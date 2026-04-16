@@ -2,15 +2,6 @@ import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import Stripe from "https://esm.sh/stripe@13.11.0?target=deno";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
 
-// Reverse map: Stripe price ID → lead count (mirrors create-checkout-session)
-const PRICE_TO_LEADS: Record<string, number> = {
-  "price_1TLop5GDfpSvNOmBGwLGotyg": 10,
-  "price_1TLpCcGDfpSvNOmBsSazf71k": 25,
-  "price_1TLpD9GDfpSvNOmBifhrmf4L": 50,
-};
-
-const DEFAULT_LEAD_COUNT = 10;
-
 const stripe = new Stripe(Deno.env.get("STRIPE_SECRET_KEY")!, {
   apiVersion: "2023-10-16",
   httpClient: Stripe.createFetchHttpClient(),
@@ -129,23 +120,7 @@ serve(async (req: Request) => {
       if (existing) {
         console.log(`Order already paid for session ${session.id}, skipping insert.`);
       } else {
-        // Retrieve expanded session to infer lead_count from the Stripe price
-        let leadCount = DEFAULT_LEAD_COUNT;
-        try {
-          const expanded = await stripe.checkout.sessions.retrieve(session.id, {
-            expand: ["line_items"],
-          });
-          const priceId = expanded.line_items?.data?.[0]?.price?.id;
-          if (priceId && PRICE_TO_LEADS[priceId] !== undefined) {
-            leadCount = PRICE_TO_LEADS[priceId];
-          } else {
-            console.warn(
-              `Unknown or missing price ID "${priceId ?? "none"}" for session ${session.id}. Defaulting to ${DEFAULT_LEAD_COUNT} leads.`,
-            );
-          }
-        } catch (expandErr) {
-          console.error("Failed to retrieve session line_items:", expandErr);
-        }
+        const leadCount = parseInt(session.metadata?.lead_count ?? "10", 10);
 
         const { error: insertError } = await supabase
           .from("pilot_orders")
