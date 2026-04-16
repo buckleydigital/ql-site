@@ -1114,7 +1114,9 @@
     var DISPUTE_WARN_PCT  = 10;   // ≥ this % → warning banner
     var DISPUTE_PAUSE_PCT = 20;   // ≥ this % → delivery paused
 
-    /* Auto-resolve dispute reasons */
+    /* Lead outcome tracking: ROI estimation constants */
+    var AVG_LEAD_COST_AUD = 65;   // average lead cost inc GST
+    var AVG_JOB_VALUE_AUD = 5000; // conservative per-job revenue estimate
     var AUTO_RESOLVE_REASONS = ['unreachable', 'out_of_area', 'duplicate'];
 
     /* Campaign status steps */
@@ -1430,11 +1432,9 @@
         closeRateEl.className = 'stat-value green';
         closeRateSubEl.textContent = closeCount + ' closed from ' + reported + ' reported';
 
-        // Estimated ROI: assume average lead cost of $65 inc GST
-        var avgLeadCost = 65;
-        var totalSpent = _allLeads.length * avgLeadCost;
-        var avgJobValue = 5000; // conservative estimate
-        var estimatedRevenue = closeCount * avgJobValue;
+        // Estimated ROI
+        var totalSpent = _allLeads.length * AVG_LEAD_COST_AUD;
+        var estimatedRevenue = closeCount * AVG_JOB_VALUE_AUD;
         var roi = totalSpent > 0 ? ((estimatedRevenue - totalSpent) / totalSpent) * 100 : 0;
 
         if (roi > 0) {
@@ -1895,8 +1895,8 @@
                 } else {
                     msg.className = 'modal-msg success';
                     msg.textContent = '✓ ' + data.message;
-                    var leadBtn2 = document.querySelector('[data-lead-id="' + pendingDisputeLeadId + '"]');
-                    if (leadBtn2) { leadBtn2.disabled = true; leadBtn2.textContent = 'Dispute Submitted'; }
+                    var manualDisputeBtn = document.querySelector('[data-lead-id="' + pendingDisputeLeadId + '"]');
+                    if (manualDisputeBtn) { manualDisputeBtn.disabled = true; manualDisputeBtn.textContent = 'Dispute Submitted'; }
                     var curOpen = parseInt(document.getElementById('statDisputes').textContent, 10) || 0;
                     document.getElementById('statDisputes').textContent = curOpen + 1;
                 }

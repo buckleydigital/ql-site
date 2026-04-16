@@ -7,10 +7,18 @@
 
 -- 1. Campaign status on pilot_orders
 ALTER TABLE pilot_orders
-  ADD COLUMN IF NOT EXISTS status text NOT NULL DEFAULT 'configuring'
+  ADD COLUMN IF NOT EXISTS status text DEFAULT 'configuring'
     CHECK (status IN ('configuring','active','delivering','complete')),
-  ADD COLUMN IF NOT EXISTS leads_delivered integer NOT NULL DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS leads_delivered integer DEFAULT 0,
   ADD COLUMN IF NOT EXISTS estimated_completion date;
+
+-- Backfill defaults for any existing rows
+UPDATE pilot_orders SET status = 'configuring' WHERE status IS NULL;
+UPDATE pilot_orders SET leads_delivered = 0 WHERE leads_delivered IS NULL;
+
+-- Now add NOT NULL constraints
+ALTER TABLE pilot_orders ALTER COLUMN status SET NOT NULL;
+ALTER TABLE pilot_orders ALTER COLUMN leads_delivered SET NOT NULL;
 
 -- 2. Auto-resolve: add resolution metadata to lead_disputes
 ALTER TABLE lead_disputes

@@ -84,7 +84,7 @@ serve(async (req: Request) => {
         .eq("phone", lead.phone)
         .neq("id", lead_id);
 
-      duplicateVerified = (dupes && dupes.length > 0);
+      duplicateVerified = dupes != null && dupes.length > 0;
     }
 
     // For out_of_area, we trust the customer's report since they set their radius

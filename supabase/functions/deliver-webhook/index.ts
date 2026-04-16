@@ -59,7 +59,7 @@ async function deliverWithRetry(
       status_code: result.statusCode,
       attempt: attempt,
       response_body: result.body,
-    }).catch((err: Error) => console.error("Failed to log webhook delivery:", err));
+    }).catch((err: Error) => console.error(`Failed to log webhook delivery for ${customerEmail} lead=${leadId}:`, err.message));
 
     // Success: 2xx
     if (result.statusCode >= 200 && result.statusCode < 300) {
