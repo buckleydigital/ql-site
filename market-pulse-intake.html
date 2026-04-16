@@ -643,7 +643,7 @@
                         <div class="step-q">How many leads do you want?</div>
                         <div class="step-hint">All leads are exclusive, consented, and phone-verified before delivery.</div>
                         <div id="roi-anchor">
-                            <button type="button" class="roi-toggle" id="roiToggle" aria-expanded="false" aria-controls="roiBody" onclick="document.getElementById('roiBody').classList.toggle('open');this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='true'?'false':'true')">
+                            <button type="button" class="roi-toggle" id="roiToggle" aria-expanded="false" aria-controls="roiBody" aria-label="Toggle ROI calculator" onclick="toggleROI()">
                                 <span class="roi-toggle-icon">›</span>
                                 <span class="roi-label">Estimated return at your close rate</span>
                             </button>
@@ -1046,6 +1046,13 @@
     });
 
     // ── ROI ESTIMATOR ──
+    function toggleROI(){
+        var body = document.getElementById('roiBody');
+        var btn  = document.getElementById('roiToggle');
+        var open = body.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+    }
+
     var tradeDefaults = {
         'Solar':       9000,
         'HVAC':        3500,
