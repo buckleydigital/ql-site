@@ -671,36 +671,32 @@
                             </div>
                             <div class="roi-disclaimer">Estimated only. Based on your inputs — not a guarantee of revenue, jobs won, or lead quality. Actual results depend on your follow-up speed, pricing, and market conditions.</div>
                         </div>
-                        <div class="opt-grid" id="leadCountGrid">
-                            <div class="card card--interactive opt-card" data-field="lead_count" data-value="10">
-                                <div class="vol-card-inner" style="padding:0;">
-                                    <div class="opt-label">10 leads</div>
-                                    <div class="opt-sub">Test the waters</div>
-                                    <div class="vol-price-row">
-                                        <span class="vol-total">$650</span>
-                                        <span class="vol-per">$65 per lead</span>
-                                    </div>
+                        <div style="background:var(--bg-lift);border:1px solid var(--border);border-radius:8px;padding:24px 20px;margin-bottom:24px;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                                <label style="font-size:12px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-faint);">Number of leads</label>
+                                <span id="leadCountDisplay" style="font-family:var(--serif);font-size:26px;color:var(--ink);">10 leads</span>
+                            </div>
+                            <input type="range" class="radius-range" id="leadCountSlider" min="10" max="100" step="1" value="10">
+                            <div class="radius-bounds"><span>10 leads</span><span>100 leads</span></div>
+                            <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--border);">
+                                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+                                    <span style="font-size:13px;color:var(--ink-faint);">Price per lead (ex GST)</span>
+                                    <span id="pricePerLeadDisplay" style="font-size:15px;color:var(--ink);">$65.00</span>
+                                </div>
+                                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+                                    <span style="font-size:13px;color:var(--ink-faint);">Subtotal (ex GST)</span>
+                                    <span id="subtotalDisplay" style="font-size:15px;color:var(--ink);">$650.00</span>
+                                </div>
+                                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;">
+                                    <span style="font-size:13px;color:var(--ink-faint);">GST (10%)</span>
+                                    <span id="gstDisplay" style="font-size:15px;color:var(--ink-faint);">$65.00</span>
+                                </div>
+                                <div style="display:flex;justify-content:space-between;align-items:baseline;padding-top:10px;border-top:1px solid var(--border);margin-top:6px;">
+                                    <span style="font-size:13px;color:var(--ink-faint);">Total (inc GST)</span>
+                                    <span id="totalPriceDisplay" style="font-family:var(--serif);font-size:24px;color:var(--ink);font-weight:500;">$715.00</span>
                                 </div>
                             </div>
-                            <div class="vol-card-wrap">
-                                <div class="vol-badge">Most popular</div>
-                                <div class="card card--interactive opt-card" data-field="lead_count" data-value="25">
-                                    <div class="opt-label">25 leads</div>
-                                    <div class="opt-sub">Save $250 vs 10-pack rate</div>
-                                    <div class="vol-price-row">
-                                        <span class="vol-total">$1,375</span>
-                                        <span class="vol-per">$55 per lead</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card card--interactive opt-card" data-field="lead_count" data-value="50">
-                                <div class="opt-label">50 leads</div>
-                                <div class="opt-sub">Save $800 vs 10-pack rate</div>
-                                <div class="vol-price-row">
-                                    <span class="vol-total">$2,450</span>
-                                    <span class="vol-per">$49 per lead</span>
-                                </div>
-                            </div>
+                            <div id="volumeDiscountBadge" style="display:none;margin-top:10px;font-size:12px;color:var(--button-primary);"></div>
                         </div>
                         <div class="btn-row">
                             <button class="btn-back" onclick="goPrev(3)">Back</button>
@@ -949,8 +945,20 @@
     var turnstileToken = '';
     var turnstileRendered = false;
 
-    // Pricing map for summary
-    var pricingMap = { '10': '$650', '25': '$1,375', '50': '$2,450' };
+    var PRICING = {
+      Solar:       [{ min: 50, price: 58.50 }, { min: 25, price: 61.75 }, { min: 10, price: 65.00 }],
+      HVAC:        [{ min: 50, price: 54.00 }, { min: 25, price: 57.00 }, { min: 10, price: 60.00 }],
+      Roofing:     [{ min: 50, price: 58.50 }, { min: 25, price: 61.75 }, { min: 10, price: 65.00 }],
+      Renovations: [{ min: 50, price: 58.50 }, { min: 25, price: 61.75 }, { min: 10, price: 65.00 }],
+    };
+
+    function getPricePerLead(trade, count) {
+      var tiers = PRICING[trade] || PRICING['Solar'];
+      for (var i = 0; i < tiers.length; i++) {
+        if (count >= tiers[i].min) return tiers[i].price;
+      }
+      return tiers[tiers.length - 1].price;
+    }
 
     var SUPABASE_FUNCTIONS_URL = 'https://wmegoygrancfwxagqskh.supabase.co/functions/v1';
     var WEBHOOK_URL = 'https://hook.eu2.make.com/t2w6m84khnjbmqai5ns1n3iq1y935uo5';
@@ -1054,21 +1062,42 @@
     function initROI(){
         document.getElementById('roi-job-val').value = tradeDefaults[formData.trade] || 9000;
         updateROI();
+        updateVolumeUI();
     }
 
     document.getElementById('roi-job-val').addEventListener('input', updateROI);
     document.getElementById('roi-rate').addEventListener('input', updateROI);
 
-    // ── STEP 3: LEAD COUNT ──
-    document.querySelectorAll('#leadCountGrid .opt-card').forEach(function(card){
-        card.addEventListener('click', function(){
-            document.querySelectorAll('#leadCountGrid .opt-card').forEach(function(c){ c.classList.remove('selected'); });
-            this.classList.add('selected');
-            formData.lead_count = this.getAttribute('data-value');
-            document.getElementById('next3').disabled = false;
-            updateROI();
-        });
-    });
+    // ── STEP 3: LEAD COUNT SLIDER ──
+    function updateVolumeUI() {
+      var count    = parseInt(document.getElementById('leadCountSlider').value, 10);
+      var trade    = formData.trade || 'Solar';
+      var ppl      = getPricePerLead(trade, count);
+      var subtotal = ppl * count;
+      var gst      = subtotal * 0.1;
+      var total    = subtotal * 1.1;
+      formData.lead_count = String(count);
+
+      document.getElementById('leadCountDisplay').textContent   = count + ' leads';
+      document.getElementById('pricePerLeadDisplay').textContent = '$' + ppl.toFixed(2);
+      document.getElementById('subtotalDisplay').textContent    = '$' + subtotal.toFixed(2);
+      document.getElementById('gstDisplay').textContent         = '$' + gst.toFixed(2);
+      document.getElementById('totalPriceDisplay').textContent  = '$' + Math.round(total).toLocaleString();
+
+      var basePpl = getPricePerLead(trade, 10);
+      var badge   = document.getElementById('volumeDiscountBadge');
+      if (ppl < basePpl) {
+        badge.style.display = 'block';
+        badge.textContent   = 'Saving $' + (Math.round((basePpl - ppl) * count * 10) / 10).toFixed(2) + ' ex GST vs base rate';
+      } else {
+        badge.style.display = 'none';
+      }
+
+      document.getElementById('next3').disabled = false;
+      updateROI();
+    }
+
+    document.getElementById('leadCountSlider').addEventListener('input', updateVolumeUI);
 
     // ── STEP 4: CONTACT VALIDATION ──
     function checkStep4(){
@@ -1101,8 +1130,11 @@
         document.getElementById('sum-trade').textContent   = formData.trade || '—';
         document.getElementById('sum-subtype').textContent = formData.lead_subtype.length ? formData.lead_subtype.join(', ') : '—';
         document.getElementById('sum-area').textContent    = formData.service_postcode ? formData.service_postcode + ' + ' + formData.service_radius + ' radius' : '—';
-        document.getElementById('sum-volume').textContent  = formData.lead_count ? formData.lead_count + ' leads' : '—';
-        document.getElementById('sum-total').textContent   = formData.lead_count ? (pricingMap[formData.lead_count] || '—') + ' + GST' : '—';
+        var ppl      = getPricePerLead(formData.trade, parseInt(formData.lead_count, 10));
+        var subtotal = ppl * parseInt(formData.lead_count, 10);
+        var total    = subtotal * 1.1;
+        document.getElementById('sum-volume').textContent = formData.lead_count + ' leads ($' + ppl.toFixed(2) + '/lead ex GST)';
+        document.getElementById('sum-total').textContent  = '$' + Math.round(total).toLocaleString() + ' inc GST';
     }
 
     // ── PROGRESS ──
