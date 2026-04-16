@@ -482,11 +482,246 @@
         .foot-links a:hover { color: var(--ink); }
         .foot-copy { font-size: 13px; color: var(--ink-faint); }
 
+        /* ── CAMPAIGN STATUS ── */
+        .order-status-row {
+            display: flex; align-items: center; gap: 0; margin: 16px 0 8px;
+            position: relative;
+        }
+        .status-step {
+            flex: 1; text-align: center; position: relative; z-index: 1;
+        }
+        .status-step-dot {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: var(--bg-lift); border: 2px solid var(--border-mid);
+            margin: 0 auto 6px; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+        }
+        .status-step-dot svg { width: 14px; height: 14px; stroke: var(--ink-faint); stroke-width: 2.5; fill: none; }
+        .status-step.done .status-step-dot { background: var(--green); border-color: var(--green); }
+        .status-step.done .status-step-dot svg { stroke: #fff; }
+        .status-step.current .status-step-dot { background: var(--button-primary); border-color: var(--button-primary); }
+        .status-step.current .status-step-dot svg { stroke: #fff; }
+        .status-step-label {
+            font-size: 11px; color: var(--ink-faint); letter-spacing: 0.02em;
+        }
+        .status-step.done .status-step-label,
+        .status-step.current .status-step-label { color: var(--ink-soft); font-weight: 500; }
+        .status-track {
+            position: absolute; top: 14px; left: 12.5%; right: 12.5%;
+            height: 2px; background: var(--border-mid); z-index: 0;
+        }
+        .status-track-fill {
+            height: 100%; background: var(--green); width: 0%;
+            transition: width 0.6s ease;
+        }
+        .order-progress-row {
+            margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);
+        }
+        .progress-bar-track {
+            height: 6px; border-radius: 3px; background: var(--border-mid);
+            overflow: hidden; margin-bottom: 8px;
+        }
+        .progress-bar-fill {
+            height: 100%; border-radius: 3px; background: var(--button-primary);
+            transition: width 0.6s ease;
+        }
+        .progress-label {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .progress-label span { font-size: 12px; color: var(--ink-muted); }
+        .progress-label .est-date { font-size: 11px; color: var(--ink-faint); }
+
+        /* ── LEAD OUTCOME ── */
+        .outcome-select {
+            padding: 6px 10px; border-radius: 6px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            color: var(--ink-soft); font-family: var(--sans); font-size: 12px;
+            cursor: pointer; transition: border-color 0.2s;
+            appearance: none; -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237d8fa0' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 28px;
+        }
+        .outcome-select:focus { outline: none; border-color: var(--accent); }
+        .outcome-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 500;
+        }
+        .outcome-won { background: var(--green-dim); color: var(--green); }
+        .outcome-booked { background: rgba(71,151,255,0.12); color: var(--button-primary); }
+        .outcome-no_answer { background: var(--amber-dim); color: var(--amber); }
+        .outcome-not_interested { background: var(--bg-lift); color: var(--ink-faint); }
+
+        /* ── CLOSE RATE & ROI STATS ── */
+        .stat-sub { font-size: 11px; color: var(--ink-faint); margin-top: 4px; }
+
+        /* ── UPSELL BANNER ── */
+        .upsell-banner {
+            display: none; border-radius: 8px; padding: 20px 24px;
+            margin-bottom: 24px; border: 1px solid rgba(71,151,255,0.25);
+            background: rgba(71,151,255,0.06);
+        }
+        .upsell-banner.show { display: flex; align-items: flex-start; gap: 14px; }
+        .upsell-icon {
+            flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px;
+            background: rgba(71,151,255,0.12);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .upsell-icon svg { width: 20px; height: 20px; stroke: var(--button-primary); stroke-width: 2; fill: none; }
+        .upsell-body { flex: 1; }
+        .upsell-title { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+        .upsell-body p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+        .upsell-cta {
+            display: inline-block; margin-top: 10px; padding: 8px 18px;
+            background: var(--button-primary); color: #fff; border-radius: 6px;
+            font-size: 13px; text-decoration: none; transition: opacity 0.2s;
+        }
+        .upsell-cta:hover { opacity: 0.85; }
+
+        /* ── SETTINGS TAB ── */
+        .settings-section {
+            margin-bottom: 32px;
+        }
+        .settings-section h3 {
+            font-size: 16px; font-weight: 500; color: var(--ink);
+            margin-bottom: 4px;
+        }
+        .settings-section .settings-desc {
+            font-size: 13px; color: var(--ink-muted); margin-bottom: 16px; line-height: 1.6;
+        }
+        .settings-field { margin-bottom: 16px; }
+        .settings-field label {
+            display: block; font-size: 13px; color: var(--ink-soft);
+            margin-bottom: 6px; font-weight: 400;
+        }
+        .settings-field input[type="url"],
+        .settings-field input[type="text"] {
+            width: 100%; max-width: 520px; padding: 12px 14px;
+            background: var(--bg-lift); border: 1px solid var(--border-mid);
+            border-radius: 8px; color: var(--ink); font-family: var(--sans);
+            font-size: 14px; transition: border-color 0.2s;
+        }
+        .settings-field input:focus { outline: none; border-color: var(--accent); }
+        .settings-helper {
+            font-size: 12px; color: var(--ink-faint); margin-top: 6px; line-height: 1.6;
+        }
+        .settings-helper a { color: var(--accent); text-decoration: none; }
+        .settings-helper a:hover { text-decoration: underline; }
+        .settings-btn-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+        .settings-btn {
+            padding: 10px 20px; border-radius: 8px;
+            border: none; background: var(--button-primary); color: #fff;
+            font-family: var(--sans); font-size: 14px;
+            cursor: pointer; transition: opacity 0.2s;
+        }
+        .settings-btn:hover { opacity: 0.85; }
+        .settings-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+        .settings-btn-outline {
+            padding: 10px 20px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            color: var(--ink-muted); font-family: var(--sans); font-size: 14px;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .settings-btn-outline:hover { color: var(--ink); border-color: var(--accent); }
+        .settings-btn-outline:disabled { opacity: 0.45; cursor: not-allowed; }
+        .settings-msg {
+            font-size: 13px; margin-top: 8px; min-height: 20px;
+        }
+        .settings-msg.success { color: var(--green); }
+        .settings-msg.error { color: var(--red); }
+
+        /* Webhook connection status */
+        .webhook-status {
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 14px; border-radius: 8px;
+            background: var(--bg-lift); border: 1px solid var(--border);
+            margin-top: 12px; max-width: 520px;
+        }
+        .webhook-status-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .webhook-status-dot.ok { background: var(--green); }
+        .webhook-status-dot.warn { background: var(--amber); }
+        .webhook-status-dot.fail { background: var(--red); }
+        .webhook-status-dot.none { background: var(--ink-faint); }
+        .webhook-status-text { font-size: 12px; color: var(--ink-muted); }
+
+        /* Notification toggle group */
+        .notif-group { margin-bottom: 16px; }
+        .notif-group-label {
+            font-size: 13px; color: var(--ink-soft); margin-bottom: 8px;
+        }
+        .notif-options { display: flex; gap: 8px; flex-wrap: wrap; }
+        .notif-option {
+            padding: 8px 16px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            color: var(--ink-muted); font-family: var(--sans); font-size: 13px;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .notif-option:hover { color: var(--ink); border-color: var(--accent); }
+        .notif-option.active {
+            background: rgba(71,151,255,0.12); color: var(--button-primary);
+            border-color: rgba(71,151,255,0.3);
+        }
+
+        /* ── LEAD AUDIT TRAIL ── */
+        .lead-expand-btn {
+            padding: 6px 12px; border-radius: 6px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            color: var(--ink-faint); font-family: var(--sans); font-size: 12px;
+            cursor: pointer; transition: all 0.2s; display: inline-flex;
+            align-items: center; gap: 4px;
+        }
+        .lead-expand-btn:hover { color: var(--ink-soft); border-color: var(--accent); }
+        .lead-expand-btn svg {
+            width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none;
+            transition: transform 0.2s;
+        }
+        .lead-expand-btn.open svg { transform: rotate(180deg); }
+        .lead-audit-trail {
+            display: none; margin-top: 16px; padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .lead-audit-trail.open { display: block; }
+        .audit-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px 24px;
+        }
+        .audit-item { }
+        .audit-label {
+            font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--ink-faint); margin-bottom: 3px;
+        }
+        .audit-val { font-size: 13px; color: var(--ink-soft); word-break: break-word; }
+        .audit-val.verified { color: var(--green); }
+        .audit-val.unverified { color: var(--amber); }
+        .audit-val.failed { color: var(--red); }
+        .survey-responses-list {
+            margin-top: 8px; padding: 12px 14px;
+            background: var(--bg-deep); border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+        .survey-item {
+            display: flex; justify-content: space-between; gap: 16px;
+            padding: 6px 0; border-bottom: 1px solid var(--border);
+            font-size: 12px;
+        }
+        .survey-item:last-child { border-bottom: none; }
+        .survey-q { color: var(--ink-faint); }
+        .survey-a { color: var(--ink-soft); text-align: right; }
+
+        /* ── AUTO-RESOLVE BADGE ── */
+        .badge-auto { background: rgba(71,151,255,0.10); color: var(--button-primary); border: 1px solid rgba(71,151,255,0.2); }
+        .badge-blue { background: rgba(71,151,255,0.10); color: var(--button-primary); border: 1px solid rgba(71,151,255,0.2); }
+
         /* ── RESPONSIVE ── */
         @media(max-width:1024px) {
             .site-header { padding: 0 32px; }
             footer { padding: 40px 32px; }
             .page-section { padding: 48px 32px 80px; }
+            .stats-row { grid-template-columns: repeat(3, 1fr) !important; }
         }
         @media(max-width:768px) {
             /* header */
@@ -510,7 +745,7 @@
             .sign-out-btn { align-self: flex-start; font-size: 13px; padding: 8px 14px; }
 
             /* stats */
-            .stats-row { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+            .stats-row { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; margin-bottom: 20px; }
             .stat-card { padding: 14px 12px; }
             .stat-label { font-size: 10px; margin-bottom: 6px; }
             .stat-value { font-size: 22px; }
@@ -531,6 +766,11 @@
             .new-order-cta { display: block; text-align: center; font-size: 14px; padding: 14px; margin-bottom: 20px; }
             .reorder-btn { font-size: 12px; padding: 8px 14px; }
 
+            /* campaign status */
+            .status-step-label { font-size: 9px; }
+            .status-step-dot { width: 24px; height: 24px; }
+            .status-step-dot svg { width: 12px; height: 12px; }
+
             /* lead cards */
             .lead-card { padding: 18px 16px; }
             .lead-top { flex-direction: column; gap: 10px; margin-bottom: 14px; }
@@ -539,6 +779,16 @@
             .lead-field-label { font-size: 10px; }
             .lead-field-val { font-size: 13px; }
             .dispute-btn { font-size: 12px; padding: 8px 14px; }
+
+            /* settings */
+            .settings-field input[type="url"],
+            .settings-field input[type="text"] { font-size: 16px; max-width: 100%; }
+            .webhook-status { max-width: 100%; }
+            .settings-btn-row { flex-direction: column; }
+            .settings-btn, .settings-btn-outline { width: 100%; text-align: center; }
+
+            /* audit trail */
+            .audit-grid { grid-template-columns: 1fr; }
 
             /* modal - full-screen sheet on mobile */
             .modal-overlay { align-items: flex-end; padding: 0; }
@@ -654,7 +904,7 @@
         </div>
 
         <!-- Stats row -->
-        <div class="stats-row" id="statsRow">
+        <div class="stats-row" id="statsRow" style="grid-template-columns: repeat(6, 1fr);">
             <div class="stat-card card">
                 <div class="stat-label">Total Orders</div>
                 <div class="stat-value" id="statOrders">-</div>
@@ -679,6 +929,16 @@
                     <span style="color:var(--red)">20%</span>
                 </div>
             </div>
+            <div class="stat-card card">
+                <div class="stat-label">Close Rate</div>
+                <div class="stat-value green" id="statCloseRate">-</div>
+                <div class="stat-sub" id="statCloseRateSub"></div>
+            </div>
+            <div class="stat-card card">
+                <div class="stat-label">Estimated ROI</div>
+                <div class="stat-value" id="statROI">-</div>
+                <div class="stat-sub" id="statROISub"></div>
+            </div>
         </div>
 
         <!-- Dispute health banner (shown at ≥10%) -->
@@ -692,10 +952,23 @@
             </div>
         </div>
 
+        <!-- Upsell banner (shown when close rate visible + 10+ outcomes) -->
+        <div class="upsell-banner" id="upsellBanner">
+            <div class="upsell-icon">
+                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
+            <div class="upsell-body">
+                <div class="upsell-title" id="upsellTitle"></div>
+                <p id="upsellBody"></p>
+                <a href="/get-started" class="upsell-cta">See what the full system looks like &rarr;</a>
+            </div>
+        </div>
+
         <!-- Tabs -->
         <div class="tabs">
             <button class="tab-btn active" onclick="switchTab('orders', this)">Orders</button>
             <button class="tab-btn" onclick="switchTab('leads', this)">Leads</button>
+            <button class="tab-btn" onclick="switchTab('settings', this)">Settings</button>
         </div>
 
         <!-- Orders tab -->
@@ -716,6 +989,60 @@
             </div>
             <div id="leadsList"></div>
         </div>
+
+        <!-- Settings tab -->
+        <div class="tab-panel" id="tabSettings">
+
+            <!-- Webhook delivery -->
+            <div class="settings-section">
+                <h3>Webhook Delivery</h3>
+                <p class="settings-desc">Send leads to your CRM, spreadsheet, or any tool that accepts webhooks. SMS and email delivery continue regardless — webhook is additive.</p>
+                <div class="settings-field">
+                    <label for="webhookUrl">Webhook URL</label>
+                    <input type="url" id="webhookUrl" placeholder="https://hooks.zapier.com/hooks/catch/...">
+                    <p class="settings-helper">Paste your <a href="https://zapier.com" target="_blank" rel="noopener">Zapier</a> or <a href="https://make.com" target="_blank" rel="noopener">Make</a> webhook URL to send leads anywhere — HubSpot, GoHighLevel, Google Sheets, Slack, and thousands more. No code needed.</p>
+                </div>
+                <div class="settings-btn-row">
+                    <button class="settings-btn" id="saveWebhookBtn" onclick="saveWebhookUrl()">Save Webhook URL</button>
+                    <button class="settings-btn-outline" id="testWebhookBtn" onclick="testWebhook()">Test Webhook</button>
+                </div>
+                <div class="settings-msg" id="webhookMsg"></div>
+                <div class="webhook-status" id="webhookStatus" style="display:none;">
+                    <div class="webhook-status-dot none" id="webhookStatusDot"></div>
+                    <span class="webhook-status-text" id="webhookStatusText">No webhook activity yet</span>
+                </div>
+            </div>
+
+            <!-- Notification preferences -->
+            <div class="settings-section">
+                <h3>Notification Preferences</h3>
+                <p class="settings-desc">Choose how you receive notifications for lead deliveries and order status updates.</p>
+
+                <div class="notif-group">
+                    <div class="notif-group-label">Lead delivery alerts</div>
+                    <div class="notif-options" id="notifLeadDelivery">
+                        <button class="notif-option" data-value="sms" onclick="selectNotif('lead_delivery', 'sms', this)">SMS Only</button>
+                        <button class="notif-option" data-value="email" onclick="selectNotif('lead_delivery', 'email', this)">Email Only</button>
+                        <button class="notif-option active" data-value="both" onclick="selectNotif('lead_delivery', 'both', this)">Both</button>
+                    </div>
+                </div>
+
+                <div class="notif-group">
+                    <div class="notif-group-label">Order status updates</div>
+                    <div class="notif-options" id="notifOrderStatus">
+                        <button class="notif-option" data-value="sms" onclick="selectNotif('order_status', 'sms', this)">SMS Only</button>
+                        <button class="notif-option" data-value="email" onclick="selectNotif('order_status', 'email', this)">Email Only</button>
+                        <button class="notif-option active" data-value="both" onclick="selectNotif('order_status', 'both', this)">Both</button>
+                    </div>
+                </div>
+
+                <div class="settings-btn-row">
+                    <button class="settings-btn" id="saveNotifBtn" onclick="saveNotificationPrefs()">Save Preferences</button>
+                </div>
+                <div class="settings-msg" id="notifMsg"></div>
+            </div>
+
+        </div>
     </div>
 </div>
 
@@ -723,7 +1050,7 @@
 <div class="modal-overlay" id="disputeModal">
     <div class="modal">
         <h2>Dispute a Lead</h2>
-        <p>Submit a dispute if this lead is invalid, unreachable, or does not meet the agreed criteria. All disputes are reviewed within 2 business days.</p>
+        <p>Submit a dispute if this lead is invalid, unreachable, or does not meet the agreed criteria. Disputes for invalid phone numbers, postcodes outside your radius, and exact duplicates are auto-approved instantly with a replacement lead queued. All other reasons are reviewed within 2 business days.</p>
         <input type="hidden" id="disputeLeadId">
         <div class="modal-field">
             <label for="disputeReason">Reason for dispute</label>
@@ -781,17 +1108,31 @@
        ensure each authenticated user can only access their own data. */
     var SUPABASE_URL  = 'https://wmegoygrancfwxagqskh.supabase.co';
     var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWdveWdyYW5jZnd4YWdxc2toIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NTI3MTEsImV4cCI6MjA4ODUyODcxMX0._CwgEq0OwCuz0NA2L2LDRM9xHl9riNO5pr_qZsIXzAs';
+    var FUNCTIONS_URL = SUPABASE_URL + '/functions/v1';
 
     /* Dispute health thresholds - change here to update everywhere */
     var DISPUTE_WARN_PCT  = 10;   // ≥ this % → warning banner
     var DISPUTE_PAUSE_PCT = 20;   // ≥ this % → delivery paused
 
+    /* Lead outcome tracking: ROI estimation constants */
+    var AVG_LEAD_COST_AUD = 65;   // average lead cost inc GST
+    var AVG_JOB_VALUE_AUD = 5000; // conservative per-job revenue estimate
+    var AUTO_RESOLVE_REASONS = ['unreachable', 'out_of_area', 'duplicate'];
+
+    /* Campaign status steps */
+    var STATUS_STEPS = ['configuring', 'active', 'delivering', 'complete'];
+
     var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
     var currentUser = null;
+    var currentSession = null;
     var pendingDisputeLeadId = null;
     /* Track raw counts so dispute rate stays accurate after incremental submits */
     var _totalLeads    = 0;
     var _disputedLeads = 0;
+    /* Lead outcome tracking */
+    var _allLeads = [];
+    /* Notification preferences state */
+    var _notifPrefs = { notification_lead_delivery: 'both', notification_order_status: 'both' };
 
     /* ── Theme ── */
     (function(){
@@ -846,6 +1187,7 @@
             if (accountType !== 'lead_buyer') {
                 supabase.auth.signOut();
                 currentUser = null;
+                currentSession = null;
                 showLogin();
                 var msg = document.getElementById('loginMsg');
                 if (msg) {
@@ -855,9 +1197,11 @@
                 return;
             }
             currentUser = session.user;
+            currentSession = session;
             showDashboard();
         } else {
             currentUser = null;
+            currentSession = null;
             showLogin();
         }
     });
@@ -948,6 +1292,7 @@
     window.signOut = function () {
         supabase.auth.signOut().then(function () {
             currentUser = null;
+            currentSession = null;
             showLogin();
         });
     };
@@ -978,9 +1323,169 @@
         document.getElementById('dashEmail').textContent    = currentUser.email || '';
         loadOrders();
         loadLeads();
+        loadSettings();
     }
 
-    /* ── Load orders ── */
+    /* ══════════════════════════════════════
+       CAMPAIGN STATUS HELPERS
+       ══════════════════════════════════════ */
+
+    function computeOrderStatus(order) {
+        // Derive status from data if not stored
+        if (order.status && order.status !== 'configuring') return order.status;
+        if (order.payment_status !== 'paid') return 'configuring';
+        var delivered = order.leads_delivered || 0;
+        var total = order.lead_count || 0;
+        if (delivered >= total && total > 0) return 'complete';
+        if (delivered > 0) return 'delivering';
+        return 'active';
+    }
+
+    function getStatusTrackPct(status) {
+        var idx = STATUS_STEPS.indexOf(status);
+        if (idx <= 0) return 0;
+        return (idx / (STATUS_STEPS.length - 1)) * 100;
+    }
+
+    function renderStatusBar(status) {
+        var html = '<div class="order-status-row"><div class="status-track"><div class="status-track-fill" style="width:' + getStatusTrackPct(status) + '%"></div></div>';
+        var icons = [
+            '<svg viewBox="0 0 24 24"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>',
+            '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
+            '<svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>',
+            '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>'
+        ];
+        var labels = ['Configuring', 'Active', 'Delivering', 'Complete'];
+        var currentIdx = STATUS_STEPS.indexOf(status);
+
+        for (var i = 0; i < STATUS_STEPS.length; i++) {
+            var cls = 'status-step';
+            if (i < currentIdx) cls += ' done';
+            else if (i === currentIdx) cls += ' current';
+            html += '<div class="' + cls + '"><div class="status-step-dot">' + icons[i] + '</div><div class="status-step-label">' + labels[i] + '</div></div>';
+        }
+        html += '</div>';
+        return html;
+    }
+
+    function renderProgressBar(order) {
+        var delivered = order.leads_delivered || 0;
+        var total = order.lead_count || 0;
+        var pct = total > 0 ? Math.min((delivered / total) * 100, 100) : 0;
+        var estDate = '';
+        if (order.estimated_completion) {
+            estDate = new Date(order.estimated_completion).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+        } else if (total > 0 && delivered < total && delivered > 0 && order.created_at) {
+            // Estimate: extrapolate from current delivery rate
+            var daysSinceStart = (Date.now() - new Date(order.created_at).getTime()) / (1000 * 60 * 60 * 24);
+            var ratePerDay = daysSinceStart > 0 ? delivered / daysSinceStart : 1;
+            var remaining = total - delivered;
+            var daysRemaining = ratePerDay > 0 ? Math.ceil(remaining / ratePerDay) : 14;
+            var estDateObj = new Date(Date.now() + daysRemaining * 86400000);
+            estDate = estDateObj.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+
+        return '<div class="order-progress-row">' +
+            '<div class="progress-bar-track"><div class="progress-bar-fill" style="width:' + pct.toFixed(1) + '%"></div></div>' +
+            '<div class="progress-label"><span>' + delivered + ' of ' + total + ' leads delivered</span>' +
+            (estDate ? '<span class="est-date">Est. completion: ' + escHtml(estDate) + '</span>' : '') +
+            '</div></div>';
+    }
+
+    /* ══════════════════════════════════════
+       LEAD OUTCOME TRACKING
+       ══════════════════════════════════════ */
+
+    function updateOutcomeStats() {
+        var reported = 0;
+        var won = 0;
+        var booked = 0;
+
+        _allLeads.forEach(function (l) {
+            if (l.outcome) {
+                reported++;
+                if (l.outcome === 'won') won++;
+                if (l.outcome === 'booked') booked++;
+            }
+        });
+
+        var closeRateEl = document.getElementById('statCloseRate');
+        var closeRateSubEl = document.getElementById('statCloseRateSub');
+        var roiEl = document.getElementById('statROI');
+        var roiSubEl = document.getElementById('statROISub');
+        var upsellBanner = document.getElementById('upsellBanner');
+
+        if (reported === 0) {
+            closeRateEl.textContent = '-';
+            closeRateEl.className = 'stat-value';
+            closeRateSubEl.textContent = '';
+            roiEl.textContent = '-';
+            roiEl.className = 'stat-value';
+            roiSubEl.textContent = '';
+            upsellBanner.className = 'upsell-banner';
+            return;
+        }
+
+        var closeCount = won + booked;
+        var closeRate = (closeCount / reported) * 100;
+        closeRateEl.textContent = closeRate.toFixed(1) + '%';
+        closeRateEl.className = 'stat-value green';
+        closeRateSubEl.textContent = closeCount + ' closed from ' + reported + ' reported';
+
+        // Estimated ROI
+        var totalSpent = _allLeads.length * AVG_LEAD_COST_AUD;
+        var estimatedRevenue = closeCount * AVG_JOB_VALUE_AUD;
+        var roi = totalSpent > 0 ? ((estimatedRevenue - totalSpent) / totalSpent) * 100 : 0;
+
+        if (roi > 0) {
+            roiEl.textContent = roi.toFixed(0) + '%';
+            roiEl.className = 'stat-value green';
+        } else {
+            roiEl.textContent = roi.toFixed(0) + '%';
+            roiEl.className = 'stat-value';
+        }
+        roiSubEl.textContent = '$' + estimatedRevenue.toLocaleString() + ' est. revenue';
+
+        // Upsell prompt: 10+ reported outcomes with visible close rate
+        if (reported >= 10 && closeRate > 0) {
+            var upsellTitle = document.getElementById('upsellTitle');
+            var upsellBody = document.getElementById('upsellBody');
+            upsellTitle.textContent = 'You\'re closing ' + closeRate.toFixed(1) + '% from Market Pulse';
+            upsellBody.textContent = 'See what the full system looks like at that rate. Automated lead generation, CRM, follow-up sequences, and reporting — all handled for you.';
+            upsellBanner.className = 'upsell-banner show';
+        } else {
+            upsellBanner.className = 'upsell-banner';
+        }
+    }
+
+    window.updateLeadOutcome = function (leadId, selectEl) {
+        var outcome = selectEl.value || null;
+
+        supabase
+            .from('pilot_leads')
+            .update({ outcome: outcome, outcome_updated_at: outcome ? new Date().toISOString() : null })
+            .eq('id', leadId)
+            .eq('buyer_email', currentUser.email)
+            .then(function (result) {
+                if (result.error) {
+                    console.error('Failed to update outcome:', result.error);
+                    return;
+                }
+                // Update local data
+                for (var i = 0; i < _allLeads.length; i++) {
+                    if (_allLeads[i].id === leadId) {
+                        _allLeads[i].outcome = outcome;
+                        break;
+                    }
+                }
+                updateOutcomeStats();
+            });
+    };
+
+    /* ══════════════════════════════════════
+       LOAD ORDERS
+       ══════════════════════════════════════ */
+
     function loadOrders() {
         var loadingEl = document.getElementById('ordersLoading');
         var listEl    = document.getElementById('ordersList');
@@ -1008,7 +1513,10 @@
             });
     }
 
-    /* ── Load leads ── */
+    /* ══════════════════════════════════════
+       LOAD LEADS
+       ══════════════════════════════════════ */
+
     function loadLeads() {
         var loadingEl = document.getElementById('leadsLoading');
         var listEl    = document.getElementById('leadsList');
@@ -1027,6 +1535,7 @@
                     return;
                 }
                 var leads = result.data || [];
+                _allLeads = leads;
                 document.getElementById('statLeads').textContent = leads.length;
                 if (leads.length === 0) {
                     listEl.innerHTML = emptyState('No leads yet', 'Your leads will appear here once they start being delivered. Expect your first leads within 24–48 hours of payment.');
@@ -1034,10 +1543,14 @@
                 }
                 listEl.innerHTML = leads.map(renderLeadCard).join('');
                 loadDisputeStatus(leads);
+                updateOutcomeStats();
             });
     }
 
-    /* ── Load dispute status for leads ── */
+    /* ══════════════════════════════════════
+       DISPUTE STATUS + HEALTH
+       ══════════════════════════════════════ */
+
     function loadDisputeStatus(leads) {
         var leadIds = leads.map(function (l) { return l.id; });
         if (!leadIds.length) {
@@ -1049,7 +1562,7 @@
 
         supabase
             .from('lead_disputes')
-            .select('lead_id, status')
+            .select('lead_id, status, resolution_type')
             .in('lead_id', leadIds)
             .then(function (result) {
                 if (result.error || !result.data) {
@@ -1062,7 +1575,17 @@
                     var btn = document.querySelector('[data-lead-id="' + dispute.lead_id + '"]');
                     if (btn) {
                         btn.disabled = true;
-                        btn.textContent = dispute.status === 'resolved' ? 'Dispute Resolved' : 'Dispute Submitted';
+                        if (dispute.status === 'resolved' && dispute.resolution_type === 'auto') {
+                            btn.textContent = 'Auto-Resolved ✓';
+                            btn.className = 'dispute-btn';
+                            btn.style.borderColor = 'rgba(71,151,255,0.3)';
+                            btn.style.background = 'rgba(71,151,255,0.08)';
+                            btn.style.color = 'var(--button-primary)';
+                        } else if (dispute.status === 'resolved') {
+                            btn.textContent = 'Dispute Resolved';
+                        } else {
+                            btn.textContent = 'Dispute Submitted';
+                        }
                     }
                     if (dispute.status !== 'resolved') openCount++;
                     disputedLeads++;
@@ -1074,7 +1597,7 @@
             });
     }
 
-    /* ── Dispute health: <10% healthy · 10-20% warning · ≥20% paused ── */
+    /* Dispute health: <10% healthy · 10-20% warning · ≥20% paused */
     function updateDisputeHealth(totalLeads, disputedLeads) {
         var rateEl   = document.getElementById('statRate');
         var fillEl   = document.getElementById('rateBarFill');
@@ -1128,7 +1651,10 @@
         }
     }
 
-    /* ── Build re-order URL from order data ── */
+    /* ══════════════════════════════════════
+       BUILD RE-ORDER URL
+       ══════════════════════════════════════ */
+
     function buildReorderUrl(o) {
         var p = [];
         if (o.lead_type) p.push('trade=' + encodeURIComponent(o.lead_type));
@@ -1142,11 +1668,19 @@
         return '/market-pulse-intake' + (p.length ? '?' + p.join('&') : '');
     }
 
-    /* ── Render order card ── */
+    /* ══════════════════════════════════════
+       RENDER ORDER CARD
+       ══════════════════════════════════════ */
+
     function renderOrderCard(o) {
-        var statusBadge = o.payment_status === 'paid'
-            ? '<span class="badge badge-green">Paid</span>'
-            : '<span class="badge badge-amber">Pending</span>';
+        var status = computeOrderStatus(o);
+        var statusBadgeMap = {
+            'configuring': '<span class="badge badge-amber">Configuring</span>',
+            'active':      '<span class="badge badge-blue">Active</span>',
+            'delivering':  '<span class="badge badge-green">Delivering</span>',
+            'complete':    '<span class="badge badge-muted">Complete</span>'
+        };
+        var statusBadge = statusBadgeMap[status] || '<span class="badge badge-amber">Pending</span>';
 
         var dateStr = o.created_at ? new Date(o.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '-';
         var amount  = o.amount_paid ? '$' + Number(o.amount_paid).toFixed(2) : '-';
@@ -1158,7 +1692,9 @@
                 '<div class="order-date">' + escHtml(dateStr) + '</div></div>' +
                 statusBadge +
             '</div>' +
-            '<div class="order-meta">' +
+            renderStatusBar(status) +
+            renderProgressBar(o) +
+            '<div class="order-meta" style="margin-top:16px;">' +
                 '<div class="order-meta-item"><div class="order-meta-label">Amount</div><div class="order-meta-val">' + escHtml(amount) + '</div></div>' +
                 '<div class="order-meta-item"><div class="order-meta-label">Leads Ordered</div><div class="order-meta-val">' + escHtml(leads) + '</div></div>' +
                 '<div class="order-meta-item"><div class="order-meta-label">Delivery Email</div><div class="order-meta-val">' + escHtml(o.delivery_email || o.email || '-') + '</div></div>' +
@@ -1167,7 +1703,10 @@
         '</div>';
     }
 
-    /* ── Render lead card ── */
+    /* ══════════════════════════════════════
+       RENDER LEAD CARD
+       ══════════════════════════════════════ */
+
     function renderLeadCard(l) {
         var dateStr = l.created_at ? new Date(l.created_at).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }) : '-';
         var name    = [l.first_name, l.last_name].filter(Boolean).join(' ') || 'Delivered Lead';
@@ -1188,20 +1727,103 @@
                    '<div class="lead-field-val">' + escHtml(String(f.val)) + '</div></div>';
         }).join('');
 
+        // Outcome select
+        var outcomeOptions = [
+            { value: '', label: 'Set outcome…' },
+            { value: 'won', label: 'Won' },
+            { value: 'booked', label: 'Booked' },
+            { value: 'no_answer', label: 'No Answer' },
+            { value: 'not_interested', label: 'Not Interested' }
+        ];
+        var outcomeHtml = '<select class="outcome-select" data-lead-id="' + escHtml(String(l.id)) + '">';
+        outcomeOptions.forEach(function (opt) {
+            var selected = l.outcome === opt.value ? ' selected' : ((!l.outcome && !opt.value) ? ' selected' : '');
+            outcomeHtml += '<option value="' + escHtml(opt.value) + '"' + selected + '>' + escHtml(opt.label) + '</option>';
+        });
+        outcomeHtml += '</select>';
+
+        // Outcome badge (if set)
+        var outcomeBadge = '';
+        if (l.outcome) {
+            var outcomeLabels = { won: 'Won', booked: 'Booked', no_answer: 'No Answer', not_interested: 'Not Interested' };
+            outcomeBadge = '<span class="outcome-badge outcome-' + escHtml(l.outcome) + '">' + escHtml(outcomeLabels[l.outcome] || l.outcome) + '</span>';
+        }
+
+        // Audit trail
+        var auditHtml = renderAuditTrail(l);
+
         return '<div class="lead-card card card--interactive">' +
             '<div class="lead-top">' +
                 '<div><div class="lead-name">' + escHtml(name) + '</div>' +
                 '<div class="lead-subtext">' + escHtml(dateStr) + ' · ' + escHtml(type) + '</div></div>' +
-                '<span class="badge badge-green">Delivered</span>' +
+                '<div style="display:flex;align-items:center;gap:8px;">' +
+                    outcomeBadge +
+                    '<span class="badge badge-green">Delivered</span>' +
+                '</div>' +
             '</div>' +
             '<div class="lead-grid">' + fieldHtml + '</div>' +
-            '<div class="lead-actions">' +
-                '<button class="dispute-btn" data-lead-id="' + escHtml(String(l.id)) + '" onclick="openDisputeModal(\'' + escHtml(String(l.id)) + '\', this)">Dispute Lead</button>' +
+            '<div class="lead-actions" style="align-items:center;">' +
+                outcomeHtml +
+                '<button class="dispute-btn" data-lead-id="' + escHtml(String(l.id)) + '">Dispute Lead</button>' +
+                '<button class="lead-expand-btn" aria-label="Show details"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>Details</button>' +
             '</div>' +
+            auditHtml +
         '</div>';
     }
 
-    /* ── Dispute modal ── */
+    /* ══════════════════════════════════════
+       LEAD AUDIT TRAIL
+       ══════════════════════════════════════ */
+
+    function renderAuditTrail(l) {
+        var submissionDate = l.submission_timestamp
+            ? new Date(l.submission_timestamp).toLocaleString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+            : (l.created_at ? new Date(l.created_at).toLocaleString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '-');
+
+        var phoneVerStatus = l.phone_verification_status || 'unverified';
+        var phoneVerClass = phoneVerStatus === 'verified' ? 'verified' : (phoneVerStatus === 'failed' ? 'failed' : 'unverified');
+        var phoneVerLabel = phoneVerStatus.charAt(0).toUpperCase() + phoneVerStatus.slice(1);
+
+        var consentText = l.consent_record || 'Standard opt-in consent';
+
+        var html = '<div class="lead-audit-trail">' +
+            '<div class="audit-grid">' +
+                '<div class="audit-item"><div class="audit-label">Ad Source</div><div class="audit-val">' + escHtml(l.ad_source || l.source || 'Not recorded') + '</div></div>' +
+                '<div class="audit-item"><div class="audit-label">Submission Timestamp</div><div class="audit-val">' + escHtml(submissionDate) + '</div></div>' +
+                '<div class="audit-item"><div class="audit-label">Phone Verification</div><div class="audit-val ' + phoneVerClass + '">' + escHtml(phoneVerLabel) + '</div></div>' +
+                '<div class="audit-item"><div class="audit-label">Consent Record</div><div class="audit-val">' + escHtml(consentText) + '</div></div>' +
+            '</div>';
+
+        // Survey responses
+        var survey = l.survey_responses;
+        if (survey && typeof survey === 'object' && Object.keys(survey).length > 0) {
+            html += '<div class="survey-responses-list">';
+            Object.keys(survey).forEach(function (key) {
+                var label = key.replace(/_/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+                html += '<div class="survey-item"><span class="survey-q">' + escHtml(label) + '</span><span class="survey-a">' + escHtml(String(survey[key])) + '</span></div>';
+            });
+            html += '</div>';
+        } else {
+            html += '<div style="margin-top:8px;font-size:12px;color:var(--ink-faint);">No additional survey responses recorded.</div>';
+        }
+
+        html += '</div>';
+        return html;
+    }
+
+    window.toggleAuditTrail = function (btn) {
+        var card = btn.closest('.lead-card');
+        var trail = card.querySelector('.lead-audit-trail');
+        if (trail) {
+            trail.classList.toggle('open');
+            btn.classList.toggle('open');
+        }
+    };
+
+    /* ══════════════════════════════════════
+       DISPUTE MODAL + AUTO-RESOLVE
+       ══════════════════════════════════════ */
+
     window.openDisputeModal = function (leadId, btn) {
         pendingDisputeLeadId = leadId;
         document.getElementById('disputeReason').value = '';
@@ -1209,6 +1831,7 @@
         document.getElementById('disputeMsg').className = 'modal-msg';
         document.getElementById('disputeMsg').textContent = '';
         document.getElementById('disputeSubmitBtn').disabled = false;
+        document.getElementById('disputeSubmitBtn').textContent = 'Submit Dispute';
         document.getElementById('disputeModal').classList.add('open');
     };
 
@@ -1234,6 +1857,64 @@
         msg.className = 'modal-msg';
         msg.textContent = '';
 
+        var isAutoResolvable = AUTO_RESOLVE_REASONS.indexOf(reason) !== -1;
+
+        // Try the auto-resolve edge function first for eligible reasons
+        if (isAutoResolvable && currentSession) {
+            fetch(FUNCTIONS_URL + '/auto-resolve-dispute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + currentSession.access_token
+                },
+                body: JSON.stringify({
+                    lead_id: pendingDisputeLeadId,
+                    reason: reason,
+                    notes: notes || null
+                })
+            })
+            .then(function (resp) { return resp.json(); })
+            .then(function (data) {
+                if (data.error) {
+                    // Fall back to standard insert
+                    standardDisputeSubmit(reason, notes, msg, btn);
+                    return;
+                }
+
+                if (data.auto_resolved) {
+                    msg.className = 'modal-msg success';
+                    msg.textContent = '✓ ' + data.message;
+                    var leadBtn = document.querySelector('[data-lead-id="' + pendingDisputeLeadId + '"]');
+                    if (leadBtn) {
+                        leadBtn.disabled = true;
+                        leadBtn.textContent = 'Auto-Resolved ✓';
+                        leadBtn.style.borderColor = 'rgba(71,151,255,0.3)';
+                        leadBtn.style.background = 'rgba(71,151,255,0.08)';
+                        leadBtn.style.color = 'var(--button-primary)';
+                    }
+                } else {
+                    msg.className = 'modal-msg success';
+                    msg.textContent = '✓ ' + data.message;
+                    var manualDisputeBtn = document.querySelector('[data-lead-id="' + pendingDisputeLeadId + '"]');
+                    if (manualDisputeBtn) { manualDisputeBtn.disabled = true; manualDisputeBtn.textContent = 'Dispute Submitted'; }
+                    var curOpen = parseInt(document.getElementById('statDisputes').textContent, 10) || 0;
+                    document.getElementById('statDisputes').textContent = curOpen + 1;
+                }
+
+                _disputedLeads += 1;
+                updateDisputeHealth(_totalLeads, _disputedLeads);
+                setTimeout(closeDisputeModal, 2200);
+            })
+            .catch(function () {
+                // Fall back to standard insert
+                standardDisputeSubmit(reason, notes, msg, btn);
+            });
+        } else {
+            standardDisputeSubmit(reason, notes, msg, btn);
+        }
+    };
+
+    function standardDisputeSubmit(reason, notes, msg, btn) {
         supabase
             .from('lead_disputes')
             .insert({
@@ -1263,24 +1944,249 @@
                     setTimeout(closeDisputeModal, 1800);
                 }
             });
-    };
+    }
 
-    /* ── Close modal on overlay click ── */
+    /* Close modal on overlay click */
     document.getElementById('disputeModal').addEventListener('click', function (e) {
         if (e.target === this) closeDisputeModal();
     });
 
-    /* ── Handle magic link token in URL hash (PKCE / implicit flow) ── */
+    /* ══════════════════════════════════════
+       SETTINGS: WEBHOOK + NOTIFICATIONS
+       ══════════════════════════════════════ */
+
+    function loadSettings() {
+        supabase
+            .from('customer_settings')
+            .select('*')
+            .eq('customer_email', currentUser.email)
+            .maybeSingle()
+            .then(function (result) {
+                if (result.error || !result.data) return;
+                var s = result.data;
+
+                // Webhook URL
+                if (s.webhook_url) {
+                    document.getElementById('webhookUrl').value = s.webhook_url;
+                }
+
+                // Webhook status indicator
+                if (s.webhook_last_fired || s.webhook_last_status !== null) {
+                    updateWebhookStatusUI(s.webhook_last_fired, s.webhook_last_status);
+                }
+
+                // Notification preferences
+                _notifPrefs.notification_lead_delivery = s.notification_lead_delivery || 'both';
+                _notifPrefs.notification_order_status = s.notification_order_status || 'both';
+
+                // Set active buttons
+                setNotifActive('notifLeadDelivery', _notifPrefs.notification_lead_delivery);
+                setNotifActive('notifOrderStatus', _notifPrefs.notification_order_status);
+            });
+    }
+
+    function setNotifActive(groupId, value) {
+        var group = document.getElementById(groupId);
+        if (!group) return;
+        group.querySelectorAll('.notif-option').forEach(function (btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-value') === value);
+        });
+    }
+
+    function updateWebhookStatusUI(lastFired, lastStatus) {
+        var statusEl = document.getElementById('webhookStatus');
+        var dotEl = document.getElementById('webhookStatusDot');
+        var textEl = document.getElementById('webhookStatusText');
+
+        statusEl.style.display = 'flex';
+
+        if (!lastFired && lastStatus === null) {
+            dotEl.className = 'webhook-status-dot none';
+            textEl.textContent = 'No webhook activity yet';
+            return;
+        }
+
+        var firedStr = lastFired ? new Date(lastFired).toLocaleString('en-AU', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : 'Never';
+        var isOk = lastStatus >= 200 && lastStatus < 300;
+
+        if (isOk) {
+            dotEl.className = 'webhook-status-dot ok';
+            textEl.textContent = 'Connected — Last fired: ' + firedStr + ' (HTTP ' + lastStatus + ')';
+        } else if (lastStatus > 0) {
+            dotEl.className = 'webhook-status-dot warn';
+            textEl.textContent = 'Warning — Last response: HTTP ' + lastStatus + ' at ' + firedStr;
+        } else {
+            dotEl.className = 'webhook-status-dot fail';
+            textEl.textContent = 'Failed — No response at ' + firedStr + '. Check your URL.';
+        }
+    }
+
+    window.saveWebhookUrl = function () {
+        var url = document.getElementById('webhookUrl').value.trim();
+        var msg = document.getElementById('webhookMsg');
+        var btn = document.getElementById('saveWebhookBtn');
+
+        // Allow saving empty to clear webhook
+        btn.disabled = true;
+        btn.textContent = 'Saving…';
+        msg.className = 'settings-msg';
+        msg.textContent = '';
+
+        // Upsert into customer_settings
+        supabase
+            .from('customer_settings')
+            .upsert({
+                customer_email: currentUser.email,
+                webhook_url: url || null,
+                updated_at: new Date().toISOString()
+            }, { onConflict: 'customer_email' })
+            .then(function (result) {
+                btn.disabled = false;
+                btn.textContent = 'Save Webhook URL';
+                if (result.error) {
+                    msg.className = 'settings-msg error';
+                    msg.textContent = result.error.message || 'Failed to save. Please try again.';
+                } else {
+                    msg.className = 'settings-msg success';
+                    msg.textContent = '✓ Webhook URL saved.';
+                    setTimeout(function () { msg.textContent = ''; }, 3000);
+                }
+            });
+    };
+
+    window.testWebhook = function () {
+        var url = document.getElementById('webhookUrl').value.trim();
+        var msg = document.getElementById('webhookMsg');
+        var btn = document.getElementById('testWebhookBtn');
+
+        if (!url) {
+            msg.className = 'settings-msg error';
+            msg.textContent = 'Enter a webhook URL first.';
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Testing…';
+        msg.className = 'settings-msg';
+        msg.textContent = '';
+
+        fetch(FUNCTIONS_URL + '/test-webhook', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + (currentSession ? currentSession.access_token : '')
+            },
+            body: JSON.stringify({ webhook_url: url })
+        })
+        .then(function (resp) { return resp.json(); })
+        .then(function (data) {
+            btn.disabled = false;
+            btn.textContent = 'Test Webhook';
+            if (data.success) {
+                msg.className = 'settings-msg success';
+                msg.textContent = '✓ ' + data.message;
+                updateWebhookStatusUI(new Date().toISOString(), data.status_code);
+            } else {
+                msg.className = 'settings-msg error';
+                msg.textContent = data.message || 'Test failed. Check the URL and try again.';
+                updateWebhookStatusUI(new Date().toISOString(), data.status_code || 0);
+            }
+        })
+        .catch(function () {
+            btn.disabled = false;
+            btn.textContent = 'Test Webhook';
+            msg.className = 'settings-msg error';
+            msg.textContent = 'Failed to reach test endpoint. Please try again.';
+        });
+    };
+
+    window.selectNotif = function (type, value, btn) {
+        var groupId = type === 'lead_delivery' ? 'notifLeadDelivery' : 'notifOrderStatus';
+        var group = document.getElementById(groupId);
+        group.querySelectorAll('.notif-option').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        if (type === 'lead_delivery') {
+            _notifPrefs.notification_lead_delivery = value;
+        } else {
+            _notifPrefs.notification_order_status = value;
+        }
+    };
+
+    window.saveNotificationPrefs = function () {
+        var msg = document.getElementById('notifMsg');
+        var btn = document.getElementById('saveNotifBtn');
+
+        btn.disabled = true;
+        btn.textContent = 'Saving…';
+        msg.className = 'settings-msg';
+        msg.textContent = '';
+
+        supabase
+            .from('customer_settings')
+            .upsert({
+                customer_email: currentUser.email,
+                notification_lead_delivery: _notifPrefs.notification_lead_delivery,
+                notification_order_status: _notifPrefs.notification_order_status,
+                updated_at: new Date().toISOString()
+            }, { onConflict: 'customer_email' })
+            .then(function (result) {
+                btn.disabled = false;
+                btn.textContent = 'Save Preferences';
+                if (result.error) {
+                    msg.className = 'settings-msg error';
+                    msg.textContent = result.error.message || 'Failed to save. Please try again.';
+                } else {
+                    msg.className = 'settings-msg success';
+                    msg.textContent = '✓ Notification preferences saved.';
+                    setTimeout(function () { msg.textContent = ''; }, 3000);
+                }
+            });
+    };
+
+    /* ══════════════════════════════════════
+       EVENT DELEGATION FOR LEAD ACTIONS
+       ══════════════════════════════════════ */
+
+    document.getElementById('leadsList').addEventListener('click', function (e) {
+        var disputeBtn = e.target.closest('.dispute-btn');
+        if (disputeBtn && !disputeBtn.disabled) {
+            var leadId = disputeBtn.getAttribute('data-lead-id');
+            if (leadId) openDisputeModal(leadId, disputeBtn);
+            return;
+        }
+        var expandBtn = e.target.closest('.lead-expand-btn');
+        if (expandBtn) {
+            toggleAuditTrail(expandBtn);
+            return;
+        }
+    });
+
+    document.getElementById('leadsList').addEventListener('change', function (e) {
+        var select = e.target.closest('.outcome-select');
+        if (select) {
+            var leadId = select.getAttribute('data-lead-id');
+            if (leadId) updateLeadOutcome(leadId, select);
+        }
+    });
+
+    /* ══════════════════════════════════════
+       HANDLE MAGIC LINK + INIT
+       ══════════════════════════════════════ */
+
     supabase.auth.getSession().then(function (result) {
         if (result.data && result.data.session && result.data.session.user) {
             currentUser = result.data.session.user;
+            currentSession = result.data.session;
             showDashboard();
         } else {
             showLogin();
         }
     });
 
-    /* ── Helpers ── */
+    /* ══════════════════════════════════════
+       HELPERS
+       ══════════════════════════════════════ */
+
     function escHtml(str) {
         return String(str)
             .replace(/&/g, '&amp;')
