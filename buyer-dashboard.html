@@ -339,6 +339,24 @@
         }
         .order-name { font-size: 16px; font-weight: 500; color: var(--ink); }
         .order-date { font-size: 12px; color: var(--ink-faint); margin-top: 3px; }
+
+        /* ── RE-ORDER & NEW ORDER ── */
+        .new-order-cta {
+            display: inline-block; padding: 12px 24px;
+            background: var(--button-primary); color: #fff; border-radius: 4px;
+            font-family: var(--sans); font-size: 14px; font-weight: 400;
+            text-decoration: none; transition: opacity 0.2s; margin-bottom: 24px;
+        }
+        .new-order-cta:hover { opacity: 0.85; }
+        .reorder-btn {
+            display: inline-block; padding: 8px 16px; border-radius: 8px;
+            border: 1px solid var(--border-mid); background: var(--bg-lift);
+            color: var(--ink-muted); font-family: var(--sans); font-size: 13px;
+            cursor: pointer; transition: all 0.2s; text-decoration: none;
+        }
+        .reorder-btn:hover {
+            color: var(--ink); border-color: var(--accent); background: var(--accent-dim);
+        }
         .badge {
             display: inline-flex; align-items: center; gap: 5px;
             padding: 4px 12px; border-radius: 20px;
@@ -510,6 +528,8 @@
             .order-meta-item { min-width: calc(50% - 10px); }
             .order-meta-label { font-size: 10px; }
             .order-meta-val { font-size: 13px; }
+            .new-order-cta { display: block; text-align: center; font-size: 14px; padding: 14px; margin-bottom: 20px; }
+            .reorder-btn { font-size: 12px; padding: 8px 14px; }
 
             /* lead cards */
             .lead-card { padding: 18px 16px; }
@@ -680,6 +700,7 @@
 
         <!-- Orders tab -->
         <div class="tab-panel active" id="tabOrders">
+            <a href="/market-pulse-intake" class="new-order-cta">Place a new order &rarr;</a>
             <div class="loading-state" id="ordersLoading">
                 <div class="spinner"></div>
                 <p>Loading your orders…</p>
@@ -946,6 +967,11 @@
     }
 
     function showDashboard() {
+        var redirectParam = new URLSearchParams(window.location.search).get('redirect');
+        if (redirectParam && redirectParam.startsWith('/')) {
+            window.location.href = redirectParam;
+            return;
+        }
         document.getElementById('loginPanel').style.display = 'none';
         document.getElementById('dashPanel').style.display  = 'block';
         document.getElementById('dashEmail').textContent    = currentUser.email || '';
@@ -1101,6 +1127,20 @@
         }
     }
 
+    /* ── Build re-order URL from order data ── */
+    function buildReorderUrl(o) {
+        var p = [];
+        if (o.lead_type) p.push('trade=' + encodeURIComponent(o.lead_type));
+        var st = o.lead_subtype;
+        if (st) {
+            p.push('subtype=' + encodeURIComponent(Array.isArray(st) ? st.join(',') : String(st)));
+        }
+        if (o.service_postcode) p.push('postcode=' + encodeURIComponent(o.service_postcode));
+        if (o.service_radius) p.push('radius=' + encodeURIComponent(String(o.service_radius).replace(/km$/i, '')));
+        if (o.lead_count) p.push('lead_count=' + encodeURIComponent(String(o.lead_count)));
+        return '/market-pulse-intake' + (p.length ? '?' + p.join('&') : '');
+    }
+
     /* ── Render order card ── */
     function renderOrderCard(o) {
         var statusBadge = o.payment_status === 'paid'
@@ -1122,6 +1162,7 @@
                 '<div class="order-meta-item"><div class="order-meta-label">Leads Ordered</div><div class="order-meta-val">' + escHtml(leads) + '</div></div>' +
                 '<div class="order-meta-item"><div class="order-meta-label">Delivery Email</div><div class="order-meta-val">' + escHtml(o.delivery_email || o.email || '-') + '</div></div>' +
             '</div>' +
+            '<div style="margin-top:16px;"><a href="' + escHtml(buildReorderUrl(o)) + '" class="reorder-btn">Re-order</a></div>' +
         '</div>';
     }
 

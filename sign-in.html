@@ -264,5 +264,18 @@
         });
     })();
 </script>
+<script>
+    (function(){
+        var params = new URLSearchParams(window.location.search);
+        var redirect = params.get('redirect');
+        if (redirect) {
+            var link = document.querySelector('a[href*="buyer-dashboard"]');
+            if (link) {
+                var sep = link.href.indexOf('?') >= 0 ? '&' : '?';
+                link.href = link.href + sep + 'redirect=' + encodeURIComponent(redirect);
+            }
+        }
+    })();
+</script>
 </body>
 </html>
