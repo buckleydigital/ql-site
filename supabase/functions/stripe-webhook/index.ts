@@ -213,6 +213,199 @@ serve(async (req: Request) => {
     } else {
       console.log(`Password reset email sent to ${customerEmail}`);
     }
+
+    // ── Auto-create / update internal client record ──
+    // This block is non-critical: if it fails, the payment and auth user
+    // are already confirmed. Errors are logged for manual recovery.
+    try {
+      // Check if a PPL client record already exists for this email
+      const { data: existingClient, error: clientLookupError } = await supabase
+        .from("clients")
+        .select("id, total_leads_purchased")
+        .eq("email", customerEmail)
+        .eq("type", "ppl")
+        .maybeSingle();
+
+      if (clientLookupError) {
+        throw new Error(`Client lookup failed: ${clientLookupError.message}`);
+      }
+
+      const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+
+      if (!existingClient) {
+        // ── First order: create new client record ──
+        // Fetch the full pilot_orders row to get intake fields
+        const { data: orderRow, error: orderFetchError } = await supabase
+          .from("pilot_orders")
+          .select("*")
+          .eq("stripe_session_id", session.id)
+          .maybeSingle();
+
+        if (orderFetchError || !orderRow) {
+          throw new Error(
+            `Failed to fetch pilot_orders for session ${session.id}: ${orderFetchError?.message ?? "row not found"}`,
+          );
+        }
+
+        const leadCount = orderRow.lead_count ?? 0;
+        const leadPrice =
+          leadCount > 0
+            ? Math.round((amountPaid / leadCount) * 100) / 100
+            : 0;
+
+        const contactName = [
+          orderRow.intake_first_name,
+          orderRow.intake_last_name,
+        ]
+          .filter(Boolean)
+          .join(" ");
+
+        const { data: newClient, error: clientInsertError } = await supabase
+          .from("clients")
+          .insert({
+            type: "ppl",
+            company_name: orderRow.intake_company || null,
+            contact_name: contactName || null,
+            email: customerEmail,
+            platform_email: customerEmail,
+            phone: orderRow.intake_phone || null,
+            delivery_email: orderRow.delivery_email || null,
+            delivery_phone: orderRow.delivery_phone || null,
+            niche: orderRow.lead_type || null,
+            total_leads_purchased: leadCount,
+            lead_price: leadPrice,
+            postcodes: orderRow.service_postcode
+              ? [orderRow.service_postcode]
+              : [],
+            stage: "active_client",
+            status: "active",
+            delivery_method: "email",
+            has_quoteleads_platform_account: true,
+            start_date: today,
+            balance: 0,
+          })
+          .select("id")
+          .single();
+
+        if (clientInsertError || !newClient) {
+          throw new Error(
+            `Client insert failed: ${clientInsertError?.message ?? "no data returned"}`,
+          );
+        }
+
+        const clientId = newClient.id;
+        console.log(
+          `[client-sync] Created client ${clientId} for ${customerEmail}`,
+        );
+
+        // Link the pilot_orders row to the new client
+        const { error: linkError } = await supabase
+          .from("pilot_orders")
+          .update({ client_id: clientId })
+          .eq("stripe_session_id", session.id);
+
+        if (linkError) {
+          console.error(
+            `[client-sync] Failed to link pilot_orders to client ${clientId}:`,
+            linkError,
+          );
+        }
+
+        // Insert ppl_order_log entry
+        const { error: logError } = await supabase
+          .from("ppl_order_log")
+          .insert({
+            client_id: clientId,
+            leads_qty: leadCount,
+            lead_price: leadPrice,
+            order_date: today,
+            status: "in_progress",
+            notes: "Market Pulse order - auto-created on payment",
+          });
+
+        if (logError) {
+          console.error(
+            `[client-sync] Failed to insert ppl_order_log for client ${clientId}:`,
+            logError,
+          );
+        } else {
+          console.log(
+            `[client-sync] Inserted ppl_order_log for client ${clientId}`,
+          );
+        }
+      } else {
+        // ── Re-order: update existing client record ──
+        const clientId = existingClient.id;
+        const leadCount = parseInt(session.metadata?.lead_count ?? "10", 10);
+        const leadPrice =
+          leadCount > 0
+            ? Math.round((amountPaid / leadCount) * 100) / 100
+            : 0;
+
+        const { error: clientUpdateError } = await supabase
+          .from("clients")
+          .update({
+            total_leads_purchased:
+              (existingClient.total_leads_purchased ?? 0) + leadCount,
+            has_reordered: true,
+            updated_at: new Date().toISOString(),
+          })
+          .eq("id", clientId);
+
+        if (clientUpdateError) {
+          console.error(
+            `[client-sync] Failed to update client ${clientId}:`,
+            clientUpdateError,
+          );
+        } else {
+          console.log(
+            `[client-sync] Updated client ${clientId}: +${leadCount} leads, has_reordered=true`,
+          );
+        }
+
+        // Insert ppl_order_log entry
+        const { error: logError } = await supabase
+          .from("ppl_order_log")
+          .insert({
+            client_id: clientId,
+            leads_qty: leadCount,
+            lead_price: leadPrice,
+            order_date: today,
+            status: "in_progress",
+            notes: "Market Pulse order - auto-created on payment",
+          });
+
+        if (logError) {
+          console.error(
+            `[client-sync] Failed to insert ppl_order_log for client ${clientId}:`,
+            logError,
+          );
+        } else {
+          console.log(
+            `[client-sync] Inserted ppl_order_log for client ${clientId}`,
+          );
+        }
+
+        // Link the pilot_orders row to the existing client
+        const { error: linkError } = await supabase
+          .from("pilot_orders")
+          .update({ client_id: clientId })
+          .eq("stripe_session_id", session.id);
+
+        if (linkError) {
+          console.error(
+            `[client-sync] Failed to link pilot_orders to client ${clientId}:`,
+            linkError,
+          );
+        }
+      }
+    } catch (clientSyncErr) {
+      // Non-fatal: log and continue. Payment + auth are already confirmed.
+      console.error(
+        "[client-sync] Client record creation/update failed:",
+        clientSyncErr,
+      );
+    }
   }
 
   return new Response(JSON.stringify({ received: true }), {
