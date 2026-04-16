@@ -968,7 +968,7 @@
 
     function showDashboard() {
         var redirectParam = new URLSearchParams(window.location.search).get('redirect');
-        if (redirectParam && redirectParam.startsWith('/')) {
+        if (redirectParam && /^\/[a-zA-Z0-9]/.test(redirectParam)) {
             window.location.href = redirectParam;
             return;
         }

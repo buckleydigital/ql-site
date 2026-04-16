@@ -1464,14 +1464,16 @@
 
         if (reorderSubtype) {
             var subtypes = reorderSubtype.split(',').map(function(s) { return s.trim(); });
-            subtypes.forEach(function(st) {
-                var cards = document.querySelectorAll('.subtype-grid.show .opt-card');
-                cards.forEach(function(c) {
-                    if (c.getAttribute('data-subtype') === st && !c.classList.contains('selected')) {
-                        c.click();
-                    }
+            setTimeout(function() {
+                subtypes.forEach(function(st) {
+                    var cards = document.querySelectorAll('.subtype-grid.show .opt-card');
+                    cards.forEach(function(c) {
+                        if (c.getAttribute('data-subtype') === st && !c.classList.contains('selected')) {
+                            c.click();
+                        }
+                    });
                 });
-            });
+            }, 0);
         }
     }
 
