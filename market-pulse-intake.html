@@ -236,6 +236,18 @@
         .os-val.highlight { color: var(--button-primary); font-size: 15px; font-weight: 500; }
 
         /* Checkboxes */
+        .tc-summary {
+            list-style: none; padding: 0; margin: 0 0 16px;
+            background: var(--bg-lift); border: 1px solid var(--border);
+            border-radius: 8px; padding: 14px 16px;
+        }
+        .tc-summary li {
+            font-size: 13px; color: var(--ink-muted); line-height: 1.55;
+            padding: 4px 0 4px 20px; position: relative;
+        }
+        .tc-summary li::before {
+            content: '•'; position: absolute; left: 4px; color: var(--accent); font-weight: 600;
+        }
         .confirm-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
         .confirm-item {
             display: flex; align-items: flex-start; gap: 12px;
@@ -820,19 +832,13 @@
                         </div>
                         <p style="font-size:11px; color:var(--ink-faint); margin-top:8px; margin-bottom:20px;">Discount codes can be applied at payment.</p>
 
+                        <ul class="tc-summary">
+                            <li>Leads are phone-verified and exclusive to your business</li>
+                            <li>No conversion guarantee — converting leads into jobs is your responsibility</li>
+                            <li>1-to-1 consent — each homeowner agrees to hear from your business specifically</li>
+                            <li>Pro-rata refund if lead volume falls short of the agreed order</li>
+                        </ul>
                         <div class="confirm-list" id="confirmList">
-                            <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="guarantee">
-                                <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-                                <div class="confirm-text">I confirm Market Pulse will deliver a batch of <strong>phone-verified, exclusive leads</strong> with a full audit trail within the agreed timeframe - or the balance is refunded pro-rata.</div>
-                            </div>
-                            <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="no_conversion">
-                                <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-                                <div class="confirm-text">I understand Market Pulse delivers <strong>qualified, consented opportunities</strong> - converting them into jobs is my responsibility and I'm ready to follow up.</div>
-                            </div>
-                            <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="consent">
-                                <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
-                                <div class="confirm-text">I authorise QuoteLeads to use my business name in homeowner consent flows to <strong>exclusively match leads to my business</strong> in my service area.</div>
-                            </div>
                             <div class="confirm-item" onclick="toggleConfirm(this)" data-confirm="terms">
                                 <div class="confirm-box"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
                                 <div class="confirm-text">I have read and agree to the <a href="https://quoteleads.com.au/market-pulse-terms" target="_blank">Market Pulse Terms &amp; Conditions</a>.</div>
@@ -884,7 +890,7 @@
                 <div class="sc-lbl">What you're getting</div>
                 <div class="sc-metric">
                     <div class="sc-val">Exclusive</div>
-                    <div class="sc-desc">One business per trade per territory - your leads go to no one else</div>
+                    <div class="sc-desc">1-to-1 consent - each lead is matched exclusively to your business</div>
                     <div class="sc-sub">Guaranteed or pro-rata refund</div>
                 </div>
                 <div class="sc-metric">
@@ -901,10 +907,7 @@
                     <div class="sc-val">7-Day Replace</div>
                     <div class="sc-desc">Any lead outside your criteria is replaced - no questions asked</div>
                 </div>
-                <div class="sc-foot">
-                    <span class="sdot"></span>
-                    <span>One business per trade per territory</span>
-                </div>
+
             </div>
 
             <div class="card sidebar-card">
@@ -1035,8 +1038,7 @@
         trade: '', lead_subtype: [], service_postcode: '', service_radius: '30km',
         lead_count: '',
         first_name: '', last_name: '', company: '', phone: '', email: '',
-        confirm_guarantee: false, confirm_no_conversion: false,
-        confirm_consent: false, confirm_terms: false
+        confirm_terms: false
     };
 
     var subtypeMap = {
@@ -1310,7 +1312,7 @@
     };
 
     function checkSubmitReady(){
-        var allChecked = formData.confirm_guarantee && formData.confirm_no_conversion && formData.confirm_consent && formData.confirm_terms;
+        var allChecked = formData.confirm_terms;
         document.getElementById('submitBtn').disabled = !(allChecked && !!turnstileToken);
     }
 
@@ -1368,7 +1370,7 @@
 
     // ── SUBMIT - creates Stripe Checkout Session directly (no separate checkout page) ──
     window.submitForm = function(){
-        if(!formData.confirm_guarantee || !formData.confirm_no_conversion || !formData.confirm_consent || !formData.confirm_terms){ return; }
+        if(!formData.confirm_terms){ return; }
         if(!turnstileToken){ return; }
 
         formData['cf-turnstile-response'] = turnstileToken;
