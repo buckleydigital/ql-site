@@ -1,5 +1,5 @@
 -- ============================================================
--- QuoteLeads — Supabase Schema
+-- QuoteLeads - Supabase Schema
 -- Run this in the Supabase SQL Editor to set up all tables,
 -- indexes, and Row Level Security policies.
 -- ============================================================
@@ -241,7 +241,7 @@ create policy "Buyers read own buyer_flags"
 -- NOTES FOR DEPLOYMENT
 -- ────────────────────────────────────────────────────────────
 -- 1. Run this entire script in: Supabase Dashboard → SQL Editor
--- 2. IMPORTANT — enable email confirmation in Supabase Auth settings
+-- 2. IMPORTANT - enable email confirmation in Supabase Auth settings
 --    (Authentication → Providers → Email → "Confirm email" ON).
 --    The RLS policies rely on email = jwt email; an unverified email
 --    address could otherwise be used to access another buyer's data.
@@ -260,17 +260,17 @@ create policy "Buyers read own buyer_flags"
 --    into buyer_flags (flag_type = 'delivery_paused') via the admin
 --    panel or Make.com automation. The dashboard will reflect the
 --    paused state immediately on next login.
--- 8. AUTH SETUP — required steps in Supabase Dashboard:
+-- 8. AUTH SETUP - required steps in Supabase Dashboard:
 --    a) Authentication → Providers → Email → enable "Confirm email"
 --    b) Authentication → URL Configuration → add these Redirect URLs:
 --         https://quoteleads.com.au/reset-password
 --         https://quoteleads.com.au/buyer-dashboard
 --    c) Authentication → Email Templates → "Reset Password" template:
 --       Update the link to point to https://quoteleads.com.au/reset-password
---    d) Authentication → Email Templates → "Confirm signup" (optional — 
+--    d) Authentication → Email Templates → "Confirm signup" (optional - 
 --       buyers are created server-side with email_confirm:true so this
 --       template is not triggered in the normal purchase flow)
--- 9. MIGRATION — if pilot_leads already exists, add the new columns:
+-- 9. MIGRATION - if pilot_leads already exists, add the new columns:
 --       ALTER TABLE public.pilot_leads ADD COLUMN IF NOT EXISTS project text;
 --       ALTER TABLE public.pilot_leads ADD COLUMN IF NOT EXISTS source text;
 -- ============================================================
