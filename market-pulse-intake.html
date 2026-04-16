@@ -810,6 +810,22 @@
                                 <input type="tel" id="phone" placeholder="04XX XXX XXX">
                             </div>
                         </div>
+                        <div class="field-group">
+                            <label>Preferred delivery method</label>
+                            <select id="delivery_method" onchange="toggleDeliveryFields()">
+                                <option value="both">Email &amp; SMS</option>
+                                <option value="email">Email only</option>
+                                <option value="phone">SMS only</option>
+                            </select>
+                        </div>
+                        <div id="delivery-email-wrap" class="field-group">
+                            <label>Lead delivery email</label>
+                            <input type="email" id="delivery_email" placeholder="Same as above (leave blank to use account email)">
+                        </div>
+                        <div id="delivery-phone-wrap" class="field-group">
+                            <label>Lead delivery phone</label>
+                            <input type="tel" id="delivery_phone" placeholder="Same as above (leave blank to use account phone)">
+                        </div>
                         <div class="btn-row">
                             <button class="btn-back" onclick="goPrev(4)">Back</button>
                             <button class="btn-next" id="next4" disabled onclick="goNext(4)">Continue</button>
@@ -1038,6 +1054,7 @@
         trade: '', lead_subtype: [], service_postcode: '', service_radius: '30km',
         lead_count: '',
         first_name: '', last_name: '', company: '', phone: '', email: '',
+        delivery_method: 'both', delivery_email: '', delivery_phone: '',
         confirm_terms: false
     };
 
@@ -1303,6 +1320,15 @@
         document.getElementById(id).addEventListener('input', checkStep4);
     });
 
+    window.toggleDeliveryFields = function(){
+        var m = document.getElementById('delivery_method').value;
+        document.getElementById('delivery-email-wrap').style.display =
+            (m === 'phone') ? 'none' : 'block';
+        document.getElementById('delivery-phone-wrap').style.display =
+            (m === 'email') ? 'none' : 'block';
+    };
+    toggleDeliveryFields();
+
     // ── STEP 5: CONFIRM CHECKBOXES ──
     window.toggleConfirm = function(el){
         el.classList.toggle('checked');
@@ -1347,11 +1373,14 @@
 
     window.goNext = function(fromStep){
         if(fromStep === 4){
-            formData.first_name = document.getElementById('first_name').value.trim();
-            formData.last_name  = document.getElementById('last_name').value.trim();
-            formData.company    = document.getElementById('company').value.trim();
-            formData.phone      = document.getElementById('phone').value.trim();
-            formData.email      = document.getElementById('email').value.trim();
+            formData.first_name      = document.getElementById('first_name').value.trim();
+            formData.last_name       = document.getElementById('last_name').value.trim();
+            formData.company         = document.getElementById('company').value.trim();
+            formData.phone           = document.getElementById('phone').value.trim();
+            formData.email           = document.getElementById('email').value.trim();
+            formData.delivery_method = document.getElementById('delivery_method').value;
+            formData.delivery_email  = document.getElementById('delivery_email').value.trim();
+            formData.delivery_phone  = document.getElementById('delivery_phone').value.trim();
         }
         if(fromStep + 1 === 5){ populateSummary(); }
         showStep(fromStep + 1);
@@ -1401,7 +1430,10 @@
             lead_subtype:    formData.lead_subtype,
             lead_count:      formData.lead_count,
             service_postcode: formData.service_postcode,
-            service_radius:  formData.service_radius
+            service_radius:  formData.service_radius,
+            delivery_method: formData.delivery_method,
+            delivery_email:  formData.delivery_email,
+            delivery_phone:  formData.delivery_phone
         }));
 
         // Create Stripe Checkout Session via Edge Function and redirect
@@ -1416,8 +1448,21 @@
                 client_reference_id: 'market-pulse_' + (formData.email || '') + '_' + Date.now(),
                 success_url: window.location.origin + '/market-pulse-confirmed',
                 cancel_url: window.location.origin + '/market-pulse-intake',
-                delivery_email: formData.email,
-                delivery_phone: formData.phone,
+                delivery_method: formData.delivery_method,
+                delivery_email: formData.delivery_email || formData.email,
+                delivery_phone: formData.delivery_phone || formData.phone,
+                niche: (formData.trade || '').toLowerCase(),
+                trade: formData.trade || '',
+                subtype: formData.lead_subtype || [],
+                postcode: formData.service_postcode || '',
+                radius: formData.service_radius || '',
+                quantity: leadCount,
+                price_per_lead: getPricePerLead(formData.trade, parseInt(leadCount, 10)),
+                first_name: formData.first_name || '',
+                last_name: formData.last_name || '',
+                company: formData.company || '',
+                email: formData.email || '',
+                phone: formData.phone || '',
                 intake_first_name: formData.first_name || '',
                 intake_last_name: formData.last_name || '',
                 intake_company: formData.company || '',
