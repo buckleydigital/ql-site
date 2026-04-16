@@ -336,7 +336,21 @@ serve(async (req: Request) => {
       } else {
         // ── Re-order: update existing client record ──
         const clientId = existingClient.id;
-        const leadCount = parseInt(session.metadata?.lead_count ?? "10", 10);
+
+        // Fetch the pilot_orders row to get the authoritative lead_count
+        const { data: reorderRow, error: reorderFetchError } = await supabase
+          .from("pilot_orders")
+          .select("lead_count")
+          .eq("stripe_session_id", session.id)
+          .maybeSingle();
+
+        if (reorderFetchError || !reorderRow) {
+          throw new Error(
+            `Failed to fetch pilot_orders for re-order session ${session.id}: ${reorderFetchError?.message ?? "row not found"}`,
+          );
+        }
+
+        const leadCount = reorderRow.lead_count ?? 0;
         const leadPrice =
           leadCount > 0
             ? Math.round((amountPaid / leadCount) * 100) / 100
