@@ -1046,12 +1046,12 @@
     });
 
     // ── ROI ESTIMATOR ──
-    function toggleROI(){
+    window.toggleROI = function(){
         var body = document.getElementById('roiBody');
         var btn  = document.getElementById('roiToggle');
         var open = body.classList.toggle('open');
         btn.setAttribute('aria-expanded', open);
-    }
+    };
 
     var tradeDefaults = {
         'Solar':       9000,
