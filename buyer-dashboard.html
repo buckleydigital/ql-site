@@ -968,7 +968,8 @@
 
     function showDashboard() {
         var redirectParam = new URLSearchParams(window.location.search).get('redirect');
-        if (redirectParam && /^\/[a-zA-Z0-9]/.test(redirectParam)) {
+        var allowedRedirects = ['/market-pulse-intake'];
+        if (redirectParam && allowedRedirects.indexOf(redirectParam) !== -1) {
             window.location.href = redirectParam;
             return;
         }
