@@ -452,6 +452,58 @@
             .roi-controls { flex-direction: column; }
             .roi-results { grid-template-columns: 1fr; }
         }
+
+        /* ── SIGN-IN PROMPT ── */
+        .signin-prompt {
+            background: var(--bg-lift); border: 1px solid var(--border);
+            border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;
+            font-size: 13px; color: var(--ink-muted); line-height: 1.55;
+            display: none;
+        }
+        .signin-prompt a {
+            color: var(--button-primary); text-decoration: none; font-weight: 500;
+        }
+        .signin-prompt a:hover { text-decoration: underline; }
+
+        /* ── PRE-FILL BANNER ── */
+        .prefill-banner {
+            background: var(--accent-dim); border: 1px solid var(--border);
+            border-radius: 8px; padding: 12px 18px; margin-bottom: 20px;
+            font-size: 13px; color: var(--accent); line-height: 1.55;
+            display: none;
+        }
+
+        /* ── LEAD FIELD PREVIEW ── */
+        .lead-fields-preview {
+            display: none; background: var(--bg-lift); border: 1px solid var(--border);
+            border-radius: 8px; padding: 20px; margin-bottom: 28px;
+            animation: stepIn 0.3s ease;
+        }
+        .lead-fields-preview.show { display: block; }
+        .lfp-title {
+            font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 12px;
+        }
+        .lfp-section { margin-bottom: 16px; }
+        .lfp-section:last-of-type { margin-bottom: 0; }
+        .lfp-section-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--ink-faint); margin-bottom: 8px;
+        }
+        .lfp-fields { display: flex; flex-wrap: wrap; gap: 6px; }
+        .lfp-field {
+            display: inline-block; font-size: 13px; color: var(--ink-muted);
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 6px; padding: 5px 10px;
+        }
+        .lfp-note {
+            font-size: 12px; color: var(--ink-faint); font-style: italic;
+            margin-top: 8px; line-height: 1.5;
+        }
+        .lfp-contact {
+            font-size: 12px; color: var(--ink-faint); margin-top: 14px;
+            padding-top: 12px; border-top: 1px solid var(--border); line-height: 1.5;
+        }
+        .lfp-contact a { color: var(--accent); text-decoration: none; }
     </style>
 </head>
 <body>
@@ -514,6 +566,7 @@
         <a href="/sign-in">Sign In</a>
     </nav>
 </header>
+<script src="/nav-auth.js"></script>
 
 <!-- HERO -->
 <section class="page-hero">
@@ -552,6 +605,7 @@
 
                     <!-- STEP 1: Lead Type -->
                     <div class="form-step active" id="step1">
+                        <div class="signin-prompt" id="signinPrompt">Already a customer? <a href="/sign-in?redirect=/market-pulse-intake">Sign in</a> to pre-fill your details and re-order faster.</div>
                         <div class="step-q">What industry are you in?</div>
                         <div class="step-hint">Pick your trade, then select your lead type below.</div>
                         <div class="opt-grid cols-2" id="industryGrid">
@@ -607,6 +661,7 @@
                                 <div class="opt-label">Split + Ducted System Installs</div>
                             </div>
                         </div>
+                        <div class="lead-fields-preview" id="leadFieldsPreview"></div>
                         <div class="btn-row">
                             <button class="btn-next" id="next1" disabled onclick="goNext(1)">Continue</button>
                         </div>
@@ -718,6 +773,7 @@
                     <div class="form-step" id="step4">
                         <div class="step-q">Where should leads be delivered?</div>
                         <div class="step-hint">Leads are sent to the email and phone below the moment they come in - no batching, no delays.</div>
+                        <div class="prefill-banner" id="prefillBanner">We've pre-filled your details from your account. Edit if needed.</div>
                         <div class="field-row">
                             <div class="field-group">
                                 <label>First name</label>
@@ -892,6 +948,8 @@
     <div class="foot-copy">&copy; 2026 QuoteLeads</div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
 <script>
     (function(){
         var saved = localStorage.getItem('ql-theme');
@@ -1027,8 +1085,122 @@
         });
     });
 
+    // ── NICHE LEAD FIELD DATA ──
+    var NICHE_LEAD_FIELDS = {
+        'Solar': {
+            label: 'Solar',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'Average electricity bill', 'Purchase timeline'],
+            note: 'Anyone who is not the decision maker is automatically filtered out before delivery.'
+        },
+        'Solar + Battery': {
+            label: 'Solar + Battery',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'Average electricity bill', 'Purchase timeline'],
+            note: 'Anyone who is not the decision maker is automatically filtered out before delivery.'
+        },
+        'Battery': {
+            label: 'Battery',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'Average electricity bill', 'Purchase timeline'],
+            note: 'Anyone who is not the decision maker is automatically filtered out before delivery.'
+        },
+        'Roof Replacements': {
+            label: 'Roof Replacements',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'Purchase timeline', 'Roof type'],
+            note: null
+        },
+        'Roof Restorations': {
+            label: 'Roof Restorations',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'Purchase timeline', 'Job scope (Roof only or Roof + Gutters)'],
+            note: null
+        },
+        'Split + Ducted System Installs': {
+            label: 'HVAC - Split + Ducted System Installs',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'System type', 'Purchase timeline'],
+            note: null
+        },
+        'Bathrooms': {
+            label: 'Renovations',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'Project type', 'Purchase timeline'],
+            note: null
+        },
+        'Kitchens': {
+            label: 'Renovations',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'Project type', 'Purchase timeline'],
+            note: null
+        },
+        'Decks': {
+            label: 'Renovations',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'Project type', 'Purchase timeline'],
+            note: null
+        },
+        'Fencing': {
+            label: 'Renovations',
+            fields: ['Name', 'Email', 'Phone', 'Postcode', 'Project type', 'Purchase timeline'],
+            note: null
+        }
+    };
+
+    function updateLeadFieldPreview() {
+        var panel = document.getElementById('leadFieldsPreview');
+        var trade = formData.trade;
+        var subtypes = formData.lead_subtype;
+
+        if (!trade) {
+            panel.classList.remove('show');
+            return;
+        }
+
+        var sections = [];
+
+        if (subtypes.length > 0) {
+            var seen = {};
+            subtypes.forEach(function(st) {
+                var data = NICHE_LEAD_FIELDS[st];
+                if (data) {
+                    var key = data.fields.join(',');
+                    if (!seen[key]) {
+                        seen[key] = true;
+                        sections.push({ label: st, fields: data.fields, note: data.note });
+                    }
+                }
+            });
+        } else if (trade === 'Solar') {
+            sections.push(NICHE_LEAD_FIELDS['Solar']);
+        } else if (trade === 'Renovations') {
+            sections.push(NICHE_LEAD_FIELDS['Bathrooms']);
+        }
+
+        if (sections.length === 0) {
+            panel.classList.remove('show');
+            return;
+        }
+
+        var html = '<div class="lfp-title">What comes with each lead</div>';
+
+        sections.forEach(function(sec) {
+            html += '<div class="lfp-section">';
+            if (sections.length > 1) {
+                html += '<div class="lfp-section-label">' + sec.label + '</div>';
+            }
+            html += '<div class="lfp-fields">';
+            sec.fields.forEach(function(f) {
+                html += '<span class="lfp-field">' + f + '</span>';
+            });
+            html += '</div>';
+            if (sec.note) {
+                html += '<div class="lfp-note">' + sec.note + '</div>';
+            }
+            html += '</div>';
+        });
+
+        html += '<div class="lfp-contact">Need custom fields, a specific volume, or have questions? <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a></div>';
+
+        panel.innerHTML = html;
+        panel.classList.add('show');
+    }
+
     function checkStep1(){
         document.getElementById('next1').disabled = !(formData.trade && formData.lead_subtype.length > 0);
+        updateLeadFieldPreview();
     }
 
     // ── STEP 2 ──
@@ -1271,6 +1443,123 @@
     };
 
     updateProgress();
+})();
+</script>
+
+<script>
+(function(){
+    var SUPABASE_URL  = 'https://wmegoygrancfwxagqskh.supabase.co';
+    var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtZWdveWdyYW5jZnd4YWdxc2toIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5NTI3MTEsImV4cCI6MjA4ODUyODcxMX0._CwgEq0OwCuz0NA2L2LDRM9xHl9riNO5pr_qZsIXzAs';
+
+    // ── Re-order URL params ──
+    var params = new URLSearchParams(window.location.search);
+    var reorderTrade = params.get('trade');
+    var reorderSubtype = params.get('subtype');
+    var reorderPostcode = params.get('postcode');
+    var reorderRadius = params.get('radius');
+    var reorderLeadCount = params.get('lead_count');
+
+    if (reorderTrade) {
+        var tradeCard = document.querySelector('#industryGrid .opt-card[data-value="' + reorderTrade + '"]');
+        if (tradeCard) tradeCard.click();
+
+        if (reorderSubtype) {
+            var subtypes = reorderSubtype.split(',').map(function(s) { return s.trim(); });
+            setTimeout(function() {
+                subtypes.forEach(function(st) {
+                    var cards = document.querySelectorAll('.subtype-grid.show .opt-card');
+                    cards.forEach(function(c) {
+                        if (c.getAttribute('data-subtype') === st && !c.classList.contains('selected')) {
+                            c.click();
+                        }
+                    });
+                });
+            }, 0);
+        }
+    }
+
+    if (reorderPostcode) {
+        var postcodeInput = document.getElementById('servicePostcode');
+        postcodeInput.value = reorderPostcode;
+        postcodeInput.dispatchEvent(new Event('input'));
+    }
+
+    if (reorderRadius) {
+        var radiusSlider = document.getElementById('serviceRadius');
+        var radiusNum = parseInt(reorderRadius, 10);
+        if (radiusNum >= 30 && radiusNum <= 250) {
+            radiusSlider.value = radiusNum;
+            radiusSlider.dispatchEvent(new Event('input'));
+        }
+    }
+
+    if (reorderLeadCount) {
+        var leadSlider = document.getElementById('leadCountSlider');
+        var leadNum = parseInt(reorderLeadCount, 10);
+        if (leadNum >= 10 && leadNum <= 100) {
+            leadSlider.value = leadNum;
+            leadSlider.dispatchEvent(new Event('input'));
+        }
+    }
+
+    // ── Auth session check ──
+    if (typeof window.supabase === 'undefined') {
+        document.getElementById('signinPrompt').style.display = 'block';
+        return;
+    }
+
+    var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+    sb.auth.getSession().then(function(result) {
+        if (!result.data || !result.data.session || !result.data.session.user) {
+            document.getElementById('signinPrompt').style.display = 'block';
+            return;
+        }
+
+        var user = result.data.session.user;
+        var accountType = user.app_metadata && user.app_metadata.account_type;
+        if (accountType !== 'lead_buyer') {
+            document.getElementById('signinPrompt').style.display = 'block';
+            return;
+        }
+
+        // User is logged in - fetch latest order for profile data
+        sb.from('pilot_orders')
+            .select('intake_first_name, intake_last_name, intake_company, intake_phone, email, delivery_email, delivery_phone')
+            .eq('email', user.email)
+            .eq('payment_status', 'paid')
+            .order('created_at', { ascending: false })
+            .limit(1)
+            .then(function(orderResult) {
+                var fn = '', ln = '', co = '', em = '', ph = '';
+
+                if (orderResult.data && orderResult.data.length > 0) {
+                    var order = orderResult.data[0];
+                    fn = order.intake_first_name || '';
+                    ln = order.intake_last_name || '';
+                    co = order.intake_company || '';
+                    em = order.delivery_email || order.email || user.email || '';
+                    ph = order.intake_phone || order.delivery_phone || '';
+                } else {
+                    em = user.email || '';
+                }
+
+                if (fn) document.getElementById('first_name').value = fn;
+                if (ln) document.getElementById('last_name').value = ln;
+                if (co) document.getElementById('company').value = co;
+                if (em) document.getElementById('email').value = em;
+                if (ph) document.getElementById('phone').value = ph;
+
+                if (fn || ln || co || em || ph) {
+                    document.getElementById('prefillBanner').style.display = 'block';
+                }
+
+                // Trigger validation for Step 4
+                ['first_name', 'last_name', 'company', 'phone', 'email'].forEach(function(id) {
+                    document.getElementById(id).dispatchEvent(new Event('input'));
+                });
+            });
+    });
 })();
 </script>
 </body>
