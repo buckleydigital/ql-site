@@ -11,12 +11,12 @@
     if (!(user.app_metadata && user.app_metadata.account_type === 'lead_buyer')) return;
     var label = (user.user_metadata && user.user_metadata.first_name) || 'Dashboard';
     var btn = document.querySelector('.nav-signin');
-    if (btn) { btn.href = '/buyer-dashboard'; btn.textContent = label; }
+    if (btn) { btn.href = 'https://quoteleadshq.com/dashboard'; btn.textContent = label; }
     var mob = document.getElementById('mobMenu');
     if (mob) {
       var links = mob.querySelectorAll('a[href="/sign-in"]');
       for (var i = 0; i < links.length; i++) {
-        links[i].href = '/buyer-dashboard';
+        links[i].href = 'https://quoteleadshq.com/dashboard';
         links[i].textContent = label;
       }
     }
