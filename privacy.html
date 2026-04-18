@@ -478,6 +478,25 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .page-hero h1{font-size:clamp(1.8rem,6vw,2.4rem)}
 }
 
+
+/* CONTENT GROUPS */
+.content-group{padding:56px 0;border-bottom:1px solid var(--border)}
+.content-group:first-child{padding-top:0}
+.content-group:last-child{border-bottom:none;padding-bottom:0}
+.group-lbl{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);
+  margin-bottom:12px;font-weight:700;display:flex;align-items:center;gap:10px}
+.group-lbl::before{content:'';width:20px;height:1px;background:var(--blue);opacity:.5}
+.group-title{font-family:var(--syne);font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:700;line-height:1.2;
+  letter-spacing:-.01em;color:var(--white);margin-bottom:20px}
+.group-body{font-size:.92rem;color:var(--muted);line-height:1.8}
+.group-body p{margin-bottom:14px}
+.group-body p:last-child{margin-bottom:0}
+.group-body strong{color:var(--off);font-weight:400}
+.group-body a{color:var(--blue);text-decoration:none}
+.group-body a:hover{text-decoration:underline}
+.group-body ul,.group-body ol{margin:16px 0 16px 20px}
+.group-body li{margin-bottom:8px}
+
 </style>
 </head>
 <body>
