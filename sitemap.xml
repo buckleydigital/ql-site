@@ -55,12 +55,6 @@
 
   <!-- Products -->
   <url>
-    <loc>https://quoteleads.com.au/market-pulse.html</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://quoteleads.com.au/growth.html</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -176,12 +170,6 @@
   </url>
   <url>
     <loc>https://quoteleads.com.au/terms.html</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://quoteleads.com.au/market-pulse-terms.html</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
