@@ -476,6 +476,27 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .own-item .ai-opt{font-size:.52rem;padding:1px 6px;margin-left:4px}
 .fdesc-note{font-size:.76rem;color:var(--faint);margin-top:8px;position:relative;z-index:2}
 .proc-note{font-size:.76rem;color:var(--faint);margin-top:6px;font-style:italic}
+
+/* INTEGRATIONS */
+.integ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.integ-col{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 24px;
+  backdrop-filter:blur(12px)}
+.integ-cat-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.integ-cat-label::before{content:'';width:18px;height:1px;background:var(--blue)}
+.integ-items{display:flex;flex-direction:column;gap:10px}
+.integ-item{display:flex;align-items:center;gap:10px;font-size:.84rem;color:var(--muted);
+  transition:color .2s}
+.integ-item:hover{color:var(--white)}
+.integ-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);opacity:.5;flex-shrink:0}
+.integ-note{margin-top:32px;font-size:.84rem;color:var(--muted);
+  display:flex;align-items:center;gap:10px;justify-content:center;
+  padding:16px 24px;background:rgba(71,151,255,.04);border-radius:12px;
+  border:1px solid var(--border);max-width:640px;margin-left:auto;margin-right:auto}
+.integ-note svg{color:var(--blue);flex-shrink:0}
+@media(max-width:1024px){.integ-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.integ-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -496,7 +517,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#what-built">What's Built</a></li>
       <li><a href="#outcomes">Results</a></li>
-      <li><a href="#industries">Industries</a></li>
+      <li><a href="/pricing">Pricing</a></li>
       <li><a href="/get-started" class="nav-cta">Build My System <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
     </ul>
     <button class="mob-btn" id="mobBtn" aria-label="Menu">
@@ -508,6 +529,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <a href="#what-built">What's Built</a>
     <a href="#outcomes">Results</a>
     <a href="#industries">Industries</a>
+    <a href="/pricing">Pricing</a>
     <a href="#faq">FAQ</a>
     <a href="/get-started" class="mob-cta-link">Build My System</a>
   </nav>
@@ -849,6 +871,65 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   </div>
 </section>
 
+<!-- INTEGRATIONS -->
+<section id="integrations">
+  <div class="si">
+    <div class="rv"><div class="ey">Integrations</div></div>
+    <h2 class="stitle rv">Works with the tools <em>you already use.</em></h2>
+    <p style="color:var(--muted);font-size:.95rem;line-height:1.74;max-width:540px;margin-bottom:52px" class="rv">Your system connects seamlessly with your existing software stack. No ripping and replacing - just more power added on top.</p>
+    <div class="integ-grid rv">
+      <div class="integ-col">
+        <div class="integ-cat-label">CRM</div>
+        <div class="integ-items">
+          <div class="integ-item"><div class="integ-dot"></div>HubSpot</div>
+          <div class="integ-item"><div class="integ-dot"></div>Salesforce</div>
+          <div class="integ-item"><div class="integ-dot"></div>Pipedrive</div>
+          <div class="integ-item"><div class="integ-dot"></div>Zoho CRM</div>
+          <div class="integ-item"><div class="integ-dot"></div>GoHighLevel</div>
+          <div class="integ-item"><div class="integ-dot"></div>Custom CRM</div>
+        </div>
+      </div>
+      <div class="integ-col">
+        <div class="integ-cat-label">Job Management</div>
+        <div class="integ-items">
+          <div class="integ-item"><div class="integ-dot"></div>ServiceM8</div>
+          <div class="integ-item"><div class="integ-dot"></div>Tradify</div>
+          <div class="integ-item"><div class="integ-dot"></div>Simpro</div>
+          <div class="integ-item"><div class="integ-dot"></div>AroFlo</div>
+          <div class="integ-item"><div class="integ-dot"></div>Fergus</div>
+          <div class="integ-item"><div class="integ-dot"></div>Jobber</div>
+        </div>
+      </div>
+      <div class="integ-col">
+        <div class="integ-cat-label">Email</div>
+        <div class="integ-items">
+          <div class="integ-item"><div class="integ-dot"></div>Mailchimp</div>
+          <div class="integ-item"><div class="integ-dot"></div>ActiveCampaign</div>
+          <div class="integ-item"><div class="integ-dot"></div>Klaviyo</div>
+          <div class="integ-item"><div class="integ-dot"></div>ConvertKit</div>
+          <div class="integ-item"><div class="integ-dot"></div>Brevo</div>
+          <div class="integ-item"><div class="integ-dot"></div>Any SMTP</div>
+        </div>
+      </div>
+      <div class="integ-col">
+        <div class="integ-cat-label">SMS &amp; Messaging</div>
+        <div class="integ-items">
+          <div class="integ-item"><div class="integ-dot"></div>Twilio</div>
+          <div class="integ-item"><div class="integ-dot"></div>MessageBird</div>
+          <div class="integ-item"><div class="integ-dot"></div>ClickSend</div>
+          <div class="integ-item"><div class="integ-dot"></div>Podium</div>
+          <div class="integ-item"><div class="integ-dot"></div>SimpleTexting</div>
+          <div class="integ-item"><div class="integ-dot"></div>Webhook / API</div>
+        </div>
+      </div>
+    </div>
+    <div class="integ-note rv">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Don't see your tool? We support custom integrations via Zapier, Make, or direct API. <a href="/get-started" style="color:var(--blue);text-decoration:none">Ask us →</a>
+    </div>
+  </div>
+</section>
+
 <!-- OUTCOMES -->
 <section id="outcomes">
   <div class="si">
@@ -1005,7 +1086,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is there lock-in?</span><span class="faq-qi">+</span></button>
-        <div class="faq-a">No lock-in. Your system includes 30 days of hands-on management at launch, then ongoing management is month-to-month at $600/mo - pause or cancel any time with 30 days notice. The system itself is yours permanently either way.</div>
+        <div class="faq-a">No lock-in. Your system includes 30 days of hands-on management at launch, then ongoing management is month-to-month - pause or cancel any time. The system itself is yours permanently either way.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What trades and locations do you work with?</span><span class="faq-qi">+</span></button>
@@ -1044,6 +1125,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     </div>
     <div class="foot-links">
       <a href="/">Home</a>
+      <a href="/pricing">Pricing</a>
       <a href="/get-started">Build My System</a>
       <a href="https://quoteleadshq.com/dashboard">Dashboard</a>
       <a href="/blog">Blog</a>
