@@ -497,6 +497,23 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .group-body ul,.group-body ol{margin:16px 0 16px 20px}
 .group-body li{margin-bottom:8px}
 
+/* TOC SECTION */
+.toc-section{background:var(--deep)}
+.toc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:48px}
+.toc-col{background:var(--deep);padding:32px 28px}
+.toc-col-lbl{font-family:var(--syne);font-size:.85rem;font-weight:700;color:var(--white);margin-bottom:16px;letter-spacing:-.01em}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list li a{font-size:.84rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s}
+.toc-list li a::before{content:'→';color:var(--blue);font-size:.72rem;flex-shrink:0}
+.toc-list li a:hover{color:var(--white)}
+@media(max-width:768px){
+  .toc-grid{grid-template-columns:1fr}
+}
+
+/* PRIVACY LAYOUT */
+.privacy-layout{max-width:720px;margin:0 auto}
+
 </style>
 </head>
 <body>

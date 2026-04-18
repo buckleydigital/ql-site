@@ -47,10 +47,10 @@
       "mainEntityOfPage": "https://quoteleads.com.au/blog/lead-response-time-trade-business",
       "keywords": ["lead response time trade business", "speed to contact tradies", "how to convert more leads tradie", "lead follow up australia", "tradie conversion rate", "lead generation for tradies australia", "trade business lead system"]
     }
-    </script>    <link rel="stylesheet" href="/cards.css">
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
@@ -66,12 +66,12 @@
             --ink-soft:    #7d8fa0;
             --ink-muted:   #7d8fa0;
             --ink-faint:   #485867;
-            --accent:      #B4BEC8;
-            --accent-dim:  rgba(180,190,200,0.12);
-            --accent-glow: rgba(255,255,255,0.02);
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.12);
+            --accent-glow: rgba(71,151,255,0.04);
             --button-primary: #4797FF;
-            --serif: 'Poppins', system-ui, -apple-system, sans-serif;
-            --sans:  'Poppins', system-ui, -apple-system, sans-serif;
+            --syne: 'Syne', sans-serif;
+            --body: 'DM Sans', sans-serif;
             color-scheme: dark;
         }
         :root[data-theme="light"] {
@@ -85,19 +85,19 @@
             --ink-soft:    #35414f;
             --ink-muted:   #4a5564;
             --ink-faint:   #72808e;
-            --accent:      #B4BEC8;
-            --accent-dim:  rgba(180,190,200,0.20);
-            --accent-glow: rgba(180,190,200,0.08);
+            --accent:      #4797FF;
+            --accent-dim:  rgba(71,151,255,0.20);
+            --accent-glow: rgba(71,151,255,0.08);
             --button-primary: #4797FF;
-            --serif: 'Poppins', system-ui, -apple-system, sans-serif;
-            --sans:  'Poppins', system-ui, -apple-system, sans-serif;
+            --syne: 'Syne', sans-serif;
+            --body: 'DM Sans', sans-serif;
             color-scheme: light;
         }
         
 
 
         body {
-            font-family: var(--sans);
+            font-family: var(--body);
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
@@ -105,7 +105,7 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+        h1, h2, h3, h4, h5, h6 { font-weight: 700; }
 
         
 
@@ -127,7 +127,7 @@
         .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
 
         .hero h1 {
-            font-family: var(--serif);
+            font-family: var(--syne);
             font-size: clamp(34px, 5.5vw, 60px); line-height: 1.06;
             letter-spacing: -0.6px; color: var(--ink); margin-bottom: 28px;
             max-width: 780px;
@@ -159,7 +159,7 @@
         }
         .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
         .stitle {
-            font-family: var(--serif); font-size: clamp(26px, 3.5vw, 42px);
+            font-family: var(--syne); font-size: clamp(26px, 3.5vw, 42px);
             line-height: 1.1; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px;
         }
         .stitle em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -176,7 +176,7 @@
         .prose p + p { margin-top: 22px; }
         .prose strong { color: var(--ink); font-weight: 400; }
         .prose h3 {
-            font-family: var(--serif); font-size: 26px; color: var(--ink);
+            font-family: var(--syne); font-size: 26px; color: var(--ink);
             line-height: 1.2; letter-spacing: -0.2px;
             margin-top: 48px; margin-bottom: 16px;
         }
@@ -254,7 +254,7 @@
         }
         .failure-card { padding: 36px 28px; }
         .failure-num {
-            font-family: var(--serif); font-size: 52px;
+            font-family: var(--syne); font-size: 52px;
             line-height: 1; margin-bottom: 14px; color: rgba(71,151,255,0.12);
         }
         .failure-tag {
@@ -276,7 +276,7 @@
         }
         .stage-card { padding: 32px 24px; position: relative; }
         .stage-num {
-            font-family: var(--serif); font-size: 48px;
+            font-family: var(--syne); font-size: 48px;
             line-height: 1; margin-bottom: 16px;
             color: rgba(255,255,255,0.04);
         }
@@ -296,7 +296,7 @@
             border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
         }
         .pull-quote p {
-            font-family: var(--serif); font-size: clamp(22px, 3vw, 32px);
+            font-family: var(--syne); font-size: clamp(22px, 3vw, 32px);
             color: var(--ink); line-height: 1.3; letter-spacing: -0.2px; max-width: 640px;
         }
         .pull-quote p em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -344,7 +344,7 @@
         }
         .stat-cell { padding: 28px 24px; }
         .stat-val {
-            font-family: var(--serif); font-size: 40px;
+            font-family: var(--syne); font-size: 40px;
             line-height: 1; margin-bottom: 8px;
         }
         .stat-val.amber { color: var(--amber); }
@@ -400,19 +400,19 @@
         }
         .cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
         .cta-inner h2 {
-            font-family: var(--serif); font-size: clamp(28px, 4vw, 46px);
+            font-family: var(--syne); font-size: clamp(28px, 4vw, 46px); font-weight: 800;
             line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
         }
-        .cta-inner h2 em { font-style: normal; color: var(--accent); font-weight: 500; }
+        .cta-inner h2 em { font-style: normal; color: var(--button-primary); font-weight: 800; }
         .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 40px; font-weight: 400; }
         .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
         .btn-primary {
             background: var(--button-primary); color: #fff;
-            padding: 16px 36px; border-radius: 4px; text-decoration: none;
+            padding: 16px 36px; border-radius: 100px; text-decoration: none;
             font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
             display: inline-block; transition: opacity 0.2s, transform 0.2s;
         }
-        .btn-primary:hover { opacity: 0.92; }
+        .btn-primary:hover { opacity: 0.92; box-shadow: 0 8px 28px rgba(71,151,255,.4); transform: translateY(-1px); }
         .btn-secondary {
             background: none; border: 1px solid var(--border-mid); color: var(--ink-soft);
             padding: 16px 36px; border-radius: 8px; text-decoration: none;
@@ -429,14 +429,15 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
             margin-top: 48px;
         }
-        .related-card { padding: 32px 24px; text-decoration: none; display: block; transition: background 0.2s; }
+        .related-card { padding: 32px 24px; text-decoration: none; display: block; transition: all 0.3s; background: var(--bg-card); }
+        .related-card:hover { background: var(--bg-lift); }
         .related-tag {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             color: var(--accent); background: var(--accent-dim);
             padding: 3px 10px; border-radius: 3px; display: inline-block; margin-bottom: 16px;
         }
         .related-title {
-            font-family: var(--serif); font-size: 18px; color: var(--ink);
+            font-family: var(--syne); font-size: 18px; color: var(--ink);
             line-height: 1.3; margin-bottom: 10px;
         }
         .related-title em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -459,7 +460,7 @@
         .logo-img { height: 36px; width: auto; display: block; }
         .logo-img.hide { display: none; }
         .logo-text {
-            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            font-family: var(--syne); font-size: 20px; color: var(--ink);
             letter-spacing: -0.3px; display: none;
         }
         .logo-text.show { display: block; }
@@ -471,7 +472,7 @@
         .nav-links> a:hover { color: var(--ink); }
         .nav-dropdown { position: relative; }
         .nav-dropdown-btn {
-            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--ink-muted);
             background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
             padding: 0; transition: color 0.2s;
         }
@@ -559,7 +560,7 @@
         }
         .foot-logo { display: flex; align-items: center; gap: 10px; }
         .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
-        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-logo span { font-family: var(--syne); font-size: 18px; color: var(--ink-soft); display: none; }
         .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
         .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .foot-links a:hover { color: var(--ink); }
