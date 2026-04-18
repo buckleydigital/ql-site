@@ -52,10 +52,14 @@
     </script>
 
     <link rel="stylesheet" href="/cards.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
     <style>
+/* Display: Neue Montreal (using General Sans as free stand-in — swap var(--display) when licensed) */
+/* Body: Inter */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
 
@@ -74,8 +78,8 @@
             --accent-dim:  rgba(180,190,200,0.12);
             --accent-glow: rgba(255,255,255,0.02);
             --button-primary: #4797FF;
-            --serif: 'Poppins', system-ui, -apple-system, sans-serif;
-            --sans:  'Poppins', system-ui, -apple-system, sans-serif;
+            --display: 'General Sans', 'PP Neue Montreal', 'Neue Montreal', system-ui, sans-serif;
+            --body: 'Inter', system-ui, sans-serif;
             color-scheme: dark;
         }
         :root[data-theme="light"] {
@@ -93,15 +97,16 @@
             --accent-dim:  rgba(180,190,200,0.20);
             --accent-glow: rgba(180,190,200,0.08);
             --button-primary: #4797FF;
-            --serif: 'Poppins', system-ui, -apple-system, sans-serif;
-            --sans:  'Poppins', system-ui, -apple-system, sans-serif;
+            --display: 'General Sans', 'PP Neue Montreal', 'Neue Montreal', system-ui, sans-serif;
+            --body: 'Inter', system-ui, sans-serif;
             color-scheme: light;
         }
         
 
 
         body {
-            font-family: var(--sans);
+            font-family: var(--body);
+            font-feature-settings: "cv11", "ss01", "ss03";
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
@@ -129,7 +134,7 @@
         }
         .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
         .hero h1 {
-            font-family: var(--serif);
+            font-family: var(--display);
             font-size: clamp(36px, 5.5vw, 62px); line-height: 1.06;
             letter-spacing: -0.6px; color: var(--ink); margin-bottom: 28px;
             max-width: 740px;
@@ -165,7 +170,7 @@
         }
         .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
         .stitle {
-            font-family: var(--serif); font-size: clamp(26px, 3.5vw, 42px);
+            font-family: var(--display); font-size: clamp(26px, 3.5vw, 42px);
             line-height: 1.1; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px;
         }
         .stitle em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -262,7 +267,7 @@
         }
         .stat-cell { padding: 28px 20px; text-align: center; }
         .stat-val {
-            font-family: var(--serif); font-size: 32px; color: var(--accent);
+            font-family: var(--display); font-size: 32px; color: var(--accent);
             line-height: 1; margin-bottom: 6px;
         }
         .stat-label { font-size: 12px; color: var(--ink-muted); font-weight: 400; line-height: 1.4; }
@@ -328,7 +333,7 @@
         }
         .dual-cta-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
         .dual-cta-inner h2 {
-            font-family: var(--serif); font-size: clamp(28px, 4vw, 48px);
+            font-family: var(--display); font-size: clamp(28px, 4vw, 48px);
             line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
         }
         .dual-cta-inner h2 em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -345,7 +350,7 @@
             color: var(--accent); margin-bottom: 20px;
         }
         .cta-path h3 {
-            font-family: var(--serif); font-size: 24px; color: var(--ink);
+            font-family: var(--display); font-size: 24px; color: var(--ink);
             line-height: 1.2; margin-bottom: 12px;
         }
         .cta-path h3 em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -380,7 +385,7 @@
         .logo-img { height: 36px; width: auto; display: block; }
         .logo-img.hide { display: none; }
         .logo-text {
-            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            font-family: var(--display); font-size: 20px; color: var(--ink);
             letter-spacing: -0.3px; display: none;
         }
         .logo-text.show { display: block; }
@@ -392,7 +397,7 @@
         .nav-links> a:hover { color: var(--ink); }
         .nav-dropdown { position: relative; }
         .nav-dropdown-btn {
-            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--ink-muted);
             background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
             padding: 0; transition: color 0.2s;
         }
@@ -480,7 +485,7 @@
         }
         .foot-logo { display: flex; align-items: center; gap: 10px; }
         .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
-        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-logo span { font-family: var(--display); font-size: 18px; color: var(--ink-soft); display: none; }
         .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
         .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .foot-links a:hover { color: var(--ink); }
