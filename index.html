@@ -5,8 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QuoteLeads | Complete Lead Generation & AI Conversion System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style>
+/* Display: Neue Montreal (using General Sans as free stand-in — swap var(--display) when licensed) */
+/* Body: Inter */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --void:#04040A;--deep:#08080F;--surf:#0C0C18;
@@ -16,11 +21,11 @@
   --blue:#4797FF;--bdim:rgba(71,151,255,0.12);
   --sky:#7CB9FF;--mist:#B8D4FF;
   --white:#F2F2F2;--off:#CACAD0;--muted:#71717A;--faint:#3F3F46;
-  --syne:'Syne',sans-serif;--body:'DM Sans',sans-serif;
+  --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
   --bh:40px;--nh:68px;
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--void);color:var(--white);font-family:var(--body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased}
+body{background:var(--void);color:var(--white);font-family:var(--body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss01','ss03'}
 
 /* CURSOR */
 #cur{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s;mix-blend-mode:normal}
@@ -49,7 +54,7 @@ body::before{content:'';position:fixed;inset:0;
 .header-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:var(--nh)}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .logo-mark{width:32px;height:32px;flex-shrink:0}
-.logo-name{font-family:var(--syne);font-size:1.15rem;font-weight:800;color:var(--white);letter-spacing:.04em}
+.logo-name{font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--white);letter-spacing:.04em}
 .logo-sub{font-family:var(--body);font-size:.58rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-left:-2px;padding-top:2px}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
 .nav-links a{font-size:.84rem;font-weight:400;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.02em}
@@ -96,8 +101,8 @@ body::before{content:'';position:fixed;inset:0;
   margin-bottom:32px;animation:fadeUp .7s ease both;max-width:100%;flex-wrap:wrap;justify-content:center}
 .bpulse{width:6px;height:6px;background:var(--blue);border-radius:50%;animation:pulse 2s ease infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(71,151,255,.6)}50%{box-shadow:0 0 0 6px rgba(71,151,255,0)}}
-.hero h1{font-family:var(--syne);font-size:clamp(2rem,7vw,4.2rem);font-weight:800;
-  line-height:1.08;letter-spacing:-.03em;margin-bottom:10px;animation:fadeUp .7s .08s ease both;word-break:break-word}
+.hero h1{font-family:var(--display);font-size:clamp(2rem,7vw,4.2rem);font-weight:600;
+  line-height:1.08;letter-spacing:-.025em;margin-bottom:10px;animation:fadeUp .7s .08s ease both;word-break:break-word}
 .hero h1 .ga{background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hrule{width:48px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);margin:22px auto;animation:fadeUp .7s .12s ease both}
 .hero-sub{font-size:1.04rem;color:var(--muted);line-height:1.74;max-width:480px;margin:0 auto 14px;animation:fadeUp .7s .16s ease both}
@@ -124,7 +129,7 @@ body::before{content:'';position:fixed;inset:0;
 .hproof{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px;animation:fadeUp .7s .3s ease both}
 .pfaces{display:flex}
 .pface{width:30px;height:30px;border-radius:50%;border:2px solid var(--void);margin-right:-9px;
-  font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+  font-size:.6rem;font-weight:600;display:flex;align-items:center;justify-content:center}
 .pf1{background:linear-gradient(135deg,#4797ff,#7cb9ff)}
 .pf2{background:linear-gradient(135deg,#10b981,#3b82f6)}
 .pf3{background:linear-gradient(135deg,#f97316,#fbbf24)}
@@ -153,8 +158,8 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .ey{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
   letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
 .ey::before{content:'';width:22px;height:1px;background:var(--blue)}
-.stitle{font-family:var(--syne);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:800;
-  line-height:1.1;letter-spacing:-.022em;margin-bottom:20px}
+.stitle{font-family:var(--display);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:600;
+  line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
 .stitle em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* STATS BAR */
@@ -169,7 +174,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .3s}
 .stat:hover{background:var(--glass)}
 .stat:hover::before{opacity:1}
-.stn{font-family:var(--syne);font-size:clamp(2.4rem,3.6vw,3.4rem);font-weight:800;letter-spacing:-.03em;
+.stn{font-family:var(--display);font-size:clamp(2.4rem,3.6vw,3.4rem);font-weight:600;letter-spacing:-.025em;
   line-height:1;display:block;margin-bottom:10px;color:var(--faint);transition:color .3s}
 .stn.lit{background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .stl{color:var(--muted);font-size:.84rem;line-height:1.55}
@@ -195,7 +200,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .3s}
 .proc-step:hover{background:rgba(71,151,255,.03)}
 .proc-step:hover::before{opacity:1}
-.pnum{font-family:var(--syne);font-size:3rem;font-weight:800;color:var(--faint);line-height:1;
+.pnum{font-family:var(--display);font-size:3rem;font-weight:600;color:var(--faint);line-height:1;
   margin-bottom:16px;opacity:.15;transition:opacity .3s}
 .proc-step:hover .pnum{opacity:.3}
 .pdur{display:inline-block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
@@ -225,13 +230,13 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   top:50%;right:-30px;transform:translateY(-50%);opacity:0;transition:opacity .4s;pointer-events:none;
   background:rgba(71,151,255,.1)}
 .feat-wrap:hover .feat-orb{opacity:1}
-.fnum{font-family:var(--syne);font-size:.67rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:28px;position:relative;z-index:2}
+.fnum{font-family:var(--display);font-size:.67rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:28px;position:relative;z-index:2}
 .fico{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;
   margin-bottom:22px;background:var(--bdim);border:1px solid rgba(71,151,255,.22);
   position:relative;z-index:2;transition:all .3s}
 .fico svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .feat-wrap:hover .fico{transform:translateZ(10px) scale(1.05);box-shadow:0 0 20px rgba(71,151,255,.2)}
-.fname{font-family:var(--syne);font-size:1.1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:10px;position:relative;z-index:2}
+.fname{font-family:var(--display);font-size:1.1rem;font-weight:600;letter-spacing:-.01em;margin-bottom:10px;position:relative;z-index:2}
 .fdesc{color:var(--muted);font-size:.84rem;line-height:1.7;position:relative;z-index:2;flex:1}
 
 /* OUTCOMES */
@@ -242,7 +247,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .3s}
 .out-item:hover{background:rgba(71,151,255,.03)}
 .out-item:hover::after{opacity:1}
-.out-val{font-family:var(--syne);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:800;
+.out-val{font-family:var(--display);font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:600;
   background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   line-height:1;margin-bottom:12px}
 .out-lbl{font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:6px}
@@ -256,7 +261,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .compare-table thead th{background:var(--surf);padding:26px 24px;border-bottom:1px solid var(--bmid)}
 .compare-feature-col{text-align:left !important;width:40%;color:var(--off) !important}
 .compare-table tbody td:first-child{text-align:left;color:var(--off)}
-.compare-tier-name{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:4px;font-family:var(--syne)}
+.compare-tier-name{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:4px;font-family:var(--display)}
 .compare-tier-price{font-size:.76rem;color:var(--faint)}
 .compare-table tfoot td{padding:24px;border-bottom:none}
 .compare-highlight{color:var(--blue) !important;font-weight:500 !important}
@@ -270,7 +275,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .ind-img{width:140px;height:140px;padding:14px;display:flex;align-items:center;justify-content:center}
 .ind-img img{width:100%;height:100%;object-fit:contain}
 .ind-body{padding:28px 28px 28px 8px;display:flex;flex-direction:column;gap:8px}
-.ind-item h3{font-family:var(--syne);font-size:1.3rem;font-weight:700;color:var(--white);letter-spacing:-.015em}
+.ind-item h3{font-family:var(--display);font-size:1.3rem;font-weight:600;color:var(--white);letter-spacing:-.015em}
 .ind-desc{font-size:.82rem;color:var(--muted);line-height:1.6}
 .ind-link{font-size:.78rem;color:var(--blue);display:inline-flex;align-items:center;gap:6px;font-weight:500;transition:gap .25s}
 .ind-item:hover .ind-link{gap:10px}
@@ -296,8 +301,8 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
   border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:32px 28px;
   backdrop-filter:blur(16px);transition:all .6s cubic-bezier(.4,0,.2,1);will-change:transform,opacity;cursor:none;overflow:hidden}
-.tc::before{content:'\201C';position:absolute;top:-8px;right:16px;font-family:var(--syne);
-  font-size:5rem;font-weight:800;color:rgba(71,151,255,.06);line-height:1;pointer-events:none}
+.tc::before{content:'\201C';position:absolute;top:-8px;right:16px;font-family:var(--display);
+  font-size:5rem;font-weight:600;color:rgba(71,151,255,.06);line-height:1;pointer-events:none}
 .tc.pos-center{transform:translateX(0) translateZ(80px) rotateY(0deg) scale(1.04);opacity:1;z-index:3}
 .tc.pos-right{transform:translateX(360px) translateZ(-50px) rotateY(-16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
 .tc.pos-left{transform:translateX(-360px) translateZ(-50px) rotateY(16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
@@ -310,7 +315,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .tbody{font-size:.88rem;color:#CACAC0;line-height:1.74;margin-bottom:20px;font-style:italic}
 .tauth{display:flex;align-items:center;gap:12px}
 .tav{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:.72rem;font-weight:800;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--sky))}
+  font-size:.72rem;font-weight:600;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--sky))}
 .tnm{font-size:.88rem;font-weight:500;color:var(--white);margin-bottom:2px}
 .tco{font-size:.76rem;color:var(--muted)}
 .car-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:48px}
@@ -343,7 +348,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .foot-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .foot-logo{display:flex;align-items:center;gap:10px}
 .foot-logo img{height:28px;width:auto;opacity:.65}
-.foot-logo span{font-family:var(--syne);font-size:1rem;font-weight:700;color:var(--muted)}
+.foot-logo span{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--muted)}
 .foot-links{display:flex;gap:24px;flex-wrap:wrap}
 .foot-links a{font-size:.8rem;color:var(--faint);text-decoration:none;transition:color .2s}
 .foot-links a:hover{color:var(--white)}
@@ -631,38 +636,38 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <!-- Top: Ads -->
         <circle cx="240" cy="80" r="28" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.3)" stroke-width="1" filter="url(#glow)"/>
         <circle cx="240" cy="80" r="14" fill="url(#nodeGrad)"/>
-        <text x="240" y="122" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">Meta / Google</text>
+        <text x="240" y="122" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">Meta / Google</text>
 
         <!-- Top right: Landing -->
         <circle cx="380" cy="160" r="24" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.25)" stroke-width="1" filter="url(#glow)"/>
         <circle cx="380" cy="160" r="12" fill="url(#nodeGrad)"/>
-        <text x="380" y="195" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">Landing Page</text>
+        <text x="380" y="195" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">Landing Page</text>
 
         <!-- Bottom right: AI -->
         <circle cx="380" cy="320" r="24" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.25)" stroke-width="1" filter="url(#glow)"/>
         <circle cx="380" cy="320" r="12" fill="url(#nodeGrad)"/>
-        <text x="380" y="355" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">AI Agent</text>
+        <text x="380" y="355" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">AI Agent</text>
 
         <!-- Bottom: Quote -->
         <circle cx="240" cy="400" r="28" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.3)" stroke-width="1" filter="url(#glow)"/>
         <circle cx="240" cy="400" r="14" fill="url(#nodeGrad)"/>
-        <text x="240" y="440" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">Quote Sent</text>
+        <text x="240" y="440" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">Quote Sent</text>
 
         <!-- Bottom left: CRM -->
         <circle cx="100" cy="320" r="24" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.25)" stroke-width="1" filter="url(#glow)"/>
         <circle cx="100" cy="320" r="12" fill="url(#nodeGrad)"/>
-        <text x="100" y="355" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">CRM Pipeline</text>
+        <text x="100" y="355" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">CRM Pipeline</text>
 
         <!-- Top left: Follow-up -->
         <circle cx="100" cy="160" r="24" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.25)" stroke-width="1" filter="url(#glow)"/>
         <circle cx="100" cy="160" r="12" fill="url(#nodeGrad)"/>
-        <text x="100" y="195" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="500">Follow-Up</text>
+        <text x="100" y="195" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">Follow-Up</text>
 
         <!-- CORE NODE -->
         <circle cx="240" cy="240" r="44" fill="rgba(71,151,255,0.08)" stroke="rgba(71,151,255,0.2)" stroke-width="1" filter="url(#softGlow)"/>
         <circle cx="240" cy="240" r="30" fill="rgba(71,151,255,0.15)" stroke="rgba(124,185,255,0.4)" stroke-width="1"/>
         <circle cx="240" cy="240" r="18" fill="url(#coreGrad)" filter="url(#glow)"/>
-        <text x="240" y="275" font-size="11" fill="rgba(184,212,255,0.9)" text-anchor="middle" font-family="Syne,sans-serif" font-weight="700" letter-spacing="0.05em">YOUR SYSTEM</text>
+        <text x="240" y="275" font-size="11" fill="rgba(184,212,255,0.9)" text-anchor="middle" font-family="General Sans,system-ui,sans-serif" font-weight="600" letter-spacing="0.05em">YOUR SYSTEM</text>
       </svg>
     </div>
   </div>

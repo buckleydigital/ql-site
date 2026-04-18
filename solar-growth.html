@@ -34,10 +34,14 @@
     <meta property="og:url" content="https://quoteleads.com.au/solar">
     <meta property="og:title" content="Solar Lead Generation System - Built & Owned By You">
     <meta property="og:description" content="Stop buying shared solar leads. A complete lead generation system built for your solar business, owned by you from day one.">    <link rel="stylesheet" href="/cards.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
     <style>
+/* Display: Neue Montreal (using General Sans as free stand-in — swap var(--display) when licensed) */
+/* Body: Inter */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
 
@@ -56,8 +60,8 @@
             --accent-dim:  rgba(180,190,200,0.12);
             --accent-glow: rgba(255,255,255,0.02);
             --button-primary: #4797FF;
-            --serif: 'Poppins', system-ui, -apple-system, sans-serif;
-            --sans:  'Poppins', system-ui, -apple-system, sans-serif;
+            --display: 'General Sans', 'PP Neue Montreal', 'Neue Montreal', system-ui, sans-serif;
+            --body: 'Inter', system-ui, sans-serif;
             color-scheme: dark;
         }
         :root[data-theme="light"] {
@@ -75,15 +79,16 @@
             --accent-dim:  rgba(180,190,200,0.20);
             --accent-glow: rgba(180,190,200,0.08);
             --button-primary: #4797FF;
-            --serif: 'Poppins', system-ui, -apple-system, sans-serif;
-            --sans:  'Poppins', system-ui, -apple-system, sans-serif;
+            --display: 'General Sans', 'PP Neue Montreal', 'Neue Montreal', system-ui, sans-serif;
+            --body: 'Inter', system-ui, sans-serif;
             color-scheme: light;
         }
         
 
 
         body {
-            font-family: var(--sans);
+            font-family: var(--body);
+            font-feature-settings: "cv11", "ss01", "ss03";
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
@@ -128,7 +133,7 @@
         .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--solar); }
 
         .hero h1 {
-            font-family: var(--serif);
+            font-family: var(--display);
             font-size: clamp(38px, 5.8vw, 68px); line-height: 1.04;
             letter-spacing: -0.8px; color: var(--ink); margin-bottom: 28px;
             max-width: 780px;
@@ -167,7 +172,7 @@
         }
         .hero-stat:last-child { border-right: none; }
         .hero-stat-val {
-            font-family: var(--serif); font-size: 28px; color: var(--solar);
+            font-family: var(--display); font-size: 28px; color: var(--solar);
             line-height: 1; margin-bottom: 4px;
         }
         .hero-stat-label { font-size: 11px; color: var(--ink-faint); line-height: 1.4; }
@@ -183,7 +188,7 @@
         .slbl.solar-lbl { color: var(--solar); }
         .slbl.solar-lbl::before { background: var(--solar); }
         .stitle {
-            font-family: var(--serif); font-size: clamp(28px, 3.8vw, 46px);
+            font-family: var(--display); font-size: clamp(28px, 3.8vw, 46px);
             line-height: 1.08; letter-spacing: -0.4px; color: var(--ink); margin-bottom: 20px;
         }
         .stitle em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -260,7 +265,7 @@
         .flow-stage-label.blue { background: var(--accent-dim); color: var(--accent); }
         .flow-stage-label.solar { background: var(--solar-dim); color: var(--solar); }
         .flow-stage-label.green { background: var(--green-dim); color: var(--green); }
-        .flow-stage-title { font-family: var(--serif); font-size: 19px; color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
+        .flow-stage-title { font-family: var(--display); font-size: 19px; color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
         .flow-stage-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; margin-bottom: 16px; }
         .flow-nodes { display: flex; flex-direction: column; gap: 6px; }
         .flow-node {
@@ -340,7 +345,7 @@
             border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px;
         }
         .timeline-card { padding: 36px 28px; }
-        .timeline-card-month { font-family: var(--serif); font-size: 48px; color: var(--solar-dim); line-height: 1; margin-bottom: 16px; }
+        .timeline-card-month { font-family: var(--display); font-size: 48px; color: var(--solar-dim); line-height: 1; margin-bottom: 16px; }
         .timeline-tag {
             display: inline-block; font-size: 10px; letter-spacing: 0.08em;
             text-transform: uppercase; padding: 3px 10px; border-radius: 3px; margin-bottom: 16px;
@@ -372,7 +377,7 @@
             gap: 16px; border-radius: 8px; margin-top: 24px;
         }
         .stat-cell { padding: 28px 20px; text-align: center; }
-        .stat-val { font-family: var(--serif); font-size: 32px; color: var(--solar); line-height: 1; margin-bottom: 6px; }
+        .stat-val { font-family: var(--display); font-size: 32px; color: var(--solar); line-height: 1; margin-bottom: 6px; }
         .stat-label { font-size: 12px; color: var(--ink-muted); font-weight: 400; line-height: 1.4; }
 
         /* OWNERSHIP */
@@ -418,7 +423,7 @@
         }
         .cta-inner { max-width: 580px; margin: 0 auto; position: relative; z-index: 1; }
         .cta-inner h2 {
-            font-family: var(--serif); font-size: clamp(30px, 4.5vw, 52px);
+            font-family: var(--display); font-size: clamp(30px, 4.5vw, 52px);
             line-height: 1.08; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.5px;
         }
         .cta-inner h2 em { font-style: normal; color: var(--solar); font-weight: 500; }
@@ -448,7 +453,7 @@
         .logo-img { height: 36px; width: auto; display: block; }
         .logo-img.hide { display: none; }
         .logo-text {
-            font-family: var(--serif); font-size: 20px; color: var(--ink);
+            font-family: var(--display); font-size: 20px; color: var(--ink);
             letter-spacing: -0.3px; display: none;
         }
         .logo-text.show { display: block; }
@@ -460,7 +465,7 @@
         .nav-links> a:hover { color: var(--ink); }
         .nav-dropdown { position: relative; }
         .nav-dropdown-btn {
-            font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--ink-muted);
+            font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--ink-muted);
             background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
             padding: 0; transition: color 0.2s;
         }
@@ -548,7 +553,7 @@
         }
         .foot-logo { display: flex; align-items: center; gap: 10px; }
         .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
-        .foot-logo span { font-family: var(--serif); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-logo span { font-family: var(--display); font-size: 18px; color: var(--ink-soft); display: none; }
         .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
         .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .foot-links a:hover { color: var(--ink); }

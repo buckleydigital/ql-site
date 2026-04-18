@@ -107,11 +107,14 @@
       ]
     }
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
     <style>
+/* Display: Neue Montreal (using General Sans as free stand-in — swap var(--display) when licensed) */
+/* Body: Inter */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
 
@@ -130,8 +133,7 @@
             --accent-dim:  rgba(71,151,255,0.12);
             --accent-glow: rgba(71,151,255,0.04);
             --button-primary: #4797FF;
-            --syne: 'Syne', sans-serif;
-            --body: 'DM Sans', sans-serif;
+            --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
             color-scheme: dark;
         }
         :root[data-theme="light"] {
@@ -149,14 +151,14 @@
             --accent-dim:  rgba(71,151,255,0.20);
             --accent-glow: rgba(71,151,255,0.08);
             --button-primary: #4797FF;
-            --syne: 'Syne', sans-serif;
-            --body: 'DM Sans', sans-serif;
+            --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
             color-scheme: light;
         }
 
 
         body {
             font-family: var(--body);
+            font-feature-settings: "cv11", "ss01", "ss03";
             background: var(--bg);
             color: var(--ink);
             line-height: 1.65;
@@ -164,7 +166,7 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+        h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 
         /* HERO */
         .hero {
@@ -184,7 +186,7 @@
         .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
 
         .hero h1 {
-            font-family: var(--syne);
+            font-family: var(--display);
             font-size: clamp(34px, 5.5vw, 60px); line-height: 1.06;
             letter-spacing: -0.6px; color: var(--ink); margin-bottom: 28px;
             max-width: 780px;
@@ -216,7 +218,7 @@
         }
         .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
         .stitle {
-            font-family: var(--syne); font-size: clamp(26px, 3.5vw, 42px);
+            font-family: var(--display); font-size: clamp(26px, 3.5vw, 42px);
             line-height: 1.1; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px;
         }
         .stitle em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -235,7 +237,7 @@
         .prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
         .prose a:hover { color: var(--ink); }
         .prose h3 {
-            font-family: var(--syne); font-size: 26px; color: var(--ink);
+            font-family: var(--display); font-size: 26px; color: var(--ink);
             line-height: 1.2; letter-spacing: -0.2px;
             margin-top: 48px; margin-bottom: 16px;
         }
@@ -277,7 +279,7 @@
         /* FAQ SECTION */
         .faq-item { margin-top: 40px; }
         .faq-item h3 {
-            font-family: var(--syne); font-size: 22px; color: var(--ink);
+            font-family: var(--display); font-size: 22px; color: var(--ink);
             line-height: 1.3; letter-spacing: -0.2px; margin-bottom: 14px;
         }
         .faq-item p {
@@ -298,10 +300,10 @@
         }
         .cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
         .cta-inner h2 {
-            font-family: var(--syne); font-size: clamp(28px, 4vw, 46px); font-weight: 800;
+            font-family: var(--display); font-size: clamp(28px, 4vw, 46px); font-weight:600;
             line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
         }
-        .cta-inner h2 em { font-style: normal; color: var(--button-primary); font-weight: 800; }
+        .cta-inner h2 em { font-style: normal; color: var(--button-primary); font-weight:600; }
         .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 40px; font-weight: 400; }
         .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
         .btn-primary {
@@ -335,7 +337,7 @@
             padding: 3px 10px; border-radius: 3px; display: inline-block; margin-bottom: 16px;
         }
         .related-title {
-            font-family: var(--syne); font-size: 18px; color: var(--ink);
+            font-family: var(--display); font-size: 18px; color: var(--ink);
             line-height: 1.3; margin-bottom: 10px;
         }
         .related-title em { font-style: normal; color: var(--accent); font-weight: 500; }
@@ -359,7 +361,7 @@
         .logo-img { height: 36px; width: auto; display: block; }
         .logo-img.hide { display: none; }
         .logo-text {
-            font-family: var(--syne); font-size: 20px; color: var(--ink);
+            font-family: var(--display); font-size: 20px; color: var(--ink);
             letter-spacing: -0.3px; display: none;
         }
         .logo-text.show { display: block; }
@@ -458,7 +460,7 @@
         }
         .foot-logo { display: flex; align-items: center; gap: 10px; }
         .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
-        .foot-logo span { font-family: var(--syne); font-size: 18px; color: var(--ink-soft); display: none; }
+        .foot-logo span { font-family: var(--display); font-size: 18px; color: var(--ink-soft); display: none; }
         .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
         .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
         .foot-links a:hover { color: var(--ink); }
