@@ -92,12 +92,12 @@ body::before{content:'';position:fixed;inset:0;
 .hc{position:relative;z-index:3}
 .hbadge{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--bblue);
   background:var(--bdim);padding:5px 16px 5px 10px;border-radius:100px;
-  font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);
-  margin-bottom:32px;animation:fadeUp .7s ease both}
+  font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);
+  margin-bottom:32px;animation:fadeUp .7s ease both;max-width:100%;flex-wrap:wrap;justify-content:center}
 .bpulse{width:6px;height:6px;background:var(--blue);border-radius:50%;animation:pulse 2s ease infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(71,151,255,.6)}50%{box-shadow:0 0 0 6px rgba(71,151,255,0)}}
-.hero h1{font-family:var(--syne);font-size:clamp(2.8rem,4.5vw,4.2rem);font-weight:800;
-  line-height:1.06;letter-spacing:-.03em;margin-bottom:10px;animation:fadeUp .7s .08s ease both}
+.hero h1{font-family:var(--syne);font-size:clamp(2rem,7vw,4.2rem);font-weight:800;
+  line-height:1.08;letter-spacing:-.03em;margin-bottom:10px;animation:fadeUp .7s .08s ease both;word-break:break-word}
 .hero h1 .ga{background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hrule{width:48px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);margin:22px auto;animation:fadeUp .7s .12s ease both}
 .hero-sub{font-size:1.04rem;color:var(--muted);line-height:1.74;max-width:480px;margin:0 auto 14px;animation:fadeUp .7s .16s ease both}
@@ -394,7 +394,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .proc-step{border-right:none;border-bottom:1px solid var(--border)}
   .proc-step:last-child{border-bottom:none}
   .compare-table th,.compare-table td{padding:12px 14px;font-size:.78rem}
-  .own-grid{gap:12px}
+  .own-strip{padding:36px 5%}
   .own-item{padding:10px 14px;font-size:.8rem}
   footer{padding:40px 5%}
   .foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
@@ -402,6 +402,25 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .car-scene{height:420px}
   .stitle{font-size:1.8rem}
   .pipeline3d{height:260px !important;margin-top:40px !important}
+}
+@media(max-width:480px){
+  .hero{padding:90px 5% 50px}
+  .hero h1{font-size:clamp(1.7rem,8vw,2.4rem)}
+  .hbadge{font-size:.65rem;letter-spacing:.04em}
+  .hero-sub{font-size:.95rem}
+  .hero-kick{font-size:.84rem}
+  .btn-mag,.btn-ghost{font-size:.82rem;padding:12px 20px}
+  .stat{padding:28px 5%}
+  .stn{font-size:2.2rem}
+  .stitle{font-size:1.6rem}
+  .pipeline3d{height:220px !important}
+  .feat-card{padding:28px 22px}
+  .out-item{padding:36px 24px}
+  .car-scene{height:460px}
+  .tc{width:290px}
+  .proc-step{padding:28px 20px}
+  .compare-table{font-size:.74rem}
+  .compare-table th,.compare-table td{padding:10px 10px}
 }
 </style>
 </head>
