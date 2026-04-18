@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
@@ -33,7 +33,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://quoteleads.com.au/growth-implementation">
     <meta property="og:title" content="Growth Implementation - Own Your Lead System End-to-End">
-    <meta property="og:description" content="A fully built lead generation system owned by your business from day one. $2,550 + GST over 90 days. No lock-in.">    <script type="application/ld+json">
+    <meta property="og:description" content="A fully built lead generation system owned by your business from day one. $2,550 + GST over 90 days. No lock-in.">
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -49,1035 +50,842 @@
       "serviceType": "Lead Generation System Build"
     }
     </script>
-
-    <link rel="stylesheet" href="/cards.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-    <style>
-/* Display: Neue Montreal (using General Sans as free stand-in — swap var(--display) when licensed) */
+<style>
+/* Display: Neue Montreal (using General Sans as free stand-in) */
 /* Body: Inter */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040A;--deep:#08080F;--surf:#0C0C18;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07);--bmid:rgba(255,255,255,0.10);
+  --bblue:rgba(71,151,255,0.3);
+  --blue:#4797FF;--bdim:rgba(71,151,255,0.12);
+  --sky:#7CB9FF;--mist:#B8D4FF;
+  --white:#F2F2F2;--off:#CACAD0;--muted:#71717A;--faint:#3F3F46;
+  --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
+  --bh:40px;--nh:68px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--void);color:var(--white);font-family:var(--body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss01','ss03'}
 
-        :root[data-theme="dark"] {
-            --bg:          #000000;
-            --bg-lift:     #080808;
-            --bg-card:     #0F0F0F;
-            --bg-deep:     #080808;
-            --border:      rgba(255,255,255,0.07);
-            --border-mid:  rgba(255,255,255,0.10);
-            --ink:         #F2F2F2;
-            --ink-soft:    #7d8fa0;
-            --ink-muted:   #7d8fa0;
-            --ink-faint:   #485867;
-            --accent:      #B4BEC8;
-            --accent-dim:  rgba(180,190,200,0.12);
-            --accent-glow: rgba(255,255,255,0.02);
-            --button-primary: #4797FF;
-            --display: 'General Sans', 'PP Neue Montreal', 'Neue Montreal', system-ui, sans-serif;
-            --body: 'Inter', system-ui, sans-serif;
-            color-scheme: dark;
-        }
-        :root[data-theme="light"] {
-            --bg:          #f7f8fa;
-            --bg-lift:     #f1f4f7;
-            --bg-card:     #ffffff;
-            --bg-deep:     #edf1f4;
-            --border:      rgba(15,20,25,0.10);
-            --border-mid:  rgba(15,20,25,0.14);
-            --ink:         #13181f;
-            --ink-soft:    #35414f;
-            --ink-muted:   #4a5564;
-            --ink-faint:   #72808e;
-            --accent:      #B4BEC8;
-            --accent-dim:  rgba(180,190,200,0.20);
-            --accent-glow: rgba(180,190,200,0.08);
-            --button-primary: #4797FF;
-            --display: 'General Sans', 'PP Neue Montreal', 'Neue Montreal', system-ui, sans-serif;
-            --body: 'Inter', system-ui, sans-serif;
-            color-scheme: light;
-        }
-        
+/* CURSOR */
+#cur{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s;mix-blend-mode:normal}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
 
+/* AURA */
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);
+  transform:translate(-50%,-50%);transition:left .5s ease,top .5s ease}
 
-        body {
-            font-family: var(--body);
-            font-feature-settings: "cv11", "ss01", "ss03";
-            background: var(--bg);
-            color: var(--ink);
-            line-height: 1.65;
-            font-weight: 400;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+/* PARTICLES */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
 
-        
+/* GRAIN */
+body::before{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+  background-size:200px;pointer-events:none;z-index:2;opacity:.4}
 
-        /* HERO */
-        .hero {
-            padding: 140px 48px 80px;
-            position: relative; overflow: hidden;
-            border-bottom: 1px solid var(--border);
-        }
-        .hero-glow { display: none; }
-        .hero-grid { display: none; }
-        .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
-        .eyebrow {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
-            text-transform: uppercase; color: var(--accent); margin-bottom: 28px;
-        }
-        .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
-        .hero h1 {
-            font-family: var(--display);
-            font-size: clamp(36px, 5.5vw, 62px); line-height: 1.06;
-            letter-spacing: -0.6px; color: var(--ink); margin-bottom: 28px;
-            max-width: 740px;
-        }
-        .hero h1 em { font-style: normal; color: var(--accent); font-weight: 500; }
-        .hero-sub {
-            font-size: 17px; font-weight: 400; color: var(--ink-muted);
-            line-height: 1.75; max-width: 580px; margin-bottom: 48px;
-        }
-        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-        .btn-primary {
-            background: var(--button-primary); color: #fff;
-            padding: 16px 36px; border-radius: 4px; text-decoration: none;
-            font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
-            display: inline-block; transition: opacity 0.2s, transform 0.2s;
-        }
-        .btn-primary:hover { opacity: 0.92; }
-        .btn-secondary {
-            background: none; border: 1px solid var(--border-mid); color: var(--ink-soft);
-            padding: 16px 36px; border-radius: 8px; text-decoration: none;
-            font-size: 15px; font-weight: 400; display: inline-block; transition: all 0.2s;
-        }
-        .btn-secondary:hover { border-color: var(--accent); color: var(--ink); }
-        .hero-trust { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
-        .hero-trust span+span::before { content: ' · '; }
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;
+  background:rgba(4,4,10,0);border-bottom:1px solid transparent;
+  transition:background .4s,border-color .4s,backdrop-filter .4s}
+.site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
+.header-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:var(--nh)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:.84rem;font-weight:400;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.02em}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff !important;
+  font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;
+  text-decoration:none;transition:all .2s;position:relative;overflow:hidden}
+.nav-cta::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s}
+.nav-cta:hover{background:var(--sky);transform:translateY(-1px);box-shadow:0 8px 28px rgba(71,151,255,.4)}
+.nav-cta:hover::after{opacity:1}
+.mob-btn{display:none;background:none;border:none;cursor:none;padding:4px;flex-direction:column;gap:5px}
+.mob-btn span{display:block;width:22px;height:1.5px;background:var(--white);transition:.3s}
 
-        /* SHARED */
-        .si { max-width: 900px; margin: 0 auto; }
-        .slbl {
-            font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 16px;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
-        .stitle {
-            font-family: var(--display); font-size: clamp(26px, 3.5vw, 42px);
-            line-height: 1.1; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px;
-        }
-        .stitle em { font-style: normal; color: var(--accent); font-weight: 500; }
+/* MOBILE MENU */
+.mob-menu{display:none;position:absolute;top:100%;left:0;right:0;
+  background:rgba(4,4,10,.97);border-bottom:1px solid var(--border);padding:0 5% 20px;
+  backdrop-filter:blur(28px)}
+.mob-menu.open{display:flex;flex-direction:column;gap:0}
+.mob-menu a{padding:14px 0;font-size:1rem;color:var(--off);text-decoration:none;border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--white)}
+.mob-cta-link{background:var(--blue) !important;color:#fff !important;padding:14px 0 !important;
+  border-radius:4px;text-align:center;margin-top:12px;border-bottom:none !important}
 
-        /* CONTENT SECTIONS */
-        .content-section {
-            padding: 80px 48px;
-            border-bottom: 1px solid var(--border);
-        }
-        .content-section.lifted { background: var(--bg-lift); }
-        .content-body { font-size: 16px; font-weight: 400; color: var(--ink-muted); line-height: 1.85; max-width: 680px; margin-top: 40px; }
-        .content-body p + p { margin-top: 20px; }
-        .content-body strong { color: var(--ink); font-weight: 400; }
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:140px 5% 80px;position:relative;overflow:visible;max-width:1120px;margin:0 auto;text-align:center}
+.hc{width:100%;max-width:720px;position:relative;z-index:3}
+.hero-ambi{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.ha1{width:500px;height:500px;background:rgba(71,151,255,.04);right:-50px;top:40%;transform:translateY(-50%)}
+.ha2{width:300px;height:300px;background:rgba(124,185,255,.025);left:-60px;bottom:-80px}
+.ha3{width:250px;height:250px;background:rgba(71,151,255,.02);left:35%;top:-60px}
 
-        /* INVESTMENT BREAKDOWN */
-        .invest-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-            margin-top: 48px;
-        }
-        .invest-card { padding: 36px 28px; }
-        .invest-card-phase {
-            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--ink-faint); margin-bottom: 6px;
-        }
-        .invest-card-label {
-            font-size: 14px; font-weight: 400; color: var(--ink-soft); margin-bottom: 16px; line-height: 1.4;
-        }
-        .invest-card-price {
-            font-family: var(--display); font-size: 36px; color: var(--ink); line-height: 1;
-            margin-bottom: 4px;
-        }
-        .invest-card-price .currency { font-size: 22px; color: var(--ink-soft); vertical-align: top; margin-right: 2px; }
-        .invest-card-gst { font-size: 12px; color: var(--ink-faint); margin-bottom: 16px; }
-        .invest-card-detail { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400; }
-        .invest-total {
-            margin-top: 1px;
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-top: none; border-radius: 0 0 8px 8px;
-            padding: 24px 28px;
-            display: flex; align-items: center; justify-content: space-between;
-            flex-wrap: wrap; gap: 12px;
-        }
-        .invest-total-left { font-size: 14px; color: var(--ink-muted); font-weight: 400; }
-        .invest-total-left strong { color: var(--ink); font-weight: 400; }
-        .invest-total-right { font-size: 13px; color: var(--ink-faint); font-weight: 400; }
+/* Hero content */
+.hbadge{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--bblue);
+  background:var(--bdim);padding:5px 16px 5px 10px;border-radius:100px;
+  font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);
+  margin-bottom:32px;animation:fadeUp .7s ease both;max-width:100%;flex-wrap:wrap;justify-content:center}
+.bpulse{width:6px;height:6px;background:var(--blue);border-radius:50%;animation:pulse 2s ease infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(71,151,255,.6)}50%{box-shadow:0 0 0 6px rgba(71,151,255,0)}}
+.hero h1{font-family:var(--display);font-size:clamp(2rem,7vw,4.2rem);font-weight:600;
+  line-height:1.08;letter-spacing:-.025em;margin-bottom:10px;animation:fadeUp .7s .08s ease both;word-break:break-word}
+.hero h1 .ga{background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hrule{width:48px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);margin:22px auto;animation:fadeUp .7s .12s ease both}
+.hero-sub{font-size:1.04rem;color:var(--muted);line-height:1.74;max-width:480px;margin:0 auto 14px;animation:fadeUp .7s .16s ease both}
+.hero-kick{font-size:.9rem;color:#A1A1AA;line-height:1.68;max-width:520px;margin:0 auto 40px;
+  padding:14px 20px;border-left:2px solid var(--bblue);background:rgba(71,151,255,.04);
+  border-radius:0 12px 12px 0;animation:fadeUp .7s .2s ease both;text-align:left}
+.hero-kick strong{color:var(--white);font-weight:500}
+.hbtns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;animation:fadeUp .7s .24s ease both}
+.btn-mag{position:relative;display:inline-flex;align-items:center;gap:10px;
+  background:var(--blue);color:#fff;font-family:var(--body);font-size:.88rem;font-weight:500;
+  letter-spacing:.02em;padding:14px 30px;border-radius:100px;text-decoration:none;border:none;
+  overflow:hidden;transition:background .2s,box-shadow .2s;cursor:none}
+.btn-mag::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.18),transparent 60%);
+  opacity:0;transition:opacity .3s}
+.btn-mag:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38)}
+.btn-mag:hover::before{opacity:1}
+.btn-mag svg{width:14px;height:14px;transition:transform .2s}
+.btn-mag:hover svg{transform:translateX(4px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);
+  border:1px solid var(--border);font-family:var(--body);font-size:.88rem;font-weight:400;
+  padding:14px 28px;border-radius:100px;text-decoration:none;transition:all .25s;cursor:none}
+.btn-ghost:hover{border-color:var(--faint);color:var(--white)}
+.final-trust{margin-top:24px;font-size:.8rem;color:var(--faint);display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.final-trust span{display:flex;align-items:center;gap:6px}
+.final-trust span::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-        /* SYSTEM FLOW VISUAL */
-        .system-visual {
-            margin-top: 56px;
-            position: relative;
-        }
-        .flow-label {
-            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 24px;
-            display: flex; align-items: center; gap: 10px;
-        }
-        .flow-label::before { content: ''; width: 12px; height: 1px; background: var(--accent); opacity: 0.5; }
-        .flow-container {
-            position: relative;
-            border: 1px solid var(--border); border-radius: 8px;
-            background: var(--bg-deep);
-            overflow: hidden;
-        }
+/* MARQUEE */
+.mwrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:var(--deep);padding:14px 0;overflow:hidden;position:relative;z-index:3}
+.mtrack{display:flex;width:max-content;animation:mq 28s linear infinite}
+.mi{display:flex;align-items:center;gap:10px;padding:0 32px;font-size:.72rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint);white-space:nowrap;transition:color .2s}
+.mi:hover{color:var(--blue)}
+.md{width:4px;height:4px;background:var(--blue);border-radius:50%;opacity:.5}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-        /* Flow header */
-        .flow-header {
-            padding: 20px 28px; border-bottom: 1px solid var(--border);
-            display: flex; align-items: center; gap: 12px;
-        }
-        .flow-header-dots { display: flex; gap: 6px; }
-        .flow-header-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--border-mid); }
-        .flow-header-title { font-size: 12px; color: var(--ink-faint); letter-spacing: 0.04em; }
+/* SECTIONS */
+section{position:relative;z-index:3;padding:110px 5%;border-top:1px solid var(--border)}
+section:nth-of-type(even){background:var(--deep)}
+section:nth-of-type(odd){background:var(--surf)}
+section.hero-section{background:var(--void);border-top:none;padding:0}
+.si{max-width:1120px;margin:0 auto}
+.ey{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.ey::before{content:'';width:22px;height:1px;background:var(--blue)}
+.stitle{font-family:var(--display);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:600;
+  line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
+.stitle em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sdesc{color:var(--muted);font-size:.95rem;line-height:1.74;max-width:580px;margin-bottom:48px}
 
-        /* Flow stages */
-        .flow-stages {
-            display: grid; grid-template-columns: 1fr 1fr 1fr;
-            gap: 0;
-            position: relative;
-        }
-        .flow-stage {
-            padding: 32px 24px 28px;
-            position: relative;
-        }
-        .flow-stage:not(:last-child)::after {
-            content: '';
-            position: absolute; right: 0; top: 20%; bottom: 20%;
-            width: 1px; background: var(--border);
-        }
-        .flow-stage-label {
-            font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 20px;
-            padding: 3px 8px; background: var(--accent-dim); border-radius: 3px;
-            display: inline-block;
-        }
-        .flow-stage-title {
-            font-family: var(--display); font-size: 20px; color: var(--ink);
-            line-height: 1.2; margin-bottom: 14px;
-        }
-        .flow-stage-desc {
-            font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400;
-            margin-bottom: 16px;
-        }
+/* PRICING CARDS */
+.invest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+.invest-card{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px 32px 32px;
+  overflow:hidden;backdrop-filter:blur(12px);cursor:none;transition:box-shadow .3s,border-color .3s}
+.invest-card::before{content:'';position:absolute;inset:0;border-radius:20px;
+  background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.08),transparent 55%);opacity:0;transition:opacity .4s}
+.invest-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .4s}
+.invest-card:hover{box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 40px rgba(71,151,255,.07);border-color:rgba(71,151,255,.25)}
+.invest-card:hover::before,.invest-card:hover::after{opacity:1}
+.invest-phase{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
+  background:var(--bdim);padding:4px 10px;border-radius:4px;margin-bottom:20px;
+  border:1px solid rgba(71,151,255,.2);display:inline-block}
+.invest-label{font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:20px;line-height:1.4}
+.invest-price{font-family:var(--display);font-size:3rem;font-weight:600;color:var(--white);
+  line-height:1;margin-bottom:4px}
+.invest-price .currency{font-size:1.5rem;color:var(--muted);vertical-align:top;margin-right:2px}
+.invest-gst{font-size:.78rem;color:var(--faint);margin-bottom:20px}
+.invest-detail{font-size:.84rem;color:var(--muted);line-height:1.7}
+.invest-total{margin-top:24px;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px 28px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  backdrop-filter:blur(12px)}
+.invest-total-left{font-size:.95rem;color:var(--white)}
+.invest-total-left strong{color:var(--white);font-weight:600}
+.invest-total-right{font-size:.82rem;color:var(--muted)}
 
-        /* Flow nodes */
-        .flow-nodes { display: flex; flex-direction: column; gap: 6px; }
-        .flow-node {
-            display: flex; align-items: center; gap: 10px;
-            padding: 8px 12px; border-radius: 8px;
-            background: var(--bg-card); border: 1px solid var(--border);
-            font-size: 12px; color: var(--ink-soft); font-weight: 400;
-            transition: border-color 0.2s;
-        }
-        .flow-node:hover { border-color: var(--accent); }
-        .flow-node-icon {
-            width: 22px; height: 22px; border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 10px; flex-shrink: 0;
-        }
-        .flow-node-icon.blue { background: var(--accent-dim); color: var(--accent); }
-        .flow-node-icon.green { background: var(--green-dim); color: var(--green); }
+/* NOTE BOX */
+.note-box{background:linear-gradient(145deg,rgba(71,151,255,.06),rgba(71,151,255,.02));
+  border:1px solid rgba(71,151,255,.2);border-radius:16px;padding:28px 32px;margin-top:32px;position:relative}
+.note-box-lbl{position:absolute;top:-9px;left:24px;
+  background:var(--void);padding:0 10px;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.note-box p{font-size:.84rem;color:var(--muted);line-height:1.7;margin:0}
+.note-box strong{color:var(--white);font-weight:500}
 
-        /* Flow connector arrows */
-        .flow-connectors {
-            display: flex; align-items: center; justify-content: center;
-            padding: 0 28px 20px;
-            gap: 0;
-        }
-        .flow-connector-segment {
-            flex: 1; display: flex; align-items: center; justify-content: center;
-        }
-        .flow-arrow {
-            display: flex; align-items: center; gap: 0;
-            width: 100%;
-        }
-        .flow-arrow-line {
-            flex: 1; height: 1px;
-            background: var(--accent);
-        }
-        .flow-arrow-head {
-            width: 0; height: 0;
-            border-top: 4px solid transparent;
-            border-bottom: 4px solid transparent;
-            border-left: 6px solid var(--accent);
-        }
-        .flow-arrow-label {
-            font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
-            color: var(--ink-faint); white-space: nowrap; padding: 0 8px;
-        }
+/* FLOW DIAGRAM */
+.flow-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;
+  display:inline-flex;align-items:center;gap:10px}
+.flow-label::before{content:'';width:22px;height:1px;background:var(--blue)}
+.flow-container{border:1px solid var(--border);border-radius:16px;background:var(--deep);overflow:hidden}
+.flow-header{padding:20px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.flow-header-dots{display:flex;gap:6px}
+.flow-header-dots span{width:8px;height:8px;border-radius:50%;background:var(--faint)}
+.flow-header-title{font-size:.78rem;color:var(--muted);letter-spacing:.04em}
+.flow-stages{display:grid;grid-template-columns:1fr 1fr 1fr;position:relative}
+.flow-stage{padding:32px 24px 28px;position:relative}
+.flow-stage:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:var(--border)}
+.flow-stage-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
+  background:var(--bdim);padding:3px 10px;border-radius:4px;margin-bottom:16px;
+  border:1px solid rgba(71,151,255,.2);display:inline-block}
+.flow-stage-title{font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--white);line-height:1.2;margin-bottom:12px}
+.flow-stage-desc{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:16px}
+.flow-nodes{display:flex;flex-direction:column;gap:6px}
+.flow-node{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;
+  background:var(--surf);border:1px solid var(--border);font-size:.78rem;color:var(--off);transition:border-color .2s;cursor:none}
+.flow-node:hover{border-color:var(--bblue)}
+.flow-node-icon{width:22px;height:22px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
+.flow-node-icon.blue{background:var(--bdim);color:var(--blue)}
+.flow-node-icon.green{background:rgba(16,185,129,.12);color:#10b981}
+.flow-bottom{border-top:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.flow-bottom-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted)}
+.flow-bottom-dot{width:6px;height:6px;border-radius:50%}
+.flow-bottom-dot.blue{background:var(--blue)}
+.flow-bottom-dot.green{background:#10b981}
 
-        /* Flow bottom bar */
-        .flow-bottom {
-            border-top: 1px solid var(--border);
-            padding: 16px 28px;
-            display: flex; align-items: center; justify-content: space-between;
-            flex-wrap: wrap; gap: 12px;
-        }
-        .flow-bottom-item {
-            display: flex; align-items: center; gap: 8px;
-            font-size: 11px; color: var(--ink-faint);
-        }
-        .flow-bottom-dot {
-            width: 6px; height: 6px; border-radius: 50%;
-        }
-        .flow-bottom-dot.blue { background: var(--accent); }
-        .flow-bottom-dot.green { background: var(--green); }
+/* STATS GRID */
+.stat-row-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:32px}
+.stat-cell{padding:36px 28px;background:var(--deep);cursor:none;transition:background .3s;position:relative;overflow:hidden}
+.stat-cell::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .3s}
+.stat-cell:hover{background:rgba(71,151,255,.03)}
+.stat-cell:hover::after{opacity:1}
+.stat-val{font-family:var(--display);font-size:2.4rem;font-weight:600;
+  background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;margin-bottom:8px}
+.stat-label{font-size:.8rem;color:var(--muted);line-height:1.4}
 
-        /* SCALING TIMELINE */
-        .timeline-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-            margin-top: 48px;
-        }
-        .timeline-card { padding: 36px 28px; }
-        .timeline-card-month {
-            font-family: var(--display); font-size: 48px; color: var(--accent-dim);
-            line-height: 1; margin-bottom: 16px;
-        }
-        .timeline-card h3 {
-            font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3;
-        }
-        .timeline-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; }
-        .timeline-tag {
-            display: inline-block; font-size: 10px; letter-spacing: 0.08em;
-            text-transform: uppercase; padding: 3px 10px; border-radius: 3px;
-            margin-bottom: 16px;
-        }
-        .timeline-tag.build { background: var(--accent-dim); color: var(--accent); }
-        .timeline-tag.scale { background: var(--green-dim); color: var(--green); }
+/* TIMELINE CARDS */
+.timeline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
+.timeline-card{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px 32px 32px;
+  overflow:hidden;backdrop-filter:blur(12px);cursor:none;transition:box-shadow .3s,border-color .3s}
+.timeline-card::before{content:'';position:absolute;inset:0;border-radius:20px;
+  background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.08),transparent 55%);opacity:0;transition:opacity .4s}
+.timeline-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .4s}
+.timeline-card:hover{box-shadow:0 30px 70px rgba(0,0,0,.5);border-color:rgba(71,151,255,.25)}
+.timeline-card:hover::before,.timeline-card:hover::after{opacity:1}
+.timeline-month{font-family:var(--display);font-size:4rem;font-weight:600;color:var(--faint);
+  line-height:1;margin-bottom:16px;opacity:.15}
+.timeline-tag{display:inline-block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;border-radius:4px;margin-bottom:16px;border:1px solid rgba(71,151,255,.2)}
+.timeline-tag.build{background:var(--bdim);color:var(--blue)}
+.timeline-tag.scale{background:rgba(16,185,129,.12);color:#10b981;border-color:rgba(16,185,129,.2)}
+.timeline-card h3{font-size:.95rem;font-weight:500;color:var(--white);margin-bottom:10px;line-height:1.3}
+.timeline-card p{font-size:.82rem;color:var(--muted);line-height:1.65}
 
-        /* BACKEND GRID */
-        .backend-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-            margin-top: 48px;
-        }
-        .backend-card { padding: 32px 28px; }
-        .backend-card h3 {
-            font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3;
-        }
-        .backend-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; }
-        .backend-card-tag {
-            display: inline-block; font-size: 10px; letter-spacing: 0.08em;
-            text-transform: uppercase; color: var(--accent); background: var(--accent-dim);
-            padding: 3px 10px; border-radius: 3px; margin-bottom: 14px;
-        }
+/* BACKEND CARDS */
+.backend-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:60px}
+.backend-card{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px 32px;
+  overflow:hidden;backdrop-filter:blur(12px);cursor:none;transition:box-shadow .3s,border-color .3s}
+.backend-card::before{content:'';position:absolute;inset:0;border-radius:20px;
+  background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.08),transparent 55%);opacity:0;transition:opacity .4s}
+.backend-card:hover{box-shadow:0 30px 70px rgba(0,0,0,.5);border-color:rgba(71,151,255,.25)}
+.backend-card:hover::before{opacity:1}
+.backend-tag{display:inline-block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue);background:var(--bdim);padding:4px 10px;border-radius:4px;margin-bottom:16px;
+  border:1px solid rgba(71,151,255,.2)}
+.backend-card h3{font-size:.95rem;font-weight:500;color:var(--white);margin-bottom:10px;line-height:1.3}
+.backend-card p{font-size:.82rem;color:var(--muted);line-height:1.65}
 
-        /* OWNERSHIP BOX */
-        .ownership-grid {
-            display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; margin-top: 48px;
-        }
-        .ownership-body { font-size: 16px; font-weight: 400; color: var(--ink-muted); line-height: 1.85; }
-        .ownership-body p + p { margin-top: 20px; }
-        .ownership-body strong { color: var(--ink); font-weight: 400; }
-        .ownership-list-box {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; padding: 32px;
-        }
-        .ownership-list-box::before { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); opacity: 0.5; margin-bottom: 20px; }
-        .ownership-list-box-lbl { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 20px; }
-        .ownership-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-        .ownership-list li {
-            font-size: 14px; color: var(--ink-soft); line-height: 1.55;
-            display: flex; align-items: flex-start; gap: 10px; font-weight: 400;
-        }
-        .ownership-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
+/* OWNERSHIP */
+.ownership-grid{display:grid;grid-template-columns:5fr 4fr;gap:60px;align-items:start;margin-top:48px}
+.ownership-body{font-size:.95rem;color:var(--muted);line-height:1.85}
+.ownership-body p+p{margin-top:20px}
+.ownership-body strong{color:var(--white);font-weight:500}
+.ownership-list-box{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px;backdrop-filter:blur(12px)}
+.ownership-list-box-lbl{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
+  margin-bottom:24px;display:inline-flex;align-items:center;gap:10px}
+.ownership-list-box-lbl::before{content:'';width:22px;height:1px;background:var(--blue)}
+.ownership-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.ownership-list li{font-size:.84rem;color:var(--off);line-height:1.55;
+  display:flex;align-items:flex-start;gap:10px}
+.ownership-list li::before{content:'→';color:var(--blue);flex-shrink:0;font-size:.78rem;margin-top:1px}
 
-        /* NOTE BOX */
-        .note-box {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; padding: 28px 32px; margin-top: 32px;
-            position: relative;
-        }
-        .note-box-lbl {
-            position: absolute; top: -9px; left: 24px;
-            background: var(--bg-card); padding: 0 10px;
-            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--accent);
-        }
-        .note-box p {
-            font-size: 14px; color: var(--ink-muted); line-height: 1.7; margin: 0; font-weight: 400;
-        }
-        .note-box strong { color: var(--ink); font-weight: 400; }
+/* FAQ */
+.faq-list{margin-top:52px}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;cursor:none;padding:24px 0;
+  display:flex;justify-content:space-between;align-items:center;text-align:left;gap:20px;font-family:var(--body)}
+.faq-qt{font-size:.95rem;font-weight:400;color:var(--white)}
+.faq-qi{font-size:20px;color:var(--blue);flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-qi{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:.88rem;color:var(--muted);line-height:1.8}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:28px}
 
-        /* STATS */
-        .stats-row {
-            display: grid; grid-template-columns: repeat(4, 1fr);
-            gap: 16px; border-radius: 8px; margin-top: 48px;
-        }
-        .stat-cell { padding: 28px 20px; text-align: center; }
-        .stat-val {
-            font-family: var(--display); font-size: 32px; color: var(--accent);
-            line-height: 1; margin-bottom: 6px;
-        }
-        .stat-label { font-size: 12px; color: var(--ink-muted); font-weight: 400; line-height: 1.4; }
+/* FINAL CTA */
+.final-cta{text-align:center;position:relative;overflow:hidden;padding:110px 5%}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:700px;height:400px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(71,151,255,.06),transparent 65%);pointer-events:none}
+.cta-rings{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;pointer-events:none}
+.cta-ring{position:absolute;border-radius:50%;border:1px solid rgba(71,151,255,.06);top:50%;left:50%;transform:translate(-50%,-50%)}
+.cr1{width:200px;height:200px;animation:crPulse 3s ease infinite}
+.cr2{width:360px;height:360px;animation:crPulse 3s .5s ease infinite}
+.cr3{width:520px;height:520px;animation:crPulse 3s 1s ease infinite}
+@keyframes crPulse{0%{opacity:0;transform:translate(-50%,-50%) scale(.8)}50%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.2)}}
+.cta-inner{position:relative;z-index:1}
 
-        /* DUAL CTA */
-        .dual-cta {
-            padding: 100px 48px;
-            text-align: center; position: relative; overflow: hidden;
-        }
-        .dual-cta-glow {
-            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 700px; height: 400px;
-            background: transparent;
-            pointer-events: none;
-        }
-        .dual-cta-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
-        .dual-cta-inner h2 {
-            font-family: var(--display); font-size: clamp(28px, 4vw, 48px);
-            line-height: 1.1; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.4px;
-        }
-        .dual-cta-inner h2 em { font-style: normal; color: var(--accent); font-weight: 500; }
-        .dual-cta-inner> p { font-size: 16px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 48px; font-weight: 400; max-width: 540px; margin-left: auto; margin-right: auto; }
-        .cta-paths {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 1px; background: var(--border);
-            border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
-            text-align: left;
-        }
-        .cta-path { background: var(--bg-card); padding: 40px 36px; }
-        .cta-path-lbl {
-            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--accent); margin-bottom: 20px;
-        }
-        .cta-path h3 {
-            font-family: var(--display); font-size: 24px; color: var(--ink);
-            line-height: 1.2; margin-bottom: 12px;
-        }
-        .cta-path h3 em { font-style: normal; color: var(--accent); font-weight: 500; }
-        .cta-path p {
-            font-size: 14px; color: var(--ink-muted); line-height: 1.7; font-weight: 400;
-            margin-bottom: 28px;
-        }
-        .cta-path .btn-primary { padding: 14px 32px; font-size: 14px; }
-        .cta-path .btn-secondary { padding: 14px 32px; font-size: 14px; }
-        .cta-path-detail {
-            margin-top: 20px; font-size: 12px; color: var(--ink-faint); line-height: 1.55;
-        }
+/* FOOTER */
+footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep);position:relative;z-index:3}
+.foot-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-logo{display:flex;align-items:center;gap:10px}
+.foot-logo img{height:28px;width:auto;opacity:.65}
+.foot-logo span{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--muted)}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{font-size:.8rem;color:var(--faint);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--white)}
+.foot-copy{font-size:.78rem;color:var(--faint)}
+.foot-social{display:flex;gap:12px}
+.foot-social a{width:34px;height:34px;border:1px solid var(--border);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:all .2s;background:var(--glass)}
+.foot-social a:hover{border-color:var(--blue);color:var(--blue);background:var(--bdim)}
 
-        
+/* SCROLL PROGRESS */
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;
+  transform-origin:left center;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--blue),var(--sky))}
 
-        
-        /* HEADER */
-        .site-header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-            padding: 0 48px;
-            background: rgba(0,0,0,0.98);
-            border-bottom: 1px solid var(--border);
-            transition: background 0.3s, border-color 0.3s;
-        }
-        [data-theme="light"] .site-header { background: rgba(247,248,250,0.98); }
-        .header-inner {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; align-items: center; justify-content: space-between;
-            height: 68px;
-        }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-img { height: 36px; width: auto; display: block; }
-        .logo-img.hide { display: none; }
-        .logo-text {
-            font-family: var(--display); font-size: 20px; color: var(--ink);
-            letter-spacing: -0.3px; display: none;
-        }
-        .logo-text.show { display: block; }
-        .nav-links { display: flex; align-items: center; gap: 24px; }
-        .nav-links> a {
-            font-size: 14px; font-weight: 400; color: var(--ink-muted);
-            text-decoration: none; transition: color 0.2s;
-        }
-        .nav-links> a:hover { color: var(--ink); }
-        .nav-dropdown { position: relative; }
-        .nav-dropdown-btn {
-            font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--ink-muted);
-            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
-            padding: 0; transition: color 0.2s;
-        }
-        .nav-dropdown-btn:hover { color: var(--ink); }
-        a.nav-dropdown-btn {
-            text-decoration: none;
-        }
-        .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
-        .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
-        .nav-dropdown-menu {
-            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
-            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px;
-            padding: 8px 0; min-width: 180px; 
-            z-index: 300;
-        }
-        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-        .nav-dropdown-menu::before {
-            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
-        }
-        .nav-dropdown-menu a {
-            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
-            text-decoration: none; transition: all 0.15s; white-space: nowrap;
-        }
-        .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
-        .nav-cta {
-            background: var(--button-primary) !important; color: #fff !important;
-            padding: 10px 22px !important; border-radius: 4px !important;
-            font-weight: 400 !important; font-size: 14px !important;
-            transition: opacity 0.2s !important; text-decoration: none !important;
-        }
-        .nav-cta:hover { opacity: 0.85 !important; }
-        .theme-btn {
-            width: 36px; height: 36px; border-radius: 8px;
-            border: 1px solid var(--border-mid); background: var(--bg-lift);
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
-        }
-        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
-        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
-        .i-moon { display: block; }
-        .i-sun  { display: none;  }
-        [data-theme="light"] .i-moon { display: none; }
-        [data-theme="light"] .i-sun  { display: block; }
-        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
-        .mob-menu {
-            display: none; position: absolute; top: 100%; left: 0; right: 0;
-            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
-            max-height: calc(100vh - 68px); overflow-y: auto;
-        }
-        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
-        .mob-menu-top {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 16px 0; border-bottom: 1px solid var(--border);
-        }
-        .mob-menu-title {
-            font-size: 13px; font-weight: 500; color: var(--ink-faint);
-            text-transform: uppercase; letter-spacing: 0.08em;
-        }
-        .mob-menu a {
-            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
-            text-decoration: none; border-bottom: 1px solid var(--border);
-        }
-        .mob-menu a:hover { color: var(--ink); }
-        .mob-section-label {
-            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
-        }
-        .mob-section-label.compact { padding: 8px 0 2px; }
-        .mob-cta {
-            background: var(--button-primary) !important; color: #fff !important;
-            padding: 14px 0 !important; border-radius: 4px; text-align: center;
-            margin-top: 8px; border-bottom: none !important;
-        }
-        .mob-cta:hover { opacity: 0.85; }
-        .mob-theme-btn {
-            width: 36px; height: 36px; flex-shrink: 0;
-        }
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
-
-        /* FOOTER */
-        footer {
-            padding: 48px; border-top: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-        }
-        .foot-logo { display: flex; align-items: center; gap: 10px; }
-        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
-        .foot-logo span { font-family: var(--display); font-size: 18px; color: var(--ink-soft); display: none; }
-        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
-        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
-        .foot-links a:hover { color: var(--ink); }
-        .foot-copy { font-size: 13px; color: var(--ink-faint); }
-        .foot-social { display: flex; gap: 16px; align-items: center; }
-        .foot-social a { color: var(--ink-faint); transition: color 0.2s; display: flex; }
-        .foot-social a:hover { color: var(--accent); }
-
-        /* RESPONSIVE */
-        @media(max-width:1024px) {
-            .hero { padding: 120px 32px 80px; } .site-header{padding:0 32px;} footer{padding:40px 32px;}
-            .content-section, .dual-cta { padding: 80px 32px; }
-        }
-        @media(max-width: 768px) {
-
-            .hero { padding: 100px 24px 56px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}
-            .content-section, .dual-cta { padding: 64px 24px; }
-            
-            .invest-grid { grid-template-columns: 1fr; }
-            .flow-stages { grid-template-columns: 1fr; }
-            .flow-stage:not(:last-child)::after { display: none; }
-            .flow-stage:not(:last-child) { border-bottom: 1px solid var(--border); }
-            .flow-connectors { display: none; }
-            .timeline-grid { grid-template-columns: 1fr; }
-            .backend-grid { grid-template-columns: 1fr; }
-            .ownership-grid { grid-template-columns: 1fr; gap: 40px; }
-            .stats-row { grid-template-columns: 1fr 1fr; }
-            .cta-paths { grid-template-columns: 1fr; }
-            .hero-ctas { flex-direction: column; align-items: flex-start; }
-            .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-            .invest-total { flex-direction: column; text-align: center; }
-        }
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--void)}
+::-webkit-scrollbar-thumb{background:var(--faint);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--blue)}
 
 /* OPTIONAL PILL BADGE */
-.ai-opt{display:inline-flex;align-items:center;font-size:.56rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#4797FF;background:rgba(71,151,255,0.12);border:1px solid rgba(71,151,255,.2);padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle;white-space:nowrap;line-height:1.6}
-    </style>
+.ai-opt{display:inline-flex;align-items:center;font-size:.56rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--blue);
+  background:var(--bdim);border:1px solid rgba(71,151,255,.2);
+  padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle;
+  white-space:nowrap;line-height:1.6}
+.mi .ai-opt{font-size:.5rem;padding:1px 6px;margin-left:4px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .invest-grid{grid-template-columns:1fr 1fr}
+  .timeline-grid{grid-template-columns:1fr 1fr}
+  .stat-row-grid{grid-template-columns:1fr 1fr}
+  .ownership-grid{grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:768px){
+  section{padding:72px 5%}
+  .nav-links{display:none}.mob-btn{display:flex}
+  .hero{padding:100px 5% 60px;text-align:center}
+  .hbadge{justify-content:center}
+  .hero-kick{border-left:none;border-top:2px solid var(--bblue);border-radius:12px;text-align:center;padding:16px}
+  .hbtns{flex-direction:column;align-items:center;width:100%}
+  .btn-mag,.btn-ghost{width:100%;justify-content:center}
+  .invest-grid{grid-template-columns:1fr}
+  .timeline-grid{grid-template-columns:1fr}
+  .backend-grid{grid-template-columns:1fr}
+  .flow-stages{grid-template-columns:1fr}
+  .flow-stage:not(:last-child)::after{display:none}
+  .flow-stage:not(:last-child){border-bottom:1px solid var(--border)}
+  .stat-row-grid{grid-template-columns:1fr 1fr}
+  .final-trust{gap:12px;font-size:.74rem}
+  footer{padding:40px 5%}
+  .foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
+  .stitle{font-size:1.8rem}
+}
+@media(max-width:480px){
+  .hero{padding:90px 5% 50px}
+  .hero h1{font-size:clamp(1.7rem,8vw,2.4rem)}
+  .hbadge{font-size:.65rem;letter-spacing:.04em}
+  .hero-sub{font-size:.95rem}
+  .hero-kick{font-size:.84rem}
+  .btn-mag,.btn-ghost{font-size:.82rem;padding:12px 20px}
+  .stat-val{font-size:2rem}
+  .stitle{font-size:1.6rem}
+}
+@media(max-width:390px){
+  .hero h1{font-size:1.65rem}
+  .hero-sub{font-size:.9rem}
+  .hero-kick{font-size:.8rem;padding:12px}
+  .btn-mag,.btn-ghost{font-size:.8rem;padding:11px 16px}
+  .hbadge{font-size:.6rem;padding:4px 10px 4px 8px}
+  .final-trust{gap:12px;font-size:.74rem}
+}
+@media(max-width:320px){
+  .hero{padding:80px 4% 40px}
+  .hero h1{font-size:1.5rem}
+  .hero-sub{font-size:.85rem}
+  .btn-mag,.btn-ghost{font-size:.78rem;padding:10px 14px}
+  .hbadge{font-size:.56rem;padding:3px 8px 3px 6px}
+  .stitle{font-size:1.4rem}
+}
+</style>
 </head>
 <body>
 
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
+
 <!-- HEADER -->
-<header class="site-header">
-    <div class="header-inner">
-        <a href="/" class="logo" id="logoLink">
-            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
-            <span class="logo-text" id="logoText">QuoteLeads</span>
-        </a>
-        <nav class="nav-links">
-            <div class="nav-dropdown">
-                <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                <div class="nav-dropdown-menu">
-                    <a href="/#system-zone">Deploy My System</a>
-                    <a href="/#process">System Process</a>
-                    <a href="/blog">Blog</a>
-                </div>
-            </div>
-            <div class="nav-dropdown">
-                <button class="nav-dropdown-btn">Industries <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-                <div class="nav-dropdown-menu">
-                    <a href="/solar-leads">Solar</a>
-                    <a href="/hvac-leads">HVAC</a>
-                    <a href="/roofing-leads">Roofing</a>
-                    <a href="/renovation-leads">Renovation</a>
-                </div>
-            </div>
-            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            </button>
-        </nav>
-        <button class="mob-btn" id="mobBtn" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-    <nav class="mob-menu" id="mobMenu">
-        <div class="mob-menu-top">
-            <span class="mob-menu-title">Menu</span>
-            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
-                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            </button>
-        </div>
-        <a href="/">Home</a>
-        <a href="/#system-zone">Deploy My System</a>
-        <a href="/#process">System Process</a>
-        <a href="/blog">Blog</a>
-        <span class="mob-section-label">Industries</span>
-        <a href="/solar-leads">Solar</a>
-        <a href="/hvac-leads">HVAC</a>
-        <a href="/roofing-leads">Roofing</a>
-        <a href="/renovation-leads">Renovation</a>
-        <span class="mob-section-label compact">&nbsp;</span>
-    </nav>
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" style="height:36px;width:auto;display:block">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#the-system">The System</a></li>
+      <li><a href="#ownership">Ownership</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="/get-started" class="nav-cta">Apply Now <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    </ul>
+    <button class="mob-btn" id="mobBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-menu" id="mobMenu">
+    <a href="#pricing">Pricing</a>
+    <a href="#the-system">The System</a>
+    <a href="#ownership">Ownership</a>
+    <a href="#faq">FAQ</a>
+    <a href="/get-started" class="mob-cta-link">Apply Now</a>
+  </nav>
 </header>
 
 <!-- HERO -->
-<section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-inner">
-        <div class="eyebrow">Growth Implementation</div>
-        <h1>Your system. Built and <em>owned.</em></h1>
-        <p class="hero-sub">Ads, landing pages, CRM, and AI follow-up <span class="ai-opt">Optional</span> - built for your business, owned by you. $2,550 + GST over 90 days.</p>
-        <div class="hero-ctas">
-            <a href="https://quoteleads.com.au/get-started" class="btn-primary">Apply for the Growth Build</a>
-        </div>
-        <div class="hero-trust">
-            <span>All assets yours from day 1</span>
-            <span>No lock-in</span>
-            <span>Full playbook handoff available</span>
-        </div>
+<section class="hero-section">
+  <div class="hero">
+    <div class="hero-ambi ha1"></div>
+    <div class="hero-ambi ha2"></div>
+    <div class="hero-ambi ha3"></div>
+    <div class="hc">
+      <div class="hbadge"><div class="bpulse"></div>Growth Implementation</div>
+      <h1>Your system. Built and <span class="ga">owned.</span></h1>
+      <div class="hrule"></div>
+      <p class="hero-sub">Ads, landing pages, CRM, and AI follow-up <span class="ai-opt">Optional</span> - built for your business, owned by you. $2,550 + GST over 90 days.</p>
+      <div class="hero-kick"><strong>All assets yours from day 1.</strong> No lock-in - full playbook handoff available at end of term.</div>
+      <div class="hbtns">
+        <a href="/get-started" class="btn-mag">
+          Apply for the Growth Build
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
+        </a>
+        <a href="#the-system" class="btn-ghost">See the System</a>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- THE PRICING -->
-<section class="content-section lifted">
-    <div class="si">
-        <div class="slbl">Pricing</div>
-        <h2 class="stitle">Transparent pricing.<br><em>No surprises.</em></h2>
-        <div class="content-body">
-            <p>$1,250 to build. $650/month to manage (months 2-3). $2,550 + GST total. Add $40/day Meta ad spend (~$1,200/month) to run traffic.</p>
-        </div>
+<!-- MARQUEE -->
+<div class="mwrap">
+  <div class="mtrack">
+    <div class="mi"><div class="md"></div>Lead Generation System</div>
+    <div class="mi"><div class="md"></div>Meta &amp; Google Ads</div>
+    <div class="mi"><div class="md"></div>AI SMS Agent <span class="ai-opt">Optional</span></div>
+    <div class="mi"><div class="md"></div>AI Voice Agent <span class="ai-opt">Optional</span></div>
+    <div class="mi"><div class="md"></div>Quote Automation</div>
+    <div class="mi"><div class="md"></div>CRM Pipeline</div>
+    <div class="mi"><div class="md"></div>3-Touch Follow-Up</div>
+    <div class="mi"><div class="md"></div>Permanent Ownership</div>
+    <div class="mi"><div class="md"></div>Australian Trades</div>
+    <div class="mi"><div class="md"></div>5-7 Day Build</div>
+    <div class="mi"><div class="md"></div>Lead Generation System</div>
+    <div class="mi"><div class="md"></div>Meta &amp; Google Ads</div>
+    <div class="mi"><div class="md"></div>AI SMS Agent <span class="ai-opt">Optional</span></div>
+    <div class="mi"><div class="md"></div>AI Voice Agent <span class="ai-opt">Optional</span></div>
+    <div class="mi"><div class="md"></div>Quote Automation</div>
+    <div class="mi"><div class="md"></div>CRM Pipeline</div>
+    <div class="mi"><div class="md"></div>3-Touch Follow-Up</div>
+    <div class="mi"><div class="md"></div>Permanent Ownership</div>
+    <div class="mi"><div class="md"></div>Australian Trades</div>
+    <div class="mi"><div class="md"></div>5-7 Day Build</div>
+  </div>
+</div>
 
-        <div class="invest-grid">
-            <div class="card invest-card">
-                <div class="invest-card-phase">Month 1</div>
-                <div class="invest-card-label">System Build + Launch</div>
-                <div class="invest-card-price"><span class="currency">$</span>1,250</div>
-                <div class="invest-card-gst">+ GST</div>
-                <div class="invest-card-detail">Full infrastructure built and deployed. Ad accounts, landing pages, survey, CRM, follow-up automation - everything configured and live. Ownership transferred immediately.</div>
-            </div>
-            <div class="card invest-card">
-                <div class="invest-card-phase">Month 2</div>
-                <div class="invest-card-label">Management + Performance</div>
-                <div class="invest-card-price"><span class="currency">$</span>650</div>
-                <div class="invest-card-gst">+ GST</div>
-                <div class="invest-card-detail">Campaign management, lead quality monitoring, performance tuning based on month one data.</div>
-            </div>
-            <div class="card invest-card">
-                <div class="invest-card-phase">Month 3</div>
-                <div class="invest-card-label">Scale + Handoff</div>
-                <div class="invest-card-price"><span class="currency">$</span>650</div>
-                <div class="invest-card-gst">+ GST</div>
-                <div class="invest-card-detail">Scaling what works, refining what doesn't. Full playbook handoff available at end of term. No ongoing management required - or continue if you prefer.</div>
-            </div>
-        </div>
-        <div class="invest-total">
-            <div class="invest-total-left"><strong>$2,550 + GST</strong> total to QuoteLeads over 90 days</div>
-            <div class="invest-total-right">+ recommended $40/day Meta ad spend (~$1,200/mo)</div>
-        </div>
-
-        <div class="note-box" style="margin-top: 40px;">
-            <div class="note-box-lbl">Tailored proposals</div>
-            <p>The $1,250 build covers most standard setups. <strong>Complex setups - multiple areas, multiple reps, or custom integrations</strong> - may cost more. A tailored proposal comes first. No surprises.</p>
-        </div>
+<!-- PRICING -->
+<section id="pricing">
+  <div class="si">
+    <div class="rv"><div class="ey">Pricing</div></div>
+    <h2 class="stitle rv">Transparent pricing.<br><em>No surprises.</em></h2>
+    <p class="sdesc rv">$1,250 to build. $650/month to manage (months 2-3). $2,550 + GST total. Add $40/day Meta ad spend (~$1,200/month) to run traffic.</p>
+    <div class="invest-grid">
+      <div class="invest-card rv d1">
+        <div class="invest-phase">Month 1</div>
+        <div class="invest-label">System Build + Launch</div>
+        <div class="invest-price"><span class="currency">$</span>1,250</div>
+        <div class="invest-gst">+ GST</div>
+        <div class="invest-detail">Full infrastructure built and deployed. Ad accounts, landing pages, survey, CRM, follow-up automation - everything configured and live. Ownership transferred immediately.</div>
+      </div>
+      <div class="invest-card rv d2">
+        <div class="invest-phase">Month 2</div>
+        <div class="invest-label">Management + Performance</div>
+        <div class="invest-price"><span class="currency">$</span>650</div>
+        <div class="invest-gst">+ GST</div>
+        <div class="invest-detail">Campaign management, lead quality monitoring, performance tuning based on month one data.</div>
+      </div>
+      <div class="invest-card rv d3">
+        <div class="invest-phase">Month 3</div>
+        <div class="invest-label">Scale + Handoff</div>
+        <div class="invest-price"><span class="currency">$</span>650</div>
+        <div class="invest-gst">+ GST</div>
+        <div class="invest-detail">Scaling what works, refining what doesn't. Full playbook handoff available at end of term. No ongoing management required - or continue if you prefer.</div>
+      </div>
     </div>
+    <div class="invest-total rv">
+      <div class="invest-total-left"><strong>$2,550 + GST</strong> total to QuoteLeads over 90 days</div>
+      <div class="invest-total-right">+ recommended $40/day Meta ad spend (~$1,200/mo)</div>
+    </div>
+    <div class="note-box rv">
+      <div class="note-box-lbl">Tailored proposals</div>
+      <p>The $1,250 build covers most standard setups. <strong>Complex setups - multiple areas, multiple reps, or custom integrations</strong> - may cost more. A tailored proposal comes first. No surprises.</p>
+    </div>
+  </div>
 </section>
 
 <!-- THE SYSTEM -->
-<section class="content-section">
-    <div class="si">
-        <div class="slbl">The System</div>
-        <h2 class="stitle">Full infrastructure.<br><em>Nothing rented.</em></h2>
-        <div class="content-body">
-            <p>Your own ad accounts, domains, and CRM. Traffic lands on pages that filter and convert. The backend handles follow-up, quote drafting, and 14-day nurture automatically. <strong>Volume and quality scale together.</strong></p>
+<section id="the-system">
+  <div class="si">
+    <div class="rv"><div class="ey">The System</div></div>
+    <h2 class="stitle rv">Full infrastructure.<br><em>Nothing rented.</em></h2>
+    <p class="sdesc rv">Your own ad accounts, domains, and CRM. Traffic lands on pages that filter and convert. The backend handles follow-up, quote drafting, and 14-day nurture automatically.</p>
+    <div class="rv" style="margin-top:48px">
+      <div class="flow-label">System Architecture</div>
+      <div class="flow-container">
+        <div class="flow-header">
+          <div class="flow-header-dots"><span></span><span></span><span></span></div>
+          <div class="flow-header-title">your-business.quoteleads.com.au - live system</div>
         </div>
-
-        <div class="system-visual">
-            <div class="flow-label">System Architecture</div>
-            <div class="flow-container">
-                <div class="flow-header">
-                    <div class="flow-header-dots"><span></span><span></span><span></span></div>
-                    <div class="flow-header-title">your-business.quoteleads.com.au - live system</div>
-                </div>
-                <div class="flow-stages">
-                    <!-- STAGE 1: Traffic -->
-                    <div class="flow-stage">
-                        <div class="flow-stage-label">Front End</div>
-                        <div class="flow-stage-title">Traffic + Conversion</div>
-                        <div class="flow-stage-desc">Paid campaigns drive targeted homeowners to landing pages built to educate, filter, and convert - not just capture.</div>
-                        <div class="flow-nodes">
-                            <div class="flow-node">
-                                <div class="flow-node-icon blue">▶</div>
-                                Meta ad campaigns (your accounts)
-                            </div>
-                            <div class="flow-node">
-                                <div class="flow-node-icon blue">◇</div>
-                                Landing page - educate + filter
-                            </div>
-                            <div class="flow-node">
-                                <div class="flow-node-icon blue">≡</div>
-                                3-question custom survey
-                            </div>
-                            <div class="flow-node">
-                                <div class="flow-node-icon blue">@</div>
-                                Contact info capture
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STAGE 2: Verification -->
-                    <div class="flow-stage">
-                        <div class="flow-stage-label">Qualification</div>
-                        <div class="flow-stage-title">Verification Layer</div>
-                        <div class="flow-stage-desc">Every submission passes through real-time validation. Bad data gets caught before it reaches you. Quality scales with volume.</div>
-                        <div class="flow-nodes">
-                            <div class="flow-node">
-                                <div class="flow-node-icon green">✓</div>
-                                Real-time phone verification
-                            </div>
-                            <div class="flow-node">
-                                <div class="flow-node-icon green">✓</div>
-                                Real-time email verification
-                            </div>
-                            <div class="flow-node">
-                                <div class="flow-node-icon green">✓</div>
-                                Named consent - your business
-                            </div>
-                            <div class="flow-node">
-                                <div class="flow-node-icon green">✓</div>
-                                Job type + location matching
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- STAGE 3: Backend -->
-                    <div class="flow-stage">
-                        <div class="flow-stage-label">Backend</div>
-                        <div class="flow-stage-title">Delivery + Follow-Up</div>
-                        <div class="flow-stage-desc">Leads routable anywhere - phone, email, CRM, Slack, whatever you use. Instant response. Automated quote drafting. Nothing falls through.</div>
-                        <div class="flow-nodes">
-                            <div class="flow-node">
-                                <div class="flow-node-icon blue">⚡</div>
-                                Instant follow-up (60s, 24/7)
-                            </div>
-                            <div class="flow-node">
-                                <div class="flow-node-icon blue">⟳</div>
-                                14-day automated sequences
-                            </div>
-                            <div class="flow-node">
-                                <div class="flow-node-icon blue">✎</div>
-                                Quote drafting + delivery
-                            </div>
-                            <div class="flow-node">
-                                <div class="flow-node-icon blue">⊞</div>
-                                CRM + pipeline management
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flow-bottom">
-                    <div class="flow-bottom-item">
-                        <div class="flow-bottom-dot blue"></div>
-                        Your accounts, your data, your infrastructure
-                    </div>
-                    <div class="flow-bottom-item">
-                        <div class="flow-bottom-dot green"></div>
-                        Custom integrations available
-                    </div>
-                </div>
+        <div class="flow-stages">
+          <div class="flow-stage">
+            <div class="flow-stage-label">Front End</div>
+            <div class="flow-stage-title">Traffic + Conversion</div>
+            <div class="flow-stage-desc">Paid campaigns drive targeted homeowners to landing pages built to educate, filter, and convert - not just capture.</div>
+            <div class="flow-nodes">
+              <div class="flow-node"><div class="flow-node-icon blue">&#9654;</div>Meta ad campaigns (your accounts)</div>
+              <div class="flow-node"><div class="flow-node-icon blue">&#9672;</div>Landing page - educate + filter</div>
+              <div class="flow-node"><div class="flow-node-icon blue">&#8801;</div>3-question custom survey</div>
+              <div class="flow-node"><div class="flow-node-icon blue">@</div>Contact info capture</div>
             </div>
+          </div>
+          <div class="flow-stage">
+            <div class="flow-stage-label">Qualification</div>
+            <div class="flow-stage-title">Verification Layer</div>
+            <div class="flow-stage-desc">Every submission passes through real-time validation. Bad data gets caught before it reaches you. Quality scales with volume.</div>
+            <div class="flow-nodes">
+              <div class="flow-node"><div class="flow-node-icon green">&#10003;</div>Real-time phone verification</div>
+              <div class="flow-node"><div class="flow-node-icon green">&#10003;</div>Real-time email verification</div>
+              <div class="flow-node"><div class="flow-node-icon green">&#10003;</div>Named consent - your business</div>
+              <div class="flow-node"><div class="flow-node-icon green">&#10003;</div>Job type + location matching</div>
+            </div>
+          </div>
+          <div class="flow-stage">
+            <div class="flow-stage-label">Backend</div>
+            <div class="flow-stage-title">Delivery + Follow-Up</div>
+            <div class="flow-stage-desc">Leads routable anywhere - phone, email, CRM, Slack, whatever you use. Instant response. Automated quote drafting. Nothing falls through.</div>
+            <div class="flow-nodes">
+              <div class="flow-node"><div class="flow-node-icon blue">&#9889;</div>Instant follow-up (60s, 24/7)</div>
+              <div class="flow-node"><div class="flow-node-icon blue">&#8635;</div>14-day automated sequences</div>
+              <div class="flow-node"><div class="flow-node-icon blue">&#9998;</div>Quote drafting + delivery</div>
+              <div class="flow-node"><div class="flow-node-icon blue">&#8862;</div>CRM + pipeline management</div>
+            </div>
+          </div>
         </div>
-
-        <div class="stats-row" style="margin-top: 24px;">
-            <div class="card stat-cell">
-                <div class="stat-val">3</div>
-                <div class="stat-label">Survey questions<br>before contact info</div>
-            </div>
-            <div class="card stat-cell">
-                <div class="stat-val">60s</div>
-                <div class="stat-label">AI follow-up <span class="ai-opt">Optional</span><br>24/7</div>
-            </div>
-            <div class="card stat-cell">
-                <div class="stat-val">100%</div>
-                <div class="stat-label">Verified phone<br>+ email</div>
-            </div>
-            <div class="card stat-cell">
-                <div class="stat-val">Day 1</div>
-                <div class="stat-label">Ownership<br>transferred</div>
-            </div>
+        <div class="flow-bottom">
+          <div class="flow-bottom-item"><div class="flow-bottom-dot blue"></div>Your accounts, your data, your infrastructure</div>
+          <div class="flow-bottom-item"><div class="flow-bottom-dot green"></div>Custom integrations available</div>
         </div>
+      </div>
     </div>
+    <div class="stat-row-grid rv">
+      <div class="stat-cell"><div class="stat-val">3</div><div class="stat-label">Survey questions<br>before contact info</div></div>
+      <div class="stat-cell"><div class="stat-val">60s</div><div class="stat-label">AI follow-up <span class="ai-opt">Optional</span><br>24/7</div></div>
+      <div class="stat-cell"><div class="stat-val">100%</div><div class="stat-label">Verified phone<br>+ email</div></div>
+      <div class="stat-cell"><div class="stat-val">Day 1</div><div class="stat-label">Ownership<br>transferred</div></div>
+    </div>
+  </div>
 </section>
 
 <!-- SCALING TIMELINE -->
-<section class="content-section lifted">
-    <div class="si">
-        <div class="slbl">The Trajectory</div>
-        <h2 class="stitle">~30 leads month one.<br><em>Hundreds by month three.</em></h2>
-        <div class="timeline-grid">
-            <div class="card timeline-card">
-                <div class="timeline-card-month">01</div>
-                <span class="timeline-tag build">Build + Launch</span>
-                <h3>System live. First leads in 24-48 hours.</h3>
-                <p>Campaigns launched at $40/day. ~30 qualified leads expected. Ad performance, lead quality, and follow-up engagement all monitored.</p>
-            </div>
-            <div class="card timeline-card">
-                <div class="timeline-card-month">02</div>
-                <span class="timeline-tag scale">Improve</span>
-                <h3>Data-driven improvement. Scale what converts.</h3>
-                <p>Audiences refined, creatives rotated, weak angles cut. Lead volume climbs as cost per lead drops.</p>
-            </div>
-            <div class="card timeline-card">
-                <div class="timeline-card-month">03</div>
-                <span class="timeline-tag scale">Scale + Handoff</span>
-                <h3>Proven system. Run it or hand it off.</h3>
-                <p>By now the system can generate hundreds of leads per month. Full playbook handed off - run it in-house or keep management on. No lock-in.</p>
-            </div>
-        </div>
+<section>
+  <div class="si">
+    <div class="rv"><div class="ey">The Trajectory</div></div>
+    <h2 class="stitle rv">~30 leads month one.<br><em>Hundreds by month three.</em></h2>
+    <div class="timeline-grid">
+      <div class="timeline-card rv d1">
+        <div class="timeline-month">01</div>
+        <span class="timeline-tag build">Build + Launch</span>
+        <h3>System live. First leads in 24-48 hours.</h3>
+        <p>Campaigns launched at $40/day. ~30 qualified leads expected. Ad performance, lead quality, and follow-up engagement all monitored.</p>
+      </div>
+      <div class="timeline-card rv d2">
+        <div class="timeline-month">02</div>
+        <span class="timeline-tag scale">Improve</span>
+        <h3>Data-driven improvement. Scale what converts.</h3>
+        <p>Audiences refined, creatives rotated, weak angles cut. Lead volume climbs as cost per lead drops.</p>
+      </div>
+      <div class="timeline-card rv d3">
+        <div class="timeline-month">03</div>
+        <span class="timeline-tag scale">Scale + Handoff</span>
+        <h3>Proven system. Run it or hand it off.</h3>
+        <p>By now the system can generate hundreds of leads per month. Full playbook handed off - run it in-house or keep management on. No lock-in.</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- BACKEND CAPABILITIES -->
-<section class="content-section">
-    <div class="si">
-        <div class="slbl">Beyond Leads</div>
-        <h2 class="stitle">The backend that<br><em>closes jobs.</em></h2>
-        <div class="content-body">
-            <p>The backend routes leads, follows up in 60 seconds, drafts quotes, and runs 14-day nurture - automatically.</p>
-        </div>
-
-        <div class="backend-grid">
-            <div class="card backend-card">
-                <div class="backend-card-tag">Delivery</div>
-                <h3>Leads Routable Anywhere</h3>
-                <p>Phone, email, SMS, CRM, Slack, webhook - leads go wherever your team works. Route by postcode, job type, or round-robin.</p>
-            </div>
-            <div class="card backend-card">
-                <div class="backend-card-tag">Speed</div>
-                <h3>Instant Follow-Up</h3>
-                <p>AI response within 60 seconds, 24/7. Your business responds before they close the tab.</p>
-            </div>
-            <div class="card backend-card">
-                <div class="backend-card-tag">Automation</div>
-                <h3>Quote Drafting + Delivery</h3>
-                <p>Drafts and delivers preliminary quotes based on job type and your pricing. You approve. It sends.</p>
-            </div>
-            <div class="card backend-card">
-                <div class="backend-card-tag">Flexible</div>
-                <h3>Custom Development</h3>
-                <p>Need to integrate your CRM, connect a quoting tool, or build custom reporting? It gets built into the system.</p>
-            </div>
-        </div>
+<section>
+  <div class="si">
+    <div class="rv"><div class="ey">Beyond Leads</div></div>
+    <h2 class="stitle rv">The backend that<br><em>closes jobs.</em></h2>
+    <p class="sdesc rv">The backend routes leads, follows up in 60 seconds, drafts quotes, and runs 14-day nurture - automatically.</p>
+    <div class="backend-grid">
+      <div class="backend-card rv d1">
+        <div class="backend-tag">Delivery</div>
+        <h3>Leads Routable Anywhere</h3>
+        <p>Phone, email, SMS, CRM, Slack, webhook - leads go wherever your team works. Route by postcode, job type, or round-robin.</p>
+      </div>
+      <div class="backend-card rv d2">
+        <div class="backend-tag">Speed</div>
+        <h3>Instant Follow-Up</h3>
+        <p>AI response within 60 seconds, 24/7. Your business responds before they close the tab.</p>
+      </div>
+      <div class="backend-card rv d3">
+        <div class="backend-tag">Automation</div>
+        <h3>Quote Drafting + Delivery</h3>
+        <p>Drafts and delivers preliminary quotes based on job type and your pricing. You approve. It sends.</p>
+      </div>
+      <div class="backend-card rv d4">
+        <div class="backend-tag">Flexible</div>
+        <h3>Custom Development</h3>
+        <p>Need to integrate your CRM, connect a quoting tool, or build custom reporting? It gets built into the system.</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- OWNERSHIP -->
-<section class="content-section lifted">
-    <div class="si">
-        <div class="slbl">Ownership</div>
-        <h2 class="stitle">Everything yours.<br><em>From day one.</em></h2>
-        <div class="ownership-grid">
-            <div class="ownership-body">
-                <p>Stop paying an agency - lose everything. That's the standard model.</p>
-                <p><strong>Every asset built is yours from day one</strong> - ad accounts, landing pages, CRM, follow-up sequences. After 90 days, everything runs without us.</p>
-            </div>
-            <div class="ownership-list-box">
-                <div class="ownership-list-box-lbl">You own all of it</div>
-                <ul class="ownership-list">
-                    <li>Meta & Google ad accounts in your name</li>
-                    <li>Custom landing pages on your domain</li>
-                    <li>Survey and qualification infrastructure</li>
-                    <li>CRM, pipeline, and all lead data</li>
-                    <li>Automated follow-up sequences</li>
-                    <li>Quote drafting and delivery system</li>
-                    <li>Full playbook handoff at end of term</li>
-                    <li>No ongoing fees required to keep it running</li>
-                </ul>
-            </div>
-        </div>
+<section id="ownership">
+  <div class="si">
+    <div class="rv"><div class="ey">Ownership</div></div>
+    <h2 class="stitle rv">Everything yours.<br><em>From day one.</em></h2>
+    <div class="ownership-grid rv">
+      <div class="ownership-body">
+        <p>Stop paying an agency - lose everything. That's the standard model.</p>
+        <p><strong>Every asset built is yours from day one</strong> - ad accounts, landing pages, CRM, follow-up sequences. After 90 days, everything runs without us.</p>
+      </div>
+      <div class="ownership-list-box">
+        <div class="ownership-list-box-lbl">You own all of it</div>
+        <ul class="ownership-list">
+          <li>Meta &amp; Google ad accounts in your name</li>
+          <li>Custom landing pages on your domain</li>
+          <li>Survey and qualification infrastructure</li>
+          <li>CRM, pipeline, and all lead data</li>
+          <li>Automated follow-up sequences</li>
+          <li>Quote drafting and delivery system</li>
+          <li>Full playbook handoff at end of term</li>
+          <li>No ongoing fees required to keep it running</li>
+        </ul>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- DUAL CTA -->
-<section class="dual-cta">
-    <div class="dual-cta-glow"></div>
-    <div class="dual-cta-inner">
-        <div class="slbl" style="justify-content:center;">Get Started</div>
-        <h2>Build it.<br><em>Own it.</em></h2>
-        <p>Know what you need? Apply now.</p>
-
-        <div class="cta-paths">
-            <div class="cta-path">
-                <div class="cta-path-lbl">The full system</div>
-                <h3>Growth<br><em>Implementation</em></h3>
-                <p>Ads, landing pages, CRM, automated follow-up. Built, launched, and managed for 90 days. Owned from day one.</p>
-                <a href="https://quoteleads.com.au/get-started" class="btn-primary">Apply for the Growth Build</a>
-                <div class="cta-path-detail">$2,550 + GST over 90 days · No lock-in · Tailored proposal first</div>
-            </div>
-</div>
+<!-- FAQ -->
+<section id="faq">
+  <div class="si">
+    <div class="rv"><div class="ey">Questions</div></div>
+    <h2 class="stitle rv">Answered directly.</h2>
+    <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What's included in the system build?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Meta and Google ad campaigns on your accounts, branded landing pages, quote generation, 3-touch automated follow-up sequence, CRM pipeline, domain and full lead data. The AI side - including the AI SMS agent and AI Voice agent - runs on the QuoteLeads platform and is completely optional. Everything is configured for your trade and territory and tested before going live. Your ad spend is a separate budget you control.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Can I turn the AI off?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Yes. Pause or disable AI follow-up, SMS, and voice agents any time from your dashboard. You stay in full control - the AI works alongside you, not instead of you. You can also review territory, job types and lead criteria at any time.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How long until it's live?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Build takes 5-7 days. First leads typically arrive within the first week after launch.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How does the AI follow-up work?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">The moment a lead submits, AI sends an SMS in your name in under 60 seconds. It qualifies scope and budget, drafts a professional quote, and follows up automatically on day 2, 5, and 10 until the job is closed - 24/7, no manual input required.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do I own everything if I cancel?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Yes. Permanently. Your ad accounts, landing pages, domain, lead data, CRM pipeline - all of it stays yours. We built it on your accounts from day one specifically so you own it regardless of what happens.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is there lock-in?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">No lock-in. Your system includes 30 days of hands-on management at launch, then ongoing management is month-to-month at $600/mo - pause or cancel any time with 30 days notice. The system itself is yours permanently either way.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What trades and locations do you work with?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Solar, roofing, HVAC, and renovations - across Australian metro and regional areas. Territory availability is confirmed during onboarding.</div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="cta-glow"></div>
+  <div class="cta-rings"><div class="cta-ring cr1"></div><div class="cta-ring cr2"></div><div class="cta-ring cr3"></div></div>
+  <div class="cta-inner si">
+    <div class="rv"><div class="ey" style="justify-content:center">Next Step</div></div>
+    <h2 class="stitle rv" style="max-width:520px;margin:0 auto 20px;text-align:center">Build it.<br><em>Own it.</em></h2>
+    <p style="color:var(--muted);font-size:1rem;line-height:1.74;max-width:460px;margin:0 auto 44px;text-align:center" class="rv">$2,550 + GST over 90 days. Your system. Your leads. Owned permanently.</p>
+    <div style="display:flex;justify-content:center" class="rv">
+      <a href="/get-started" class="btn-mag">Apply for the Growth Build <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
+    </div>
+    <div class="final-trust rv">
+      <span>All assets yours from day 1</span>
+      <span>No lock-in</span>
+      <span>Full playbook handoff available</span>
+      <span>5-7 day build</span>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
+  <div class="foot-inner">
     <div class="foot-logo">
-        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span>QuoteLeads</span>
+      <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" style="height:32px;width:auto;opacity:.7">
     </div>
     <div class="foot-links">
-        <a href="/">Home</a>
-        <a href="/get-started">Deploy My System</a>
-        <a href="https://quoteleadshq.com/dashboard">Dashboard</a>
-    </div>
-    <div class="foot-links">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+      <a href="/">Home</a>
+      <a href="/get-started">Build My System</a>
+      <a href="https://quoteleadshq.com/dashboard">Dashboard</a>
+      <a href="/blog">Blog</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
     </div>
     <div class="foot-social">
-        <a href="https://facebook.com/quoteleads" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="https://instagram.com/quoteleads" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://linkedin.com/company/quoteleads" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
+      <a href="https://facebook.com/quoteleads" target="_blank" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="https://instagram.com/quoteleads" target="_blank" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a href="https://linkedin.com/company/quoteleads" target="_blank" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
     </div>
-    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads &middot; Australian owned and operated</div>
+  </div>
 </footer>
 
 <script>
-    // ── Theme: always default to dark, persist user choice ──
-    (function(){
-        var saved = localStorage.getItem('ql-theme');
-        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
-    })();
+const W=()=>window.innerWidth, H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
 
-    function toggleTheme(){
-        var cur = document.documentElement.getAttribute('data-theme');
-        var next = cur === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('ql-theme', next);
-        updateLogos();
-    }
+class P{
+  constructor(){this.reset(true)}
+  reset(init){
+    this.x=Math.random()*W();
+    this.y=init?Math.random()*H():H()+10;
+    this.r=Math.random()*1.6+.3;
+    this.vx=(Math.random()-.5)*.2;
+    this.vy=-(Math.random()*.35+.08);
+    this.a=Math.random()*.35+.05;
+    this.life=0;this.maxL=Math.random()*450+200;
+    this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';
+    this.glow=this.r>1.2;
+  }
+  draw(){
+    const t=this.life/this.maxL;
+    const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;
+    ctx.save();ctx.globalAlpha=this.a*fade;
+    if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}
+    ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore();
+  }
+  update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}
+}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
 
-    var themeBtn = document.getElementById('themeBtn');
-    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
-    var mobThemeBtn = document.getElementById('mobThemeBtn');
-    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+// CURSOR
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+  aura.style.left=mx+'px';aura.style.top=my+'px';
+});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button,.invest-card,.timeline-card,.backend-card,.stat-cell,.flow-node,.ownership-list-box').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
 
-    // ── Logo swap ──
-    function updateLogos(){
-        var theme = document.documentElement.getAttribute('data-theme');
-        var headerImg = document.getElementById('logoImg');
-        var headerTxt = document.getElementById('logoText');
-        var footImg   = document.getElementById('footLogoImg');
-        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
-        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
-        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
-        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
-    }
-    updateLogos();
+// MAGNETIC BUTTON SHINE
+document.querySelectorAll('.btn-mag').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    btn.style.setProperty('--bx',((e.clientX-r.left)/r.width*100)+'%');
+    btn.style.setProperty('--by',((e.clientY-r.top)/r.height*100)+'%');
+  });
+});
 
-    // Handle broken logo image gracefully
-    var logoImg = document.getElementById('logoImg');
-    if(logoImg){
-        logoImg.addEventListener('error', function(){
-            this.style.display = 'none';
-            var txt = document.getElementById('logoText');
-            if(txt){ txt.style.display = 'block'; }
-        });
-    }
+// HEADER SCROLL
+const hdr=document.getElementById('siteHeader');
+window.addEventListener('scroll',()=>hdr.classList.toggle('sc',window.scrollY>20));
 
-    // ── Mobile menu ──
-    var mobBtn  = document.getElementById('mobBtn');
-    var mobMenu = document.getElementById('mobMenu');
-    if(mobBtn && mobMenu){
-        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
-        mobMenu.querySelectorAll('a').forEach(function(a){
-            a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
-        });
-    }
+// SCROLL PROGRESS
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{
+  const d=document.documentElement;
+  sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')';
+},{passive:true});
 
-    // ── Smooth scroll ──
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click', function(e){
-            var target = document.querySelector(a.getAttribute('href'));
-            if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
-        });
-    });
+// SCROLL REVEAL
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
 
+// MOBILE MENU
+const mobBtn=document.getElementById('mobBtn'),mobMenu=document.getElementById('mobMenu');
+if(mobBtn&&mobMenu){
+  mobBtn.addEventListener('click',()=>mobMenu.classList.toggle('open'));
+  mobMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobMenu.classList.remove('open')));
+}
+
+// FAQ
+function toggleFaq(btn){
+  const item=btn.parentElement,isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const el=document.querySelector(a.getAttribute('href'));
+    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
 </script>
 
 </body>
