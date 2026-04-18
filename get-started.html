@@ -444,7 +444,89 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .stats-row{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr}
 }
+
+/* FORM CARD */
+.form-card {
+  background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;
+  max-width:660px;margin:0 auto;backdrop-filter:blur(12px);
+}
+.form-progress { padding: 20px 40px 0; }
+.progress-track { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--blue); border-radius: 2px; transition: width 0.4s ease; width: 0%; }
+.progress-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+.progress-step-lbl { font-size: .68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+.progress-pct { font-size: .68rem; color: var(--blue); }
+.form-body { padding: 36px 40px 40px; }
+@keyframes stepIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.form-step { display: none; animation: stepIn 0.35s ease; }
+.form-step.active { display: block; }
+.step-q { font-family: var(--syne); font-size: clamp(20px,2.5vw,26px); font-weight: 700; line-height: 1.25; color: var(--white); margin-bottom: 8px; }
+.step-hint { font-size: .82rem; color: var(--faint); margin-bottom: 28px; line-height: 1.5; }
+.opt-grid { display: grid; gap: 10px; margin-bottom: 32px; }
+.opt-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.opt-card {
+  padding: 16px 18px; border: 1px solid var(--border); border-radius: 12px;
+  cursor: none; transition: all 0.2s; background: var(--glass);
+}
+.opt-card:hover { border-color: var(--blue); background: var(--bdim); }
+.opt-card.selected { border-color: var(--blue); background: var(--bdim); }
+.opt-card.selected .opt-label { color: var(--white); }
+.opt-label { font-size: .88rem; font-weight: 400; color: var(--off); line-height: 1.4; display: flex; align-items: flex-start; gap: 10px; }
+.opt-label::before { content: ''; width: 14px; height: 14px; border: 1px solid var(--bmid); border-radius: 50%; flex-shrink: 0; margin-top: 1px; transition: all 0.2s; }
+.opt-card.selected .opt-label::before { background: var(--blue); border-color: var(--blue); }
+.opt-sub { font-size: .75rem; color: var(--faint); margin-top: 3px; padding-left: 24px; }
+.field-group { margin-bottom: 18px; }
+.field-group label { display: block; font-size: .72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px; }
+.field-group input {
+  width: 100%; padding: 12px 16px; background: var(--glass2); border: 1px solid var(--border);
+  border-radius: 12px; color: var(--white); font-family: var(--body); font-size: .88rem; transition: border-color 0.2s;
+}
+.field-group input::placeholder { color: var(--faint); }
+.field-group input:focus { outline: none; border-color: var(--blue); }
+.other-field { margin-top: 10px; display: none; }
+.other-field.show { display: block; }
+.other-field input { width: 100%; padding: 12px 14px; background: var(--glass2); border: 1px solid var(--border); border-radius: 12px; color: var(--white); font-family: var(--body); font-size: .88rem; }
+.other-field input:focus { outline: none; border-color: var(--blue); }
+.btn-row { display: flex; gap: 10px; margin-top: 8px; }
+.btn-back { background: none; border: 1px solid var(--border); color: var(--muted); padding: 13px 22px; border-radius: 100px; font-family: var(--body); font-size: .88rem; cursor: none; transition: all 0.2s; }
+.btn-back:hover { border-color: var(--bmid); color: var(--white); }
+.btn-next { background: var(--blue); color: #fff; border: none; padding: 13px 32px; border-radius: 100px; font-family: var(--body); font-size: .88rem; cursor: none; transition: opacity 0.2s, transform 0.2s; flex: 1; }
+.btn-next:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+.btn-next:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+.form-loading { display: none; padding: 60px 40px; text-align: center; }
+.form-loading.active { display: block; }
+.form-loading p { font-size: .88rem; color: var(--muted); }
+.dq-screen { display: none; padding: 60px 40px; text-align: center; }
+.dq-screen.active { display: block; }
+.dq-screen h3 { font-family: var(--syne); font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 16px; }
+.dq-screen p { font-size: .88rem; color: var(--muted); line-height: 1.7; max-width: 440px; margin: 0 auto 24px; }
+.dq-restart { background: none; border: 1px solid var(--border); color: var(--muted); padding: 12px 28px; border-radius: 100px; font-family: var(--body); font-size: .88rem; cursor: none; transition: all 0.2s; }
+.dq-restart:hover { border-color: var(--bmid); color: var(--white); }
+.submit-screen { display: none; padding: 60px 40px; text-align: center; }
+.submit-screen.active { display: block; }
+.submit-screen h3 { font-family: var(--syne); font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.submit-screen p { font-size: .88rem; color: var(--muted); line-height: 1.7; max-width: 440px; margin: 0 auto; }
+.review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 28px; }
+.review-item { text-align: left; padding: 14px 16px; background: var(--glass2); border: 1px solid var(--border); border-radius: 12px; }
+.review-label { font-size: .65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
+.review-value { font-size: .88rem; color: var(--white); }
+.step-indicator { display: flex; gap: 6px; justify-content: center; margin-bottom: 24px; }
+.step-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); transition: all 0.3s; }
+.step-dot.active { background: var(--blue); width: 18px; border-radius: 3px; }
+.step-dot.done { background: var(--blue); }
+@media(max-width:768px){
+  .form-progress{padding:16px 24px 0;}
+  .form-body{padding:24px 24px 28px;}
+  .form-loading{padding:48px 24px;}
+  .opt-grid.cols-2{grid-template-columns:1fr;}
+  .btn-back{width:100%;}
+  .review-grid{grid-template-columns:1fr;}
+  .dq-screen,.submit-screen{padding:48px 24px;}
+}
+
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
 
@@ -919,5 +1001,197 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 </script>
+<script>
+    // ── SURVEY STATE ──
+    var TOTAL_STEPS = 7;
+    var currentStep = 1;
+    var turnstileToken = '';
+    var turnstileRendered = false;
+
+    var formData = {
+        trade: '', revenue: '', capacity: '', sales_process: '',
+        response_speed: '', looking_for: '', first_name: '', last_name: '',
+        company: '', phone: '', email: '',
+        qualified: true, disqualify_reason: ''
+    };
+
+    // Track disqualifying selections per step
+    var pendingDisqualify = { value: false, reason: '' };
+
+    // ── OPTION CARD SELECTION ──
+    document.querySelectorAll('.opt-card').forEach(function(card){
+        card.addEventListener('click', function(){
+            var field = this.getAttribute('data-field');
+            // Deselect siblings
+            document.querySelectorAll('.opt-card[data-field="' + field + '"]').forEach(function(c){ c.classList.remove('selected'); });
+            this.classList.add('selected');
+
+            var value = this.getAttribute('data-value');
+            formData[field] = value;
+
+            // Check disqualify flag
+            pendingDisqualify.value = this.getAttribute('data-disqualify') === 'true';
+            pendingDisqualify.reason = this.getAttribute('data-reason') || '';
+
+            // Enable next button for this step
+            var stepNum = currentStep;
+            var nextBtn = document.getElementById('next' + stepNum);
+            if(nextBtn) nextBtn.disabled = false;
+
+            // Show "other trade" input if needed
+            if(field === 'trade'){
+                var otherField = document.getElementById('otherTradeField');
+                if(value === 'Other'){
+                    otherField.classList.add('show');
+                } else {
+                    otherField.classList.remove('show');
+                    document.getElementById('otherTradeInput').value = '';
+                }
+            }
+        });
+    });
+
+    function updateProgress(){
+        var pct = Math.round(((currentStep - 1) / TOTAL_STEPS) * 100);
+        document.getElementById('progressFill').style.width = pct + '%';
+        document.getElementById('stepLbl').textContent = 'Step ' + currentStep + ' of ' + TOTAL_STEPS;
+        document.getElementById('stepPct').textContent = pct + '%';
+    }
+
+    function showStep(n){
+        document.querySelectorAll('.form-step').forEach(function(s){ s.classList.remove('active'); });
+        var el = document.getElementById('step' + n);
+        if(el) el.classList.add('active');
+        currentStep = n;
+        updateProgress();
+    }
+
+    function goNext(fromStep){
+        // Special handling for trade "Other"
+        if(fromStep === 1 && formData.trade === 'Other'){
+            var otherVal = document.getElementById('otherTradeInput').value.trim();
+            if(!otherVal){ document.getElementById('otherTradeInput').focus(); return; }
+            formData.trade = otherVal;
+        }
+        showStep(fromStep + 1);
+        // Render Turnstile on step 7
+        if(fromStep + 1 === 7 && !turnstileRendered && typeof turnstile !== 'undefined'){
+            turnstileRendered = true;
+            turnstile.render('#turnstile-container', {
+                sitekey: '0x4AAAAAABj4xsGpuNPXeW_7',
+                callback: function(token){ turnstileToken = token; checkSubmitReady(); },
+                'expired-callback': function(){ turnstileToken = ''; document.getElementById('submitBtn').disabled = true; }
+            });
+        }
+    }
+
+    function goPrev(fromStep){
+        showStep(fromStep - 1);
+    }
+
+    function checkAndNext(fromStep){
+        // Check if current selection is disqualifying
+        if(pendingDisqualify.value){
+            triggerNotFit(pendingDisqualify.reason);
+            return;
+        }
+        goNext(fromStep);
+        // Reset pending after advancing
+        pendingDisqualify.value = false;
+        pendingDisqualify.reason = '';
+    }
+
+    // ── DISQUALIFICATION ──
+    // No data is sent to the webhook for disqualified applicants.
+    var notFitMessages = {
+        revenue_below_threshold: "This system is designed for established businesses generating $500K+ annually that have the foundation to scale. At this stage, Market Pulse may be a better starting point - buy a batch of leads and see the quality before committing to a full system.",
+        solo_operator: "This system generates consistent, high-volume lead flow. Without a team in place to convert that volume, even the best infrastructure won't close jobs. Not a fit for solo operators working end-to-end - yet.",
+        sales_process_not_established: "The system amplifies what's already working. If the quoting and closing process is still being figured out, scaling volume will create friction rather than growth. Get that foundation solid first.",
+        slow_lead_response: "Speed to contact is the biggest determinant of conversion rate in trade businesses. If leads regularly wait until the next day, the volume this system generates won't convert at the rate it's designed to.",
+        not_ready_to_invest: "This is a complete, done-for-you infrastructure build - not a cheap lead source to test. The system requires a proper setup investment and is designed for businesses ready to commit. For a lower-commitment starting point, try Market Pulse.",
+        wants_self_managed_tool: "This isn't a platform or tool to manage yourself. It's a fully built system - ads, landing pages, CRM, follow-up - configured and managed for your business. If you want control of the day-to-day operation, a self-serve platform would be a better fit."
+    };
+
+    function triggerNotFit(reason){
+        // Show not-fit card only - nothing sent to the webhook
+        document.getElementById('notFitMessage').textContent = notFitMessages[reason] || "Based on your answers, this system wouldn't deliver the results it's designed to right now.";
+        document.getElementById('formCard').style.display = 'none';
+        document.getElementById('notFitCard').style.display = 'block';
+        document.getElementById('notFitCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function restartForm(){
+        // Reset state
+        currentStep = 1;
+        pendingDisqualify = { value: false, reason: '' };
+        formData = { trade:'', revenue:'', capacity:'', sales_process:'', response_speed:'', looking_for:'', first_name:'', last_name:'', company:'', phone:'', email:'', qualified:true, disqualify_reason:'' };
+        document.querySelectorAll('.opt-card').forEach(function(c){ c.classList.remove('selected'); });
+        document.querySelectorAll('.form-step').forEach(function(s){ s.classList.remove('active'); });
+        document.getElementById('step1').classList.add('active');
+        document.querySelectorAll('.btn-next').forEach(function(b){ b.disabled = true; });
+        document.getElementById('otherTradeField').classList.remove('show');
+        document.getElementById('otherTradeInput').value = '';
+        updateProgress();
+        document.getElementById('notFitCard').style.display = 'none';
+        document.getElementById('formCard').style.display = 'block';
+        document.getElementById('formCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ── CONTACT STEP VALIDATION ──
+    function checkSubmitReady(){
+        var fn = document.getElementById('first_name').value.trim();
+        var ln = document.getElementById('last_name').value.trim();
+        var co = document.getElementById('company').value.trim();
+        var ph = document.getElementById('phone').value.trim();
+        var em = document.getElementById('email').value.trim();
+        var hasToken = !!turnstileToken;
+        document.getElementById('submitBtn').disabled = !(fn && ln && co && ph && em && hasToken);
+    }
+
+    ['first_name','last_name','company','phone','email'].forEach(function(id){
+        document.getElementById(id).addEventListener('input', checkSubmitReady);
+    });
+
+    // ── SUBMIT ──
+    function submitForm(){
+        var fn = document.getElementById('first_name').value.trim();
+        var ln = document.getElementById('last_name').value.trim();
+        var co = document.getElementById('company').value.trim();
+        var ph = document.getElementById('phone').value.trim();
+        var em = document.getElementById('email').value.trim();
+
+        if(!fn || !ln || !co || !ph || !em){ alert('Please fill in all fields.'); return; }
+        if(!turnstileToken){ alert('Please complete the security verification.'); return; }
+
+        formData.first_name = fn;
+        formData.last_name = ln;
+        formData.company = co;
+        formData.phone = ph;
+        formData.email = em;
+        formData.qualified = true;
+        formData['cf-turnstile-response'] = turnstileToken;
+
+        // Show loading
+        document.getElementById('step7').classList.remove('active');
+        document.getElementById('formBody').style.display = 'none';
+        document.getElementById('formProgress').style.display = 'none';
+        document.getElementById('formLoading').classList.add('active');
+
+        sendToWebhook(formData);
+    }
+
+    function sendToWebhook(payload){
+        fetch('https://hook.eu2.make.com/w5ynqeovlpudd77g333ozthgfdv288hy', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            keepalive: true
+        }).catch(function(e){ console.error('Webhook error:', e); });
+
+        if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+        setTimeout(function(){ window.top.location.href = 'https://quoteleads.com.au/requested'; }, 600);
+    }
+</script>
+
 </body>
 </html>
