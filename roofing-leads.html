@@ -295,6 +295,10 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .cr2{width:360px;height:360px;animation:crPulse 3s .5s ease infinite}
 .cr3{width:520px;height:520px;animation:crPulse 3s 1s ease infinite}
 @keyframes crPulse{0%{opacity:0;transform:translate(-50%,-50%) scale(.8)}50%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.2)}}
+.cta-inner{position:relative;z-index:1}
+.final-trust{margin-top:24px;font-size:.8rem;color:var(--faint);display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.final-trust span{display:flex;align-items:center;gap:6px}
+.final-trust span::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
 
 /* CTA PATHS (from dual-cta) */
 .cta-paths{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);
@@ -742,25 +746,24 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     </div>
 </section>
 
-<!-- DUAL CTA -->
+<!-- FINAL CTA -->
 <section class="final-cta">
-    <div class="cta-glow"></div>
-    <div class="cta-rings"><div class="cta-ring cr1"></div><div class="cta-ring cr2"></div><div class="cta-ring cr3"></div></div>
-    <div class="cta-inner si">
-        <div class="ey rv" style="justify-content:center;">Get Started</div>
-        <h2>Ready to<br><em>build your system?</em></h2>
-        <p>Apply for the full system when you're ready to scale.</p>
-
-        <div class="cta-paths rv">
-<div class="cta-path">
-                <div class="cta-path-lbl">Ready to commit</div>
-                <h3>Full System<br><em>Build</em></h3>
-                <p>The complete infrastructure - your brand, your job types, your exclusive territory. Continuous leads, CRM, automated follow-up.</p>
-                <a href="https://quoteleads.com.au/get-started" class="btn-ghost">Deploy My System</a>
-                <div class="cta-path-detail">Scoping call · One business per trade per territory</div>
-            </div>
-        </div>
+  <div class="cta-glow"></div>
+  <div class="cta-rings"><div class="cta-ring cr1"></div><div class="cta-ring cr2"></div><div class="cta-ring cr3"></div></div>
+  <div class="cta-inner si">
+    <div class="rv"><div class="ey" style="justify-content:center">Next Step</div></div>
+    <h2 class="stitle rv" style="max-width:520px;margin:0 auto 20px;text-align:center">Ready to build your <em>roofing system?</em></h2>
+    <p style="color:var(--muted);font-size:1rem;line-height:1.74;max-width:460px;margin:0 auto 44px;text-align:center" class="rv">Your brand. Your territory. Your system. Owned permanently.</p>
+    <div style="display:flex;justify-content:center" class="rv">
+      <a href="/get-started" class="btn-mag">Build My System <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
     </div>
+    <div class="final-trust rv">
+      <span>No lock-in contracts</span>
+      <span>You own everything permanently</span>
+      <span>One business per trade per territory</span>
+      <span>5-7 day build</span>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
