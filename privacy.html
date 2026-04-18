@@ -274,6 +274,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .cr2{width:360px;height:360px;animation:crPulse 3s .5s ease infinite}
 .cr3{width:520px;height:520px;animation:crPulse 3s 1s ease infinite}
 @keyframes crPulse{0%{opacity:0;transform:translate(-50%,-50%) scale(.8)}50%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.2)}}
+.cta-inner{position:relative;z-index:1}
 
 /* CTA PATHS (from dual-cta) */
 .cta-paths{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);
@@ -397,6 +398,18 @@ a:hover{color:var(--sky)}
 
 /* STATUS DOT */
 .sdot{width:8px;height:8px;background:#22c55e;border-radius:50%;flex-shrink:0}
+
+/* SIDEBAR CARDS */
+.sidebar-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:24px;
+  backdrop-filter:blur(12px);margin-bottom:16px}
+.sidebar-lbl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;font-weight:600}
+.sidebar-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:.82rem}
+.sidebar-row:last-child{border-bottom:none}
+.sidebar-row span:first-child{color:var(--muted)}
+.sidebar-row span:last-child{color:var(--off);font-weight:500}
+.sidebar-link{display:block;font-size:.84rem;color:var(--blue);text-decoration:none;padding:4px 0;transition:opacity .2s}
+.sidebar-link:hover{opacity:.8}
 
 /* LEGAL CONTENT (privacy, terms) */
 .legal-body{max-width:720px;margin:0 auto}
@@ -1122,14 +1135,16 @@ a:hover{color:var(--sky)}
 
 <!-- FINAL CTA -->
 <section class="final-cta" style="border-top:1px solid var(--border);">
-    <div class="si">
-        <div class="ey" style="justify-content:center;">Questions about your data?</div>
-        <h2 class="stitle" style="max-width:520px; margin:0 auto 20px; text-align:center;">Expect<br><em>a straight answer.</em></h2>
-        <p class="sbody" style="margin:0 auto 40px; text-align:center;">Privacy rights requests are responded to within 30 days. No legal runaround.</p>
-        <div style="display:flex; justify-content:center;">
-            <a href="mailto:contact@quoteleads.com.au" class="btn-primary">contact@quoteleads.com.au</a>
+    <div class="cta-glow"></div>
+    <div class="cta-rings"><div class="cta-ring cr1"></div><div class="cta-ring cr2"></div><div class="cta-ring cr3"></div></div>
+    <div class="cta-inner si">
+        <div class="rv"><div class="ey" style="justify-content:center;">Questions about your data?</div></div>
+        <h2 class="stitle rv" style="max-width:520px; margin:0 auto 20px; text-align:center;">Expect<br><em>a straight answer.</em></h2>
+        <p style="color:var(--muted);font-size:1rem;line-height:1.74;max-width:460px;margin:0 auto 44px;text-align:center" class="rv">Privacy rights requests are responded to within 30 days. No legal runaround.</p>
+        <div style="display:flex; justify-content:center;" class="rv">
+            <a href="mailto:contact@quoteleads.com.au" class="btn-mag">contact@quoteleads.com.au <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
         </div>
-        <div class="final-trust">
+        <div class="final-trust rv">
             <span>Australian owned and operated</span>
             <span>Data never sold</span>
         </div>

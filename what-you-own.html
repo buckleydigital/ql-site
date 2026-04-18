@@ -292,6 +292,10 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .cta-path h3 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .cta-path p{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:28px}
 .cta-path-detail{margin-top:20px;font-size:.75rem;color:var(--faint);line-height:1.55}
+.cta-inner{position:relative;z-index:1}
+.final-trust{margin-top:24px;font-size:.8rem;color:var(--faint);display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.final-trust span{display:flex;align-items:center;gap:6px}
+.final-trust span::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
 
 /* FOOTER */
 footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep);position:relative;z-index:3}
@@ -312,6 +316,26 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;
   transform-origin:left center;transform:scaleX(0);
   background:linear-gradient(90deg,var(--blue),var(--sky))}
+
+/* FLOW STRIP */
+.flow-strip{display:flex;align-items:center;justify-content:center;gap:0;margin-top:60px;flex-wrap:wrap;padding:0 20px}
+.flow-strip .flow-node{display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0}
+.flow-dot{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)}
+.flow-dot svg{width:18px;height:18px;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.flow-dot.navy{background:var(--bdim);border-color:rgba(71,151,255,.22)}
+.flow-dot.navy svg{stroke:var(--blue)}
+.flow-dot.green{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.22)}
+.flow-dot.green svg{stroke:#22c55e}
+.flow-strip .flow-label{font-size:.72rem;color:var(--muted);text-align:center;white-space:nowrap}
+.flow-line{width:40px;height:1px;flex-shrink:0;margin:0 4px;margin-bottom:22px}
+.flow-line.navy{background:var(--blue);opacity:.3}
+.flow-line.green{background:#22c55e;opacity:.3}
+
+/* CLOSING BAND */
+.closing-band{position:relative;z-index:3;padding:80px 5%;border-top:1px solid var(--border);background:var(--deep)}
+.closing-inner{max-width:1120px;margin:0 auto;text-align:center}
+.closing-text h2{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;color:var(--white);line-height:1.15;margin-bottom:14px;letter-spacing:-.02em}
+.closing-text p{font-size:1rem;color:var(--muted);line-height:1.7}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
@@ -827,9 +851,26 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <h2>An agency's work lives in their accounts. Yours lives in yours.</h2>
             <p>Every asset transfers to you on day one. No exceptions.</p>
         </div>
-        <div class="closing-cta">
-        </div>
     </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="cta-glow"></div>
+  <div class="cta-rings"><div class="cta-ring cr1"></div><div class="cta-ring cr2"></div><div class="cta-ring cr3"></div></div>
+  <div class="cta-inner si">
+    <div class="rv"><div class="ey" style="justify-content:center">Next Step</div></div>
+    <h2 class="stitle rv" style="max-width:520px;margin:0 auto 20px;text-align:center">Your own leads.<br><em>Your own data.</em></h2>
+    <p style="color:var(--muted);font-size:1rem;line-height:1.74;max-width:460px;margin:0 auto 44px;text-align:center" class="rv">QuoteLeads builds complete exclusive lead generation systems for established Australian trade businesses. A system built into your business that you own from day one.</p>
+    <div style="display:flex;justify-content:center" class="rv">
+      <a href="/get-started" class="btn-mag">Build My System <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
+    </div>
+    <div class="final-trust rv">
+      <span>No lock-in contracts</span>
+      <span>You own everything permanently</span>
+      <span>5-7 day build</span>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
