@@ -190,6 +190,9 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   transition:all .25s;cursor:none}
 .own-item:hover{border-color:var(--bblue);color:var(--white);background:var(--bdim)}
 .own-item svg{color:var(--blue);flex-shrink:0}
+.own-item-neg{border-color:rgba(255,90,90,.22);background:rgba(255,90,90,.04)}
+.own-item-neg svg{color:#ff6b6b}
+.own-item-neg:hover{border-color:rgba(255,90,90,.4);background:rgba(255,90,90,.08);color:var(--white)}
 
 /* HOW IT WORKS STEPS */
 .proc-steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:60px;
@@ -478,25 +481,28 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .proc-note{font-size:.76rem;color:var(--faint);margin-top:6px;font-style:italic}
 
 /* INTEGRATIONS */
-.integ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.integ-col{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 24px;
-  backdrop-filter:blur(12px)}
-.integ-cat-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--blue);margin-bottom:18px;display:flex;align-items:center;gap:8px}
-.integ-cat-label::before{content:'';width:18px;height:1px;background:var(--blue)}
-.integ-items{display:flex;flex-direction:column;gap:10px}
-.integ-item{display:flex;align-items:center;gap:10px;font-size:.84rem;color:var(--muted);
-  transition:color .2s}
-.integ-item:hover{color:var(--white)}
-.integ-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);opacity:.5;flex-shrink:0}
+.integ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;
+  background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+  backdrop-filter:blur(12px);margin-top:8px}
+.integ-col{padding:40px 28px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.06);transition:background .25s}
+.integ-col:last-child{border-right:none}
+.integ-col:hover{background:rgba(71,151,255,.04)}
+.integ-cat-label{font-size:.95rem;font-weight:600;letter-spacing:.02em;
+  color:var(--white);display:flex;align-items:center;justify-content:center;gap:10px}
+.integ-cat-label::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue)}
 .integ-note{margin-top:32px;font-size:.84rem;color:var(--muted);
   display:flex;align-items:center;gap:10px;justify-content:center;
   padding:16px 24px;background:rgba(71,151,255,.04);border-radius:12px;
   border:1px solid var(--border);max-width:640px;margin-left:auto;margin-right:auto}
 .integ-note svg{color:var(--blue);flex-shrink:0}
-@media(max-width:1024px){.integ-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.integ-grid{grid-template-columns:1fr}}
+@media(max-width:1024px){.integ-grid{grid-template-columns:1fr 1fr}
+  .integ-col:nth-child(2){border-right:none}
+  .integ-col:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.06)}}
+@media(max-width:480px){.integ-grid{grid-template-columns:1fr}
+  .integ-col{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+  .integ-col:last-child{border-bottom:none}}
 </style>
 </head>
 <body>
@@ -746,8 +752,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
     <div class="ey" style="justify-content:center;margin-top:44px;color:var(--faint)">What you're replacing</div>
     <div class="own-grid">
-      <div class="own-item" style="border-color:rgba(255,80,80,.18);color:var(--muted)">Agencies: you leave, you get nothing.</div>
-      <div class="own-item" style="border-color:rgba(255,80,80,.18);color:var(--muted)">Lead marketplaces: same lead sold to three of your competitors.</div>
+      <div class="own-item own-item-neg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" width="16" height="16"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>Agencies: you leave, you get nothing.</div>
+      <div class="own-item own-item-neg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" width="16" height="16"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>Lead marketplaces: same lead sold to three of your competitors.</div>
     </div>
   </div>
 </div>
@@ -857,7 +863,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="feat-orb"></div><div class="feat-shine"></div>
           <div class="fnum">07</div>
           <div class="fico"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-          <div class="fname">CRM Pipeline</div>
+          <div class="fname">Job Pipeline</div>
           <div class="fdesc">Runs on the QuoteLeads platform. Every lead tracked from first contact to signed job. Export to CSV any time - the data is yours.</div>
         </div>
       </div>
@@ -886,47 +892,15 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="integ-grid rv">
       <div class="integ-col">
         <div class="integ-cat-label">CRM</div>
-        <div class="integ-items">
-          <div class="integ-item"><div class="integ-dot"></div>HubSpot</div>
-          <div class="integ-item"><div class="integ-dot"></div>Salesforce</div>
-          <div class="integ-item"><div class="integ-dot"></div>Pipedrive</div>
-          <div class="integ-item"><div class="integ-dot"></div>Zoho CRM</div>
-          <div class="integ-item"><div class="integ-dot"></div>GoHighLevel</div>
-          <div class="integ-item"><div class="integ-dot"></div>Custom CRM</div>
-        </div>
       </div>
       <div class="integ-col">
         <div class="integ-cat-label">Job Management</div>
-        <div class="integ-items">
-          <div class="integ-item"><div class="integ-dot"></div>ServiceM8</div>
-          <div class="integ-item"><div class="integ-dot"></div>Tradify</div>
-          <div class="integ-item"><div class="integ-dot"></div>Simpro</div>
-          <div class="integ-item"><div class="integ-dot"></div>AroFlo</div>
-          <div class="integ-item"><div class="integ-dot"></div>Fergus</div>
-          <div class="integ-item"><div class="integ-dot"></div>Jobber</div>
-        </div>
       </div>
       <div class="integ-col">
         <div class="integ-cat-label">Email</div>
-        <div class="integ-items">
-          <div class="integ-item"><div class="integ-dot"></div>Mailchimp</div>
-          <div class="integ-item"><div class="integ-dot"></div>ActiveCampaign</div>
-          <div class="integ-item"><div class="integ-dot"></div>Klaviyo</div>
-          <div class="integ-item"><div class="integ-dot"></div>ConvertKit</div>
-          <div class="integ-item"><div class="integ-dot"></div>Brevo</div>
-          <div class="integ-item"><div class="integ-dot"></div>Any SMTP</div>
-        </div>
       </div>
       <div class="integ-col">
         <div class="integ-cat-label">SMS &amp; Messaging</div>
-        <div class="integ-items">
-          <div class="integ-item"><div class="integ-dot"></div>Twilio</div>
-          <div class="integ-item"><div class="integ-dot"></div>MessageBird</div>
-          <div class="integ-item"><div class="integ-dot"></div>ClickSend</div>
-          <div class="integ-item"><div class="integ-dot"></div>Podium</div>
-          <div class="integ-item"><div class="integ-dot"></div>SimpleTexting</div>
-          <div class="integ-item"><div class="integ-dot"></div>Webhook / API</div>
-        </div>
       </div>
     </div>
     <div class="integ-note rv">
