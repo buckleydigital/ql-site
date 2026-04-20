@@ -78,13 +78,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://quoteleads.com.au/what-you-own.html</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
   <!-- Tools -->
   <url>
     <loc>https://quoteleads.com.au/growth-capacity-calculator.html</loc>
