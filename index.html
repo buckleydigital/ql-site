@@ -150,6 +150,17 @@ body::before{content:'';position:fixed;inset:0;
   border:1px solid var(--border);font-family:var(--body);font-size:.88rem;font-weight:400;
   padding:14px 28px;border-radius:100px;text-decoration:none;transition:all .25s;cursor:none}
 .btn-ghost:hover{border-color:var(--faint);color:var(--white)}
+/* LIVE COUNTER */
+.live-counter{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px;animation:fadeUp .7s ease both}
+.live-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:livePulse 2s ease infinite}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}50%{box-shadow:0 0 0 7px rgba(34,197,94,0)}}
+.live-counter span{font-size:.88rem;color:var(--off);font-weight:400;letter-spacing:.01em}
+.live-counter strong{color:var(--white);font-weight:600;font-variant-numeric:tabular-nums}
+/* CTA PROOF LINE */
+.cta-proof{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;animation:fadeUp .7s .28s ease both}
+.cta-proof-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:livePulse 2s ease infinite}
+.cta-proof span{font-size:.82rem;color:var(--muted);font-weight:400}
+.cta-proof strong{color:var(--off);font-weight:500}
 .hproof{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px;animation:fadeUp .7s .3s ease both}
 .pfaces{display:flex}
 .pface{width:30px;height:30px;border-radius:50%;border:2px solid var(--void);margin-right:-9px;
@@ -418,6 +429,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .hbtns{flex-direction:column;align-items:center;width:100%}
   .btn-mag,.btn-ghost{width:100%;justify-content:center}
   .hproof{flex-direction:column;text-align:center;gap:10px}
+  .live-counter span{font-size:.82rem}
+  .cta-proof span{font-size:.76rem}
   .feat-grid{grid-template-columns:1fr}
   .ind-grid{grid-template-columns:1fr}
   .out-grid{grid-template-columns:1fr}
@@ -574,7 +587,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
     <div class="hc">
       <div class="hbadge"><div class="bpulse"></div>Lead Generation + AI Conversion</div>
-      <h1>Exclusive Lead Gen &amp; <span style="color:var(--blue)">Conversion System</span> For Trades</h1>
+      <div class="live-counter"><span class="live-dot"></span><span><strong id="leadCount">0</strong> leads generated this month</span></div>
+      <h1>Leads In. Quotes Sent. <span style="color:var(--blue)">Jobs Booked.</span></h1>
       <div class="hrule"></div>
       <p class="hero-sub">Ad accounts in your name. Domain in your name. Landing page files on your drive. The system runs while you sleep. The assets are yours.</p>
       <div class="hero-kick"><strong>Not an agency. Not a lead marketplace.</strong> You've paid both for years and walked away with nothing. This is the alternative - built once, on your accounts, then handed over.</div>
@@ -585,6 +599,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </a>
         <a href="#how-it-works" class="btn-ghost">See How It Works</a>
       </div>
+      <div class="cta-proof"><span class="cta-proof-dot"></span><span><strong>14</strong> trade businesses booked a call this week</span></div>
       <div class="hproof">
         <div class="pfaces">
           <div class="pface pf1">LS</div>
@@ -1312,6 +1327,26 @@ document.addEventListener('mousemove',e=>{
   const dy=(e.clientY/window.innerHeight-.5)*10;
   pipe.style.transform=`rotateY(${dx*.3}deg) rotateX(${-dy*.2}deg)`;
 });
+
+// LIVE LEAD COUNTER ANIMATION
+(function(){
+  const el=document.getElementById('leadCount');
+  if(!el)return;
+  const target=4312;
+  const dur=1600;
+  let start=null;
+  function step(ts){
+    if(!start)start=ts;
+    const p=Math.min((ts-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(ease*target).toLocaleString();
+    if(p<1)requestAnimationFrame(step);
+  }
+  const obs=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){requestAnimationFrame(step);obs.disconnect();}
+  },{threshold:0.1});
+  obs.observe(el);
+})();
 </script>
 </body>
 </html>
