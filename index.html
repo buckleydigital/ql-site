@@ -164,12 +164,8 @@ body::before{content:'';position:fixed;inset:0;
 .hproof{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px;animation:fadeUp .7s .3s ease both}
 .pfaces{display:flex}
 .pface{width:30px;height:30px;border-radius:50%;border:2px solid var(--void);margin-right:-9px;
-  font-size:.6rem;font-weight:600;display:flex;align-items:center;justify-content:center}
-.pf1{background:linear-gradient(135deg,#4797ff,#7cb9ff)}
-.pf2{background:linear-gradient(135deg,#10b981,#3b82f6)}
-.pf3{background:linear-gradient(135deg,#f97316,#fbbf24)}
-.pf4{background:linear-gradient(135deg,#8b5cf6,#4797ff)}
-.pf5{background:linear-gradient(135deg,#ec4899,#f97316)}
+  background:var(--deep);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.pface img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .pcopy{font-size:.8rem;color:var(--muted);line-height:1.5}
 .pcopy strong{color:var(--white);font-weight:500}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
@@ -451,7 +447,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 }
 @media(max-width:480px){
   .hero{padding:90px 5% 50px}
-  .hero h1{font-size:clamp(1.7rem,8vw,2.4rem)}
+  .hero h1{font-size:clamp(1.85rem,8.5vw,2.6rem)}
   .hbadge{font-size:.65rem;letter-spacing:.04em}
   .hero-sub{font-size:.95rem}
   .hero-kick{font-size:.84rem}
@@ -469,7 +465,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .compare-table th,.compare-table td{padding:10px 10px}
 }
 @media(max-width:390px){
-  .hero h1{font-size:1.65rem}
+  .hero h1{font-size:1.8rem}
   .hero-sub{font-size:.9rem}
   .hero-kick{font-size:.8rem;padding:12px}
   .btn-mag,.btn-ghost{font-size:.8rem;padding:11px 16px}
@@ -488,7 +484,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 }
 @media(max-width:320px){
   .hero{padding:80px 4% 40px}
-  .hero h1{font-size:1.5rem}
+  .hero h1{font-size:1.65rem}
   .hero-sub{font-size:.85rem}
   .btn-mag,.btn-ghost{font-size:.78rem;padding:10px 14px}
   .hbadge{font-size:.56rem;padding:3px 8px 3px 6px}
@@ -602,11 +598,11 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="cta-proof"><span class="cta-proof-dot"></span><span><strong>14</strong> trade businesses booked a call this week</span></div>
       <div class="hproof">
         <div class="pfaces">
-          <div class="pface pf1">LS</div>
-          <div class="pface pf2">AB</div>
-          <div class="pface pf3">MR</div>
-          <div class="pface pf4">SH</div>
-          <div class="pface pf5">SP</div>
+          <div class="pface"><img src="/client-logo1.png" alt="Client"></div>
+          <div class="pface"><img src="/client-logo2.png" alt="Client"></div>
+          <div class="pface"><img src="/client-logo3.png" alt="Client"></div>
+          <div class="pface"><img src="/client-logo4.png" alt="Client"></div>
+          <div class="pface"><img src="/client-logo7.png" alt="Client"></div>
         </div>
         <div class="pcopy">Join hundreds of Australian trade businesses with a 70%+ lead-to-appointment rate.</div>
       </div>
@@ -1052,7 +1048,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="tc" data-i="3">
           <div class="tresult"><div class="trd"></div>Max &amp; Mitchell</div>
           <div class="tstars">★★★★★</div>
-          <p class="tbody">"High quality leads, consistently. Best decision we made last year."</p>
+          <p class="tbody">"High quality leads, consistently. Best decision we made last year. First sale $25k, next one $39k. Buzzing."</p>
           <div class="tauth"><div class="tav">MM</div><div><div class="tnm">Max &amp; Mitchell</div><div class="tco">Renovations</div></div></div>
         </div>
         <div class="tc" data-i="4">
