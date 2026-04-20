@@ -101,10 +101,6 @@ body::before{content:'';position:fixed;inset:0;
 .ha1{width:500px;height:500px;background:rgba(71,151,255,.04);right:-50px;top:40%;transform:translateY(-50%)}
 .ha2{width:300px;height:300px;background:rgba(124,185,255,.025);left:-60px;bottom:-80px}
 .ha3{width:250px;height:250px;background:rgba(71,151,255,.02);left:35%;top:-60px}
-.pipeline3d{position:relative;width:100%;height:480px;perspective:900px;transform-style:preserve-3d;z-index:3}
-.pipeline-inner{width:100%;height:100%;transform-style:preserve-3d;animation:pipeFloat 9s ease-in-out infinite}
-@keyframes pipeFloat{0%,100%{transform:translateY(0) rotateX(0)}50%{transform:translateY(-16px) rotateX(3deg)}}
-.pipe-svg{position:absolute;inset:0;width:100%;height:100%}
 .hbadge{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--bblue);
   background:var(--bdim);padding:5px 16px 5px 10px;border-radius:100px;
   font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);
@@ -622,7 +618,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .pipeline3d{height:280px}
   .feat-grid{grid-template-columns:1fr 1fr}
   .stats-row{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}
   .out-grid{grid-template-columns:1fr 1fr}
@@ -654,7 +649,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .tc.pos-right,.tc.pos-left{display:none}
   .car-scene{height:420px}
   .stitle{font-size:1.8rem}
-  .pipeline3d{height:260px !important;margin-top:40px !important}
   .mk-hero{grid-template-columns:1fr;gap:18px;padding:22px 18px 20px}
   .mk-nav-links{display:none}
   .mk-trust{padding:10px 16px;gap:10px;font-size:.54rem}
@@ -675,7 +669,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .btn-mag,.btn-ghost{font-size:.82rem;padding:12px 20px}
   .stat{padding:28px 5%}.stn{font-size:2.2rem}
   .stitle{font-size:1.6rem}
-  .pipeline3d{height:220px !important}
   .feat-card{padding:28px 22px}
   .out-item{padding:36px 24px}
   .car-scene{height:460px}.tc{width:290px}
@@ -775,46 +768,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </div>
         <div class="pcopy">Join hundreds of Australian trade businesses with a 70%+ lead-to-appointment rate.</div>
       </div>
-    </div>
-    <div class="pipeline3d" id="pipeline3d" style="width:100%;height:360px;margin-top:60px;max-width:640px;align-self:center">
-      <svg class="pipe-svg" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#B8D4FF"/><stop offset="50%" stop-color="#4797FF"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-          <radialGradient id="nodeGrad" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#7CB9FF"/><stop offset="100%" stop-color="#4797FF"/></radialGradient>
-          <filter id="glow"><feGaussianBlur stdDeviation="4" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="softGlow"><feGaussianBlur stdDeviation="8" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <circle cx="240" cy="240" r="180" fill="rgba(71,151,255,0.04)"/>
-        <circle cx="240" cy="240" r="120" fill="rgba(71,151,255,0.06)"/>
-        <circle cx="240" cy="240" r="160" stroke="rgba(71,151,255,0.12)" stroke-width="1" stroke-dasharray="4 8"><animateTransform attributeName="transform" type="rotate" from="0 240 240" to="360 240 240" dur="18s" repeatCount="indefinite"/></circle>
-        <circle cx="240" cy="240" r="120" stroke="rgba(124,185,255,0.18)" stroke-width="1"><animateTransform attributeName="transform" type="rotate" from="0 240 240" to="-360 240 240" dur="24s" repeatCount="indefinite"/></circle>
-        <circle cx="240" cy="240" r="80" stroke="rgba(71,151,255,0.22)" stroke-width="1" stroke-dasharray="2 6"><animateTransform attributeName="transform" type="rotate" from="0 240 240" to="360 240 240" dur="12s" repeatCount="indefinite"/></circle>
-        <circle cx="240" cy="240" r="40" stroke="rgba(71,151,255,0.15)" stroke-width="1" fill="none"><animate attributeName="r" values="40;100;160" dur="3s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.3;0.08;0" dur="3s" repeatCount="indefinite"/></circle>
-        <circle cx="240" cy="240" r="40" stroke="rgba(71,151,255,0.15)" stroke-width="1" fill="none"><animate attributeName="r" values="40;100;160" dur="3s" begin="1s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.3;0.08;0" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
-        <circle cx="240" cy="240" r="40" stroke="rgba(71,151,255,0.15)" stroke-width="1" fill="none"><animate attributeName="r" values="40;100;160" dur="3s" begin="2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.3;0.08;0" dur="3s" begin="2s" repeatCount="indefinite"/></circle>
-        <g opacity="0.4">
-          <line x1="240" y1="240" x2="240" y2="80" stroke="url(#coreGrad)" stroke-width="1"/>
-          <line x1="240" y1="240" x2="380" y2="160" stroke="url(#coreGrad)" stroke-width="1"/>
-          <line x1="240" y1="240" x2="380" y2="320" stroke="url(#coreGrad)" stroke-width="1"/>
-          <line x1="240" y1="240" x2="240" y2="400" stroke="url(#coreGrad)" stroke-width="1"/>
-          <line x1="240" y1="240" x2="100" y2="320" stroke="url(#coreGrad)" stroke-width="1"/>
-          <line x1="240" y1="240" x2="100" y2="160" stroke="url(#coreGrad)" stroke-width="1"/>
-        </g>
-        <circle r="3" fill="#4797FF" filter="url(#glow)"><animateMotion path="M240,240 L240,80" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#7CB9FF" filter="url(#glow)"><animateMotion path="M240,240 L380,160" dur="2.4s" begin="0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2.4s" begin="0.4s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#4797FF" filter="url(#glow)"><animateMotion path="M240,240 L380,320" dur="2.2s" begin="0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2.2s" begin="0.8s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#B8D4FF" filter="url(#glow)"><animateMotion path="M240,240 L240,400" dur="2.6s" begin="1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2.6s" begin="1.2s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#4797FF" filter="url(#glow)"><animateMotion path="M240,240 L100,320" dur="2.3s" begin="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2.3s" begin="1.6s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#7CB9FF" filter="url(#glow)"><animateMotion path="M240,240 L100,160" dur="2.1s" begin="0.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></circle>
-        <circle cx="240" cy="80" r="28" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.3)" stroke-width="1" filter="url(#glow)"/><circle cx="240" cy="80" r="14" fill="url(#nodeGrad)"/><text x="240" y="122" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">Meta / Google</text>
-        <circle cx="380" cy="160" r="24" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.25)" stroke-width="1" filter="url(#glow)"/><circle cx="380" cy="160" r="12" fill="url(#nodeGrad)"/><text x="380" y="195" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">Landing Page</text>
-        <circle cx="380" cy="320" r="24" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.25)" stroke-width="1" filter="url(#glow)"/><circle cx="380" cy="320" r="12" fill="url(#nodeGrad)"/><text x="380" y="355" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">AI Agent</text>
-        <circle cx="240" cy="400" r="28" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.3)" stroke-width="1" filter="url(#glow)"/><circle cx="240" cy="400" r="14" fill="url(#nodeGrad)"/><text x="240" y="440" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">Quote Sent</text>
-        <circle cx="100" cy="320" r="24" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.25)" stroke-width="1" filter="url(#glow)"/><circle cx="100" cy="320" r="12" fill="url(#nodeGrad)"/><text x="100" y="355" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">CRM Pipeline</text>
-        <circle cx="100" cy="160" r="24" fill="rgba(71,151,255,0.1)" stroke="rgba(71,151,255,0.25)" stroke-width="1" filter="url(#glow)"/><circle cx="100" cy="160" r="12" fill="url(#nodeGrad)"/><text x="100" y="195" font-size="10" fill="rgba(124,185,255,0.8)" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="500">Follow-Up</text>
-        <circle cx="240" cy="240" r="44" fill="rgba(71,151,255,0.08)" stroke="rgba(71,151,255,0.2)" stroke-width="1" filter="url(#softGlow)"/><circle cx="240" cy="240" r="30" fill="rgba(71,151,255,0.15)" stroke="rgba(124,185,255,0.4)" stroke-width="1"/><circle cx="240" cy="240" r="18" fill="url(#coreGrad)" filter="url(#glow)"/>
-        <text x="240" y="275" font-size="11" fill="rgba(184,212,255,0.9)" text-anchor="middle" font-family="General Sans,system-ui,sans-serif" font-weight="600" letter-spacing="0.05em">YOUR SYSTEM</text>
-      </svg>
     </div>
   </div>
 </section>
@@ -1402,10 +1355,6 @@ function toggleFaq(btn){const item=btn.parentElement,isOpen=item.classList.conta
 
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}})});
-
-// PARALLAX ON PIPELINE ORB
-const pipe=document.getElementById('pipeline3d');
-document.addEventListener('mousemove',e=>{if(!pipe)return;const dx=(e.clientX/window.innerWidth-.5)*16;const dy=(e.clientY/window.innerHeight-.5)*10;pipe.style.transform=`rotateY(${dx*.3}deg) rotateX(${-dy*.2}deg)`});
 
 // LIVE LEAD COUNTER
 (function(){const el=document.getElementById('leadCount');if(!el)return;const target=4312,dur=1600;let start=null;function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1);const ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target).toLocaleString();if(p<1)requestAnimationFrame(step)}const obs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting){requestAnimationFrame(step);obs.disconnect()}},{threshold:0.1});obs.observe(el)})();
