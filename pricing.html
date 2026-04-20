@@ -189,6 +189,18 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 
 /* PRICING CARD */
 .pricing-wrap{display:grid;grid-template-columns:1fr 380px;gap:32px;margin-top:60px;align-items:start}
+.pricing-main{display:flex;flex-direction:column;gap:24px}
+
+/* PAY PER LEAD CARD (secondary variant) */
+.pricing-card.ppl{background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  border:1px solid var(--bmid);padding:40px 44px}
+.pricing-card.ppl::before{background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.06),transparent 55%)}
+.pricing-card.ppl::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent)}
+.pricing-card.ppl .pricing-badge{background:rgba(71,151,255,.1);border-color:rgba(71,151,255,.25);color:var(--sky)}
+.pricing-card.ppl .pricing-badge-dot{background:var(--blue)}
+.ppl-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.ppl-title{font-family:var(--display);font-size:clamp(1.6rem,2.4vw,2rem);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.ppl-sub{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:24px;max-width:560px}
 .pricing-card{background:linear-gradient(145deg,rgba(71,151,255,.1),rgba(71,151,255,.02));
   border:1px solid rgba(71,151,255,.35);border-radius:24px;padding:48px 44px;
   backdrop-filter:blur(16px);position:relative;overflow:hidden}
@@ -387,6 +399,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
       <li><a href="/#how-it-works">How It Works</a></li>
       <li><a href="/#what-built">What's Built</a></li>
       <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/pay-per-lead">Pay Per Lead</a></li>
       <li><a href="/get-started" class="nav-cta">Build My System <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
     </ul>
     <button class="mob-btn" id="mobBtn" aria-label="Menu">
@@ -396,7 +409,10 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
   <nav class="mob-menu" id="mobMenu">
     <a href="/#how-it-works">How It Works</a>
     <a href="/#what-built">What's Built</a>
+    <a href="/#industries">Industries</a>
     <a href="/pricing">Pricing</a>
+    <a href="/pay-per-lead">Pay Per Lead</a>
+    <a href="/#faq">FAQ</a>
     <a href="/get-started" class="mob-cta-link">Build My System</a>
   </nav>
 </header>
@@ -459,6 +475,9 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
     <h2 class="stitle rv">Everything you need. <em>Nothing you don't.</em></h2>
     <div class="pricing-wrap">
 
+      <!-- MAIN PRICING COLUMN -->
+      <div class="pricing-main">
+
       <!-- MAIN PRICING CARD -->
       <div class="pricing-card rv">
         <div class="pricing-badge"><div class="pricing-badge-dot"></div>Complete System - Most Popular</div>
@@ -515,6 +534,47 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
           Build My System
           <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
         </a>
+      </div>
+
+      <!-- PAY PER LEAD CARD -->
+      <div class="pricing-card ppl rv d1">
+        <div class="pricing-badge"><div class="pricing-badge-dot"></div>Pay Per Lead &middot; No Retainer</div>
+        <div class="ppl-head">
+          <div class="ppl-title">Pay Per Lead</div>
+        </div>
+        <p class="ppl-sub">Exclusive, pre-qualified leads delivered in real-time with a Close or Credit Guarantee. Only pay for qualified opportunities.</p>
+
+        <hr class="pricing-divider">
+
+        <ul class="pricing-list">
+          <li class="pricing-item">
+            <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>No monthly retainer</strong> - no build fee, no lock-in, no minimum spend.</span>
+          </li>
+          <li class="pricing-item">
+            <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Pay only for qualified leads</strong> - scope, budget, timing and location verified before delivery.</span>
+          </li>
+          <li class="pricing-item">
+            <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Exclusive opportunities</strong> - never shared or resold. 1:1 consent-based enquiries.</span>
+          </li>
+          <li class="pricing-item">
+            <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Close or Credit Guarantee</strong> - if you don't close a single deal, we credit you until you do.</span>
+          </li>
+          <li class="pricing-item">
+            <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Full QuoteLeadsHQ access included</strong> - CRM, AI SMS, pipeline tracking and follow-up systems.</span>
+          </li>
+        </ul>
+
+        <a href="/pay-per-lead" class="btn-mag" style="display:inline-flex;font-size:.92rem;padding:16px 36px">
+          View Details
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
+        </a>
+      </div>
+
       </div>
 
       <!-- SIDE PANEL -->
