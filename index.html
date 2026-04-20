@@ -245,7 +245,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 }
 .own-tag svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-.journey-visual{position:relative;perspective:1400px}
+.journey-visual{position:relative;perspective:1400px;max-width:100%;overflow:hidden}
 .journey-visual::before{
   content:'';position:absolute;inset:-20% -10%;
   background:radial-gradient(ellipse at center,rgba(71,151,255,.07),transparent 60%);
@@ -288,7 +288,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .ad-platform::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue)}
 
 /* --- LANDING PAGE MOCKUP --- */
-.mk-mockup{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid var(--bmid);border-radius:14px;padding:8px;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 20px 40px -10px rgba(71,151,255,.12),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(20px)}
+.mk-mockup{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid var(--bmid);border-radius:14px;padding:8px;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 20px 40px -10px rgba(71,151,255,.12),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(20px);max-width:100%;overflow:hidden}
 .mk-mockup::before{content:'';position:absolute;top:-1px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent)}
 .mk-bar{display:flex;align-items:center;gap:8px;padding:8px 12px 10px}
 .mk-dot{width:9px;height:9px;border-radius:50%;background:var(--faint)}
@@ -658,6 +658,13 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .mk-hero{grid-template-columns:1fr;gap:18px;padding:22px 18px 20px}
   .mk-nav-links{display:none}
   .mk-trust{padding:10px 16px;gap:10px;font-size:.54rem}
+  .mk-mockup{padding:6px}
+  .mk-nav{padding:12px 16px;gap:10px}
+  .mk-logo{font-size:.82rem}
+  .mk-logo-mark{width:20px;height:20px}
+  .mk-h5{font-size:1.05rem}
+  .mk-p{font-size:.68rem}
+  .mk-survey-q{font-size:.78rem}
 }
 @media(max-width:480px){
   .hero{padding:90px 5% 50px}
@@ -674,6 +681,27 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .car-scene{height:460px}.tc{width:290px}
   .dash-stats{grid-template-columns:1fr 1fr}
   .quote-meta{grid-template-columns:1fr}
+  .mk-mockup{padding:4px;border-radius:10px}
+  .mk-bar{padding:6px 8px 8px;gap:6px}
+  .mk-url{margin:0 8px;padding:4px 8px;font-size:.58rem}
+  .mk-nav{padding:10px 14px}
+  .mk-logo{font-size:.76rem;gap:6px}
+  .mk-logo-mark{width:18px;height:18px;border-radius:4px}
+  .mk-nav-cta{font-size:.6rem;padding:5px 10px}
+  .mk-hero{padding:18px 14px 16px;gap:14px}
+  .mk-h5{font-size:.92rem;margin-bottom:8px}
+  .mk-p{font-size:.64rem;margin-bottom:12px}
+  .mk-tag{font-size:.52rem;padding:3px 8px;margin-bottom:10px}
+  .mk-btn{font-size:.58rem;padding:6px 10px}
+  .mk-survey{padding:12px}
+  .mk-survey-q{font-size:.72rem;margin-bottom:10px}
+  .mk-survey-opts{gap:4px}
+  .mk-opt{padding:8px 6px;min-height:56px}
+  .mk-opt-lbl{font-size:.6rem}
+  .mk-opt-ic{width:18px;height:18px}
+  .mk-opt-ic svg{width:14px;height:14px}
+  .mk-survey-continue{padding:8px;font-size:.64rem}
+  .mk-trust{padding:8px 14px;gap:8px;font-size:.5rem}
 }
 @media(max-width:390px){
   .hero h1{font-size:1.8rem}
@@ -849,7 +877,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   </div>
 </div>
 
-<!-- HOW IT WORKS — VISUAL JOURNEY -->
+<!-- HOW IT WORKS - VISUAL JOURNEY -->
 <section id="how-it-works">
   <div class="si">
     <div class="rv"><div class="ey">How It Works</div></div>
@@ -861,7 +889,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="journey-copy">
         <div class="stage-num">Stage 01 · The ad</div>
         <h3>Served from <em>your</em> ad account.</h3>
-        <p>A homeowner in your service area scrolls Facebook or Instagram and sees a sponsored post for <strong>your business</strong> — not a shared marketplace brand, not a generic quote-comparison site.</p>
+        <p>A homeowner in your service area scrolls Facebook or Instagram and sees a sponsored post for <strong>your business</strong> - not a shared marketplace brand, not a generic quote-comparison site.</p>
         <p>The ad runs on <strong>your Meta Ads Manager and Google Ads account</strong>, billed to your card, with audiences and creative history that stay yours forever.</p>
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Meta + Google accounts in your name</div>
       </div>
@@ -877,7 +905,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               </div>
               <div class="ad-more">⋯</div>
             </div>
-            <div class="ad-copy">Cut your quarterly power bill by up to <strong>82%</strong>. Get a free solar quote from a trusted local installer — no call centre, no shared leads.</div>
+            <div class="ad-copy">Cut your quarterly power bill by up to <strong>82%</strong>. Get a free solar quote from a trusted local installer - no call centre, no shared leads.</div>
             <div class="ad-media">
               <div class="ad-media-sun"></div>
               <div class="ad-media-panel">
@@ -910,8 +938,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="journey-copy">
         <div class="stage-num">Stage 02 · The landing page</div>
         <h3>Files <em>you</em> can host anywhere.</h3>
-        <p>They click the ad and land on a purpose-built survey page — your logo, your colours, your service area. Every headline, question and CTA has been tested across thousands of real campaigns.</p>
-        <p>The full source — <strong>HTML, images, survey logic</strong> — lives in a hosting account under your name. Free to host forever, free to move, free to modify.</p>
+        <p>They click the ad and land on a purpose-built survey page - your logo, your colours, your service area. Every headline, question and CTA has been tested across thousands of real campaigns.</p>
+        <p>The full source - <strong>HTML, images, survey logic</strong> - lives in a hosting account under your name. Free to host forever, free to move, free to modify.</p>
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>Source files delivered to your drive</div>
       </div>
       <div class="journey-visual">
@@ -939,8 +967,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 <div class="mk-survey-q">What's your average quarterly power bill?</div>
                 <div class="mk-survey-opts">
                   <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1 2 1 3.3h6c0-1.3 0-2.5 1-3.3A7 7 0 0 0 12 2z"/></svg></div><div class="mk-opt-lbl">Under $400</div></div>
-                  <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 10 14 10 22 21 10 14 10 14 2"/></svg></div><div class="mk-opt-lbl">$400 – $600</div></div>
-                  <div class="mk-opt selected"><div class="mk-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M20 10v4"/><rect x="5" y="10" width="8" height="4" rx="1" fill="currentColor" stroke="none"/></svg></div><div class="mk-opt-lbl">$600 – $900</div></div>
+                  <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 10 14 10 22 21 10 14 10 14 2"/></svg></div><div class="mk-opt-lbl">$400 - $600</div></div>
+                  <div class="mk-opt selected"><div class="mk-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M20 10v4"/><rect x="5" y="10" width="8" height="4" rx="1" fill="currentColor" stroke="none"/></svg></div><div class="mk-opt-lbl">$600 - $900</div></div>
                   <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg></div><div class="mk-opt-lbl">$900+</div></div>
                 </div>
                 <div class="mk-survey-continue">Continue <svg viewBox="0 0 16 16"><path d="M2 8h12M9 4l4 4-4 4"/></svg></div>
@@ -960,7 +988,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="journey-stage rv">
       <div class="journey-copy">
         <div class="stage-num">Stage 03 · The lead</div>
-        <h3>Captured with consent — <em>sent to you.</em></h3>
+        <h3>Captured with consent - <em>sent to you.</em></h3>
         <p>The survey completes. A fully-qualified lead is created with contact details, postcode, bill size, timeline and every answer they gave. <strong>No shared distribution. No race to call first.</strong></p>
         <p>Lead records are stored in your CRM pipeline and can be exported to CSV at any time. Keep a copy, feed it into another system, or walk away with all of it.</p>
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Full CSV export, any time</div>
@@ -978,7 +1006,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="lead-field"><span class="lead-field-key">Phone</span><span class="lead-field-val">0412 *** ***</span></div>
               <div class="lead-field"><span class="lead-field-key">Email</span><span class="lead-field-val">james.m@email.com</span></div>
               <div class="lead-field"><span class="lead-field-key">Property type</span><span class="lead-field-val">Residential</span></div>
-              <div class="lead-field"><span class="lead-field-key">Avg quarterly bill</span><span class="lead-field-val">$600 – $900</span></div>
+              <div class="lead-field"><span class="lead-field-key">Avg quarterly bill</span><span class="lead-field-val">$600 - $900</span></div>
               <div class="lead-field"><span class="lead-field-key">Purchase timeline</span><span class="lead-field-val">ASAP</span></div>
               <div class="lead-field"><span class="lead-field-key">Source</span><span class="lead-field-val">Meta</span></div>
             </div>
@@ -993,7 +1021,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="stage-num">Stage 04 · AI follow-up <span class="ai-opt">Optional</span></div>
         <h3>Replies in <em>your</em> name. Under 60 seconds.</h3>
         <p>Before the lead closes the tab, an AI SMS agent introduces itself as your team, confirms their details, qualifies, and books a callback. If they don't respond, it follows up on day 2, 5 and 10.</p>
-        <p>Everything the AI says is drafted to your voice and rules. <strong>You can pause or switch it off any time</strong> — the rest of the funnel keeps running.</p>
+        <p>Everything the AI says is drafted to your voice and rules. <strong>You can pause or switch it off any time</strong> - the rest of the funnel keeps running.</p>
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Pause or disable any time from your dashboard</div>
       </div>
       <div class="journey-visual">
@@ -1003,7 +1031,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="sms-thread">
               <div><div class="sms-sender">Sydney Solar Co.</div><div class="sms-bubble sms-out">Hi James, thanks for your enquiry about solar. Are you free for a quick call this afternoon to go over your options?</div><div class="sms-time" style="text-align:right">Just now</div></div>
               <div><div class="sms-sender">James</div><div class="sms-bubble sms-in">Yeah this arvo works. After 3?</div><div class="sms-time">2m</div></div>
-              <div><div class="sms-sender">Sydney Solar Co.</div><div class="sms-bubble sms-out">Perfect — we'll call you at 3:15. Could I also grab your approximate roof size so we can prep a rough quote?</div><div class="sms-time" style="text-align:right">Just now</div></div>
+              <div><div class="sms-sender">Sydney Solar Co.</div><div class="sms-bubble sms-out">Perfect - we'll call you at 3:15. Could I also grab your approximate roof size so we can prep a rough quote?</div><div class="sms-time" style="text-align:right">Just now</div></div>
               <div><div class="sms-sender">James</div><div class="sms-bubble sms-in">Double storey, 4 bedrooms, mostly north-facing roof</div><div class="sms-time">3m</div></div>
             </div>
           </div>
@@ -1011,12 +1039,12 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       </div>
     </div>
 
-    <!-- STAGE 5: DASHBOARD — full width -->
+    <!-- STAGE 5: DASHBOARD - full width -->
     <div class="journey-stage rv" style="grid-template-columns:1fr;text-align:center;max-width:900px;margin-left:auto;margin-right:auto">
       <div class="journey-copy" style="max-width:600px;margin:0 auto">
         <div class="stage-num" style="justify-content:center">Stage 05 · Your pipeline</div>
         <h3>Every lead. Every conversation. <em>One dashboard.</em></h3>
-        <p>Every lead, SMS thread, call and quote sits in a single pipeline — so you can see what came in today, what closed this month, and what AI booked while you were on site.</p>
+        <p>Every lead, SMS thread, call and quote sits in a single pipeline - so you can see what came in today, what closed this month, and what AI booked while you were on site.</p>
       </div>
       <div class="journey-visual" style="margin-top:32px">
         <div class="dash-mockup">
@@ -1069,7 +1097,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="journey-copy">
         <div class="stage-num">Stage 06 · The quote</div>
         <h3>Drafted, sent, and <em>tracked.</em></h3>
-        <p>A quote goes out directly from the CRM — branded as your business, with line items, GST, deposit terms and a one-click accept link for the customer.</p>
+        <p>A quote goes out directly from the CRM - branded as your business, with line items, GST, deposit terms and a one-click accept link for the customer.</p>
         <p>Every quote sits in your pipeline against the lead, with status tracking, automated follow-ups, and a full <strong>PDF that belongs to you</strong>.</p>
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDFs + quote records exportable</div>
       </div>
@@ -1102,7 +1130,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="stage-num">Stage 07 · Job booked</div>
         <h3>Quote accepted. <em>Job on the calendar.</em></h3>
         <p>James taps Accept on the quote link. The lead moves to Closed Won in the pipeline, the install goes on the calendar, a deposit invoice fires out, and a review request is scheduled for 7 days after completion.</p>
-        <p>Every event is logged against the lead — the ad click, the survey, the SMS thread, the quote, the acceptance. <strong>A complete paper trail, inside your workspace.</strong></p>
+        <p>Every event is logged against the lead - the ad click, the survey, the SMS thread, the quote, the acceptance. <strong>A complete paper trail, inside your workspace.</strong></p>
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Full lead history · yours to export</div>
       </div>
       <div class="journey-visual">
@@ -1261,13 +1289,13 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="rv"><div class="ey">Questions</div></div>
     <h2 class="stitle rv">Answered directly.</h2>
     <div class="faq-list rv">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What's included in the system build?</span><span class="faq-qi">+</span></button><div class="faq-a">Meta and Google ad campaigns on your accounts, branded landing pages, quote generation, 3-touch automated follow-up sequence, CRM pipeline, domain and full lead data. The AI side — including the AI SMS agent and AI Voice agent — runs on the QuoteLeads platform and is completely optional. Everything is configured for your trade and territory and tested before going live. Your ad spend is a separate budget you control.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What's included in the system build?</span><span class="faq-qi">+</span></button><div class="faq-a">Meta and Google ad campaigns on your accounts, branded landing pages, quote generation, 3-touch automated follow-up sequence, CRM pipeline, domain and full lead data. The AI side - including the AI SMS agent and AI Voice agent - runs on the QuoteLeads platform and is completely optional. Everything is configured for your trade and territory and tested before going live. Your ad spend is a separate budget you control.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Can I turn the AI off?</span><span class="faq-qi">+</span></button><div class="faq-a">Yes. Pause or disable AI follow-up, SMS, and voice agents any time from your dashboard. You stay in full control - the AI works alongside you, not instead of you.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How long until it's live?</span><span class="faq-qi">+</span></button><div class="faq-a">Build takes 5-7 days. First leads typically arrive within 24-48 hours after launch.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How does the AI follow-up work?</span><span class="faq-qi">+</span></button><div class="faq-a">The moment a lead submits, AI sends an SMS in your name in under 60 seconds. It qualifies scope and budget, drafts a professional quote, and follows up automatically on day 2, 5, and 10 until the job is closed — 24/7, no manual input required.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What do I actually walk away with if I cancel?</span><span class="faq-qi">+</span></button><div class="faq-a">A handover checklist: Meta Ads account in your name, Google Ads account in your name, domain registered to your business, landing page files delivered in a hosting account (hosted forever for $0 per month), full lead export as CSV. The CRM and AI run on our platform — you can keep using them, or stop, but the data inside is exportable any time.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is there lock-in?</span><span class="faq-qi">+</span></button><div class="faq-a">No lock-in. The build includes 30 days of hands-on management at launch. After that, ongoing management is month-to-month — pause or cancel any time. The accounts, domain, files and lead data on the handover checklist stay with you either way.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What trades and locations do you work with?</span><span class="faq-qi">+</span></button><div class="faq-a">Solar, roofing, HVAC, and renovations — across Australian metro and regional areas. Territory availability is confirmed during onboarding.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How does the AI follow-up work?</span><span class="faq-qi">+</span></button><div class="faq-a">The moment a lead submits, AI sends an SMS in your name in under 60 seconds. It qualifies scope and budget, drafts a professional quote, and follows up automatically on day 2, 5, and 10 until the job is closed - 24/7, no manual input required.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What do I actually walk away with if I cancel?</span><span class="faq-qi">+</span></button><div class="faq-a">A handover checklist: Meta Ads account in your name, Google Ads account in your name, domain registered to your business, landing page files delivered in a hosting account (hosted forever for $0 per month), full lead export as CSV. The CRM and AI run on our platform - you can keep using them, or stop, but the data inside is exportable any time.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is there lock-in?</span><span class="faq-qi">+</span></button><div class="faq-a">No lock-in. The build includes 30 days of hands-on management at launch. After that, ongoing management is month-to-month - pause or cancel any time. The accounts, domain, files and lead data on the handover checklist stay with you either way.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What trades and locations do you work with?</span><span class="faq-qi">+</span></button><div class="faq-a">Solar, roofing, HVAC, and renovations - across Australian metro and regional areas. Territory availability is confirmed during onboarding.</div></div>
     </div>
   </div>
 </section>
