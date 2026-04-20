@@ -588,6 +588,36 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .sms-out{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:4px}
 .sms-in{align-self:flex-start;background:var(--deep);border:1px solid var(--bmid);color:var(--off);border-bottom-left-radius:4px}
 .sms-sender{font-size:.65rem;color:var(--faint);margin-bottom:2px;text-transform:uppercase;letter-spacing:.06em}
+/* LANDING PAGE MOCKUP CARD */
+.lp-mockup{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;backdrop-filter:blur(12px)}
+.lp-browser-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;
+  border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02)}
+.lp-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.12)}
+.lp-dot:first-child{background:rgba(255,100,100,.5)}
+.lp-dot:nth-child(2){background:rgba(255,200,50,.5)}
+.lp-dot:nth-child(3){background:rgba(100,220,100,.5)}
+.lp-url{font-size:.7rem;color:var(--muted);margin-left:8px;letter-spacing:.02em}
+.lp-body{padding:24px 20px 28px}
+.lp-header{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.lp-logo-circle{width:36px;height:36px;border-radius:50%;background:var(--bdim);
+  border:1px solid rgba(71,151,255,.25);display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;font-weight:600;color:var(--blue)}
+.lp-brand{font-size:.88rem;font-weight:500;color:var(--white)}
+.lp-headline{font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--white);
+  line-height:1.3;margin-bottom:24px}
+.lp-steps{display:flex;flex-direction:column;gap:14px}
+.lp-step{padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.02)}
+.lp-step.active{border-color:rgba(71,151,255,.3);background:rgba(71,151,255,.06)}
+.lp-step.faded{opacity:.45}
+.lp-step-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);
+  font-weight:500;margin-bottom:4px}
+.lp-step-title{font-size:.84rem;color:var(--off);font-weight:400}
+.lp-tiles{display:flex;gap:8px;margin-top:10px}
+.lp-tile{padding:8px 16px;border-radius:8px;font-size:.78rem;color:var(--muted);
+  border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);cursor:default}
+.lp-tile.selected{border-color:rgba(71,151,255,.4);background:rgba(71,151,255,.1);color:var(--blue)}
 @media(max-width:1024px){.preview-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){.preview-grid{grid-template-columns:1fr}}
 
@@ -704,7 +734,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                     <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="19" cy="7" r="2"/><path d="M22 21v-1a2 2 0 0 0-2-2h-1"/></svg>
                 </div>
                 <div class="asset-name">CRM pipeline</div>
-                <div class="asset-desc">Your leads flow through a pipeline on the QuoteLeads platform, configured around how you actually close jobs.</div>
+                <div class="asset-desc">Your leads flow through a pipeline on the QuoteLeads platform, configured around how you actually close jobs. We can also integrate leads directly from your ad platforms into your existing CRM or job management system from Day 1.</div>
                 <div class="asset-own">Runs on our platform. The data inside it is yours - export any time.</div>
             </div>
 
