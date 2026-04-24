@@ -372,12 +372,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="opt-card" data-field="industry" data-value="Renovation / Building">
                 <div class="opt-label">Renovation / Building</div>
               </div>
-              <div class="opt-card" data-field="industry" data-value="Plumbing">
-                <div class="opt-label">Plumbing</div>
-              </div>
-              <div class="opt-card" data-field="industry" data-value="Electrical">
-                <div class="opt-label">Electrical</div>
-              </div>
               <div class="opt-card" data-field="industry" data-value="Landscaping">
                 <div class="opt-label">Landscaping</div>
               </div>
@@ -410,8 +404,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <label>Service radius</label>
               <select id="service_radius" onchange="checkStep3()">
                 <option value="" disabled selected>Select radius…</option>
-                <option value="10km">Up to 10km</option>
-                <option value="20km">Up to 20km</option>
                 <option value="30km">Up to 30km</option>
                 <option value="50km">Up to 50km</option>
                 <option value="75km">Up to 75km</option>
@@ -431,11 +423,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="step-counter"><span class="sc-badge">Step 4 of 11</span></div>
             <div class="step-q">How do you want leads delivered?</div>
             <div class="step-hint">Select all that apply. Leads will be sent to you in real time as they come in.</div>
-            <div class="opt-grid cols-3">
-              <div class="opt-card multi" data-field="lead_delivery" data-value="Phone call">
-                <div class="opt-label">Phone call</div>
-                <div class="opt-sub">Lead delivered via live call transfer</div>
-              </div>
+            <div class="opt-grid cols-2">
               <div class="opt-card multi" data-field="lead_delivery" data-value="Email notification">
                 <div class="opt-label">Email</div>
                 <div class="opt-sub">Instant email with lead details</div>
@@ -446,7 +434,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               </div>
             </div>
             <div class="field-group">
-              <label>Delivery phone number (for call transfer &amp; SMS)</label>
+              <label>Delivery phone number (for SMS)</label>
               <input type="tel" id="delivery_phone" placeholder="04XX XXX XXX" oninput="checkStep4()">
             </div>
             <div class="field-group">
@@ -464,27 +452,13 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="step-counter"><span class="sc-badge">Step 5 of 11</span></div>
             <div class="step-q">What's your maximum daily ad spend?</div>
             <div class="step-hint">This is your Meta/Facebook ad budget — paid directly to Meta, not to QuoteLeads.</div>
-            <div class="inline-note">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              <span><strong>Important:</strong> After granting QuoteLeads access to your Meta Business Assets, you'll need to add a payment method to your own ad account. Ad spend is charged directly by Meta — QuoteLeads never holds or processes your ad budget.</span>
+            <div class="field-group">
+              <label>Maximum daily ad spend (AUD)</label>
+              <input type="number" id="max_daily_spend_input" placeholder="e.g. 40" min="1" step="1" oninput="checkStep5()" style="appearance:textfield;-moz-appearance:textfield;">
             </div>
-            <div class="opt-grid cols-2">
-              <div class="opt-card" data-field="max_daily_spend" data-value="$20–$50 / day">
-                <div class="opt-label">$20–$50 / day</div>
-                <div class="opt-sub">$600–$1,500 / month</div>
-              </div>
-              <div class="opt-card" data-field="max_daily_spend" data-value="$50–$100 / day">
-                <div class="opt-label">$50–$100 / day</div>
-                <div class="opt-sub">$1,500–$3,000 / month</div>
-              </div>
-              <div class="opt-card" data-field="max_daily_spend" data-value="$100–$200 / day">
-                <div class="opt-label">$100–$200 / day</div>
-                <div class="opt-sub">$3,000–$6,000 / month</div>
-              </div>
-              <div class="opt-card" data-field="max_daily_spend" data-value="$200+ / day">
-                <div class="opt-label">$200+ / day</div>
-                <div class="opt-sub">$6,000+ / month — maximum volume</div>
-              </div>
+            <div class="inline-note" style="margin-top:4px;margin-bottom:0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>We recommend starting at <strong>$40/day</strong> ($1,200/mo). Ad spend is paid directly to Meta by you — not to QuoteLeads. You'll add a payment method to your own Meta ad account after granting us access.</span>
             </div>
             <div class="btn-row">
               <button class="btn-back" onclick="goPrev(5)">Back</button>
@@ -819,7 +793,7 @@ document.querySelectorAll('.opt-card:not(.multi)').forEach(function(card){
       oi.classList.toggle('show', formData.industry==='Other');
     }
     // Enable next buttons for single-select steps
-    var nextIds={'industry':'next2','max_daily_spend':'next5','provide_assets':'next8','use_crm':'next10','domain_permission':'next11'};
+    var nextIds={'industry':'next2','provide_assets':'next8','use_crm':'next10','domain_permission':'next11'};
     if(nextIds[field]){
       document.getElementById(nextIds[field]).disabled=false;
     }
@@ -908,6 +882,17 @@ document.getElementById('next4').addEventListener('click',function(e){
 
 // ── STEP 6,7,9 are optional — next buttons always enabled ──
 // Already handled — no disabled attr set
+
+// ── STEP 5: Ad spend manual input ──
+function checkStep5(){
+  var val=document.getElementById('max_daily_spend_input').value.trim();
+  document.getElementById('next5').disabled=!(val&&parseFloat(val)>0);
+}
+document.getElementById('next5').addEventListener('click',function(e){
+  e.stopImmediatePropagation();
+  formData.max_daily_spend='$'+document.getElementById('max_daily_spend_input').value.trim()+'/day';
+  goNext(5);
+},true);
 
 // ── STEP 11: Capture optional textarea values on submit ──
 function submitForm(){
