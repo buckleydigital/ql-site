@@ -792,8 +792,9 @@ document.querySelectorAll('.opt-card:not(.multi)').forEach(function(card){
       var oi=document.getElementById('otherIndustryField');
       oi.classList.toggle('show', formData.industry==='Other');
     }
-    // Enable next buttons for single-select steps
-    var nextIds={'industry':'next2','provide_assets':'next8','use_crm':'next10','domain_permission':'next11'};
+
+    // ── FIX: map domain_permission to submitBtn (not next11) ──
+    var nextIds={'industry':'next2','provide_assets':'next8','use_crm':'next10','domain_permission':'submitBtn'};
     if(nextIds[field]){
       document.getElementById(nextIds[field]).disabled=false;
     }
@@ -867,7 +868,6 @@ document.getElementById('next3').addEventListener('click',function(e){
 function checkStep4(){
   var ph=document.getElementById('delivery_phone').value.trim();
   var em=document.getElementById('delivery_email').value.trim();
-  // Need at least one delivery method and at least one contact detail
   var hasMethod=deliveryMethods.size>0;
   var hasContact=ph||em;
   document.getElementById('next4').disabled=!(hasMethod&&hasContact);
@@ -879,9 +879,6 @@ document.getElementById('next4').addEventListener('click',function(e){
   formData.delivery_email=document.getElementById('delivery_email').value.trim();
   goNext(4);
 },true);
-
-// ── STEP 6,7,9 are optional — next buttons always enabled ──
-// Already handled — no disabled attr set
 
 // ── STEP 5: Ad spend manual input ──
 function checkStep5(){
