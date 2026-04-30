@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPL Onboarding - QuoteLeads</title>
+<meta name="description" content="Complete your Pay Per Lead onboarding with QuoteLeads. Set up your delivery preferences, service area, and account in minutes.">
+<link rel="canonical" href="https://quoteleads.com.au/ppl-onboarding">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040A;--deep:#08080F;--surf:#0C0C18;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07);--bmid:rgba(255,255,255,0.10);
+  --bblue:rgba(71,151,255,0.3);
+  --blue:#4797FF;--bdim:rgba(71,151,255,0.12);
+  --sky:#7CB9FF;--mist:#B8D4FF;
+  --white:#F2F2F2;--off:#CACAD0;--muted:#71717A;--faint:#3F3F46;
+  --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --nh:68px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--white);font-family:var(--body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss01','ss03'}
+
+/* CURSOR */
+#cur{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s;mix-blend-mode:normal}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+
+/* AURA */
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);
+  transform:translate(-50%,-50%);transition:left .5s ease,top .5s ease}
+
+/* PARTICLES */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+
+/* GRAIN */
+body::before{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+  background-size:200px;pointer-events:none;z-index:2;opacity:.4}
+
+/* SCROLL PROGRESS */
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;
+  transform-origin:left center;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--blue),var(--sky))}
+
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;
+  background:rgba(4,4,10,0);border-bottom:1px solid transparent;
+  transition:background .4s,border-color .4s,backdrop-filter .4s}
+.site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
+.header-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:var(--nh)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:.84rem;font-weight:400;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.02em}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff !important;
+  font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;
+  text-decoration:none;transition:all .2s;position:relative;overflow:hidden}
+.nav-cta:hover{background:var(--sky);transform:translateY(-1px);box-shadow:0 8px 28px rgba(71,151,255,.4)}
+.mob-btn{display:none;background:none;border:none;cursor:none;padding:4px;flex-direction:column;gap:5px}
+.mob-btn span{display:block;width:22px;height:1.5px;background:var(--white);transition:.3s}
+.mob-menu{display:none;position:absolute;top:100%;left:0;right:0;
+  background:rgba(4,4,10,.97);border-bottom:1px solid var(--border);padding:0 5% 20px;
+  backdrop-filter:blur(28px)}
+.mob-menu.open{display:flex;flex-direction:column;gap:0}
+.mob-menu a{padding:14px 0;font-size:1rem;color:var(--off);text-decoration:none;border-bottom:1px solid var(--border)}
+
+/* PAGE HERO */
+.page-hero{position:relative;z-index:3;padding:140px 5% 60px;border-top:none;text-align:center;background:var(--void)}
+.page-hero-inner{max-width:720px;margin:0 auto;position:relative;z-index:3}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.hero-eyebrow::before{content:'';width:22px;height:1px;background:var(--blue)}
+.page-hero h1{font-family:var(--display);font-size:clamp(2rem,5vw,3.2rem);font-weight:600;
+  line-height:1.08;letter-spacing:-.025em;margin-bottom:16px;animation:fadeUp .7s ease both}
+.page-hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sbody{font-size:1rem;color:var(--muted);line-height:1.74;max-width:520px;margin:0 auto 14px;animation:fadeUp .7s .16s ease both}
+.page-hero-meta{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+  margin-top:20px;font-size:.78rem;color:var(--faint);animation:fadeUp .7s .24s ease both}
+.page-hero-meta span{display:flex;align-items:center;gap:6px}
+.page-hero-meta span::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTIONS */
+section{position:relative;z-index:3;padding:80px 5%}
+
+/* APP LAYOUT */
+.app-section{background:var(--surf)}
+.app-layout{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 300px;gap:60px;align-items:start}
+.app-sidebar{position:sticky;top:100px;display:flex;flex-direction:column;gap:20px}
+.sidebar-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 24px;backdrop-filter:blur(12px)}
+.sc-lbl{font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:16px;letter-spacing:-.01em}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:12px}
+.checklist li{font-size:.82rem;color:var(--muted);line-height:1.55;display:flex;align-items:flex-start;gap:10px}
+.checklist li::before{content:'✓';color:var(--blue);font-size:.75rem;flex-shrink:0;margin-top:2px;font-weight:700}
+.sidebar-time{padding:16px 20px;background:var(--bdim);border:1px solid rgba(71,151,255,.2);border-radius:12px;
+  font-size:.78rem;color:var(--sky);display:flex;align-items:center;gap:10px}
+.sidebar-time svg{flex-shrink:0;opacity:.7}
+
+/* FORM CARD */
+.form-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;
+  backdrop-filter:blur(12px)}
+
+/* PROGRESS */
+.form-progress{padding:20px 40px 0}
+.progress-track{height:3px;background:var(--border);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--sky));border-radius:2px;transition:width 0.4s ease;width:0%}
+.progress-meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.progress-step-lbl{font-size:.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint)}
+.progress-pct{font-size:.68rem;color:var(--blue)}
+
+/* FORM BODY */
+.form-body{padding:36px 40px 40px}
+@keyframes stepIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.form-step{display:none;animation:stepIn 0.35s ease}
+.form-step.active{display:block}
+.step-q{font-family:var(--display);font-size:clamp(18px,2.5vw,24px);font-weight:600;line-height:1.25;color:var(--white);margin-bottom:8px}
+.step-hint{font-size:.82rem;color:var(--faint);margin-bottom:28px;line-height:1.5}
+
+/* OPTION CARDS */
+.opt-grid{display:grid;gap:10px;margin-bottom:28px}
+.opt-grid.cols-2{grid-template-columns:1fr 1fr}
+.opt-grid.cols-3{grid-template-columns:1fr 1fr 1fr}
+.opt-card{padding:16px 18px;border:1px solid var(--border);border-radius:12px;cursor:none;transition:all 0.2s;background:var(--glass)}
+.opt-card:hover{border-color:var(--blue);background:var(--bdim)}
+.opt-card.selected{border-color:var(--blue);background:var(--bdim)}
+.opt-card.selected .opt-label{color:var(--white)}
+.opt-label{font-size:.88rem;font-weight:400;color:var(--off);line-height:1.4;display:flex;align-items:flex-start;gap:10px}
+.opt-label::before{content:'';width:14px;height:14px;border:1px solid var(--bmid);border-radius:50%;flex-shrink:0;margin-top:1px;transition:all 0.2s}
+.opt-card.selected .opt-label::before{background:var(--blue);border-color:var(--blue)}
+.opt-sub{font-size:.75rem;color:var(--faint);margin-top:3px;padding-left:24px;line-height:1.4}
+
+/* MULTI SELECT */
+.opt-card.multi.selected{border-color:var(--blue);background:var(--bdim)}
+.opt-card.multi.selected .opt-label::before{background:var(--blue);border-color:var(--blue);border-radius:3px}
+.opt-card.multi .opt-label::before{border-radius:3px}
+
+/* FIELD GROUP */
+.field-group{margin-bottom:18px}
+.field-group label{display:block;font-size:.72rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.field-group input,.field-group select,.field-group textarea{width:100%;padding:12px 16px;background:var(--glass2);border:1px solid var(--border);border-radius:12px;color:var(--white);font-family:var(--body);font-size:.88rem;transition:border-color 0.2s;outline:none}
+.field-group input::placeholder,.field-group textarea::placeholder{color:var(--faint)}
+.field-group input:focus,.field-group select:focus,.field-group textarea:focus{border-color:var(--blue)}
+.field-group textarea{min-height:100px;resize:vertical}
+.field-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2371717A' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:12px;cursor:none}
+.field-group select option{background:var(--deep);color:var(--white)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* INLINE NOTE */
+.inline-note{padding:14px 16px;background:rgba(71,151,255,.06);border:1px solid rgba(71,151,255,.18);border-radius:10px;font-size:.78rem;color:var(--sky);line-height:1.6;margin-bottom:20px;display:flex;align-items:flex-start;gap:10px}
+.inline-note svg{flex-shrink:0;margin-top:1px;opacity:.8}
+.inline-note strong{color:var(--blue);font-weight:500}
+
+/* CONSENT CHECKBOX */
+.consent-block{padding:20px;background:var(--glass);border:1px solid var(--border);border-radius:14px;margin-bottom:24px;transition:border-color .2s}
+.consent-block.checked{border-color:var(--blue);background:var(--bdim)}
+.consent-check-row{display:flex;align-items:flex-start;gap:14px;cursor:none}
+.consent-box{width:18px;height:18px;border:1px solid var(--bmid);border-radius:4px;flex-shrink:0;margin-top:2px;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.consent-block.checked .consent-box{background:var(--blue);border-color:var(--blue)}
+.consent-box svg{width:10px;height:10px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;display:none}
+.consent-block.checked .consent-box svg{display:block}
+.consent-text{font-size:.84rem;color:var(--off);line-height:1.6}
+.consent-text strong{color:var(--white);font-weight:500}
+
+/* TURNSTILE */
+.turnstile-wrap{display:flex;justify-content:flex-start;margin-bottom:20px}
+
+/* BTN ROW */
+.btn-row{display:flex;gap:10px;margin-top:8px}
+.btn-back{background:none;border:1px solid var(--border);color:var(--muted);padding:13px 22px;border-radius:100px;font-family:var(--body);font-size:.88rem;cursor:none;transition:all 0.2s}
+.btn-back:hover{border-color:var(--bmid);color:var(--white)}
+.btn-next,.btn-submit{background:var(--blue);color:#fff;border:none;padding:13px 32px;border-radius:100px;font-family:var(--body);font-size:.88rem;cursor:none;transition:opacity 0.2s,transform 0.2s,background 0.2s;flex:1;font-weight:500}
+.btn-next:hover:not(:disabled),.btn-submit:hover:not(:disabled){background:var(--sky);transform:translateY(-1px)}
+.btn-next:disabled,.btn-submit:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.disclaimer-txt{font-size:.68rem;line-height:1.55;color:var(--faint);margin-top:14px}
+.disclaimer-txt a{color:var(--blue);text-decoration:none}
+
+/* LOADING */
+.form-loading{display:none;padding:72px 40px;text-align:center}
+.form-loading.active{display:flex;flex-direction:column;align-items:center;gap:20px}
+.spinner{width:36px;height:36px;border:2px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.form-loading p{font-size:.88rem;color:var(--muted)}
+
+/* SUCCESS SCREEN */
+.success-screen{display:none;padding:48px 40px}
+.success-screen.active{display:block}
+.success-icon{width:52px;height:52px;border-radius:50%;background:rgba(71,151,255,.1);border:1px solid rgba(71,151,255,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.success-icon svg{width:24px;height:24px;stroke:var(--blue);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.success-screen h2{font-family:var(--display);font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:12px;text-align:center}
+.success-screen .sub{font-size:.88rem;color:var(--muted);line-height:1.7;text-align:center;max-width:460px;margin:0 auto 32px}
+.whatsapp-box{background:linear-gradient(135deg,rgba(37,211,102,.08),rgba(37,211,102,.03));border:1px solid rgba(37,211,102,.25);border-radius:16px;padding:28px 28px 24px;text-align:center;margin-bottom:20px}
+.whatsapp-box .wa-eyebrow{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#25D366;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px}
+.whatsapp-box .wa-eyebrow::before,.whatsapp-box .wa-eyebrow::after{content:'';flex:1;height:1px;background:rgba(37,211,102,.2)}
+.whatsapp-box h3{font-family:var(--display);font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:8px}
+.whatsapp-box p{font-size:.82rem;color:var(--muted);line-height:1.65}
+.success-note{font-size:.75rem;color:var(--faint);text-align:center;line-height:1.6;margin-top:16px}
+
+/* BPULSE */
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}50%{box-shadow:0 0 0 6px rgba(37,211,102,0)}}
+.bpulse{width:6px;height:6px;background:#25D366;border-radius:50%;animation:pulse 2s ease infinite;display:inline-block}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--void)}
+::-webkit-scrollbar-thumb{background:var(--faint);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--blue)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+
+/* FOOTER */
+footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep);position:relative;z-index:3}
+.foot-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{font-size:.8rem;color:var(--faint);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--white)}
+.foot-copy{font-size:.78rem;color:var(--faint)}
+
+/* STEP COUNTER BADGE */
+.step-counter{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
+.sc-badge{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:var(--bdim);border:1px solid rgba(71,151,255,.2);padding:4px 12px;border-radius:20px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .app-layout{grid-template-columns:1fr 260px;gap:40px}
+}
+@media(max-width:768px){
+  .page-hero{padding:100px 5% 50px}
+  .page-hero h1{font-size:clamp(1.8rem,6vw,2.4rem)}
+  .app-section{padding:60px 5%}
+  .app-layout{grid-template-columns:1fr;gap:32px}
+  .app-sidebar{position:static}
+  .form-progress{padding:16px 24px 0}
+  .form-body{padding:24px 24px 28px}
+  .form-loading,.success-screen{padding:48px 24px}
+  .field-row{grid-template-columns:1fr}
+  .opt-grid.cols-2{grid-template-columns:1fr}
+  .opt-grid.cols-3{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}.mob-btn{display:flex}
+  footer{padding:40px 5%}
+  .foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
+}
+@media(max-width:480px){
+  .opt-grid.cols-3{grid-template-columns:1fr}
+  .btn-back{flex:none;min-width:80px}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" style="height:34px;width:auto;display:block">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/pay-per-lead">Pay Per Lead</a></li>
+      <li><a href="/get-started" class="nav-cta">Apply Now <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    </ul>
+    <button class="mob-btn" id="mobBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-menu" id="mobMenu">
+    <a href="/#how-it-works">How It Works</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/pay-per-lead">Pay Per Lead</a>
+    <a href="/get-started">Apply Now</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-eyebrow">Pay Per Lead Onboarding</div>
+    <h1>Let's get your leads<br><em>flowing.</em></h1>
+    <p class="sbody">A few quick questions so we can configure your delivery, service area, and account. Takes about 3 minutes.</p>
+    <div class="page-hero-meta">
+      <span>~3 minutes to complete</span>
+      <span>Configured within 1 business day</span>
+      <span>Leads start as soon as you're live</span>
+    </div>
+  </div>
+</section>
+
+<!-- ONBOARDING FORM -->
+<section class="app-section">
+  <div class="app-layout">
+
+    <!-- FORM COLUMN -->
+    <div>
+      <div class="form-card" id="formCard">
+
+        <!-- Progress bar -->
+        <div class="form-progress" id="formProgress">
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+          <div class="progress-meta">
+            <span class="progress-step-lbl" id="stepLbl">Step 1 of 6</span>
+            <span class="progress-pct" id="stepPct">0%</span>
+          </div>
+        </div>
+
+        <!-- FORM STEPS -->
+        <div class="form-body" id="formBody">
+
+          <!-- ── STEP 1: Contact details ── -->
+          <div class="form-step active" id="step1">
+            <div class="step-counter"><span class="sc-badge">Step 1 of 6</span></div>
+            <div class="step-q">Your details.</div>
+            <div class="step-hint">We'll use these to set up your account and keep in touch throughout your campaign.</div>
+            <div class="field-row">
+              <div class="field-group">
+                <label>First name</label>
+                <input type="text" id="first_name" placeholder="First name">
+              </div>
+              <div class="field-group">
+                <label>Last name</label>
+                <input type="text" id="last_name" placeholder="Last name">
+              </div>
+            </div>
+            <div class="field-group">
+              <label>Company name</label>
+              <input type="text" id="company" placeholder="Your business name">
+            </div>
+            <div class="field-row">
+              <div class="field-group">
+                <label>Phone</label>
+                <input type="tel" id="phone" placeholder="04XX XXX XXX">
+              </div>
+              <div class="field-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="you@company.com.au">
+              </div>
+            </div>
+            <div class="btn-row">
+              <button class="btn-next" id="next1" disabled onclick="validateContact()">Continue</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 2: Delivery method ── -->
+          <div class="form-step" id="step2">
+            <div class="step-counter"><span class="sc-badge">Step 2 of 6</span></div>
+            <div class="step-q">How do you want leads delivered?</div>
+            <div class="step-hint">Select all that apply. Leads arrive in real time as they come in.</div>
+            <div class="opt-grid cols-2">
+              <div class="opt-card multi" data-field="delivery" data-value="Email">
+                <div class="opt-label">Email</div>
+                <div class="opt-sub">Instant email notification with full lead details</div>
+              </div>
+              <div class="opt-card multi" data-field="delivery" data-value="Phone / SMS">
+                <div class="opt-label">Phone / SMS</div>
+                <div class="opt-sub">Text alert as soon as a lead comes in</div>
+              </div>
+              <div class="opt-card multi" data-field="delivery" data-value="CRM integration">
+                <div class="opt-label">My CRM</div>
+                <div class="opt-sub">Push leads directly into your existing CRM</div>
+              </div>
+            </div>
+            <div id="crmNameField" class="field-group" style="display:none;margin-bottom:18px">
+              <label>Which CRM do you use?</label>
+              <input type="text" id="crm_name" placeholder="e.g. HubSpot, Salesforce, JobAdder, ServiceM8...">
+            </div>
+            <div class="inline-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>All leads also appear in <strong>QuoteLeadsHQ</strong> as a backup. You'll receive your login shortly after sign-up confirmation.</span>
+            </div>
+            <div class="btn-row">
+              <button class="btn-back" onclick="goPrev(2)">Back</button>
+              <button class="btn-next" id="next2" disabled>Continue</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 3: Industry ── -->
+          <div class="form-step" id="step3">
+            <div class="step-counter"><span class="sc-badge">Step 3 of 6</span></div>
+            <div class="step-q">What industry are you in?</div>
+            <div class="step-hint">Describe your primary service so we can match you with the right leads.</div>
+            <div class="field-group">
+              <label>Industry / trade</label>
+              <input type="text" id="industry" placeholder="e.g. Solar installation, Roofing, HVAC, Renovation..." oninput="checkStep3()">
+            </div>
+            <div class="btn-row">
+              <button class="btn-back" onclick="goPrev(3)">Back</button>
+              <button class="btn-next" id="next3" disabled onclick="captureStep3()">Continue</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 4: Service area ── -->
+          <div class="form-step" id="step4">
+            <div class="step-counter"><span class="sc-badge">Step 4 of 6</span></div>
+            <div class="step-q">What's your service area?</div>
+            <div class="step-hint">Enter a postcode and radius, or send us a postcode list and we'll configure it for you.</div>
+            <div class="field-row">
+              <div class="field-group">
+                <label>Postcode</label>
+                <input type="text" id="postcode" placeholder="e.g. 4000" maxlength="10" oninput="checkStep4()">
+              </div>
+              <div class="field-group">
+                <label>Radius</label>
+                <select id="service_radius" onchange="checkStep4()">
+                  <option value="" disabled selected>Select radius...</option>
+                  <option value="20km">Up to 20km</option>
+                  <option value="30km">Up to 30km</option>
+                  <option value="50km">Up to 50km</option>
+                  <option value="75km">Up to 75km</option>
+                  <option value="100km+">100km+</option>
+                  <option value="Statewide">Statewide</option>
+                  <option value="Nationwide">Nationwide</option>
+                  <option value="Send postcode list">I'll send a postcode list</option>
+                </select>
+              </div>
+            </div>
+            <div id="postcodeListNote" class="inline-note" style="display:none">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>Send your postcode list to <strong><a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:none">contact@quoteleads.com.au</a></strong> and we'll configure your service area for you.</span>
+            </div>
+            <div class="btn-row">
+              <button class="btn-back" onclick="goPrev(4)">Back</button>
+              <button class="btn-next" id="next4" disabled onclick="captureStep4()">Continue</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 5: Survey consent permission ── -->
+          <div class="form-step" id="step5">
+            <div class="step-counter"><span class="sc-badge">Step 5 of 6</span></div>
+            <div class="step-q">Survey consent permission.</div>
+            <div class="step-hint">Our lead generation surveys ask homeowners for consent to be contacted. We need permission to include your business name in that consent field.</div>
+            <div class="inline-note" style="margin-bottom:24px">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Example consent field shown to the customer: <strong>"I consent to be contacted by <span id="consentPreview">[your company]</span> regarding my enquiry."</strong></span>
+            </div>
+            <div class="consent-block" id="consentBlock">
+              <label class="consent-check-row" onclick="toggleConsent()">
+                <div class="consent-box">
+                  <svg viewBox="0 0 12 10"><polyline points="1 5 4 8 11 1"/></svg>
+                </div>
+                <div class="consent-text">I give QuoteLeads permission to use <strong id="consentCompanyName">my company name</strong> in the lead generation survey consent field, so that prospective customers are clearly informed of who may contact them prior to becoming a lead.</div>
+              </label>
+            </div>
+            <div class="btn-row" style="margin-top:20px">
+              <button class="btn-back" onclick="goPrev(5)">Back</button>
+              <button class="btn-next" id="next5" disabled onclick="goNext(5)">Continue</button>
+            </div>
+          </div>
+
+          <!-- ── STEP 6: Review + Turnstile + Submit ── -->
+          <div class="form-step" id="step6">
+            <div class="step-counter"><span class="sc-badge">Step 6 of 6</span></div>
+            <div class="step-q">You're almost done.</div>
+            <div class="step-hint">Review your details below, then submit to complete your onboarding.</div>
+
+            <div style="background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:24px">
+              <div style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:14px">Your submission</div>
+              <div id="reviewGrid" style="display:grid;gap:10px"></div>
+            </div>
+
+            <div id="submitError" class="inline-note" style="display:none;margin-bottom:16px;color:#ff6b6b;border-color:rgba(255,107,107,.3);background:rgba(255,107,107,.06)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Something went wrong submitting your form. Please try again, or email <a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:none">contact@quoteleads.com.au</a> if the issue persists.</span>
+            </div>
+
+            <div class="turnstile-wrap">
+              <div id="turnstile-container"></div>
+            </div>
+
+            <div class="btn-row">
+              <button class="btn-back" onclick="goPrev(6)">Back</button>
+              <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">Submit Onboarding</button>
+            </div>
+            <p class="disclaimer-txt">By submitting, you agree to receive communications from QuoteLeads regarding your account. View our <a href="/privacy">Privacy Policy</a>.</p>
+          </div>
+
+        </div><!-- /form-body -->
+
+        <!-- Loading -->
+        <div class="form-loading" id="formLoading">
+          <div class="spinner"></div>
+          <p>Submitting your onboarding details...</p>
+        </div>
+
+        <!-- Success screen -->
+        <div class="success-screen" id="successScreen">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2>Onboarding received.</h2>
+          <p class="sub">Your details are in. Our team will have your account configured within 1 business day.</p>
+
+          <div class="whatsapp-box">
+            <div class="wa-eyebrow">
+              <span class="bpulse"></span>
+              What happens next
+            </div>
+            <h3>You'll be added to a WhatsApp group</h3>
+            <p>A dedicated account manager will add you to a WhatsApp group chat. They'll be across everything - your delivery preferences, service area, and lead volume - so you're always in the loop during your delivery period.</p>
+          </div>
+
+          <p class="success-note">Keep an eye on your inbox for your QuoteLeadsHQ login details.<br>Leads will begin flowing as soon as your account is live.</p>
+        </div>
+
+      </div><!-- /form-card -->
+    </div><!-- /left col -->
+
+    <!-- SIDEBAR -->
+    <div class="app-sidebar">
+      <div class="sidebar-card">
+        <div class="sc-lbl">What you get</div>
+        <ul class="checklist">
+          <li>Exclusive, real-time leads in your service area</li>
+          <li>Multi-channel delivery - email, SMS, or CRM</li>
+          <li>QuoteLeadsHQ dashboard for all your leads</li>
+          <li>Dedicated account manager via WhatsApp</li>
+          <li>Lead quality backed by our dispute process</li>
+          <li>No lock-in - pay only for leads delivered</li>
+        </ul>
+      </div>
+      <div class="sidebar-card">
+        <div class="sc-lbl">After you submit</div>
+        <ul class="checklist">
+          <li>Account configured within 1 business day</li>
+          <li>WhatsApp group with your account manager</li>
+          <li>QuoteLeadsHQ login sent to your email</li>
+          <li>First leads arrive once your account is live</li>
+        </ul>
+      </div>
+      <div class="sidebar-time">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Need help? Email <a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:none">contact@quoteleads.com.au</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" style="height:30px;width:auto;opacity:.65">
+    </div>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/pay-per-lead">Pay Per Lead</a>
+      <a href="https://quoteleadshq.com/dashboard">Dashboard</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads &middot; Australian owned and operated</div>
+  </div>
+</footer>
+
+<!-- ── SCRIPTS ── -->
+<script>
+// ── CANVAS PARTICLES ──
+const W=()=>window.innerWidth,H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
+class P{
+  constructor(){this.reset(true)}
+  reset(init){
+    this.x=Math.random()*W();
+    this.y=init?Math.random()*H():H()+10;
+    this.r=Math.random()*1.6+.3;
+    this.vx=(Math.random()-.5)*.2;
+    this.vy=-(Math.random()*.35+.08);
+    this.a=Math.random()*.35+.05;
+    this.life=0;this.maxL=Math.random()*450+200;
+    this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';
+    this.glow=this.r>1.2;
+  }
+  draw(){
+    const t=this.life/this.maxL;
+    const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;
+    ctx.save();ctx.globalAlpha=this.a*fade;
+    if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}
+    ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore();
+  }
+  update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}
+}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
+
+// ── CURSOR ──
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+  aura.style.left=mx+'px';aura.style.top=my+'px';
+});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button,.opt-card,.sidebar-card,.consent-block').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+
+// ── HEADER SCROLL ──
+const hdr=document.getElementById('siteHeader');
+window.addEventListener('scroll',()=>hdr.classList.toggle('sc',window.scrollY>20));
+
+// ── SCROLL PROGRESS ──
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{
+  const d=document.documentElement;
+  sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')';
+},{passive:true});
+
+// ── SCROLL REVEAL ──
+const rvEls=document.querySelectorAll('.rv');
+if(rvEls.length){
+  const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+  rvEls.forEach(el=>ro.observe(el));
+}
+
+// ── MOBILE MENU ──
+const mobBtn=document.getElementById('mobBtn'),mobMenu=document.getElementById('mobMenu');
+if(mobBtn&&mobMenu){
+  mobBtn.addEventListener('click',()=>mobMenu.classList.toggle('open'));
+  mobMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobMenu.classList.remove('open')));
+}
+
+// ── FORM STATE ──
+var TOTAL = 6;
+var currentStep = 1;
+var turnstileToken = '';
+var turnstileRendered = false;
+var formData = {
+  first_name:'',last_name:'',company:'',phone:'',email:'',
+  delivery_methods:[],crm_name:'',
+  industry:'',
+  postcode:'',service_radius:'',
+  survey_consent:false,
+  form_type:'ppl_onboarding'
+};
+
+// ── PROGRESS ──
+function updateProgress(){
+  var pct = Math.round(((currentStep-1)/TOTAL)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('stepLbl').textContent = 'Step '+currentStep+' of '+TOTAL;
+  document.getElementById('stepPct').textContent = pct+'%';
+}
+
+function showStep(n){
+  document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));
+  var el=document.getElementById('step'+n);
+  if(el) el.classList.add('active');
+  currentStep=n;
+  updateProgress();
+  if(n===6){
+    buildReview();
+    if(!turnstileRendered && typeof turnstile !== 'undefined'){
+      turnstileRendered = true;
+      turnstile.render('#turnstile-container',{
+        sitekey:'0x4AAAAAABj4xsGpuNPXeW_7',
+        theme:'dark',
+        callback:function(token){turnstileToken=token;document.getElementById('submitBtn').disabled=false;},
+        'expired-callback':function(){turnstileToken='';document.getElementById('submitBtn').disabled=true;}
+      });
+    }
+  }
+  document.getElementById('formCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function goNext(from){
+  showStep(from+1);
+}
+function goPrev(from){
+  showStep(from-1);
+}
+
+// ── STEP 1: Contact validation ──
+['first_name','last_name','company','phone','email'].forEach(function(id){
+  document.getElementById(id).addEventListener('input',checkContact);
+});
+function checkContact(){
+  var fn=document.getElementById('first_name').value.trim();
+  var ln=document.getElementById('last_name').value.trim();
+  var co=document.getElementById('company').value.trim();
+  var ph=document.getElementById('phone').value.trim();
+  var em=document.getElementById('email').value.trim();
+  document.getElementById('next1').disabled=!(fn&&ln&&co&&ph&&em&&em.includes('@'));
+}
+function validateContact(){
+  formData.first_name=document.getElementById('first_name').value.trim();
+  formData.last_name=document.getElementById('last_name').value.trim();
+  formData.company=document.getElementById('company').value.trim();
+  formData.phone=document.getElementById('phone').value.trim();
+  formData.email=document.getElementById('email').value.trim();
+  // Update consent preview with company name
+  document.getElementById('consentCompanyName').textContent=formData.company||'my company name';
+  document.getElementById('consentPreview').textContent=formData.company||'your company';
+  goNext(1);
+}
+
+// ── STEP 2: Delivery methods (multi-select) ──
+var deliverySet = new Set();
+document.querySelectorAll('.opt-card.multi[data-field="delivery"]').forEach(function(card){
+  card.addEventListener('click',function(){
+    var val=this.getAttribute('data-value');
+    if(deliverySet.has(val)){
+      deliverySet.delete(val);
+      this.classList.remove('selected');
+    } else {
+      deliverySet.add(val);
+      this.classList.add('selected');
+    }
+    formData.delivery_methods=Array.from(deliverySet);
+    // Show/hide CRM name field
+    var showCrm=deliverySet.has('CRM integration');
+    document.getElementById('crmNameField').style.display=showCrm?'block':'none';
+    checkStep2();
+  });
+});
+document.getElementById('crm_name').addEventListener('input',checkStep2);
+function checkStep2(){
+  var hasMethods=deliverySet.size>0;
+  var needsCrm=deliverySet.has('CRM integration');
+  var crmOk=!needsCrm||document.getElementById('crm_name').value.trim().length>0;
+  document.getElementById('next2').disabled=!(hasMethods&&crmOk);
+}
+document.getElementById('next2').addEventListener('click',function(){
+  formData.crm_name=document.getElementById('crm_name').value.trim();
+  goNext(2);
+});
+
+// ── STEP 3: Industry ──
+function checkStep3(){
+  var v=document.getElementById('industry').value.trim();
+  document.getElementById('next3').disabled=!v;
+}
+function captureStep3(){
+  formData.industry=document.getElementById('industry').value.trim();
+  goNext(3);
+}
+
+// ── STEP 4: Service area ──
+function checkStep4(){
+  var pc=document.getElementById('postcode').value.trim();
+  var rad=document.getElementById('service_radius').value;
+  // Postcode list option doesn't require a postcode entry
+  var postcodeOk=rad==='Send postcode list'||pc.length>0;
+  document.getElementById('next4').disabled=!(postcodeOk&&rad);
+  // Show/hide postcode list note
+  var note=document.getElementById('postcodeListNote');
+  note.style.display=(rad==='Send postcode list')?'flex':'none';
+}
+function captureStep4(){
+  formData.postcode=document.getElementById('postcode').value.trim();
+  formData.service_radius=document.getElementById('service_radius').value;
+  goNext(4);
+}
+
+// ── STEP 5: Consent ──
+var consentGiven = false;
+function toggleConsent(){
+  consentGiven=!consentGiven;
+  var block=document.getElementById('consentBlock');
+  block.classList.toggle('checked',consentGiven);
+  formData.survey_consent=consentGiven;
+  document.getElementById('next5').disabled=!consentGiven;
+}
+
+// ── STEP 6: Review ──
+function buildReview(){
+  var rows=[
+    ['Name',formData.first_name+' '+formData.last_name],
+    ['Company',formData.company],
+    ['Email',formData.email],
+    ['Phone',formData.phone],
+    ['Delivery',formData.delivery_methods.join(', ')||'Not specified'],
+    formData.crm_name?['CRM',formData.crm_name]:null,
+    ['Industry',formData.industry],
+    ['Postcode',formData.postcode||(formData.service_radius==='Send postcode list'?'Postcode list to be sent':'Not specified')],
+    ['Radius',formData.service_radius],
+    ['Survey consent',formData.survey_consent?'Granted':'Not granted']
+  ].filter(Boolean);
+  var grid=document.getElementById('reviewGrid');
+  grid.innerHTML=rows.map(function(r){
+    return '<div style="display:flex;gap:12px;align-items:baseline"><span style="font-size:.72rem;color:var(--faint);min-width:110px;letter-spacing:.03em;text-transform:uppercase;flex-shrink:0">'+r[0]+'</span><span style="font-size:.84rem;color:var(--white)">'+r[1]+'</span></div>';
+  }).join('');
+}
+
+// ── SUBMIT ──
+function submitForm(){
+  var payload=Object.assign({},formData,{turnstile_token:turnstileToken,submitted_at:new Date().toISOString()});
+
+  document.getElementById('formBody').style.display='none';
+  document.getElementById('formProgress').style.display='none';
+  document.getElementById('formLoading').classList.add('active');
+
+  fetch('https://hook.eu2.make.com/ulhn7tlwvxn0e4t8hwwkhvki4ygig4n4',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload),
+    keepalive:true
+  }).then(function(res){
+    if(!res.ok) throw new Error('Server returned '+res.status);
+    document.getElementById('formLoading').classList.remove('active');
+    document.getElementById('successScreen').classList.add('active');
+    document.getElementById('formCard').scrollIntoView({behavior:'smooth',block:'start'});
+  }).catch(function(e){
+    console.error('Webhook error:',e);
+    document.getElementById('formLoading').classList.remove('active');
+    document.getElementById('formBody').style.display='';
+    document.getElementById('formProgress').style.display='';
+    showStep(6);
+    var errBanner=document.getElementById('submitError');
+    if(errBanner) errBanner.style.display='flex';
+  });
+}
+
+// Init
+updateProgress();
+</script>
+
+</body>
+</html>
