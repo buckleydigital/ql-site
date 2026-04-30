@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -484,7 +484,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             </div>
 
             <div class="turnstile-wrap">
-              <div class="cf-turnstile" data-sitekey="0x4AAAAAAA_ql_REPLACE_WITH_YOUR_SITEKEY" data-callback="onTurnstileSuccess" data-error-callback="onTurnstileError" data-theme="dark"></div>
+              <div id="turnstile-container"></div>
             </div>
 
             <div class="btn-row">
@@ -652,6 +652,7 @@ if(mobBtn&&mobMenu){
 var TOTAL = 6;
 var currentStep = 1;
 var turnstileToken = '';
+var turnstileRendered = false;
 var formData = {
   first_name:'',last_name:'',company:'',phone:'',email:'',
   delivery_methods:[],crm_name:'',
@@ -675,7 +676,18 @@ function showStep(n){
   if(el) el.classList.add('active');
   currentStep=n;
   updateProgress();
-  if(n===6) buildReview();
+  if(n===6){
+    buildReview();
+    if(!turnstileRendered && typeof turnstile !== 'undefined'){
+      turnstileRendered = true;
+      turnstile.render('#turnstile-container',{
+        sitekey:'0x4AAAAAABj4xsGpuNPXeW_7',
+        theme:'dark',
+        callback:function(token){turnstileToken=token;document.getElementById('submitBtn').disabled=false;},
+        'expired-callback':function(){turnstileToken='';document.getElementById('submitBtn').disabled=true;}
+      });
+    }
+  }
   document.getElementById('formCard').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
@@ -796,16 +808,6 @@ function buildReview(){
   grid.innerHTML=rows.map(function(r){
     return '<div style="display:flex;gap:12px;align-items:baseline"><span style="font-size:.72rem;color:var(--faint);min-width:110px;letter-spacing:.03em;text-transform:uppercase;flex-shrink:0">'+r[0]+'</span><span style="font-size:.84rem;color:var(--white)">'+r[1]+'</span></div>';
   }).join('');
-}
-
-// ── TURNSTILE ──
-function onTurnstileSuccess(token){
-  turnstileToken=token;
-  document.getElementById('submitBtn').disabled=false;
-}
-function onTurnstileError(){
-  turnstileToken='';
-  document.getElementById('submitBtn').disabled=true;
 }
 
 // ── SUBMIT ──
