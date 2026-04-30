@@ -390,7 +390,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             </div>
             <div class="btn-row">
               <button class="btn-back" onclick="goPrev(2)">Back</button>
-              <button class="btn-next" id="next2" disabled onclick="goNext(2)">Continue</button>
+              <button class="btn-next" id="next2" disabled>Continue</button>
             </div>
           </div>
 
@@ -476,6 +476,11 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div style="background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:24px">
               <div style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:14px">Your submission</div>
               <div id="reviewGrid" style="display:grid;gap:10px"></div>
+            </div>
+
+            <div id="submitError" class="inline-note" style="display:none;margin-bottom:16px;color:#ff6b6b;border-color:rgba(255,107,107,.3);background:rgba(255,107,107,.06)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Something went wrong submitting your form. Please try again, or email <a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:none">contact@quoteleads.com.au</a> if the issue persists.</span>
             </div>
 
             <div class="turnstile-wrap">
@@ -731,12 +736,10 @@ function checkStep2(){
   var crmOk=!needsCrm||document.getElementById('crm_name').value.trim().length>0;
   document.getElementById('next2').disabled=!(hasMethods&&crmOk);
 }
-// Override next2 to capture CRM name before advancing
-document.getElementById('next2').addEventListener('click',function(e){
-  e.stopImmediatePropagation();
+document.getElementById('next2').addEventListener('click',function(){
   formData.crm_name=document.getElementById('crm_name').value.trim();
   goNext(2);
-},true);
+});
 
 // ── STEP 3: Industry ──
 function checkStep3(){
@@ -777,8 +780,6 @@ function toggleConsent(){
 
 // ── STEP 6: Review ──
 function buildReview(){
-  var deliveries=formData.delivery_methods.join(', ')||(formData.delivery_methods.length?formData.delivery_methods.join(', '):'Not specified');
-  if(!formData.delivery_methods.length) deliveries='Not specified';
   var rows=[
     ['Name',formData.first_name+' '+formData.last_name],
     ['Company',formData.company],
@@ -820,13 +821,20 @@ function submitForm(){
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify(payload),
     keepalive:true
-  }).catch(function(e){console.error('Webhook error:',e)});
-
-  setTimeout(function(){
+  }).then(function(res){
+    if(!res.ok) throw new Error('Server returned '+res.status);
     document.getElementById('formLoading').classList.remove('active');
     document.getElementById('successScreen').classList.add('active');
     document.getElementById('formCard').scrollIntoView({behavior:'smooth',block:'start'});
-  },1200);
+  }).catch(function(e){
+    console.error('Webhook error:',e);
+    document.getElementById('formLoading').classList.remove('active');
+    document.getElementById('formBody').style.display='';
+    document.getElementById('formProgress').style.display='';
+    showStep(6);
+    var errBanner=document.getElementById('submitError');
+    if(errBanner) errBanner.style.display='flex';
+  });
 }
 
 // Init
