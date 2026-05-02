@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
@@ -59,42 +59,24 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 16px; }
 
-        :root[data-theme="dark"] {
-            --bg:          #000000;
-            --bg-lift:     #080808;
-            --bg-card:     #0F0F0F;
-            --bg-deep:     #080808;
-            --border:      rgba(255,255,255,0.07);
-            --border-mid:  rgba(255,255,255,0.10);
-            --ink:         #F2F2F2;
-            --ink-soft:    #7d8fa0;
-            --ink-muted:   #7d8fa0;
-            --ink-faint:   #485867;
-            --accent:      #4797FF;
-            --accent-dim:  rgba(71,151,255,0.12);
-            --accent-glow: rgba(71,151,255,0.04);
-            --button-primary: #4797FF;
-            --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
-            color-scheme: dark;
-        }
-        :root[data-theme="light"] {
-            --bg:          #f7f8fa;
-            --bg-lift:     #f1f4f7;
-            --bg-card:     #ffffff;
-            --bg-deep:     #edf1f4;
-            --border:      rgba(15,20,25,0.10);
-            --border-mid:  rgba(15,20,25,0.14);
-            --ink:         #13181f;
-            --ink-soft:    #35414f;
-            --ink-muted:   #4a5564;
-            --ink-faint:   #72808e;
-            --accent:      #4797FF;
-            --accent-dim:  rgba(71,151,255,0.20);
-            --accent-glow: rgba(71,151,255,0.08);
-            --button-primary: #4797FF;
-            --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;
-            color-scheme: light;
-        }
+        :root {
+    --bg: #04040A;
+    --bg-lift: #08080F;
+    --bg-card: #0C0C18;
+    --bg-deep: #08080F;
+    --border: rgba(255,255,255,0.07);
+    --border-mid: rgba(255,255,255,0.10);
+    --ink: #F2F2F2;
+    --ink-soft: #CACAD0;
+    --ink-muted: #71717A;
+    --ink-faint: #3F3F46;
+    --accent: #4797FF;
+    --accent-dim: rgba(71,151,255,0.12);
+    --accent-glow: rgba(71,151,255,0.04);
+    --button-primary: #4797FF;
+    --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+}
         
 
 
@@ -374,7 +356,6 @@
             border-bottom: 1px solid var(--border);
             transition: background 0.3s, border-color 0.3s;
         }
-        [data-theme="light"] .site-header { background: rgba(247,248,250,0.98); }
         .header-inner {
             max-width: 1200px; margin: 0 auto;
             display: flex; align-items: center; justify-content: space-between;
@@ -428,18 +409,6 @@
             transition: opacity 0.2s !important; text-decoration: none !important;
         }
         .nav-cta:hover { opacity: 0.85 !important; }
-        .theme-btn {
-            width: 36px; height: 36px; border-radius: 8px;
-            border: 1px solid var(--border-mid); background: var(--bg-lift);
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
-        }
-        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
-        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
-        .i-moon { display: block; }
-        .i-sun  { display: none;  }
-        [data-theme="light"] .i-moon { display: none; }
-        [data-theme="light"] .i-sun  { display: block; }
         .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
         .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
         .mob-menu {
@@ -448,14 +417,6 @@
             max-height: calc(100vh - 68px); overflow-y: auto;
         }
         .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
-        .mob-menu-top {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 16px 0; border-bottom: 1px solid var(--border);
-        }
-        .mob-menu-title {
-            font-size: 13px; font-weight: 500; color: var(--ink-faint);
-            text-transform: uppercase; letter-spacing: 0.08em;
-        }
         .mob-menu a {
             padding: 14px 0; font-size: 16px; color: var(--ink-soft);
             text-decoration: none; border-bottom: 1px solid var(--border);
@@ -472,9 +433,6 @@
             margin-top: 8px; border-bottom: none !important;
         }
         .mob-cta:hover { opacity: 0.85; }
-        .mob-theme-btn {
-            width: 36px; height: 36px; flex-shrink: 0;
-        }
 
 
         /* FOOTER */
@@ -541,23 +499,12 @@
                     <a href="/renovation-leads">Renovation</a>
                 </div>
             </div>
-            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            </button>
         </nav>
         <button class="mob-btn" id="mobBtn" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
     </div>
     <nav class="mob-menu" id="mobMenu">
-        <div class="mob-menu-top">
-            <span class="mob-menu-title">Menu</span>
-            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
-                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            </button>
-        </div>
         <a href="/">Home</a>
         <a href="/#system-zone">Deploy My System</a>
         <a href="/#process">System Process</a>
@@ -956,39 +903,7 @@
 </footer>
 
 <script>
-    // ── Theme: always default to dark, persist user choice ──
-    (function(){
-        var saved = localStorage.getItem('ql-theme');
-        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
-    })();
-
-    function toggleTheme(){
-        var cur = document.documentElement.getAttribute('data-theme');
-        var next = cur === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('ql-theme', next);
-        updateLogos();
-    }
-
-    var themeBtn = document.getElementById('themeBtn');
-    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
-    var mobThemeBtn = document.getElementById('mobThemeBtn');
-    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
-
-    // ── Logo swap ──
-    function updateLogos(){
-        var theme = document.documentElement.getAttribute('data-theme');
-        var headerImg = document.getElementById('logoImg');
-        var headerTxt = document.getElementById('logoText');
-        var footImg   = document.getElementById('footLogoImg');
-        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
-        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
-        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
-        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
-    }
-    updateLogos();
-
-    // Handle broken logo image gracefully
+    // ── Logo error fallback ──
     var logoImg = document.getElementById('logoImg');
     if(logoImg){
         logoImg.addEventListener('error', function(){
