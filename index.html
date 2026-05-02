@@ -747,7 +747,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="hero-ambi ha3"></div>
     <div class="hc">
       <div class="hbadge"><div class="bpulse"></div>Lead Generation + AI Conversion</div>
-      <div class="live-counter"><span class="live-dot"></span><span><strong id="leadCount">0</strong> leads generated this month</span></div>
+      <div class="live-counter"><span class="live-dot"></span><span><strong id="leadCount">0</strong> leads generated last month</span></div>
       <h1>Leads In. Quotes Sent. <span style="color:var(--blue)">Jobs Booked.</span></h1>
       <div class="hrule"></div>
       <p class="hero-sub">Ad accounts in your name. Domain in your name. Landing page live. The system runs while you sleep. The assets are yours.</p>
@@ -1373,7 +1373,7 @@ function toggleFaq(btn){const item=btn.parentElement,isOpen=item.classList.conta
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}})});
 
 // LIVE LEAD COUNTER
-(function(){const el=document.getElementById('leadCount');if(!el)return;const target=4312,dur=1600;let start=null;function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1);const ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target).toLocaleString();if(p<1)requestAnimationFrame(step)}const obs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting){requestAnimationFrame(step);obs.disconnect()}},{threshold:0.1});obs.observe(el)})();
+(function(){const el=document.getElementById('leadCount');if(!el)return;const target=4913,dur=1600;let start=null;function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1);const ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target).toLocaleString();if(p<1)requestAnimationFrame(step)}const obs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting){requestAnimationFrame(step);obs.disconnect()}},{threshold:0.1});obs.observe(el)})();
 </script>
 </body>
 </html>
