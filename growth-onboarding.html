@@ -451,14 +451,14 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="form-step" id="step5">
             <div class="step-counter"><span class="sc-badge">Step 5 of 11</span></div>
             <div class="step-q">What's your maximum daily ad spend?</div>
-            <div class="step-hint">This is your Meta/Facebook ad budget — paid directly to Meta, not to QuoteLeads.</div>
+            <div class="step-hint">This is your Meta/Facebook ad budget - paid directly to Meta, not to QuoteLeads.</div>
             <div class="field-group">
               <label>Maximum daily ad spend (AUD)</label>
               <input type="number" id="max_daily_spend_input" placeholder="e.g. 40" min="1" step="1" oninput="checkStep5()" style="appearance:textfield;-moz-appearance:textfield;">
             </div>
             <div class="inline-note" style="margin-top:4px;margin-bottom:0">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              <span>We recommend starting at <strong>$40/day</strong> ($1,200/mo). Ad spend is paid directly to Meta by you — not to QuoteLeads. You'll add a payment method to your own Meta ad account after granting us access.</span>
+              <span>We recommend starting at <strong>$40/day</strong> ($1,200/mo). Ad spend is paid directly to Meta by you - not to QuoteLeads. You'll add a payment method to your own Meta ad account after granting us access.</span>
             </div>
             <div class="btn-row">
               <button class="btn-back" onclick="goPrev(5)">Back</button>
@@ -503,11 +503,11 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="step-hint">Real job photos and video content typically improve ad performance. If you don't have any, we'll use our existing proven stock creative.</div>
             <div class="opt-grid cols-2">
               <div class="opt-card" data-field="provide_assets" data-value="Yes - I'll send through photos/video">
-                <div class="opt-label">Yes — I'll send through photos &amp; video</div>
+                <div class="opt-label">Yes - I'll send through photos &amp; video</div>
                 <div class="opt-sub">We'll send you a link to upload after onboarding</div>
               </div>
               <div class="opt-card" data-field="provide_assets" data-value="No - use your existing stock creative">
-                <div class="opt-label">No — use your existing stock creative</div>
+                <div class="opt-label">No - use your existing stock creative</div>
                 <div class="opt-sub">We'll use our proven in-industry templates</div>
               </div>
             </div>
@@ -536,14 +536,14 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="form-step" id="step10">
             <div class="step-counter"><span class="sc-badge">Step 10 of 11</span></div>
             <div class="step-q">Will you use the QuoteLeadsHQ CRM to manage your leads?</div>
-            <div class="step-hint">QuoteLeadsHQ is our dedicated pipeline and lead management platform. All leads are visible there regardless — this tells us if you want to actively use it as your primary CRM.</div>
+            <div class="step-hint">QuoteLeadsHQ is our dedicated pipeline and lead management platform. All leads are visible there regardless - this tells us if you want to actively use it as your primary CRM.</div>
             <div class="opt-grid cols-2">
               <div class="opt-card" data-field="use_crm" data-value="Yes - I'll manage leads in QuoteLeadsHQ">
-                <div class="opt-label">Yes — I'll use QuoteLeadsHQ as my CRM</div>
+                <div class="opt-label">Yes - I'll use QuoteLeadsHQ as my CRM</div>
                 <div class="opt-sub">We'll set up your pipeline and walk you through it</div>
               </div>
               <div class="opt-card" data-field="use_crm" data-value="No - I use my own CRM">
-                <div class="opt-label">No — I'll use my own CRM</div>
+                <div class="opt-label">No - I'll use my own CRM</div>
                 <div class="opt-sub">Leads still appear in QuoteLeadsHQ as a backup</div>
               </div>
             </div>
@@ -564,11 +564,11 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             </div>
             <div class="opt-grid cols-2">
               <div class="opt-card" data-field="domain_permission" data-value="Yes - purchase a domain under my brand">
-                <div class="opt-label">Yes — purchase a domain under my brand</div>
+                <div class="opt-label">Yes - purchase a domain under my brand</div>
                 <div class="opt-sub">Recommended. Dedicated landing page converts better</div>
               </div>
               <div class="opt-card" data-field="domain_permission" data-value="No - use my existing website">
-                <div class="opt-label">No — use my existing website</div>
+                <div class="opt-label">No - use my existing website</div>
                 <div class="opt-sub">We'll build on a subdomain or existing URL</div>
               </div>
             </div>
@@ -593,7 +593,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <h2>Onboarding received.</h2>
-          <p class="sub">Your details are in. One last step — we need access to your Meta Business Assets so we can connect your ad account and begin the build.</p>
+          <p class="sub">Your details are in. One last step - we need access to your Meta Business Assets so we can connect your ad account and begin the build.</p>
 
           <div class="meta-connect-box">
             <div class="mc-eyebrow">
@@ -839,7 +839,7 @@ function validateContact(){
   goNext(1);
 }
 
-// Step 2: industry next — also handle "Other" text
+// Step 2: industry next - also handle "Other" text
 document.getElementById('next2').addEventListener('click',function(){
   if(formData.industry==='Other'){
     var v=document.getElementById('otherIndustryInput').value.trim();
