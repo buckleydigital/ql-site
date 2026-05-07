@@ -1,641 +1,523 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-F36W0PEFR4');
-    </script>
-    <!-- Meta Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '3264378767213114');
-      fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=3264378767213114&ev=PageView&noscript=1"/></noscript>
-    <!-- End Meta Pixel Code -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Received - QuoteLeads</title>
-    <meta name="description" content="Thank you for your application. Expect a response within one business day.">
-    <link rel="canonical" href="https://quoteleads.com.au/requested">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F36W0PEFR4');
+</script>
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3264378767213114');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3264378767213114&ev=PageView&noscript=1"/></noscript>
+<title>Application Received — QuoteLeads</title>
+<meta name="description" content="Thank you for your application. Expect a response within one business day.">
+<link rel="canonical" href="https://quoteleads.com.au/requested">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-    <style>
-/* Display: Neue Montreal (using General Sans as free stand-in - swap var(--display) when licensed) */
-/* Body: Inter */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040A;--deep:#08080F;--surf:#0C0C18;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07);--bmid:rgba(255,255,255,0.10);
+  --bblue:rgba(71,151,255,0.3);
+  --blue:#4797FF;--bdim:rgba(71,151,255,0.12);
+  --sky:#7CB9FF;--mist:#B8D4FF;
+  --white:#F2F2F2;--off:#CACAD0;--muted:#71717A;--faint:#3F3F46;
+  --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --nh:68px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--void);color:var(--white);font-family:var(--body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss01','ss03'}
 
-        :root[data-theme="dark"] {
-            --bg:          #000000;
-            --bg-lift:     #080808;
-            --bg-card:     #0F0F0F;
-            --bg-deep:     #080808;
-            --border:      rgba(255,255,255,0.07);
-            --border-mid:  rgba(255,255,255,0.10);
-            --ink:         #F2F2F2;
-            --ink-soft:    #7d8fa0;
-            --ink-muted:   #7d8fa0;
-            --ink-faint:   #485867;
-            --accent:      #B4BEC8;
-            --accent-dim:  rgba(180,190,200,0.12);
-            --accent-glow: rgba(255,255,255,0.02);
-            --button-primary: #4797FF;
-            --display: 'General Sans', 'PP Neue Montreal', 'Neue Montreal', system-ui, sans-serif;
-            --body: 'Inter', system-ui, sans-serif;
-            color-scheme: dark;
-        }
-        :root[data-theme="light"] {
-            --bg:          #f7f8fa;
-            --bg-lift:     #f1f4f7;
-            --bg-card:     #ffffff;
-            --bg-deep:     #edf1f4;
-            --border:      rgba(15,20,25,0.10);
-            --border-mid:  rgba(15,20,25,0.14);
-            --ink:         #13181f;
-            --ink-soft:    #35414f;
-            --ink-muted:   #4a5564;
-            --ink-faint:   #72808e;
-            --accent:      #B4BEC8;
-            --accent-dim:  rgba(180,190,200,0.20);
-            --accent-glow: rgba(180,190,200,0.08);
-            --button-primary: #4797FF;
-            --display: 'General Sans', 'PP Neue Montreal', 'Neue Montreal', system-ui, sans-serif;
-            --body: 'Inter', system-ui, sans-serif;
-            color-scheme: light;
-        }
+/* CURSOR */
+#cur{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
 
-        body {
-            font-family: var(--body);
-            font-feature-settings: "cv11", "ss01", "ss03";
-            background: var(--bg);
-            color: var(--ink);
-            line-height: 1.65;
-            font-weight: 400;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            transition: background 0.3s, color 0.3s; padding-top: 68px;}
-        h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+/* AURA */
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);
+  transform:translate(-50%,-50%);transition:left .5s ease,top .5s ease}
 
-        /* ── HEADER ── */
-        
-        [data-theme="light"] 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        .mob-theme-btn { margin: 14px 0 0; }
-        
-        
-        
-        
-        
-        
+/* PARTICLES */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
 
-        /* ── SHARED ── */
-        section { padding: 100px 48px; }
-        .si { max-width: 1200px; margin: 0 auto; }
-        .slbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-        .slbl::before { content: ''; width: 20px; height: 1px; background: var(--accent); opacity: 0.5; }
-        .stitle { font-family: var(--display); font-size: clamp(30px,4vw,46px); line-height: 1.15; letter-spacing: -0.3px; color: var(--ink); margin-bottom: 20px; }
-        .stitle em { font-style: normal; color: var(--accent); font-weight: 500; }
-        .sbody { font-size: 17px; font-weight: 400; color: var(--ink-muted); line-height: 1.75; max-width: 640px; }
-        .btn-primary { background: var(--button-primary); color: #fff; padding: 15px 34px; border-radius: 4px; text-decoration: none; font-size: 15px; font-weight: 400; letter-spacing: 0.02em; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
-        .btn-primary:hover { opacity: 0.92; }
-        .btn-ghost {
-            color: var(--ink); font-size: 14px; font-weight: 400;
-            text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-            transition: border-color 0.2s;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 4px;
-            padding: 14px 22px;
-        }
-        .btn-ghost:hover { border-color: rgba(255,255,255,0.2); }
-        .btn-ghost svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+/* GRAIN */
+body::before{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+  background-size:200px;pointer-events:none;z-index:2;opacity:.4}
 
-        /* ── CONFIRMATION HERO ── */
-        .conf-hero {
-            padding: 140px 48px 80px;
-            border-bottom: 1px solid var(--border);
-            position: relative; overflow: hidden;
-        }
-        .hero-grid-bg { display: none; }
-        .hero-glow { display: none; }
-        .conf-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+/* SCROLL PROGRESS */
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,var(--blue),var(--sky))}
 
-        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
-        .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
-        .conf-hero h1 { font-family: var(--display); font-size: clamp(40px,5vw,58px); line-height: 1.1; letter-spacing: -0.5px; color: var(--ink); margin-bottom: 24px; }
-        .conf-hero h1 em { font-style: normal; color: var(--accent); font-weight: 500; }
-        .conf-hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 36px; }
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;
+  background:rgba(4,4,10,0);border-bottom:1px solid transparent;
+  transition:background .4s,border-color .4s,backdrop-filter .4s}
+.site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
+.header-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:var(--nh)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:.84rem;font-weight:400;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.02em}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff !important;
+  font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;
+  text-decoration:none;transition:all .2s;position:relative;overflow:hidden}
+.nav-cta::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s}
+.nav-cta:hover{background:var(--sky);transform:translateY(-1px);box-shadow:0 8px 28px rgba(71,151,255,.4)}
+.nav-cta:hover::after{opacity:1}
+.mob-btn{display:none;background:none;border:none;cursor:none;padding:4px;flex-direction:column;gap:5px}
+.mob-btn span{display:block;width:22px;height:1.5px;background:var(--white);transition:.3s}
+.mob-menu{display:none;position:absolute;top:100%;left:0;right:0;
+  background:rgba(4,4,10,.97);border-bottom:1px solid var(--border);padding:0 5% 20px;
+  backdrop-filter:blur(28px)}
+.mob-menu.open{display:flex;flex-direction:column;gap:0}
+.mob-menu a{padding:14px 0;font-size:1rem;color:var(--off);text-decoration:none;border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--white)}
+.mob-cta-link{background:var(--blue) !important;color:#fff !important;padding:14px 0 !important;
+  border-radius:4px;text-align:center;margin-top:12px;border-bottom:none !important}
 
-        /* What happens next panel */
-        .next-panel {
-            background: var(--bg-card); border: 1px solid var(--border-mid);
-            border-radius: 8px; padding: 40px; position: relative; overflow: hidden;
-        }
-        .next-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; display: none; }
-        .np-lbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 28px; }
-        .np-step { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--border); }
-        .np-step:last-of-type { border-bottom: none; }
-        .np-num { font-family: var(--display); font-size: 28px; color: var(--accent); line-height: 1; opacity: 0.3; flex-shrink: 0; width: 28px; }
-        .np-text h4 { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; }
-        .np-text p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400; }
-        .np-foot { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--ink-faint); display: flex; align-items: center; gap: 8px; }
-        .sdot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
-         }
+/* SHARED */
+section{position:relative;z-index:3;padding:110px 5%;border-top:1px solid var(--border)}
+section:nth-of-type(even){background:var(--deep)}
+section:nth-of-type(odd){background:var(--surf)}
+.hero-section{background:var(--void) !important;border-top:none !important}
+.si{max-width:1120px;margin:0 auto}
+.ey{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
+.ey::before{content:'';width:22px;height:1px;background:var(--blue)}
+.stitle{font-family:var(--display);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:600;
+  line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
+.stitle em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sbody{font-size:1rem;color:var(--muted);line-height:1.74;max-width:540px}
 
-        /* ── CALENDLY SECTION ── */
-        .calendly-s { background: var(--bg-lift); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .calendly-wrap {
-            margin-top: 52px;
-            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px;
-            overflow: hidden; position: relative;
-        }
-        .calendly-wrap::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; display: none; z-index: 1; }
-        .calendly-inline-widget { border: none; }
+/* BUTTONS */
+.btn-mag{position:relative;display:inline-flex;align-items:center;gap:10px;
+  background:var(--blue);color:#fff;font-family:var(--body);font-size:.88rem;font-weight:500;
+  letter-spacing:.02em;padding:14px 30px;border-radius:100px;text-decoration:none;border:none;
+  overflow:hidden;transition:background .2s,box-shadow .2s;cursor:none}
+.btn-mag::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.18),transparent 60%);
+  opacity:0;transition:opacity .3s}
+.btn-mag:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38)}
+.btn-mag:hover::before{opacity:1}
+.btn-mag svg{width:14px;height:14px;transition:transform .2s;stroke:none}
+.btn-mag:hover svg{transform:translateX(4px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);
+  border:1px solid var(--border);font-family:var(--body);font-size:.88rem;font-weight:400;
+  padding:14px 28px;border-radius:100px;text-decoration:none;transition:all .25s;cursor:none}
+.btn-ghost:hover{border-color:var(--faint);color:var(--white)}
+.btn-ghost svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;transition:transform .2s}
+.btn-ghost:hover svg{transform:translateX(4px)}
 
-        /* ── WHAT TO EXPECT ── */
-        .expect-s { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .expect-grid {
-            display: grid; grid-template-columns: repeat(3,1fr);
-            gap: 1px; background: var(--border); border: 1px solid var(--border);
-            border-radius: 8px; overflow: hidden; margin-top: 52px;
-        }
-        .expect-item { background: var(--bg-card); padding: 36px 32px; transition: background 0.2s; }
-        .expect-item:hover { background: var(--bg-lift); }
-        .expect-num { font-family: var(--display); font-size: 38px; color: var(--accent); line-height: 1; margin-bottom: 18px; opacity: 0.2; }
-        .expect-item h3 { font-size: 16px; font-weight: 400; color: var(--ink); margin-bottom: 10px; }
-        .expect-item p { font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-weight: 400; }
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
-        /* ── FAQ ── */
-        .faq-s { border-top: 1px solid var(--border); }
-        .faq-list { margin-top: 48px; }
-        .faq-item { border-top: 1px solid var(--border); }
-        .faq-item:last-child { border-bottom: 1px solid var(--border); }
-        .faq-q { width: 100%; background: none; border: none; cursor: pointer; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; text-align: left; gap: 20px; font-family: inherit; }
-        .faq-qt { font-size: 16px; font-weight: 400; color: var(--ink); }
-        .faq-qi { font-size: 20px; color: var(--accent); flex-shrink: 0; transition: transform 0.3s; }
-        .faq-item.open .faq-qi { transform: rotate(45deg); }
-        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; font-size: 15px; color: var(--ink-muted); line-height: 1.8; font-weight: 400; }
-        .faq-item.open .faq-a { max-height: 300px; padding-bottom: 28px; }
+/* ── HERO ── */
+.conf-hero{min-height:100vh;display:flex;align-items:center;padding:calc(var(--nh) + 72px) 5% 100px;position:relative;overflow:hidden;background:var(--void)}
+.conf-hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:3;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;width:100%}
 
-        /* ── FOOTER ── */
-        
-        
-        
-        
-        
-        
-        
+/* ambi glow blobs */
+.hero-ambi{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.ha1{width:500px;height:500px;background:rgba(71,151,255,.04);right:-50px;top:40%;transform:translateY(-50%)}
+.ha2{width:300px;height:300px;background:rgba(124,185,255,.025);left:-60px;bottom:-80px}
+.ha3{width:250px;height:250px;background:rgba(71,151,255,.02);left:35%;top:-60px}
 
-        /* ── RESPONSIVE ── */
-        /* HEADER */
-        .site-header {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-            padding: 0 48px;
-            background: rgba(0,0,0,0.98);
-            border-bottom: 1px solid var(--border);
-            transition: background 0.3s, border-color 0.3s;
-        }
-        [data-theme="light"] .site-header { background: rgba(247,248,250,0.98); }
-        .header-inner {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; align-items: center; justify-content: space-between;
-            height: 68px;
-        }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-img { height: 36px; width: auto; display: block; }
-        .logo-img.hide { display: none; }
-        .logo-text {
-            font-family: var(--display); font-size: 20px; color: var(--ink);
-            letter-spacing: -0.3px; display: none;
-        }
-        .logo-text.show { display: block; }
-        .nav-links { display: flex; align-items: center; gap: 24px; }
-        .nav-links> a {
-            font-size: 14px; font-weight: 400; color: var(--ink-muted);
-            text-decoration: none; transition: color 0.2s;
-        }
-        .nav-links> a:hover { color: var(--ink); }
-        .nav-dropdown { position: relative; }
-        .nav-dropdown-btn {
-            font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--ink-muted);
-            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
-            padding: 0; transition: color 0.2s;
-        }
-        .nav-dropdown-btn:hover { color: var(--ink); }
-        a.nav-dropdown-btn {
-            text-decoration: none;
-        }
-        .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
-        .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
-        .nav-dropdown-menu {
-            display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
-            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px;
-            padding: 8px 0; min-width: 180px; 
-            z-index: 300;
-        }
-        .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-        .nav-dropdown-menu::before {
-            content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px;
-        }
-        .nav-dropdown-menu a {
-            display: block; padding: 10px 20px; font-size: 14px; color: var(--ink-muted);
-            text-decoration: none; transition: all 0.15s; white-space: nowrap;
-        }
-        .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
-        .nav-cta {
-            background: var(--button-primary) !important; color: #fff !important;
-            padding: 10px 22px !important; border-radius: 4px !important;
-            font-weight: 400 !important; font-size: 14px !important;
-            transition: opacity 0.2s !important; text-decoration: none !important;
-        }
-        .nav-cta:hover { opacity: 0.85 !important; }
-        .theme-btn {
-            width: 36px; height: 36px; border-radius: 8px;
-            border: 1px solid var(--border-mid); background: var(--bg-lift);
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
-            color: var(--ink-muted); transition: all 0.2s; flex-shrink: 0;
-        }
-        .theme-btn:hover { color: var(--ink); border-color: var(--accent); }
-        .theme-btn svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 2; fill: none; pointer-events: none; }
-        .i-moon { display: block; }
-        .i-sun  { display: none;  }
-        [data-theme="light"] .i-moon { display: none; }
-        [data-theme="light"] .i-sun  { display: block; }
-        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
-        .mob-menu {
-            display: none; position: absolute; top: 100%; left: 0; right: 0;
-            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
-            max-height: calc(100vh - 68px); overflow-y: auto;
-        }
-        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
-        .mob-menu-top {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 16px 0; border-bottom: 1px solid var(--border);
-        }
-        .mob-menu-title {
-            font-size: 13px; font-weight: 500; color: var(--ink-faint);
-            text-transform: uppercase; letter-spacing: 0.08em;
-        }
-        .mob-menu a {
-            padding: 14px 0; font-size: 16px; color: var(--ink-soft);
-            text-decoration: none; border-bottom: 1px solid var(--border);
-        }
-        .mob-menu a:hover { color: var(--ink); }
-        .mob-section-label {
-            display: block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-            color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
-        }
-        .mob-section-label.compact { padding: 8px 0 2px; }
-        .mob-cta {
-            background: var(--button-primary) !important; color: #fff !important;
-            padding: 14px 0 !important; border-radius: 4px; text-align: center;
-            margin-top: 8px; border-bottom: none !important;
-        }
-        .mob-cta:hover { opacity: 0.85; }
-        .mob-theme-btn {
-            width: 36px; height: 36px; flex-shrink: 0;
-        }
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:24px}
+.hero-eyebrow::before{content:'';width:22px;height:1px;background:var(--blue)}
 
+/* success badge */
+.success-badge{display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.07);
+  padding:5px 16px 5px 10px;border-radius:100px;
+  font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#4ade80;
+  margin-bottom:28px}
+.badge-pulse{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:badgePulse 2s ease infinite;flex-shrink:0}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
 
-        /* FOOTER */
-        footer {
-            padding: 48px; border-top: 1px solid var(--border);
-            display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-        }
-        .foot-logo { display: flex; align-items: center; gap: 10px; }
-        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
-        .foot-logo span { font-family: var(--display); font-size: 18px; color: var(--ink-soft); display: none; }
-        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
-        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
-        .foot-links a:hover { color: var(--ink); }
-        .foot-copy { font-size: 13px; color: var(--ink-faint); }
-        .foot-social { display: flex; gap: 16px; align-items: center; }
-        .foot-social a { color: var(--ink-faint); transition: color 0.2s; display: flex; }
-        .foot-social a:hover { color: var(--accent); }
+.conf-hero h1{font-family:var(--display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:600;
+  line-height:1.08;letter-spacing:-.025em;margin-bottom:20px}
+.conf-hero h1 .ga{background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hrule{width:48px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);margin:20px 0}
+.conf-hero-sub{font-size:1rem;color:var(--muted);line-height:1.74;max-width:440px;margin-bottom:36px}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 
+/* NEXT PANEL */
+.next-panel{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px;
+  position:relative;overflow:hidden;backdrop-filter:blur(12px);
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06)}
+.next-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.np-lbl{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:28px;display:flex;align-items:center;gap:8px}
+.np-lbl::before{content:'';width:22px;height:1px;background:var(--blue)}
+.np-step{display:flex;gap:20px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--border)}
+.np-step:last-of-type{border-bottom:none}
+.np-num{font-family:var(--display);font-size:1.6rem;font-weight:600;
+  background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;opacity:.35;flex-shrink:0;width:32px}
+.np-text h4{font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:4px;font-family:var(--display)}
+.np-text p{font-size:.8rem;color:var(--muted);line-height:1.65}
 
-        @media(max-width:1024px){
-            section{padding:80px 32px;} .site-header{padding:0 32px;} footer{padding:40px 32px;}  
-            .conf-hero{padding:120px 32px 64px;}
-            .conf-hero-inner{grid-template-columns:1fr; gap:48px;}
-            .expect-grid{grid-template-columns:1fr 1fr;}
-        }
-        @media(max-width:768px){
-            section{padding:64px 24px; } .nav-links{display:none;} .mob-btn{display:block;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;}  
-            .conf-hero{padding:100px 24px 56px;}
-             
-            .expect-grid{grid-template-columns:1fr;}
-            .conf-hero-actions{flex-direction:column; align-items:flex-start;}
-        }
-    </style>
+/* ── CALENDLY ── */
+.calendly-wrap{
+  margin-top:52px;
+  background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;
+  position:relative;backdrop-filter:blur(12px);
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06)}
+.calendly-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent);z-index:1}
+.calendly-inline-widget{border:none}
+
+/* ── CALL COVERAGE GRID ── */
+.cover-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-top:52px}
+.cover-item{padding:48px 36px;background:var(--deep);transition:background .3s;cursor:none;position:relative;overflow:hidden}
+.cover-item::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .3s}
+.cover-item:hover{background:rgba(71,151,255,.03)}
+.cover-item:hover::after{opacity:1}
+.cover-num{font-family:var(--display);font-size:clamp(2rem,3vw,2.8rem);font-weight:600;
+  background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;margin-bottom:16px;opacity:.25}
+.cover-item h3{font-size:.95rem;font-weight:500;color:var(--white);margin-bottom:10px;font-family:var(--display)}
+.cover-item p{font-size:.82rem;color:var(--muted);line-height:1.7}
+
+/* ── FAQ ── */
+.faq-list{margin-top:52px}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;cursor:none;padding:24px 0;display:flex;justify-content:space-between;align-items:center;text-align:left;gap:20px;font-family:var(--body)}
+.faq-qt{font-size:.95rem;font-weight:400;color:var(--white)}
+.faq-qi{font-size:20px;color:var(--blue);flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-qi{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:.88rem;color:var(--muted);line-height:1.8}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:28px}
+
+/* ── FOOTER ── */
+footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep);position:relative;z-index:3}
+.foot-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{font-size:.8rem;color:var(--faint);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--white)}
+.foot-copy{font-size:.78rem;color:var(--faint)}
+.foot-social{display:flex;gap:12px}
+.foot-social a{width:34px;height:34px;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:all .2s;background:var(--glass)}
+.foot-social a:hover{border-color:var(--blue);color:var(--blue);background:var(--bdim)}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--void)}
+::-webkit-scrollbar-thumb{background:var(--faint);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--blue)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  section{padding:80px 5%}
+  .conf-hero{padding:120px 5% 80px}
+  .conf-hero-inner{grid-template-columns:1fr;gap:48px}
+  .cover-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  section{padding:64px 5%}
+  .nav-links{display:none}.mob-btn{display:flex}
+  .conf-hero{padding:100px 5% 64px}
+  .cover-grid{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;align-items:flex-start;width:100%}
+  .btn-mag,.btn-ghost{width:100%;justify-content:center}
+  footer{padding:40px 5%}
+  .foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
+}
+@media(max-width:480px){
+  .conf-hero h1{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .cover-item{padding:32px 24px}
+}
+</style>
 </head>
 <body>
 
-<header class="site-header">
-    <div class="header-inner">
-        <a href="/" class="logo" id="logoLink">
-            <img id="logoImg" class="logo-img" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads">
-            <span class="logo-text" id="logoText">QuoteLeads</span>
-        </a>
-        <nav class="nav-links">
-            <div class="nav-dropdown">
-                <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                <div class="nav-dropdown-menu">
-                    <a href="/#system-zone">Deploy My System</a>
-                    <a href="/#process">System Process</a>
-                    <a href="/blog">Blog</a>
-                </div>
-            </div>
-            <div class="nav-dropdown">
-                <button class="nav-dropdown-btn">Industries <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-                <div class="nav-dropdown-menu">
-                    <a href="/solar-leads">Solar</a>
-                    <a href="/hvac-leads">HVAC</a>
-                    <a href="/roofing-leads">Roofing</a>
-                    <a href="/renovation-leads">Renovation</a>
-                </div>
-            </div>
-            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            </button>
-        </nav>
-        <button class="mob-btn" id="mobBtn" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-    <nav class="mob-menu" id="mobMenu">
-        <div class="mob-menu-top">
-            <span class="mob-menu-title">Menu</span>
-            <button class="theme-btn mob-theme-btn" id="mobThemeBtn" aria-label="Toggle theme">
-                <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            </button>
-        </div>
-        <a href="/">Home</a>
-        <a href="/#system-zone">Deploy My System</a>
-        <a href="/#process">System Process</a>
-        <a href="/blog">Blog</a>
-        <span class="mob-section-label">Industries</span>
-        <a href="/solar-leads">Solar</a>
-        <a href="/hvac-leads">HVAC</a>
-        <a href="/roofing-leads">Roofing</a>
-        <a href="/renovation-leads">Renovation</a>
-        <span class="mob-section-label compact">&nbsp;</span>
-    </nav>
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" style="height:36px;width:auto;display:block">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/#what-built">What's Built</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/pay-per-lead">Pay Per Lead</a></li>
+      <li><a href="/get-started" class="nav-cta">Build My System <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+    </ul>
+    <button class="mob-btn" id="mobBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-menu" id="mobMenu">
+    <a href="/#how-it-works">How It Works</a>
+    <a href="/#what-built">What's Built</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/pay-per-lead">Pay Per Lead</a>
+    <a href="/get-started" class="mob-cta-link">Build My System</a>
+  </nav>
 </header>
 
-<!-- CONFIRMATION HERO -->
-<section class="conf-hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="conf-hero-inner">
-        <div>
-            <div class="hero-eyebrow">Application received</div>
-            <h1>Application<br>received. <em>Thank you.</em></h1>
-            <p class="sbody">Your application has been submitted. Expect a response within one business day.</p>
-            <div class="conf-hero-actions">
-                <a href="/" class="btn-ghost">
-                    Back to home
-                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-            </div>
-        </div>
-        <div class="next-panel">
-            <div class="np-lbl">What happens next</div>
-            <div class="np-step">
-                <div class="np-num">01</div>
-                <div class="np-text">
-                    <h4>Application reviewed</h4>
-                    <p>Your answers are reviewed to confirm the fit. Usually within a few hours.</p>
-                </div>
-            </div>
-            <div class="np-step">
-                <div class="np-num">02</div>
-                <div class="np-text">
-                    <h4>Scoping call arranged</h4>
-                    <p>Expect a call or SMS within one business day. Or skip ahead and book a time below now.</p>
-                </div>
-            </div>
-            <div class="np-step">
-                <div class="np-num">03</div>
-                <div class="np-text">
-                    <h4>Scoping call</h4>
-                    <p>A short call to confirm your trade, territory, and what the system would look like for your business.</p>
-                </div>
-            </div>
-            <div class="np-step">
-                <div class="np-num">04</div>
-                <div class="np-text">
-                    <h4>Build starts within days</h4>
-                    <p>Once aligned, the build phase begins. First leads typically arrive 7-10 days from sign-on.</p>
-                </div>
-            </div>
-        </div>
+<!-- HERO -->
+<section class="conf-hero hero-section">
+  <div class="hero-ambi ha1"></div>
+  <div class="hero-ambi ha2"></div>
+  <div class="hero-ambi ha3"></div>
+  <div class="conf-hero-inner">
+    <div class="rv">
+      <div class="success-badge"><div class="badge-pulse"></div>Application received</div>
+      <h1>Application<br>received. <span class="ga">Thank you.</span></h1>
+      <div class="hrule"></div>
+      <p class="conf-hero-sub">Your application has been submitted. Expect a response within one business day.</p>
+      <div class="hero-actions">
+        <a href="#schedule" class="btn-mag">
+          Book a call now
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
+        </a>
+        <a href="/" class="btn-ghost">
+          Back to home
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+      </div>
     </div>
+    <div class="next-panel rv d2">
+      <div class="np-lbl">What happens next</div>
+      <div class="np-step">
+        <div class="np-num">01</div>
+        <div class="np-text">
+          <h4>Application reviewed</h4>
+          <p>Your answers are reviewed to confirm the fit. Usually within a few hours.</p>
+        </div>
+      </div>
+      <div class="np-step">
+        <div class="np-num">02</div>
+        <div class="np-text">
+          <h4>Scoping call arranged</h4>
+          <p>Expect a call or SMS within one business day. Or skip ahead and book a time below now.</p>
+        </div>
+      </div>
+      <div class="np-step">
+        <div class="np-num">03</div>
+        <div class="np-text">
+          <h4>Scoping call</h4>
+          <p>A short call to confirm your trade, territory, and what the system would look like for your business.</p>
+        </div>
+      </div>
+      <div class="np-step">
+        <div class="np-num">04</div>
+        <div class="np-text">
+          <h4>Build starts within days</h4>
+          <p>Once aligned, the build phase begins. First leads typically arrive 7–10 days from sign-on.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CALENDLY -->
-<section class="calendly-s" id="schedule">
-    <div class="si">
-        <div class="slbl">Skip the wait</div>
-        <h2 class="stitle">Book your scoping<br>call <em>now.</em></h2>
-        <p class="sbody">Select a time that works for you. A short call to confirm your trade, territory, and what the system looks like for your business.</p>
-        <div class="calendly-wrap">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/quoteleads/discoverycall?hide_gdpr_banner=1&background_color=161820&text_color=f0f0ef&primary_color=4797ff" style="min-width:320px; height:700px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        </div>
+<section id="schedule">
+  <div class="si">
+    <div class="rv"><div class="ey">Skip the wait</div></div>
+    <h2 class="stitle rv">Book your scoping<br>call <em>now.</em></h2>
+    <p class="sbody rv">Select a time that works for you. A short call to confirm your trade, territory, and what the system looks like for your business.</p>
+    <div class="calendly-wrap rv">
+      <div class="calendly-inline-widget"
+        data-url="https://calendly.com/quoteleads/discoverycall?hide_gdpr_banner=1&background_color=08080F&text_color=f0f0ef&primary_color=4797ff"
+        style="min-width:320px;height:700px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </div>
+  </div>
 </section>
 
-<!-- WHAT TO EXPECT ON THE CALL -->
-<section class="expect-s">
-    <div class="si">
-        <div class="slbl">On the call</div>
-        <h2 class="stitle">What the call<br><em>covers.</em></h2>
-        <p class="sbody">The call is focused and structured. Here's what will be covered.</p>
-        <div class="expect-grid">
-            <div class="expect-item">
-                <div class="expect-num">01</div>
-                <h3>Your business and trade</h3>
-                <p>Your service area, average job value, current volume, and what you've tried before. The goal is to understand your business - not sell to it.</p>
-            </div>
-            <div class="expect-item">
-                <div class="expect-num">02</div>
-                <h3>What the system looks like for you</h3>
-                <p>The specific components that would be built for your trade, territory, and capacity - not a generic overview, but your actual setup.</p>
-            </div>
-            <div class="expect-item">
-                <div class="expect-num">03</div>
-                <h3>Pricing and timeline</h3>
-                <p>A clear price range based on your scope, the build timeline, and answers to any questions about how it all works. Then you decide.</p>
-            </div>
-        </div>
+<!-- WHAT THE CALL COVERS -->
+<section>
+  <div class="si">
+    <div class="rv"><div class="ey">On the call</div></div>
+    <h2 class="stitle rv">What the call <em>covers.</em></h2>
+    <p class="sbody rv">The call is focused and structured. Here's what will be covered.</p>
+    <div class="cover-grid rv">
+      <div class="cover-item">
+        <div class="cover-num">01</div>
+        <h3>Your business and trade</h3>
+        <p>Your service area, average job value, current volume, and what you've tried before. The goal is to understand your business — not sell to it.</p>
+      </div>
+      <div class="cover-item">
+        <div class="cover-num">02</div>
+        <h3>What the system looks like for you</h3>
+        <p>The specific components that would be built for your trade, territory, and capacity — not a generic overview, but your actual setup.</p>
+      </div>
+      <div class="cover-item">
+        <div class="cover-num">03</div>
+        <h3>Pricing and timeline</h3>
+        <p>A clear price range based on your scope, the build timeline, and answers to any questions about how it all works. Then you decide.</p>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq-s">
-    <div class="si">
-        <div class="slbl">Common questions</div>
-        <h2 class="stitle">Before the call.</h2>
-        <div class="faq-list">
-            <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do I need to prepare anything for the call?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">Nothing formal. It helps to have a rough sense of your current monthly job volume, your average job value, and what you've tried before for lead generation. Just show up and be ready to talk about your business.</div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What does it cost?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">Most businesses invest between $7,000 and $15,000+ to have the system properly built and deployed. The scope varies depending on your trade, territory, and the infrastructure required. Ad spend is managed separately - a recommended starting budget is provided during scoping.</div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How quickly will I start receiving leads?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">The build phase typically takes 5-7 business days. In most cases, the first leads arrive within 24-48 hours of the campaign going live. From sign-on to first lead, you're typically looking at around 7-10 days total.</div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Are the leads exclusive to my business?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">Yes. The funnel is built in your business name. Homeowners see your branding before they submit. There's no shared database, no marketplace, no pool of buyers. One business per trade per territory.</div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is there a lock-in contract?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">No lock-in. The implementation fee covers the build. If you choose ongoing management, there's a 30-day notice period to cancel. The infrastructure belongs to you - it stays with you if you stop.</div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What if I need to reschedule?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">No problem. Use the link in your Calendly confirmation email to reschedule at any time. Alternatively, email contact@quoteleads.com.au.</div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How quickly can the system go live?</span><span class="faq-qi">+</span></button>
-                <div class="faq-a">Most clients go live within 7 days of their strategy call. Everything is built, configured, and tested before launch.</div>
-            </div>
-        </div>
+<section>
+  <div class="si">
+    <div class="rv"><div class="ey">Common questions</div></div>
+    <h2 class="stitle rv">Before the call.</h2>
+    <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do I need to prepare anything for the call?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Nothing formal. It helps to have a rough sense of your current monthly job volume, your average job value, and what you've tried before for lead generation. Just show up and be ready to talk about your business.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What does it cost?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Most businesses invest between $7,000 and $15,000+ to have the system properly built and deployed. The scope varies depending on your trade, territory, and the infrastructure required. Ad spend is managed separately — a recommended starting budget is provided during scoping.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How quickly will I start receiving leads?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">The build phase typically takes 5–7 business days. In most cases, the first leads arrive within 24–48 hours of the campaign going live. From sign-on to first lead, you're typically looking at around 7–10 days total.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Are the leads exclusive to my business?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Yes. The funnel is built in your business name. Homeowners see your branding before they submit. There's no shared database, no marketplace, no pool of buyers. One business per trade per territory.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is there a lock-in contract?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">No lock-in. The implementation fee covers the build. If you choose ongoing management, there's a 30-day notice period to cancel. The infrastructure belongs to you — it stays with you if you stop.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What if I need to reschedule?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">No problem. Use the link in your Calendly confirmation email to reschedule at any time. Alternatively, email <a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:underline">contact@quoteleads.com.au</a>.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How quickly can the system go live?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Most clients go live within 7 days of their strategy call. Everything is built, configured, and tested before launch.</div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <div class="foot-logo">
-        <img id="footLogoImg" src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span>QuoteLeads</span>
+  <div class="foot-inner">
+    <div>
+      <img src="https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png" alt="QuoteLeads" style="height:32px;width:auto;opacity:.7">
     </div>
     <div class="foot-links">
-        <a href="/">Home</a>
-        <a href="/get-started">Deploy My System</a>
-        <a href="https://quoteleadshq.com/dashboard">Dashboard</a>
-    </div>
-    <div class="foot-links">
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-        <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+      <a href="/">Home</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/get-started">Build My System</a>
+      <a href="/pay-per-lead">Pay Per Lead</a>
+      <a href="https://quoteleadshq.com/dashboard">Dashboard</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
     </div>
     <div class="foot-social">
-        <a href="https://facebook.com/quoteleads" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="https://instagram.com/quoteleads" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://linkedin.com/company/quoteleads" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
+      <a href="https://facebook.com/quoteleads" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://instagram.com/quoteleads" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://linkedin.com/company/quoteleads" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
     </div>
-    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+    <div class="foot-copy">© 2026 QuoteLeads · Australian owned and operated</div>
+  </div>
 </footer>
 
 <script>
-    // ── Theme: always default to dark, persist user choice ──
-    (function(){
-        var saved = localStorage.getItem('ql-theme');
-        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
-    })();
+// PARTICLES
+const W=()=>window.innerWidth,H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
+class P{
+  constructor(){this.reset(true)}
+  reset(init){this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;this.life=0;this.maxL=Math.random()*450+200;this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';this.glow=this.r>1.2}
+  draw(){const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;ctx.save();ctx.globalAlpha=this.a*fade;if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore()}
+  update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}
+}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
 
-    function toggleTheme(){
-        var cur = document.documentElement.getAttribute('data-theme');
-        var next = cur === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('ql-theme', next);
-        updateLogos();
-    }
+// CURSOR
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button,.next-panel,.cover-item,.calendly-wrap').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
 
-    var themeBtn = document.getElementById('themeBtn');
-    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
-    var mobThemeBtn = document.getElementById('mobThemeBtn');
-    if(mobThemeBtn) mobThemeBtn.addEventListener('click', toggleTheme);
+// MAGNETIC BUTTONS
+document.querySelectorAll('.btn-mag').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect();btn.style.setProperty('--bx',((e.clientX-r.left)/r.width*100)+'%');btn.style.setProperty('--by',((e.clientY-r.top)/r.height*100)+'%')});
+});
 
-    // ── Logo swap ──
-    function updateLogos(){
-        var theme = document.documentElement.getAttribute('data-theme');
-        var headerImg = document.getElementById('logoImg');
-        var headerTxt = document.getElementById('logoText');
-        var footImg   = document.getElementById('footLogoImg');
-        var whiteSrc  = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-white.png';
-        var darkSrc   = 'https://github.com/buckleydigital/ql-site/raw/main/quoteleads-logo-black.png';
-        if(headerImg){ headerImg.src = theme === 'light' ? darkSrc : whiteSrc; }
-        if(footImg){ footImg.src = theme === 'light' ? darkSrc : whiteSrc; }
-    }
-    updateLogos();
+// HEADER SCROLL
+const hdr=document.getElementById('siteHeader');
+window.addEventListener('scroll',()=>hdr.classList.toggle('sc',window.scrollY>20));
 
-    // Handle broken logo image gracefully
-    var logoImg = document.getElementById('logoImg');
-    if(logoImg){
-        logoImg.addEventListener('error', function(){
-            this.style.display = 'none';
-            var txt = document.getElementById('logoText');
-            if(txt){ txt.style.display = 'block'; }
-        });
-    }
+// SCROLL PROGRESS
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{const d=document.documentElement;sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')';},{passive:true});
 
-    // ── Mobile menu ──
-    var mobBtn  = document.getElementById('mobBtn');
-    var mobMenu = document.getElementById('mobMenu');
-    if(mobBtn && mobMenu){
-        mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); });
-        mobMenu.querySelectorAll('a').forEach(function(a){
-            a.addEventListener('click', function(){ mobMenu.classList.remove('open'); });
-        });
-    }
+// REVEAL
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
 
-    // ── Smooth scroll ──
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-        a.addEventListener('click', function(e){
-            var target = document.querySelector(a.getAttribute('href'));
-            if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
-        });
-    });
+// MOBILE MENU
+const mobBtn=document.getElementById('mobBtn'),mobMenu=document.getElementById('mobMenu');
+if(mobBtn&&mobMenu){
+  mobBtn.addEventListener('click',()=>mobMenu.classList.toggle('open'));
+  mobMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobMenu.classList.remove('open')));
+}
 
-    function toggleFaq(btn){
-        var item = btn.parentElement;
-        var isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
-        if(!isOpen){ item.classList.add('open'); }
-    }
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}});
+});
+
+// FAQ
+function toggleFaq(btn){const item=btn.parentElement,isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')}
 </script>
-
 </body>
 </html>
