@@ -241,6 +241,33 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .feat-card h3{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--white);
   margin-bottom:10px;letter-spacing:-.01em;position:relative;z-index:1}
 .feat-card p{font-size:.86rem;color:var(--muted);line-height:1.65;position:relative;z-index:1}
+.consent-feature{grid-column:1/-1;padding:34px 32px;border-color:rgba(71,151,255,.38);
+  background:linear-gradient(145deg,rgba(71,151,255,.16),rgba(12,12,24,.92));
+  box-shadow:0 30px 80px rgba(5,10,30,.34)}
+.consent-feature::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(124,185,255,.8),transparent);pointer-events:none}
+.consent-feature h3{font-size:1.18rem;margin-bottom:12px}
+.consent-feature > p{font-size:.92rem;color:var(--off);max-width:860px;line-height:1.72;margin-bottom:20px}
+.consent-layout{display:grid;grid-template-columns:1.08fr .92fr;gap:20px}
+.consent-mockup,.consent-detail-card{border-radius:14px;border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(145deg,rgba(4,4,10,.9),rgba(12,12,24,.9));padding:20px}
+.consent-mockup-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.consent-mockup-head span{font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--sky)}
+.consent-pill{font-size:.66rem;color:#9ee6c4;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);
+  padding:4px 9px;border-radius:100px}
+.consent-checkbox{display:flex;align-items:flex-start;gap:12px;border:1px solid rgba(71,151,255,.28);
+  background:rgba(71,151,255,.08);border-radius:12px;padding:14px}
+.consent-box{width:18px;height:18px;border-radius:5px;border:1px solid rgba(124,185,255,.45);
+  background:rgba(71,151,255,.16);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.consent-box svg{width:12px;height:12px;color:var(--mist)}
+.consent-copy{font-size:.8rem;color:var(--off);line-height:1.6}
+.consent-copy a,.consent-foot a{color:var(--mist);text-decoration:underline;text-underline-offset:2px}
+.consent-copy a:hover,.consent-foot a:hover{color:var(--white)}
+.consent-business-name{color:var(--white);font-weight:600}
+.consent-foot{font-size:.74rem;color:var(--faint);line-height:1.5;margin-top:10px}
+.consent-details{display:flex;flex-direction:column;gap:14px}
+.consent-detail-card h4{font-family:var(--display);font-size:.92rem;font-weight:600;color:var(--white);letter-spacing:-.01em;margin-bottom:8px}
+.consent-detail-card p{font-size:.84rem;color:var(--muted);line-height:1.65}
 
 /* GUARANTEE */
 .guar-wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:32px;margin-top:56px;align-items:start}
@@ -311,6 +338,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
   .stats-row{grid-template-columns:1fr}.stat{border-right:none;border-bottom:1px solid var(--border)}
   .stat:last-child{border-bottom:none}
   .feat-grid{grid-template-columns:1fr 1fr}
+  .consent-layout{grid-template-columns:1fr}
   .guar-wrap{grid-template-columns:1fr}
 }
 @media(max-width:768px){
@@ -325,6 +353,8 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
   .proc-step:last-child{border-bottom:none}
   .stat{padding:36px 5%}
   .feat-grid{grid-template-columns:1fr}
+  .consent-feature{padding:26px 22px}
+  .consent-mockup,.consent-detail-card{padding:16px}
   .guar-card{padding:32px 24px}
   footer{padding:40px 5%}
   .foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
@@ -340,12 +370,26 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
   .btn-mag,.btn-ghost{font-size:.82rem;padding:12px 20px}
   .stitle{font-size:1.6rem}
   .guar-headline{font-size:1.5rem}
+  .consent-feature{padding:22px 18px}
+  .consent-feature h3{font-size:1.06rem;line-height:1.28}
+  .consent-feature > p{font-size:.84rem;line-height:1.62}
+  .consent-mockup-head{flex-direction:column;align-items:flex-start;gap:8px}
+  .consent-checkbox{padding:12px;gap:10px}
+  .consent-box{width:16px;height:16px}
+  .consent-box svg{width:11px;height:11px}
+  .consent-copy{font-size:.76rem}
+  .consent-foot{font-size:.7rem}
+  .consent-detail-card h4{font-size:.86rem}
+  .consent-detail-card p{font-size:.79rem;line-height:1.6}
 }
 @media(max-width:390px){
   .hero h1{font-size:1.8rem}
   .hero-sub{font-size:.9rem}
   .btn-mag,.btn-ghost{font-size:.8rem;padding:11px 16px}
   .hbadge{font-size:.6rem;padding:4px 10px 4px 8px}
+  .consent-feature{padding:20px 16px}
+  .consent-feature h3{font-size:1rem}
+  .consent-pill{font-size:.6rem;padding:3px 8px}
 }
 @media(max-width:320px){
   .hero{padding:80px 4% 40px}
@@ -354,6 +398,10 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
   .btn-mag,.btn-ghost{font-size:.78rem;padding:10px 14px}
   .hbadge{font-size:.56rem;padding:3px 8px 3px 6px}
   .stitle{font-size:1.4rem}
+  .consent-feature{padding:18px 14px}
+  .consent-feature h3{font-size:.94rem}
+  .consent-copy{font-size:.73rem}
+  .consent-detail-card p{font-size:.76rem}
 }
 </style>
 </head>
@@ -533,12 +581,37 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
         <p>Matched to your trade and your service area (radius or postcode list). Nothing outside your set criteria makes it through. On the rare occasion one slips through, we replace it free of charge.</p>
       </div>
 
-      <div class="feat-card">
+      <div class="feat-card consent-feature">
         <div class="feat-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
         </div>
-        <h3>1:1 consent enquiries only</h3>
-        <p>Every lead has explicitly consented to being contacted by your business - compliant, documented, trackable.</p>
+        <h3>1:1 consent enquiries only - and you get the proof</h3>
+        <p>Before a homeowner submits, they see and accept specific consent naming your business. This is real consent shown at form level, not a vague marketplace opt-in buried behind lead resale.</p>
+        <div class="consent-layout">
+          <div class="consent-mockup">
+            <div class="consent-mockup-head">
+              <span>Landing page consent</span>
+              <span class="consent-pill">Required</span>
+            </div>
+            <div class="consent-checkbox">
+              <div class="consent-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p class="consent-copy">I agree to be contacted by <span class="consent-business-name" data-business-name>Your Business</span> regarding my enquiry. I understand this is obligation-free and my details will be shared only with them. I have read and accept the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
+            </div>
+            <p class="consent-foot">This exact text is what the homeowner reads and accepts before their details are sent. <span class="consent-business-name" data-business-name>Your Business</span> is replaced with your trading name on the live form.</p>
+          </div>
+          <div class="consent-details">
+            <div class="consent-detail-card">
+              <h4>Delivered with every lead</h4>
+              <p>The exact consent wording plus the timestamp of when the homeowner ticked it is delivered with the lead details. Your team knows exactly what was agreed, when it was agreed, and that consent was directed specifically to your business.</p>
+            </div>
+            <div class="consent-detail-card">
+              <h4>Compliance protection for your business</h4>
+              <p>Under the Australian Privacy Act and Spam Act, your business is responsible for outreach. Most marketplaces use broad consent like "solar companies" and resell details to multiple businesses, leaving callers unable to prove what was agreed to or when. QuoteLeads sends named-business consent evidence with every lead to help protect you in disputes, complaints, and regulatory exposure. Most Australian competitors cannot replicate this because their lead sources do not capture consent this way.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="feat-card">
