@@ -261,6 +261,8 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   background:rgba(71,151,255,.16);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
 .consent-box svg{width:12px;height:12px;color:var(--mist)}
 .consent-copy{font-size:.8rem;color:var(--off);line-height:1.6}
+.consent-copy a,.consent-foot a{color:var(--mist);text-decoration:underline;text-underline-offset:2px}
+.consent-copy a:hover,.consent-foot a:hover{color:var(--white)}
 .consent-business-name{color:var(--white);font-weight:600}
 .consent-foot{font-size:.74rem;color:var(--faint);line-height:1.5;margin-top:10px}
 .consent-details{display:flex;flex-direction:column;gap:14px}
@@ -595,9 +597,9 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
               <div class="consent-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
-              <p class="consent-copy">I agree to be contacted by <span class="consent-business-name" data-business-name>[Business Name]</span> regarding my enquiry. I understand this is obligation-free and my details will be shared only with them. I have read and accept the Privacy Policy and Terms of Use.</p>
+              <p class="consent-copy">I agree to be contacted by <span class="consent-business-name" data-business-name>Your Business</span> regarding my enquiry. I understand this is obligation-free and my details will be shared only with them. I have read and accept the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
             </div>
-            <p class="consent-foot">This exact text is what the homeowner reads and accepts before their details are sent. <span class="consent-business-name" data-business-name>[Business Name]</span> is replaced with your trading name on the live form.</p>
+            <p class="consent-foot">This exact text is what the homeowner reads and accepts before their details are sent. <span class="consent-business-name" data-business-name>Your Business</span> is replaced with your trading name on the live form.</p>
           </div>
           <div class="consent-details">
             <div class="consent-detail-card">
