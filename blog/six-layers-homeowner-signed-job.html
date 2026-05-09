@@ -74,6 +74,14 @@
     --accent-dim: rgba(71,151,255,0.12);
     --accent-glow: rgba(71,151,255,0.04);
     --button-primary: #4797FF;
+    --sky: #7CB9FF;
+    --mist: #B8D4FF;
+    --amber: #FBB90E;
+    --amber-dim: rgba(251,185,14,0.12);
+    --green: #34D399;
+    --green-dim: rgba(52,211,153,0.12);
+    --red: #F87171;
+    --red-dim: rgba(248,113,113,0.12);
     --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;
     --body:'Inter',system-ui,sans-serif;
 }
@@ -351,47 +359,47 @@
         /* HEADER */
         .site-header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-            padding: 0 48px;
-            background: rgba(0,0,0,0.98);
-            border-bottom: 1px solid var(--border);
-            transition: background 0.3s, border-color 0.3s;
+            padding: 0 5%;
+            background: rgba(4,4,10,0);
+            border-bottom: 1px solid transparent;
+            transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+        }
+        .site-header.sc {
+            background: rgba(4,4,10,0.92);
+            backdrop-filter: blur(28px);
+            border-bottom-color: var(--border);
         }
         .header-inner {
-            max-width: 1200px; margin: 0 auto;
+            max-width: 1120px; margin: 0 auto;
             display: flex; align-items: center; justify-content: space-between;
             height: 68px;
         }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-img { height: 36px; width: auto; display: block; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 32px; width: auto; display: block; }
         .logo-img.hide { display: none; }
         .logo-text {
-            font-family: var(--display); font-size: 20px; color: var(--ink);
-            letter-spacing: -0.3px; display: none;
+            font-family: var(--display); font-size: 1.15rem; font-weight: 600;
+            color: var(--ink); letter-spacing: 0.04em; display: none;
         }
         .logo-text.show { display: block; }
-        .nav-links { display: flex; align-items: center; gap: 24px; }
-        .nav-links> a {
-            font-size: 14px; font-weight: 400; color: var(--ink-muted);
-            text-decoration: none; transition: color 0.2s;
-        }
-        .nav-links> a:hover { color: var(--ink); }
-        .nav-dropdown { position: relative; }
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+        .nav-links > a,
         .nav-dropdown-btn {
-            font-family: var(--body); font-size: 14px; font-weight: 400; color: var(--ink-muted);
-            background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px;
-            padding: 0; transition: color 0.2s;
+            font-family: var(--body); font-size: 0.84rem; font-weight: 400; color: var(--ink-muted);
+            text-decoration: none; letter-spacing: 0.02em; background: none; border: none;
+            display: flex; align-items: center; gap: 4px; padding: 0; transition: color 0.2s;
         }
+        .nav-links > a:hover,
         .nav-dropdown-btn:hover { color: var(--ink); }
-        a.nav-dropdown-btn {
-            text-decoration: none;
-        }
+        .nav-dropdown { position: relative; }
+        a.nav-dropdown-btn { text-decoration: none; }
         .nav-dropdown-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.2s; }
         .nav-dropdown:hover .nav-dropdown-btn svg { transform: rotate(180deg); }
         .nav-dropdown-menu {
             display: none; position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
-            background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: 8px;
-            padding: 8px 0; min-width: 180px; 
-            z-index: 300;
+            background: rgba(4,4,10,0.97); border: 1px solid var(--border); border-radius: 12px;
+            padding: 8px 0; min-width: 200px; z-index: 300; backdrop-filter: blur(28px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.28);
         }
         .nav-dropdown:hover .nav-dropdown-menu { display: block; }
         .nav-dropdown-menu::before {
@@ -404,17 +412,26 @@
         .nav-dropdown-menu a:hover { color: var(--ink); background: var(--accent-dim); }
         .nav-cta {
             background: var(--button-primary) !important; color: #fff !important;
-            padding: 10px 22px !important; border-radius: 4px !important;
-            font-weight: 400 !important; font-size: 14px !important;
-            transition: opacity 0.2s !important; text-decoration: none !important;
+            padding: 9px 22px !important; border-radius: 100px !important;
+            font-family: var(--body) !important; font-size: 0.84rem !important; font-weight: 500 !important;
+            transition: all 0.2s !important; text-decoration: none !important; position: relative; overflow: hidden;
         }
-        .nav-cta:hover { opacity: 0.85 !important; }
-        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: 0.3s; }
+        .nav-cta::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+            opacity: 0; transition: opacity 0.2s;
+        }
+        .nav-cta:hover {
+            background: var(--sky) !important; opacity: 1 !important;
+            transform: translateY(-1px); box-shadow: 0 8px 28px rgba(71,151,255,0.4);
+        }
+        .nav-cta:hover::after { opacity: 1; }
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: 0.3s; }
         .mob-menu {
             display: none; position: absolute; top: 100%; left: 0; right: 0;
-            background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px 20px;
-            max-height: calc(100vh - 68px); overflow-y: auto;
+            background: rgba(4,4,10,0.97); border-bottom: 1px solid var(--border); padding: 0 5% 20px;
+            backdrop-filter: blur(28px); max-height: calc(100vh - 68px); overflow-y: auto;
         }
         .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
         .mob-menu a {
@@ -429,11 +446,10 @@
         .mob-section-label.compact { padding: 8px 0 2px; }
         .mob-cta {
             background: var(--button-primary) !important; color: #fff !important;
-            padding: 14px 0 !important; border-radius: 4px; text-align: center;
-            margin-top: 8px; border-bottom: none !important;
+            padding: 14px 0 !important; border-radius: 100px; text-align: center;
+            margin-top: 12px; border-bottom: none !important;
         }
-        .mob-cta:hover { opacity: 0.85; }
-
+        .mob-cta:hover { opacity: 0.92; }
 
         /* FOOTER */
         footer {
@@ -911,6 +927,14 @@
             var txt = document.getElementById('logoText');
             if(txt){ txt.style.display = 'block'; }
         });
+    }
+
+    // ── Header scroll ──
+    var hdr = document.querySelector('.site-header');
+    if(hdr){
+        var syncHeader = function(){ hdr.classList.toggle('sc', window.scrollY > 20); };
+        syncHeader();
+        window.addEventListener('scroll', syncHeader, { passive: true });
     }
 
     // ── Mobile menu ──
