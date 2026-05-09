@@ -1389,10 +1389,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 
   const parsedStart=parseInt((el.textContent||'0').replace(/,/g,''),10);
   const parsedTarget=parseInt(el.dataset.target||'0',10);
-  if(!Number.isFinite(parsedStart)||!Number.isFinite(parsedTarget)){
-    console.warn('leadCount config invalid, falling back to safe values');
-  }
+  if(!Number.isFinite(parsedStart))console.warn('leadCount start value is invalid');
+  if(!Number.isFinite(parsedTarget))console.warn('leadCount target value is invalid');
   const startCount=Number.isFinite(parsedStart)?parsedStart:0;
+  if(Number.isFinite(parsedTarget)&&parsedTarget<=startCount){
+    console.warn('leadCount target is not greater than start value, skipping animation');
+  }
   const target=Number.isFinite(parsedTarget)&&parsedTarget>startCount?parsedTarget:startCount;
   const dur=1600;
   let start=null;
