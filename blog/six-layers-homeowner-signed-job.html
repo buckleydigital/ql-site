@@ -57,7 +57,7 @@
 /* Display: Neue Montreal (using General Sans as free stand-in - swap var(--display) when licensed) */
 /* Body: Inter */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+        html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
         :root {
     --bg: #04040A;
@@ -128,8 +128,8 @@
         .hero h1 em { font-style: normal; font-weight: 500; background: linear-gradient(90deg, #FCD9A1, var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
         .hero-sub {
-            font-size: 17px; font-weight: 400; color: var(--ink-muted);
-            line-height: 1.75; max-width: 600px; margin-bottom: 40px;
+            font-size: 1.04rem; font-weight: 400; color: var(--ink-muted);
+            line-height: 1.74; max-width: 600px; margin-bottom: 40px;
         }
 
         .article-meta {
@@ -163,13 +163,13 @@
 
         /* PROSE */
         .prose {
-            font-size: 17px; font-weight: 400; color: var(--ink-muted);
-            line-height: 1.9; max-width: 680px; margin-top: 36px;
+            font-size: .95rem; font-weight: 400; color: var(--ink-muted);
+            line-height: 1.85; max-width: 680px; margin-top: 36px;
         }
         .prose p + p { margin-top: 22px; }
         .prose strong { color: var(--ink); font-weight: 400; }
         .prose h3 {
-            font-family: var(--display); font-size: 1.625rem; color: var(--ink);
+            font-family: var(--display); font-size: clamp(1.3rem,2.2vw,1.75rem); color: var(--ink);
             line-height: 1.2; letter-spacing: -0.015em;
             margin-top: 48px; margin-bottom: 16px;
         }
@@ -323,14 +323,14 @@
         .btn-primary {
             background: var(--button-primary); color: #fff;
             padding: 16px 36px; border-radius: 100px; text-decoration: none;
-            font-size: 15px; font-weight: 400; letter-spacing: 0.02em;
+            font-family: var(--body); font-size: .88rem; font-weight: 500; letter-spacing: 0.02em;
             display: inline-block; transition: opacity 0.2s, transform 0.2s;
         }
         .btn-primary:hover { opacity: 0.92; box-shadow: 0 8px 28px rgba(71,151,255,.4); transform: translateY(-1px); }
         .btn-secondary {
             background: none; border: 1px solid var(--border-mid); color: var(--ink-soft);
             padding: 16px 36px; border-radius: 8px; text-decoration: none;
-            font-size: 15px; font-weight: 400; display: inline-block; transition: all 0.2s;
+            font-family: var(--body); font-size: .88rem; font-weight: 400; display: inline-block; transition: all 0.2s;
         }
         .btn-secondary:hover { border-color: var(--accent); color: var(--ink); }
         .cta-footnote { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
