@@ -1383,7 +1383,39 @@ function toggleFaq(btn){const item=btn.parentElement,isOpen=item.classList.conta
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}})});
 
 // LIVE LEAD COUNTER
-(function(){const el=document.getElementById('leadCount');if(!el)return;const parsedStart=parseInt((el.textContent||'0').replace(/,/g,''),10),parsedTarget=parseInt(el.dataset.target||'0',10),startCount=Number.isFinite(parsedStart)?parsedStart:0,target=Number.isFinite(parsedTarget)&&parsedTarget>startCount?parsedTarget:startCount,dur=1600;let start=null;function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(startCount+ease*(target-startCount)).toLocaleString();if(p<1)requestAnimationFrame(step)}const obs=new IntersectionObserver(function(entries){if(entries[0].isIntersecting){if(target===startCount){el.textContent=target.toLocaleString();obs.disconnect();return}requestAnimationFrame(step);obs.disconnect()}},{threshold:0.1});obs.observe(el)})();
+(function(){
+  const el=document.getElementById('leadCount');
+  if(!el)return;
+
+  const parsedStart=parseInt((el.textContent||'0').replace(/,/g,''),10);
+  const parsedTarget=parseInt(el.dataset.target||'0',10);
+  const startCount=Number.isFinite(parsedStart)?parsedStart:0;
+  const target=Number.isFinite(parsedTarget)&&parsedTarget>startCount?parsedTarget:startCount;
+  const dur=1600;
+  let start=null;
+
+  function step(ts){
+    if(!start)start=ts;
+    const p=Math.min((ts-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(startCount+ease*(target-startCount)).toLocaleString();
+    if(p<1)requestAnimationFrame(step);
+  }
+
+  const obs=new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){
+      if(target===startCount){
+        el.textContent=target.toLocaleString();
+        obs.disconnect();
+        return;
+      }
+      requestAnimationFrame(step);
+      obs.disconnect();
+    }
+  },{threshold:0.1});
+
+  obs.observe(el);
+})();
 </script>
 </body>
 </html>
