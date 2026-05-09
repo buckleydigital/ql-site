@@ -463,12 +463,14 @@
         .logo-text.show { display: block; }
         .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
         .nav-links > a,
+        .nav-links li a,
         .nav-dropdown-btn {
             font-family: var(--body); font-size: 0.84rem; font-weight: 400; color: var(--ink-muted);
             text-decoration: none; letter-spacing: 0.02em; background: none; border: none;
             display: flex; align-items: center; gap: 4px; padding: 0; transition: color 0.2s;
         }
         .nav-links > a:hover,
+        .nav-links li a:hover,
         .nav-dropdown-btn:hover { color: var(--ink); }
         .nav-dropdown { position: relative; }
         a.nav-dropdown-btn { text-decoration: none; }
@@ -523,12 +525,12 @@
             color: var(--ink-faint); padding: 18px 0 2px; border-bottom: none;
         }
         .mob-section-label.compact { padding: 8px 0 2px; }
-        .mob-cta {
+        .mob-cta, .mob-cta-link {
             background: var(--button-primary) !important; color: #fff !important;
             padding: 14px 0 !important; border-radius: 100px; text-align: center;
             margin-top: 12px; border-bottom: none !important;
         }
-        .mob-cta:hover { opacity: 0.92; }
+        .mob-cta:hover, .mob-cta-link:hover { opacity: 0.92; }
 
         /* FOOTER */
         footer {
@@ -569,46 +571,30 @@
 <body>
 
 <!-- HEADER -->
-<header class="site-header">
+<header class="site-header" id="siteHeader">
     <div class="header-inner">
-        <a href="/" class="logo" id="logoLink">
-            <img id="logoImg" class="logo-img" src="../quoteleads-logo-white.png" alt="QuoteLeads">
-            <span class="logo-text" id="logoText">QuoteLeads</span>
+        <a href="/" class="logo">
+            <img src="../quoteleads-logo-white.png" alt="QuoteLeads" style="height:36px;width:auto;display:block">
         </a>
-        <nav class="nav-links">
-            <div class="nav-dropdown">
-                <a href="/" class="nav-dropdown-btn">Home <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-                <div class="nav-dropdown-menu">
-                    <a href="/#system-zone">Deploy My System</a>
-                    <a href="/#process">System Process</a>
-                    <a href="/blog">Blog</a>
-                </div>
-            </div>
-            <div class="nav-dropdown">
-                <button class="nav-dropdown-btn">Industries <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-                <div class="nav-dropdown-menu">
-                    <a href="/solar-leads">Solar</a>
-                    <a href="/hvac-leads">HVAC</a>
-                    <a href="/roofing-leads">Roofing</a>
-                    <a href="/renovation-leads">Renovation</a>
-                </div>
-            </div>
-        </nav>
+        <ul class="nav-links">
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#what-built">What's Built</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/pay-per-lead">Pay Per Lead</a></li>
+            <li><a href="/get-started" class="nav-cta">Build My System <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        </ul>
         <button class="mob-btn" id="mobBtn" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
     </div>
     <nav class="mob-menu" id="mobMenu">
-        <a href="/">Home</a>
-        <a href="/#system-zone">Deploy My System</a>
-        <a href="/#process">System Process</a>
-        <a href="/blog">Blog</a>
-        <span class="mob-section-label">Industries</span>
-        <a href="/solar-leads">Solar</a>
-        <a href="/hvac-leads">HVAC</a>
-        <a href="/roofing-leads">Roofing</a>
-        <a href="/renovation-leads">Renovation</a>
-        <span class="mob-section-label compact">&nbsp;</span>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/#what-built">What's Built</a>
+        <a href="/#industries">Industries</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/pay-per-lead">Pay Per Lead</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/get-started" class="mob-cta-link">Build My System</a>
     </nav>
 </header>
 
@@ -1036,15 +1022,15 @@
 <!-- FOOTER -->
 <footer>
     <div class="foot-logo">
-        <img id="footLogoImg" src="../quoteleads-logo-white.png" alt="QuoteLeads" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span>QuoteLeads</span>
+        <img src="../quoteleads-logo-white.png" alt="QuoteLeads" style="height:32px;width:auto;opacity:.7">
     </div>
     <div class="foot-links">
         <a href="/">Home</a>
-        <a href="/get-started">Deploy My System</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/get-started">Build My System</a>
+        <a href="/pay-per-lead">Pay Per Lead</a>
         <a href="https://quoteleadshq.com/dashboard">Dashboard</a>
-    </div>
-    <div class="foot-links">
+        <a href="/blog">Blog</a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
@@ -1060,7 +1046,7 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
     </div>
-    <div class="foot-copy">&copy; 2026 QuoteLeads</div>
+    <div class="foot-copy">© 2026 QuoteLeads · Australian owned and operated</div>
 </footer>
 
 <script>
