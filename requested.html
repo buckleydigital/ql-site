@@ -183,17 +183,6 @@ section:nth-of-type(odd){background:var(--surf)}
 .np-text h4{font-size:.9rem;font-weight:500;color:var(--white);margin-bottom:4px;font-family:var(--display)}
 .np-text p{font-size:.8rem;color:var(--muted);line-height:1.65}
 
-/* ── CALENDLY ── */
-.calendly-wrap{
-  margin-top:52px;
-  background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
-  border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;
-  position:relative;backdrop-filter:blur(12px);
-  box-shadow:0 40px 90px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06)}
-.calendly-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--blue),transparent);z-index:1}
-.calendly-inline-widget{border:none}
-
 /* ── CALL COVERAGE GRID ── */
 .cover-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
   background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-top:52px}
@@ -303,12 +292,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="success-badge"><div class="badge-pulse"></div>Application received</div>
       <h1>Application<br>received. <span class="ga">Thank you.</span></h1>
       <div class="hrule"></div>
-      <p class="conf-hero-sub">Your application has been submitted. Expect a response within one business day.</p>
+      <p class="conf-hero-sub">Your application has been received. Our team will be in touch shortly — expect a call or message within one business day.</p>
       <div class="hero-actions">
-        <a href="#schedule" class="btn-mag">
-          Book a call now
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
-        </a>
         <a href="/" class="btn-ghost">
           Back to home
           <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -327,8 +312,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="np-step">
         <div class="np-num">02</div>
         <div class="np-text">
-          <h4>Scoping call arranged</h4>
-          <p>Expect a call or SMS within one business day. Or skip ahead and book a time below now.</p>
+          <h4>Our team will be in touch</h4>
+          <p>Expect a call or SMS from our team within one business day.</p>
         </div>
       </div>
       <div class="np-step">
@@ -349,57 +334,12 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   </div>
 </section>
 
-<!-- CALENDLY -->
-<section id="schedule">
-  <div class="si">
-    <div class="rv"><div class="ey">Skip the wait</div></div>
-    <h2 class="stitle rv">Book your scoping<br>call <em>now.</em></h2>
-    <p class="sbody rv">Select a time that works for you. A short call to confirm your trade, territory, and what the system looks like for your business.</p>
-    <div class="calendly-wrap rv">
-      <div class="calendly-inline-widget"
-        data-url="https://calendly.com/quoteleads/discoverycall?hide_gdpr_banner=1&background_color=08080F&text_color=f0f0ef&primary_color=4797ff"
-        style="min-width:320px;height:700px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT THE CALL COVERS -->
-<section>
-  <div class="si">
-    <div class="rv"><div class="ey">On the call</div></div>
-    <h2 class="stitle rv">What the call <em>covers.</em></h2>
-    <p class="sbody rv">The call is focused and structured. Here's what will be covered.</p>
-    <div class="cover-grid rv">
-      <div class="cover-item">
-        <div class="cover-num">01</div>
-        <h3>Your business and trade</h3>
-        <p>Your coverage area, average job value, current volume, and what you've tried before. The goal is to understand your business - not sell to it.</p>
-      </div>
-      <div class="cover-item">
-        <div class="cover-num">02</div>
-        <h3>What the system looks like for you</h3>
-        <p>The specific components that would be built for your trade, territory, and capacity - not a generic overview, but your actual setup.</p>
-      </div>
-      <div class="cover-item">
-        <div class="cover-num">03</div>
-        <h3>Pricing and timeline</h3>
-        <p>A clear price range based on your scope, the build timeline, and answers to any questions about how it all works. Then you decide.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section>
   <div class="si">
     <div class="rv"><div class="ey">Common questions</div></div>
-    <h2 class="stitle rv">Before the call.</h2>
+    <h2 class="stitle rv">Common <em>questions.</em></h2>
     <div class="faq-list rv">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do I need to prepare anything for the call?</span><span class="faq-qi">+</span></button>
-        <div class="faq-a">Nothing formal. It helps to have a rough sense of your current monthly job volume, your average job value, and what you've tried before for lead generation. Just show up and be ready to talk about your business.</div>
-      </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What does it cost?</span><span class="faq-qi">+</span></button>
         <div class="faq-a">Most businesses invest between $7,000 and $15,000+ to have the system properly built and deployed. The scope varies depending on your trade, territory, and the infrastructure required. Ad spend is managed separately - a recommended starting budget is provided during scoping.</div>
@@ -415,10 +355,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is there a lock-in contract?</span><span class="faq-qi">+</span></button>
         <div class="faq-a">No lock-in. The implementation fee covers the build. Ongoing platform access is month-to-month — pause or cancel any time, no notice required. The infrastructure belongs to you — it stays with you if you stop.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What if I need to reschedule?</span><span class="faq-qi">+</span></button>
-        <div class="faq-a">No problem. Use the link in your Calendly confirmation email to reschedule at any time. Alternatively, email <a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:underline">contact@quoteleads.com.au</a>.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How quickly can the system go live?</span><span class="faq-qi">+</span></button>
@@ -481,7 +417,7 @@ const cur=document.getElementById('cur'),curR=document.getElementById('curR'),au
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
 (function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
-document.querySelectorAll('a,button,.next-panel,.cover-item,.calendly-wrap').forEach(el=>{
+document.querySelectorAll('a,button,.next-panel,.cover-item').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
 });
