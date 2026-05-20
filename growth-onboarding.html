@@ -391,17 +391,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             </div>
           </div>
 
-          <!-- ── STEP 3: Service area ── -->
+          <!-- ── STEP 3: Coverage area ── -->
           <div class="form-step" id="step3">
             <div class="step-counter"><span class="sc-badge">Step 3 of 11</span></div>
-            <div class="step-q">What area do you service?</div>
+            <div class="step-q">What is your coverage area?</div>
             <div class="step-hint">Enter your primary city or suburb, then select how far out you're willing to travel.</div>
             <div class="field-group">
               <label>Primary location (city or suburb)</label>
               <input type="text" id="service_location" placeholder="e.g. Brisbane, Sydney, Gold Coast…" oninput="checkStep3()">
             </div>
             <div class="field-group">
-              <label>Service radius</label>
+              <label>Coverage radius</label>
               <select id="service_radius" onchange="checkStep3()">
                 <option value="" disabled selected>Select radius…</option>
                 <option value="30km">Up to 30km</option>
@@ -536,7 +536,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="form-step" id="step10">
             <div class="step-counter"><span class="sc-badge">Step 10 of 11</span></div>
             <div class="step-q">Will you use the QuoteLeadsHQ CRM to manage your leads?</div>
-            <div class="step-hint">QuoteLeadsHQ is our dedicated pipeline and lead management platform. All leads are visible there regardless - this tells us if you want to actively use it as your primary CRM.</div>
+            <div class="step-hint">QuoteLeadsHQ is our dedicated pipeline and lead tracking platform. All leads are visible there regardless - this tells us if you want to actively use it as your primary CRM.</div>
             <div class="opt-grid cols-2">
               <div class="opt-card" data-field="use_crm" data-value="Yes - I'll manage leads in QuoteLeadsHQ">
                 <div class="opt-label">Yes - I'll use QuoteLeadsHQ as my CRM</div>
@@ -850,7 +850,7 @@ document.getElementById('next2').addEventListener('click',function(){
   goNext(2);
 },true);
 
-// ── STEP 3: Service area ──
+// ── STEP 3: Coverage area ──
 function checkStep3(){
   var loc=document.getElementById('service_location').value.trim();
   var rad=document.getElementById('service_radius').value;

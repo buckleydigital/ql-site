@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PPL Onboarding - QuoteLeads</title>
-<meta name="description" content="Complete your Pay Per Lead onboarding with QuoteLeads. Set up your delivery preferences, service area, and account in minutes.">
+<meta name="description" content="Complete your Pay Per Lead onboarding with QuoteLeads. Set up your delivery preferences, coverage area, and account in minutes.">
 <link rel="canonical" href="https://quoteleads.com.au/ppl-onboarding">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -298,7 +298,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   <div class="page-hero-inner">
     <div class="hero-eyebrow">Pay Per Lead Onboarding</div>
     <h1>Let's get your leads<br><em>flowing.</em></h1>
-    <p class="sbody">A few quick questions so we can configure your delivery, service area, and account. Takes about 3 minutes.</p>
+    <p class="sbody">A few quick questions so we can configure your delivery, coverage area, and account. Takes about 3 minutes.</p>
     <div class="page-hero-meta">
       <span>~3 minutes to complete</span>
       <span>Configured within 1 business day</span>
@@ -409,10 +409,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             </div>
           </div>
 
-          <!-- ── STEP 4: Service area ── -->
+          <!-- ── STEP 4: Coverage area ── -->
           <div class="form-step" id="step4">
             <div class="step-counter"><span class="sc-badge">Step 4 of 6</span></div>
-            <div class="step-q">What's your service area?</div>
+            <div class="step-q">What's your coverage area?</div>
             <div class="step-hint">Enter a postcode and radius, or send us a postcode list and we'll configure it for you.</div>
             <div class="field-row">
               <div class="field-group">
@@ -435,7 +435,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             </div>
             <div id="postcodeListNote" class="inline-note" style="display:none">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <span>Send your postcode list to <strong><a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:none">contact@quoteleads.com.au</a></strong> and we'll configure your service area for you.</span>
+              <span>Send your postcode list to <strong><a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:none">contact@quoteleads.com.au</a></strong> and we'll configure your coverage area for you.</span>
             </div>
             <div class="btn-row">
               <button class="btn-back" onclick="goPrev(4)">Back</button>
@@ -515,7 +515,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               What happens next
             </div>
             <h3>You'll be added to a WhatsApp group</h3>
-            <p>A dedicated account manager will add you to a WhatsApp group chat. They'll be across everything - your delivery preferences, service area, and lead volume - so you're always in the loop during your delivery period.</p>
+            <p>A dedicated account specialist will add you to a WhatsApp group chat. They'll be across everything - your delivery preferences, coverage area, and lead volume - so you're always in the loop during your delivery period.</p>
           </div>
 
           <p class="success-note">Keep an eye on your inbox for your QuoteLeadsHQ login details.<br>Leads will begin flowing as soon as your account is live.</p>
@@ -529,10 +529,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="sidebar-card">
         <div class="sc-lbl">What you get</div>
         <ul class="checklist">
-          <li>Exclusive, real-time leads in your service area</li>
+          <li>Exclusive, real-time leads in your coverage area</li>
           <li>Multi-channel delivery - email, SMS, or CRM</li>
           <li>QuoteLeadsHQ dashboard for all your leads</li>
-          <li>Dedicated account manager via WhatsApp</li>
+          <li>Dedicated account specialist via WhatsApp</li>
           <li>Lead quality backed by our dispute process</li>
           <li>No lock-in - pay only for leads delivered</li>
         </ul>
@@ -541,7 +541,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="sc-lbl">After you submit</div>
         <ul class="checklist">
           <li>Account configured within 1 business day</li>
-          <li>WhatsApp group with your account manager</li>
+          <li>WhatsApp group with your account specialist</li>
           <li>QuoteLeadsHQ login sent to your email</li>
           <li>First leads arrive once your account is live</li>
         </ul>
@@ -762,7 +762,7 @@ function captureStep3(){
   goNext(3);
 }
 
-// ── STEP 4: Service area ──
+// ── STEP 4: Coverage area ──
 function checkStep4(){
   var pc=document.getElementById('postcode').value.trim();
   var rad=document.getElementById('service_radius').value;
