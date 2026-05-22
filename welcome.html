@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setting up your account… | QuoteLeads</title>
+<meta name="robots" content="noindex, nofollow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F36W0PEFR4');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@500,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040A;--deep:#08080F;--surf:#0C0C18;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07);--bmid:rgba(255,255,255,0.10);
+  --blue:#4797FF;--bdim:rgba(71,151,255,0.12);--bblue:rgba(71,151,255,0.3);
+  --sky:#7CB9FF;--mist:#B8D4FF;
+  --white:#F2F2F2;--off:#CACAD0;--muted:#71717A;--faint:#3F3F46;
+  --display:'General Sans',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+}
+html{height:100%}
+body{
+  background:var(--void);color:var(--white);font-family:var(--body);
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;overflow:hidden;-webkit-font-smoothing:antialiased;
+  font-feature-settings:'cv11','ss01','ss03';
+}
+
+/* GRAIN */
+body::before{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+  background-size:200px;pointer-events:none;z-index:0;opacity:.4}
+
+/* PARTICLES */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5}
+
+/* AURA */
+#aura{position:fixed;width:700px;height:700px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(71,151,255,.045) 0%,transparent 65%);
+  top:50%;left:50%;transform:translate(-50%,-50%)}
+
+/* CARD */
+.card{
+  position:relative;z-index:2;
+  background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:24px;
+  padding:56px 48px;max-width:440px;width:calc(100% - 40px);
+  text-align:center;backdrop-filter:blur(16px);
+}
+
+/* LOGO */
+.logo{margin-bottom:40px;display:flex;justify-content:center}
+.logo img{height:30px;width:auto;opacity:.8}
+
+/* LOADING STATE */
+#stateLoading{display:block}
+#stateFallback{display:none}
+
+/* SPINNER */
+.spinner-wrap{margin:0 auto 32px;width:56px;height:56px;position:relative}
+.spinner-ring{
+  width:56px;height:56px;border-radius:50%;
+  border:2px solid var(--border);
+  border-top-color:var(--blue);
+  animation:spin .8s linear infinite;
+  position:absolute;inset:0
+}
+.spinner-ring.r2{
+  width:44px;height:44px;top:6px;left:6px;
+  border-top-color:transparent;
+  border-right-color:rgba(71,151,255,.4);
+  animation-duration:1.4s;animation-direction:reverse
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* PULSE DOT */
+.pulse-dot{width:8px;height:8px;background:var(--blue);border-radius:50%;
+  margin:0 auto 28px;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(71,151,255,.6)}50%{box-shadow:0 0 0 8px rgba(71,151,255,0)}}
+
+/* TEXT */
+.state-title{font-family:var(--display);font-size:1.4rem;font-weight:600;
+  letter-spacing:-.02em;margin-bottom:10px;color:var(--white)}
+.state-sub{font-size:.88rem;color:var(--muted);line-height:1.65}
+
+/* PROGRESS DOTS */
+.progress-dots{display:flex;gap:6px;justify-content:center;margin-top:28px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--faint);animation:dotPulse 1.4s ease infinite}
+.dot:nth-child(2){animation-delay:.2s}
+.dot:nth-child(3){animation-delay:.4s}
+@keyframes dotPulse{0%,80%,100%{background:var(--faint);transform:scale(1)}40%{background:var(--blue);transform:scale(1.3)}}
+
+/* FALLBACK */
+.fallback-icon{width:52px;height:52px;border-radius:50%;background:rgba(71,151,255,.1);
+  border:1px solid rgba(71,151,255,.25);display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px}
+.fallback-icon svg{stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.fallback-link{display:inline-flex;align-items:center;gap:8px;
+  background:var(--blue);color:#fff;font-family:var(--body);font-size:.88rem;font-weight:500;
+  padding:12px 28px;border-radius:100px;text-decoration:none;margin-top:24px;
+  transition:background .2s,box-shadow .2s}
+.fallback-link:hover{background:var(--sky);box-shadow:0 12px 32px rgba(71,151,255,.35)}
+.fallback-note{font-size:.72rem;color:var(--faint);margin-top:16px;line-height:1.6}
+
+/* TIMER BAR */
+.timer-bar{height:2px;background:var(--border);border-radius:1px;margin-top:32px;overflow:hidden}
+.timer-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--sky));
+  border-radius:1px;width:0%;transition:width .5s linear}
+</style>
+</head>
+<body>
+
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+
+<div class="card">
+  <div class="logo">
+    <img src="quoteleads-logo-white.png" alt="QuoteLeads">
+  </div>
+
+  <!-- LOADING STATE -->
+  <div id="stateLoading">
+    <div class="spinner-wrap">
+      <div class="spinner-ring"></div>
+      <div class="spinner-ring r2"></div>
+    </div>
+    <div class="state-title">Setting up your account…</div>
+    <p class="state-sub">Configuring your system and generating your login link. This takes a few seconds.</p>
+    <div class="progress-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="timer-bar"><div class="timer-fill" id="timerFill"></div></div>
+  </div>
+
+  <!-- FALLBACK STATE -->
+  <div id="stateFallback">
+    <div class="fallback-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </div>
+    <div class="state-title">Your account is ready.</div>
+    <p class="state-sub">Check your email for your login link — it was sent to the address you signed up with.</p>
+    <a href="https://quoteleadshq.com/dashboard" class="fallback-link">
+      Go to Dashboard
+      <svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
+    </a>
+    <p class="fallback-note">Didn't get an email? Check your spam folder or contact<br><a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:none">contact@quoteleads.com.au</a></p>
+  </div>
+</div>
+
+<script>
+const SUPABASE_URL = 'https://wjadekgptkstfdootuol.supabase.co';
+const POLL_INTERVAL = 2000;
+const TIMEOUT_MS = 30000;
+
+const params = new URLSearchParams(location.search);
+const sessionId = params.get('session_id');
+
+const timerFill = document.getElementById('timerFill');
+const stateLoading = document.getElementById('stateLoading');
+const stateFallback = document.getElementById('stateFallback');
+
+function showFallback() {
+  stateLoading.style.display = 'none';
+  stateFallback.style.display = 'block';
+}
+
+// Animate timer bar over TIMEOUT_MS
+let timerStart = Date.now();
+function updateTimer() {
+  const pct = Math.min(((Date.now() - timerStart) / TIMEOUT_MS) * 100, 100);
+  timerFill.style.width = pct + '%';
+  if (pct < 100) requestAnimationFrame(updateTimer);
+}
+requestAnimationFrame(updateTimer);
+
+// Poll
+let pollTimer = null;
+let didRedirect = false;
+
+async function poll() {
+  if (didRedirect) return;
+
+  // Timeout check
+  if (Date.now() - timerStart >= TIMEOUT_MS) {
+    showFallback();
+    return;
+  }
+
+  if (!sessionId) {
+    showFallback();
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/functions/v1/get-magic-link?session_id=${encodeURIComponent(sessionId)}`,
+      { headers: { 'Content-Type': 'application/json' } }
+    );
+
+    if (res.status === 200) {
+      const data = await res.json();
+      if (data.url) {
+        didRedirect = true;
+        window.location.href = data.url;
+        return;
+      }
+    }
+
+    if (res.status === 202) {
+      // Still pending — keep polling
+      pollTimer = setTimeout(poll, POLL_INTERVAL);
+      return;
+    }
+
+    // Any other status (error) → fallback
+    showFallback();
+
+  } catch (e) {
+    // Network error → if still within timeout, keep trying
+    if (Date.now() - timerStart < TIMEOUT_MS) {
+      pollTimer = setTimeout(poll, POLL_INTERVAL);
+    } else {
+      showFallback();
+    }
+  }
+}
+
+// Start polling immediately
+poll();
+
+// Hard timeout safety net
+setTimeout(() => {
+  if (!didRedirect) showFallback();
+}, TIMEOUT_MS);
+
+// Particles
+const W = () => window.innerWidth, H = () => window.innerHeight;
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = W(); canvas.height = H();
+window.addEventListener('resize', () => { canvas.width = W(); canvas.height = H(); });
+class P {
+  constructor() { this.reset(true) }
+  reset(init) {
+    this.x = Math.random() * W(); this.y = init ? Math.random() * H() : H() + 10;
+    this.r = Math.random() * 1.4 + .3; this.vx = (Math.random() - .5) * .2;
+    this.vy = -(Math.random() * .3 + .06); this.a = Math.random() * .3 + .04;
+    this.life = 0; this.maxL = Math.random() * 400 + 200;
+    this.c = Math.random() > .5 ? '#4797FF' : Math.random() > .5 ? '#7CB9FF' : '#B8D4FF';
+    this.glow = this.r > 1.2;
+  }
+  draw() {
+    const t = this.life / this.maxL;
+    const fade = t < .1 ? t / .1 : t > .8 ? (1 - t) / .2 : 1;
+    ctx.save(); ctx.globalAlpha = this.a * fade;
+    if (this.glow) { ctx.shadowBlur = this.r * 5; ctx.shadowColor = this.c; }
+    ctx.fillStyle = this.c; ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+  }
+  update() { this.x += this.vx; this.y += this.vy; this.life++; if (this.life > this.maxL || this.y < -20) this.reset(); }
+}
+const pts = Array.from({ length: 60 }, () => new P());
+function animP() { ctx.clearRect(0, 0, W(), H()); pts.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animP); }
+animP();
+</script>
+</body>
+</html>
