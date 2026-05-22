@@ -700,7 +700,7 @@ async function renderReview(){
   try{
     const params=new URLSearchParams({
       niche:surveyData.niche,
-      area:(surveyData.area_city||'').toLowerCase().trim()
+      area:(surveyData.area_city||'').trim()
     });
     const res=await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?${params}`);
     if(!res.ok) throw new Error();
