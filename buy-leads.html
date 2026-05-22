@@ -519,7 +519,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
 
           <div class="review-total">
-            <span class="rt-lbl">Leads delivered within 7&ndash;14 days</span>
+            <span class="rt-lbl" id="revPriceMeta">Fetching pricing&hellip;</span>
             <span class="rt-amount" id="revTotal"></span>
           </div>
 
@@ -687,7 +687,7 @@ function next4(){
 
 const nicheLabels={solar:'Solar',roofing:'Roofing',hvac:'HVAC',renovation:'Renovation'};
 
-function renderReview(){
+async function renderReview(){
   document.getElementById('revNiche').textContent = nicheLabels[surveyData.niche]||surveyData.niche||'';
   document.getElementById('revCity').textContent = surveyData.area_city||'';
   document.getElementById('revQty').textContent = (surveyData.quantity||0)+' leads';
@@ -695,7 +695,24 @@ function renderReview(){
   document.getElementById('revCompany').textContent = surveyData.company||'';
   document.getElementById('revEmail').textContent = surveyData.email||'';
   document.getElementById('revPhone').textContent = surveyData.phone||'';
-  document.getElementById('revTotal').textContent = surveyData.quantity+' leads';
+  document.getElementById('revPriceMeta').textContent = 'Fetching pricing…';
+  document.getElementById('revTotal').textContent = '';
+  try{
+    const params=new URLSearchParams({
+      niche:surveyData.niche,
+      area:(surveyData.area_city||'').toLowerCase().trim()
+    });
+    const res=await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?${params}`);
+    if(!res.ok) throw new Error();
+    const pricing=await res.json();
+    surveyData.price_per_lead=pricing.price_per_lead;
+    const total=pricing.price_per_lead*(surveyData.quantity||0);
+    document.getElementById('revPriceMeta').textContent=`$${pricing.price_per_lead}/lead · ${surveyData.quantity} leads · delivered 7–14 days`;
+    document.getElementById('revTotal').textContent=`$${total.toLocaleString()}`;
+  }catch(e){
+    document.getElementById('revPriceMeta').textContent='Leads delivered within 7–14 days';
+    document.getElementById('revTotal').textContent='See checkout for pricing';
+  }
 }
 
 function resetForm(){
