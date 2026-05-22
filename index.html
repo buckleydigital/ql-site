@@ -558,8 +558,9 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .testi-h{text-align:center;margin-bottom:70px}
 .car-scene{perspective:1400px;perspective-origin:50% 40%;position:relative;height:380px;margin:0 auto;max-width:1000px}
 .car-track{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.tc{position:absolute;width:340px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:32px 28px;backdrop-filter:blur(16px);transition:all .6s cubic-bezier(.4,0,.2,1);will-change:transform,opacity;cursor:none;overflow:hidden}
-.tc::before{content:'\201C';position:absolute;top:-8px;right:16px;font-family:var(--display);font-size:5rem;font-weight:600;color:rgba(71,151,255,.06);line-height:1;pointer-events:none}
+.tc{position:absolute;width:340px;background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:32px 28px;backdrop-filter:blur(16px);transition:all .6s cubic-bezier(.4,0,.2,1);will-change:transform,opacity;cursor:none;overflow:visible;box-shadow:0 0 0 1px rgba(255,255,255,0.05),0 0 0 0 transparent}
+.tc::before{content:'';position:absolute;left:-9px;top:16%;height:68%;width:9px;background:linear-gradient(180deg,#4797FF 0%,#a8d8ff 100%);border-radius:9px;pointer-events:none;z-index:1}
+.tc::after{content:'\201C';position:absolute;top:-8px;right:16px;font-family:var(--display);font-size:5rem;font-weight:600;color:rgba(71,151,255,.05);line-height:1;pointer-events:none}
 .tc.pos-center{transform:translateX(0) translateZ(80px) rotateY(0deg) scale(1.04);opacity:1;z-index:3}
 .tc.pos-right{transform:translateX(360px) translateZ(-50px) rotateY(-16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
 .tc.pos-left{transform:translateX(-360px) translateZ(-50px) rotateY(16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
