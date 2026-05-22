@@ -192,22 +192,26 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .pricing-main{display:flex;flex-direction:column;gap:24px}
 
 /* PAY PER LEAD CARD (secondary variant) */
-.pricing-card.ppl{background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
-  border:1px solid var(--bmid);padding:40px 44px}
-.pricing-card.ppl::before{background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.06),transparent 55%)}
-.pricing-card.ppl::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent)}
+.pricing-card.ppl{
+  background:linear-gradient(160deg,rgba(255,255,255,.055) 0%,rgba(255,255,255,.018) 100%);
+  border:1px solid rgba(255,255,255,.11);padding:40px 44px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.04),0 32px 64px -20px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.1)}
+.pricing-card.ppl::before{background:radial-gradient(ellipse at 50% -10%,rgba(71,151,255,.08),transparent 60%)}
+.pricing-card.ppl::after{left:15%;right:15%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent)}
 .pricing-card.ppl .pricing-badge{background:rgba(71,151,255,.1);border-color:rgba(71,151,255,.25);color:var(--sky)}
 .pricing-card.ppl .pricing-badge-dot{background:var(--blue)}
 .ppl-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px}
 .ppl-title{font-family:var(--display);font-size:clamp(1.6rem,2.4vw,2rem);font-weight:600;letter-spacing:-.02em;line-height:1.1}
 .ppl-sub{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:24px;max-width:560px}
-.pricing-card{background:linear-gradient(145deg,rgba(71,151,255,.1),rgba(71,151,255,.02));
-  border:1px solid rgba(71,151,255,.35);border-radius:24px;padding:48px 44px;
-  backdrop-filter:blur(16px);position:relative;overflow:hidden}
+.pricing-card{
+  background:linear-gradient(160deg,rgba(71,151,255,.16) 0%,rgba(71,151,255,.06) 50%,rgba(255,255,255,.02) 100%);
+  border:1px solid rgba(71,151,255,.45);border-radius:24px;padding:48px 44px;
+  backdrop-filter:blur(24px);position:relative;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(71,151,255,.1),0 48px 96px -24px rgba(71,151,255,.22),0 24px 48px -12px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.18)}
 .pricing-card::before{content:'';position:absolute;inset:0;border-radius:24px;
-  background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.12),transparent 55%);pointer-events:none}
-.pricing-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--blue),transparent);pointer-events:none}
+  background:radial-gradient(ellipse at 50% -15%,rgba(71,151,255,.22),transparent 60%);pointer-events:none}
+.pricing-card::after{content:'';position:absolute;top:0;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(71,151,255,.9),transparent);pointer-events:none}
 .pricing-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.12);
   border:1px solid rgba(16,185,129,.2);color:#34d399;font-size:.65rem;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:24px}
@@ -225,9 +229,10 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 
 /* SIDE PANEL */
 .pricing-side{display:flex;flex-direction:column;gap:20px}
-.side-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;
-  backdrop-filter:blur(12px)}
+.side-card{background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;
+  backdrop-filter:blur(16px);
+  box-shadow:0 0 0 1px rgba(255,255,255,.04),0 20px 40px -12px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.09)}
 .side-card-title{font-family:var(--display);font-size:.92rem;font-weight:600;color:var(--white);
   margin-bottom:12px;display:flex;align-items:center;gap:10px}
 .side-card-title svg{color:var(--blue)}
