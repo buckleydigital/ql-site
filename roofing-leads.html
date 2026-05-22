@@ -320,6 +320,9 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .foot-links a{font-size:.8rem;color:var(--faint);text-decoration:none;transition:color .2s}
 .foot-links a:hover{color:var(--white)}
 .foot-copy{font-size:.78rem;color:var(--faint)}
+.foot-status{display:inline-flex;align-items:center;gap:7px;font-size:.75rem;color:var(--faint)}
+.foot-status-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.5);flex-shrink:0;animation:statusPulse 2.5s ease-in-out infinite}
+@keyframes statusPulse{0%,100%{opacity:1}50%{opacity:.45}}
 .foot-social{display:flex;gap:12px}
 .foot-social a{width:34px;height:34px;border:1px solid var(--border);border-radius:8px;
   display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:all .2s;background:var(--glass)}
@@ -789,6 +792,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <a href="https://linkedin.com/company/quoteleads" target="_blank" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
     </div>
     <div class="foot-copy">&copy; 2026 QuoteLeads &middot; Australian owned and operated</div>
+    <div class="foot-status"><span class="foot-status-dot"></span>All systems operational</div>
   </div>
 </footer>
 
