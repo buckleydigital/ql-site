@@ -152,7 +152,7 @@ body::before{content:'';position:fixed;inset:0;
       <svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
     </div>
     <div class="state-title">Your account is ready.</div>
-    <p class="state-sub">Check your email for your login link — it was sent to the address you signed up with.</p>
+    <p class="state-sub">Check your email for your login link - it was sent to the address you signed up with.</p>
     <a href="https://quoteleadshq.com/dashboard" class="fallback-link">
       Go to Dashboard
       <svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
@@ -221,7 +221,7 @@ async function poll() {
     }
 
     if (res.status === 202) {
-      // Still pending — keep polling
+      // Still pending - keep polling
       pollTimer = setTimeout(poll, POLL_INTERVAL);
       return;
     }
