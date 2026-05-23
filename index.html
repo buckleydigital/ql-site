@@ -254,7 +254,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .ad-platform{position:absolute;top:-10px;right:20px;background:var(--deep);border:1px solid var(--bmid);padding:4px 10px;border-radius:100px;font-size:.62rem;color:var(--blue);font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;z-index:2}
 .ad-platform::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue)}
 .ad-iframe-wrap{
-  width:400px;height:400px;
+  width:min(400px,100%);
   overflow:hidden;border-radius:16px;
   margin:0 auto;
   box-shadow:0 30px 70px -20px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
@@ -262,7 +262,6 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 }
 .ad-iframe{
   width:1080px;height:1080px;
-  transform:scale(0.37037);
   transform-origin:top left;
   border:none;display:block;
   pointer-events:none;
@@ -1297,6 +1296,19 @@ document.querySelectorAll('a,button,.feat-wrap,.stat,.out-item,.ind-item,.own-it
   el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
 });
+
+// AD IFRAME SCALE
+function scaleAdIframe(){
+  const wrap=document.querySelector('.ad-iframe-wrap');
+  if(!wrap)return;
+  const fr=wrap.querySelector('.ad-iframe');
+  const w=wrap.getBoundingClientRect().width;
+  const s=w/1080;
+  fr.style.transform='scale('+s+')';
+  wrap.style.height=(1080*s)+'px';
+}
+window.addEventListener('resize',scaleAdIframe);
+scaleAdIframe();
 
 // MAGNETIC BUTTON
 document.querySelectorAll('.btn-mag').forEach(btn=>{
