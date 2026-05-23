@@ -250,17 +250,6 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   z-index:-1;filter:blur(40px);opacity:.7;
 }
 
-/* STORYBOARD CARD 3-LAYER BORDER */
-.sb-outer{border-radius:20px;border:1px solid rgba(71,151,255,.2)}
-.sb-gap{padding:3px;border-radius:19px;background:#08080F}
-.sb-inner{position:relative}
-.sb-inner::before{content:'';position:absolute;inset:0;height:auto;
-  border-radius:inherit;padding:1.5px;
-  background:linear-gradient(135deg,#4797ff 0%,#4797ff 35%,transparent 65%);
-  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  pointer-events:none;z-index:1}
-
 /* --- AD MOCKUP --- */
 .ad-mockup{
   background:linear-gradient(180deg,#15171B,#0E1014);
@@ -879,7 +868,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="journey-visual">
         <div style="position:relative">
           <div class="ad-platform">Meta Ads</div>
-          <div class="sb-outer"><div class="sb-gap"><div class="ad-mockup sb-inner">
+          <div class="ad-mockup">
             <div class="ad-head">
               <div class="ad-avatar">S</div>
               <div class="ad-head-meta">
@@ -911,7 +900,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="ad-engage-item"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>38</div>
               <div class="ad-engage-item"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>12</div>
             </div>
-          </div></div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -925,7 +914,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>Source files owned by you</div>
       </div>
       <div class="journey-visual">
-        <div class="sb-outer"><div class="sb-gap"><div class="mk-mockup sb-inner">
+        <div class="mk-mockup">
           <div class="mk-bar">
             <span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span>
             <div class="mk-url">sydneysolarco.com.au / get-a-quote</div>
@@ -963,7 +952,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <span class="mk-trust-item">Finance from $0 down</span>
             </div>
           </div>
-        </div></div></div>
+        </div>
       </div>
     </div>
 
@@ -977,7 +966,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Full CSV export, any time</div>
       </div>
       <div class="journey-visual">
-        <div class="sb-outer"><div class="sb-gap"><div class="preview-card sb-inner">
+        <div class="preview-card">
           <div class="preview-card-label">Lead delivered</div>
           <div class="preview-card-body">
             <div class="lead-card-header">
@@ -994,7 +983,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="lead-field"><span class="lead-field-key">Source</span><span class="lead-field-val">Meta</span></div>
             </div>
           </div>
-        </div></div></div>
+        </div>
       </div>
     </div>
 
@@ -1008,7 +997,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Pause or disable any time from your dashboard</div>
       </div>
       <div class="journey-visual">
-        <div class="sb-outer"><div class="sb-gap"><div class="preview-card sb-inner">
+        <div class="preview-card">
           <div class="preview-card-label">AI responds in 60s · from your number</div>
           <div class="preview-card-body">
             <div class="sms-thread">
@@ -1017,7 +1006,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div><div class="sms-sender">Sydney Solar Co.</div><div class="sms-bubble sms-out">Perfect, we'll call you after 3</div><div class="sms-time" style="text-align:right">Just now</div></div>
             </div>
           </div>
-        </div></div></div>
+        </div>
       </div>
     </div>
 
@@ -1029,7 +1018,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <p>Every lead, SMS thread, call and quote sits in a single pipeline - so you can see what came in today, what closed this month, and what AI booked while you were on site.</p>
       </div>
       <div class="journey-visual" style="margin-top:32px">
-        <div class="sb-outer"><div class="sb-gap"><div class="dash-mockup sb-inner">
+        <div class="dash-mockup">
           <div class="dash-browser">
             <span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-dot"></span>
             <span class="dash-browser-url">quoteleadshq.com / dashboard</span>
@@ -1070,7 +1059,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               </div>
             </div>
           </div>
-        </div></div></div>
+        </div>
       </div>
     </div>
 
@@ -1084,7 +1073,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>PDFs + quote records exportable</div>
       </div>
       <div class="journey-visual">
-        <div class="sb-outer"><div class="sb-gap"><div class="quote-mockup sb-inner">
+        <div class="quote-mockup">
           <div class="quote-head"><div class="quote-head-left"><div class="quote-label">Quote</div><div class="quote-num">QL-00247</div></div><span class="quote-status sent">Sent</span></div>
           <div class="quote-meta">
             <div class="quote-meta-block"><div class="quote-meta-label">To</div><div class="quote-meta-val"><strong>James Mitchell</strong>Penrith NSW 2750</div></div>
@@ -1102,7 +1091,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="quote-total-row final"><span>Total</span><span>$12,122.00</span></div>
           </div>
           <div class="quote-footer"><div class="quote-footer-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Valid until 12 May 2026</div><span>Sent · 2m ago</span></div>
-        </div></div></div>
+        </div>
       </div>
     </div>
 
@@ -1116,7 +1105,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Full lead history · yours to export</div>
       </div>
       <div class="journey-visual">
-        <div class="sb-outer"><div class="sb-gap"><div class="quote-mockup sb-inner">
+        <div class="quote-mockup">
           <div class="quote-approved-banner">
             <div class="quote-approved-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
             <div class="quote-approved-text"><div class="quote-approved-title">Quote accepted by James Mitchell</div><div class="quote-approved-sub">12 Apr 2026 · 3:42 PM</div></div>
@@ -1133,7 +1122,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="quote-next-pill"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Review request · +7d</div>
           </div>
           <div class="quote-footer"><div class="quote-footer-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Moved to Closed Won</div><span>Lead · James Mitchell</span></div>
-        </div></div></div>
+        </div>
       </div>
     </div>
 
