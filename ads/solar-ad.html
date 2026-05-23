@@ -2,256 +2,242 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Sydney Solar Co – Power Bill Ad</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Sydney Solar Co – Ad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1080px;}
 
 .ad{
   width:1080px;height:1080px;
   position:relative;overflow:hidden;
+  font-family:'General Sans',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
 
+/* Photo */
 .bg{
   position:absolute;inset:0;
   background-image:url("https://images.unsplash.com/flagged/photo-1566838616631-f2618f74a6a2?w=1080&q=85&auto=format&fit=crop");
   background-size:cover;background-position:center 50%;
 }
 
+/* Dark overlay */
 .ov{
   position:absolute;inset:0;
   background:linear-gradient(
-    155deg,
-    rgba(8,15,42,0.96) 0%,
-    rgba(8,15,42,0.90) 35%,
-    rgba(8,15,42,0.65) 65%,
-    rgba(8,15,42,0.40) 100%
+    160deg,
+    rgba(4,4,10,0.93) 0%,
+    rgba(4,4,10,0.85) 40%,
+    rgba(4,4,10,0.55) 70%,
+    rgba(4,4,10,0.25) 100%
   );
 }
 
-.topbar{
-  position:absolute;top:0;left:0;right:0;height:5px;
-  background:linear-gradient(90deg,#1A56F5,#38BDF8,#1A56F5);
-  z-index:20;
+/* Top blue line */
+.topline{
+  position:absolute;top:0;left:0;right:0;height:4px;z-index:10;
+  background:linear-gradient(90deg,#4797FF,#7CB9FF);
 }
 
+/* Logo */
 .logo{
-  position:absolute;top:38px;left:48px;
-  display:flex;align-items:center;gap:12px;z-index:10;
+  position:absolute;top:44px;left:52px;z-index:10;
+  display:flex;align-items:center;gap:10px;
 }
 .logo-mark{
-  width:46px;height:46px;border-radius:10px;
-  background:linear-gradient(135deg,#1A56F5 0%,#0E3BD4 100%);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px rgba(26,86,245,0.40);
-  flex-shrink:0;
+  width:38px;height:38px;border-radius:9px;
+  background:linear-gradient(135deg,#4797FF,#7CB9FF);
+  box-shadow:0 0 14px rgba(71,151,255,0.35);
+  position:relative;flex-shrink:0;
 }
-.logo-mark svg{width:26px;height:26px;}
+.logo-mark::after{
+  content:'';position:absolute;inset:8px;
+  border-radius:3px;background:#06060C;
+}
 .logo-name{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:900;font-size:26px;letter-spacing:0.01em;
-  color:#fff;text-transform:uppercase;line-height:1;
-}
-.logo-name span{color:#38BDF8;}
-
-.trust-pill{
-  position:absolute;top:44px;right:48px;z-index:10;
-  background:rgba(26,86,245,0.14);
-  border:1.5px solid rgba(56,189,248,0.35);
-  border-radius:50px;padding:8px 20px;
-  font-family:'Barlow',sans-serif;font-size:13px;font-weight:700;
-  color:#38BDF8;letter-spacing:0.04em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:7px;
+  font-weight:600;font-size:20px;
+  color:#F2F2F2;letter-spacing:-0.01em;
 }
 
+/* Location pill */
+.pill{
+  position:absolute;top:50px;right:52px;z-index:10;
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(71,151,255,0.35);
+  background:rgba(71,151,255,0.1);
+  padding:6px 16px;border-radius:100px;
+  font-family:'Inter',sans-serif;font-size:12px;font-weight:500;
+  letter-spacing:0.06em;text-transform:uppercase;color:#7CB9FF;
+}
+.pill-dot{width:5px;height:5px;border-radius:50%;background:#4797FF;flex-shrink:0;
+  box-shadow:0 0 0 0 rgba(71,151,255,.6);animation:p 2s ease infinite}
+@keyframes p{0%,100%{box-shadow:0 0 0 0 rgba(71,151,255,.6)}50%{box-shadow:0 0 0 6px rgba(71,151,255,0)}}
+
+/* Main content */
 .content{
   position:absolute;
-  top:130px;left:48px;right:48px;
+  top:140px;left:52px;right:52px;
   z-index:10;
 }
 
+/* Eyebrow */
 .eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(26,86,245,0.15);
-  border:1px solid rgba(26,86,245,0.35);
-  border-radius:4px;padding:7px 16px;
-  font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;
-  color:#38BDF8;letter-spacing:0.08em;text-transform:uppercase;
-  margin-bottom:24px;
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:0.16em;text-transform:uppercase;color:#4797FF;
+  display:flex;align-items:center;gap:10px;margin-bottom:28px;
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:#4797FF}
+
+/* Big number */
+.stat{display:flex;align-items:flex-end;line-height:1;margin-bottom:6px}
+.num{
+  font-weight:700;font-size:268px;
+  color:#F2F2F2;letter-spacing:-0.07em;line-height:0.84;
+}
+.pct{
+  font-weight:700;font-size:110px;
+  color:#4797FF;letter-spacing:-0.04em;
+  line-height:1;padding-bottom:16px;
 }
 
-.stat-block{
-  display:flex;align-items:flex-end;gap:0;
-  line-height:1;margin-bottom:8px;
-}
-.stat-num{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:900;font-size:260px;
-  color:#fff;letter-spacing:-0.06em;
-  line-height:0.85;
-}
-.stat-pct{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:900;font-size:110px;
-  color:#1A56F5;letter-spacing:-0.04em;
-  line-height:1;padding-bottom:12px;
-}
-
+/* Rule */
 .rule{
-  width:72px;height:5px;
-  background:linear-gradient(90deg,#1A56F5,#38BDF8);
-  border-radius:3px;margin-bottom:20px;
+  width:48px;height:2px;
+  background:linear-gradient(90deg,#4797FF,transparent);
+  margin-bottom:22px;
 }
 
-.headline-line{
-  font-family:'Barlow Condensed',sans-serif;
-  font-weight:800;font-size:56px;
-  color:#fff;letter-spacing:-0.02em;
-  line-height:1.05;text-transform:uppercase;
-  margin-bottom:20px;
+/* Headline */
+.h1{
+  font-weight:600;font-size:56px;
+  color:#F2F2F2;letter-spacing:-0.025em;line-height:1.06;
+  margin-bottom:8px;
 }
-.hl-accent{color:#38BDF8;}
+.h1 em{
+  font-style:normal;
+  background:linear-gradient(90deg,#B8D4FF,#4797FF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 
+/* Lora subline */
+.sub{
+  font-family:'Lora',serif;font-style:italic;font-weight:500;
+  font-size:26px;letter-spacing:0;
+  background:linear-gradient(90deg,#B8D4FF,#4797FF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;margin-bottom:26px;line-height:1.4;
+}
+
+/* Body */
 .body{
-  font-family:'Barlow',sans-serif;font-size:18px;
-  color:rgba(255,255,255,0.68);line-height:1.65;
-  max-width:580px;margin-bottom:32px;
+  font-family:'Inter',sans-serif;font-size:18px;
+  color:#71717A;line-height:1.68;
+  max-width:560px;margin-bottom:34px;
 }
+.body strong{color:#CACAD0;font-weight:500}
 
+/* CTA */
 .cta{
   display:inline-flex;align-items:center;gap:10px;
-  background:linear-gradient(135deg,#1A56F5,#0E3BD4);
-  color:#fff;font-family:'Barlow',sans-serif;
-  font-size:18px;font-weight:700;
-  padding:18px 40px;border-radius:6px;
-  letter-spacing:0.01em;
-  box-shadow:0 8px 32px rgba(26,86,245,0.45);
-  text-transform:uppercase;
+  background:#4797FF;color:#fff;
+  font-family:'Inter',sans-serif;font-size:17px;font-weight:500;
+  letter-spacing:0.01em;padding:16px 36px;border-radius:100px;
+  box-shadow:0 12px 36px rgba(71,151,255,0.38);
 }
-.cta-arrow{
-  width:22px;height:22px;
-  background:rgba(255,255,255,0.15);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:14px;
+.cta-arr{
+  width:24px;height:24px;border-radius:50%;
+  background:rgba(255,255,255,0.18);
+  display:flex;align-items:center;justify-content:center;
 }
+.cta-arr svg{width:11px;height:11px;stroke:white;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-.bottom{
-  position:absolute;bottom:0;left:0;right:0;height:90px;
-  background:rgba(8,15,42,0.96);
-  border-top:2px solid rgba(26,86,245,0.30);
-  display:flex;align-items:center;z-index:20;
+/* Trust bar */
+.trust{
+  position:absolute;bottom:0;left:0;right:0;height:84px;
+  background:rgba(4,4,10,0.95);
+  border-top:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;z-index:10;
+  backdrop-filter:blur(20px);
 }
-.b-item{
+.trust::before{
+  content:'';position:absolute;top:-1px;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(71,151,255,0.35),transparent);
+}
+.t-item{
   flex:1;display:flex;align-items:center;justify-content:center;
-  gap:12px;padding:0 20px;
+  gap:11px;padding:0 20px;
 }
-.b-sep{width:1px;height:44px;background:rgba(255,255,255,0.07);}
-.b-icon{width:26px;height:26px;flex-shrink:0;}
-.b-label{
-  font-family:'Barlow',sans-serif;font-weight:700;font-size:14px;
-  color:#fff;letter-spacing:-0.01em;margin-bottom:2px;
+.t-sep{width:1px;height:40px;background:rgba(255,255,255,0.06)}
+.t-icon{
+  width:34px;height:34px;border-radius:9px;flex-shrink:0;
+  background:rgba(71,151,255,0.1);border:1px solid rgba(71,151,255,0.2);
+  display:flex;align-items:center;justify-content:center;
 }
-.b-sub{
-  font-family:'Barlow',sans-serif;font-size:11px;
-  color:rgba(255,255,255,0.35);font-weight:500;
-  text-transform:uppercase;letter-spacing:0.04em;
-}
-
-.watermark{
-  position:absolute;bottom:96px;right:48px;z-index:10;
-  font-family:'Barlow',sans-serif;font-size:13px;
-  color:rgba(255,255,255,0.25);font-weight:500;
-  letter-spacing:0.02em;
-}
+.t-icon svg{width:15px;height:15px;stroke:#4797FF;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.t-label{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:#F2F2F2;margin-bottom:2px}
+.t-sub{font-family:'Inter',sans-serif;font-size:11px;color:#71717A;letter-spacing:0.02em}
 </style>
 </head>
 <body>
-
 <div class="ad">
   <div class="bg"></div>
   <div class="ov"></div>
-  <div class="topbar"></div>
+  <div class="topline"></div>
 
   <div class="logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="4"/>
-        <line x1="12" y1="2" x2="12" y2="4"/>
-        <line x1="12" y1="20" x2="12" y2="22"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="2" y1="12" x2="4" y2="12"/>
-        <line x1="20" y1="12" x2="22" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </div>
-    <div class="logo-name">Sydney <span>Solar</span> Co</div>
+    <div class="logo-mark"></div>
+    <div class="logo-name">Sydney Solar Co.</div>
   </div>
 
-  <div class="trust-pill">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    Sydney &amp; NSW
-  </div>
+  <div class="pill"><span class="pill-dot"></span>Sydney &amp; NSW</div>
 
   <div class="content">
-    <div class="eyebrow">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M18 10h2a1 1 0 011 1v4a1 1 0 01-1 1h-2"/><line x1="7" y1="12" x2="11" y2="12"/><line x1="9" y1="10" x2="9" y2="14"/></svg>
-      New Solar Incentive — Act Before It Expires
-    </div>
+    <div class="eyebrow">New Solar Incentive — Act Before It Expires</div>
 
-    <div class="stat-block">
-      <div class="stat-num">82</div>
-      <div class="stat-pct">%</div>
+    <div class="stat">
+      <div class="num">82</div>
+      <div class="pct">%</div>
     </div>
 
     <div class="rule"></div>
 
-    <div class="headline-line">
-      Cut your <span class="hl-accent">quarterly</span><br>power bill.
-    </div>
+    <div class="h1">Cut your <em>quarterly</em> power bill.</div>
+    <span class="sub">or we'll tell you honestly if it's not worth it.</span>
 
     <p class="body">
-      Sydney homeowners are slashing their electricity bills with solar —
-      and the best time to act is now. Get a free, no-pressure quote
-      from a local, Clean Energy Council–accredited installer today.
+      Sydney homeowners are slashing their electricity bills with solar.
+      Get a free quote from a <strong>local, CEC-accredited installer</strong> — same day.
     </p>
 
     <div class="cta">
-      Get My Free Quote &nbsp;
-      <div class="cta-arrow">→</div>
+      Get My Free Quote
+      <div class="cta-arr">
+        <svg viewBox="0 0 16 16"><path d="M2 8h12M9 4l4 4-4 4"/></svg>
+      </div>
     </div>
   </div>
 
-  <div class="watermark">quoteleads.com.au</div>
-
-  <div class="bottom">
-    <div class="b-item">
-      <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <div>
-        <div class="b-label">CEC Accredited</div>
-        <div class="b-sub">Verified installers only</div>
-      </div>
+  <div class="trust">
+    <div class="t-item">
+      <div class="t-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div><div class="t-label">CEC Accredited</div><div class="t-sub">Verified installers only</div></div>
     </div>
-    <div class="b-sep"></div>
-    <div class="b-item">
-      <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-      <div>
-        <div class="b-label">Avg. $2,800 saved / yr</div>
-        <div class="b-sub">Real Sydney households</div>
-      </div>
+    <div class="t-sep"></div>
+    <div class="t-item">
+      <div class="t-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+      <div><div class="t-label">Avg. $2,800 saved / yr</div><div class="t-sub">Real Sydney households</div></div>
     </div>
-    <div class="b-sep"></div>
-    <div class="b-item">
-      <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      <div>
-        <div class="b-label">Zero Obligation</div>
-        <div class="b-sub">Free quote, no pressure</div>
-      </div>
+    <div class="t-sep"></div>
+    <div class="t-item">
+      <div class="t-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div><div class="t-label">Zero Obligation</div><div class="t-sub">Free quote, no pressure</div></div>
     </div>
   </div>
 </div>
-
 </body>
 </html>
