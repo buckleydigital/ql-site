@@ -251,39 +251,22 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 }
 
 /* --- AD MOCKUP --- */
-.ad-mockup{
-  background:linear-gradient(180deg,#15171B,#0E1014);
-  border:1px solid var(--bmid);border-radius:16px;overflow:hidden;
-  box-shadow:0 30px 70px -20px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
-  max-width:400px;margin:0 auto;
-}
-.ad-head{display:flex;align-items:center;gap:10px;padding:14px 16px}
-.ad-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#F59E0B,#EA580C);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:.95rem;flex-shrink:0}
-.ad-head-meta{flex:1;min-width:0}
-.ad-brand{font-size:.84rem;font-weight:500;color:var(--white);line-height:1.2;display:flex;align-items:center;gap:4px}
-.ad-brand svg{width:12px;height:12px;fill:var(--blue)}
-.ad-sponsored{font-size:.68rem;color:var(--muted);margin-top:1px;display:flex;align-items:center;gap:4px}
-.ad-sponsored::before{content:'';width:2px;height:2px;border-radius:50%;background:var(--muted)}
-.ad-more{color:var(--muted);font-size:1.2rem;line-height:.8;padding:4px 8px}
-.ad-copy{padding:0 16px 12px;font-size:.82rem;color:var(--off);line-height:1.5}
-.ad-copy strong{color:var(--white);font-weight:500}
-.ad-media{aspect-ratio:1.9/1;background:radial-gradient(circle at 70% 30%,rgba(245,158,11,.35),transparent 55%),radial-gradient(circle at 20% 80%,rgba(71,151,255,.25),transparent 55%),linear-gradient(135deg,#1E2937 0%,#0F172A 100%);position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
-.ad-media::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:20px 20px}
-.ad-media-panel{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;grid-template-columns:repeat(4,1fr);gap:4px;width:72%;aspect-ratio:2/1}
-.ad-panel-cell{background:linear-gradient(135deg,#1E40AF,#0C4A6E);border-radius:3px;border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(71,151,255,.15)}
-.ad-media-sun{position:absolute;top:18%;right:15%;width:48px;height:48px;border-radius:50%;background:radial-gradient(circle,#FEF3C7,#F59E0B);box-shadow:0 0 40px rgba(245,158,11,.6)}
-.ad-media-headline{position:absolute;bottom:16px;left:16px;right:16px;font-family:var(--display);font-size:1rem;font-weight:600;color:#fff;line-height:1.2;letter-spacing:-.01em;text-shadow:0 2px 10px rgba(0,0,0,.6)}
-.ad-media-headline em{font-style:normal;color:#FDE68A}
-.ad-cta-row{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.02)}
-.ad-cta-meta{min-width:0}
-.ad-cta-url{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
-.ad-cta-headline{font-size:.82rem;font-weight:500;color:var(--white);line-height:1.3}
-.ad-cta-btn{font-size:.74rem;font-weight:500;color:var(--white);padding:7px 14px;border-radius:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);white-space:nowrap;flex-shrink:0}
-.ad-engage{display:flex;align-items:center;gap:18px;padding:10px 16px;border-top:1px solid rgba(255,255,255,.04);font-size:.72rem;color:var(--muted)}
-.ad-engage-item{display:flex;align-items:center;gap:5px}
-.ad-engage-item svg{width:13px;height:13px;stroke:var(--muted);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ad-platform{position:absolute;top:-10px;right:20px;background:var(--deep);border:1px solid var(--bmid);padding:4px 10px;border-radius:100px;font-size:.62rem;color:var(--blue);font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;z-index:2}
 .ad-platform::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue)}
+.ad-iframe-wrap{
+  width:400px;height:400px;
+  overflow:hidden;border-radius:16px;
+  margin:0 auto;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
+  position:relative;
+}
+.ad-iframe{
+  width:1080px;height:1080px;
+  transform:scale(0.37037);
+  transform-origin:top left;
+  border:none;display:block;
+  pointer-events:none;
+}
 
 /* --- LANDING PAGE MOCKUP --- */
 .mk-mockup{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid var(--bmid);border-radius:16px;padding:8px;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 20px 40px -10px rgba(71,151,255,.12),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(20px);max-width:100%;overflow:hidden}
@@ -868,38 +851,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="journey-visual">
         <div style="position:relative">
           <div class="ad-platform">Meta Ads</div>
-          <div class="ad-mockup">
-            <div class="ad-head">
-              <div class="ad-avatar">S</div>
-              <div class="ad-head-meta">
-                <div class="ad-brand">Sydney Solar Co. <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10" fill="currentColor"/></svg></div>
-                <div class="ad-sponsored">Sponsored</div>
-              </div>
-              <div class="ad-more">⋯</div>
-            </div>
-            <div class="ad-copy">Cut your quarterly power bill by up to <strong>82%</strong>. Get a free solar quote from a trusted local installer.</div>
-            <div class="ad-media">
-              <div class="ad-media-sun"></div>
-              <div class="ad-media-panel">
-                <div class="ad-panel-cell"></div><div class="ad-panel-cell"></div>
-                <div class="ad-panel-cell"></div><div class="ad-panel-cell"></div>
-                <div class="ad-panel-cell"></div><div class="ad-panel-cell"></div>
-                <div class="ad-panel-cell"></div><div class="ad-panel-cell"></div>
-              </div>
-              <div class="ad-media-headline">Free solar quote.<br><em>No marketplaces.</em></div>
-            </div>
-            <div class="ad-cta-row">
-              <div class="ad-cta-meta">
-                <div class="ad-cta-url">sydneysolarco.com.au</div>
-                <div class="ad-cta-headline">Get my free quote</div>
-              </div>
-              <div class="ad-cta-btn">Get Quote</div>
-            </div>
-            <div class="ad-engage">
-              <div class="ad-engage-item"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>142</div>
-              <div class="ad-engage-item"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>38</div>
-              <div class="ad-engage-item"><svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>12</div>
-            </div>
+          <div class="ad-iframe-wrap">
+            <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" title="Sydney Solar Co meta ad example"></iframe>
           </div>
         </div>
       </div>
@@ -1340,7 +1293,7 @@ const cur=document.getElementById('cur'),curR=document.getElementById('curR'),au
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
 (function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
-document.querySelectorAll('a,button,.feat-wrap,.stat,.out-item,.ind-item,.own-item,.preview-card,.ad-mockup,.mk-mockup,.quote-mockup,.dash-mockup').forEach(el=>{
+document.querySelectorAll('a,button,.feat-wrap,.stat,.out-item,.ind-item,.own-item,.preview-card,.ad-iframe-wrap,.mk-mockup,.quote-mockup,.dash-mockup').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
 });

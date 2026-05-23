@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sydney Solar Co – Power Bill Ad</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;}
+
+.ad{
+  width:1080px;height:1080px;
+  position:relative;overflow:hidden;
+}
+
+.bg{
+  position:absolute;inset:0;
+  background-image:url("https://images.unsplash.com/flagged/photo-1566838616631-f2618f74a6a2?w=1080&q=85&auto=format&fit=crop");
+  background-size:cover;background-position:center 50%;
+}
+
+.ov{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    155deg,
+    rgba(8,15,42,0.96) 0%,
+    rgba(8,15,42,0.90) 35%,
+    rgba(8,15,42,0.65) 65%,
+    rgba(8,15,42,0.40) 100%
+  );
+}
+
+.topbar{
+  position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,#1A56F5,#38BDF8,#1A56F5);
+  z-index:20;
+}
+
+.logo{
+  position:absolute;top:38px;left:48px;
+  display:flex;align-items:center;gap:12px;z-index:10;
+}
+.logo-mark{
+  width:46px;height:46px;border-radius:10px;
+  background:linear-gradient(135deg,#1A56F5 0%,#0E3BD4 100%);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(26,86,245,0.40);
+  flex-shrink:0;
+}
+.logo-mark svg{width:26px;height:26px;}
+.logo-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:26px;letter-spacing:0.01em;
+  color:#fff;text-transform:uppercase;line-height:1;
+}
+.logo-name span{color:#38BDF8;}
+
+.trust-pill{
+  position:absolute;top:44px;right:48px;z-index:10;
+  background:rgba(26,86,245,0.14);
+  border:1.5px solid rgba(56,189,248,0.35);
+  border-radius:50px;padding:8px 20px;
+  font-family:'Barlow',sans-serif;font-size:13px;font-weight:700;
+  color:#38BDF8;letter-spacing:0.04em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:7px;
+}
+
+.content{
+  position:absolute;
+  top:130px;left:48px;right:48px;
+  z-index:10;
+}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(26,86,245,0.15);
+  border:1px solid rgba(26,86,245,0.35);
+  border-radius:4px;padding:7px 16px;
+  font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;
+  color:#38BDF8;letter-spacing:0.08em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+
+.stat-block{
+  display:flex;align-items:flex-end;gap:0;
+  line-height:1;margin-bottom:8px;
+}
+.stat-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:260px;
+  color:#fff;letter-spacing:-0.06em;
+  line-height:0.85;
+}
+.stat-pct{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:110px;
+  color:#1A56F5;letter-spacing:-0.04em;
+  line-height:1;padding-bottom:12px;
+}
+
+.rule{
+  width:72px;height:5px;
+  background:linear-gradient(90deg,#1A56F5,#38BDF8);
+  border-radius:3px;margin-bottom:20px;
+}
+
+.headline-line{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;font-size:56px;
+  color:#fff;letter-spacing:-0.02em;
+  line-height:1.05;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hl-accent{color:#38BDF8;}
+
+.body{
+  font-family:'Barlow',sans-serif;font-size:18px;
+  color:rgba(255,255,255,0.68);line-height:1.65;
+  max-width:580px;margin-bottom:32px;
+}
+
+.cta{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#1A56F5,#0E3BD4);
+  color:#fff;font-family:'Barlow',sans-serif;
+  font-size:18px;font-weight:700;
+  padding:18px 40px;border-radius:6px;
+  letter-spacing:0.01em;
+  box-shadow:0 8px 32px rgba(26,86,245,0.45);
+  text-transform:uppercase;
+}
+.cta-arrow{
+  width:22px;height:22px;
+  background:rgba(255,255,255,0.15);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:14px;
+}
+
+.bottom{
+  position:absolute;bottom:0;left:0;right:0;height:90px;
+  background:rgba(8,15,42,0.96);
+  border-top:2px solid rgba(26,86,245,0.30);
+  display:flex;align-items:center;z-index:20;
+}
+.b-item{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  gap:12px;padding:0 20px;
+}
+.b-sep{width:1px;height:44px;background:rgba(255,255,255,0.07);}
+.b-icon{width:26px;height:26px;flex-shrink:0;}
+.b-label{
+  font-family:'Barlow',sans-serif;font-weight:700;font-size:14px;
+  color:#fff;letter-spacing:-0.01em;margin-bottom:2px;
+}
+.b-sub{
+  font-family:'Barlow',sans-serif;font-size:11px;
+  color:rgba(255,255,255,0.35);font-weight:500;
+  text-transform:uppercase;letter-spacing:0.04em;
+}
+
+.watermark{
+  position:absolute;bottom:96px;right:48px;z-index:10;
+  font-family:'Barlow',sans-serif;font-size:13px;
+  color:rgba(255,255,255,0.25);font-weight:500;
+  letter-spacing:0.02em;
+}
+</style>
+</head>
+<body>
+
+<div class="ad">
+  <div class="bg"></div>
+  <div class="ov"></div>
+  <div class="topbar"></div>
+
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <line x1="12" y1="2" x2="12" y2="4"/>
+        <line x1="12" y1="20" x2="12" y2="22"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="2" y1="12" x2="4" y2="12"/>
+        <line x1="20" y1="12" x2="22" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </div>
+    <div class="logo-name">Sydney <span>Solar</span> Co</div>
+  </div>
+
+  <div class="trust-pill">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    Sydney &amp; NSW
+  </div>
+
+  <div class="content">
+    <div class="eyebrow">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M18 10h2a1 1 0 011 1v4a1 1 0 01-1 1h-2"/><line x1="7" y1="12" x2="11" y2="12"/><line x1="9" y1="10" x2="9" y2="14"/></svg>
+      New Solar Incentive — Act Before It Expires
+    </div>
+
+    <div class="stat-block">
+      <div class="stat-num">82</div>
+      <div class="stat-pct">%</div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="headline-line">
+      Cut your <span class="hl-accent">quarterly</span><br>power bill.
+    </div>
+
+    <p class="body">
+      Sydney homeowners are slashing their electricity bills with solar —
+      and the best time to act is now. Get a free, no-pressure quote
+      from a local, Clean Energy Council–accredited installer today.
+    </p>
+
+    <div class="cta">
+      Get My Free Quote &nbsp;
+      <div class="cta-arrow">→</div>
+    </div>
+  </div>
+
+  <div class="watermark">quoteleads.com.au</div>
+
+  <div class="bottom">
+    <div class="b-item">
+      <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div>
+        <div class="b-label">CEC Accredited</div>
+        <div class="b-sub">Verified installers only</div>
+      </div>
+    </div>
+    <div class="b-sep"></div>
+    <div class="b-item">
+      <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <div>
+        <div class="b-label">Avg. $2,800 saved / yr</div>
+        <div class="b-sub">Real Sydney households</div>
+      </div>
+    </div>
+    <div class="b-sep"></div>
+    <div class="b-item">
+      <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <div>
+        <div class="b-label">Zero Obligation</div>
+        <div class="b-sub">Free quote, no pressure</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
