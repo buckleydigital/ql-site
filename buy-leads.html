@@ -238,6 +238,27 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0
 .disclaimer{font-size:.68rem;color:var(--faint);line-height:1.6;margin-top:14px}
 .disclaimer a{color:var(--blue);text-decoration:none}
 
+/* LEAD CONTEXT STRIP */
+.lead-context{padding:0 5% 48px;position:relative;z-index:3;background:var(--void)}
+.lc-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lc-item{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:28px 24px}
+.lc-item.lc-hi{border-color:rgba(71,151,255,.25);background:var(--bdim)}
+.lc-icon{width:40px;height:40px;border-radius:10px;background:var(--bdim);border:1px solid rgba(71,151,255,.2);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.lc-icon svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.lc-item h4{font-family:var(--display);font-size:.96rem;font-weight:600;color:var(--white);letter-spacing:-.01em;margin-bottom:8px}
+.lc-item p{font-size:.83rem;color:var(--muted);line-height:1.68}
+.lc-item p strong{color:var(--sky)}
+@media(max-width:768px){.lc-inner{grid-template-columns:1fr;gap:12px}}
+
+/* CONSENT ACKNOWLEDGE */
+.consent-ack{background:rgba(71,151,255,.06);border:1px solid rgba(71,151,255,.22);
+  border-radius:12px;padding:16px 18px;margin:18px 0 4px;display:flex;align-items:flex-start;gap:12px;transition:border-color .2s,background .2s}
+.consent-ack.err-hi{border-color:rgba(255,80,80,.5);background:rgba(255,80,80,.04)}
+.consent-ack input[type=checkbox]{width:16px;height:16px;min-width:16px;flex-shrink:0;margin-top:3px;accent-color:var(--blue);cursor:none}
+.consent-ack label{font-size:.79rem;color:var(--muted);line-height:1.65;cursor:none}
+.consent-ack label strong{color:var(--white);font-weight:500}
+
 .form-state{display:none;padding:60px 40px;text-align:center}
 .form-state.active{display:block}
 .spin{width:32px;height:32px;border:2px solid var(--border);border-top-color:var(--blue);
@@ -348,7 +369,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   <div class="page-hero-inner">
     <div class="hero-eyebrow">Pay-Per-Lead</div>
     <h1>Order your<br><em>lead pack.</em></h1>
-    <p class="sbody">Pick your trade, city, and quantity. Pay now and receive exclusive leads within 7&ndash;14 days.</p>
+    <p class="sbody">Real-time, exclusive leads generated fresh through our paid advertising funnels — brand new enquiries, never recycled, never shared. Pick your trade, city and quantity. Leads delivered within 7&ndash;14 days.</p>
     <div class="page-hero-meta">
       <span>Exclusive, not shared</span>
       <span>No lock-in contract</span>
@@ -357,6 +378,37 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <p style="margin-top:20px;font-size:.84rem;color:var(--muted)">Already have an account? <a href="https://quoteleadshq.com/dashboard" style="color:var(--blue)">Buy leads inside your dashboard</a></p>
   </div>
 </section>
+
+<!-- LEAD CONTEXT STRIP -->
+<div class="lead-context">
+  <div class="lc-inner">
+
+    <div class="lc-item lc-hi">
+      <div class="lc-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+      </div>
+      <h4>Brand new. Not recycled.</h4>
+      <p>Your leads haven't been generated yet — they're created <strong>fresh for your order</strong> through live paid advertising on Meta and Google. Every prospect clicks an ad, fills out a survey, and is delivered to you in real-time. No databases. No cold lists. No leftovers from another business's campaign.</p>
+    </div>
+
+    <div class="lc-item">
+      <div class="lc-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+      </div>
+      <h4>Exclusive to you. 1:1 consent.</h4>
+      <p>Our funnels produce <strong>thousands of leads per month</strong> across every trade and major city. Every single one is assigned to exactly one business. Before submitting, each homeowner sees a consent form with <strong>your business name on it</strong> — they're expecting your call specifically, not five competitors'.</p>
+    </div>
+
+    <div class="lc-item">
+      <div class="lc-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h4>The highest quality leads you can buy.</h4>
+      <p>Survey-qualified, real-time, named-consent. These aren't marketplace enquiries resold to whoever bids. They arrive <strong>knowing who you are</strong>, project details already captured, expecting to hear from your business — not three others — within the hour.</p>
+    </div>
+
+  </div>
+</div>
 
 <section class="app-section">
   <div class="app-layout">
@@ -528,6 +580,13 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <span class="rt-amount" id="revTotal"></span>
           </div>
 
+          <div class="consent-ack" id="consentAck">
+            <input type="checkbox" id="consentBizCheck">
+            <label for="consentBizCheck">
+              I consent to my business name, <strong id="consentBizLabel">my business</strong>, being used in QuoteLeads' proprietary consent forms and advertising funnels. I understand that prospects will see my business name and explicitly agree to be contacted by my business — by name — before their enquiry is submitted, providing legally compliant, named consent for outreach.
+            </label>
+          </div>
+
           <div class="step-nav" style="margin-top:0">
             <button class="btn-back" onclick="goTo(4,'bck')">&#8592; Back</button>
             <button class="btn-next btn-submit-full" style="flex:1;border-radius:12px" onclick="submitOrder()">
@@ -566,14 +625,16 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="sidebar-card">
         <div class="sc-lbl">What you get</div>
         <ul class="checklist">
-          <li>Exclusive leads - never shared with another business</li>
-          <li>Verified name, phone, email and project details</li>
+          <li>Brand new leads generated fresh via paid ads — not recycled or re-sold</li>
+          <li>Real-time delivery the moment a prospect qualifies</li>
+          <li>Exclusive — one lead, one business, every time</li>
+          <li>Your business name on the consent form — prospects expect your call</li>
+          <li>Verified name, phone, email and full project details</li>
           <li>Matched to your exact trade and city</li>
-          <li>Delivered directly to your phone, email or CRM</li>
           <li>No subscription, no lock-in</li>
           <li>GST invoice issued automatically</li>
         </ul>
-        <div class="sidebar-note">Leads are generated via paid advertising targeted to your city.</div>
+        <div class="sidebar-note">Generated through QuoteLeads' owned and operated advertising funnels — thousands of leads per month across all trades, distributed exclusively through 1:1 consent-based enquiries. Your business name is shown on the consent form every single time.</div>
       </div>
 
       <div class="sidebar-card">
@@ -706,6 +767,11 @@ async function renderReview(){
   document.getElementById('revPhone').textContent = surveyData.phone||'';
   document.getElementById('revPriceMeta').textContent = 'Fetching pricing…';
   document.getElementById('revTotal').textContent = '';
+  const bizLbl = document.getElementById('consentBizLabel');
+  if(bizLbl) bizLbl.textContent = surveyData.company || 'my business';
+  const consentBox = document.getElementById('consentBizCheck');
+  if(consentBox) consentBox.checked = false;
+  document.getElementById('consentAck').classList.remove('err-hi');
   try{
     const params=new URLSearchParams({
       niche:surveyData.niche,
@@ -731,6 +797,13 @@ function resetForm(){
 }
 
 async function submitOrder(){
+  const consentBox = document.getElementById('consentBizCheck');
+  if(!consentBox.checked){
+    const ackEl = document.getElementById('consentAck');
+    ackEl.classList.add('err-hi');
+    ackEl.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
   document.querySelectorAll('.step-panel').forEach(p=>{
     p.classList.remove('active','fwd','bck');
     p.style.display='none';
@@ -839,6 +912,10 @@ document.getElementById('mobBtn').addEventListener('click',function(){
 
 const obs=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
 document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+document.getElementById('consentBizCheck').addEventListener('change',function(){
+  if(this.checked) document.getElementById('consentAck').classList.remove('err-hi');
+});
 
 updateProgress();
 </script>
