@@ -299,6 +299,64 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0
 ::-webkit-scrollbar-thumb{background:var(--faint);border-radius:3px}
 ::-webkit-scrollbar-thumb:hover{background:var(--blue)}
 
+/* HERO CTA BUTTON */
+.btn-mag{position:relative;display:inline-flex;align-items:center;gap:10px;
+  background:var(--blue);color:#fff;font-family:var(--body);font-size:.88rem;font-weight:500;
+  letter-spacing:.02em;padding:14px 30px;border-radius:100px;text-decoration:none;border:none;
+  overflow:hidden;transition:background .2s,box-shadow .2s;cursor:none}
+.btn-mag::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.18),transparent 60%);
+  opacity:0;transition:opacity .3s}
+.btn-mag:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38)}
+.btn-mag:hover::before{opacity:1}
+.btn-mag svg{width:14px;height:14px;transition:transform .2s}
+.btn-mag:hover svg{transform:translateX(4px)}
+
+/* TESTIMONIALS */
+.testi-section{padding:0 5% 72px;position:relative;z-index:3;background:var(--void)}
+.testi-inner{max-width:1120px;margin:0 auto}
+.testi-header{text-align:center;margin-bottom:48px}
+.testi-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.testi-eyebrow::before{content:'';width:22px;height:1px;background:var(--blue)}
+.testi-header h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;
+  letter-spacing:-.025em;color:var(--white)}
+.testi-header h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px 28px;
+  display:flex;flex-direction:column;gap:20px;backdrop-filter:blur(12px);
+  transition:border-color .25s,transform .25s}
+.testi-card:hover{border-color:rgba(71,151,255,.25);transform:translateY(-3px)}
+.testi-stars{display:flex;gap:3px}
+.testi-stars svg{width:14px;height:14px;fill:#F59E0B;stroke:none}
+.testi-quote{font-size:.92rem;color:var(--off);line-height:1.72;flex:1}
+.testi-quote strong{color:var(--white)}
+.testi-meta{display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid var(--border)}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:var(--bdim);
+  border:1px solid rgba(71,151,255,.25);display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--blue);flex-shrink:0}
+.testi-name{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white);letter-spacing:-.01em}
+.testi-role{font-size:.75rem;color:var(--muted);margin-top:2px}
+.testi-tag{display:inline-flex;align-items:center;gap:5px;font-size:.65rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:var(--bdim);
+  border:1px solid rgba(71,151,255,.2);border-radius:100px;padding:4px 10px;margin-left:auto;flex-shrink:0}
+.testi-featured{border-color:rgba(71,151,255,.3);background:linear-gradient(145deg,rgba(71,151,255,.07),rgba(71,151,255,.02))}
+
+/* TRUST STRIP */
+.trust-strip{padding:20px 5% 48px;position:relative;z-index:3;background:var(--void)}
+.trust-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:center;
+  gap:32px;flex-wrap:wrap;border:1px solid var(--border);border-radius:16px;padding:24px 40px}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--muted);white-space:nowrap}
+.trust-item svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.trust-divider{width:1px;height:24px;background:var(--border);flex-shrink:0}
+@media(max-width:768px){
+  .testi-grid{grid-template-columns:1fr;gap:16px}
+  .trust-inner{gap:16px;padding:20px 24px}
+  .trust-divider{display:none}
+}
+
 footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep);position:relative;z-index:3}
 .foot-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .foot-logo img{height:28px;width:auto;opacity:.65}
@@ -410,6 +468,106 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <p>Survey-qualified, real-time, named-consent. These aren't marketplace enquiries resold to whoever bids. They arrive <strong>knowing who you are</strong>, project details already captured, expecting to hear from your business, not three others, within the hour.</p>
     </div>
 
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner rv">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Stripe-secured payments
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      7-day replacement policy
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      10,000+ leads delivered
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      First leads within 7-14 days
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Australian owned and operated
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testi-section">
+  <div class="testi-inner">
+    <div class="testi-header rv">
+      <div class="testi-eyebrow">Real results</div>
+      <h2>Trade businesses winning jobs<br><em>with QuoteLeads.</em></h2>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card testi-featured rv">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-quote">"We'd tried two other lead providers and kept getting the same recycled names. With QuoteLeads the leads are different - <strong>the homeowner already knows we're calling</strong>. First order of 30 we closed 8 jobs. Best ROI we've had on any marketing."</p>
+        <div class="testi-meta">
+          <div class="testi-avatar">JR</div>
+          <div>
+            <div class="testi-name">Jason R.</div>
+            <div class="testi-role">Solar Installer, Brisbane QLD</div>
+          </div>
+          <div class="testi-tag">Solar</div>
+        </div>
+      </div>
+
+      <div class="testi-card rv">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-quote">"I was sceptical because I've been burned before. Signed up for 20 roofing leads in Sydney and <strong>closed 5 within three weeks</strong>. Quality is genuinely different - people pick up, they're expecting you, the project details are already there. No chasing ghosts."</p>
+        <div class="testi-meta">
+          <div class="testi-avatar">MT</div>
+          <div>
+            <div class="testi-name">Marcus T.</div>
+            <div class="testi-role">Roofing, Sydney NSW</div>
+          </div>
+          <div class="testi-tag">Roofing</div>
+        </div>
+      </div>
+
+      <div class="testi-card rv">
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="testi-quote">"Running a renovation business in Melbourne - word of mouth only gets you so far. <strong>First 25 leads landed 4 quoted jobs, 2 signed in the first month.</strong> The consent system is smart, homeowners are warm from the first call. Will be ordering every month."</p>
+        <div class="testi-meta">
+          <div class="testi-avatar">SK</div>
+          <div>
+            <div class="testi-name">Sarah K.</div>
+            <div class="testi-role">Renovation, Melbourne VIC</div>
+          </div>
+          <div class="testi-tag">Renovation</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -652,6 +810,19 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="sidebar-note" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
           <a href="/pay-per-lead-terms">Pay-per-lead terms apply &rarr;</a>
         </div>
+      </div>
+
+      <div class="sidebar-card" style="border-color:rgba(71,151,255,.2);background:linear-gradient(145deg,rgba(71,151,255,.06),rgba(71,151,255,.02))">
+        <div style="display:flex;gap:3px;margin-bottom:14px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p style="font-size:.84rem;color:var(--off);line-height:1.68;font-style:italic;margin-bottom:14px">"Quality is genuinely different - people pick up, they're expecting you, the project details are already there."</p>
+        <div style="font-size:.78rem;color:var(--blue);font-weight:600">Marcus T.</div>
+        <div style="font-size:.72rem;color:var(--muted)">Roofing, Sydney NSW</div>
       </div>
 
     </div>
