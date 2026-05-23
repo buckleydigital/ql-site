@@ -313,36 +313,31 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0
 .btn-mag:hover svg{transform:translateX(4px)}
 
 /* TESTIMONIALS */
-.testi-section{padding:0 5% 72px;position:relative;z-index:3;background:var(--void)}
+.testi-section{background:var(--deep);padding:80px 5%}
 .testi-inner{max-width:1120px;margin:0 auto}
-.testi-header{text-align:center;margin-bottom:48px}
-.testi-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
-.testi-eyebrow::before{content:'';width:22px;height:1px;background:var(--blue)}
-.testi-header h2{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;
-  letter-spacing:-.025em;color:var(--white)}
-.testi-header h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.testi-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:32px 28px;
-  display:flex;flex-direction:column;gap:20px;backdrop-filter:blur(12px);
-  transition:border-color .25s,transform .25s}
-.testi-card:hover{border-color:rgba(71,151,255,.25);transform:translateY(-3px)}
-.testi-stars{display:flex;gap:3px}
-.testi-stars svg{width:14px;height:14px;fill:#F59E0B;stroke:none}
-.testi-quote{font-size:.92rem;color:var(--off);line-height:1.72;flex:1}
-.testi-quote strong{color:var(--white)}
-.testi-meta{display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid var(--border)}
-.testi-avatar{width:42px;height:42px;border-radius:50%;background:var(--bdim);
-  border:1px solid rgba(71,151,255,.25);display:flex;align-items:center;justify-content:center;
-  font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--blue);flex-shrink:0}
-.testi-name{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white);letter-spacing:-.01em}
-.testi-role{font-size:.75rem;color:var(--muted);margin-top:2px}
-.testi-tag{display:inline-flex;align-items:center;gap:5px;font-size:.65rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:var(--bdim);
-  border:1px solid rgba(71,151,255,.2);border-radius:100px;padding:4px 10px;margin-left:auto;flex-shrink:0}
-.testi-featured{border-color:rgba(71,151,255,.3);background:linear-gradient(145deg,rgba(71,151,255,.07),rgba(71,151,255,.02))}
+.testi-h{text-align:center;margin-bottom:60px}
+.car-scene{perspective:1400px;perspective-origin:50% 40%;position:relative;height:380px;margin:0 auto;max-width:1000px}
+.car-track{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.tc{position:absolute;width:340px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:32px 28px;backdrop-filter:blur(16px);transition:all .6s cubic-bezier(.4,0,.2,1);will-change:transform,opacity;cursor:none;overflow:hidden}
+.tc::before{content:'\201C';position:absolute;top:-8px;right:16px;font-family:var(--display);font-size:5rem;font-weight:600;color:rgba(71,151,255,.06);line-height:1;pointer-events:none}
+.tc.pos-center{transform:translateX(0) translateZ(80px) rotateY(0deg) scale(1.04);opacity:1;z-index:3}
+.tc.pos-right{transform:translateX(360px) translateZ(-50px) rotateY(-16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
+.tc.pos-left{transform:translateX(-360px) translateZ(-50px) rotateY(16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
+.tc.pos-hidden{transform:translateX(0) translateZ(-200px) scale(.6);opacity:0;z-index:1;pointer-events:none}
+.tresult{display:inline-flex;align-items:center;gap:8px;background:rgba(71,151,255,.08);border:1px solid rgba(71,151,255,.2);color:var(--sky);font-size:.7rem;font-weight:700;padding:4px 13px;border-radius:100px;margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
+.trd{width:5px;height:5px;background:var(--blue);border-radius:50%}
+.tstars{font-size:.7rem;color:var(--sky);margin-bottom:14px;letter-spacing:2px}
+.tbody{font-size:.88rem;color:#CACAC0;line-height:1.74;margin-bottom:20px;font-style:italic}
+.tauth{display:flex;align-items:center;gap:12px}
+.tav{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:600;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--sky))}
+.tnm{font-size:.88rem;font-weight:500;color:var(--white);margin-bottom:2px}
+.tco{font-size:.76rem;color:var(--muted)}
+.car-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:48px}
+.car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--glass);display:flex;align-items:center;justify-content:center;cursor:none;color:var(--muted);transition:all .25s;font-size:.9rem;backdrop-filter:blur(10px)}
+.car-btn:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 0 20px rgba(71,151,255,.15)}
+.car-dots{display:flex;gap:8px;align-items:center}
+.car-dot{width:6px;height:6px;border-radius:50%;background:var(--faint);transition:all .3s;cursor:none}
+.car-dot.a{background:var(--blue);width:20px;border-radius:3px}
 
 /* TRUST STRIP */
 .trust-strip{padding:20px 5% 48px;position:relative;z-index:3;background:var(--void)}
@@ -352,9 +347,10 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0
 .trust-item svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .trust-divider{width:1px;height:24px;background:var(--border);flex-shrink:0}
 @media(max-width:768px){
-  .testi-grid{grid-template-columns:1fr;gap:16px}
   .trust-inner{gap:16px;padding:20px 24px}
   .trust-divider{display:none}
+  .car-scene{height:420px}
+  .tc.pos-right,.tc.pos-left{opacity:0}
 }
 
 footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep);position:relative;z-index:3}
@@ -504,69 +500,26 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 <!-- TESTIMONIALS -->
 <div class="testi-section">
   <div class="testi-inner">
-    <div class="testi-header rv">
-      <div class="testi-eyebrow">Real results</div>
-      <h2>Trade businesses winning jobs<br><em>with QuoteLeads.</em></h2>
+    <div class="testi-h rv">
+      <div class="ey" style="justify-content:center;display:flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px"><span style="display:block;width:22px;height:1px;background:var(--blue)"></span>Results</div>
+      <h2 style="font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.025em;color:var(--white);margin-bottom:12px">What trade businesses are saying.</h2>
+      <p style="color:var(--muted);font-size:.92rem;max-width:380px;margin:0 auto">Real businesses. Real outcomes. Not shared leads.</p>
     </div>
-    <div class="testi-grid">
-
-      <div class="testi-card testi-featured rv">
-        <div class="testi-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="testi-quote">"We'd tried two other lead providers and kept getting the same recycled names. With QuoteLeads the leads are different - <strong>the homeowner already knows we're calling</strong>. First order of 30 we closed 8 jobs. Best ROI we've had on any marketing."</p>
-        <div class="testi-meta">
-          <div class="testi-avatar">JR</div>
-          <div>
-            <div class="testi-name">Jason R.</div>
-            <div class="testi-role">Solar Installer, Brisbane QLD</div>
-          </div>
-          <div class="testi-tag">Solar</div>
-        </div>
+    <div class="car-scene rv">
+      <div class="car-track" id="carTrack">
+        <div class="tc" data-i="0"><div class="tresult"><div class="trd"></div>Lamm Solar</div><div class="tstars">★★★★★</div><p class="tbody">"We get about 70% of leads turning into quality appointments"</p><div class="tauth"><div class="tav">LS</div><div><div class="tnm">Lamm Solar</div><div class="tco">Solar Installations</div></div></div></div>
+        <div class="tc" data-i="1"><div class="tresult"><div class="trd"></div>AB Built</div><div class="tstars">★★★★★</div><p class="tbody">"I've had some good local leads coming in lately and filling up next year rather quickly and converting around 50%"</p><div class="tauth"><div class="tav">AB</div><div><div class="tnm">AB Built</div><div class="tco">Building &amp; Renovations</div></div></div></div>
+        <div class="tc" data-i="2"><div class="tresult"><div class="trd"></div>Stanley's Painting</div><div class="tstars">★★★★★</div><p class="tbody">"The leads just come in, you qualify them, quote the job, get the work. Simple."</p><div class="tauth"><div class="tav">SP</div><div><div class="tnm">Stanley's Painting</div><div class="tco">Roof Restoration</div></div></div></div>
+        <div class="tc" data-i="3"><div class="tresult"><div class="trd"></div>Max &amp; Mitchell</div><div class="tstars">★★★★★</div><p class="tbody">"First sale $25k, next one $39k. Buzzing."</p><div class="tauth"><div class="tav">MM</div><div><div class="tnm">Max &amp; Mitchell</div><div class="tco">Renovations</div></div></div></div>
+        <div class="tc" data-i="4"><div class="tresult"><div class="trd"></div>SolarHarvest</div><div class="tstars">★★★★★</div><p class="tbody">"Fast setup, great support and higher intent solar leads."</p><div class="tauth"><div class="tav">SH</div><div><div class="tnm">SolarHarvest</div><div class="tco">Solar Installation</div></div></div></div>
       </div>
-
-      <div class="testi-card rv">
-        <div class="testi-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="testi-quote">"I was sceptical because I've been burned before. Signed up for 20 roofing leads in Sydney and <strong>closed 5 within three weeks</strong>. Quality is genuinely different - people pick up, they're expecting you, the project details are already there. No chasing ghosts."</p>
-        <div class="testi-meta">
-          <div class="testi-avatar">MT</div>
-          <div>
-            <div class="testi-name">Marcus T.</div>
-            <div class="testi-role">Roofing, Sydney NSW</div>
-          </div>
-          <div class="testi-tag">Roofing</div>
-        </div>
+    </div>
+    <div class="car-nav rv">
+      <button class="car-btn" id="carPrev" aria-label="Previous">←</button>
+      <div class="car-dots">
+        <div class="car-dot a" data-d="0"></div><div class="car-dot" data-d="1"></div><div class="car-dot" data-d="2"></div><div class="car-dot" data-d="3"></div><div class="car-dot" data-d="4"></div>
       </div>
-
-      <div class="testi-card rv">
-        <div class="testi-stars">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="testi-quote">"Running a renovation business in Melbourne - word of mouth only gets you so far. <strong>First 25 leads landed 4 quoted jobs, 2 signed in the first month.</strong> The consent system is smart, homeowners are warm from the first call. Will be ordering every month."</p>
-        <div class="testi-meta">
-          <div class="testi-avatar">SK</div>
-          <div>
-            <div class="testi-name">Sarah K.</div>
-            <div class="testi-role">Renovation, Melbourne VIC</div>
-          </div>
-          <div class="testi-tag">Renovation</div>
-        </div>
-      </div>
-
+      <button class="car-btn" id="carNext" aria-label="Next">→</button>
     </div>
   </div>
 </div>
@@ -813,16 +766,15 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       </div>
 
       <div class="sidebar-card" style="border-color:rgba(71,151,255,.2);background:linear-gradient(145deg,rgba(71,151,255,.06),rgba(71,151,255,.02))">
-        <div style="display:flex;gap:3px;margin-bottom:14px">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <div class="tstars" style="margin-bottom:12px">★★★★★</div>
+        <p style="font-size:.84rem;color:var(--off);line-height:1.68;font-style:italic;margin-bottom:16px">"First sale $25k, next one $39k. Buzzing."</p>
+        <div class="tauth">
+          <div class="tav" style="width:34px;height:34px;font-size:.68rem">MM</div>
+          <div>
+            <div class="tnm">Max &amp; Mitchell</div>
+            <div class="tco">Renovations</div>
+          </div>
         </div>
-        <p style="font-size:.84rem;color:var(--off);line-height:1.68;font-style:italic;margin-bottom:14px">"Quality is genuinely different - people pick up, they're expecting you, the project details are already there."</p>
-        <div style="font-size:.78rem;color:var(--blue);font-weight:600">Marcus T.</div>
-        <div style="font-size:.72rem;color:var(--muted)">Roofing, Sydney NSW</div>
       </div>
 
     </div>
@@ -1066,6 +1018,24 @@ window.addEventListener('scroll',()=>{
   document.getElementById('scrollProg').style.transform=
     `scaleX(${window.scrollY/(document.body.scrollHeight-window.innerHeight)})`;
 },{passive:true});
+
+// CAROUSEL
+const cards=[...document.querySelectorAll('.tc')];
+const dots=[...document.querySelectorAll('.car-dot')];
+let curI=0,autoT;
+function setCarousel(idx){
+  curI=((idx%cards.length)+cards.length)%cards.length;
+  cards.forEach((c,i)=>{c.classList.remove('pos-center','pos-left','pos-right','pos-hidden');const rel=(i-curI+cards.length)%cards.length;if(rel===0)c.classList.add('pos-center');else if(rel===1)c.classList.add('pos-right');else if(rel===cards.length-1)c.classList.add('pos-left');else c.classList.add('pos-hidden')});
+  dots.forEach((d,i)=>d.classList.toggle('a',i===curI));
+}
+setCarousel(0);
+document.getElementById('carNext').addEventListener('click',()=>{setCarousel(curI+1);clearInterval(autoT);startAuto()});
+document.getElementById('carPrev').addEventListener('click',()=>{setCarousel(curI-1);clearInterval(autoT);startAuto()});
+dots.forEach((d,i)=>d.addEventListener('click',()=>{setCarousel(i);clearInterval(autoT);startAuto()}));
+function startAuto(){autoT=setInterval(()=>setCarousel(curI+1),4500)}
+startAuto();
+const cs=document.querySelector('.car-scene');
+if(cs){let tx=0;cs.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});cs.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40){setCarousel(dx<0?curI+1:curI-1);clearInterval(autoT);startAuto()}},{passive:true})}
 
 document.getElementById('mobBtn').addEventListener('click',function(){
   const m=document.getElementById('mobMenu');
