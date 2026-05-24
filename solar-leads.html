@@ -252,6 +252,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 /* TARGET GRID */
 .target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
   border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:48px}
+.target-grid-4{grid-template-columns:repeat(4,1fr)}
 .target-card{padding:32px 24px;background:var(--deep)}
 .target-card h3{font-family:var(--display);font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:10px;line-height:1.3}
 .target-card p{font-size:.82rem;color:var(--muted);line-height:1.65}
@@ -513,6 +514,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 @media(max-width:1024px){
   .feat-grid{grid-template-columns:1fr 1fr}
   .target-grid{grid-template-columns:1fr 1fr}
+  .target-grid-4{grid-template-columns:1fr 1fr}
   .economics-grid{grid-template-columns:1fr;gap:40px}
   .blog-grid{grid-template-columns:1fr 1fr}
   .own-grid-page{grid-template-columns:1fr 1fr}
@@ -526,7 +528,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .hero-trust{flex-direction:column;text-align:center;gap:8px}
   .feat-grid{grid-template-columns:1fr}
   .problem-grid{grid-template-columns:1fr}
-  .target-grid{grid-template-columns:1fr}
+  .target-grid,.target-grid-4{grid-template-columns:1fr}
   .how-steps{grid-template-columns:1fr}
   .stats-row{grid-template-columns:1fr 1fr}
   .lead-card-body{grid-template-columns:1fr}
@@ -690,7 +692,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <p>Rank and convert for high-intent variations without launching separate pages for each offer. These lead types are configured at setup and mapped directly to your quoting workflow.</p>
         </div>
 
-        <div class="target-grid rv" style="grid-template-columns:repeat(4,1fr)">
+        <div class="target-grid target-grid-4 rv">
             <div class="target-card">
                 <h3>Residential solar panel leads</h3>
                 <p>Homeowners ready for a 6.6kW-13.2kW system with budget, postcode, and timeline qualification captured before submission.</p>
