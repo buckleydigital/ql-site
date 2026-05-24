@@ -177,7 +177,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 
 /* STATS BAR */
 .stats-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--deep);padding:0;z-index:3;position:relative}
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);max-width:840px;margin:0 auto}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);max-width:1120px;margin:0 auto}
 .stat{padding:52px 40px;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s;cursor:none}
 .stat:last-child{border-right:none}
 .stat::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
@@ -636,7 +636,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 /* RESPONSIVE */
 @media(max-width:1024px){
   .feat-grid{grid-template-columns:1fr 1fr}
-  .stats-row{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}
+  .stats-row{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}.stat:nth-child(-n+2){border-bottom:1px solid var(--border)}
   .out-grid{grid-template-columns:1fr 1fr}
   .journey-stage,.journey-stage.reverse{grid-template-columns:1fr;gap:32px}
   .journey-stage.reverse .journey-copy{order:1}
@@ -814,6 +814,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="stat rv d1"><span class="stn" data-t="100" data-s="%">0</span><div class="stl"><b>Exclusive Leads</b>One business. One territory. No sharing.</div></div>
     <div class="stat rv d2"><span class="stn" data-t="47" data-s="s">0</span><div class="stl"><b>Average AI Response</b>From lead submission to SMS reply</div></div>
     <div class="stat rv d3"><span class="stn" data-t="70" data-s="%">0</span><div class="stl"><b>Lead to Appointment</b>When AI activates within 60 seconds</div></div>
+    <div class="stat rv d4"><span class="stn" data-t="6" data-s=" Years">0</span><div class="stl"><b>Industry Experience</b>Generating high quality leads for high-value Australian trades</div></div>
   </div>
 </div>
 
