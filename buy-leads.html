@@ -229,6 +229,19 @@ body::before{content:'';position:fixed;inset:0;
 .custom-qty-unit{font-size:.82rem;color:var(--muted)}
 .custom-qty-hint{font-size:.72rem;color:var(--blue);font-weight:600;margin-top:7px;min-height:1em}
 
+/* COVERAGE TOGGLE */
+.cov-toggle{display:flex;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.cov-toggle-btn{flex:1;padding:11px 16px;background:transparent;border:none;font-family:var(--body);font-size:.88rem;font-weight:500;color:var(--muted);cursor:none;transition:background .2s,color .2s}
+.cov-toggle-btn:not(:last-child){border-right:1px solid var(--border)}
+.cov-toggle-btn.sel{background:var(--bdim);color:var(--blue)}
+.cov-panel{margin-top:14px}
+.cov-postcode-ta{width:100%;padding:13px 16px;background:var(--glass2);border:1px solid var(--border);border-radius:12px;color:var(--white);font-family:var(--body);font-size:.88rem;line-height:1.6;resize:vertical;min-height:110px;outline:none;transition:border-color .2s;box-sizing:border-box}
+.cov-postcode-ta:focus{border-color:var(--blue)}
+.cov-postcode-ta::placeholder{color:var(--faint)}
+.cov-postcode-ta.err{border-color:rgba(255,80,80,.7)}
+.cov-helper-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:.76rem;color:var(--blue);text-decoration:none;opacity:.8}
+.cov-helper-link:hover{opacity:1}
+
 /* FIELDS */
 .field-group{margin-bottom:16px}
 .field-group:last-child{margin-bottom:0}
@@ -627,10 +640,38 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
         </div>
 
-        <!-- BLOCK 03: PACK SIZE -->
+        <!-- BLOCK 03: COVERAGE AREA -->
         <div class="buy-block">
           <div class="buy-block-hd">
             <span class="block-num">03</span>
+            <div>
+              <div class="block-title">Coverage area</div>
+              <div class="block-sub">Define where your leads come from.</div>
+            </div>
+          </div>
+          <div class="cov-toggle">
+            <button class="cov-toggle-btn sel" id="togRadius" onclick="setCovMode('radius')">Radius</button>
+            <button class="cov-toggle-btn" id="togPostcodes" onclick="setCovMode('postcodes')">Postcode List</button>
+          </div>
+          <div class="cov-panel" id="panelRadius">
+            <div class="city-select-wrap">
+              <select id="radius_km" onchange="updateSummary()">
+                <option value="50">50 km from city centre</option>
+                <option value="75">75 km from city centre</option>
+                <option value="100">100 km from city centre</option>
+              </select>
+            </div>
+          </div>
+          <div class="cov-panel" id="panelPostcodes" style="display:none">
+            <textarea class="cov-postcode-ta" id="postcode_list" placeholder="Paste postcodes here, one per line or comma-separated&#10;e.g. 2000, 2010, 2011" oninput="updateSummary()"></textarea>
+            <a class="cov-helper-link" href="https://www.embr.com.au/find-australian-postcodes-inside-radius/index.html" target="_blank" rel="noopener">Find postcodes by radius →</a>
+          </div>
+        </div>
+
+        <!-- BLOCK 04: PACK SIZE -->
+        <div class="buy-block">
+          <div class="buy-block-hd">
+            <span class="block-num">04</span>
             <div>
               <div class="block-title">How many leads?</div>
               <div class="block-sub">Larger packs include a volume discount.</div>
@@ -645,10 +686,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
 
-        <!-- BLOCK 04: DETAILS -->
+        <!-- BLOCK 05: DETAILS -->
         <div class="buy-block">
           <div class="buy-block-hd">
-            <span class="block-num">04</span>
+            <span class="block-num">05</span>
             <div>
               <div class="block-title">Your details</div>
               <div class="block-sub">Used to set up your account and deliver your leads.</div>
@@ -680,7 +721,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
         </div>
 
-        <!-- BLOCK 05: CONSENT + SUBMIT -->
+        <!-- BLOCK 06: CONSENT + SUBMIT -->
         <div class="buy-block">
           <div class="consent-ack" id="consentAck">
             <input type="checkbox" id="consentBizCheck">
@@ -734,6 +775,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="sum-row">
           <span class="sum-lbl">City</span>
           <span class="sum-val dim" id="sum-city">Not selected</span>
+        </div>
+        <div class="sum-row">
+          <span class="sum-lbl">Coverage</span>
+          <span class="sum-val" id="sum-coverage">50 km radius</span>
         </div>
         <div class="sum-row">
           <span class="sum-lbl">Lead pack</span>
@@ -921,6 +966,7 @@ const SUPABASE_URL = 'https://wjadekgptkstfdootuol.supabase.co';
 const order = {
   niche: null,
   area_city: null,
+  location_type: 'radius',
   quantity: null,
   discount: 0,
   pricePerLead: null,
@@ -1067,6 +1113,16 @@ function selectTrade(el) {
   updateSummary();
 }
 
+// ─── COVERAGE MODE ───────────────────────────────────────
+function setCovMode(mode) {
+  order.location_type = mode;
+  document.getElementById('togRadius').classList.toggle('sel', mode === 'radius');
+  document.getElementById('togPostcodes').classList.toggle('sel', mode === 'postcodes');
+  document.getElementById('panelRadius').style.display = mode === 'radius' ? '' : 'none';
+  document.getElementById('panelPostcodes').style.display = mode === 'postcodes' ? '' : 'none';
+  updateSummary();
+}
+
 // ─── PACK SELECT ─────────────────────────────────────────
 function selectPack(el) {
   document.querySelectorAll('.pack-btn').forEach(b => b.classList.remove('sel'));
@@ -1102,6 +1158,19 @@ function updateSummary() {
     cityEl.className = 'sum-val'; cityEl.textContent = order.area_city;
   } else {
     cityEl.className = 'sum-val dim'; cityEl.textContent = 'Not selected';
+  }
+
+  const covEl = document.getElementById('sum-coverage');
+  if (covEl) {
+    if (order.location_type === 'radius') {
+      const km = document.getElementById('radius_km')?.value || 50;
+      covEl.className = 'sum-val';
+      covEl.textContent = `${km} km radius`;
+    } else {
+      const taVal = document.getElementById('postcode_list')?.value.trim();
+      covEl.className = taVal ? 'sum-val' : 'sum-val dim';
+      covEl.textContent = taVal ? 'Custom postcodes' : 'Not entered';
+    }
   }
 
   if (order.quantity) {
@@ -1165,6 +1234,17 @@ async function submitOrder() {
     return;
   }
 
+  if (order.location_type === 'postcodes') {
+    const taEl = document.getElementById('postcode_list');
+    if (!taEl.value.trim()) {
+      taEl.classList.add('err');
+      taEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      taEl.focus();
+      setTimeout(() => taEl.classList.remove('err'), 2000);
+      return;
+    }
+  }
+
   const fields = ['first_name', 'last_name', 'company', 'email', 'phone'];
   for (const id of fields) {
     const el = document.getElementById(id);
@@ -1204,11 +1284,15 @@ async function submitOrder() {
     company:          document.getElementById('company').value.trim(),
     niche:            order.niche,
     area_city:        order.area_city,
-    location_type:    'radius',
-    radius_km:        50,
+    location_type:    order.location_type,
     quantity:         order.quantity,
     discount_percent: order.discount  // backend uses this to apply same tier in Stripe
   };
+  if (order.location_type === 'radius') {
+    payload.radius_km = parseInt(document.getElementById('radius_km').value, 10);
+  } else {
+    payload.postcode_list = document.getElementById('postcode_list').value.trim();
+  }
 
   try {
     const res  = await fetch(`${SUPABASE_URL}/functions/v1/create-ppl-signup-checkout`, {
