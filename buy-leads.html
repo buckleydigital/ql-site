@@ -216,6 +216,18 @@ body::before{content:'';position:fixed;inset:0;
   background:var(--blue);color:#fff;font-size:.6rem;font-weight:700;
   padding:2px 8px;border-radius:100px;white-space:nowrap;letter-spacing:.05em}
 
+/* CUSTOM QTY */
+.custom-qty-lbl{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--faint);font-weight:600;margin-top:14px}
+.custom-qty-wrap{display:flex;align-items:center;gap:10px;margin-top:8px}
+.custom-qty-wrap input{width:130px;padding:11px 14px;background:var(--glass2);
+  border:1px solid var(--border);border-radius:10px;color:var(--white);
+  font-family:var(--body);font-size:.92rem;outline:none;transition:border-color .2s;text-align:center}
+.custom-qty-wrap input:focus{border-color:var(--blue)}
+.custom-qty-wrap input::placeholder{color:var(--faint)}
+.custom-qty-unit{font-size:.82rem;color:var(--muted)}
+.custom-qty-hint{font-size:.72rem;color:var(--blue);font-weight:600;margin-top:7px;min-height:1em}
+
 /* FIELDS */
 .field-group{margin-bottom:16px}
 .field-group:last-child{margin-bottom:0}
@@ -623,6 +635,12 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             </div>
           </div>
           <div class="pack-grid" id="pack-grid"></div>
+          <div class="custom-qty-lbl">Or enter a custom quantity</div>
+          <div class="custom-qty-wrap">
+            <input type="number" id="custom_qty" min="10" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">leads (min. 10)</span>
+          </div>
+          <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
 
         <!-- BLOCK 04: DETAILS -->
@@ -867,10 +885,12 @@ const FALLBACK_TIERS = [
   { min_quantity: 50,  discount_percent: 10, label: '50 leads',  is_popular: false },
   { min_quantity: 100, discount_percent: 15, label: '100 leads', is_popular: false },
 ];
+let currentTiers = [...FALLBACK_TIERS];
 
 function renderPackGrid(tiers) {
   const grid = document.getElementById('pack-grid');
   if (!grid || !tiers?.length) return;
+  currentTiers = tiers;
   const prevQty = order.quantity;
   grid.innerHTML = tiers.map(t =>
     `<button class="pack-btn" data-qty="${t.min_quantity}" data-discount="${t.discount_percent}" onclick="selectPack(this)">` +
@@ -892,6 +912,32 @@ function renderPackGrid(tiers) {
 }
 
 renderPackGrid(FALLBACK_TIERS);
+
+function getTierForQty(qty) {
+  return [...currentTiers]
+    .sort((a, b) => b.min_quantity - a.min_quantity)
+    .find(t => t.min_quantity <= qty) || { discount_percent: 0 };
+}
+
+function onCustomQty(input) {
+  const hint = document.getElementById('custom-qty-hint');
+  const raw = parseInt(input.value, 10);
+  if (!raw || raw < 10) {
+    if (hint) hint.textContent = raw && raw < 10 ? 'Minimum 10 leads' : '';
+    order.quantity = null;
+    order.discount = 0;
+    updateSummary();
+    return;
+  }
+  document.querySelectorAll('.pack-btn').forEach(b => b.classList.remove('sel'));
+  const tier = getTierForQty(raw);
+  order.quantity = raw;
+  order.discount = tier.discount_percent;
+  if (hint) hint.textContent = tier.discount_percent > 0
+    ? `${tier.discount_percent}% volume discount applied`
+    : '';
+  updateSummary();
+}
 
 if (new URLSearchParams(location.search).get('cancelled') === 'true') {
   document.getElementById('cancelledBanner').style.display = 'flex';
@@ -978,6 +1024,10 @@ function selectPack(el) {
   el.classList.add('sel');
   order.quantity = parseInt(el.dataset.qty, 10);
   order.discount = parseInt(el.dataset.discount, 10);
+  const cqEl = document.getElementById('custom_qty');
+  if (cqEl) cqEl.value = '';
+  const hintEl = document.getElementById('custom-qty-hint');
+  if (hintEl) hintEl.textContent = '';
   updateSummary();
 }
 
