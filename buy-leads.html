@@ -443,7 +443,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   <div class="page-hero-inner">
     <div class="hero-eyebrow">Pay-Per-Lead</div>
     <h1>Order your<br><em>lead pack.</em></h1>
-    <p class="sbody">Real-time, exclusive leads generated fresh. Never recycled, never shared. Pick your trade, city and quantity — price shown upfront, no surprises at checkout.</p>
+    <p class="sbody">Real-time, exclusive leads generated fresh. Never recycled, never shared. Pick your trade, city and quantity. Price shown upfront, no surprises at checkout.</p>
     <div class="page-hero-meta">
       <span>Exclusive, not shared</span>
       <span>No lock-in contract</span>
@@ -747,18 +747,18 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </div>
         <div class="sum-row">
           <span class="sum-lbl">Price per lead</span>
-          <span class="sum-val accent" id="sum-ppl">—</span>
+          <span class="sum-val accent" id="sum-ppl">–</span>
         </div>
         <div class="sum-row" id="sum-discount-row" style="display:none">
           <span class="sum-lbl">Volume discount</span>
-          <span class="sum-val saving" id="sum-discount">—</span>
+          <span class="sum-val saving" id="sum-discount">–</span>
         </div>
 
         <hr class="sum-divider">
 
         <div class="sum-total-row">
           <span class="sum-total-lbl">Total<br><span style="font-size:.6rem;font-weight:400;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">(ex GST)</span></span>
-          <span class="sum-total-amt dim" id="sum-total">$—</span>
+          <span class="sum-total-amt dim" id="sum-total">$–</span>
         </div>
 
         <div class="sum-trust">
@@ -905,7 +905,7 @@ function renderPackGrid(tiers) {
     (t.is_popular ? '<div class="pack-popular">POPULAR</div>' : '') +
     `<div class="pack-qty">${t.min_quantity}</div>` +
     `<div class="pack-unit">leads</div>` +
-    `<div class="pack-saving${t.discount_percent === 0 ? ' none' : ''}">${t.discount_percent === 0 ? '—' : 'Save ' + t.discount_percent + '%'}</div>` +
+    `<div class="pack-saving${t.discount_percent === 0 ? ' none' : ''}">${t.discount_percent === 0 ? '–' : 'Save ' + t.discount_percent + '%'}</div>` +
     `</button>`
   ).join('');
   grid.querySelectorAll('.pack-btn').forEach(b => {
@@ -1072,7 +1072,7 @@ function updateSummary() {
   if (order.pricePerLead) {
     pplEl.textContent = `$${order.pricePerLead}`;
   } else {
-    pplEl.textContent = '—';
+    pplEl.textContent = '–';
   }
 
   if (order.pricePerLead && order.quantity) {
@@ -1092,7 +1092,7 @@ function updateSummary() {
   } else {
     discRow.style.display = 'none';
     totalEl.className = 'sum-total-amt dim';
-    totalEl.textContent = '$—';
+    totalEl.textContent = '$–';
   }
 }
 
