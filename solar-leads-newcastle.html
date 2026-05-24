@@ -568,6 +568,15 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .car-dot.a{background:var(--blue);width:20px;border-radius:3px}
 /* LOC LIST */
 .loc-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:40px}.loc-list li{font-size:.9rem;color:var(--muted);line-height:1.6;display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--glass);border:1px solid var(--border);border-radius:10px}.loc-list li::before{content:'\2192';color:var(--blue);flex-shrink:0;font-size:.8rem;margin-top:2px}
+
+/* STATS BAR RESET — override solar-leads .stats-row conflict */
+.stats-bar .stats-row{gap:0;background:none;border:none;border-radius:0;overflow:visible;margin-top:0}
+/* LINK STYLING */
+a{color:var(--blue);text-decoration:none}
+a:hover{color:var(--sky)}
+.content-body a{color:var(--blue);text-decoration:none}
+.content-body a:hover{color:var(--sky);text-decoration:underline}
+nav a,footer a,.nav-links a,.foot-links a,.mob-menu a{color:inherit}
 </style>
 <div id="curR"></div>
 <div id="aura"></div>
@@ -624,6 +633,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   <div class="stats-row">
     <div class="stat rv d1"><span class="stn" data-t="100" data-s="%">0</span><div class="stl"><b>Exclusive Leads</b>One business. One territory. No sharing.</div></div>
     <div class="stat rv d2"><span class="stn" data-t="47" data-s="s">0</span><div class="stl"><b>Average AI Response</b>From lead submission to SMS reply</div></div>
+    <div class="stat rv d4"><span class="stn" data-t="6" data-s=" Years">0</span><div class="stl"><b>Industry Experience</b>Generating high quality leads for high-value Australian trades</div></div>
     <div class="stat rv d3"><span class="stn" data-t="70" data-s="%">0</span><div class="stl"><b>Lead to Appointment</b>When AI activates within 60 seconds</div></div>
   </div>
 </div>
