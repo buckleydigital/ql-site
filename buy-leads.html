@@ -26,9 +26,8 @@
 </script>
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=3264378767213114&ev=PageView&noscript=1"/></noscript>
-<!-- End Meta Pixel Code -->
 <title>Buy Leads - Pay-Per-Lead Packs | QuoteLeads</title>
-<meta name="description" content="Order exclusive pay-per-lead packs for Solar, Roofing, HVAC, and Renovation. Pick your city, choose your quantity, and get leads in 7-14 days.">
+<meta name="description" content="Order exclusive pay-per-lead packs for Solar, Roofing, HVAC, and Renovation. Pick your city, choose your quantity, and get leads fast.">
 <link rel="canonical" href="https://quoteleads.com.au/buy-leads">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,6 +68,7 @@ body::before{content:'';position:fixed;inset:0;
   transform-origin:left center;transform:scaleX(0);
   background:linear-gradient(90deg,var(--blue),var(--sky))}
 
+/* HEADER */
 .site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;
   background:rgba(4,4,10,0);border-bottom:1px solid transparent;
   transition:background .4s,border-color .4s,backdrop-filter .4s}
@@ -93,6 +93,7 @@ body::before{content:'';position:fixed;inset:0;
 .mob-cta-link{background:var(--blue) !important;color:#fff !important;padding:14px 0 !important;
   border-radius:4px;text-align:center;margin-top:12px;border-bottom:none !important}
 
+/* HERO */
 .page-hero{position:relative;z-index:3;padding:140px 5% 60px;text-align:center;background:var(--void)}
 .page-hero-inner{max-width:720px;margin:0 auto;position:relative;z-index:3}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
@@ -109,136 +110,19 @@ body::before{content:'';position:fixed;inset:0;
 .page-hero-meta span::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-.cancelled-banner{background:rgba(255,180,60,.08);border:1px solid rgba(255,180,60,.25);
-  border-radius:12px;padding:16px 20px;margin-bottom:28px;
-  display:flex;align-items:flex-start;gap:12px;font-size:.85rem;color:#FFB43C;line-height:1.5}
-.cancelled-banner svg{flex-shrink:0;margin-top:1px}
-
-.app-section{background:var(--surf);padding:80px 5%;position:relative;z-index:3;border-top:1px solid var(--border)}
-.app-layout{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 300px;gap:60px;align-items:start}
-.app-sidebar{position:sticky;top:100px}
-
-/* SURVEY CARD */
-.survey-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;backdrop-filter:blur(12px)}
-
-.survey-progress{padding:28px 40px 0;display:flex;align-items:center;gap:14px}
-.s-prog-bar{flex:1;height:2px;background:var(--border);border-radius:1px;overflow:hidden}
-.s-prog-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--sky));
-  border-radius:1px;width:0%;transition:width .4s ease}
-.s-step-count{font-size:.72rem;color:var(--muted);white-space:nowrap;letter-spacing:.03em}
-
-/* STEP PANELS */
-.step-panel{display:none;padding:32px 40px 40px}
-.step-panel.active{display:block}
-@keyframes sInR{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:translateX(0)}}
-@keyframes sInL{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:translateX(0)}}
-.step-panel.fwd{animation:sInR .26s ease both}
-.step-panel.bck{animation:sInL .26s ease both}
-
-.step-q{font-family:var(--display);font-size:1.25rem;font-weight:600;color:var(--white);
-  letter-spacing:-.02em;margin-bottom:6px}
-.step-sub{font-size:.85rem;color:var(--muted);line-height:1.55;margin-bottom:28px}
-
-/* OPTION CARDS */
-.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.opt-card{background:var(--glass);border:1px solid var(--border);border-radius:14px;
-  padding:22px 16px;cursor:none;text-align:center;
-  display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;
-  transition:border-color .2s,background .2s,transform .2s,box-shadow .2s}
-.opt-card:hover{border-color:rgba(71,151,255,.4);background:var(--bdim);transform:translateY(-2px)}
-.opt-card.sel{border-color:var(--blue);background:var(--bdim);box-shadow:0 0 0 1px var(--blue)}
-.opt-ico{width:46px;height:46px;border-radius:12px;background:var(--bdim);
-  border:1px solid rgba(71,151,255,.2);display:flex;align-items:center;justify-content:center}
-.opt-ico svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.opt-lbl{font-family:var(--display);font-size:.92rem;font-weight:600;color:var(--white)}
-
-/* FIELDS */
-.field-group{margin-bottom:18px}
-.field-group label{display:block;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;
-  color:var(--faint);margin-bottom:8px;font-weight:500}
-.field-group input,.field-group select{
-  width:100%;padding:13px 16px;background:var(--glass2);border:1px solid var(--border);
-  border-radius:12px;color:var(--white);font-family:var(--body);font-size:.92rem;
-  transition:border-color .2s;outline:none}
-.field-group input::placeholder{color:var(--faint)}
-.field-group input:focus,.field-group select:focus{border-color:var(--blue)}
-.field-group select{appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2371717A' stroke-width='1.5'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 16px center;background-size:12px}
-.field-group select option{background:var(--deep);color:var(--white)}
-.field-group select optgroup{background:var(--deep);color:var(--muted);font-style:normal;font-size:.8rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-/* SLIDER */
-.slider-wrap{margin-top:4px}
-.slider-display{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
-.slider-val{font-family:var(--display);font-size:2.6rem;font-weight:600;
-  background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.slider-unit{font-size:.84rem;color:var(--muted);margin-left:6px}
-.slider-hint{font-size:.72rem;color:var(--faint)}
-input[type=range]{-webkit-appearance:none;width:100%;height:4px;background:var(--border);
-  border-radius:2px;outline:none;cursor:none;margin-bottom:10px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;
-  border-radius:50%;background:var(--blue);cursor:none;transition:transform .15s,box-shadow .15s;
-  box-shadow:0 0 0 4px rgba(71,151,255,.15)}
-input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0 0 0 6px rgba(71,151,255,.2)}
-.slider-ticks{display:flex;justify-content:space-between;padding:0 2px}
-.slider-ticks span{font-size:.65rem;color:var(--faint)}
-
-/* STEP NAV */
-.step-nav{display:flex;align-items:center;gap:10px;margin-top:24px}
-.btn-back{background:none;border:1px solid var(--border);color:var(--muted);
-  padding:12px 18px;border-radius:12px;font-family:var(--body);font-size:.86rem;cursor:none;
-  transition:all .2s;white-space:nowrap;flex-shrink:0}
-.btn-back:hover{border-color:var(--bmid);color:var(--white)}
-.btn-next{flex:1;background:var(--blue);color:#fff;border:none;
-  padding:14px 24px;border-radius:12px;font-family:var(--body);font-size:.92rem;font-weight:500;
-  cursor:none;transition:background .2s,box-shadow .2s,transform .2s;
-  display:flex;align-items:center;justify-content:center;gap:8px;position:relative;overflow:hidden}
-.btn-next::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.15),transparent 60%);
+.btn-mag{position:relative;display:inline-flex;align-items:center;gap:10px;
+  background:var(--blue);color:#fff;font-family:var(--body);font-size:.88rem;font-weight:500;
+  letter-spacing:.02em;padding:14px 30px;border-radius:100px;text-decoration:none;border:none;
+  overflow:hidden;transition:background .2s,box-shadow .2s;cursor:none}
+.btn-mag::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.18),transparent 60%);
   opacity:0;transition:opacity .3s}
-.btn-next:hover{background:var(--sky);box-shadow:0 12px 32px rgba(71,151,255,.3);transform:translateY(-1px)}
-.btn-next:hover::before{opacity:1}
-.btn-next svg{width:14px;height:14px;flex-shrink:0;transition:transform .2s}
-.btn-next:hover svg{transform:translateX(3px)}
+.btn-mag:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38)}
+.btn-mag:hover::before{opacity:1}
+.btn-mag svg{width:14px;height:14px;transition:transform .2s}
+.btn-mag:hover svg{transform:translateX(4px)}
 
-/* REVIEW */
-.review-section{margin-bottom:18px}
-.review-lbl{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);
-  margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.review-lbl::after{content:'';flex:1;height:1px;background:var(--border)}
-.review-rows{background:var(--glass);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.review-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
-  padding:10px 16px;border-bottom:1px solid var(--border);font-size:.84rem}
-.review-row:last-child{border-bottom:none}
-.rev-lbl{color:var(--muted);flex-shrink:0}
-.rev-val{color:var(--white);text-align:right;word-break:break-word}
-.review-total{background:var(--bdim);border:1px solid rgba(71,151,255,.2);border-radius:12px;
-  padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin:18px 0 22px}
-.rt-lbl{font-size:.84rem;color:var(--muted)}
-.rt-amount{font-family:var(--display);font-size:1.4rem;font-weight:600;
-  background:linear-gradient(90deg,var(--mist),var(--blue));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-.btn-submit-full{width:100%;background:var(--blue);color:#fff;border:none;
-  padding:16px 32px;border-radius:12px;font-family:var(--body);font-size:.96rem;font-weight:500;
-  cursor:none;transition:background .2s,box-shadow .2s,transform .2s;
-  display:flex;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden}
-.btn-submit-full::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.15),transparent 60%);
-  opacity:0;transition:opacity .3s}
-.btn-submit-full:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38);transform:translateY(-1px)}
-.btn-submit-full:hover::before{opacity:1}
-.btn-submit-full svg{width:15px;height:15px;transition:transform .2s}
-.btn-submit-full:hover svg{transform:translateX(3px)}
-
-.disclaimer{font-size:.68rem;color:var(--faint);line-height:1.6;margin-top:14px}
-.disclaimer a{color:var(--blue);text-decoration:none}
-
-/* LEAD CONTEXT STRIP */
+/* LEAD CONTEXT */
 .lead-context{padding:0 5% 48px;position:relative;z-index:3;background:var(--void)}
 .lc-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .lc-item{background:var(--glass);border:1px solid var(--border);border-radius:16px;padding:28px 24px}
@@ -251,20 +135,135 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0
 .lc-item p strong{color:var(--sky)}
 @media(max-width:768px){.lc-inner{grid-template-columns:1fr;gap:12px}}
 
-/* CONSENT ACKNOWLEDGE */
+/* TRUST STRIP */
+.trust-strip{padding:20px 5% 48px;position:relative;z-index:3;background:var(--void)}
+.trust-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:center;
+  gap:32px;flex-wrap:wrap;border:1px solid var(--border);border-radius:16px;padding:24px 40px}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--muted);white-space:nowrap}
+.trust-item svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.trust-divider{width:1px;height:24px;background:var(--border);flex-shrink:0}
+
+/* APP LAYOUT */
+.app-section{background:var(--surf);padding:80px 5%;position:relative;z-index:3;border-top:1px solid var(--border)}
+.app-layout{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 310px;gap:48px;align-items:start}
+
+/* CANCELLED BANNER */
+.cancelled-banner{background:rgba(255,180,60,.08);border:1px solid rgba(255,180,60,.25);
+  border-radius:12px;padding:16px 20px;margin-bottom:24px;
+  display:flex;align-items:flex-start;gap:12px;font-size:.85rem;color:#FFB43C;line-height:1.5}
+.cancelled-banner svg{flex-shrink:0;margin-top:1px}
+
+/* BUY CARD */
+.buy-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;backdrop-filter:blur(12px)}
+
+.buy-block{padding:28px 36px;border-bottom:1px solid var(--border)}
+.buy-block:last-child{border-bottom:none}
+.buy-block-hd{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.block-num{font-family:var(--display);font-size:.68rem;font-weight:700;color:var(--blue);
+  letter-spacing:.08em;background:var(--bdim);border:1px solid rgba(71,151,255,.25);
+  border-radius:6px;padding:3px 8px;flex-shrink:0}
+.block-title{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--white);letter-spacing:-.01em}
+.block-sub{font-size:.8rem;color:var(--muted);margin-top:2px}
+
+/* CITY SELECT */
+.city-select-wrap{position:relative}
+.city-select-wrap select{width:100%;padding:14px 40px 14px 16px;background:var(--glass2);
+  border:1px solid var(--border);border-radius:12px;color:var(--white);
+  font-family:var(--body);font-size:.95rem;transition:border-color .2s;outline:none;
+  appearance:none;cursor:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2371717A' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;background-size:12px}
+.city-select-wrap select:focus{border-color:var(--blue)}
+.city-select-wrap select option{background:var(--deep);color:var(--white)}
+.city-select-wrap select optgroup{background:var(--deep);color:var(--muted);font-style:normal;font-size:.8rem}
+
+/* TRADE GRID */
+.trade-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.trade-card{background:var(--glass);border:1.5px solid var(--border);border-radius:14px;
+  padding:18px 16px;cursor:none;display:flex;align-items:center;gap:14px;width:100%;
+  transition:border-color .2s,background .2s,transform .15s,box-shadow .2s;position:relative;text-align:left}
+.trade-card:hover{border-color:rgba(71,151,255,.4);background:var(--bdim);transform:translateY(-1px)}
+.trade-card.sel{border-color:var(--blue);background:var(--bdim);box-shadow:0 0 0 1px var(--blue)}
+.trade-ico{width:40px;height:40px;border-radius:10px;background:var(--bdim);
+  border:1px solid rgba(71,151,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.trade-ico svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.trade-info{flex:1;min-width:0}
+.trade-name{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:4px}
+.trade-price{font-size:.78rem;font-weight:500;color:var(--blue);font-family:var(--display);
+  display:flex;align-items:center;gap:6px}
+.trade-price.dim{color:var(--faint);font-style:italic;font-family:var(--body);font-weight:400}
+.price-spin{width:10px;height:10px;border:1.5px solid var(--faint);border-top-color:var(--blue);
+  border-radius:50%;animation:spin .6s linear infinite;flex-shrink:0}
+.trade-check{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;
+  background:var(--blue);display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .2s}
+.trade-card.sel .trade-check{opacity:1}
+.trade-check svg{width:10px;height:10px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* PACK GRID */
+.pack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pack-btn{background:var(--glass);border:1.5px solid var(--border);border-radius:12px;
+  padding:18px 8px 14px;text-align:center;cursor:none;
+  transition:border-color .2s,background .2s;position:relative;width:100%}
+.pack-btn:hover{border-color:rgba(71,151,255,.4);background:var(--bdim)}
+.pack-btn.sel{border-color:var(--blue);background:var(--bdim);box-shadow:0 0 0 1px var(--blue)}
+.pack-qty{font-family:var(--display);font-size:1.7rem;font-weight:700;color:var(--white);line-height:1;margin-bottom:3px}
+.pack-unit{font-size:.72rem;color:var(--muted)}
+.pack-saving{font-size:.68rem;color:var(--blue);font-weight:600;margin-top:5px;letter-spacing:.02em}
+.pack-saving.none{opacity:0}
+.pack-popular{position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+  background:var(--blue);color:#fff;font-size:.6rem;font-weight:700;
+  padding:2px 8px;border-radius:100px;white-space:nowrap;letter-spacing:.05em}
+
+/* FIELDS */
+.field-group{margin-bottom:16px}
+.field-group:last-child{margin-bottom:0}
+.field-group label{display:block;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--faint);margin-bottom:7px;font-weight:600}
+.field-group input{width:100%;padding:13px 16px;background:var(--glass2);
+  border:1px solid var(--border);border-radius:12px;color:var(--white);
+  font-family:var(--body);font-size:.92rem;transition:border-color .2s;outline:none}
+.field-group input::placeholder{color:var(--faint)}
+.field-group input:focus{border-color:var(--blue)}
+.field-group input.err{border-color:rgba(255,80,80,.7)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* CONSENT */
 .consent-ack{background:rgba(71,151,255,.06);border:1px solid rgba(71,151,255,.22);
-  border-radius:12px;padding:16px 18px;margin:18px 0 4px;display:flex;align-items:flex-start;gap:12px;transition:border-color .2s,background .2s}
+  border-radius:12px;padding:16px 18px;margin-bottom:20px;
+  display:flex;align-items:flex-start;gap:12px;transition:border-color .2s,background .2s}
 .consent-ack.err-hi{border-color:rgba(255,80,80,.5);background:rgba(255,80,80,.04)}
-.consent-ack input[type=checkbox]{width:16px;height:16px;min-width:16px;flex-shrink:0;margin-top:3px;accent-color:var(--blue);cursor:none}
+.consent-ack input[type=checkbox]{width:16px;height:16px;min-width:16px;flex-shrink:0;
+  margin-top:3px;accent-color:var(--blue);cursor:none}
 .consent-ack label{font-size:.79rem;color:var(--muted);line-height:1.65;cursor:none}
 .consent-ack label strong{color:var(--white);font-weight:500}
 
+/* SUBMIT */
+.btn-submit{width:100%;background:var(--blue);color:#fff;border:none;
+  padding:16px 24px;border-radius:12px;font-family:var(--body);font-size:.96rem;font-weight:500;
+  cursor:none;transition:background .2s,box-shadow .2s,transform .2s;
+  display:flex;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden}
+.btn-submit::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.15),transparent 60%);
+  opacity:0;transition:opacity .3s}
+.btn-submit:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38);transform:translateY(-1px)}
+.btn-submit:hover::before{opacity:1}
+.btn-submit svg{width:15px;height:15px;transition:transform .2s}
+.btn-submit:hover svg{transform:translateX(3px)}
+.btn-submit:disabled{opacity:.35;pointer-events:none}
+
+.disclaimer{font-size:.68rem;color:var(--faint);line-height:1.6;margin-top:14px;text-align:center}
+.disclaimer a{color:var(--blue);text-decoration:none}
+
+/* LOADING / ERROR STATES */
 .form-state{display:none;padding:60px 40px;text-align:center}
 .form-state.active{display:block}
 .spin{width:32px;height:32px;border:2px solid var(--border);border-top-color:var(--blue);
   border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 20px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.state-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.state-icon{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;margin:0 auto 20px}
 .state-icon.err{background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.2)}
 .state-icon.err svg{stroke:rgba(255,100,100,.8)}
 .state-h{font-family:var(--display);font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:10px}
@@ -274,43 +273,57 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0
 .btn-retry:hover{border-color:var(--bmid);color:var(--white)}
 
 /* SIDEBAR */
+.app-sidebar{position:sticky;top:90px}
 .sidebar-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px 24px;
-  backdrop-filter:blur(12px);margin-bottom:16px}
-.sc-lbl{font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:20px;letter-spacing:-.01em}
-.checklist{list-style:none;display:flex;flex-direction:column;gap:14px}
-.checklist li{font-size:.84rem;color:var(--muted);line-height:1.55;display:flex;align-items:flex-start;gap:10px}
-.checklist li::before{content:'✓';color:var(--blue);font-size:.75rem;flex-shrink:0;margin-top:2px;font-weight:700}
-.sidebar-note{font-size:.75rem;color:var(--faint);line-height:1.6;margin-top:16px;
-  padding-top:16px;border-top:1px solid var(--border)}
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;
+  backdrop-filter:blur(12px);margin-bottom:14px}
+
+/* SUMMARY CARD */
+.sum-title{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white);
+  margin-bottom:18px;letter-spacing:-.01em;display:flex;align-items:center;justify-content:space-between}
+.sum-live{display:flex;align-items:center;gap:5px;font-size:.62rem;color:var(--blue);
+  font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.sum-live-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);animation:bpulse 2s ease infinite}
+.sum-row{display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:9px;font-size:.82rem}
+.sum-lbl{color:var(--muted)}
+.sum-val{color:var(--white);font-weight:500;text-align:right}
+.sum-val.dim{color:var(--faint);font-style:italic;font-weight:400}
+.sum-val.accent{color:var(--blue);font-family:var(--display)}
+.sum-val.saving{color:#34d399}
+.sum-divider{border:none;border-top:1px solid var(--border);margin:14px 0}
+.sum-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px}
+.sum-total-lbl{font-family:var(--display);font-size:.92rem;font-weight:600;color:var(--white)}
+.sum-total-amt{font-family:var(--display);font-size:1.9rem;font-weight:700;
+  background:linear-gradient(90deg,var(--mist),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.sum-total-amt.dim{background:none;-webkit-text-fill-color:var(--faint);
+  font-style:italic;font-size:1.2rem;font-weight:400}
+.sum-trust{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.sum-trust-item{display:flex;align-items:center;gap:8px;font-size:.75rem;color:var(--muted)}
+.sum-trust-item svg{width:13px;height:13px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* OTHER SIDEBAR */
+.sc-lbl{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:18px;letter-spacing:-.01em}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:12px}
+.checklist li{font-size:.82rem;color:var(--muted);line-height:1.55;display:flex;align-items:flex-start;gap:10px}
+.checklist li::before{content:'✓';color:var(--blue);font-size:.72rem;flex-shrink:0;margin-top:2px;font-weight:700}
+.sidebar-note{font-size:.72rem;color:var(--faint);line-height:1.6;margin-top:14px;
+  padding-top:14px;border-top:1px solid var(--border)}
 .sidebar-note a{color:var(--blue);text-decoration:none}
 .delivery-badge{background:var(--bdim);border:1px solid rgba(71,151,255,.2);border-radius:10px;
-  padding:14px 16px;margin-top:16px;display:flex;align-items:flex-start;gap:10px}
+  padding:12px 14px;margin-top:14px;display:flex;align-items:flex-start;gap:10px}
 .delivery-badge .bpulse{width:6px;height:6px;background:var(--blue);border-radius:50%;
-  animation:bpulse 2s ease infinite;flex-shrink:0;margin-top:4px}
+  animation:bpulse 2s ease infinite;flex-shrink:0;margin-top:3px}
 @keyframes bpulse{0%,100%{box-shadow:0 0 0 0 rgba(71,151,255,.6)}50%{box-shadow:0 0 0 6px rgba(71,151,255,0)}}
-.delivery-badge p{font-size:.78rem;color:var(--sky);line-height:1.5}
+.delivery-badge p{font-size:.76rem;color:var(--sky);line-height:1.5}
 .delivery-badge strong{color:var(--white);font-weight:500}
-
-.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
-.rv.in{opacity:1;transform:translateY(0)}
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--void)}
-::-webkit-scrollbar-thumb{background:var(--faint);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:var(--blue)}
-
-/* HERO CTA BUTTON */
-.btn-mag{position:relative;display:inline-flex;align-items:center;gap:10px;
-  background:var(--blue);color:#fff;font-family:var(--body);font-size:.88rem;font-weight:500;
-  letter-spacing:.02em;padding:14px 30px;border-radius:100px;text-decoration:none;border:none;
-  overflow:hidden;transition:background .2s,box-shadow .2s;cursor:none}
-.btn-mag::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.18),transparent 60%);
-  opacity:0;transition:opacity .3s}
-.btn-mag:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38)}
-.btn-mag:hover::before{opacity:1}
-.btn-mag svg{width:14px;height:14px;transition:transform .2s}
-.btn-mag:hover svg{transform:translateX(4px)}
+.tstars{font-size:.7rem;color:var(--sky);margin-bottom:10px;letter-spacing:2px}
+.tauth{display:flex;align-items:center;gap:10px}
+.tav{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.66rem;font-weight:600;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--sky))}
+.tnm{font-size:.84rem;font-weight:500;color:var(--white);margin-bottom:2px}
+.tco{font-size:.74rem;color:var(--muted)}
 
 /* TESTIMONIALS */
 .testi-section{background:var(--deep);padding:80px 5%}
@@ -326,12 +339,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0
 .tc.pos-hidden{transform:translateX(0) translateZ(-200px) scale(.6);opacity:0;z-index:1;pointer-events:none}
 .tresult{display:inline-flex;align-items:center;gap:8px;background:rgba(71,151,255,.08);border:1px solid rgba(71,151,255,.2);color:var(--sky);font-size:.7rem;font-weight:700;padding:4px 13px;border-radius:100px;margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
 .trd{width:5px;height:5px;background:var(--blue);border-radius:50%}
-.tstars{font-size:.7rem;color:var(--sky);margin-bottom:14px;letter-spacing:2px}
 .tbody{font-size:.88rem;color:#CACAC0;line-height:1.74;margin-bottom:20px;font-style:italic}
-.tauth{display:flex;align-items:center;gap:12px}
-.tav{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:600;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--sky))}
-.tnm{font-size:.88rem;font-weight:500;color:var(--white);margin-bottom:2px}
-.tco{font-size:.76rem;color:var(--muted)}
 .car-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:48px}
 .car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--glass);display:flex;align-items:center;justify-content:center;cursor:none;color:var(--muted);transition:all .25s;font-size:.9rem;backdrop-filter:blur(10px)}
 .car-btn:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 0 20px rgba(71,151,255,.15)}
@@ -339,20 +347,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);box-shadow:0
 .car-dot{width:6px;height:6px;border-radius:50%;background:var(--faint);transition:all .3s;cursor:none}
 .car-dot.a{background:var(--blue);width:20px;border-radius:3px}
 
-/* TRUST STRIP */
-.trust-strip{padding:20px 5% 48px;position:relative;z-index:3;background:var(--void)}
-.trust-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:center;
-  gap:32px;flex-wrap:wrap;border:1px solid var(--border);border-radius:16px;padding:24px 40px}
-.trust-item{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--muted);white-space:nowrap}
-.trust-item svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.trust-divider{width:1px;height:24px;background:var(--border);flex-shrink:0}
-@media(max-width:768px){
-  .trust-inner{gap:16px;padding:20px 24px}
-  .trust-divider{display:none}
-  .car-scene{height:420px}
-  .tc.pos-right,.tc.pos-left{opacity:0}
-}
-
+/* FOOTER */
 footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep);position:relative;z-index:3}
 .foot-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .foot-logo img{height:28px;width:auto;opacity:.65}
@@ -369,23 +364,35 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   transition:all .2s;background:var(--glass)}
 .foot-social a:hover{border-color:var(--blue);color:var(--blue);background:var(--bdim)}
 
-@media(max-width:1024px){.app-layout{grid-template-columns:1fr 260px;gap:40px}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--void)}
+::-webkit-scrollbar-thumb{background:var(--faint);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--blue)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.app-layout{grid-template-columns:1fr 270px;gap:32px}}
 @media(max-width:768px){
   .page-hero{padding:100px 5% 50px}
   .page-hero h1{font-size:clamp(1.8rem,6vw,2.4rem)}
   .nav-links{display:none}.mob-btn{display:flex}
-  .app-layout{grid-template-columns:1fr;gap:32px}
+  .lc-inner{grid-template-columns:1fr;gap:12px}
+  .trust-inner{gap:16px;padding:20px 24px}
+  .trust-divider{display:none}
+  .app-layout{grid-template-columns:1fr;gap:28px}
   .app-sidebar{position:static}
-  .step-panel{padding:24px 24px 32px}
-  .survey-progress{padding:20px 24px 0}
-  .form-state{padding:48px 24px}
+  .buy-block{padding:22px 20px}
+  .trade-grid{grid-template-columns:1fr 1fr}
+  .pack-grid{grid-template-columns:repeat(2,1fr)}
   .form-row{grid-template-columns:1fr}
+  .car-scene{height:420px}
+  .tc.pos-right,.tc.pos-left{opacity:0}
   footer{padding:40px 5%}
   .foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
 }
-@media(max-width:480px){
-  .step-panel{padding:20px 18px 28px}
-  .opt-card{padding:18px 12px}
+@media(max-width:440px){
+  .trade-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -405,11 +412,13 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <ul class="nav-links">
       <li><a href="/#how-it-works">How It Works</a></li>
       <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
-      <li><a href="/buy-leads" class="nav-cta">Buy Leads <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+      <li><a href="/buy-leads" class="nav-cta">Buy Leads
+        <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a></li>
     </ul>
     <button class="mob-btn" id="mobBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-            <nav class="mob-menu" id="mobMenu">
+  <nav class="mob-menu" id="mobMenu">
     <a href="/#how-it-works">How It Works</a>
     <a href="https://quoteleadshq.com/dashboard">Login</a>
     <a href="/buy-leads" class="mob-cta-link">Buy Leads</a>
@@ -420,7 +429,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   <div class="page-hero-inner">
     <div class="hero-eyebrow">Pay-Per-Lead</div>
     <h1>Order your<br><em>lead pack.</em></h1>
-    <p class="sbody">Real-time, exclusive leads generated fresh through our paid advertising funnels, brand new enquiries, never recycled, never shared. Pick your trade, city and quantity. Leads delivered within 7-14 days.</p>
+    <p class="sbody">Real-time, exclusive leads generated fresh. Never recycled, never shared. Pick your trade, city and quantity — price shown upfront, no surprises at checkout.</p>
     <div class="page-hero-meta">
       <span>Exclusive, not shared</span>
       <span>No lock-in contract</span>
@@ -428,7 +437,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     </div>
     <p style="margin-top:20px;font-size:.84rem;color:var(--muted)">Already have an account? <a href="https://quoteleadshq.com/dashboard" style="color:var(--blue)">Buy leads inside your dashboard</a></p>
     <div style="margin-top:32px">
-      <a href="#order-form" class="btn-mag" onclick="event.preventDefault();var el=document.getElementById('order-form');window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-90,behavior:'smooth'})">
+      <a href="#order-form" class="btn-mag" onclick="event.preventDefault();document.getElementById('order-form').scrollIntoView({behavior:'smooth',block:'start'})">
         Buy First Lead Pack
         <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
       </a>
@@ -436,42 +445,36 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   </div>
 </section>
 
-<!-- LEAD CONTEXT STRIP -->
 <div class="lead-context">
   <div class="lc-inner">
-
     <div class="lc-item lc-hi">
       <div class="lc-icon">
         <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
       </div>
       <h4>Brand new. Not recycled.</h4>
-      <p>Your leads haven't been generated yet. They're created <strong>fresh for your order</strong> through live paid advertising on Meta and Google. Every prospect clicks an ad, fills out a survey, and is delivered to you in real-time. No databases. No cold lists. No leftovers from another business's campaign.</p>
+      <p>Your leads haven't been generated yet. They're created <strong>fresh for your order</strong> through live paid advertising. Every prospect clicks an ad, fills out a survey, and is delivered to you in real-time. No databases. No cold lists.</p>
     </div>
-
     <div class="lc-item">
       <div class="lc-icon">
         <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
       </div>
       <h4>Exclusive to you. 1:1 consent.</h4>
-      <p>Our funnels produce <strong>thousands of leads per month</strong> across every trade and major city. Every single one is assigned to exactly one business. Before submitting, each homeowner sees a consent form with <strong>your business name on it</strong>. They're expecting your call specifically, not five competitors'.</p>
+      <p>Every lead is assigned to exactly one business. Before submitting, each homeowner sees a consent form with <strong>your business name on it</strong>. They're expecting your call specifically, not five competitors'.</p>
     </div>
-
     <div class="lc-item">
       <div class="lc-icon">
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
       <h4>The highest quality leads you can buy.</h4>
-      <p>Survey-qualified, real-time, named-consent. These aren't marketplace enquiries resold to whoever bids. They arrive <strong>knowing who you are</strong>, project details already captured, expecting to hear from your business, not three others, within the hour.</p>
+      <p>Survey-qualified, real-time, named-consent. They arrive <strong>knowing who you are</strong>, project details already captured, expecting to hear from your business within the hour.</p>
     </div>
-
   </div>
 </div>
 
-<!-- TRUST STRIP -->
 <div class="trust-strip">
   <div class="trust-inner rv">
     <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
       Stripe-secured payments
     </div>
     <div class="trust-divider"></div>
@@ -487,7 +490,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="trust-divider"></div>
     <div class="trust-item">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      First leads within 7-14 days
+      Leads within 24–48 hours
     </div>
     <div class="trust-divider"></div>
     <div class="trust-item">
@@ -500,50 +503,26 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 <section class="app-section" id="order-form">
   <div class="app-layout">
 
+    <!-- LEFT: BUY FORM -->
     <div>
       <div class="cancelled-banner" id="cancelledBanner" style="display:none">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <div><strong style="color:var(--white)">Payment not completed.</strong> No charge was made. Continue below when you're ready.</div>
       </div>
 
-      <div class="survey-card" id="surveyCard">
+      <div class="buy-card" id="buyCard">
 
-        <div class="survey-progress">
-          <div class="s-prog-bar"><div class="s-prog-fill" id="progFill"></div></div>
-          <div class="s-step-count" id="stepCount">Step 1 of 5</div>
-        </div>
-
-        <!-- STEP 1: Trade -->
-        <div class="step-panel active fwd" id="step-1">
-          <div class="step-q">What's your trade?</div>
-          <p class="step-sub">Leads matched to your industry and city.</p>
-          <div class="opt-grid">
-            <button class="opt-card" data-val="solar" onclick="selectOpt(this,'niche')">
-              <div class="opt-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
-              <div class="opt-lbl">Solar</div>
-            </button>
-            <button class="opt-card" data-val="roofing" onclick="selectOpt(this,'niche')">
-              <div class="opt-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-              <div class="opt-lbl">Roofing</div>
-            </button>
-            <button class="opt-card" data-val="hvac" onclick="selectOpt(this,'niche')">
-              <div class="opt-ico"><svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></div>
-              <div class="opt-lbl">HVAC</div>
-            </button>
-            <button class="opt-card" data-val="renovation" onclick="selectOpt(this,'niche')">
-              <div class="opt-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-              <div class="opt-lbl">Renovation</div>
-            </button>
+        <!-- BLOCK 01: CITY -->
+        <div class="buy-block">
+          <div class="buy-block-hd">
+            <span class="block-num">01</span>
+            <div>
+              <div class="block-title">Where do you work?</div>
+              <div class="block-sub">Pricing is set per city and trade.</div>
+            </div>
           </div>
-        </div>
-
-        <!-- STEP 2: City -->
-        <div class="step-panel" id="step-2">
-          <div class="step-q">Which city?</div>
-          <p class="step-sub">Leads will be targeted to homeowners in this area.</p>
-          <div class="field-group">
-            <label for="area_city">City / area</label>
-            <select id="area_city">
+          <div class="city-select-wrap">
+            <select id="area_city" onchange="onCityChange()">
               <option value="">Select a city&hellip;</option>
               <optgroup label="Queensland">
                 <option value="Brisbane">Brisbane</option>
@@ -574,40 +553,109 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               </optgroup>
             </select>
           </div>
-          <div class="step-nav">
-            <button class="btn-back" onclick="goTo(1,'bck')">&#8592; Back</button>
-            <button class="btn-next" onclick="next2()">Continue <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg></button>
-          </div>
         </div>
 
-        <!-- STEP 3: Volume -->
-        <div class="step-panel" id="step-3">
-          <div class="step-q">How many leads?</div>
-          <p class="step-sub">Leads are delivered within 7-14 days of payment.</p>
-          <div class="slider-wrap">
-            <div class="slider-display">
-              <div>
-                <span class="slider-val" id="qtyDisplay">20</span>
-                <span class="slider-unit">leads</span>
+        <!-- BLOCK 02: TRADE -->
+        <div class="buy-block">
+          <div class="buy-block-hd">
+            <span class="block-num">02</span>
+            <div>
+              <div class="block-title">Select your trade</div>
+              <div class="block-sub">Price per lead shown once city is selected.</div>
+            </div>
+          </div>
+          <div class="trade-grid">
+
+            <button class="trade-card" data-niche="solar" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
               </div>
-              <span class="slider-hint">10 - 100</span>
-            </div>
-            <input type="range" id="quantity" min="10" max="100" step="10" value="20"
-              oninput="document.getElementById('qtyDisplay').textContent=this.value">
-            <div class="slider-ticks">
-              <span>10</span><span>25</span><span>50</span><span>75</span><span>100</span>
-            </div>
-          </div>
-          <div class="step-nav">
-            <button class="btn-back" onclick="goTo(2,'bck')">&#8592; Back</button>
-            <button class="btn-next" onclick="next3()">Continue <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg></button>
+              <div class="trade-info">
+                <div class="trade-name">Solar</div>
+                <div class="trade-price dim" id="price-solar">Select city first</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
+            <button class="trade-card" data-niche="roofing" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Roofing</div>
+                <div class="trade-price dim" id="price-roofing">Select city first</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
+            <button class="trade-card" data-niche="hvac" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">HVAC</div>
+                <div class="trade-price dim" id="price-hvac">Select city first</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
+            <button class="trade-card" data-niche="renovation" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Renovation</div>
+                <div class="trade-price dim" id="price-renovation">Select city first</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
           </div>
         </div>
 
-        <!-- STEP 4: Details -->
-        <div class="step-panel" id="step-4">
-          <div class="step-q">Your details</div>
-          <p class="step-sub">Used to set up your account and deliver your leads.</p>
+        <!-- BLOCK 03: PACK SIZE -->
+        <div class="buy-block">
+          <div class="buy-block-hd">
+            <span class="block-num">03</span>
+            <div>
+              <div class="block-title">How many leads?</div>
+              <div class="block-sub">Larger packs include a volume discount.</div>
+            </div>
+          </div>
+          <div class="pack-grid">
+            <button class="pack-btn" data-qty="10" data-discount="0" onclick="selectPack(this)">
+              <div class="pack-qty">10</div>
+              <div class="pack-unit">leads</div>
+              <div class="pack-saving none">—</div>
+            </button>
+            <button class="pack-btn" data-qty="25" data-discount="5" onclick="selectPack(this)">
+              <div class="pack-popular">POPULAR</div>
+              <div class="pack-qty">25</div>
+              <div class="pack-unit">leads</div>
+              <div class="pack-saving">Save 5%</div>
+            </button>
+            <button class="pack-btn" data-qty="50" data-discount="10" onclick="selectPack(this)">
+              <div class="pack-qty">50</div>
+              <div class="pack-unit">leads</div>
+              <div class="pack-saving">Save 10%</div>
+            </button>
+            <button class="pack-btn" data-qty="100" data-discount="15" onclick="selectPack(this)">
+              <div class="pack-qty">100</div>
+              <div class="pack-unit">leads</div>
+              <div class="pack-saving">Save 15%</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- BLOCK 04: DETAILS -->
+        <div class="buy-block">
+          <div class="buy-block-hd">
+            <span class="block-num">04</span>
+            <div>
+              <div class="block-title">Your details</div>
+              <div class="block-sub">Used to set up your account and deliver your leads.</div>
+            </div>
+          </div>
           <div class="form-row">
             <div class="field-group">
               <label for="first_name">First name</label>
@@ -620,7 +668,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
           <div class="field-group">
             <label for="company">Company name</label>
-            <input type="text" id="company" placeholder="Your business name" autocomplete="organization">
+            <input type="text" id="company" placeholder="Your business name" autocomplete="organization" oninput="updateConsentLabel()">
           </div>
           <div class="form-row">
             <div class="field-group">
@@ -632,117 +680,133 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <input type="tel" id="phone" placeholder="04XX XXX XXX" autocomplete="tel">
             </div>
           </div>
-          <div class="step-nav">
-            <button class="btn-back" onclick="goTo(3,'bck')">&#8592; Back</button>
-            <button class="btn-next" onclick="next4()">Review order <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg></button>
-          </div>
         </div>
 
-        <!-- STEP 5: Review & Pay -->
-        <div class="step-panel" id="step-5">
-          <div class="step-q">Review &amp; pay</div>
-          <p class="step-sub">Check everything looks right before heading to payment.</p>
-
-          <div class="review-section">
-            <div class="review-lbl">Your order</div>
-            <div class="review-rows">
-              <div class="review-row"><span class="rev-lbl">Trade</span><span class="rev-val" id="revNiche"></span></div>
-              <div class="review-row"><span class="rev-lbl">City</span><span class="rev-val" id="revCity"></span></div>
-              <div class="review-row"><span class="rev-lbl">Quantity</span><span class="rev-val" id="revQty"></span></div>
-            </div>
-          </div>
-
-          <div class="review-section">
-            <div class="review-lbl">Your details</div>
-            <div class="review-rows">
-              <div class="review-row"><span class="rev-lbl">Name</span><span class="rev-val" id="revName"></span></div>
-              <div class="review-row"><span class="rev-lbl">Company</span><span class="rev-val" id="revCompany"></span></div>
-              <div class="review-row"><span class="rev-lbl">Email</span><span class="rev-val" id="revEmail"></span></div>
-              <div class="review-row"><span class="rev-lbl">Phone</span><span class="rev-val" id="revPhone"></span></div>
-            </div>
-          </div>
-
-          <div class="review-total">
-            <span class="rt-lbl" id="revPriceMeta">Fetching pricing&hellip;</span>
-            <span class="rt-amount" id="revTotal"></span>
-          </div>
-
+        <!-- BLOCK 05: CONSENT + SUBMIT -->
+        <div class="buy-block">
           <div class="consent-ack" id="consentAck">
             <input type="checkbox" id="consentBizCheck">
             <label for="consentBizCheck">
-              I consent to my business name, <strong id="consentBizLabel">my business</strong>, being used in QuoteLeads' proprietary consent forms and advertising funnels. I understand that prospects will see my business name and explicitly agree to be contacted by my business, by name,before their enquiry is submitted, providing legally compliant, named consent for outreach.
+              I consent to my business name, <strong id="consentBizLabel">my business</strong>, being used in QuoteLeads' proprietary consent forms. Prospects will see my business name and explicitly agree to be contacted by my business before their enquiry is submitted.
             </label>
           </div>
-
-          <div class="step-nav" style="margin-top:0">
-            <button class="btn-back" onclick="goTo(4,'bck')">&#8592; Back</button>
-            <button class="btn-next btn-submit-full" style="flex:1;border-radius:12px" onclick="submitOrder()">
-              Proceed to Payment
-              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
-            </button>
-          </div>
-
+          <button class="btn-submit" id="btnSubmit" onclick="submitOrder()">
+            Proceed to Payment
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
+          </button>
           <p class="disclaimer">
             By proceeding you agree to our <a href="/pay-per-lead-terms">Pay-Per-Lead Terms</a> and <a href="/privacy">Privacy Policy</a>.
             Payment processed securely via Stripe. Price includes 10% GST.
           </p>
         </div>
 
-        <!-- LOADING -->
+        <!-- LOADING STATE -->
         <div class="form-state" id="stateLoading">
           <div class="spin"></div>
           <p class="state-p">Creating your order&hellip;</p>
         </div>
 
-        <!-- ERROR -->
+        <!-- ERROR STATE -->
         <div class="form-state" id="stateError">
           <div class="state-icon err">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
           </div>
           <p class="state-h">Something went wrong.</p>
           <p class="state-p" id="errorMsg">We couldn't create your checkout session. Please try again.</p>
-          <button class="btn-retry" onclick="resetForm()">&#8592; Try again</button>
+          <button class="btn-retry" onclick="resetToForm()">&#8592; Try again</button>
         </div>
 
       </div>
     </div>
 
-    <!-- SIDEBAR -->
+    <!-- RIGHT: SIDEBAR -->
     <div class="app-sidebar">
+
+      <!-- LIVE SUMMARY -->
+      <div class="sidebar-card">
+        <div class="sum-title">
+          Order Summary
+          <div class="sum-live"><div class="sum-live-dot"></div>Live</div>
+        </div>
+
+        <div class="sum-row">
+          <span class="sum-lbl">Trade</span>
+          <span class="sum-val dim" id="sum-trade">Not selected</span>
+        </div>
+        <div class="sum-row">
+          <span class="sum-lbl">City</span>
+          <span class="sum-val dim" id="sum-city">Not selected</span>
+        </div>
+        <div class="sum-row">
+          <span class="sum-lbl">Lead pack</span>
+          <span class="sum-val dim" id="sum-pack">Not selected</span>
+        </div>
+        <div class="sum-row">
+          <span class="sum-lbl">Price per lead</span>
+          <span class="sum-val accent" id="sum-ppl">—</span>
+        </div>
+        <div class="sum-row" id="sum-discount-row" style="display:none">
+          <span class="sum-lbl">Volume discount</span>
+          <span class="sum-val saving" id="sum-discount">—</span>
+        </div>
+
+        <hr class="sum-divider">
+
+        <div class="sum-total-row">
+          <span class="sum-total-lbl">Total</span>
+          <span class="sum-total-amt dim" id="sum-total">$—</span>
+        </div>
+
+        <div class="sum-trust">
+          <div class="sum-trust-item">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            7-day replacement on off-criteria leads
+          </div>
+          <div class="sum-trust-item">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Stripe-secured · GST invoice included
+          </div>
+          <div class="sum-trust-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            No lock-in. Cancel any time.
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT YOU GET -->
       <div class="sidebar-card">
         <div class="sc-lbl">What you get</div>
         <ul class="checklist">
-          <li>Brand new leads generated fresh via paid ads, not recycled or re-sold</li>
+          <li>Brand new leads generated fresh, not recycled or re-sold</li>
           <li>Real-time delivery the moment a prospect qualifies</li>
           <li>Exclusive: one lead, one business, every time</li>
-          <li>Your business name on the consent form, prospects expect your call</li>
-          <li>Verified name, phone, email and full project details</li>
-          <li>Matched to your exact trade and city</li>
-          <li>No subscription, no lock-in</li>
+          <li>Your business name on the consent form</li>
+          <li>Verified name, phone, email and project details</li>
           <li>GST invoice issued automatically</li>
         </ul>
-        <div class="sidebar-note">Generated through QuoteLeads' owned and operated advertising funnels, thousands of leads per month across all trades, distributed exclusively through 1:1 consent-based enquiries. Your business name is shown on the consent form every single time.</div>
-      </div>
-
-      <div class="sidebar-card">
-        <div class="delivery-badge">
-          <div class="bpulse"></div>
-          <p><strong>Leads delivered in 7-14 days</strong><br>from payment confirmation.</p>
-        </div>
-        <div class="delivery-badge" style="margin-top:10px">
-          <div class="bpulse"></div>
-          <p><strong>7 day replacement policy</strong><br>on unverifiable leads.</p>
-        </div>
-        <div class="sidebar-note" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
+        <div class="sidebar-note">
           <a href="/pay-per-lead-terms">Pay-per-lead terms apply &rarr;</a>
         </div>
       </div>
 
+      <!-- DELIVERY + REPLACEMENT -->
+      <div class="sidebar-card">
+        <div class="delivery-badge">
+          <div class="bpulse"></div>
+          <p><strong>Leads within 24–48 hours</strong><br>from payment confirmation.</p>
+        </div>
+        <div class="delivery-badge" style="margin-top:10px">
+          <div class="bpulse"></div>
+          <p><strong>7-day replacement policy</strong><br>on unverifiable or off-criteria leads.</p>
+        </div>
+      </div>
+
+      <!-- TESTIMONIAL -->
       <div class="sidebar-card" style="border-color:rgba(71,151,255,.2);background:linear-gradient(145deg,rgba(71,151,255,.06),rgba(71,151,255,.02))">
-        <div class="tstars" style="margin-bottom:12px">★★★★★</div>
+        <div class="tstars">★★★★★</div>
         <p style="font-size:.84rem;color:var(--off);line-height:1.68;font-style:italic;margin-bottom:16px">"First sale $25k, next one $39k. Buzzing."</p>
         <div class="tauth">
-          <div class="tav" style="width:34px;height:34px;font-size:.68rem">MM</div>
+          <div class="tav">MM</div>
           <div>
             <div class="tnm">Max &amp; Mitchell</div>
             <div class="tco">Renovations</div>
@@ -751,7 +815,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       </div>
 
     </div>
-
   </div>
 </section>
 
@@ -759,7 +822,9 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 <div class="testi-section">
   <div class="testi-inner">
     <div class="testi-h rv">
-      <div class="ey" style="justify-content:center;display:flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px"><span style="display:block;width:22px;height:1px;background:var(--blue)"></span>Results</div>
+      <div style="justify-content:center;display:flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px">
+        <span style="display:block;width:22px;height:1px;background:var(--blue)"></span>Results
+      </div>
       <h2 style="font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.025em;color:var(--white);margin-bottom:12px">What trade businesses are saying.</h2>
       <p style="color:var(--muted);font-size:.92rem;max-width:380px;margin:0 auto">Real businesses. Real outcomes. Not shared leads.</p>
     </div>
@@ -806,256 +871,372 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
 <script>
 const SUPABASE_URL = 'https://wjadekgptkstfdootuol.supabase.co';
-const TOTAL_STEPS = 5;
-let currentStep = 1;
-const surveyData = {};
 
-if(new URLSearchParams(location.search).get('cancelled')==='true'){
-  document.getElementById('cancelledBanner').style.display='flex';
+// ─── STATE ──────────────────────────────────────────────
+const order = {
+  niche: null,
+  area_city: null,
+  quantity: null,
+  discount: 0,
+  pricePerLead: null,
+  prices: {}  // cache per city: { solar: 85, roofing: 65, ... }
+};
+
+if (new URLSearchParams(location.search).get('cancelled') === 'true') {
+  document.getElementById('cancelledBanner').style.display = 'flex';
 }
 
-function updateProgress(){
-  const pct = ((currentStep-1)/(TOTAL_STEPS-1))*100;
-  document.getElementById('progFill').style.width = pct+'%';
-  document.getElementById('stepCount').textContent = 'Step '+currentStep+' of '+TOTAL_STEPS;
-}
-
-function goTo(n, dir){
-  const cur = document.getElementById('step-'+currentStep);
-  cur.classList.remove('active','fwd','bck');
-  cur.style.display='none';
-  currentStep = n;
-  const target = document.getElementById('step-'+n);
-  target.style.display='block';
-  target.offsetHeight;
-  target.classList.add('active', dir==='bck' ? 'bck' : 'fwd');
-  updateProgress();
-  if(n===5) renderReview();
-}
-
-function selectOpt(el, field){
-  el.closest('.opt-grid').querySelectorAll('.opt-card').forEach(c=>c.classList.remove('sel'));
-  el.classList.add('sel');
-  surveyData[field] = el.dataset.val;
-  setTimeout(()=>goTo(2,'fwd'), 320);
-}
-
-function flashErr(el){
-  el.style.borderColor='rgba(255,80,80,.7)';
-  el.focus();
-  setTimeout(()=>el.style.borderColor='',2000);
-}
-
-function next2(){
+// ─── CITY CHANGE ────────────────────────────────────────
+async function onCityChange() {
   const city = document.getElementById('area_city').value;
-  if(!city){flashErr(document.getElementById('area_city'));return;}
-  surveyData.area_city = city;
-  goTo(3,'fwd');
-}
+  order.area_city = city || null;
 
-function next3(){
-  surveyData.quantity = parseInt(document.getElementById('quantity').value, 10);
-  goTo(4,'fwd');
-}
-
-function next4(){
-  const fields=[{id:'first_name'},{id:'last_name'},{id:'company'},{id:'email'},{id:'phone'}];
-  for(const f of fields){
-    const el=document.getElementById(f.id);
-    if(!el.value.trim()){flashErr(el);return;}
-  }
-  const emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const emailEl=document.getElementById('email');
-  if(!emailRe.test(emailEl.value.trim())){flashErr(emailEl);return;}
-  surveyData.first_name=document.getElementById('first_name').value.trim();
-  surveyData.last_name=document.getElementById('last_name').value.trim();
-  surveyData.company=document.getElementById('company').value.trim();
-  surveyData.email=document.getElementById('email').value.trim();
-  surveyData.phone=document.getElementById('phone').value.trim();
-  goTo(5,'fwd');
-}
-
-const nicheLabels={solar:'Solar',roofing:'Roofing',hvac:'HVAC',renovation:'Renovation'};
-
-async function renderReview(){
-  document.getElementById('revNiche').textContent = nicheLabels[surveyData.niche]||surveyData.niche||'';
-  document.getElementById('revCity').textContent = surveyData.area_city||'';
-  document.getElementById('revQty').textContent = (surveyData.quantity||0)+' leads';
-  document.getElementById('revName').textContent = (surveyData.first_name+' '+surveyData.last_name).trim();
-  document.getElementById('revCompany').textContent = surveyData.company||'';
-  document.getElementById('revEmail').textContent = surveyData.email||'';
-  document.getElementById('revPhone').textContent = surveyData.phone||'';
-  document.getElementById('revPriceMeta').textContent = 'Fetching pricing…';
-  document.getElementById('revTotal').textContent = '';
-  const bizLbl = document.getElementById('consentBizLabel');
-  if(bizLbl) bizLbl.textContent = surveyData.company || 'my business';
-  const consentBox = document.getElementById('consentBizCheck');
-  if(consentBox) consentBox.checked = false;
-  document.getElementById('consentAck').classList.remove('err-hi');
-  try{
-    const params=new URLSearchParams({
-      niche:surveyData.niche,
-      area:(surveyData.area_city||'').trim()
-    });
-    const res=await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?${params}`);
-    if(!res.ok) throw new Error();
-    const pricing=await res.json();
-    surveyData.price_per_lead=pricing.price_per_lead;
-    const total=pricing.price_per_lead*(surveyData.quantity||0);
-    document.getElementById('revPriceMeta').textContent=`$${pricing.price_per_lead}/lead · ${surveyData.quantity} leads · delivered 7-14 days`;
-    document.getElementById('revTotal').textContent=`$${total.toLocaleString()}`;
-  }catch(e){
-    document.getElementById('revPriceMeta').textContent='Leads delivered within 7-14 days';
-    document.getElementById('revTotal').textContent='See checkout for pricing';
-  }
-}
-
-function resetForm(){
-  document.getElementById('stateError').style.display='none';
-  document.getElementById('stateError').classList.remove('active');
-  goTo(5,'bck');
-}
-
-async function submitOrder(){
-  const consentBox = document.getElementById('consentBizCheck');
-  if(!consentBox.checked){
-    const ackEl = document.getElementById('consentAck');
-    ackEl.classList.add('err-hi');
-    ackEl.scrollIntoView({behavior:'smooth',block:'center'});
+  if (!city) {
+    ['solar','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, null));
+    order.prices = {};
+    order.pricePerLead = null;
+    updateSummary();
     return;
   }
-  document.querySelectorAll('.step-panel').forEach(p=>{
-    p.classList.remove('active','fwd','bck');
-    p.style.display='none';
+
+  // Show loading spinners on all trade cards
+  ['solar','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, 'loading'));
+
+  // Fetch all 4 trade prices in parallel from Supabase
+  const trades = ['solar','roofing','hvac','renovation'];
+  const results = await Promise.allSettled(
+    trades.map(niche =>
+      fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${niche}&area=${encodeURIComponent(city)}`)
+        .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+    )
+  );
+
+  order.prices = {};
+  results.forEach((res, i) => {
+    const niche = trades[i];
+    if (res.status === 'fulfilled' && res.value?.price_per_lead) {
+      order.prices[niche] = res.value.price_per_lead;
+      setPriceLabel(niche, res.value.price_per_lead);
+    } else {
+      setPriceLabel(niche, 'error');
+    }
   });
-  document.getElementById('surveyCard').querySelector('.survey-progress').style.display='none';
-  document.getElementById('stateLoading').style.display='block';
+
+  // Update price if trade already selected
+  if (order.niche && order.prices[order.niche]) {
+    order.pricePerLead = order.prices[order.niche];
+  }
+
+  updateSummary();
+}
+
+function setPriceLabel(niche, val) {
+  const el = document.getElementById('price-' + niche);
+  if (!el) return;
+  if (val === null) {
+    el.className = 'trade-price dim';
+    el.innerHTML = 'Select city first';
+  } else if (val === 'loading') {
+    el.className = 'trade-price dim';
+    el.innerHTML = '<div class="price-spin"></div>';
+  } else if (val === 'error') {
+    el.className = 'trade-price dim';
+    el.textContent = 'See checkout';
+  } else {
+    el.className = 'trade-price';
+    el.textContent = `$${val} / lead`;
+  }
+}
+
+// ─── TRADE SELECT ────────────────────────────────────────
+function selectTrade(el) {
+  document.querySelectorAll('.trade-card').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+  order.niche = el.dataset.niche;
+  order.pricePerLead = order.prices[order.niche] || null;
+  updateSummary();
+}
+
+// ─── PACK SELECT ─────────────────────────────────────────
+function selectPack(el) {
+  document.querySelectorAll('.pack-btn').forEach(b => b.classList.remove('sel'));
+  el.classList.add('sel');
+  order.quantity = parseInt(el.dataset.qty, 10);
+  order.discount = parseInt(el.dataset.discount, 10);
+  updateSummary();
+}
+
+// ─── SUMMARY UPDATE ──────────────────────────────────────
+const nicheLabels = { solar: 'Solar', roofing: 'Roofing', hvac: 'HVAC', renovation: 'Renovation' };
+
+function updateSummary() {
+  const tradeEl  = document.getElementById('sum-trade');
+  const cityEl   = document.getElementById('sum-city');
+  const packEl   = document.getElementById('sum-pack');
+  const pplEl    = document.getElementById('sum-ppl');
+  const totalEl  = document.getElementById('sum-total');
+  const discRow  = document.getElementById('sum-discount-row');
+  const discEl   = document.getElementById('sum-discount');
+
+  if (order.niche) {
+    tradeEl.className = 'sum-val'; tradeEl.textContent = nicheLabels[order.niche];
+  } else {
+    tradeEl.className = 'sum-val dim'; tradeEl.textContent = 'Not selected';
+  }
+
+  if (order.area_city) {
+    cityEl.className = 'sum-val'; cityEl.textContent = order.area_city;
+  } else {
+    cityEl.className = 'sum-val dim'; cityEl.textContent = 'Not selected';
+  }
+
+  if (order.quantity) {
+    packEl.className = 'sum-val'; packEl.textContent = `${order.quantity} leads`;
+  } else {
+    packEl.className = 'sum-val dim'; packEl.textContent = 'Not selected';
+  }
+
+  if (order.pricePerLead) {
+    pplEl.textContent = `$${order.pricePerLead}`;
+  } else {
+    pplEl.textContent = '—';
+  }
+
+  if (order.pricePerLead && order.quantity) {
+    const base   = order.pricePerLead * order.quantity;
+    const saving = Math.round(base * order.discount / 100);
+    const total  = base - saving;
+
+    if (order.discount > 0) {
+      discRow.style.display = 'flex';
+      discEl.textContent = `-$${saving.toLocaleString()} (${order.discount}%)`;
+    } else {
+      discRow.style.display = 'none';
+    }
+
+    totalEl.className = 'sum-total-amt';
+    totalEl.textContent = `$${total.toLocaleString()}`;
+  } else {
+    discRow.style.display = 'none';
+    totalEl.className = 'sum-total-amt dim';
+    totalEl.textContent = '$—';
+  }
+}
+
+// ─── CONSENT LABEL ───────────────────────────────────────
+function updateConsentLabel() {
+  const val = document.getElementById('company').value.trim();
+  document.getElementById('consentBizLabel').textContent = val || 'my business';
+}
+
+// ─── VALIDATION ──────────────────────────────────────────
+function flashErr(el) {
+  el.classList.add('err');
+  el.focus();
+  setTimeout(() => el.classList.remove('err'), 2000);
+}
+
+// ─── SUBMIT ──────────────────────────────────────────────
+async function submitOrder() {
+  if (!order.area_city) {
+    document.getElementById('area_city').focus();
+    return;
+  }
+  if (!order.niche) {
+    document.querySelector('.trade-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  if (!order.quantity) {
+    document.querySelector('.pack-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  const fields = ['first_name', 'last_name', 'company', 'email', 'phone'];
+  for (const id of fields) {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { flashErr(el); return; }
+  }
+  const emailEl = document.getElementById('email');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+    flashErr(emailEl); return;
+  }
+
+  const consentBox = document.getElementById('consentBizCheck');
+  if (!consentBox.checked) {
+    const ackEl = document.getElementById('consentAck');
+    ackEl.classList.add('err-hi');
+    ackEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  // Hide form blocks, show loading
+  document.querySelectorAll('.buy-block').forEach(b => b.style.display = 'none');
+  document.getElementById('stateLoading').style.display = 'block';
   document.getElementById('stateLoading').classList.add('active');
 
-  const payload={
-    first_name:surveyData.first_name,
-    last_name:surveyData.last_name,
-    email:surveyData.email,
-    phone:surveyData.phone,
-    company:surveyData.company,
-    niche:surveyData.niche,
-    area_city:surveyData.area_city,
-    location_type:'radius',
-    radius_km:50,
-    quantity:surveyData.quantity,
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'InitiateCheckout', {
+      content_type: 'product',
+      content_name: `${nicheLabels[order.niche]} leads – ${order.area_city}`,
+      num_items: order.quantity
+    });
+  }
+
+  const payload = {
+    first_name:       document.getElementById('first_name').value.trim(),
+    last_name:        document.getElementById('last_name').value.trim(),
+    email:            document.getElementById('email').value.trim(),
+    phone:            document.getElementById('phone').value.trim(),
+    company:          document.getElementById('company').value.trim(),
+    niche:            order.niche,
+    area_city:        order.area_city,
+    location_type:    'radius',
+    radius_km:        50,
+    quantity:         order.quantity,
+    discount_percent: order.discount  // backend uses this to apply same tier in Stripe
   };
 
-  try{
-    const res=await fetch(`${SUPABASE_URL}/functions/v1/create-ppl-signup-checkout`,{
-      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)
+  try {
+    const res  = await fetch(`${SUPABASE_URL}/functions/v1/create-ppl-signup-checkout`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     });
-    const data=await res.json();
-    if(!res.ok) throw new Error(data.error||data.message||'Server error');
-    if(data.url) window.location.href=data.url;
-    else throw new Error('No checkout URL returned.');
-  } catch(err){
-    document.getElementById('stateLoading').style.display='none';
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || data.message || 'Server error');
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      throw new Error('No checkout URL returned.');
+    }
+  } catch (err) {
+    document.getElementById('stateLoading').style.display = 'none';
     document.getElementById('stateLoading').classList.remove('active');
-    document.getElementById('errorMsg').textContent=err.message||'We couldn\'t create your checkout session. Please try again.';
-    document.getElementById('stateError').style.display='block';
+    document.getElementById('errorMsg').textContent = err.message || "We couldn't create your checkout session. Please try again.";
+    document.getElementById('stateError').style.display = 'block';
     document.getElementById('stateError').classList.add('active');
   }
 }
 
-// Particles
-const W=()=>window.innerWidth,H=()=>window.innerHeight;
-const canvas=document.getElementById('particles');
-const ctx=canvas.getContext('2d');
-canvas.width=W();canvas.height=H();
-window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
-class P{
-  constructor(){this.reset(true)}
-  reset(init){
-    this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;
-    this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;
-    this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;
-    this.life=0;this.maxL=Math.random()*450+200;
-    this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';
-    this.glow=this.r>1.2;
-  }
-  draw(){
-    const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;
-    ctx.save();ctx.globalAlpha=this.a*fade;
-    if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}
-    ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore();
-  }
-  update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}
+function resetToForm() {
+  document.getElementById('stateError').style.display = 'none';
+  document.getElementById('stateError').classList.remove('active');
+  document.querySelectorAll('.buy-block').forEach(b => b.style.display = '');
 }
-const pts=Array.from({length:80},()=>new P());
-function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+
+// ─── PARTICLES ───────────────────────────────────────────
+const W = () => window.innerWidth, H = () => window.innerHeight;
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = W(); canvas.height = H();
+window.addEventListener('resize', () => { canvas.width = W(); canvas.height = H() });
+class P {
+  constructor() { this.reset(true) }
+  reset(init) {
+    this.x = Math.random() * W(); this.y = init ? Math.random() * H() : H() + 10;
+    this.r = Math.random() * 1.6 + .3; this.vx = (Math.random() - .5) * .2;
+    this.vy = -(Math.random() * .35 + .08); this.a = Math.random() * .35 + .05;
+    this.life = 0; this.maxL = Math.random() * 450 + 200;
+    this.c = Math.random() > .5 ? '#4797FF' : Math.random() > .5 ? '#7CB9FF' : '#B8D4FF';
+    this.glow = this.r > 1.2;
+  }
+  draw() {
+    const t = this.life / this.maxL;
+    const fade = t < .1 ? t / .1 : t > .8 ? (1 - t) / .2 : 1;
+    ctx.save(); ctx.globalAlpha = this.a * fade;
+    if (this.glow) { ctx.shadowBlur = this.r * 5; ctx.shadowColor = this.c }
+    ctx.fillStyle = this.c; ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+  }
+  update() { this.x += this.vx; this.y += this.vy; this.life++; if (this.life > this.maxL || this.y < -20) this.reset() }
+}
+const pts = Array.from({ length: 80 }, () => new P());
+function animP() { ctx.clearRect(0, 0, W(), H()); pts.forEach(p => { p.update(); p.draw() }); requestAnimationFrame(animP) }
 animP();
 
-// Cursor
-const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  cur.style.left=mx+'px';cur.style.top=my+'px';
-  aura.style.left=mx+'px';aura.style.top=my+'px';
+// ─── CURSOR ──────────────────────────────────────────────
+const cur = document.getElementById('cur'), curR = document.getElementById('curR'), aura = document.getElementById('aura');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+  aura.style.left = mx + 'px'; aura.style.top = my + 'px';
 });
-(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
-document.querySelectorAll('a,button,input,select,.opt-card,.sidebar-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+(function aR() { rx += (mx - rx) * .1; ry += (my - ry) * .1; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(aR) })();
+document.querySelectorAll('a,button,input,select,.trade-card,.pack-btn,.sidebar-card').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
 });
 
-document.querySelectorAll('.btn-next,.btn-submit-full').forEach(btn=>{
-  btn.addEventListener('mousemove',e=>{
-    const r=btn.getBoundingClientRect();
-    btn.style.setProperty('--bx',((e.clientX-r.left)/r.width*100)+'%');
-    btn.style.setProperty('--by',((e.clientY-r.top)/r.height*100)+'%');
+document.querySelectorAll('.btn-submit,.btn-mag').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    btn.style.setProperty('--bx', ((e.clientX - r.left) / r.width * 100) + '%');
+    btn.style.setProperty('--by', ((e.clientY - r.top) / r.height * 100) + '%');
   });
 });
 
-const hdr=document.getElementById('siteHeader');
-window.addEventListener('scroll',()=>{
-  hdr.classList.toggle('sc',window.scrollY>20);
-  document.getElementById('scrollProg').style.transform=
-    `scaleX(${window.scrollY/(document.body.scrollHeight-window.innerHeight)})`;
-},{passive:true});
+// ─── HEADER SCROLL ───────────────────────────────────────
+const hdr = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  hdr.classList.toggle('sc', window.scrollY > 20);
+  document.getElementById('scrollProg').style.transform =
+    `scaleX(${window.scrollY / (document.body.scrollHeight - window.innerHeight)})`;
+}, { passive: true });
 
-// CAROUSEL
-const cards=[...document.querySelectorAll('.tc')];
-const dots=[...document.querySelectorAll('.car-dot')];
-let curI=0,autoT;
-function setCarousel(idx){
-  curI=((idx%cards.length)+cards.length)%cards.length;
-  cards.forEach((c,i)=>{c.classList.remove('pos-center','pos-left','pos-right','pos-hidden');const rel=(i-curI+cards.length)%cards.length;if(rel===0)c.classList.add('pos-center');else if(rel===1)c.classList.add('pos-right');else if(rel===cards.length-1)c.classList.add('pos-left');else c.classList.add('pos-hidden')});
-  dots.forEach((d,i)=>d.classList.toggle('a',i===curI));
+// ─── CAROUSEL ────────────────────────────────────────────
+const cards = [...document.querySelectorAll('.tc')];
+const dots  = [...document.querySelectorAll('.car-dot')];
+let curI = 0, autoT;
+function setCarousel(idx) {
+  curI = ((idx % cards.length) + cards.length) % cards.length;
+  cards.forEach((c, i) => {
+    c.classList.remove('pos-center', 'pos-left', 'pos-right', 'pos-hidden');
+    const rel = (i - curI + cards.length) % cards.length;
+    if (rel === 0) c.classList.add('pos-center');
+    else if (rel === 1) c.classList.add('pos-right');
+    else if (rel === cards.length - 1) c.classList.add('pos-left');
+    else c.classList.add('pos-hidden');
+  });
+  dots.forEach((d, i) => d.classList.toggle('a', i === curI));
 }
 setCarousel(0);
-document.getElementById('carNext').addEventListener('click',()=>{setCarousel(curI+1);clearInterval(autoT);startAuto()});
-document.getElementById('carPrev').addEventListener('click',()=>{setCarousel(curI-1);clearInterval(autoT);startAuto()});
-dots.forEach((d,i)=>d.addEventListener('click',()=>{setCarousel(i);clearInterval(autoT);startAuto()}));
-function startAuto(){autoT=setInterval(()=>setCarousel(curI+1),4500)}
+document.getElementById('carNext').addEventListener('click', () => { setCarousel(curI + 1); clearInterval(autoT); startAuto() });
+document.getElementById('carPrev').addEventListener('click', () => { setCarousel(curI - 1); clearInterval(autoT); startAuto() });
+dots.forEach((d, i) => d.addEventListener('click', () => { setCarousel(i); clearInterval(autoT); startAuto() }));
+function startAuto() { autoT = setInterval(() => setCarousel(curI + 1), 4500) }
 startAuto();
-const cs=document.querySelector('.car-scene');
-if(cs){let tx=0;cs.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});cs.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40){setCarousel(dx<0?curI+1:curI-1);clearInterval(autoT);startAuto()}},{passive:true})}
+const cs = document.querySelector('.car-scene');
+if (cs) {
+  let tx = 0;
+  cs.addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
+  cs.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) { setCarousel(dx < 0 ? curI + 1 : curI - 1); clearInterval(autoT); startAuto() }
+  }, { passive: true });
+}
 
-document.getElementById('mobBtn').addEventListener('click',function(){
-  const m=document.getElementById('mobMenu');
+// ─── MOBILE NAV ──────────────────────────────────────────
+document.getElementById('mobBtn').addEventListener('click', function () {
+  const m = document.getElementById('mobMenu');
   m.classList.toggle('open');
-  const s=this.querySelectorAll('span');
-  if(m.classList.contains('open')){
-    s[0].style.transform='rotate(45deg) translate(5px,5px)';
-    s[1].style.opacity='0';
-    s[2].style.transform='rotate(-45deg) translate(5px,-5px)';
-  } else {s[0].style.transform='';s[1].style.opacity='';s[2].style.transform='';}
+  const s = this.querySelectorAll('span');
+  if (m.classList.contains('open')) {
+    s[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+    s[1].style.opacity = '0';
+    s[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+  } else {
+    s[0].style.transform = ''; s[1].style.opacity = ''; s[2].style.transform = '';
+  }
 });
 
-const obs=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+// ─── SCROLL REVEAL ───────────────────────────────────────
+const obs = new IntersectionObserver(e => e.forEach(e => { if (e.isIntersecting) e.target.classList.add('in') }), { threshold: .1 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 
-document.getElementById('consentBizCheck').addEventListener('change',function(){
-  if(this.checked) document.getElementById('consentAck').classList.remove('err-hi');
+// ─── CONSENT CHECKBOX ────────────────────────────────────
+document.getElementById('consentBizCheck').addEventListener('change', function () {
+  if (this.checked) document.getElementById('consentAck').classList.remove('err-hi');
 });
-
-updateProgress();
 </script>
 </body>
 </html>
