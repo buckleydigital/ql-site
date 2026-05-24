@@ -540,6 +540,34 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .stats-row{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr}
 }
+
+/* TESTIMONIALS + CAROUSEL */
+.testi-section{background:var(--deep);padding:110px 5%}
+.testi-h{text-align:center;margin-bottom:70px}
+.car-scene{perspective:1400px;perspective-origin:50% 40%;position:relative;height:380px;margin:0 auto;max-width:1000px}
+.car-track{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.tc{position:absolute;width:340px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:32px 28px;backdrop-filter:blur(16px);transition:all .6s cubic-bezier(.4,0,.2,1);will-change:transform,opacity;cursor:none;overflow:hidden}
+.tc::before{content:'\201C';position:absolute;top:-8px;right:16px;font-family:var(--display);font-size:5rem;font-weight:600;color:rgba(71,151,255,.06);line-height:1;pointer-events:none}
+.tc.pos-center{transform:translateX(0) translateZ(80px) rotateY(0deg) scale(1.04);opacity:1;z-index:3}
+.tc.pos-right{transform:translateX(360px) translateZ(-50px) rotateY(-16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
+.tc.pos-left{transform:translateX(-360px) translateZ(-50px) rotateY(16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
+.tc.pos-hidden{transform:translateX(0) translateZ(-200px) scale(.6);opacity:0;z-index:1;pointer-events:none}
+.tresult{display:inline-flex;align-items:center;gap:8px;background:rgba(71,151,255,.08);border:1px solid rgba(71,151,255,.2);color:var(--sky);font-size:.7rem;font-weight:700;padding:4px 13px;border-radius:100px;margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
+.trd{width:5px;height:5px;background:var(--blue);border-radius:50%}
+.tstars{font-size:.7rem;color:var(--sky);margin-bottom:14px;letter-spacing:2px}
+.tbody{font-size:.88rem;color:#CACAC0;line-height:1.74;margin-bottom:20px;font-style:italic}
+.tauth{display:flex;align-items:center;gap:12px}
+.tav{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:600;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--sky))}
+.tnm{font-size:.88rem;font-weight:500;color:var(--white);margin-bottom:2px}
+.tco{font-size:.76rem;color:var(--muted)}
+.car-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:48px}
+.car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--glass);display:flex;align-items:center;justify-content:center;cursor:none;color:var(--muted);transition:all .25s;font-size:.9rem;backdrop-filter:blur(10px)}
+.car-btn:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 0 20px rgba(71,151,255,.15)}
+.car-dots{display:flex;gap:8px;align-items:center}
+.car-dot{width:6px;height:6px;border-radius:50%;background:var(--faint);transition:all .3s;cursor:none}
+.car-dot.a{background:var(--blue);width:20px;border-radius:3px}
+/* LOC LIST */
+.loc-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:40px}.loc-list li{font-size:.9rem;color:var(--muted);line-height:1.6;display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--glass);border:1px solid var(--border);border-radius:10px}.loc-list li::before{content:'\2192';color:var(--blue);flex-shrink:0;font-size:.8rem;margin-top:2px}
 </style>
 <div id="curR"></div>
 <div id="aura"></div>
