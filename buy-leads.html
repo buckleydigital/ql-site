@@ -180,6 +180,7 @@ body::before{content:'';position:fixed;inset:0;
 
 /* TRADE GRID */
 .trade-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.trade-grid .trade-card:nth-child(5):last-child{grid-column:1/-1;max-width:calc(50% - 5px);margin:0 auto}
 .trade-card{background:var(--glass);border:1.5px solid var(--border);border-radius:14px;
   padding:18px 16px;cursor:none;display:flex;align-items:center;gap:14px;width:100%;
   transition:border-color .2s,background .2s,transform .15s,box-shadow .2s;position:relative;text-align:left}
@@ -584,6 +585,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
             </button>
 
+            <button class="trade-card" data-niche="solar-battery" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M11 10l-4 4h5l-4 4"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Solar Battery</div>
+                <div class="trade-price dim" id="price-solar-battery">Select city first</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
             <button class="trade-card" data-niche="roofing" onclick="selectTrade(this)">
               <div class="trade-ico">
                 <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -944,7 +956,7 @@ async function onCityChange() {
   order.area_city = city || null;
 
   if (!city) {
-    ['solar','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, null));
+    ['solar','solar-battery','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, null));
     order.prices = {};
     order.pricePerLead = null;
     updateSummary();
@@ -952,10 +964,10 @@ async function onCityChange() {
   }
 
   // Show loading spinners on all trade cards
-  ['solar','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, 'loading'));
+  ['solar','solar-battery','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, 'loading'));
 
-  // Fetch all 4 trade prices in parallel from Supabase
-  const trades = ['solar','roofing','hvac','renovation'];
+  // Fetch all 5 trade prices in parallel from Supabase
+  const trades = ['solar','solar-battery','roofing','hvac','renovation'];
   const results = await Promise.allSettled(
     trades.map(niche =>
       fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${niche}&area=${encodeURIComponent(city)}`)
@@ -1027,7 +1039,7 @@ function selectPack(el) {
 }
 
 // ─── SUMMARY UPDATE ──────────────────────────────────────
-const nicheLabels = { solar: 'Solar', roofing: 'Roofing', hvac: 'HVAC', renovation: 'Renovation' };
+const nicheLabels = { solar: 'Solar', 'solar-battery': 'Solar Battery', roofing: 'Roofing', hvac: 'HVAC', renovation: 'Renovation' };
 
 function updateSummary() {
   const tradeEl  = document.getElementById('sum-trade');
