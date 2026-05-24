@@ -622,29 +622,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="block-sub">Larger packs include a volume discount.</div>
             </div>
           </div>
-          <div class="pack-grid">
-            <button class="pack-btn" data-qty="10" data-discount="0" onclick="selectPack(this)">
-              <div class="pack-qty">10</div>
-              <div class="pack-unit">leads</div>
-              <div class="pack-saving none">—</div>
-            </button>
-            <button class="pack-btn" data-qty="25" data-discount="5" onclick="selectPack(this)">
-              <div class="pack-popular">POPULAR</div>
-              <div class="pack-qty">25</div>
-              <div class="pack-unit">leads</div>
-              <div class="pack-saving">Save 5%</div>
-            </button>
-            <button class="pack-btn" data-qty="50" data-discount="10" onclick="selectPack(this)">
-              <div class="pack-qty">50</div>
-              <div class="pack-unit">leads</div>
-              <div class="pack-saving">Save 10%</div>
-            </button>
-            <button class="pack-btn" data-qty="100" data-discount="15" onclick="selectPack(this)">
-              <div class="pack-qty">100</div>
-              <div class="pack-unit">leads</div>
-              <div class="pack-saving">Save 15%</div>
-            </button>
-          </div>
+          <div class="pack-grid" id="pack-grid"></div>
         </div>
 
         <!-- BLOCK 04: DETAILS -->
@@ -882,6 +860,39 @@ const order = {
   prices: {}  // cache per city: { solar: 85, roofing: 65, ... }
 };
 
+// ─── PACK GRID ────────────────────────────────────────────
+const FALLBACK_TIERS = [
+  { min_quantity: 10,  discount_percent: 0,  label: '10 leads',  is_popular: false },
+  { min_quantity: 25,  discount_percent: 5,  label: '25 leads',  is_popular: true  },
+  { min_quantity: 50,  discount_percent: 10, label: '50 leads',  is_popular: false },
+  { min_quantity: 100, discount_percent: 15, label: '100 leads', is_popular: false },
+];
+
+function renderPackGrid(tiers) {
+  const grid = document.getElementById('pack-grid');
+  if (!grid || !tiers?.length) return;
+  const prevQty = order.quantity;
+  grid.innerHTML = tiers.map(t =>
+    `<button class="pack-btn" data-qty="${t.min_quantity}" data-discount="${t.discount_percent}" onclick="selectPack(this)">` +
+    (t.is_popular ? '<div class="pack-popular">POPULAR</div>' : '') +
+    `<div class="pack-qty">${t.min_quantity}</div>` +
+    `<div class="pack-unit">leads</div>` +
+    `<div class="pack-saving${t.discount_percent === 0 ? ' none' : ''}">${t.discount_percent === 0 ? '—' : 'Save ' + t.discount_percent + '%'}</div>` +
+    `</button>`
+  ).join('');
+  grid.querySelectorAll('.pack-btn').forEach(b => {
+    b.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+    b.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+  });
+  const autoTier = tiers.find(t => t.min_quantity === prevQty)
+    || tiers.find(t => t.is_popular)
+    || tiers[0];
+  const btn = autoTier && grid.querySelector(`[data-qty="${autoTier.min_quantity}"]`);
+  if (btn) selectPack(btn);
+}
+
+renderPackGrid(FALLBACK_TIERS);
+
 if (new URLSearchParams(location.search).get('cancelled') === 'true') {
   document.getElementById('cancelledBanner').style.display = 'flex';
 }
@@ -921,6 +932,10 @@ async function onCityChange() {
       setPriceLabel(niche, 'error');
     }
   });
+
+  // Re-render pack grid from DB tiers if API returned them
+  const firstOk = results.find(r => r.status === 'fulfilled' && r.value?.discount_tiers?.length);
+  if (firstOk) renderPackGrid(firstOk.value.discount_tiers);
 
   // Update price if trade already selected
   if (order.niche && order.prices[order.niche]) {
@@ -1162,7 +1177,7 @@ document.addEventListener('mousemove', e => {
   aura.style.left = mx + 'px'; aura.style.top = my + 'px';
 });
 (function aR() { rx += (mx - rx) * .1; ry += (my - ry) * .1; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(aR) })();
-document.querySelectorAll('a,button,input,select,.trade-card,.pack-btn,.sidebar-card').forEach(el => {
+document.querySelectorAll('a,button,input,select,.trade-card,.sidebar-card').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
 });
