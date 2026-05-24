@@ -408,6 +408,26 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .trade-grid{grid-template-columns:1fr}
   .trade-grid .trade-card:nth-child(5):last-child{max-width:100%}
 }
+/* FINAL CTA */
+.si{max-width:1120px;margin:0 auto}
+.ey{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:20px}
+.ey::before{content:'';width:22px;height:1px;background:var(--blue)}
+.stitle{font-family:var(--display);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:600;
+  letter-spacing:-.02em;line-height:1.15;color:var(--white)}
+.stitle em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.final-cta{text-align:center;position:relative;overflow:hidden;padding:110px 5%}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(71,151,255,.06),transparent 65%);pointer-events:none}
+.cta-rings{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;pointer-events:none}
+.cta-ring{position:absolute;border-radius:50%;border:1px solid rgba(71,151,255,.06);top:50%;left:50%;transform:translate(-50%,-50%)}
+.cr1{width:200px;height:200px;animation:crPulse 3s ease infinite}
+.cr2{width:360px;height:360px;animation:crPulse 3s .5s ease infinite}
+.cr3{width:520px;height:520px;animation:crPulse 3s 1s ease infinite}
+@keyframes crPulse{0%{opacity:0;transform:translate(-50%,-50%) scale(.8)}50%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.2)}}
+.cta-inner{position:relative;z-index:1}
+.final-trust{margin-top:24px;font-size:.8rem;color:var(--faint);display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.final-trust span{display:flex;align-items:center;gap:6px}
+.final-trust span::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
 </style>
 </head>
 <body>
@@ -850,6 +870,26 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     </div>
   </div>
 </div>
+
+<section class="final-cta">
+  <div class="cta-glow"></div>
+  <div class="cta-rings"><div class="cta-ring cr1"></div><div class="cta-ring cr2"></div><div class="cta-ring cr3"></div></div>
+  <div class="cta-inner si">
+    <div class="rv"><div class="ey" style="justify-content:center">Get Started</div></div>
+    <h2 class="stitle rv" style="max-width:540px;margin:0 auto 20px;text-align:center">Ready to pay less <em>per job?</em></h2>
+    <p style="color:var(--muted);font-size:1rem;line-height:1.74;max-width:480px;margin:0 auto 44px;text-align:center" class="rv">Stop funding marketing that doesn't convert. Buy exclusive, verified leads — and only pay for what actually arrives in your inbox.</p>
+    <div style="display:flex;justify-content:center" class="rv">
+      <a href="#order-form" class="btn-mag" onclick="event.preventDefault();document.getElementById('order-form').scrollIntoView({behavior:'smooth',block:'start'})">Order Leads <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
+    </div>
+    <div class="final-trust rv">
+      <span>Pay per qualified lead</span>
+      <span>Exclusive opportunities</span>
+      <span>7-day replacement policy</span>
+      <span>No lock-in contracts</span>
+      <span>Australian owned and operated</span>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="foot-inner">
