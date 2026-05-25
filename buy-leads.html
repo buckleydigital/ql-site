@@ -547,13 +547,56 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
       <div class="buy-card" id="buyCard">
 
-        <!-- BLOCK 01: TRADE/NICHE -->
+        <!-- BLOCK 01: CITY -->
         <div class="buy-block">
           <div class="buy-block-hd">
             <span class="block-num">01</span>
             <div>
+              <div class="block-title">Where do you work?</div>
+              <div class="block-sub">Pricing is set per city and trade.</div>
+            </div>
+          </div>
+          <div class="city-select-wrap">
+            <select id="area_city" onchange="onCityChange()">
+              <option value="">Select a city&hellip;</option>
+              <optgroup label="Queensland">
+                <option value="Brisbane">Brisbane</option>
+                <option value="Gold Coast">Gold Coast</option>
+                <option value="Sunshine Coast">Sunshine Coast</option>
+                <option value="Toowoomba">Toowoomba</option>
+                <option value="Townsville">Townsville</option>
+                <option value="Cairns">Cairns</option>
+              </optgroup>
+              <optgroup label="New South Wales">
+                <option value="Sydney">Sydney</option>
+                <option value="Newcastle">Newcastle</option>
+                <option value="Wollongong">Wollongong</option>
+                <option value="Central Coast">Central Coast</option>
+              </optgroup>
+              <optgroup label="Victoria">
+                <option value="Melbourne">Melbourne</option>
+                <option value="Geelong">Geelong</option>
+              </optgroup>
+              <optgroup label="Western Australia">
+                <option value="Perth">Perth</option>
+              </optgroup>
+              <optgroup label="South Australia">
+                <option value="Adelaide">Adelaide</option>
+              </optgroup>
+              <optgroup label="Australian Capital Territory">
+                <option value="Canberra">Canberra</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <!-- BLOCK 02: TRADE/NICHE -->
+        <div class="buy-block">
+          <div class="buy-block-hd">
+            <span class="block-num">02</span>
+            <div>
               <div class="block-title">Select your trade</div>
-              <div class="block-sub">Choose your niche — pricing shown once city is selected.</div>
+              <div class="block-sub">Price per lead shown once city is selected.</div>
             </div>
           </div>
           <div class="trade-grid">
@@ -616,10 +659,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
         </div>
 
-        <!-- BLOCK 02: LEAD TYPE (conditional) -->
+        <!-- BLOCK 03: LEAD TYPE (conditional) -->
         <div class="buy-block" id="blockSubNiche" style="display:none">
           <div class="buy-block-hd">
-            <span class="block-num">02</span>
+            <span class="block-num">03</span>
             <div>
               <div class="block-title">Select lead type</div>
               <div class="block-sub" id="subNicheBlockSub">Choose a specific focus — or skip for any leads.</div>
@@ -628,49 +671,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="sub-niche-grid" id="subNicheGrid"></div>
           <div style="margin-top:14px;text-align:center">
             <button class="sub-niche-skip" id="subNicheSkip" onclick="skipSubNiche()">Skip — any <span id="skipNicheName"></span></button>
-          </div>
-        </div>
-
-        <!-- BLOCK 03: CITY -->
-        <div class="buy-block">
-          <div class="buy-block-hd">
-            <span class="block-num">03</span>
-            <div>
-              <div class="block-title">Where do you work?</div>
-              <div class="block-sub">Pricing is set per city and trade.</div>
-            </div>
-          </div>
-          <div class="city-select-wrap">
-            <select id="area_city" onchange="onCityChange()">
-              <option value="">Select a city&hellip;</option>
-              <optgroup label="Queensland">
-                <option value="Brisbane">Brisbane</option>
-                <option value="Gold Coast">Gold Coast</option>
-                <option value="Sunshine Coast">Sunshine Coast</option>
-                <option value="Toowoomba">Toowoomba</option>
-                <option value="Townsville">Townsville</option>
-                <option value="Cairns">Cairns</option>
-              </optgroup>
-              <optgroup label="New South Wales">
-                <option value="Sydney">Sydney</option>
-                <option value="Newcastle">Newcastle</option>
-                <option value="Wollongong">Wollongong</option>
-                <option value="Central Coast">Central Coast</option>
-              </optgroup>
-              <optgroup label="Victoria">
-                <option value="Melbourne">Melbourne</option>
-                <option value="Geelong">Geelong</option>
-              </optgroup>
-              <optgroup label="Western Australia">
-                <option value="Perth">Perth</option>
-              </optgroup>
-              <optgroup label="South Australia">
-                <option value="Adelaide">Adelaide</option>
-              </optgroup>
-              <optgroup label="Australian Capital Territory">
-                <option value="Canberra">Canberra</option>
-              </optgroup>
-            </select>
           </div>
         </div>
 
@@ -1380,12 +1380,12 @@ function flashErr(el) {
 
 // ─── SUBMIT ──────────────────────────────────────────────
 async function submitOrder() {
-  if (!order.niche) {
-    document.querySelector('.trade-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
   if (!order.area_city) {
     document.getElementById('area_city').focus();
+    return;
+  }
+  if (!order.niche) {
+    document.querySelector('.trade-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
   if (!order.quantity) {
