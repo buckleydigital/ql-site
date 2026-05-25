@@ -202,6 +202,24 @@ body::before{content:'';position:fixed;inset:0;
 .trade-card.sel .trade-check{opacity:1}
 .trade-check svg{width:10px;height:10px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
+/* SUB-NICHE */
+.sub-niche-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sub-niche-card{background:var(--glass);border:1.5px solid var(--border);border-radius:14px;
+  padding:16px 18px;cursor:none;display:flex;flex-direction:column;gap:5px;width:100%;
+  transition:border-color .2s,background .2s,transform .15s,box-shadow .2s;position:relative;text-align:left}
+.sub-niche-card:hover{border-color:rgba(71,151,255,.4);background:var(--bdim);transform:translateY(-1px)}
+.sub-niche-card.sel{border-color:var(--blue);background:var(--bdim);box-shadow:0 0 0 1px var(--blue)}
+.sub-niche-card .sn-name{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white)}
+.sub-niche-card .sn-price{font-size:.8rem;font-weight:600;color:var(--blue);font-family:var(--display)}
+.sub-niche-card .sn-note{font-size:.74rem;color:var(--muted)}
+.sub-niche-card .trade-check{opacity:0;transition:opacity .2s}
+.sub-niche-card.sel .trade-check{opacity:1}
+.sub-niche-skip{background:none;border:1px solid var(--border);color:var(--muted);
+  font-size:.8rem;cursor:none;padding:8px 22px;border-radius:100px;
+  transition:all .2s;font-family:var(--body)}
+.sub-niche-skip:hover{border-color:var(--bmid);color:var(--white)}
+.sub-niche-skip.sel{border-color:var(--blue);color:var(--blue)}
+
 /* PACK GRID */
 .pack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .pack-btn{background:var(--glass);border:1.5px solid var(--border);border-radius:12px;
@@ -420,6 +438,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 @media(max-width:440px){
   .trade-grid{grid-template-columns:1fr}
   .trade-grid .trade-card:nth-child(5):last-child{max-width:100%}
+  .sub-niche-grid{grid-template-columns:1fr}
 }
 /* FINAL CTA */
 .si{max-width:1120px;margin:0 auto}
@@ -528,56 +547,13 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
       <div class="buy-card" id="buyCard">
 
-        <!-- BLOCK 01: CITY -->
+        <!-- BLOCK 01: TRADE/NICHE -->
         <div class="buy-block">
           <div class="buy-block-hd">
             <span class="block-num">01</span>
             <div>
-              <div class="block-title">Where do you work?</div>
-              <div class="block-sub">Pricing is set per city and trade.</div>
-            </div>
-          </div>
-          <div class="city-select-wrap">
-            <select id="area_city" onchange="onCityChange()">
-              <option value="">Select a city&hellip;</option>
-              <optgroup label="Queensland">
-                <option value="Brisbane">Brisbane</option>
-                <option value="Gold Coast">Gold Coast</option>
-                <option value="Sunshine Coast">Sunshine Coast</option>
-                <option value="Toowoomba">Toowoomba</option>
-                <option value="Townsville">Townsville</option>
-                <option value="Cairns">Cairns</option>
-              </optgroup>
-              <optgroup label="New South Wales">
-                <option value="Sydney">Sydney</option>
-                <option value="Newcastle">Newcastle</option>
-                <option value="Wollongong">Wollongong</option>
-                <option value="Central Coast">Central Coast</option>
-              </optgroup>
-              <optgroup label="Victoria">
-                <option value="Melbourne">Melbourne</option>
-                <option value="Geelong">Geelong</option>
-              </optgroup>
-              <optgroup label="Western Australia">
-                <option value="Perth">Perth</option>
-              </optgroup>
-              <optgroup label="South Australia">
-                <option value="Adelaide">Adelaide</option>
-              </optgroup>
-              <optgroup label="Australian Capital Territory">
-                <option value="Canberra">Canberra</option>
-              </optgroup>
-            </select>
-          </div>
-        </div>
-
-        <!-- BLOCK 02: TRADE -->
-        <div class="buy-block">
-          <div class="buy-block-hd">
-            <span class="block-num">02</span>
-            <div>
               <div class="block-title">Select your trade</div>
-              <div class="block-sub">Price per lead shown once city is selected.</div>
+              <div class="block-sub">Choose your niche — pricing shown once city is selected.</div>
             </div>
           </div>
           <div class="trade-grid">
@@ -640,10 +616,68 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
         </div>
 
-        <!-- BLOCK 03: COVERAGE AREA -->
+        <!-- BLOCK 02: LEAD TYPE (conditional) -->
+        <div class="buy-block" id="blockSubNiche" style="display:none">
+          <div class="buy-block-hd">
+            <span class="block-num">02</span>
+            <div>
+              <div class="block-title">Select lead type</div>
+              <div class="block-sub" id="subNicheBlockSub">Choose a specific focus — or skip for any leads.</div>
+            </div>
+          </div>
+          <div class="sub-niche-grid" id="subNicheGrid"></div>
+          <div style="margin-top:14px;text-align:center">
+            <button class="sub-niche-skip" id="subNicheSkip" onclick="skipSubNiche()">Skip — any <span id="skipNicheName"></span></button>
+          </div>
+        </div>
+
+        <!-- BLOCK 03: CITY -->
         <div class="buy-block">
           <div class="buy-block-hd">
             <span class="block-num">03</span>
+            <div>
+              <div class="block-title">Where do you work?</div>
+              <div class="block-sub">Pricing is set per city and trade.</div>
+            </div>
+          </div>
+          <div class="city-select-wrap">
+            <select id="area_city" onchange="onCityChange()">
+              <option value="">Select a city&hellip;</option>
+              <optgroup label="Queensland">
+                <option value="Brisbane">Brisbane</option>
+                <option value="Gold Coast">Gold Coast</option>
+                <option value="Sunshine Coast">Sunshine Coast</option>
+                <option value="Toowoomba">Toowoomba</option>
+                <option value="Townsville">Townsville</option>
+                <option value="Cairns">Cairns</option>
+              </optgroup>
+              <optgroup label="New South Wales">
+                <option value="Sydney">Sydney</option>
+                <option value="Newcastle">Newcastle</option>
+                <option value="Wollongong">Wollongong</option>
+                <option value="Central Coast">Central Coast</option>
+              </optgroup>
+              <optgroup label="Victoria">
+                <option value="Melbourne">Melbourne</option>
+                <option value="Geelong">Geelong</option>
+              </optgroup>
+              <optgroup label="Western Australia">
+                <option value="Perth">Perth</option>
+              </optgroup>
+              <optgroup label="South Australia">
+                <option value="Adelaide">Adelaide</option>
+              </optgroup>
+              <optgroup label="Australian Capital Territory">
+                <option value="Canberra">Canberra</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <!-- BLOCK 04: COVERAGE AREA -->
+        <div class="buy-block">
+          <div class="buy-block-hd">
+            <span class="block-num">04</span>
             <div>
               <div class="block-title">Coverage area</div>
               <div class="block-sub">Define where your leads come from.</div>
@@ -668,10 +702,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
         </div>
 
-        <!-- BLOCK 04: PACK SIZE -->
+        <!-- BLOCK 05: PACK SIZE -->
         <div class="buy-block">
           <div class="buy-block-hd">
-            <span class="block-num">04</span>
+            <span class="block-num">05</span>
             <div>
               <div class="block-title">How many leads?</div>
               <div class="block-sub">Larger packs include a volume discount.</div>
@@ -686,10 +720,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
 
-        <!-- BLOCK 05: DETAILS -->
+        <!-- BLOCK 06: DETAILS -->
         <div class="buy-block">
           <div class="buy-block-hd">
-            <span class="block-num">05</span>
+            <span class="block-num">06</span>
             <div>
               <div class="block-title">Your details</div>
               <div class="block-sub">Used to set up your account and deliver your leads.</div>
@@ -721,7 +755,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
         </div>
 
-        <!-- BLOCK 06: CONSENT + SUBMIT -->
+        <!-- BLOCK 07: CONSENT + SUBMIT -->
         <div class="buy-block">
           <div class="consent-ack" id="consentAck">
             <input type="checkbox" id="consentBizCheck">
@@ -771,6 +805,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="sum-row">
           <span class="sum-lbl">Trade</span>
           <span class="sum-val dim" id="sum-trade">Not selected</span>
+        </div>
+        <div class="sum-row" id="sum-subniche-row" style="display:none">
+          <span class="sum-lbl">Type</span>
+          <span class="sum-val dim" id="sum-subniche">–</span>
         </div>
         <div class="sum-row">
           <span class="sum-lbl">City</span>
@@ -965,13 +1003,32 @@ const SUPABASE_URL = 'https://wjadekgptkstfdootuol.supabase.co';
 // ─── STATE ──────────────────────────────────────────────
 const order = {
   niche: null,
+  sub_niche: null,
   area_city: null,
   location_type: 'radius',
   quantity: null,
   discount: 0,
   pricePerLead: null,
-  prices: {}  // cache per city: { solar: 85, roofing: 65, ... }
+  prices: {}
 };
+
+// ─── SUB-NICHE CONFIG ────────────────────────────────────
+const SUB_NICHE_OPTIONS = {
+  hvac: [
+    { key: 'split_ducted', label: 'Installations (Split & Ducted)', price: null },
+    { key: 'maintenance',  label: 'Installations & Maintenance',    price: null },
+  ],
+  roofing: [
+    { key: 'restoration', label: 'All Restorations',           price: 70  },
+    { key: 'replacement', label: 'All Replacements',           price: 85  },
+    { key: 'tile_metal',  label: 'Tile-to-Metal Replacements', price: 125 },
+  ],
+  renovation: [
+    { key: 'kitchen',  label: 'Kitchen Renovations',  price: null },
+    { key: 'bathroom', label: 'Bathroom Renovations', price: null },
+  ],
+};
+const SUB_NICHE_SKIP_PRICE = { roofing: 75 };
 
 // ─── PACK GRID ────────────────────────────────────────────
 const FALLBACK_TIERS = [
@@ -1078,8 +1135,11 @@ async function onCityChange() {
   const firstOk = results.find(r => r.status === 'fulfilled' && r.value?.discount_tiers?.length);
   if (firstOk) renderPackGrid(firstOk.value.discount_tiers);
 
-  // Update price if trade already selected
   if (order.niche && order.prices[order.niche]) {
+    if (order.sub_niche) {
+      await fetchSubNichePrice();
+      return;
+    }
     order.pricePerLead = order.prices[order.niche];
   }
 
@@ -1109,7 +1169,88 @@ function selectTrade(el) {
   document.querySelectorAll('.trade-card').forEach(c => c.classList.remove('sel'));
   el.classList.add('sel');
   order.niche = el.dataset.niche;
+  order.sub_niche = null;
+
+  const subBlock = document.getElementById('blockSubNiche');
+  if (['hvac','roofing','renovation'].includes(order.niche)) {
+    renderSubNicheGrid(order.niche);
+    subBlock.style.display = '';
+  } else {
+    subBlock.style.display = 'none';
+  }
+
   order.pricePerLead = order.prices[order.niche] || null;
+  updateSummary();
+}
+
+// ─── SUB-NICHE ───────────────────────────────────────────
+function renderSubNicheGrid(niche) {
+  const opts = SUB_NICHE_OPTIONS[niche] || [];
+  const grid = document.getElementById('subNicheGrid');
+  const skipBtn = document.getElementById('subNicheSkip');
+  const skipName = document.getElementById('skipNicheName');
+  const blockSub = document.getElementById('subNicheBlockSub');
+  const label = nicheLabels[niche];
+
+  if (blockSub) blockSub.textContent = 'Choose a specific focus — or skip for any ' + label + ' leads.';
+  if (skipName) skipName.textContent = label;
+
+  if (!grid) return;
+  grid.innerHTML = opts.map(opt => {
+    const priceHtml = opt.price != null
+      ? `<div class="sn-price">$${opt.price}/lead</div>`
+      : '';
+    return `<button class="sub-niche-card" data-key="${opt.key}" onclick="selectSubNiche(this)">` +
+      `<div class="sn-name">${opt.label}</div>${priceHtml}` +
+      `<div class="trade-check"><svg viewBox="0 0 10 8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l3 3 5-6"/></svg></div>` +
+      `</button>`;
+  }).join('');
+
+  grid.querySelectorAll('.sub-niche-card').forEach(b => {
+    b.addEventListener('mouseenter', () => document.body.classList.add('hov'));
+    b.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
+  });
+
+  if (skipBtn) {
+    const skipPrice = SUB_NICHE_SKIP_PRICE[niche];
+    skipBtn.innerHTML = 'Skip — any ' + label + (skipPrice != null ? ` — $${skipPrice}/lead` : '');
+    skipBtn.classList.remove('sel');
+  }
+}
+
+function selectSubNiche(el) {
+  document.querySelectorAll('.sub-niche-card').forEach(c => c.classList.remove('sel'));
+  document.getElementById('subNicheSkip')?.classList.remove('sel');
+  el.classList.add('sel');
+  order.sub_niche = el.dataset.key;
+  if (order.area_city) fetchSubNichePrice();
+  else updateSummary();
+}
+
+function skipSubNiche() {
+  document.querySelectorAll('.sub-niche-card').forEach(c => c.classList.remove('sel'));
+  document.getElementById('subNicheSkip')?.classList.add('sel');
+  order.sub_niche = null;
+  if (order.niche && order.prices[order.niche]) {
+    order.pricePerLead = order.prices[order.niche];
+  }
+  updateSummary();
+}
+
+async function fetchSubNichePrice() {
+  if (!order.niche || !order.area_city) return;
+  const params = `niche=${order.niche}` +
+    (order.sub_niche ? `&sub_niche=${order.sub_niche}` : '') +
+    `&area=${encodeURIComponent(order.area_city)}`;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?${params}`);
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data.price_per_lead) {
+      order.pricePerLead = data.price_per_lead;
+      if (data.discount_tiers?.length) renderPackGrid(data.discount_tiers);
+    }
+  } catch {}
   updateSummary();
 }
 
@@ -1152,6 +1293,24 @@ function updateSummary() {
     tradeEl.className = 'sum-val'; tradeEl.textContent = nicheLabels[order.niche];
   } else {
     tradeEl.className = 'sum-val dim'; tradeEl.textContent = 'Not selected';
+  }
+
+  const subRow = document.getElementById('sum-subniche-row');
+  const subEl  = document.getElementById('sum-subniche');
+  if (subRow && subEl) {
+    if (order.niche && ['hvac','roofing','renovation'].includes(order.niche)) {
+      subRow.style.display = 'flex';
+      if (order.sub_niche) {
+        const opt = (SUB_NICHE_OPTIONS[order.niche] || []).find(o => o.key === order.sub_niche);
+        subEl.className = 'sum-val';
+        subEl.textContent = opt ? opt.label : order.sub_niche;
+      } else {
+        subEl.className = 'sum-val dim';
+        subEl.textContent = 'Any ' + nicheLabels[order.niche];
+      }
+    } else {
+      subRow.style.display = 'none';
+    }
   }
 
   if (order.area_city) {
@@ -1221,12 +1380,12 @@ function flashErr(el) {
 
 // ─── SUBMIT ──────────────────────────────────────────────
 async function submitOrder() {
-  if (!order.area_city) {
-    document.getElementById('area_city').focus();
-    return;
-  }
   if (!order.niche) {
     document.querySelector('.trade-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  if (!order.area_city) {
+    document.getElementById('area_city').focus();
     return;
   }
   if (!order.quantity) {
@@ -1269,9 +1428,12 @@ async function submitOrder() {
   document.getElementById('stateLoading').classList.add('active');
 
   if (typeof fbq !== 'undefined') {
+    const subLabel = order.sub_niche
+      ? (SUB_NICHE_OPTIONS[order.niche]?.find(o => o.key === order.sub_niche)?.label || order.sub_niche)
+      : null;
     fbq('track', 'InitiateCheckout', {
       content_type: 'product',
-      content_name: `${nicheLabels[order.niche]} leads – ${order.area_city}`,
+      content_name: `${nicheLabels[order.niche]}${subLabel ? ' – ' + subLabel : ''} leads – ${order.area_city}`,
       num_items: order.quantity
     });
   }
@@ -1286,8 +1448,9 @@ async function submitOrder() {
     area_city:        order.area_city,
     location_type:    order.location_type,
     quantity:         order.quantity,
-    discount_percent: order.discount  // backend uses this to apply same tier in Stripe
+    discount_percent: order.discount
   };
+  if (order.sub_niche) payload.sub_niche = order.sub_niche;
   if (order.location_type === 'radius') {
     payload.radius_km = parseInt(document.getElementById('radius_km').value, 10);
   } else {
@@ -1360,7 +1523,7 @@ document.addEventListener('mousemove', e => {
   aura.style.left = mx + 'px'; aura.style.top = my + 'px';
 });
 (function aR() { rx += (mx - rx) * .1; ry += (my - ry) * .1; curR.style.left = rx + 'px'; curR.style.top = ry + 'px'; requestAnimationFrame(aR) })();
-document.querySelectorAll('a,button,input,select,.trade-card,.sidebar-card').forEach(el => {
+document.querySelectorAll('a,button,input,select,.trade-card,.sub-niche-card,.sidebar-card').forEach(el => {
   el.addEventListener('mouseenter', () => document.body.classList.add('hov'));
   el.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
 });
