@@ -1483,6 +1483,10 @@ function resetToForm() {
   document.getElementById('stateError').style.display = 'none';
   document.getElementById('stateError').classList.remove('active');
   document.querySelectorAll('.buy-block').forEach(b => b.style.display = '');
+  const subBlock = document.getElementById('blockSubNiche');
+  if (subBlock && !['hvac','roofing','renovation'].includes(order.niche)) {
+    subBlock.style.display = 'none';
+  }
 }
 
 // ─── PARTICLES ───────────────────────────────────────────
