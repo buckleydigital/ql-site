@@ -1009,26 +1009,26 @@ const order = {
   quantity: null,
   discount: 0,
   pricePerLead: null,
-  prices: {}
+  prices: {},
+  subPrices: {}
 };
 
 // ─── SUB-NICHE CONFIG ────────────────────────────────────
 const SUB_NICHE_OPTIONS = {
   hvac: [
-    { key: 'split_ducted', label: 'Installations (Split & Ducted)', price: null },
-    { key: 'maintenance',  label: 'Installations & Maintenance',    price: null },
+    { key: 'split_ducted', label: 'Installations (Split & Ducted)' },
+    { key: 'maintenance',  label: 'Installations & Maintenance'    },
   ],
   roofing: [
-    { key: 'restoration', label: 'All Restorations',           price: 70  },
-    { key: 'replacement', label: 'All Replacements',           price: 85  },
-    { key: 'tile_metal',  label: 'Tile-to-Metal Replacements', price: 125 },
+    { key: 'restoration', label: 'All Restorations'           },
+    { key: 'replacement', label: 'All Replacements'           },
+    { key: 'tile_metal',  label: 'Tile-to-Metal Replacements' },
   ],
   renovation: [
-    { key: 'kitchen',  label: 'Kitchen Renovations',  price: null },
-    { key: 'bathroom', label: 'Bathroom Renovations', price: null },
+    { key: 'kitchen',  label: 'Kitchen Renovations'  },
+    { key: 'bathroom', label: 'Bathroom Renovations' },
   ],
 };
-const SUB_NICHE_SKIP_PRICE = { roofing: 75 };
 
 // ─── PACK GRID ────────────────────────────────────────────
 const FALLBACK_TIERS = [
@@ -1135,6 +1135,11 @@ async function onCityChange() {
   const firstOk = results.find(r => r.status === 'fulfilled' && r.value?.discount_tiers?.length);
   if (firstOk) renderPackGrid(firstOk.value.discount_tiers);
 
+  if (order.niche && ['hvac','roofing','renovation'].includes(order.niche)) {
+    order.subPrices = {};
+    renderSubNicheGrid(order.niche);
+  }
+
   if (order.niche && order.prices[order.niche]) {
     if (order.sub_niche) {
       await fetchSubNichePrice();
@@ -1196,15 +1201,14 @@ function renderSubNicheGrid(niche) {
   if (skipName) skipName.textContent = label;
 
   if (!grid) return;
-  grid.innerHTML = opts.map(opt => {
-    const priceHtml = opt.price != null
-      ? `<div class="sn-price">$${opt.price}/lead</div>`
-      : '';
-    return `<button class="sub-niche-card" data-key="${opt.key}" onclick="selectSubNiche(this)">` +
-      `<div class="sn-name">${opt.label}</div>${priceHtml}` +
-      `<div class="trade-check"><svg viewBox="0 0 10 8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l3 3 5-6"/></svg></div>` +
-      `</button>`;
-  }).join('');
+  const hasCity = !!order.area_city;
+  grid.innerHTML = opts.map(opt =>
+    `<button class="sub-niche-card" data-key="${opt.key}" onclick="selectSubNiche(this)">` +
+    `<div class="sn-name">${opt.label}</div>` +
+    `<div class="sn-price" id="snprice-${opt.key}">${hasCity ? '<div class="price-spin"></div>' : ''}</div>` +
+    `<div class="trade-check"><svg viewBox="0 0 10 8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4l3 3 5-6"/></svg></div>` +
+    `</button>`
+  ).join('');
 
   grid.querySelectorAll('.sub-niche-card').forEach(b => {
     b.addEventListener('mouseenter', () => document.body.classList.add('hov'));
@@ -1212,9 +1216,33 @@ function renderSubNicheGrid(niche) {
   });
 
   if (skipBtn) {
-    const skipPrice = SUB_NICHE_SKIP_PRICE[niche];
-    skipBtn.innerHTML = 'Skip — any ' + label + (skipPrice != null ? ` — $${skipPrice}/lead` : '');
+    const basePrice = order.prices[niche];
+    skipBtn.innerHTML = 'Skip — any ' + label + (basePrice ? ` — $${basePrice}/lead` : '');
     skipBtn.classList.remove('sel');
+  }
+
+  if (hasCity) {
+    opts.forEach(opt => prefetchSubNichePrice(niche, opt.key));
+  }
+}
+
+async function prefetchSubNichePrice(niche, subKey) {
+  if (!order.area_city) return;
+  const el = document.getElementById('snprice-' + subKey);
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${niche}&sub_niche=${subKey}&area=${encodeURIComponent(order.area_city)}`
+    );
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    if (data.price_per_lead) {
+      if (el) el.textContent = `$${data.price_per_lead}/lead`;
+      order.subPrices[niche + ':' + subKey] = data.price_per_lead;
+    } else {
+      if (el) el.textContent = '';
+    }
+  } catch {
+    if (el) el.textContent = '';
   }
 }
 
@@ -1223,8 +1251,15 @@ function selectSubNiche(el) {
   document.getElementById('subNicheSkip')?.classList.remove('sel');
   el.classList.add('sel');
   order.sub_niche = el.dataset.key;
-  if (order.area_city) fetchSubNichePrice();
-  else updateSummary();
+  const cacheKey = order.niche + ':' + order.sub_niche;
+  if (order.subPrices[cacheKey]) {
+    order.pricePerLead = order.subPrices[cacheKey];
+    updateSummary();
+  } else if (order.area_city) {
+    fetchSubNichePrice();
+  } else {
+    updateSummary();
+  }
 }
 
 function skipSubNiche() {
