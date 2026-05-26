@@ -124,6 +124,13 @@ body::before{content:'';position:fixed;inset:0;
 .mob-menu a:hover{color:var(--white)}
 .mob-cta-link{background:var(--blue) !important;color:#fff !important;padding:14px 0 !important;
   border-radius:4px;text-align:center;margin-top:12px;border-bottom:none !important}
+.nav-cta-dark{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);color:var(--off) !important;
+  font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;
+  border:1px solid rgba(255,255,255,.12);text-decoration:none;transition:all .2s}
+.nav-cta-dark:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.22);color:var(--white) !important}
+.mob-cta-dark{background:rgba(255,255,255,.06) !important;color:var(--off) !important;padding:14px 0 !important;
+  border-radius:4px;text-align:center;margin-top:12px;border-bottom:none !important;border:1px solid rgba(255,255,255,.12) !important}
+.mob-cta-dark:hover{background:rgba(255,255,255,.10) !important;color:var(--white) !important}
 
 /* SECTIONS */
 section{position:relative;z-index:3;padding:110px 5%;border-top:1px solid var(--border)}
@@ -497,6 +504,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <li><a href="/#how-it-works">How It Works</a></li>
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
+      <li><a href="https://calendly.com/quoteleads/discoverycall" target="_blank" rel="noopener" class="nav-cta-dark">Book Activation Call</a></li>
       <li><a href="/buy-leads" class="nav-cta">Buy Leads <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
     </ul>
     <button class="mob-btn" id="mobBtn" aria-label="Menu">
@@ -507,6 +515,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <a href="/#how-it-works">How It Works</a>
     <a href="/pricing">Pricing</a>
     <a href="https://quoteleadshq.com/dashboard">Login</a>
+    <a href="https://calendly.com/quoteleads/discoverycall" target="_blank" rel="noopener" class="mob-cta-dark">Book Activation Call</a>
     <a href="/buy-leads" class="mob-cta-link">Buy Leads</a>
   </nav>
 </header>
