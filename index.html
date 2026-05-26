@@ -720,6 +720,39 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .car-scene{height:480px}
 }
 
+/* SYSTEM CARD */
+.sys-card{background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+  border:1px solid rgba(255,255,255,.09);border-radius:28px;padding:56px 52px;
+  position:relative;overflow:hidden;backdrop-filter:blur(20px)}
+.sys-card::before{content:'';position:absolute;inset:0;border-radius:28px;
+  background:radial-gradient(ellipse at 60% 0%,rgba(16,185,129,.06),transparent 55%);pointer-events:none}
+.sys-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(16,185,129,.4),rgba(71,151,255,.3),transparent);pointer-events:none}
+.sys-card-top{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;margin-bottom:44px}
+.sys-price-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.1);
+  border:1px solid rgba(16,185,129,.22);color:#34d399;font-size:.72rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;white-space:nowrap;flex-shrink:0}
+.sys-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:44px}
+.sys-feat{background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px 20px;
+  transition:border-color .25s,background .25s;cursor:none}
+.sys-feat:hover{border-color:rgba(71,151,255,.2);background:linear-gradient(145deg,rgba(71,151,255,.05),rgba(71,151,255,.01))}
+.sys-feat-ico{width:40px;height:40px;border-radius:10px;background:var(--bdim);
+  border:1px solid rgba(71,151,255,.18);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.sys-feat-ico svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.sys-feat-name{font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:6px;letter-spacing:-.01em}
+.sys-feat-desc{font-size:.78rem;color:var(--muted);line-height:1.6}
+.sys-card-btm{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sys-note{font-size:.78rem;color:var(--faint)}
+@media(max-width:1024px){.sys-feats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){
+  .sys-card{padding:36px 24px}
+  .sys-card-top{grid-template-columns:1fr;gap:12px}
+  .sys-feats{grid-template-columns:1fr 1fr;gap:12px}
+  .sys-feat{padding:18px 16px}
+}
+@media(max-width:480px){.sys-feats{grid-template-columns:1fr}}
+
 /* OFFER CARDS */
 .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:60px}
 .offer-card{border-radius:24px;padding:40px 36px;position:relative;overflow:hidden;
@@ -1012,6 +1045,60 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <a href="/roofing-leads" class="ind-item"><div class="ind-img"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="ind-body"><h3>Roofing</h3><p class="ind-desc">Storm season or not - roofing leads from homeowners ready to spend, locked to your service area.</p><span class="ind-link">Roofing leads →</span></div></a>
       <a href="/hvac-leads" class="ind-item"><div class="ind-img"><svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></div><div class="ind-body"><h3>HVAC</h3><p class="ind-desc">Summer peaks. Winter installs. Year-round leads without chasing a marketplace.</p><span class="ind-link">HVAC leads →</span></div></a>
       <a href="/renovation-leads" class="ind-item"><div class="ind-img"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div class="ind-body"><h3>Renovations</h3><p class="ind-desc">Kitchen, bathroom, full reno - homeowners with budgets approved and timelines set.</p><span class="ind-link">Renovation leads →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM CARD -->
+<section>
+  <div class="si">
+    <div class="sys-card rv">
+      <div class="sys-card-top">
+        <div>
+          <div class="ey" style="margin-bottom:16px">Done For You System</div>
+          <h2 class="stitle" style="margin-bottom:12px">Or let us build <em>the whole thing.</em></h2>
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.74;max-width:520px;margin:0">AI-powered campaigns, a branded survey funnel, instant follow-up and a full CRM pipeline — built on your accounts, handed over on day one. You own everything.</p>
+        </div>
+        <div class="sys-price-pill">From $2,500 + GST</div>
+      </div>
+      <div class="sys-feats">
+        <div class="sys-feat rv">
+          <div class="sys-feat-ico">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="sys-feat-name">AI Ad Campaigns</div>
+          <div class="sys-feat-desc">Meta and Google campaigns built on your accounts — your brand, your creatives, your service area.</div>
+        </div>
+        <div class="sys-feat rv d1">
+          <div class="sys-feat-ico">
+            <svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          </div>
+          <div class="sys-feat-name">Survey Funnel</div>
+          <div class="sys-feat-desc">Branded landing page with a 3+ step qualifier that filters tyre-kickers before they reach you.</div>
+        </div>
+        <div class="sys-feat rv d2">
+          <div class="sys-feat-ico">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="sys-feat-name">AI Follow-Up</div>
+          <div class="sys-feat-desc">AI SMS agent responds within 60 seconds, qualifies scope and books callbacks — automatically, in your name.</div>
+        </div>
+        <div class="sys-feat rv d3">
+          <div class="sys-feat-ico">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="sys-feat-name">CRM + Full Handover</div>
+          <div class="sys-feat-desc">Pipeline tracking, integrations, and asset handover on day one. Cancel anytime — everything stays yours.</div>
+        </div>
+      </div>
+      <div class="sys-card-btm rv">
+        <a href="https://calendly.com/quoteleads/discoverycall" target="_blank" rel="noopener" class="btn-mag" style="background:rgba(16,185,129,.85)">
+          Book Activation Call
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
+        </a>
+        <a href="/pricing" class="btn-ghost">See full details</a>
+        <span class="sys-note">No lock-in &middot; Ad budget paid direct to Meta/Google &middot; Cancel anytime</span>
+      </div>
     </div>
   </div>
 </section>
