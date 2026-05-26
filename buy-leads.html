@@ -665,12 +665,12 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <span class="block-num">03</span>
             <div>
               <div class="block-title">Select lead type</div>
-              <div class="block-sub" id="subNicheBlockSub">Choose a specific focus — or skip for any leads.</div>
+              <div class="block-sub" id="subNicheBlockSub">Choose a specific focus &mdash; or skip for any leads.</div>
             </div>
           </div>
           <div class="sub-niche-grid" id="subNicheGrid"></div>
           <div style="margin-top:14px;text-align:center">
-            <button class="sub-niche-skip" id="subNicheSkip" onclick="skipSubNiche()">Skip — any <span id="skipNicheName"></span></button>
+            <button class="sub-niche-skip" id="subNicheSkip" onclick="skipSubNiche()">Skip &mdash; any <span id="skipNicheName"></span></button>
           </div>
         </div>
 
@@ -1197,7 +1197,7 @@ function renderSubNicheGrid(niche) {
   const blockSub = document.getElementById('subNicheBlockSub');
   const label = nicheLabels[niche];
 
-  if (blockSub) blockSub.textContent = 'Choose a specific focus — or skip for any ' + label + ' leads.';
+  if (blockSub) blockSub.textContent = 'Choose a specific focus &mdash; or skip for any ' + label + ' leads.';
   if (skipName) skipName.textContent = label;
 
   if (!grid) return;
@@ -1217,7 +1217,7 @@ function renderSubNicheGrid(niche) {
 
   if (skipBtn) {
     const basePrice = order.prices[niche];
-    skipBtn.innerHTML = 'Skip — any ' + label + (basePrice ? ` — $${basePrice}/lead` : '');
+    skipBtn.innerHTML = 'Skip &mdash; any ' + label + (basePrice ? ` &mdash; $${basePrice}/lead` : '');
     skipBtn.classList.remove('sel');
   }
 
