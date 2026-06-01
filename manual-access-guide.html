@@ -1,11 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F36W0PEFR4');
+</script>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=/buy-leads">
-<link rel="canonical" href="https://quoteleads.com.au/buy-leads">
-<title>Redirecting... | QuoteLeads</title>
-<script>window.location.replace('/buy-leads');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Business Access Guide | QuoteLeads</title>
+<meta name="description" content="Step-by-step guide to granting QuoteLeads partner access in Meta Business Manager. Takes less than 5 minutes.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040A;--deep:#08080F;--surf:#0C0C18;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07);--bmid:rgba(255,255,255,0.10);
+  --bblue:rgba(71,151,255,0.3);
+  --blue:#4797FF;--bdim:rgba(71,151,255,0.12);
+  --sky:#7CB9FF;--mist:#B8D4FF;
+  --white:#F2F2F2;--off:#CACAD0;--muted:#71717A;--faint:#3F3F46;
+  --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --nh:68px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--void);color:var(--white);font-family:var(--body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss01','ss03'}
+
+/* CURSOR */
+#cur{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+
+/* AURA */
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);
+  transform:translate(-50%,-50%);transition:left .5s ease,top .5s ease}
+
+/* PARTICLES */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+
+/* GRAIN */
+body::before{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+  background-size:200px;pointer-events:none;z-index:2;opacity:.4}
+
+/* SCROLL PROGRESS */
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;
+  transform-origin:left center;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--blue),var(--sky))}
+
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;
+  background:rgba(4,4,10,0);border-bottom:1px solid transparent;
+  transition:background .4s,border-color .4s,backdrop-filter .4s}
+.site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:var(--nh)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.back-link:hover{color:var(--white)}
+.back-link svg{width:14px;height:14px}
+
+/* GUIDE HERO */
+.guide-hero{position:relative;z-index:3;padding:120px 5% 80px;text-align:center;
+  background:linear-gradient(180deg,#0E0F1E 0%,var(--void) 100%);
+  border-bottom:1px solid var(--border)}
+.guide-hero-inner{max-width:720px;margin:0 auto}
+.guide-hero .logo-wrap{display:flex;justify-content:center;margin-bottom:32px}
+.guide-hero h1{font-family:var(--display);font-size:clamp(1.9rem,5vw,3rem);font-weight:600;
+  line-height:1.1;letter-spacing:-.025em;margin-bottom:16px;animation:fadeUp .7s ease both}
+.guide-hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.guide-hero .sub{font-size:1.05rem;color:var(--muted);line-height:1.7;animation:fadeUp .7s .12s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* GUIDE BODY */
+.guide-body{position:relative;z-index:3;padding:60px 5% 80px}
+.guide-inner{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+
+/* WHY CALLOUT */
+.why-callout{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.22);
+  border-radius:16px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start}
+.why-callout .why-icon{font-size:1.4rem;flex-shrink:0;line-height:1;margin-top:2px}
+.why-callout-body{}
+.why-callout h2{font-family:var(--display);font-size:.95rem;font-weight:600;
+  color:#FCD34D;margin-bottom:8px;letter-spacing:-.01em}
+.why-callout p{font-size:.85rem;color:var(--muted);line-height:1.7}
+
+/* STEP CARD */
+.step-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;
+  backdrop-filter:blur(12px)}
+.step-header{display:flex;align-items:center;gap:16px;padding:28px 32px 22px;
+  border-bottom:1px solid var(--border)}
+.step-header.done{background:rgba(34,197,94,.06);border-bottom-color:rgba(34,197,94,.18)}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--blue);
+  color:#fff;font-family:var(--display);font-size:.9rem;font-weight:600;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-header.done .step-num{background:rgba(34,197,94,.85)}
+.step-title{font-family:var(--display);font-size:1.05rem;font-weight:600;
+  color:var(--white);letter-spacing:-.015em}
+.step-body{padding:28px 32px}
+.step-instruction{font-size:.9rem;color:var(--off);line-height:1.7;margin-bottom:24px}
+
+/* SCREENSHOT */
+.step-screenshot{display:block;width:100%;max-width:700px;margin:0 auto;
+  border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.06);
+  height:auto}
+.screenshot-wrap{text-align:center;margin-bottom:24px}
+.screenshot-wrap + .screenshot-wrap{margin-top:16px}
+
+/* INFO CALLOUT */
+.info-callout{display:flex;gap:14px;background:var(--bdim);border:1px solid rgba(71,151,255,.2);
+  border-radius:12px;padding:16px 20px;margin-bottom:24px}
+.info-callout .ic-icon{color:var(--blue);flex-shrink:0;margin-top:2px}
+.info-callout p{font-size:.82rem;color:var(--sky);line-height:1.65}
+
+/* COPY BOX */
+.copy-box{background:var(--glass2);border:1px solid rgba(71,151,255,.35);
+  border-radius:12px;padding:16px 20px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;margin-bottom:24px;cursor:none}
+.copy-box-label{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--sky);margin-bottom:4px}
+.copy-box-value{font-family:monospace;font-size:1rem;color:var(--white);font-weight:500;letter-spacing:.04em}
+.copy-btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);
+  color:#fff;border:none;font-family:var(--body);font-size:.8rem;font-weight:500;
+  padding:8px 18px;border-radius:100px;cursor:none;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.copy-btn:hover{background:var(--sky);box-shadow:0 6px 20px rgba(71,151,255,.4)}
+.copy-btn svg{width:13px;height:13px}
+
+/* TOAST */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);
+  color:#4ADE80;font-size:.82rem;font-weight:500;padding:10px 22px;border-radius:100px;
+  z-index:9000;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;
+  white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* PERMISSIONS TABLE */
+.perm-table-wrap{margin-bottom:24px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.perm-table{width:100%;border-collapse:collapse}
+.perm-table th{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding:12px 16px;text-align:left;background:rgba(255,255,255,.03);
+  border-bottom:1px solid rgba(255,255,255,.07)}
+.perm-table td{padding:12px 16px;font-size:.83rem;color:var(--off);vertical-align:middle;
+  border-bottom:1px solid rgba(255,255,255,.05)}
+.perm-table tr:last-child td{border-bottom:none}
+.perm-table tr.row-on td:first-child{color:var(--white)}
+.perm-table tr.row-highlight{background:rgba(34,197,94,.07)}
+.perm-table tr.row-highlight td{border-bottom-color:rgba(34,197,94,.15)}
+.perm-table tr.row-highlight td:first-child{color:#4ADE80}
+.perm-badge{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:600;
+  letter-spacing:.06em;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.badge-on{background:rgba(71,151,255,.15);color:var(--blue);border:1px solid rgba(71,151,255,.25)}
+.badge-off{background:rgba(255,255,255,.05);color:var(--faint);border:1px solid rgba(255,255,255,.08)}
+.badge-req{background:rgba(34,197,94,.15);color:#4ADE80;border:1px solid rgba(34,197,94,.3)}
+
+/* WHAT HAPPENS NEXT */
+.next-section{position:relative;z-index:3;padding:0 5% 80px}
+.next-inner{max-width:760px;margin:0 auto}
+.next-title{font-family:var(--display);font-size:1.3rem;font-weight:600;
+  color:var(--white);margin-bottom:28px;letter-spacing:-.02em}
+.next-cards{display:flex;flex-direction:column;gap:16px}
+.next-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px 24px;
+  display:flex;align-items:flex-start;gap:18px}
+.next-card-icon{font-size:1.3rem;flex-shrink:0;line-height:1;margin-top:1px}
+.next-card h3{font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:4px}
+.next-card p{font-size:.82rem;color:var(--muted);line-height:1.6}
+
+/* FOOTER CTA */
+.guide-footer{position:relative;z-index:3;padding:48px 5% 64px;border-top:1px solid var(--border);text-align:center}
+.guide-footer-inner{max-width:520px;margin:0 auto}
+.guide-footer p{font-size:.9rem;color:var(--muted);margin-bottom:12px}
+.guide-footer a{color:var(--blue);text-decoration:none;font-weight:500;transition:color .2s}
+.guide-footer a:hover{color:var(--sky)}
+.guide-footer .foot-logo{display:flex;justify-content:center;margin-bottom:28px}
+
+/* SECTION DIVIDER */
+.step-divider{display:flex;align-items:center;gap:16px;color:var(--faint);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+.step-divider::before,.step-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+@media(max-width:768px){
+  .guide-hero{padding:100px 5% 60px}
+  .guide-body{padding:40px 5% 60px}
+  .guide-inner{gap:32px}
+  .why-callout{flex-direction:column;gap:12px;padding:22px 20px}
+  .step-header{padding:22px 20px 16px;gap:12px}
+  .step-num{width:30px;height:30px;font-size:.82rem}
+  .step-title{font-size:.95rem}
+  .step-body{padding:20px}
+  .copy-box{flex-direction:column;align-items:flex-start;gap:12px}
+  .copy-btn{width:100%;justify-content:center}
+  .perm-table th,.perm-table td{padding:10px 12px;font-size:.78rem}
+  .next-section{padding:0 5% 60px}
+}
+@media(max-width:480px){
+  .guide-hero h1{font-size:1.7rem}
+  .perm-table th:last-child,.perm-table td:last-child{display:none}
+}
+</style>
 </head>
-<body></body>
+<body>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+
+<!-- GRAIN + PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Copied to clipboard!</div>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:30px;width:auto;display:block">
+    </a>
+    <a href="/" class="back-link">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 7H3M6 4 3 7l3 3"/></svg>
+      Back to site
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="guide-hero">
+  <div class="guide-hero-inner">
+    <div class="logo-wrap">
+      <img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:38px;width:auto;display:block">
+    </div>
+    <h1>Meta Business <em>Access Guide</em></h1>
+    <p class="sub">How to grant partner access to your Meta assets - takes less than 5 minutes.</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="guide-body">
+  <div class="guide-inner">
+
+    <!-- WHY CALLOUT -->
+    <div class="why-callout">
+      <div class="why-icon">⚡</div>
+      <div class="why-callout-body">
+        <h2>Why we set it up this way</h2>
+        <p>By connecting your Page and Ad Account under your own Meta Business portfolio, you own every asset from day one. This avoids complicated transfer processes if you ever change agencies.</p>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title">Open Meta Business Settings</div>
+      </div>
+      <div class="step-body">
+        <p class="step-instruction">Go to <strong style="color:var(--white)">business.facebook.com/settings</strong> and log in with your Facebook account.</p>
+        <div class="info-callout">
+          <div class="ic-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <p>If you see "Select business" with no options, click <strong>Create Business</strong> to set up your Business Portfolio first.</p>
+        </div>
+        <div class="screenshot-wrap">
+          <img src="images/guide/bm1.png" alt="Meta Business Settings page" class="step-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title">Navigate to Partners</div>
+      </div>
+      <div class="step-body">
+        <p class="step-instruction">In the left sidebar click <strong style="color:var(--white)">Settings</strong> (gear icon), then under <strong style="color:var(--white)">Users</strong> select <strong style="color:var(--white)">Partners</strong>.</p>
+        <div class="screenshot-wrap">
+          <img src="images/guide/bm1-2.png" alt="Partners menu in Meta Business Settings" class="step-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title">Add QuoteLeads as a Partner</div>
+      </div>
+      <div class="step-body">
+        <p class="step-instruction">Click the <strong style="color:var(--white)">Add</strong> button (top right). Select <strong style="color:var(--white)">"Give a partner access to your assets"</strong>.</p>
+        <div class="screenshot-wrap">
+          <img src="images/guide/bm1-3.png" alt="Add Partner dialog" class="step-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title">Enter QuoteLeads' Business ID</div>
+      </div>
+      <div class="step-body">
+        <p class="step-instruction">Paste the Business ID into the dialog field, then click <strong style="color:var(--white)">Next</strong>.</p>
+        <div class="copy-box" id="copyBox" onclick="copyBizId()">
+          <div>
+            <div class="copy-box-label">QuoteLeads Business ID</div>
+            <div class="copy-box-value" id="bizId">1065750507426304</div>
+          </div>
+          <button class="copy-btn" id="copyBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+        <div class="screenshot-wrap">
+          <img src="images/guide/bm1-4.png" alt="Business ID entry field" class="step-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <div class="step-title">Assign Your Facebook Page</div>
+      </div>
+      <div class="step-body">
+        <p class="step-instruction">Select your Page from the dropdown, then set permissions as shown below.</p>
+        <div class="screenshot-wrap">
+          <img src="images/guide/bm1-5.png" alt="Select Facebook Page dropdown" class="step-screenshot" loading="lazy">
+        </div>
+        <div class="screenshot-wrap">
+          <img src="images/guide/bm1-6.png" alt="Facebook Page permissions" class="step-screenshot" loading="lazy">
+        </div>
+        <div class="perm-table-wrap">
+          <table class="perm-table">
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Status</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-on">
+                <td>Content</td>
+                <td><span class="perm-badge badge-on">ON</span></td>
+                <td>Create, manage or delete posts, stories and more as the Page</td>
+              </tr>
+              <tr class="row-on">
+                <td>Community activity</td>
+                <td><span class="perm-badge badge-on">ON</span></td>
+                <td>Review and respond to comments, remove unwanted content</td>
+              </tr>
+              <tr>
+                <td>Messages and calls</td>
+                <td><span class="perm-badge badge-off">OFF</span></td>
+                <td>Send and respond to messages and calls as the Page</td>
+              </tr>
+              <tr class="row-on">
+                <td>Ads</td>
+                <td><span class="perm-badge badge-on">ON</span></td>
+                <td>Create, manage and delete ads for the Page</td>
+              </tr>
+              <tr class="row-on">
+                <td>Insights</td>
+                <td><span class="perm-badge badge-on">ON</span></td>
+                <td>See how the Page, content and ads perform</td>
+              </tr>
+              <tr class="row-on">
+                <td>Revenue</td>
+                <td><span class="perm-badge badge-on">ON</span></td>
+                <td>View and export Page monetisation and earnings data</td>
+              </tr>
+              <tr class="row-on">
+                <td>Leads</td>
+                <td><span class="perm-badge badge-on">ON</span></td>
+                <td>Access and manage leads, including downloading leads</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <div class="step-title">Assign Your Ad Account</div>
+      </div>
+      <div class="step-body">
+        <p class="step-instruction">Select your Ad Account from the dropdown. Enable <strong style="color:var(--white)">Full control - Manage ad accounts</strong>.</p>
+        <div class="screenshot-wrap">
+          <img src="images/guide/bm1-7.png" alt="Select Ad Account dropdown" class="step-screenshot" loading="lazy">
+        </div>
+        <div class="screenshot-wrap">
+          <img src="images/guide/bm1-8.png" alt="Ad Account permissions" class="step-screenshot" loading="lazy">
+        </div>
+        <div class="perm-table-wrap">
+          <table class="perm-table">
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Status</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Manage campaigns (ads)</td>
+                <td><span class="perm-badge badge-off">OFF</span></td>
+                <td>Create and edit ads, access reports and view ads</td>
+              </tr>
+              <tr>
+                <td>View performance</td>
+                <td><span class="perm-badge badge-off">OFF</span></td>
+                <td>Access reports and view ads</td>
+              </tr>
+              <tr>
+                <td>Manage Creative Hub mockups</td>
+                <td><span class="perm-badge badge-off">OFF</span></td>
+                <td>View, create and edit mockups in Creative Hub</td>
+              </tr>
+              <tr class="row-highlight">
+                <td>Manage ad accounts</td>
+                <td><span class="perm-badge badge-req">ON ✓</span></td>
+                <td>Full control - Control ad account settings, finances and permissions</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="step-card">
+      <div class="step-header done">
+        <div class="step-num">7</div>
+        <div class="step-title">Confirm - You're Done!</div>
+      </div>
+      <div class="step-body">
+        <p class="step-instruction">Click <strong style="color:var(--white)">Save</strong>. You'll see the "Assets assigned" confirmation screen - that's it, you're all set!</p>
+        <div class="screenshot-wrap">
+          <img src="images/guide/bm1-9.png" alt="Assets assigned confirmation" class="step-screenshot" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHAT HAPPENS NEXT -->
+<div class="next-section">
+  <div class="next-inner">
+    <div class="next-title">What happens next?</div>
+    <div class="next-cards">
+      <div class="next-card">
+        <div class="next-card-icon">✅</div>
+        <div>
+          <h3>Access confirmed</h3>
+          <p>Your campaign build starts automatically once access is granted.</p>
+        </div>
+      </div>
+      <div class="next-card">
+        <div class="next-card-icon">🎨</div>
+        <div>
+          <h3>Your campaigns are built and ready to launch</h3>
+          <p>Campaigns are configured and ready to launch.</p>
+        </div>
+      </div>
+      <div class="next-card">
+        <div class="next-card-icon">👀</div>
+        <div>
+          <h3>Preview before launch</h3>
+          <p>Within 2–3 business days you'll receive campaign previews for review before anything goes live.</p>
+        </div>
+      </div>
+      <div class="next-card">
+        <div class="next-card-icon">🔒</div>
+        <div>
+          <h3>You stay in control</h3>
+          <p>You can review or revoke access any time via Settings → Users → Partners.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<footer class="guide-footer">
+  <div class="guide-footer-inner">
+    <div class="foot-logo">
+      <img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:28px;width:auto;opacity:.55">
+    </div>
+    <p>Questions? We're happy to help.</p>
+    <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+  </div>
+</footer>
+
+<script>
+/* CURSOR */
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,.copy-box').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+
+/* SCROLL HEADER + PROGRESS */
+const hdr=document.getElementById('siteHeader'),prog=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{
+  hdr.classList.toggle('sc',window.scrollY>40);
+  const p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))||0;
+  prog.style.transform='scaleX('+p+')';
+},{passive:true});
+
+/* PARTICLES */
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let W=canvas.width=window.innerWidth,H=canvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight});
+const cols=['rgba(71,151,255,','rgba(124,185,255,','rgba(184,212,255,'];
+const pts=Array.from({length:60},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.5+.5,a:Math.random(),c:cols[Math.floor(Math.random()*cols.length)]}));
+(function draw(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c+p.a+')';ctx.fill()});requestAnimationFrame(draw)})();
+
+/* COPY TO CLIPBOARD */
+function copyBizId(){
+  const val=document.getElementById('bizId').textContent.trim();
+  navigator.clipboard.writeText(val).then(()=>{
+    const btn=document.getElementById('copyBtn');
+    btn.textContent='Copied!';
+    setTimeout(()=>{
+      btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy';
+    },2000);
+    const t=document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2400);
+  }).catch(()=>{
+    const r=document.createRange();r.selectNode(document.getElementById('bizId'));
+    window.getSelection().removeAllRanges();window.getSelection().addRange(r);
+    document.execCommand('copy');window.getSelection().removeAllRanges();
+    const t=document.getElementById('toast');t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2400);
+  });
+}
+</script>
+</body>
 </html>
