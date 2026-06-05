@@ -774,6 +774,12 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               I consent to my business name, <strong id="consentBizLabel">my business</strong>, being used in QuoteLeads' proprietary consent forms. Prospects will see my business name and explicitly agree to be contacted by my business before their enquiry is submitted.
             </label>
           </div>
+          <div class="consent-ack" id="termsAck">
+            <input type="checkbox" id="termsCheck">
+            <label for="termsCheck">
+              I have read and agree to the <a href="/pay-per-lead-terms" target="_blank" style="color:var(--blue);text-decoration:underline">Pay Per Lead Terms</a>. I understand that <strong>leads are non-refundable digital goods</strong> delivered instantly, the <strong>7-day replacement policy is my sole remedy</strong> (not a refund), and that <strong>leads are not guaranteed to convert</strong> into sales or appointments.
+            </label>
+          </div>
           <button class="btn-submit" id="btnSubmit" onclick="submitOrder()">
             Proceed to Payment
             <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
@@ -1469,6 +1475,14 @@ async function submitOrder() {
     return;
   }
 
+  const termsBox = document.getElementById('termsCheck');
+  if (!termsBox.checked) {
+    const termsEl = document.getElementById('termsAck');
+    termsEl.classList.add('err-hi');
+    termsEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
   // Hide form blocks, show loading
   document.querySelectorAll('.buy-block').forEach(b => b.style.display = 'none');
   document.getElementById('stateLoading').style.display = 'block';
@@ -1648,6 +1662,9 @@ document.querySelectorAll('.rv').forEach(el => obs.observe(el));
 // ─── CONSENT CHECKBOX ────────────────────────────────────
 document.getElementById('consentBizCheck').addEventListener('change', function () {
   if (this.checked) document.getElementById('consentAck').classList.remove('err-hi');
+});
+document.getElementById('termsCheck').addEventListener('change', function () {
+  if (this.checked) document.getElementById('termsAck').classList.remove('err-hi');
 });
 </script>
 </body>
