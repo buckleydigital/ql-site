@@ -150,9 +150,11 @@ body::before{content:'';position:fixed;inset:0;
 .cta-proof-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:livePulse 2s ease infinite}
 .cta-proof span{font-size:.82rem;color:var(--muted);font-weight:400}
 .cta-proof strong{color:var(--off);font-weight:500}
-.hproof{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:28px;animation:fadeUp .7s .3s ease both}
-.pfaces{display:flex}
-.pface{width:30px;height:30px;border-radius:50%;border:2px solid var(--void);margin-right:-9px;
+.hproof{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin-top:28px;animation:fadeUp .7s .3s ease both}
+.logo-scroll-outer{overflow:hidden;width:100%;-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,#000 18%,#000 82%,transparent 100%)}
+.logo-scroll-track{display:flex;gap:14px;width:max-content;animation:logoScroll 16s linear infinite}
+@keyframes logoScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.pface{width:42px;height:42px;border-radius:50%;border:2px solid var(--void);flex-shrink:0;
   background:var(--deep);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .pface img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .pcopy{font-size:.8rem;color:var(--muted);line-height:1.5}
@@ -560,7 +562,8 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .tstars{font-size:.7rem;color:var(--sky);margin-bottom:14px;letter-spacing:2px}
 .tbody{font-size:.88rem;color:#CACAC0;line-height:1.74;margin-bottom:20px;font-style:italic}
 .tauth{display:flex;align-items:center;gap:12px}
-.tav{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:600;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--sky))}
+.tav{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:600;flex-shrink:0;background:var(--deep);overflow:hidden;border:1px solid var(--border)}
+.tav img{width:100%;height:100%;object-fit:cover}
 .tnm{font-size:.88rem;font-weight:500;color:var(--white);margin-bottom:2px}
 .tco{font-size:.76rem;color:var(--muted)}
 .car-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:48px}
@@ -855,14 +858,25 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       </div>
       <p style="font-size:.8rem;color:var(--faint);margin-top:14px;margin-bottom:0;text-align:center;">Pay Per Lead &middot; Full System from $2,500 &middot; No lock-in</p>
       <div class="hproof">
-        <div class="pfaces">
-          <div class="pface"><img src="/client-logo1.png" alt="Client"></div>
-          <div class="pface"><img src="/client-logo2.png" alt="Client"></div>
-          <div class="pface"><img src="/client-logo3.png" alt="Client"></div>
-          <div class="pface"><img src="/client-logo4.png" alt="Client"></div>
-          <div class="pface"><img src="/client-logo7.png" alt="Client"></div>
-        </div>
         <div class="pcopy">Join hundreds of Australian trade businesses with a 70%+ lead-to-appointment rate.</div>
+        <div class="logo-scroll-outer">
+          <div class="logo-scroll-track">
+            <div class="pface"><img src="/client-logo1.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo2.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo3.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo4.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo7.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo8.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo9.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo1.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo2.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo3.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo4.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo7.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo8.png" alt="Client"></div>
+            <div class="pface"><img src="/client-logo9.png" alt="Client"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1120,17 +1134,19 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     </div>
     <div class="car-scene rv">
       <div class="car-track" id="carTrack">
-        <div class="tc" data-i="0"><div class="tresult"><div class="trd"></div>Lamm Solar</div><div class="tstars">★★★★★</div><p class="tbody">"We get about 70% of leads turning into quality appointments"</p><div class="tauth"><div class="tav">LS</div><div><div class="tnm">Lamm Solar</div><div class="tco">Solar Installations</div></div></div></div>
-        <div class="tc" data-i="1"><div class="tresult"><div class="trd"></div>AB Built</div><div class="tstars">★★★★★</div><p class="tbody">"I've had some good local leads coming in lately and filling up next year rather quickly and converting around 50%"</p><div class="tauth"><div class="tav">AB</div><div><div class="tnm">AB Built</div><div class="tco">Building &amp; Renovations</div></div></div></div>
-        <div class="tc" data-i="2"><div class="tresult"><div class="trd"></div>Stanley's Painting</div><div class="tstars">★★★★★</div><p class="tbody">"The leads just come in, you qualify them, quote the job, get the work. Simple."</p><div class="tauth"><div class="tav">SP</div><div><div class="tnm">Stanley's Painting</div><div class="tco">Roof Restoration</div></div></div></div>
-        <div class="tc" data-i="3"><div class="tresult"><div class="trd"></div>Max &amp; Mitchell</div><div class="tstars">★★★★★</div><p class="tbody">"First sale $25k, next one $39k. Buzzing."</p><div class="tauth"><div class="tav">MM</div><div><div class="tnm">Max &amp; Mitchell</div><div class="tco">Renovations</div></div></div></div>
-        <div class="tc" data-i="4"><div class="tresult"><div class="trd"></div>SolarHarvest</div><div class="tstars">★★★★★</div><p class="tbody">"Fast setup, great support and higher intent solar leads."</p><div class="tauth"><div class="tav">SH</div><div><div class="tnm">SolarHarvest</div><div class="tco">Solar Installation</div></div></div></div>
+        <div class="tc" data-i="0"><div class="tresult"><div class="trd"></div>Lamm Solar</div><div class="tstars">★★★★★</div><p class="tbody">"We get about 70% of leads turning into quality appointments"</p><div class="tauth"><div class="tav"><img src="/client-logo2.png" alt="Lamm Solar"></div><div><div class="tnm">Lamm Solar</div><div class="tco">Solar Installations</div></div></div></div>
+        <div class="tc" data-i="1"><div class="tresult"><div class="trd"></div>AB Built</div><div class="tstars">★★★★★</div><p class="tbody">"I've had some good local leads coming in lately and filling up next year rather quickly and converting around 50%"</p><div class="tauth"><div class="tav"><img src="/client-logo4.png" alt="AB Built"></div><div><div class="tnm">AB Built</div><div class="tco">Building &amp; Renovations</div></div></div></div>
+        <div class="tc" data-i="2"><div class="tresult"><div class="trd"></div>Stanley's Painting</div><div class="tstars">★★★★★</div><p class="tbody">"The leads just come in, you qualify them, quote the job, get the work. Simple."</p><div class="tauth"><div class="tav"><img src="/client-logo3.png" alt="Stanley's Painting"></div><div><div class="tnm">Stanley's Painting</div><div class="tco">Roof Restoration</div></div></div></div>
+        <div class="tc" data-i="3"><div class="tresult"><div class="trd"></div>Max &amp; Mitchell</div><div class="tstars">★★★★★</div><p class="tbody">"First sale $25k, next one $39k. Buzzing."</p><div class="tauth"><div class="tav"><img src="/client-logo1.png" alt="Max &amp; Mitchell"></div><div><div class="tnm">Max &amp; Mitchell</div><div class="tco">Renovations</div></div></div></div>
+        <div class="tc" data-i="4"><div class="tresult"><div class="trd"></div>SolarHarvest</div><div class="tstars">★★★★★</div><p class="tbody">"Fast setup, great support and higher intent solar leads."</p><div class="tauth"><div class="tav"><img src="/client-logo7.png" alt="SolarHarvest"></div><div><div class="tnm">SolarHarvest</div><div class="tco">Solar Installation</div></div></div></div>
+        <div class="tc" data-i="5"><div class="tresult"><div class="trd"></div>Better Energy Group</div><div class="tstars">★★★★★</div><p class="tbody">"The quality is genuinely better than what we were getting through other platforms. Leads come through with all the info you need, bill size, etc so you're not wasting time on tyre kickers. Booked 4 jobs from our first batch."</p><div class="tauth"><div class="tav"><img src="/client-logo8.png" alt="Better Energy Group"></div><div><div class="tnm">Better Energy Group</div><div class="tco">Solar Installations</div></div></div></div>
+        <div class="tc" data-i="6"><div class="tresult"><div class="trd"></div>SunReady Solar</div><div class="tstars">★★★★★</div><p class="tbody">"Setup was quick, first leads came through the same day. A platform that actually delivers."</p><div class="tauth"><div class="tav"><img src="/client-logo9.png" alt="SunReady Solar"></div><div><div class="tnm">SunReady Solar</div><div class="tco">Solar Installation</div></div></div></div>
       </div>
     </div>
     <div class="car-nav rv">
       <button class="car-btn" id="carPrev" aria-label="Previous">←</button>
       <div class="car-dots">
-        <div class="car-dot a" data-d="0"></div><div class="car-dot" data-d="1"></div><div class="car-dot" data-d="2"></div><div class="car-dot" data-d="3"></div><div class="car-dot" data-d="4"></div>
+        <div class="car-dot a" data-d="0"></div><div class="car-dot" data-d="1"></div><div class="car-dot" data-d="2"></div><div class="car-dot" data-d="3"></div><div class="car-dot" data-d="4"></div><div class="car-dot" data-d="5"></div><div class="car-dot" data-d="6"></div>
       </div>
       <button class="car-btn" id="carNext" aria-label="Next">→</button>
     </div>
