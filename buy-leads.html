@@ -266,6 +266,12 @@ body::before{content:'';position:fixed;inset:0;
 .cov-postcode-ta.err{border-color:rgba(255,80,80,.7)}
 .cov-helper-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:.76rem;color:var(--blue);text-decoration:none;opacity:.8}
 .cov-helper-link:hover{opacity:1}
+/* STATE-WIDE COVERAGE */
+.cov-statewide{display:flex;gap:14px;align-items:flex-start;background:var(--bdim);border:1px solid rgba(71,151,255,.2);border-radius:12px;padding:16px 18px}
+.cov-statewide-ico{width:38px;height:38px;border-radius:10px;background:rgba(71,151,255,.12);border:1px solid rgba(71,151,255,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--blue)}
+.cov-statewide-ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cov-statewide-title{font-family:var(--display);font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:4px}
+.cov-statewide-sub{font-size:.8rem;color:var(--muted);line-height:1.6}
 
 /* FIELDS */
 .field-group{margin-bottom:16px}
@@ -564,13 +570,14 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <span class="block-num">01</span>
             <div>
               <div class="block-title">Where do you work?</div>
-              <div class="block-sub">Pricing is set per city and trade.</div>
+              <div class="block-sub">Pick a city, or go state-wide. Pricing is set per area and trade.</div>
             </div>
           </div>
           <div class="city-select-wrap">
             <select id="area_city" onchange="onCityChange()">
-              <option value="">Select a city&hellip;</option>
+              <option value="">Select a city or state&hellip;</option>
               <optgroup label="Queensland">
+                <option value="Queensland" data-statewide="1">Queensland (State Wide)</option>
                 <option value="Brisbane">Brisbane</option>
                 <option value="Gold Coast">Gold Coast</option>
                 <option value="Sunshine Coast">Sunshine Coast</option>
@@ -579,22 +586,27 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 <option value="Cairns">Cairns</option>
               </optgroup>
               <optgroup label="New South Wales">
+                <option value="New South Wales" data-statewide="1">New South Wales (State Wide)</option>
                 <option value="Sydney">Sydney</option>
                 <option value="Newcastle">Newcastle</option>
                 <option value="Wollongong">Wollongong</option>
                 <option value="Central Coast">Central Coast</option>
               </optgroup>
               <optgroup label="Victoria">
+                <option value="Victoria" data-statewide="1">Victoria (State Wide)</option>
                 <option value="Melbourne">Melbourne</option>
                 <option value="Geelong">Geelong</option>
               </optgroup>
               <optgroup label="Western Australia">
+                <option value="Western Australia" data-statewide="1">Western Australia (State Wide)</option>
                 <option value="Perth">Perth</option>
               </optgroup>
               <optgroup label="South Australia">
+                <option value="South Australia" data-statewide="1">South Australia (State Wide)</option>
                 <option value="Adelaide">Adelaide</option>
               </optgroup>
               <optgroup label="Australian Capital Territory">
+                <option value="Australian Capital Territory" data-statewide="1">Australian Capital Territory (State Wide)</option>
                 <option value="Canberra">Canberra</option>
               </optgroup>
             </select>
@@ -694,7 +706,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="block-sub">Define where your leads come from.</div>
             </div>
           </div>
-          <div class="cov-toggle">
+          <div class="cov-toggle" id="covToggle">
             <button class="cov-toggle-btn sel" id="togRadius" onclick="setCovMode('radius')">Radius</button>
             <button class="cov-toggle-btn" id="togPostcodes" onclick="setCovMode('postcodes')">Postcode List</button>
           </div>
@@ -710,6 +722,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="cov-panel" id="panelPostcodes" style="display:none">
             <textarea class="cov-postcode-ta" id="postcode_list" placeholder="Paste postcodes here, one per line or comma-separated&#10;e.g. 2000, 2010, 2011" oninput="updateSummary()"></textarea>
             <a class="cov-helper-link" href="https://www.embr.com.au/find-australian-postcodes-inside-radius/index.html" target="_blank" rel="noopener">Find postcodes by radius →</a>
+          </div>
+          <div class="cov-panel" id="panelStatewide" style="display:none">
+            <div class="cov-statewide">
+              <div class="cov-statewide-ico">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="cov-statewide-title">State-wide coverage — <span id="statewideName">your state</span></div>
+                <div class="cov-statewide-sub">Your leads will be sourced from anywhere across the state — no radius or postcode list needed. Pick a city above instead if you'd prefer to target a specific area.</div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -828,7 +851,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <span class="sum-val dim" id="sum-subniche">–</span>
         </div>
         <div class="sum-row">
-          <span class="sum-lbl">City</span>
+          <span class="sum-lbl" id="sum-city-lbl">City</span>
           <span class="sum-val dim" id="sum-city">Not selected</span>
         </div>
         <div class="sum-row">
@@ -1023,6 +1046,7 @@ const order = {
   niche: null,
   sub_niche: null,
   area_city: null,
+  statewide: false,
   location_type: 'radius',
   quantity: null,
   discount: 0,
@@ -1115,8 +1139,11 @@ if (new URLSearchParams(location.search).get('cancelled') === 'true') {
 
 // ─── CITY CHANGE ────────────────────────────────────────
 async function onCityChange() {
-  const city = document.getElementById('area_city').value;
+  const sel  = document.getElementById('area_city');
+  const city = sel.value;
   order.area_city = city || null;
+  order.statewide = !!city && sel.selectedOptions[0]?.dataset.statewide === '1';
+  applyCoverageMode();
 
   if (!city) {
     ['solar','solar-battery','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, null));
@@ -1308,13 +1335,43 @@ async function fetchSubNichePrice() {
 }
 
 // ─── COVERAGE MODE ───────────────────────────────────────
+// Remembers the radius/postcodes preference so it can be restored
+// when switching back from a state-wide selection to a specific city.
+let covMode = 'radius';
+
 function setCovMode(mode) {
-  order.location_type = mode;
+  covMode = mode;
+  if (!order.statewide) order.location_type = mode;
   document.getElementById('togRadius').classList.toggle('sel', mode === 'radius');
   document.getElementById('togPostcodes').classList.toggle('sel', mode === 'postcodes');
   document.getElementById('panelRadius').style.display = mode === 'radius' ? '' : 'none';
   document.getElementById('panelPostcodes').style.display = mode === 'postcodes' ? '' : 'none';
   updateSummary();
+}
+
+// Locks coverage to "state-wide" when a whole state is selected,
+// and unlocks the Radius / Postcode controls for a specific city
+// (or when nothing is selected yet).
+function applyCoverageMode() {
+  const toggle      = document.getElementById('covToggle');
+  const panelRadius = document.getElementById('panelRadius');
+  const panelPost   = document.getElementById('panelPostcodes');
+  const panelState  = document.getElementById('panelStatewide');
+  if (order.statewide) {
+    order.location_type = 'statewide';
+    toggle.style.display      = 'none';
+    panelRadius.style.display = 'none';
+    panelPost.style.display   = 'none';
+    panelState.style.display  = '';
+    const nameEl = document.getElementById('statewideName');
+    if (nameEl) nameEl.textContent = order.area_city || 'your state';
+  } else {
+    order.location_type = covMode;
+    toggle.style.display      = '';
+    panelState.style.display  = 'none';
+    panelRadius.style.display = covMode === 'radius' ? '' : 'none';
+    panelPost.style.display   = covMode === 'postcodes' ? '' : 'none';
+  }
 }
 
 // ─── PACK SELECT ─────────────────────────────────────────
@@ -1366,6 +1423,8 @@ function updateSummary() {
     }
   }
 
+  const cityLblEl = document.getElementById('sum-city-lbl');
+  if (cityLblEl) cityLblEl.textContent = order.statewide ? 'State' : 'City';
   if (order.area_city) {
     cityEl.className = 'sum-val'; cityEl.textContent = order.area_city;
   } else {
@@ -1374,7 +1433,10 @@ function updateSummary() {
 
   const covEl = document.getElementById('sum-coverage');
   if (covEl) {
-    if (order.location_type === 'radius') {
+    if (order.statewide) {
+      covEl.className = 'sum-val';
+      covEl.textContent = 'State wide';
+    } else if (order.location_type === 'radius') {
       const km = document.getElementById('radius_km')?.value || 50;
       covEl.className = 'sum-val';
       covEl.textContent = `${km} km radius`;
@@ -1514,9 +1576,10 @@ async function submitOrder() {
   if (order.sub_niche) payload.sub_niche = order.sub_niche;
   if (order.location_type === 'radius') {
     payload.radius_km = parseInt(document.getElementById('radius_km').value, 10);
-  } else {
+  } else if (order.location_type === 'postcodes') {
     payload.postcode_list = document.getElementById('postcode_list').value.trim();
   }
+  // location_type === 'statewide': no radius or postcode list — the whole state is covered
 
   try {
     const res  = await fetch(`${SUPABASE_URL}/functions/v1/create-ppl-signup-checkout`, {
