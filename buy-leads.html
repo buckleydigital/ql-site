@@ -160,6 +160,16 @@ body::before{content:'';position:fixed;inset:0;
   display:flex;align-items:flex-start;gap:12px;font-size:.85rem;color:#FFB43C;line-height:1.5}
 .cancelled-banner svg{flex-shrink:0;margin-top:1px}
 
+/* EOFY PROMO BANNER */
+.eofy-banner{display:inline-flex;align-items:center;gap:9px;margin:0 0 24px;
+  background:linear-gradient(90deg,rgba(71,151,255,.16),rgba(255,180,60,.16));
+  border:1px solid rgba(71,151,255,.32);border-radius:100px;padding:10px 20px;
+  font-size:.85rem;font-weight:500;color:var(--white);line-height:1.45;
+  box-shadow:0 0 30px rgba(71,151,255,.12);text-align:left}
+.eofy-banner strong{font-weight:700}
+.eofy-banner s{opacity:.65}
+@media(max-width:520px){.eofy-banner{font-size:.78rem;padding:9px 16px;gap:7px}}
+
 /* BUY CARD */
 .buy-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
   border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;backdrop-filter:blur(12px)}
@@ -510,6 +520,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
 <section class="page-hero">
   <div class="page-hero-inner">
+    <div class="eofy-banner">🔆 <span><strong>EOFY:</strong> Solar lead prices reduced. Was <s>$70</s>. Check your region below.</span></div>
     <div class="hero-eyebrow">Pay-Per-Lead</div>
     <h1>Order your<br><em>lead pack.</em></h1>
     <p class="sbody">Real-time, exclusive leads generated fresh. Never recycled, never shared. Pick your trade, city and quantity. Price shown upfront, no surprises at checkout.</p>
