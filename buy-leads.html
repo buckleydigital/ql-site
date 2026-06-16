@@ -740,8 +740,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div>
-                <div class="cov-statewide-title">State-wide coverage — <span id="statewideName">your state</span></div>
-                <div class="cov-statewide-sub">Your leads will be sourced from anywhere across the state — no radius or postcode list needed. Pick a city above instead if you'd prefer to target a specific area.</div>
+                <div class="cov-statewide-title">State-wide coverage - <span id="statewideName">your state</span></div>
+                <div class="cov-statewide-sub">Your leads will be sourced from anywhere across the state - no radius or postcode list needed. Pick a city above instead if you'd prefer to target a specific area.</div>
               </div>
             </div>
           </div>
@@ -1590,7 +1590,7 @@ async function submitOrder() {
   } else if (order.location_type === 'postcodes') {
     payload.postcode_list = document.getElementById('postcode_list').value.trim();
   }
-  // location_type === 'statewide': no radius or postcode list — the whole state is covered
+  // location_type === 'statewide': no radius or postcode list - the whole state is covered
 
   try {
     const res  = await fetch(`${SUPABASE_URL}/functions/v1/create-ppl-signup-checkout`, {
