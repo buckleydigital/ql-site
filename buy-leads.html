@@ -218,6 +218,9 @@ body::before{content:'';position:fixed;inset:0;
   opacity:0;transition:opacity .2s}
 .trade-card.sel .trade-check{opacity:1}
 .trade-check svg{width:10px;height:10px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.trade-card.sold-out{opacity:.45;cursor:not-allowed;pointer-events:none}
+.trade-card.sold-out:hover{transform:none;border-color:var(--border);background:var(--glass)}
+.trade-price.soldout{color:#f87171;font-family:var(--display);font-style:normal}
 
 /* SUB-NICHE */
 .sub-niche-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -1063,7 +1066,9 @@ const order = {
   discount: 0,
   pricePerLead: null,
   prices: {},
-  subPrices: {}
+  subPrices: {},
+  soldOut: false,        // true when the current trade+area is sold out
+  soldOutByNiche: {}     // sold-out flag per niche / "niche:sub" for the current area
 };
 
 // ─── SUB-NICHE CONFIG ────────────────────────────────────
@@ -1159,6 +1164,7 @@ async function onCityChange() {
   if (!city) {
     ['solar','solar-battery','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, null));
     order.prices = {};
+    order.soldOutByNiche = {};
     order.pricePerLead = null;
     updateSummary();
     return;
@@ -1177,11 +1183,19 @@ async function onCityChange() {
   );
 
   order.prices = {};
+  order.soldOutByNiche = {};
   results.forEach((res, i) => {
     const niche = trades[i];
-    if (res.status === 'fulfilled' && res.value?.price_per_lead) {
-      order.prices[niche] = res.value.price_per_lead;
-      setPriceLabel(niche, res.value.price_per_lead);
+    if (res.status === 'fulfilled' && res.value) {
+      if (res.value.sold_out === true) {
+        order.soldOutByNiche[niche] = true;
+        setPriceLabel(niche, 'soldout');
+      } else if (res.value.price_per_lead) {
+        order.prices[niche] = res.value.price_per_lead;
+        setPriceLabel(niche, res.value.price_per_lead);
+      } else {
+        setPriceLabel(niche, 'error');
+      }
     } else {
       setPriceLabel(niche, 'error');
     }
@@ -1196,41 +1210,56 @@ async function onCityChange() {
     renderSubNicheGrid(order.niche);
   }
 
+  order.soldOut = order.soldOutByNiche[order.niche] === true;
+
   if (order.niche && order.prices[order.niche]) {
     if (order.sub_niche) {
       await fetchSubNichePrice();
       return;
     }
     order.pricePerLead = order.prices[order.niche];
+  } else if (order.soldOut) {
+    order.pricePerLead = null;
   }
 
   updateSummary();
 }
 
 function setPriceLabel(niche, val) {
-  const el = document.getElementById('price-' + niche);
+  const el   = document.getElementById('price-' + niche);
+  const card = document.querySelector(`.trade-card[data-niche="${niche}"]`);
   if (!el) return;
   if (val === null) {
     el.className = 'trade-price dim';
     el.innerHTML = 'Select city first';
+    card?.classList.remove('sold-out');
   } else if (val === 'loading') {
     el.className = 'trade-price dim';
     el.innerHTML = '<div class="price-spin"></div>';
+    card?.classList.remove('sold-out');
   } else if (val === 'error') {
     el.className = 'trade-price dim';
     el.textContent = 'See checkout';
+    card?.classList.remove('sold-out');
+  } else if (val === 'soldout') {
+    el.className = 'trade-price soldout';
+    el.textContent = 'Sold out';
+    card?.classList.add('sold-out');
   } else {
     el.className = 'trade-price';
     el.textContent = `$${val} / lead`;
+    card?.classList.remove('sold-out');
   }
 }
 
 // ─── TRADE SELECT ────────────────────────────────────────
 function selectTrade(el) {
+  if (order.soldOutByNiche[el.dataset.niche]) return;
   document.querySelectorAll('.trade-card').forEach(c => c.classList.remove('sel'));
   el.classList.add('sel');
   order.niche = el.dataset.niche;
   order.sub_niche = null;
+  order.soldOut = false;
 
   const subBlock = document.getElementById('blockSubNiche');
   if (['hvac','roofing','renovation'].includes(order.niche)) {
@@ -1510,7 +1539,7 @@ async function submitOrder() {
     document.getElementById('area_city').focus();
     return;
   }
-  if (!order.niche) {
+  if (!order.niche || order.soldOut) {
     document.querySelector('.trade-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
