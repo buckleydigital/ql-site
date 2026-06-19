@@ -234,6 +234,9 @@ body::before{content:'';position:fixed;inset:0;
 .sub-niche-card .sn-note{font-size:.74rem;color:var(--muted)}
 .sub-niche-card .trade-check{opacity:0;transition:opacity .2s}
 .sub-niche-card.sel .trade-check{opacity:1}
+.sub-niche-card.sold-out{opacity:.45;cursor:not-allowed;pointer-events:none}
+.sub-niche-card.sold-out:hover{transform:none;border-color:var(--border);background:var(--glass)}
+.sub-niche-card .sn-price.sn-soldout{color:#f87171}
 .sub-niche-skip{background:none;border:1px solid var(--border);color:var(--muted);
   font-size:.8rem;cursor:none;padding:8px 22px;border-radius:100px;
   transition:all .2s;font-family:var(--body)}
@@ -1212,14 +1215,21 @@ async function onCityChange() {
 
   order.soldOut = order.soldOutByNiche[order.niche] === true;
 
-  if (order.niche && order.prices[order.niche]) {
+  if (order.soldOut) {
+    // The trade the user had selected just went sold out for this city —
+    // drop the selection so they can't proceed on a greyed-out card.
+    document.querySelectorAll('.trade-card').forEach(c => c.classList.remove('sel'));
+    document.getElementById('blockSubNiche').style.display = 'none';
+    order.niche = null;
+    order.sub_niche = null;
+    order.soldOut = false;
+    order.pricePerLead = null;
+  } else if (order.niche && order.prices[order.niche]) {
     if (order.sub_niche) {
       await fetchSubNichePrice();
       return;
     }
     order.pricePerLead = order.prices[order.niche];
-  } else if (order.soldOut) {
-    order.pricePerLead = null;
   }
 
   updateSummary();
@@ -1313,16 +1323,24 @@ function renderSubNicheGrid(niche) {
 
 async function prefetchSubNichePrice(niche, subKey) {
   if (!order.area_city) return;
-  const el = document.getElementById('snprice-' + subKey);
+  const el   = document.getElementById('snprice-' + subKey);
+  const card = document.querySelector(`.sub-niche-card[data-key="${subKey}"]`);
+  const key  = niche + ':' + subKey;
   try {
     const res = await fetch(
       `${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${niche}&sub_niche=${subKey}&area=${encodeURIComponent(order.area_city)}`
     );
     if (!res.ok) throw new Error();
     const data = await res.json();
-    if (data.price_per_lead) {
-      if (el) el.textContent = `$${data.price_per_lead}/lead`;
-      order.subPrices[niche + ':' + subKey] = data.price_per_lead;
+    if (data.sold_out === true) {
+      order.soldOutByNiche[key] = true;
+      if (el) { el.textContent = 'Sold out'; el.classList.add('sn-soldout'); }
+      card?.classList.add('sold-out');
+    } else if (data.price_per_lead) {
+      delete order.soldOutByNiche[key];
+      if (el) { el.textContent = `$${data.price_per_lead}/lead`; el.classList.remove('sn-soldout'); }
+      card?.classList.remove('sold-out');
+      order.subPrices[key] = data.price_per_lead;
     } else {
       if (el) el.textContent = '';
     }
@@ -1332,10 +1350,12 @@ async function prefetchSubNichePrice(niche, subKey) {
 }
 
 function selectSubNiche(el) {
+  if (order.soldOutByNiche[order.niche + ':' + el.dataset.key]) return;
   document.querySelectorAll('.sub-niche-card').forEach(c => c.classList.remove('sel'));
   document.getElementById('subNicheSkip')?.classList.remove('sel');
   el.classList.add('sel');
   order.sub_niche = el.dataset.key;
+  order.soldOut = false;
   const cacheKey = order.niche + ':' + order.sub_niche;
   if (order.subPrices[cacheKey]) {
     order.pricePerLead = order.subPrices[cacheKey];
@@ -1366,7 +1386,13 @@ async function fetchSubNichePrice() {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?${params}`);
     if (!res.ok) return;
     const data = await res.json();
-    if (data.price_per_lead) {
+    if (data.sold_out === true) {
+      // Selected sub-niche went sold out for this city — drop it.
+      if (order.sub_niche) order.soldOutByNiche[order.niche + ':' + order.sub_niche] = true;
+      document.querySelectorAll('.sub-niche-card').forEach(c => c.classList.remove('sel'));
+      order.sub_niche = null;
+      order.pricePerLead = null;
+    } else if (data.price_per_lead) {
       order.pricePerLead = data.price_per_lead;
       if (data.discount_tiers?.length) renderPackGrid(data.discount_tiers);
     }
