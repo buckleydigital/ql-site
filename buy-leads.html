@@ -285,6 +285,7 @@ body::before{content:'';position:fixed;inset:0;
 .cov-postcode-ta:focus{border-color:var(--blue)}
 .cov-postcode-ta::placeholder{color:var(--faint)}
 .cov-postcode-ta.err{border-color:rgba(255,80,80,.7)}
+.cov-postcode-note{margin-top:9px;font-size:.76rem;color:var(--off);line-height:1.5}
 .cov-helper-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:.76rem;color:var(--blue);text-decoration:none;opacity:.8}
 .cov-helper-link:hover{opacity:1}
 /* STATE-WIDE COVERAGE */
@@ -743,6 +744,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
           <div class="cov-panel" id="panelPostcodes" style="display:none">
             <textarea class="cov-postcode-ta" id="postcode_list" placeholder="Paste postcodes here, one per line or comma-separated&#10;e.g. 2000, 2010, 2011" oninput="updateSummary()"></textarea>
+            <div class="cov-postcode-note">Postcode lists must cover a minimum radius of 50km</div>
             <a class="cov-helper-link" href="https://www.embr.com.au/find-australian-postcodes-inside-radius/index.html" target="_blank" rel="noopener">Find postcodes by radius →</a>
           </div>
           <div class="cov-panel" id="panelStatewide" style="display:none">
