@@ -531,7 +531,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="eofy-banner" id="flashBanner">⚡ <span><strong>24-HOUR FLASH SALE</strong> - solar leads just <strong>$55+GST</strong> <s>$70</s>, today only. Ends in <strong class="flash-time" id="flashCountdown">00:00:00</strong> <span class="flash-tz">AEST</span></span></div>
+    <div class="eofy-banner" id="flashBanner">⚡ <span><strong>24-HOUR FLASH SALE</strong> - solar leads just <strong>$55+GST</strong> <s>$70</s>. Ends in <strong class="flash-time" id="flashCountdown">00:00:00</strong> <span class="flash-tz">AEST</span></span></div>
     <div class="hero-eyebrow">Pay-Per-Lead</div>
     <h1>Order your<br><em>lead pack.</em></h1>
     <p class="sbody">Real-time, exclusive leads generated fresh. Never recycled, never shared. Pick your trade, city and quantity. Price shown upfront, no surprises at checkout.</p>
@@ -1810,7 +1810,7 @@ document.getElementById('termsCheck').addEventListener('change', function () {
   const el = document.getElementById('flashCountdown');
   const banner = document.getElementById('flashBanner');
   if (!el || !banner) return;
-  const deadline = new Date('2026-06-24T00:00:00+10:00').getTime(); // midnight AEST (UTC+10), start of 24 Jun 2026
+  const deadline = new Date('2026-06-24T17:00:00+10:00').getTime(); // 5pm AEST (UTC+10), 24 Jun 2026
   const pad = n => (n < 10 ? '0' + n : '' + n);
   let timer;
   function tick() {
