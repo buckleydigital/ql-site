@@ -436,6 +436,91 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 ::-webkit-scrollbar-thumb{background:var(--faint);border-radius:3px}
 ::-webkit-scrollbar-thumb:hover{background:var(--blue)}
 
+/* ORDER SECTION LIGHT MODE TOGGLE */
+.lm-toggle{position:absolute;top:28px;right:5%;z-index:10;
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--glass2);border:1px solid var(--border);border-radius:100px;
+  padding:7px 14px 7px 10px;cursor:pointer;font-family:var(--body);font-size:.75rem;
+  font-weight:500;color:var(--muted);transition:all .2s;user-select:none}
+.lm-toggle:hover{border-color:var(--bmid);color:var(--white)}
+.lm-track{width:30px;height:17px;border-radius:100px;background:var(--faint);position:relative;transition:background .3s;flex-shrink:0}
+.lm-track::after{content:'';position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;background:#fff;transition:transform .3s}
+#order-form.light .lm-track{background:var(--blue)}
+#order-form.light .lm-track::after{transform:translateX(13px)}
+#order-form.light .lm-toggle{color:#52525B;background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.12)}
+#order-form.light .lm-toggle:hover{color:#0f0f1a}
+
+/* ORDER SECTION: LIGHT */
+#order-form.light{background:#EEF1F8}
+#order-form.light .buy-card{background:#fff;border-color:rgba(0,0,0,.09);backdrop-filter:none}
+#order-form.light .buy-block{border-bottom-color:rgba(0,0,0,.08)}
+#order-form.light .block-title{color:#0f0f1a}
+#order-form.light .block-sub{color:#52525B}
+#order-form.light .block-num{color:var(--blue);background:rgba(71,151,255,.1);border-color:rgba(71,151,255,.25)}
+#order-form.light .trade-card{background:rgba(0,0,0,.025);border-color:rgba(0,0,0,.1)}
+#order-form.light .trade-card:hover{background:rgba(71,151,255,.07);border-color:rgba(71,151,255,.4)}
+#order-form.light .trade-card.sel{background:rgba(71,151,255,.09);border-color:var(--blue)}
+#order-form.light .trade-name{color:#0f0f1a}
+#order-form.light .trade-price.dim{color:#a1a1aa}
+#order-form.light .sub-niche-card{background:rgba(0,0,0,.025);border-color:rgba(0,0,0,.1)}
+#order-form.light .sub-niche-card:hover{background:rgba(71,151,255,.07)}
+#order-form.light .sub-niche-card.sel{background:rgba(71,151,255,.09);border-color:var(--blue)}
+#order-form.light .sn-name{color:#0f0f1a}
+#order-form.light .sn-note{color:#71717A}
+#order-form.light .sub-niche-skip{border-color:rgba(0,0,0,.15);color:#71717A}
+#order-form.light .sub-niche-skip:hover{border-color:rgba(0,0,0,.3);color:#0f0f1a}
+#order-form.light .sub-niche-skip.sel{border-color:var(--blue);color:var(--blue)}
+#order-form.light .pack-btn{background:rgba(0,0,0,.025);border-color:rgba(0,0,0,.1)}
+#order-form.light .pack-btn:hover{background:rgba(71,151,255,.07)}
+#order-form.light .pack-btn.sel{background:rgba(71,151,255,.09);border-color:var(--blue)}
+#order-form.light .pack-qty{color:#0f0f1a}
+#order-form.light .pack-unit{color:#71717A}
+#order-form.light .custom-qty-lbl{color:#52525B}
+#order-form.light .custom-qty-wrap input{background:#fff;border-color:rgba(0,0,0,.15);color:#0f0f1a}
+#order-form.light .custom-qty-wrap input::placeholder{color:#a1a1aa}
+#order-form.light .custom-qty-unit{color:#71717A}
+#order-form.light .city-select-wrap select{background-color:#fff;border-color:rgba(0,0,0,.15);color:#0f0f1a;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2352525B' stroke-width='1.5'/%3E%3C/svg%3E")}
+#order-form.light .city-select-wrap select option{background:#fff;color:#0f0f1a}
+#order-form.light .city-select-wrap select optgroup{background:#f5f5f5;color:#52525B}
+#order-form.light .cov-toggle{border-color:rgba(0,0,0,.12)}
+#order-form.light .cov-toggle-btn{color:#52525B}
+#order-form.light .cov-toggle-btn:not(:last-child){border-right-color:rgba(0,0,0,.12)}
+#order-form.light .cov-toggle-btn.sel{background:rgba(71,151,255,.1);color:var(--blue)}
+#order-form.light .cov-postcode-ta{background:#fff;border-color:rgba(0,0,0,.15);color:#0f0f1a}
+#order-form.light .cov-postcode-ta::placeholder{color:#a1a1aa}
+#order-form.light .cov-postcode-note{color:#52525B}
+#order-form.light .cov-statewide-title{color:#0f0f1a}
+#order-form.light .cov-statewide-sub{color:#52525B}
+#order-form.light .field-group label{color:#52525B}
+#order-form.light .field-group input{background:#fff;border-color:rgba(0,0,0,.15);color:#0f0f1a}
+#order-form.light .field-group input::placeholder{color:#a1a1aa}
+#order-form.light .consent-ack{background:rgba(71,151,255,.06);border-color:rgba(71,151,255,.2)}
+#order-form.light .consent-ack label{color:#52525B}
+#order-form.light .consent-ack label strong{color:#0f0f1a}
+#order-form.light .disclaimer{color:#a1a1aa}
+#order-form.light .state-h{color:#0f0f1a}
+#order-form.light .state-p{color:#52525B}
+#order-form.light .btn-retry{border-color:rgba(0,0,0,.15);color:#52525B}
+#order-form.light .btn-retry:hover{border-color:rgba(0,0,0,.3);color:#0f0f1a}
+#order-form.light .spin{border-color:rgba(0,0,0,.1);border-top-color:var(--blue)}
+#order-form.light .sidebar-card{background:#fff;border-color:rgba(0,0,0,.09)}
+#order-form.light .sum-title{color:#0f0f1a}
+#order-form.light .sum-lbl{color:#71717A}
+#order-form.light .sum-val{color:#0f0f1a}
+#order-form.light .sum-val.dim{color:#a1a1aa}
+#order-form.light .sum-divider{border-top-color:rgba(0,0,0,.08)}
+#order-form.light .sum-total-lbl{color:#0f0f1a}
+#order-form.light .sum-trust{border-top-color:rgba(0,0,0,.08)}
+#order-form.light .sum-trust-item{color:#52525B}
+#order-form.light .sc-lbl{color:#0f0f1a}
+#order-form.light .checklist li{color:#52525B}
+#order-form.light .sidebar-note{color:#a1a1aa;border-top-color:rgba(0,0,0,.08)}
+#order-form.light .tnm{color:#0f0f1a}
+#order-form.light .tco{color:#71717A}
+#order-form.light .tbody{color:#52525B}
+#order-form.light .cancelled-banner{background:rgba(255,180,60,.08);border-color:rgba(255,180,60,.3)}
+
 /* RESPONSIVE */
 @media(max-width:1024px){.app-layout{grid-template-columns:1fr 270px;gap:32px}}
 @media(max-width:768px){
@@ -573,6 +658,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 </div>
 
 <section class="app-section" id="order-form">
+  <button class="lm-toggle" id="lmToggle" onclick="toggleOrderLight()" aria-label="Toggle light mode">
+    <div class="lm-track"></div>
+    <span id="lmLabel">Light mode</span>
+  </button>
   <div class="app-layout">
 
     <!-- LEFT: BUY FORM -->
@@ -1846,6 +1935,10 @@ document.getElementById('termsCheck').addEventListener('change', function () {
   if (this.checked) document.getElementById('termsAck').classList.remove('err-hi');
 });
 
+function toggleOrderLight(){
+  const sec=document.getElementById('order-form');
+  sec.classList.toggle('light');
+}
 function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')}
 </script>
 </body>
