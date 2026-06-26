@@ -160,20 +160,6 @@ body::before{content:'';position:fixed;inset:0;
   display:flex;align-items:flex-start;gap:12px;font-size:.85rem;color:#FFB43C;line-height:1.5}
 .cancelled-banner svg{flex-shrink:0;margin-top:1px}
 
-/* EOFY PROMO BANNER */
-.eofy-banner{display:flex;width:fit-content;max-width:100%;align-items:center;gap:9px;margin:0 auto 24px;
-  background:linear-gradient(90deg,rgba(71,151,255,.16),rgba(255,180,60,.16));
-  border:1px solid rgba(71,151,255,.32);border-radius:100px;padding:10px 20px;
-  font-size:.85rem;font-weight:500;color:var(--white);line-height:1.45;
-  box-shadow:0 0 30px rgba(71,151,255,.12);text-align:left}
-.eofy-banner strong{font-weight:700}
-.eofy-banner s{opacity:.65}
-.flash-time{font-family:var(--display);font-variant-numeric:tabular-nums;font-weight:700;color:#ffce6a;letter-spacing:.04em;
-  background:rgba(255,180,60,.14);border:1px solid rgba(255,180,60,.32);border-radius:6px;padding:1px 7px;margin-left:2px;white-space:nowrap}
-.flash-tz{opacity:.6;font-weight:400;font-size:.9em;letter-spacing:.02em}
-#flashBanner{animation:flashGlow 2.6s ease-in-out infinite}
-@keyframes flashGlow{0%,100%{box-shadow:0 0 26px rgba(71,151,255,.12)}50%{box-shadow:0 0 30px rgba(255,180,60,.20)}}
-@media(max-width:520px){.eofy-banner{font-size:.78rem;padding:9px 16px;gap:7px}}
 
 /* BUY CARD */
 .buy-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
@@ -532,8 +518,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="eofy-banner" id="flashBanner">🔆 <span><strong>EOFY:</strong> Solar leads from <strong>$60+GST</strong>, down from <s>$70</s>. Ends June 30 - <strong class="flash-time" id="flashCountdown">00:00:00</strong> <span class="flash-tz">AEST</span></span></div>
-    <div class="hero-eyebrow">Pay-Per-Lead</div>
+<div class="hero-eyebrow">Pay-Per-Lead</div>
     <h1>Order your<br><em>lead pack.</em></h1>
     <p class="sbody">Real-time, exclusive leads generated fresh. Never recycled, never shared. Pick your trade, city and quantity. Price shown upfront, no surprises at checkout.</p>
     <div class="page-hero-meta">
@@ -1807,30 +1792,6 @@ document.getElementById('termsCheck').addEventListener('change', function () {
   if (this.checked) document.getElementById('termsAck').classList.remove('err-hi');
 });
 
-// ─── EOFY COUNTDOWN ────────────────────────────────
-(function () {
-  const el = document.getElementById('flashCountdown');
-  const banner = document.getElementById('flashBanner');
-  if (!el || !banner) return;
-  const deadline = new Date('2026-07-01T00:00:00+10:00').getTime(); // end of 30 Jun 2026 AEST (UTC+10)
-  const pad = n => (n < 10 ? '0' + n : '' + n);
-  let timer;
-  function tick() {
-    const diff = deadline - Date.now();
-    if (diff <= 0) {
-      banner.style.display = 'none';
-      if (timer) clearInterval(timer);
-      return;
-    }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    el.textContent = (d > 0 ? d + 'd ' : '') + pad(h) + ':' + pad(m) + ':' + pad(s);
-  }
-  tick();
-  timer = setInterval(tick, 1000);
-})();
 </script>
 </body>
 </html>
