@@ -461,6 +461,18 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .trade-grid .trade-card:nth-child(5):last-child{max-width:100%}
   .sub-niche-grid{grid-template-columns:1fr}
 }
+/* FAQ */
+.faq-section{padding:100px 5%}
+.faq-list{margin-top:52px}
+.faq-item{border-top:1px solid var(--border)}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:24px 0;
+  display:flex;justify-content:space-between;align-items:center;text-align:left;gap:20px;font-family:var(--body)}
+.faq-qt{font-size:.95rem;font-weight:400;color:var(--white)}
+.faq-qi{font-size:20px;color:var(--blue);flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-qi{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:.88rem;color:var(--muted);line-height:1.8}
+.faq-item.open .faq-a{max-height:800px;padding-bottom:28px}
 /* FINAL CTA */
 .si{max-width:1120px;margin:0 auto}
 .ey{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;
@@ -1006,6 +1018,48 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     </div>
   </div>
 </div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="si">
+    <div class="rv"><div class="ey">Questions</div></div>
+    <h2 class="stitle rv">Questions. Answered straight.</h2>
+    <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Why are your leads more expensive than other providers?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Because they're worth more. Every lead on this platform is generated through targeted paid advertising in real-time, specifically for your order. No recycled databases. No cold lists. No rebate traffic. We refuse to run the low-grade ad strategies most providers rely on to fill volume at scale, because that traffic tanks quality and puts ad accounts at risk. What you're paying for is a lead that was generated fresh, pre-qualified through a survey, and delivered to one business only: yours.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What does "named consent" actually mean?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Before any prospect submits their enquiry, they see a consent form that shows your business name explicitly. They agree to be contacted by your business specifically, not by a generic lead pool, not by five competitors. By the time a lead lands in your inbox, they already know who you are and they're expecting your call. That level of consent is rare in this industry. We think it should be standard.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What information do you collect before a lead is sent to me?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">More than most. For solar, every lead completes a minimum survey covering their average quarterly electricity bill and their purchase timeline. These two data points alone tell you whether someone is motivated and ready to move, not just curious. Most providers send a name, a number, an email and a postcode. We send you buying signals.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Why do you only use paid advertising to generate leads?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Because paid advertising is the only channel we can control precisely. Every person who becomes a lead clicked a targeted ad, answered qualifying questions, and gave named consent. No organic scraping. No rebate schemes. No incentivised traffic where someone fills out a form to win a gift card. We run clean campaigns on our own accounts and we won't compromise that to hit high volume orders. If protecting the integrity of our campaigns means we can't fulfil a bulk order quickly, that's a trade we make every time.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Are the leads exclusive?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Yes. Every lead is tied to a single named consent form showing your business specifically. The prospect agreed to be contacted by you, not a pool. That consent record is logged, timestamped, and assigned to one account in our system. It's also written into the pay-per-lead terms. The conversion rates our clients see (70% lead to appointment for some businesses) don't happen when five companies are calling the same person.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What is the 7-day replacement policy?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">If a lead arrives and the contact details are unverifiable, or the lead doesn't match the criteria and service area you set at checkout, we replace it within 7 days. The terms are written clearly, no grey area.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How fast will I receive leads?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Your first lead typically arrives within a few hours of payment confirmation. Full delivery for your pack is typically within 7 to 14 business days depending on volume and targeting.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do I need a contract or ongoing commitment?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">No. Pay per lead is exactly that. No retainer, no lock-in, no minimum ongoing spend. Buy a pack, receive your leads, done.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="final-cta">
   <div class="cta-glow"></div>
@@ -1792,6 +1846,7 @@ document.getElementById('termsCheck').addEventListener('change', function () {
   if (this.checked) document.getElementById('termsAck').classList.remove('err-hi');
 });
 
+function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')}
 </script>
 </body>
 </html>
