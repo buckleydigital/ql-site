@@ -1284,6 +1284,16 @@ function renderPackGrid(tiers) {
 
 renderPackGrid(FALLBACK_TIERS);
 
+// Load tiers on page load — not city-dependent
+(async function loadTiersEarly(){
+  try {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=solar&area=Sydney`);
+    if (!res.ok) return;
+    const data = await res.json();
+    if (data?.discount_tiers?.length) renderPackGrid(data.discount_tiers);
+  } catch(e) {}
+})();
+
 function getTierForQty(qty) {
   return [...currentTiers]
     .sort((a, b) => b.min_quantity - a.min_quantity)
