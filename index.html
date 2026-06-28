@@ -729,7 +729,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 @media(max-width:768px){
   section{padding:72px 5%}
   .nav-links{display:none}.mob-btn{display:flex}
-  .hero{padding:160px 5% 60px;text-align:center}
+  .hero{padding:140px 5% 60px;text-align:center}
   .hbadge{justify-content:center}
   .hero-kick{border-left:none;border-top:2px solid var(--bblue);border-radius:12px;text-align:center;padding:16px}
   .hbtns{flex-direction:column;align-items:center;width:100%}
@@ -1397,10 +1397,15 @@ animP();
 (function(){
   const bar=document.getElementById('eofyBar');
   const hdr=document.getElementById('siteHeader');
+  const hero=document.querySelector('.hero');
   if(!bar||!hdr)return;
-  function setHdrTop(){hdr.style.top=bar.offsetHeight+'px';}
-  setHdrTop();
-  window.addEventListener('resize',setHdrTop);
+  function setOffsets(){
+    const bh=bar.offsetHeight;
+    hdr.style.top=bh+'px';
+    if(hero) hero.style.paddingTop=(bh+hdr.offsetHeight+32)+'px';
+  }
+  setOffsets();
+  window.addEventListener('resize',setOffsets);
 })();
 
 // CURSOR
