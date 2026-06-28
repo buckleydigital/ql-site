@@ -135,10 +135,10 @@ body::before{content:'';position:fixed;inset:0;
   color:#ffce6a;font-weight:600;font-size:.75rem;padding:3px 12px;border-radius:100px;
   text-decoration:none;transition:background .2s}
 .eofy-bar .ebar-cta:hover{background:rgba(255,180,60,.3)}
-@media(max-width:600px){.eofy-bar{font-size:.72rem;gap:6px}}
+@media(max-width:600px){.eofy-bar{font-size:.72rem;gap:6px;padding:10px 16px}}
 
 /* HEADER */
-.site-header{position:fixed;top:40px;left:0;right:0;z-index:200;padding:0 5%;
+.site-header{position:fixed;top:40px;left:0;right:0;z-index:200;padding:0 5%;transition:top 0s,background .4s,border-color .4s,backdrop-filter .4s;
   background:rgba(4,4,10,0);border-bottom:1px solid transparent;
   transition:background .4s,border-color .4s,backdrop-filter .4s}
 .site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
@@ -1392,6 +1392,16 @@ class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this
 const pts=Array.from({length:80},()=>new P());
 function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
 animP();
+
+// EOFY BAR HEIGHT
+(function(){
+  const bar=document.getElementById('eofyBar');
+  const hdr=document.getElementById('siteHeader');
+  if(!bar||!hdr)return;
+  function setHdrTop(){hdr.style.top=bar.offsetHeight+'px';}
+  setHdrTop();
+  window.addEventListener('resize',setHdrTop);
+})();
 
 // CURSOR
 const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
