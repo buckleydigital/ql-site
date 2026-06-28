@@ -122,8 +122,23 @@ body::before{content:'';position:fixed;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
   background-size:200px;pointer-events:none;z-index:2;opacity:.4}
 
+/* EOFY ANNOUNCEMENT BAR */
+.eofy-bar{position:fixed;top:0;left:0;right:0;z-index:300;
+  background:linear-gradient(90deg,rgba(255,140,0,.18),rgba(71,151,255,.18),rgba(255,140,0,.18));
+  border-bottom:1px solid rgba(255,180,60,.25);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:9px 20px;font-size:.78rem;font-weight:500;color:var(--white);
+  text-align:center;flex-wrap:wrap;line-height:1.4}
+.eofy-bar strong{font-weight:700;color:#ffce6a}
+.eofy-bar .ebar-cta{display:inline-flex;align-items:center;gap:5px;margin-left:6px;
+  background:rgba(255,180,60,.18);border:1px solid rgba(255,180,60,.35);
+  color:#ffce6a;font-weight:600;font-size:.75rem;padding:3px 12px;border-radius:100px;
+  text-decoration:none;transition:background .2s}
+.eofy-bar .ebar-cta:hover{background:rgba(255,180,60,.3)}
+@media(max-width:600px){.eofy-bar{font-size:.72rem;gap:6px}}
+
 /* HEADER */
-.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;
+.site-header{position:fixed;top:40px;left:0;right:0;z-index:200;padding:0 5%;
   background:rgba(4,4,10,0);border-bottom:1px solid transparent;
   transition:background .4s,border-color .4s,backdrop-filter .4s}
 .site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
@@ -860,6 +875,12 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 </style>
 </head>
 <body>
+
+<!-- EOFY ANNOUNCEMENT BAR -->
+<div class="eofy-bar" id="eofyBar">
+  🔆 <strong>EOFY Sale ends June 30.</strong> Custom systems and lead packages up to <strong>60% OFF.</strong>
+  <a href="/pricing" class="ebar-cta">See deals <svg viewBox="0 0 12 12" fill="none" style="width:10px;height:10px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
 
 <div id="cur"></div>
 <div id="curR"></div>
