@@ -2,241 +2,431 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Sydney Solar Co – Ad</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sydney Solar Ad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1080px;}
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-.ad{
-  width:1080px;height:1080px;
-  position:relative;overflow:hidden;
-  font-family:'General Sans',system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;
-}
+  :root {
+    --blue: #4797FF;
+    --sky: #7CB9FF;
+    --mist: #B8D4FF;
+    --void: #04040A;
+    --deep: #08080F;
+    --surf: #0C0C18;
+    --glass: rgba(255,255,255,0.04);
+    --glass2: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.08);
+    --bmid: rgba(255,255,255,0.10);
+    --bdim: rgba(71,151,255,0.12);
+    --bblue: rgba(71,151,255,0.3);
+    --white: #F2F2F2;
+    --off: #CACAD0;
+    --muted: #71717A;
+  }
 
-/* Photo */
-.bg{
-  position:absolute;inset:0;
-  background-image:url("https://images.unsplash.com/flagged/photo-1566838616631-f2618f74a6a2?w=1080&q=85&auto=format&fit=crop");
-  background-size:cover;background-position:center 50%;
-}
+  html, body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: var(--void);
+  }
 
-/* Dark overlay */
-.ov{
-  position:absolute;inset:0;
-  background:linear-gradient(
-    160deg,
-    rgba(4,4,10,0.93) 0%,
-    rgba(4,4,10,0.85) 40%,
-    rgba(4,4,10,0.55) 70%,
-    rgba(4,4,10,0.25) 100%
-  );
-}
+  .ad {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    background: var(--void);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
 
-/* Top blue line */
-.topline{
-  position:absolute;top:0;left:0;right:0;height:4px;z-index:10;
-  background:linear-gradient(90deg,#4797FF,#7CB9FF);
-}
+  /* BACKGROUND PHOTO */
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://raw.githubusercontent.com/buckleydigital/ql-site/main/solar-ad-img.png');
+    background-size: cover;
+    background-position: center 40%;
+    z-index: 0;
+  }
 
-/* Logo */
-.logo{
-  position:absolute;top:44px;left:52px;z-index:10;
-  display:flex;align-items:center;gap:10px;
-}
-.logo-mark{
-  width:38px;height:38px;border-radius:9px;
-  background:linear-gradient(135deg,#4797FF,#7CB9FF);
-  box-shadow:0 0 14px rgba(71,151,255,0.35);
-  position:relative;flex-shrink:0;
-}
-.logo-mark::after{
-  content:'';position:absolute;inset:8px;
-  border-radius:3px;background:#06060C;
-}
-.logo-name{
-  font-weight:600;font-size:20px;
-  color:#F2F2F2;letter-spacing:-0.01em;
-}
+  .bg-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(4,4,10,0.78) 0%,
+      rgba(4,4,10,0.30) 35%,
+      rgba(4,4,10,0.40) 58%,
+      rgba(4,4,10,0.95) 100%
+    );
+  }
 
-/* Location pill */
-.pill{
-  position:absolute;top:50px;right:52px;z-index:10;
-  display:inline-flex;align-items:center;gap:8px;
-  border:1px solid rgba(71,151,255,0.35);
-  background:rgba(71,151,255,0.1);
-  padding:6px 16px;border-radius:100px;
-  font-family:'Inter',sans-serif;font-size:12px;font-weight:500;
-  letter-spacing:0.06em;text-transform:uppercase;color:#7CB9FF;
-}
-.pill-dot{width:5px;height:5px;border-radius:50%;background:#4797FF;flex-shrink:0;
-  box-shadow:0 0 0 0 rgba(71,151,255,.6);animation:p 2s ease infinite}
-@keyframes p{0%,100%{box-shadow:0 0 0 0 rgba(71,151,255,.6)}50%{box-shadow:0 0 0 6px rgba(71,151,255,0)}}
+  .bg-photo::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -60px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(71,151,255,0.10) 0%, transparent 65%);
+  }
 
-/* Main content */
-.content{
-  position:absolute;
-  top:140px;left:52px;right:52px;
-  z-index:10;
-}
+  .grain {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+    background-size: 200px;
+    opacity: 0.35;
+  }
 
-/* Eyebrow */
-.eyebrow{
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:0.16em;text-transform:uppercase;color:#4797FF;
-  display:flex;align-items:center;gap:10px;margin-bottom:28px;
-}
-.eyebrow::before{content:'';width:22px;height:1px;background:#4797FF}
+  /* LOGO BAR */
+  .logo-bar {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 52px 76px 0;
+  }
 
-/* Big number */
-.stat{display:flex;align-items:flex-end;line-height:1;margin-bottom:6px}
-.num{
-  font-weight:700;font-size:268px;
-  color:#F2F2F2;letter-spacing:-0.07em;line-height:0.84;
-}
-.pct{
-  font-weight:700;font-size:110px;
-  color:#4797FF;letter-spacing:-0.04em;
-  line-height:1;padding-bottom:16px;
-}
+  .logo-lockup {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
 
-/* Rule */
-.rule{
-  width:48px;height:2px;
-  background:linear-gradient(90deg,#4797FF,transparent);
-  margin-bottom:22px;
-}
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--blue), var(--sky));
+    box-shadow: 0 0 24px rgba(71,151,255,0.35);
+    position: relative;
+    flex-shrink: 0;
+  }
 
-/* Headline */
-.h1{
-  font-weight:600;font-size:56px;
-  color:#F2F2F2;letter-spacing:-0.025em;line-height:1.06;
-  margin-bottom:8px;
-}
-.h1 em{
-  font-style:normal;
-  background:linear-gradient(90deg,#B8D4FF,#4797FF);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
+  .logo-icon::after {
+    content: '';
+    position: absolute;
+    inset: 11px;
+    border-radius: 4px;
+    background: var(--void);
+  }
 
-/* Lora subline */
-.sub{
-  font-family:'Lora',serif;font-style:italic;font-weight:500;
-  font-size:26px;letter-spacing:0;
-  background:linear-gradient(90deg,#B8D4FF,#4797FF);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  display:block;margin-bottom:26px;line-height:1.4;
-}
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
 
-/* Body */
-.body{
-  font-family:'Inter',sans-serif;font-size:18px;
-  color:#71717A;line-height:1.68;
-  max-width:560px;margin-bottom:34px;
-}
-.body strong{color:#CACAD0;font-weight:500}
+  .logo-name {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
 
-/* CTA */
-.cta{
-  display:inline-flex;align-items:center;gap:10px;
-  background:#4797FF;color:#fff;
-  font-family:'Inter',sans-serif;font-size:17px;font-weight:500;
-  letter-spacing:0.01em;padding:16px 36px;border-radius:100px;
-  box-shadow:0 12px 36px rgba(71,151,255,0.38);
-}
-.cta-arr{
-  width:24px;height:24px;border-radius:50%;
-  background:rgba(255,255,255,0.18);
-  display:flex;align-items:center;justify-content:center;
-}
-.cta-arr svg{width:11px;height:11px;stroke:white;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .logo-tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+  }
 
-/* Trust bar */
-.trust{
-  position:absolute;bottom:0;left:0;right:0;height:84px;
-  background:rgba(4,4,10,0.95);
-  border-top:1px solid rgba(255,255,255,0.06);
-  display:flex;align-items:center;z-index:10;
-  backdrop-filter:blur(20px);
-}
-.trust::before{
-  content:'';position:absolute;top:-1px;left:8%;right:8%;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(71,151,255,0.35),transparent);
-}
-.t-item{
-  flex:1;display:flex;align-items:center;justify-content:center;
-  gap:11px;padding:0 20px;
-}
-.t-sep{width:1px;height:40px;background:rgba(255,255,255,0.06)}
-.t-icon{
-  width:34px;height:34px;border-radius:9px;flex-shrink:0;
-  background:rgba(71,151,255,0.1);border:1px solid rgba(71,151,255,0.2);
-  display:flex;align-items:center;justify-content:center;
-}
-.t-icon svg{width:15px;height:15px;stroke:#4797FF;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.t-label{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:#F2F2F2;margin-bottom:2px}
-.t-sub{font-family:'Inter',sans-serif;font-size:11px;color:#71717A;letter-spacing:0.02em}
+  .cec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--bblue);
+    background: var(--bdim);
+    padding: 10px 22px 10px 14px;
+    border-radius: 100px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--sky);
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(12px);
+  }
+
+  .cec-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--blue);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(71,151,255,0.7);
+    flex-shrink: 0;
+  }
+
+  /* CENTRE CONTENT */
+  .centre {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 80px;
+    margin-top: -30px;
+  }
+
+  .headline-sydney {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 156px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    margin-bottom: 24px;
+    text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+  }
+
+  .rule {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), transparent);
+    border-radius: 100px;
+    margin: 0 auto 30px;
+  }
+
+  .headline-saving {
+    font-family: 'Poppins', sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--off);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 48px;
+    margin-top: -16px;
+  }
+
+  .savings-banner {
+    display: inline-flex;
+    align-items: stretch;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    border: 1px solid var(--border);
+    box-shadow:
+      0 30px 70px rgba(0,0,0,0.55),
+      0 0 50px rgba(71,151,255,0.08),
+      inset 0 1px 0 rgba(255,255,255,0.07);
+    backdrop-filter: blur(20px);
+    position: relative;
+  }
+
+  .savings-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    pointer-events: none;
+  }
+
+  .savings-left, .savings-right {
+    padding: 40px 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+  }
+
+  .savings-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .savings-amount {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 82px;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--mist), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .savings-amount sup {
+    font-size: 42px;
+    vertical-align: super;
+    font-weight: 800;
+  }
+
+  .savings-period {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .savings-divider {
+    width: 1px;
+    align-self: stretch;
+    background: var(--border);
+    margin: 24px 0;
+  }
+
+  /* BOTTOM STRIP */
+  .bottom-strip {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 72px 56px;
+    gap: 24px;
+  }
+
+  .trust-items {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+
+  .trust-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--blue);
+    border-radius: 50%;
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 22px 52px;
+    border-radius: 100px;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(71,151,255,0.38);
+  }
+
+  .cta-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  }
+
+  .cta-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-btn span {
+    position: relative;
+    z-index: 1;
+  }
 </style>
 </head>
 <body>
 <div class="ad">
-  <div class="bg"></div>
-  <div class="ov"></div>
-  <div class="topline"></div>
+  <div class="bg-photo"></div>
+  <div class="grain"></div>
 
-  <div class="logo">
-    <div class="logo-mark"></div>
-    <div class="logo-name">Sydney Solar Co.</div>
+  <div class="logo-bar">
+    <div class="logo-lockup">
+      <div class="logo-icon"></div>
+      <div class="logo-text">
+        <div class="logo-name">Sydney Solar Co.</div>
+        <div class="logo-tagline">CEC Accredited · 500+ Local Installs</div>
+      </div>
+    </div>
+    <div class="cec-badge">
+      <span class="cec-dot"></span>
+      Free assessment · No obligation
+    </div>
   </div>
 
-  <div class="pill"><span class="pill-dot"></span>Sydney &amp; NSW</div>
-
-  <div class="content">
-    <div class="eyebrow">New Solar Incentive - Act Before It Expires</div>
-
-    <div class="stat">
-      <div class="num">82</div>
-      <div class="pct">%</div>
-    </div>
-
+  <div class="centre">
+    <div class="headline-sydney">SYDNEY</div>
     <div class="rule"></div>
+    <div class="headline-saving">Homeowners Are Saving</div>
 
-    <div class="h1">Cut your <em>quarterly</em> power bill.</div>
-    <span class="sub">or we'll tell you honestly if it's not worth it.</span>
-
-    <p class="body">
-      Sydney homeowners are slashing their electricity bills with solar.
-      Get a free quote from a <strong>local, CEC-accredited installer</strong> - same day.
-    </p>
-
-    <div class="cta">
-      Get My Free Quote
-      <div class="cta-arr">
-        <svg viewBox="0 0 16 16"><path d="M2 8h12M9 4l4 4-4 4"/></svg>
+    <div class="savings-banner">
+      <div class="savings-left">
+        <span class="savings-label">Starting From</span>
+        <div class="savings-amount"><sup>$</sup>1,200</div>
+        <span class="savings-period">Per Year</span>
+      </div>
+      <div class="savings-divider"></div>
+      <div class="savings-right">
+        <span class="savings-label">Up To</span>
+        <div class="savings-amount"><sup>$</sup>2,400<sup style="font-size:38px">+</sup></div>
+        <span class="savings-period">Per Year</span>
       </div>
     </div>
   </div>
 
-  <div class="trust">
-    <div class="t-item">
-      <div class="t-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div><div class="t-label">CEC Accredited</div><div class="t-sub">Verified installers only</div></div>
+  <div class="bottom-strip">
+    <div class="trust-items">
+      <div class="trust-item"><span class="trust-dot"></span>Same-day quote</div>
+      <div class="trust-item"><span class="trust-dot"></span>No lock-in contracts</div>
+      <div class="trust-item"><span class="trust-dot"></span>500+ local installs</div>
     </div>
-    <div class="t-sep"></div>
-    <div class="t-item">
-      <div class="t-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-      <div><div class="t-label">Avg. $2,800 saved / yr</div><div class="t-sub">Real Sydney households</div></div>
-    </div>
-    <div class="t-sep"></div>
-    <div class="t-item">
-      <div class="t-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <div><div class="t-label">Zero Obligation</div><div class="t-sub">Free quote, no pressure</div></div>
-    </div>
+    <a class="cta-btn" href="#">
+      <span>Get My Free Quote</span>
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
+    </a>
   </div>
 </div>
 </body>
