@@ -361,24 +361,24 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="form-step" id="step2">
             <div class="step-counter"><span class="sc-badge">Step 2 of 11</span></div>
             <div class="step-q">What industry are you in?</div>
-            <div class="step-hint">Select the option that best describes your primary service.</div>
+            <div class="step-hint">Select all that apply.</div>
             <div class="opt-grid cols-2">
-              <div class="opt-card" data-field="industry" data-value="Solar">
+              <div class="opt-card multi" data-field="industry" data-value="Solar">
                 <div class="opt-label">Solar</div>
               </div>
-              <div class="opt-card" data-field="industry" data-value="Roofing">
+              <div class="opt-card multi" data-field="industry" data-value="Roofing">
                 <div class="opt-label">Roofing</div>
               </div>
-              <div class="opt-card" data-field="industry" data-value="HVAC / Air Conditioning">
+              <div class="opt-card multi" data-field="industry" data-value="HVAC / Air Conditioning">
                 <div class="opt-label">HVAC / Air Conditioning</div>
               </div>
-              <div class="opt-card" data-field="industry" data-value="Renovation / Building">
+              <div class="opt-card multi" data-field="industry" data-value="Renovation / Building">
                 <div class="opt-label">Renovation / Building</div>
               </div>
-              <div class="opt-card" data-field="industry" data-value="Landscaping">
+              <div class="opt-card multi" data-field="industry" data-value="Landscaping">
                 <div class="opt-label">Landscaping</div>
               </div>
-              <div class="opt-card" data-field="industry" data-value="Other">
+              <div class="opt-card multi" data-field="industry" data-value="Other">
                 <div class="opt-label">Other trade</div>
               </div>
             </div>
@@ -407,7 +407,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <label>Coverage radius</label>
               <select id="service_radius" onchange="checkStep3()">
                 <option value="" disabled selected>Select radius…</option>
-                <option value="30km">Up to 30km</option>
                 <option value="50km">Up to 50km</option>
                 <option value="75km">Up to 75km</option>
                 <option value="100km+">100km+</option>
@@ -779,20 +778,38 @@ document.querySelectorAll('.opt-card:not(.multi)').forEach(function(card){
   });
 });
 
-// ── MULTI-SELECT OPT CARDS (lead delivery) ──
+// ── MULTI-SELECT OPT CARDS ──
 var deliveryMethods = new Set();
+var industrySelections = new Set();
 document.querySelectorAll('.opt-card.multi').forEach(function(card){
   card.addEventListener('click',function(){
+    var field=this.getAttribute('data-field');
     var val=this.getAttribute('data-value');
-    if(deliveryMethods.has(val)){
-      deliveryMethods.delete(val);
-      this.classList.remove('selected');
+
+    if(field==='industry'){
+      if(industrySelections.has(val)){
+        industrySelections.delete(val);
+        this.classList.remove('selected');
+      } else {
+        industrySelections.add(val);
+        this.classList.add('selected');
+      }
+      // Show "Other" text input if Other is selected
+      var oi=document.getElementById('otherIndustryField');
+      oi.classList.toggle('show', industrySelections.has('Other'));
+      formData.industry=Array.from(industrySelections).join(', ');
+      document.getElementById('next2').disabled=industrySelections.size===0;
     } else {
-      deliveryMethods.add(val);
-      this.classList.add('selected');
+      if(deliveryMethods.has(val)){
+        deliveryMethods.delete(val);
+        this.classList.remove('selected');
+      } else {
+        deliveryMethods.add(val);
+        this.classList.add('selected');
+      }
+      formData.lead_delivery_methods=Array.from(deliveryMethods);
+      checkStep4();
     }
-    formData.lead_delivery_methods=Array.from(deliveryMethods);
-    checkStep4();
   });
 });
 
@@ -817,12 +834,14 @@ function validateContact(){
   goNext(1);
 }
 
-// Step 2: industry next - also handle "Other" text
+// Step 2: industry next - handle "Other" text input
 document.getElementById('next2').addEventListener('click',function(){
-  if(formData.industry==='Other'){
+  if(industrySelections.has('Other')){
     var v=document.getElementById('otherIndustryInput').value.trim();
     if(!v){document.getElementById('otherIndustryInput').focus();return;}
-    formData.industry=v;
+    // Replace "Other" with the typed value in the final string
+    var parts=Array.from(industrySelections).map(function(s){return s==='Other'?v:s;});
+    formData.industry=parts.join(', ');
   }
   goNext(2);
 },true);
