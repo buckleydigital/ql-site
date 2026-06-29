@@ -384,10 +384,24 @@
             .related-grid { grid-template-columns: 1fr; }
             .cta-btns { flex-direction: column; align-items: center; }
         }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -431,9 +445,9 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">The Assumption</div>
-        <h2 class="stitle">The problem is almost never <em>demand.</em></h2>
+        <h2 class="stitle rv">The problem is almost never <em>demand.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Every trade business owner who has hit a wall assumes the same thing: we need more leads. More enquiries. More volume at the top of the funnel. And almost every time, that diagnosis is wrong.</p>
 
             <p>The real constraint is rarely demand. It is one of six things in a chain, and only one of them is about lead volume. <strong>Fixing the wrong one first is the most common and expensive mistake a growing trade business makes.</strong></p>
@@ -445,9 +459,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Constraint Chain</div>
-        <h2 class="stitle">Six stages. <em>They hit in order.</em></h2>
+        <h2 class="stitle rv">Six stages. <em>They hit in order.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Growth in a trade business stalls at one of six points, and they gate each other in sequence. Each one has to clear before the next one matters.</p>
 
             <h3><em>Demand.</em></h3>
@@ -475,9 +489,9 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">The Expensive Mistake</div>
-        <h2 class="stitle">What happens when you <em>fix the wrong thing.</em></h2>
+        <h2 class="stitle rv">What happens when you <em>fix the wrong thing.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>A solar installer is getting 30 leads a month and closing four. The owner looks at those numbers and concludes: we need more leads. So they spend $3,000 a month on a new campaign. Now they are getting 50 leads a month - and closing five. The close rate actually dropped.</p>
 
             <p>The problem was never the leads. The average response time was over four hours. By the time someone called back, most homeowners had already booked a site visit with a competitor. <strong>Doubling the lead volume just doubled the number of leads that went cold.</strong> The money went to the wrong constraint.</p>
@@ -496,9 +510,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Diagnosis</div>
-        <h2 class="stitle">How to find <em>your constraint.</em></h2>
+        <h2 class="stitle rv">How to find <em>your constraint.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Three questions. Answer them honestly.</p>
 
             <p><strong>What happens to a lead in the first hour after it arrives?</strong> If you do not know, or the answer is "it depends who is free," your constraint is response speed. Not demand.</p>
@@ -524,7 +538,7 @@
             <p>The bottleneck is rarely where you think it is. <em>That is what makes it a bottleneck.</em></p>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>QuoteLeads addresses the first two stages of the constraint chain: generating demand and ensuring speed to contact. If those are your constraints, that is where to start. If they are not, fix what is actually broken first. More volume into a system that cannot handle the volume it already has is not growth. It is waste. <a href="/buy-leads" style="color:var(--accent);">Get started here</a>.</p>
         </div>
     </div>
@@ -552,8 +566,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related <em>articles.</em></h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related <em>articles.</em></h2>
+        <div class="related-grid rv">
             <a href="/blog/lead-response-time-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Conversion</div>
                 <div class="related-title">The Trade Business That<br><em>Responds First Wins.</em></div>

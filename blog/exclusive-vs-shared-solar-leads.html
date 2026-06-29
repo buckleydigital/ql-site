@@ -492,10 +492,24 @@
             .related-grid { grid-template-columns: 1fr; }
             .cta-btns { flex-direction: column; align-items: center; }
         }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -541,14 +555,14 @@
         <div class="slbl">The Landscape</div>
         <h2 class="stitle red">The Australian solar lead market <em>has a structural problem.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Australia has one of the highest rooftop solar adoption rates in the world. More than three million households already have panels on their roof, and another 350,000 systems are installed every year. The demand is real. The problem is how that demand reaches installers.</p>
 
             <p>For most of the last decade, the dominant model has been shared leads. A homeowner fills out a form on a comparison site or lead marketplace, and that single enquiry gets sold to three, four, sometimes five <a href="/solar-leads">solar installation businesses</a> at the same time. Each business pays for the lead. Each one races to make first contact. Most of them lose.</p>
 
             <p>The model worked well enough when competition was thinner and homeowners were less overwhelmed. That is no longer the reality in most Australian postcodes.</p>
 
-            <div class="callout">
+            <div class="callout rv">
                 <div class="callout-lbl">The core issue</div>
                 <p>Shared solar leads are not getting cheaper or converting better as the market matures. <strong>They are getting more expensive and converting worse.</strong> The installers who recognised this early are already operating on a different model entirely.</p>
             </div>
@@ -562,9 +576,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Shared Leads</div>
-        <h2 class="stitle">How shared solar leads <em>actually work.</em></h2>
+        <h2 class="stitle rv">How shared solar leads <em>actually work.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>A homeowner in suburban Melbourne decides they want solar quotes. They search online, land on a comparison site, and fill out a short form - system size, roof type, postcode, contact number. Takes about two minutes.</p>
 
             <p>That form submission is immediately distributed to multiple solar installers who have purchased leads in that postcode. <strong>The homeowner does not choose which businesses receive their details. The marketplace does.</strong></p>
@@ -619,7 +633,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>This is not a worst-case scenario. It is the median experience in competitive solar postcodes across Sydney, Melbourne, Brisbane, and Perth. <strong>The shared lead model creates a race that damages trust before any installer gets to demonstrate competence.</strong></p>
 
             <p>The result is low contact rates, low close rates, and a cost per job won that most installers have never actually calculated.</p>
@@ -631,9 +645,9 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">Exclusive Leads</div>
-        <h2 class="stitle">How exclusive solar leads <em>work differently.</em></h2>
+        <h2 class="stitle rv">How exclusive solar leads <em>work differently.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>In an exclusive lead model, the homeowner does not submit to a generic marketplace. They submit directly to a specific solar installer's branded experience - a landing page, a qualification survey, and a follow-up system that is built for one business only.</p>
 
             <p>The homeowner sees your company name, your credentials, your coverage areas, and your offer before they enter any contact details. When they submit, they are expecting to hear from you. <strong>Not from four strangers. From you.</strong></p>
@@ -681,7 +695,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The contact rate on exclusive <a href="/solar-leads">solar leads</a> is dramatically higher because the homeowner is not overwhelmed by multiple callers. They submitted to one business. They are waiting for one call. <strong>The follow-up is welcome, not intrusive.</strong></p>
 
             <p>This is why the close rate gap between shared and exclusive solar leads is not incremental - it is structural. You are not just getting a marginally better lead. You are operating in a completely different competitive environment.</p>
@@ -695,7 +709,7 @@
         <div class="slbl">The Economics</div>
         <h2 class="stitle red">The real cost per solar job won - <em>shared vs exclusive.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Most solar installers compare shared and exclusive leads by looking at headline cost per lead. That comparison is misleading because it ignores the only number that matters to a growing business: <strong>cost per job won.</strong></p>
         </div>
 
@@ -717,7 +731,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <h3>Running the numbers on a real solar business.</h3>
 
             <p>Take an established solar installer buying 80 shared leads per month at $55 each. That is $4,400 in lead spend. At a 10% close rate, they sign eight jobs. <strong>Cost per job won: $550 in lead fees alone.</strong></p>
@@ -738,9 +752,9 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">Side By Side</div>
-        <h2 class="stitle">Shared vs exclusive solar leads.<br><em>The full comparison.</em></h2>
+        <h2 class="stitle rv">Shared vs exclusive solar leads.<br><em>The full comparison.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Here is how the two models compare across every metric that determines whether a solar lead turns into a signed installation contract. This comparison is specific to the Australian residential solar market.</p>
         </div>
 
@@ -805,9 +819,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Why Solar Specifically</div>
-        <h2 class="stitle">Why solar is the trade vertical where <em>this matters most.</em></h2>
+        <h2 class="stitle rv">Why solar is the trade vertical where <em>this matters most.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The shift from shared to exclusive leads is happening across multiple trade verticals in Australia. But solar is where the gap is widest - and where the switch is happening fastest. There are three reasons for this.</p>
 
             <h3>Higher average job values <em>amplify the cost gap.</em></h3>
@@ -842,9 +856,9 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">Making The Switch</div>
-        <h2 class="stitle">What switching to exclusive solar leads <em>actually involves.</em></h2>
+        <h2 class="stitle rv">What switching to exclusive solar leads <em>actually involves.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The transition from shared to exclusive solar leads is not a settings change in a dashboard. It is a structural shift in how demand reaches your business. Understanding what that involves helps set realistic expectations.</p>
 
             <h3>What gets built.</h3>
@@ -878,7 +892,7 @@
         <div class="slbl">The Conclusion</div>
         <h2 class="stitle red">The solar installers who own their pipeline <em>are the ones still growing.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The shared solar lead marketplace served a purpose. It gave new installers access to demand they could not generate on their own. For businesses in their first year or two, that access has genuine value.</p>
 
             <p>But for established solar businesses - the ones doing $1m, $2m, $5m a year in installations - the shared model has become a ceiling, not a foundation. The close rates do not improve with scale. The cost per job won does not decrease with volume. The brand equity generated is zero. <strong>Every dollar spent on shared leads disappears the moment you stop paying.</strong></p>
@@ -912,8 +926,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related <em>articles.</em></h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related <em>articles.</em></h2>
+        <div class="related-grid rv">
             <a href="/blog/shared-leads-australia.html" class="card card--interactive related-card">
                 <div class="related-tag">Lead Generation</div>
                 <div class="related-title">You Paid for That Lead.<br><em>So Did Three Other Businesses.</em></div>
@@ -998,6 +1012,45 @@
         });
     });
 
+</script>
+<script>
+// PARTICLES
+(function(){
+const W=()=>window.innerWidth,H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
+class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;this.life=0;this.maxL=Math.random()*450+200;this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';this.glow=this.r>1.2}draw(){const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;ctx.save();ctx.globalAlpha=this.a*fade;if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore()}update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
+})();
+
+// CURSOR
+(function(){
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+})();
+
+// SCROLL PROGRESS
+(function(){
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{const d=document.documentElement;sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')'},{passive:true});
+})();
+
+// REVEAL
+(function(){
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
+})();
 </script>
 </body>
 </html>

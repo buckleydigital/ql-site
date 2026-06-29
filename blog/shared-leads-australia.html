@@ -489,10 +489,24 @@
             .related-grid { grid-template-columns: 1fr; }
             .cta-btns { flex-direction: column; align-items: center; }
         }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -538,14 +552,14 @@
         <div class="slbl">How It Works</div>
         <h2 class="stitle red">How shared leads <em>actually work.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>A homeowner in Brisbane wants three quotes for a solar system. They fill out a form on a lead marketplace - takes about 90 seconds. They hit submit. What happens next is invisible to them, and almost always invisible to you.</p>
 
             <p>That single enquiry - one person, one property, one job - is immediately sold to multiple trade businesses simultaneously. <strong>Typically three to five, sometimes more, depending on how many businesses are buying leads in that postcode that day.</strong> Each of them pays for it. Each of them gets the same name, same number, same address.</p>
 
             <p>Every one of you is now in a race.</p>
 
-            <div class="callout">
+            <div class="callout rv">
                 <div class="callout-lbl">The model, plainly stated</div>
                 <p>A shared lead marketplace makes money by selling the same consumer enquiry as many times as possible. Their revenue goes up when more businesses compete for the same leads. <strong>Their incentives and your interests are structurally opposed.</strong></p>
             </div>
@@ -561,9 +575,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Psychology</div>
-        <h2 class="stitle">What the homeowner <em>experiences.</em></h2>
+        <h2 class="stitle rv">What the homeowner <em>experiences.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Understanding why shared leads convert so poorly starts with understanding what happens on the other side of the enquiry - the homeowner's phone in the minutes and hours after they submit.</p>
 
             <p>They wanted quotes. They got a queue of callers.</p>
@@ -616,7 +630,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>This is not an edge case. It is the typical experience for a homeowner who submits to a shared lead platform in a competitive market. <strong>The volume of contact does not build trust - it destroys it.</strong> By the time a measured, professional business calls two hours later, the homeowner has already decided they do not want to deal with any of them.</p>
 
             <p>The result is not just a missed job. It is a missed job that you already paid for.</p>
@@ -630,7 +644,7 @@
         <div class="slbl">The Economics</div>
         <h2 class="stitle red">You are paying for <em>a race, not a lead.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Let us look at what shared leads actually cost when you account for the real close rate - not the number the platform uses in their pitch.</p>
 
             <p>A typical shared lead in a competitive trade vertical in Australia costs between $30 and $90. At face value, that looks reasonable. But the relevant number is not the cost per lead. <strong>It is the cost per job won.</strong></p>
@@ -654,7 +668,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <h3>The math most businesses never run.</h3>
 
             <p>Take a solar business buying 50 shared leads per month at $60 each. That is $3,000 in lead spend. At a 10% close rate, they win five jobs. <strong>Cost per job won: $600 in lead fees alone.</strong></p>
@@ -675,9 +689,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Side By Side</div>
-        <h2 class="stitle">Shared vs exclusive.<br><em>The full picture.</em></h2>
+        <h2 class="stitle rv">Shared vs exclusive.<br><em>The full picture.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Most businesses shopping for leads compare headline price per lead and nothing else. Here is what the comparison actually looks like across the metrics that determine whether leads turn into revenue.</p>
         </div>
 
@@ -737,9 +751,9 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">The Honest Reality</div>
-        <h2 class="stitle">Who shared leads <em>actually work for.</em></h2>
+        <h2 class="stitle rv">Who shared leads <em>actually work for.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>To be fair: shared leads are not useless for everyone. There are situations where the model can work - and being honest about that matters more than a blanket takedown.</p>
 
             <h3>They can work for businesses that are brand new.</h3>
@@ -768,9 +782,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Alternative</div>
-        <h2 class="stitle">What exclusive lead generation <em>actually looks like.</em></h2>
+        <h2 class="stitle rv">What exclusive lead generation <em>actually looks like.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Exclusive lead generation is not a premium version of the shared lead marketplace. It is a structurally different approach - and understanding the difference matters before making any investment decision.</p>
 
             <p>In a shared lead model, the platform sits between you and the homeowner. The homeowner submits to the platform. The platform distributes to you. <strong>The homeowner has no idea who you are until you call them cold.</strong></p>
@@ -800,7 +814,7 @@
         <div class="slbl">The Conclusion</div>
         <h2 class="stitle red">A lead is not a lead<br><em>if it is not yours.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The shared lead marketplace model has been around long enough for the data to be clear. It generates activity. It does not generate the kind of consistent, predictable, owned pipeline that serious trade businesses need to scale past the referral plateau.</p>
 
             <p>That is not a criticism of the businesses running those platforms. It is just a description of what the model produces and who it is - and is not - suited for.</p>
@@ -836,8 +850,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related <em>articles.</em></h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related <em>articles.</em></h2>
+        <div class="related-grid rv">
             <a href="/blog/referral-plateau-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Growth</div>
                 <div class="related-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>
@@ -917,6 +931,45 @@
         });
     });
 
+</script>
+<script>
+// PARTICLES
+(function(){
+const W=()=>window.innerWidth,H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
+class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;this.life=0;this.maxL=Math.random()*450+200;this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';this.glow=this.r>1.2}draw(){const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;ctx.save();ctx.globalAlpha=this.a*fade;if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore()}update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
+})();
+
+// CURSOR
+(function(){
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+})();
+
+// SCROLL PROGRESS
+(function(){
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{const d=document.documentElement;sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')'},{passive:true});
+})();
+
+// REVEAL
+(function(){
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
+})();
 </script>
 </body>
 </html>

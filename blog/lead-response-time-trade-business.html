@@ -566,10 +566,24 @@
             .cta-btns { flex-direction: column; align-items: center; }
             .timeline-row { grid-template-columns: 72px 1fr 60px; }
         }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -615,7 +629,7 @@
         <div class="slbl">The Problem You Cannot See</div>
         <h2 class="stitle amber">The lead did not go cold. <em>You lost it.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Here is the thing about leads that go unanswered: the business never finds out. The homeowner does not call back to explain they went with someone else. There is no record of a missed opportunity. The lead just disappears - and the business assumes it was a tyre-kicker or a bad lead rather than a good customer who needed someone to respond before lunch.</p>
 
             <p>This is the hidden cost of a slow response system. It does not show up as a loss. It shows up as a conversion rate that looks acceptable because nobody is measuring what could have been. <strong>The average trade business with a 3+ hour response time is not measuring its true pipeline - it is measuring the fraction of its pipeline that waited long enough to hear back.</strong></p>
@@ -634,9 +648,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The First Hour</div>
-        <h2 class="stitle">What happens after <em>a lead submits.</em></h2>
+        <h2 class="stitle rv">What happens after <em>a lead submits.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>To understand why speed to contact matters so much, it helps to understand what a homeowner is actually doing in the minutes and hours after they submit an enquiry. The picture is not flattering for trade businesses that respond slowly - and it explains why the same lead that felt cold by the time you called it was genuinely warm when it came in.</p>
         </div>
 
@@ -688,7 +702,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The window is not days. It is not even hours. <strong>The highest-intent moment in a lead's lifecycle is the 30 minutes immediately after submission.</strong> That is when the homeowner is still engaged, still at their phone, and still making a decision about who they want to hear from. A response in that window is not just faster - it arrives in a fundamentally different psychological state than one that arrives three hours later.</p>
 
             <p>By the time the average trade business picks up the phone, the homeowner has moved on. Not because they are fickle - because they needed something done and someone else responded.</p>
@@ -702,7 +716,7 @@
         <div class="slbl">The Root Cause</div>
         <h2 class="stitle amber">Why the gap exists <em>in the first place.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Nobody running a trade business is choosing to respond slowly. The response gap is not a decision - it is a structural outcome of how most trade businesses are set up. Understanding why it happens is the first step to fixing it, because the fix is not effort. <strong>More effort is already being applied. The problem is where it is applied.</strong></p>
         </div>
 
@@ -739,9 +753,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Data</div>
-        <h2 class="stitle">The numbers behind <em>the gap.</em></h2>
+        <h2 class="stitle rv">The numbers behind <em>the gap.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The research on lead response time is consistent across industries and has been replicated many times over. The numbers are not surprising if you think about it from the homeowner's perspective - but they are striking when you see them laid out against how most trade businesses actually operate.</p>
         </div>
 
@@ -788,7 +802,7 @@
         <div class="slbl">Side By Side</div>
         <h2 class="stitle amber">The same lead. <em>Two different outcomes.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The difference between a converted lead and a lost one often has nothing to do with the quality of the business, the price quoted, or the reputation built. It comes down to what happens in the first few minutes after the lead hits the system. Here is what that looks like played out.</p>
         </div>
 
@@ -849,7 +863,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The difference in that scenario is not reputation, price, or quality of work. The difference is 12 minutes versus five hours. <strong>The business that won did not win because it was better. It won because it was there.</strong></p>
         </div>
     </div>
@@ -859,9 +873,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Fix</div>
-        <h2 class="stitle">Speed is a <em>system problem, not a people problem.</em></h2>
+        <h2 class="stitle rv">Speed is a <em>system problem, not a people problem.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The instinctive response to a slow follow-up problem is to tell someone to be faster. That does not work - because the people involved are already doing as much as their setup allows. The follow-up gap is structural, which means fixing it requires changing the structure. <strong>Effort is not the constraint. Infrastructure is.</strong></p>
 
             <h3>The three components that <em>close the gap.</em></h3>
@@ -928,7 +942,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The more of those first six apply, the larger the follow-up gap - and the more jobs are quietly being handed to the competitor who built the system first. <strong>The good news is that this is entirely fixable, and it does not require hiring anyone new.</strong> It requires changing the infrastructure that sits between the lead and the phone call.</p>
         </div>
     </div>
@@ -940,7 +954,7 @@
         <div class="slbl">The Downstream Effect</div>
         <h2 class="stitle amber">What actually changes <em>when the system is right.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Fixing speed to contact does not just improve conversion rate. It changes the entire texture of the business in ways that compound over time. The jobs that come through feel like warmer conversations - because they are. The owner stops being a bottleneck. The team has clarity on what they are supposed to do when a lead arrives. And the business has, for the first time, a number it can actually measure and improve.</p>
 
             <h3>The compounding effect of <em>a faster system.</em></h3>
@@ -965,7 +979,7 @@
             <p>The job did not go elsewhere because your price was wrong. It went elsewhere because <em>someone else called first.</em></p>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Speed to contact is not a marketing problem. It is not an advertising problem. It is not even a sales problem. It is an infrastructure problem - and it has a straightforward solution once the structure is changed.</p>
 
             <p>The businesses converting the most from the same volume of leads are not necessarily the best in their trade, the cheapest, or the best reviewed. They are the ones that respond in minutes, not hours. They are the ones whose leads feel heard before the conversation even starts. And they are the ones that do not rely on the owner being available to make every call happen.</p>
@@ -997,8 +1011,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related <em>articles.</em></h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related <em>articles.</em></h2>
+        <div class="related-grid rv">
             <a href="/blog/referral-plateau-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Growth Strategy</div>
                 <div class="related-title">Referrals Built Your Business.<br><em>They Won't Scale It.</em></div>

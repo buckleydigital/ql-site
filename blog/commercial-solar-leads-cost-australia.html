@@ -467,10 +467,24 @@
             .cta-btns { flex-direction: column; align-items: center; }
             .tier-table { display: block; overflow-x: auto; }
         }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -514,7 +528,7 @@
 <!-- INTRO -->
 <section class="content-section">
     <div class="si">
-        <div class="prose">
+        <div class="prose rv">
             <p>Residential and commercial solar leads exist in the same industry, but they serve completely different buyers through completely different sales processes with completely different economics. The qualification requirements for a homeowner choosing between a <strong>6.6kW system at $5,000-$8,000</strong> and a business owner evaluating a <strong>100kW rooftop installation at $130,000-$300,000</strong> have almost nothing in common. The decision maker is harder to reach, the sales cycle is measured in weeks or months rather than days, and the due diligence required before a quote even makes sense is an order of magnitude more involved.</p>
 
             <p>Yet the commercial solar lead market in Australia has even less pricing transparency than residential. Providers quote anywhere from $40 to $500 per lead with very little explanation of what justifies the gap. Some installers are paying $50 for commercial leads that turn out to be tenants with no capital authority. Others are paying $200 for genuinely qualified business owners and closing six-figure deals. <strong>The difference between those two outcomes is not luck - it is lead quality, and lead quality in commercial solar is driven by very specific qualification factors.</strong></p>
@@ -529,9 +543,9 @@
     <div class="si">
         <div class="slbl">Commercial vs Residential</div>
         <!-- H2 -->
-        <h2 class="stitle">What makes a commercial solar lead <em>different from residential.</em></h2>
+        <h2 class="stitle rv">What makes a commercial solar lead <em>different from residential.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Before talking about pricing, it is worth understanding why commercial solar leads cost more than residential leads - and why they should. The differences are not marginal. They are structural, and they affect every stage of the sales process.</p>
 
             <p>The buyer is fundamentally different. A residential solar lead is a homeowner - usually one or two decision makers who own the property and pay the power bill. A commercial solar lead is a business owner, director, or facilities manager. They may not own the property. They may need board approval for capital expenditure. They are harder to reach, harder to qualify, and operate on a longer decision timeline. But when they do commit, the job values are transformative.</p>
@@ -550,9 +564,9 @@
     <div class="si">
         <div class="slbl">Pricing Spectrum</div>
         <!-- H2 -->
-        <h2 class="stitle">The commercial solar lead pricing spectrum <em>in Australia.</em></h2>
+        <h2 class="stitle rv">The commercial solar lead pricing spectrum <em>in Australia.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Commercial solar lead pricing in Australia falls into four distinct tiers. Each tier reflects a fundamentally different level of qualification, exclusivity, and buyer intent - and the conversion rates reflect it.</p>
         </div>
 
@@ -598,7 +612,7 @@
             </tbody>
         </table>
 
-        <div class="prose">
+        <div class="prose rv">
             <!-- H3 -->
             <h3>Tier 1 - Shared directory and comparison leads: <em>$40-$80.</em></h3>
 
@@ -627,9 +641,9 @@
     <div class="si">
         <div class="slbl">The Real Numbers</div>
         <!-- H2 -->
-        <h2 class="stitle">Real Australian commercial solar <em>job values.</em></h2>
+        <h2 class="stitle rv">Real Australian commercial solar <em>job values.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The reason commercial solar lead costs make sense - even at <strong>$150-$200 per lead</strong> - is the job values behind them. These are the real revenue figures Australian commercial solar installers are working with in 2026.</p>
 
             <ul>
@@ -647,7 +661,7 @@
 
             <p>Scale it up. A single medium commercial job at <strong>$80,000</strong> acquired for <strong>$600 in lead spend</strong> is a <strong>133x return</strong> on lead investment. Even at the higher end of Tier 3 pricing - $200 per lead, $800 for four leads - that is still 1 per cent of an $80,000 job. There is no marketing channel in existence that delivers those economics on high-value B2B installations.</p>
 
-            <div class="callout">
+            <div class="callout rv">
                 <div class="callout-lbl">The takeaway</div>
                 <p>Commercial solar lead costs look expensive on a per-unit basis compared to residential. But when measured against the job values they unlock, <strong>commercial leads are consistently the highest-ROI lead type in the Australian solar market</strong>. The absolute cost is higher. The cost as a percentage of revenue is lower.</p>
             </div>
@@ -660,9 +674,9 @@
     <div class="si">
         <div class="slbl">Quality Breakdown</div>
         <!-- H2 -->
-        <h2 class="stitle">What you actually get <em>at each price point.</em></h2>
+        <h2 class="stitle rv">What you actually get <em>at each price point.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The gap between a $50 commercial solar lead and a $150 one comes down to specific, measurable qualification factors. Before committing to any commercial solar lead provider, evaluate each lead against these criteria.</p>
 
             <p><strong>Decision maker confirmed</strong> - is the contact the business owner, director, or facilities manager with capital authority? Or is it a receptionist who filled in a form, a junior employee who was browsing, or a tenant with no sign-off power? This is the single most important qualifier for commercial solar. Without it, every hour you spend on the lead is speculative.</p>
@@ -687,9 +701,9 @@
     <div class="si">
         <div class="slbl">Hidden Costs</div>
         <!-- H2 -->
-        <h2 class="stitle">The hidden cost of cheap <em>commercial leads.</em></h2>
+        <h2 class="stitle rv">The hidden cost of cheap <em>commercial leads.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Low-cost commercial solar leads have a hidden tax that does not appear on the invoice: the time and labour cost of chasing unqualified enquiries through a sales process that requires substantial investment before disqualification happens.</p>
 
             <p>A commercial solar quote is not a residential quote. It requires a site visit, a roof assessment, an energy audit, structural considerations, DNSP paperwork review, and a detailed proposal with projected ROI. For most commercial solar businesses, that process represents <strong>4-8 hours of work per quoted job</strong> - split across a site assessor, a system designer, and a sales manager.</p>
@@ -698,7 +712,7 @@
 
             <p>Quality commercial leads that pre-qualify decision maker status, property control, and power bill range eliminate most of this wasted effort before you leave the office. The qualification that costs an extra $80-$100 per lead at the point of purchase saves you $300-$500 per lead in downstream labour costs. The maths is not close.</p>
 
-            <div class="callout">
+            <div class="callout rv">
                 <div class="callout-lbl">The real comparison</div>
                 <p>A $60 shared commercial lead with an 8 per cent conversion rate costs roughly <strong>$750 in lead spend per job won</strong> - plus <strong>$3,750 in wasted proposal labour</strong> for the 12 leads that did not convert. Total real cost: <strong>$4,500 per job won</strong>. A $150 exclusive verified lead with a 25 per cent conversion rate costs <strong>$600 in lead spend per job won</strong> - with minimal wasted proposal time because the leads are pre-qualified. Total real cost: roughly <strong>$1,200 per job won</strong>. The cheap lead is nearly four times more expensive when you account for the full cost.</p>
             </div>
@@ -711,9 +725,9 @@
     <div class="si">
         <div class="slbl">Due Diligence</div>
         <!-- H2 -->
-        <h2 class="stitle">Questions to ask any commercial solar <em>lead provider.</em></h2>
+        <h2 class="stitle rv">Questions to ask any commercial solar <em>lead provider.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Before committing budget to any commercial solar lead provider in Australia, these eight questions will separate credible operators from the ones selling recycled directory enquiries at a markup.</p>
 
             <p><strong>Is the contact a confirmed decision maker or property owner?</strong> You need to hear specifics - business owner, director, facilities manager with documented capital authority. If the answer is vague or hedged with "we provide the business contact details," the decision maker has not been confirmed.</p>
@@ -742,7 +756,7 @@
     <div class="si">
         <div class="slbl">FAQ</div>
         <!-- H2 -->
-        <h2 class="stitle">Frequently asked <em>questions.</em></h2>
+        <h2 class="stitle rv">Frequently asked <em>questions.</em></h2>
 
         <div class="faq-item">
             <!-- H3 -->
@@ -791,7 +805,7 @@
 <!-- CLOSING -->
 <section class="content-section">
     <div class="si">
-        <div class="prose">
+        <div class="prose rv">
             <p>The commercial solar lead market in Australia is not short on providers. It is short on transparency about what you are actually buying at each price point. If this breakdown helps you evaluate your current lead costs more honestly - or avoid spending thousands on leads that were never going to convert - it has done its job.</p>
 
             <p>The businesses that succeed in commercial solar lead generation are the ones that measure cost per job won rather than cost per lead, track every stage of their pipeline from lead to signed contract, and refuse to accept qualification standards that waste their most expensive resource: their commercial sales team's time.</p>
@@ -803,8 +817,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related <em>articles.</em></h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related <em>articles.</em></h2>
+        <div class="related-grid rv">
             <a href="/blog/solar-lead-cost-australia.html" class="card card--interactive related-card">
                 <div class="related-tag">Lead Generation</div>
                 <div class="related-title">How Much Should You Pay for a Solar Lead <em>in Australia in 2026?</em></div>
@@ -889,6 +903,45 @@
         });
     });
 
+</script>
+<script>
+// PARTICLES
+(function(){
+const W=()=>window.innerWidth,H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
+class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;this.life=0;this.maxL=Math.random()*450+200;this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';this.glow=this.r>1.2}draw(){const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;ctx.save();ctx.globalAlpha=this.a*fade;if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore()}update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
+})();
+
+// CURSOR
+(function(){
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+})();
+
+// SCROLL PROGRESS
+(function(){
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{const d=document.documentElement;sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')'},{passive:true});
+})();
+
+// REVEAL
+(function(){
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
+})();
 </script>
 </body>
 </html>

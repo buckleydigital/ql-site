@@ -169,10 +169,24 @@
 
         @media(max-width:1024px) { .hero,.content-section,.cta-section { padding: 80px 32px; } .site-header { padding: 0 32px; } footer { padding: 40px 32px; } }
         @media(max-width:768px) { .hero { padding: 120px 24px 64px; } .content-section,.cta-section { padding: 64px 24px; } .nav-links { display: none; } .mob-btn { display: flex; } footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; gap: 20px; } .myth-row { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
         <a href="/" class="logo">
@@ -211,8 +225,8 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">The Core Problem</div>
-        <h2 class="stitle">The auction is never <em>the same twice.</em></h2>
-        <div class="prose">
+        <h2 class="stitle rv">The auction is never <em>the same twice.</em></h2>
+        <div class="prose rv">
             <p>Every Meta ad result is a product of a specific moment in a specific auction. When your creative "won," it won against a particular set of competing advertisers, at a particular CPM, targeting people in a particular mood on a particular day.</p>
             <p>None of those variables are stable. Replicate the campaign a month later and you're entering a completely different auction. Different competitors are bidding. Different inventory is available. Seasonality shifts consumer attention. Your creative is identical, but the context around it isn't.</p>
 
@@ -229,8 +243,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">What You Don't See</div>
-        <h2 class="stitle">The hidden variables your results <em>don't show you.</em></h2>
-        <div class="prose">
+        <h2 class="stitle rv">The hidden variables your results <em>don't show you.</em></h2>
+        <div class="prose rv">
             <p>When you look at your Meta results dashboard, you see cost per lead, CTR, spend, volume. Here's what you don't see:</p>
             <ul>
                 <li>
@@ -258,7 +272,7 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">Common Misconceptions</div>
-        <h2 class="stitle">The myths most advertisers <em>still believe.</em></h2>
+        <h2 class="stitle rv">The myths most advertisers <em>still believe.</em></h2>
 
         <div class="myths-grid">
             <div class="myth-row">
@@ -309,8 +323,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Solar Specifically</div>
-        <h2 class="stitle">Why solar is particularly brutal <em>on Meta.</em></h2>
-        <div class="prose">
+        <h2 class="stitle rv">Why solar is particularly brutal <em>on Meta.</em></h2>
+        <div class="prose rv">
             <p>Solar is a high-consideration, high-ticket purchase. The homeowner who converts from a Meta ad is typically months into a research process. They saw your ad at the right moment in a longer journey, not because of it.</p>
             <p>This makes attribution on Meta almost meaningless for solar. You're not measuring whether your creative caused a conversion. You're measuring whether Meta's algorithm found someone already close to deciding, at a moment when your ad happened to appear.</p>
 
@@ -326,8 +340,8 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">What Actually Helps</div>
-        <h2 class="stitle">What actually works, <em>sort of.</em></h2>
-        <div class="prose">
+        <h2 class="stitle rv">What actually works, <em>sort of.</em></h2>
+        <div class="prose rv">
             <p><strong>Test principles, not executions.</strong> Does emotional or fear-of-missing-out messaging beat rational ROI messaging? Does social proof beat authority? These learnings transfer. Whether a specific video beats a specific image does not.</p>
             <p><strong>Demand statistical significance before calling a winner.</strong> Most "winning" creatives in solar ad accounts have fewer than 20 conversions. That's not a result, that's noise. Minimum 50 conversions per variant before you decide anything.</p>
             <p><strong>Expect decay and plan for it.</strong> Budget for creative refresh from day one. A creative working well now will fatigue. The teams that stay consistent are the ones with a production pipeline, not ones desperately searching for the next winner.</p>
@@ -341,8 +355,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">If You Buy Leads</div>
-        <h2 class="stitle">What this means if you're <em>buying leads.</em></h2>
-        <div class="prose">
+        <h2 class="stitle rv">What this means if you're <em>buying leads.</em></h2>
+        <div class="prose rv">
             <p>If your lead seller relies entirely on Meta, you're inheriting all of this volatility in your supply. Volume will be inconsistent. Cost per lead will fluctuate, and those fluctuations will eventually affect either the price you pay or the quality you get.</p>
             <p>Ask any lead seller you work with what channels they use. If the answer is just Meta, that's a risk worth knowing about upfront.</p>
 
@@ -377,8 +391,8 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related articles.</h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related articles.</h2>
+        <div class="related-grid rv">
             <a href="/blog/exclusive-solar-lead-myth.html" class="related-card">
                 <span class="related-tag">Industry Truth</span>
                 <div class="related-title">The "Exclusive" Solar Lead Is Mostly a Myth</div>
@@ -418,6 +432,45 @@
     document.getElementById('mobBtn').addEventListener('click', function() {
         document.getElementById('mobMenu').classList.toggle('open');
     });
+</script>
+<script>
+// PARTICLES
+(function(){
+const W=()=>window.innerWidth,H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
+class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;this.life=0;this.maxL=Math.random()*450+200;this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';this.glow=this.r>1.2}draw(){const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;ctx.save();ctx.globalAlpha=this.a*fade;if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore()}update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
+})();
+
+// CURSOR
+(function(){
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+})();
+
+// SCROLL PROGRESS
+(function(){
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{const d=document.documentElement;sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')'},{passive:true});
+})();
+
+// REVEAL
+(function(){
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
+})();
 </script>
 </body>
 </html>

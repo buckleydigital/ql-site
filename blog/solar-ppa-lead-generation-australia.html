@@ -479,10 +479,24 @@
             .score-table { font-size: 14px; }
             .score-table th, .score-table td { padding: 10px 12px; }
         }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -526,7 +540,7 @@
 <!-- INTRO -->
 <section class="content-section">
     <div class="si">
-        <div class="prose">
+        <div class="prose rv">
             <p>A solar power purchase agreement sells a different thing to a different person. The homeowner who buys a system with cash or a green loan has already decided solar is worth owning. The PPA buyer has not - they want the outcome of solar without the capital, the ownership or the risk. That one difference changes the hook, the targeting, the form and the words you are legally allowed to use.</p>
 
             <p>Most installers run PPA campaigns exactly like standard solar campaigns, then wonder why the leads come in cheaper but the close rate collapses. <strong>The product is different, so the funnel has to be too.</strong> Here is how to run them properly on Meta.</p>
@@ -539,9 +553,9 @@
     <div class="si">
         <div class="slbl">The Difference</div>
         <!-- H2 -->
-        <h2 class="stitle">A PPA buyer is not <em>a solar buyer.</em></h2>
+        <h2 class="stitle rv">A PPA buyer is not <em>a solar buyer.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The standard solar buyer is comparing systems, quotes and payback periods. The PPA buyer is comparing their current power bill to a lower one with nothing to pay upfront. They are more cash-conscious, more sceptical and far less educated on the product, because third-party ownership is still unfamiliar to most Australians.</p>
 
             <p>That gap creates a set of objections you have to pre-empt in the funnel, not leave for the sales call:</p>
@@ -563,9 +577,9 @@
     <div class="si">
         <div class="slbl">Targeting</div>
         <!-- H2 -->
-        <h2 class="stitle">You cannot just tick <em>"homeowner" anymore.</em></h2>
+        <h2 class="stitle rv">You cannot just tick <em>"homeowner" anymore.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Meta gutted detailed targeting years ago. The clean "homeowner" and "household income" segments most guides still reference are gone, and rebuilding them with interest stacks is a waste of time. Feed the algorithm strong signals instead.</p>
 
             <p><strong>Geography is your main lever.</strong> PPAs suit owner-occupied freestanding houses, so target established mortgage-belt and outer-suburban postcodes and exclude inner-city and high-rise areas where renting dominates. With direct income targeting gone, suburb-level median income is your proxy - you want enough roof and bill to make the maths work, not the wealthiest postcodes that will just buy outright. Set age from roughly 30 to 65+, where owner-occupiers and the "no capital outlay" promise both land hardest, and handle dwelling type through geography while reinforcing "homeowners only" in the creative and form.</p>
@@ -587,9 +601,9 @@
     <div class="si">
         <div class="slbl">Creative</div>
         <!-- H2 -->
-        <h2 class="stitle">"$0 down" is the floor, <em>not the ceiling.</em></h2>
+        <h2 class="stitle rv">"$0 down" is the floor, <em>not the ceiling.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>"$0 down" is the most common PPA hook - it is the literal mechanic and removes the single biggest barrier to solar: the five-to-twelve-thousand-dollar cheque. It works, so test it. But on cold audiences it also attracts price-shoppers and "too good to be true" scepticism, buying volume at the expense of intent. And "$0 down" is accurate; "free solar" is not, which matters legally.</p>
 
             <p>With cold audiences, these five angles consistently outperform price-first messaging:</p>
@@ -612,9 +626,9 @@
     <div class="si">
         <div class="slbl">Instant Forms</div>
         <!-- H2 -->
-        <h2 class="stitle">The four-field <em>instant form.</em></h2>
+        <h2 class="stitle rv">The four-field <em>instant form.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Meta instant forms convert because they pre-fill contact details. That is also the trap: a frictionless form with no qualification floods you with renters and tyre-kickers. The fix is not a longer form - it is the right four fields, in the right order.</p>
 
             <ol>
@@ -634,9 +648,9 @@
     <div class="si">
         <div class="slbl">Campaign Structure</div>
         <!-- H2 -->
-        <h2 class="stitle">Build to scale, <em>not just to launch.</em></h2>
+        <h2 class="stitle rv">Build to scale, <em>not just to launch.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Test in ABO, scale in CBO. Ad-set budgets give you clean reads when comparing creatives and angles, because you control the spend on each. Once you know your winners, campaign budget optimisation - now Advantage campaign budget - lets Meta push money to whatever converts. Most mature PPA accounts run a broad CBO prospecting campaign with three to five creatives and let the system allocate.</p>
 
             <p>Skip the elaborate interest stacks; the leverage is in lookalikes built from the right source. A lookalike off raw form-fills teaches Meta to find more form-fillers; a lookalike off <strong>signed PPA customers</strong> teaches it to find buyers. Feed conversions back through the Conversions API so it optimises for people who sign, not people who tap.</p>
@@ -651,9 +665,9 @@
     <div class="si">
         <div class="slbl">Compliance</div>
         <!-- H2 -->
-        <h2 class="stitle">The part everyone <em>skips.</em></h2>
+        <h2 class="stitle rv">The part everyone <em>skips.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Australia has no TCPA, but three rules bite. The <strong>Privacy Act</strong> and its Australian Privacy Principles govern how you collect and share personal information - your form needs a clear privacy notice and, critically, named consent so the homeowner knows exactly who will contact them. The <strong>Spam Act 2003</strong> governs SMS and email follow-up: consent, sender ID and a working unsubscribe. The <strong>Do Not Call Register Act</strong> governs phone follow-up - express consent on the form is what lets you call. A form with named consent and a linked privacy policy covers all three.</p>
 
             <p>State PPA legality is the retail exemption question from earlier: only sell where your provider is authorised or exempt.</p>
@@ -668,9 +682,9 @@
     <div class="si">
         <div class="slbl">Quality vs Volume</div>
         <!-- H2 -->
-        <h2 class="stitle">Why CPL is <em>lying to you.</em></h2>
+        <h2 class="stitle rv">Why CPL is <em>lying to you.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Cost per lead is the most over-optimised - and misleading - number in PPA advertising. A $9 lead that never signs is more expensive than a $40 lead that does. Chase CPL alone and you get pushed toward the broadest "free solar" hooks that pull renters and browsers: cheap leads, terrible economics.</p>
 
             <p>The number that matters is <strong>cost per signed PPA</strong>, and the rate underneath it: lead-to-sale. You cannot manage either without closing the loop. Tag every lead's outcome - renter, no answer, not interested, booked, signed - and pipe signed deals back to Meta as offline conversions. That makes your reporting honest and teaches the algorithm to find signers, not form-fillers.</p>
@@ -685,7 +699,7 @@
     <div class="si">
         <div class="slbl">Frequently Asked Questions</div>
         <!-- H2 -->
-        <h2 class="stitle">Common questions about <em>solar PPA lead generation.</em></h2>
+        <h2 class="stitle rv">Common questions about <em>solar PPA lead generation.</em></h2>
 
         <div class="faq-item">
             <!-- H3 -->
@@ -747,8 +761,8 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related <em>articles.</em></h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related <em>articles.</em></h2>
+        <div class="related-grid rv">
             <a href="/blog/exclusive-vs-shared-solar-leads.html" class="card card--interactive related-card">
                 <div class="related-tag">Lead Generation</div>
                 <div class="related-title">Exclusive vs Shared Solar Leads.<br><em>Why Australian Installers Are Switching.</em></div>
@@ -833,6 +847,45 @@
         });
     });
 
+</script>
+<script>
+// PARTICLES
+(function(){
+const W=()=>window.innerWidth,H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
+class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;this.life=0;this.maxL=Math.random()*450+200;this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';this.glow=this.r>1.2}draw(){const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;ctx.save();ctx.globalAlpha=this.a*fade;if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore()}update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
+})();
+
+// CURSOR
+(function(){
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+})();
+
+// SCROLL PROGRESS
+(function(){
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{const d=document.documentElement;sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')'},{passive:true});
+})();
+
+// REVEAL
+(function(){
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
+})();
 </script>
 </body>
 </html>

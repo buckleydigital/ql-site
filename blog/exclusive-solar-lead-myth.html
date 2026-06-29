@@ -155,10 +155,24 @@
 
         @media(max-width:1024px) { .hero,.content-section,.cta-section { padding: 80px 32px; } .site-header { padding: 0 32px; } footer { padding: 40px 32px; } }
         @media(max-width:768px) { .hero { padding: 120px 24px 64px; } .content-section,.cta-section { padding: 64px 24px; } .nav-links { display: none; } .mob-btn { display: flex; } footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; gap: 20px; } .related-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
         <a href="/" class="logo">
@@ -197,8 +211,8 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">The Problem</div>
-        <h2 class="stitle">What "exclusive" actually means.</h2>
-        <div class="prose">
+        <h2 class="stitle rv">What "exclusive" actually means.</h2>
+        <div class="prose rv">
             <p>If you've bought solar leads before, you've almost certainly been sold "exclusive" leads. One buyer. One lead. Yours alone.</p>
             <p>Here's the problem: it's only partially true. And the part that isn't true is costing solar installers serious money.</p>
             <p>When a lead seller says exclusive, they mean they won't sell that specific lead to another buyer. That part is usually genuine. What they can't control, and what they almost never tell you, is what the homeowner did before they filled in your form.</p>
@@ -216,8 +230,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Close Rate</div>
-        <h2 class="stitle">Why this matters for your <em>close rate.</em></h2>
-        <div class="prose">
+        <h2 class="stitle rv">Why this matters for your <em>close rate.</em></h2>
+        <div class="prose rv">
             <p>When installers wonder why their close rate on "exclusive" leads is lower than expected, this is usually the reason. The lead wasn't cold, it was contested. You were already in a race you didn't know you'd entered.</p>
             <p>Speed to contact becomes disproportionately important. If you're calling within five minutes you have a real shot. If you're calling the next morning you're probably third or fourth cab off the rank and the homeowner has already mentally committed elsewhere.</p>
 
@@ -235,8 +249,8 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">What Actually Matters</div>
-        <h2 class="stitle">What actually separates a good lead <em>from a bad one.</em></h2>
-        <div class="prose">
+        <h2 class="stitle rv">What actually separates a good lead <em>from a bad one.</em></h2>
+        <div class="prose rv">
             <p>Exclusivity is a distraction from the questions that actually matter. When you're evaluating a lead seller, ask these instead:</p>
             <ul>
                 <li>How was the lead generated, and what did the homeowner see and agree to?</li>
@@ -255,8 +269,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Supply Problem</div>
-        <h2 class="stitle">The Meta Ads problem making <em>everything worse.</em></h2>
-        <div class="prose">
+        <h2 class="stitle rv">The Meta Ads problem making <em>everything worse.</em></h2>
+        <div class="prose rv">
             <p>Most solar leads in Australia are generated through Meta (Facebook and Instagram) ads. The model works when it works. But Meta's algorithm is notoriously volatile. A campaign that generates $60 leads one week can suddenly push that cost past $120 the next with no obvious reason, no warning, and no reliable fix.</p>
             <p>This volatility gets passed downstream to you. When a lead seller's acquisition cost doubles, one of three things happens: their margins collapse, their lead quality drops as they optimise for volume over quality, or their price goes up. Usually some combination of all three.</p>
             <p>The price you're quoted for leads today isn't necessarily sustainable. A seller operating on thin margins will eventually cut corners on qualification, scale back, or disappear entirely. Ask how your seller generates leads and whether they're diversified across channels.</p>
@@ -268,8 +282,8 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">Bottom Line</div>
-        <h2 class="stitle">So should you still buy <em>exclusive leads?</em></h2>
-        <div class="prose">
+        <h2 class="stitle rv">So should you still buy <em>exclusive leads?</em></h2>
+        <div class="prose rv">
             <p>Yes, but with the right expectations. Exclusive leads are still worth more than shared leads. You're not competing with four other installers who bought the same contact. But you're not buying a guaranteed sale. You're buying a head start. What you do with that head start, how fast you call, how well you qualify on the first conversation, how strong your offer is, determines your return far more than the exclusivity label does.</p>
             <p>The installers who get strong ROI from lead buying treat it as a system, not a transaction. They have instant notification setup, a defined call script for the first 90 seconds, a follow-up sequence for no-answers, and they track their close rate religiously so they can hold sellers accountable to quality.</p>
 
@@ -302,8 +316,8 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related articles.</h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related articles.</h2>
+        <div class="related-grid rv">
             <a href="/blog/exclusive-vs-shared-solar-leads.html" class="related-card">
                 <span class="related-tag">Solar Lead Gen</span>
                 <div class="related-title">Exclusive vs Shared Solar Leads</div>
@@ -343,6 +357,45 @@
     document.getElementById('mobBtn').addEventListener('click', function() {
         document.getElementById('mobMenu').classList.toggle('open');
     });
+</script>
+<script>
+// PARTICLES
+(function(){
+const W=()=>window.innerWidth,H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
+class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;this.life=0;this.maxL=Math.random()*450+200;this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';this.glow=this.r>1.2}draw(){const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;ctx.save();ctx.globalAlpha=this.a*fade;if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore()}update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
+})();
+
+// CURSOR
+(function(){
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+})();
+
+// SCROLL PROGRESS
+(function(){
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{const d=document.documentElement;sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')'},{passive:true});
+})();
+
+// REVEAL
+(function(){
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
+})();
 </script>
 </body>
 </html>

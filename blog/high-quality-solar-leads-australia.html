@@ -479,10 +479,24 @@
             .score-table { font-size: 14px; }
             .score-table th, .score-table td { padding: 10px 12px; }
         }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -526,7 +540,7 @@
 <!-- INTRO -->
 <section class="content-section">
     <div class="si">
-        <div class="prose">
+        <div class="prose rv">
             <p>Every solar installer in Australia has a story about a lead that wasted their time. Maybe it was a renter who could not approve the installation. Maybe it was someone who submitted a form six months ago and had already signed with a competitor. Maybe it was a number that rang out three times before you gave up. A lead is just a name and a phone number until it meets specific criteria - and if you do not know what those criteria are, you are spending money on guesswork.</p>
 
             <p>The reality is that <strong>lead quality varies enormously</strong> across the Australian solar market. Some leads convert at 25 per cent. Others convert at 3 per cent. The difference is not luck and it is not your sales pitch - it is the quality of the lead itself. The problem is that most installers have no systematic way to evaluate a lead before they pick up the phone.</p>
@@ -541,9 +555,9 @@
     <div class="si">
         <div class="slbl">The Checklist</div>
         <!-- H2 -->
-        <h2 class="stitle">The 8-point solar lead <em>quality checklist.</em></h2>
+        <h2 class="stitle rv">The 8-point solar lead <em>quality checklist.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>These are the eight criteria that separate a high quality solar lead from a time-waster. Every lead you receive should be measured against this list.</p>
 
             <!-- H3 -->
@@ -594,9 +608,9 @@
     <div class="si">
         <div class="slbl">Red Flags</div>
         <!-- H2 -->
-        <h2 class="stitle">What a bad solar lead <em>looks like.</em></h2>
+        <h2 class="stitle rv">What a bad solar lead <em>looks like.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>If you have been buying solar leads for any length of time, you will recognise these immediately. A bad lead is not just one that does not convert - it is one that wastes your time, your team's energy, and your money before you even realise it was never going to close.</p>
 
             <p><strong>No homeownership confirmation.</strong> You call, have a great conversation, get to the site assessment stage - and then discover the person rents. They need landlord approval. The landlord says no. Three hours of your time, gone.</p>
@@ -619,9 +633,9 @@
     <div class="si">
         <div class="slbl">Lead Scoring</div>
         <!-- H2 -->
-        <h2 class="stitle">How to score a lead <em>before you call it.</em></h2>
+        <h2 class="stitle rv">How to score a lead <em>before you call it.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Not every lead deserves the same response. Use this simple scoring framework to prioritise your pipeline and allocate your time where it will generate the highest return. Assign points to each of the 8 checklist criteria based on the information available when the lead arrives.</p>
         </div>
 
@@ -650,7 +664,7 @@
             <p><strong>Score below 6:</strong> Low priority. Add to a nurture sequence. The lead may convert eventually, but it does not warrant immediate attention from your sales team. Automate the follow-up and focus your energy on higher-scoring prospects.</p>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>This framework takes less than 30 seconds per lead and immediately separates the opportunities worth chasing from the ones that will drain your pipeline. Over time, it also gives you hard data on which lead sources consistently deliver high-scoring prospects - and which ones do not.</p>
         </div>
     </div>
@@ -661,9 +675,9 @@
     <div class="si">
         <div class="slbl">Market Reality</div>
         <!-- H2 -->
-        <h2 class="stitle">Why most marketplace leads <em>fail the checklist.</em></h2>
+        <h2 class="stitle rv">Why most marketplace leads <em>fail the checklist.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>This is not an attack on comparison sites or lead marketplaces. It is an explanation of how their business model works and why the leads they produce structurally struggle to meet the criteria above.</p>
 
             <p>Marketplace lead providers generate revenue by selling each homeowner enquiry to multiple installers. The more businesses that receive each lead, the more revenue the platform earns per submission. This creates a fundamental misalignment: <strong>the platform profits from volume and sharing, while the installer profits from exclusivity and quality.</strong></p>
@@ -682,9 +696,9 @@
     <div class="si">
         <div class="slbl">Vendor Evaluation</div>
         <!-- H2 -->
-        <h2 class="stitle">Using this checklist when evaluating <em>a lead provider.</em></h2>
+        <h2 class="stitle rv">Using this checklist when evaluating <em>a lead provider.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The 8-point checklist is not just a tool for scoring individual leads - it is a vendor evaluation framework. Before signing with any solar lead generation company, ask them directly how their leads perform against each of the eight criteria. A quality provider will answer every question specifically and confidently. A poor one will get vague, change the subject, or redirect you to testimonials.</p>
 
             <p>Here is what to ask:</p>
@@ -711,7 +725,7 @@
     <div class="si">
         <div class="slbl">Frequently Asked Questions</div>
         <!-- H2 -->
-        <h2 class="stitle">Common questions about <em>solar lead quality.</em></h2>
+        <h2 class="stitle rv">Common questions about <em>solar lead quality.</em></h2>
 
         <div class="faq-item">
             <!-- H3 -->
@@ -754,7 +768,7 @@
 <!-- CLOSING / CTA -->
 <section class="content-section lifted">
     <div class="si">
-        <div class="prose">
+        <div class="prose rv">
             <p>Lead quality is not abstract. It is measurable, it is predictable, and it directly determines whether your sales team spends their time on conversations that convert or conversations that go nowhere. Use this checklist to evaluate every lead that comes through your pipeline - and use it to hold your lead providers accountable to the standards your business needs to grow profitably.</p>
 
             <p>The installers who win in the Australian solar market are not the ones with the most leads. They are the ones with the <strong>best-qualified leads</strong> and the fastest response times. Everything else follows from there.</p>
@@ -766,8 +780,8 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related <em>articles.</em></h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related <em>articles.</em></h2>
+        <div class="related-grid rv">
             <a href="/blog/exclusive-vs-shared-solar-leads.html" class="card card--interactive related-card">
                 <div class="related-tag">Lead Generation</div>
                 <div class="related-title">Exclusive vs Shared Solar Leads.<br><em>Why Australian Installers Are Switching.</em></div>
@@ -852,6 +866,45 @@
         });
     });
 
+</script>
+<script>
+// PARTICLES
+(function(){
+const W=()=>window.innerWidth,H=()=>window.innerHeight;
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=W();canvas.height=H();
+window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
+class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;this.life=0;this.maxL=Math.random()*450+200;this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';this.glow=this.r>1.2}draw(){const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;ctx.save();ctx.globalAlpha=this.a*fade;if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore()}update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}}
+const pts=Array.from({length:80},()=>new P());
+function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
+animP();
+})();
+
+// CURSOR
+(function(){
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+})();
+
+// SCROLL PROGRESS
+(function(){
+const sp=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{const d=document.documentElement;sp.style.transform='scaleX('+(d.scrollTop/(d.scrollHeight-d.clientHeight))+')'},{passive:true});
+})();
+
+// REVEAL
+(function(){
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
+})();
 </script>
 </body>
 </html>

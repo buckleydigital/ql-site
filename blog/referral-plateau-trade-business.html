@@ -509,10 +509,24 @@
             .related-grid { grid-template-columns: 1fr; }
             .cta-btns { flex-direction: column; align-items: center; }
         }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -558,14 +572,14 @@
         <div class="slbl">First - Credit Where It Is Due</div>
         <h2 class="stitle amber">Referrals are a <em>quality signal.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Before anything else: if your business runs primarily on referrals and repeat customers, that means something. It means your work is good enough that people want to tell others about it. It means your communication is solid. It means customers had a positive enough experience to stake their own reputation on recommending you.</p>
 
             <p>That is not nothing. <strong>That is actually the foundation everything else needs to be built on.</strong> A business that cannot convert or retain customers has no business investing in a pay-per-lead service - it would just be buying volume into a broken process.</p>
 
             <p>So this is not an argument that referrals are bad. It is an argument that they are incomplete as a growth strategy once a business reaches a certain size - and that the ceiling they create is predictable, structural, and does not fix itself.</p>
 
-            <div class="callout">
+            <div class="callout rv">
                 <div class="callout-lbl">The honest frame</div>
                 <p>Referrals are a lagging indicator of quality work done in the past. <strong>They tell you where you have been, not where you are going.</strong> A pipeline built entirely on referrals is a pipeline entirely outside your control.</p>
             </div>
@@ -577,9 +591,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Structural Problem</div>
-        <h2 class="stitle">Three ways referrals <em>fail you at scale.</em></h2>
+        <h2 class="stitle rv">Three ways referrals <em>fail you at scale.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The referral plateau does not happen because the business gets worse. It happens because the referral model has three fundamental structural problems that compound as the business grows. Understanding them is the first step to getting past them.</p>
         </div>
 
@@ -618,7 +632,7 @@
         <div class="slbl">The Pattern</div>
         <h2 class="stitle amber">The same ceiling. <em>Almost every time.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The growth trajectory for a referral-dependent trade business is remarkably consistent across industries. It is not random. It follows a predictable shape - and once you have seen it enough times, you can identify almost exactly where a business is in the cycle just from how the owner describes their pipeline.</p>
         </div>
 
@@ -723,9 +737,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Diagnosis</div>
-        <h2 class="stitle">Signs you have <em>hit the ceiling.</em></h2>
+        <h2 class="stitle rv">Signs you have <em>hit the ceiling.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Most business owners at the referral plateau know something is wrong before they can name it. The business feels harder than it should for the revenue it is producing. The following symptoms tend to cluster together - and the more of them that apply, the more clearly the referral model is the limiting factor rather than anything about the business itself.</p>
         </div>
 
@@ -767,7 +781,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>That last two items are the important ones. The referral plateau is not a sign that the business is broken. It is a sign that the business has grown past what word of mouth can sustain. <strong>The operation is ready for more. The pipeline is not providing it.</strong></p>
         </div>
     </div>
@@ -779,7 +793,7 @@
         <div class="slbl">The Common Mistake</div>
         <h2 class="stitle amber">Why "just run ads" <em>does not work.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The predictable response to a referral plateau is to try advertising. Most trade businesses have done this at least once. Most have a story about why it did not work. The ads ran for a few months, the leads were poor quality or too expensive, the provider produced reports but not jobs, and the business quietly went back to referrals.</p>
 
             <p>That pattern is not a failure of advertising as a channel. <strong>It is a failure of running ads without a system behind them.</strong></p>
@@ -819,9 +833,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Next Step</div>
-        <h2 class="stitle">What a demand system <em>actually changes.</em></h2>
+        <h2 class="stitle rv">What a demand system <em>actually changes.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>A demand system does not replace referrals. Referrals keep coming in from the good work the business keeps doing - and they are still the highest-quality leads because of the trust already embedded in them. What a demand system does is add a second, controllable, scalable pipeline running in parallel.</p>
 
             <p>The fundamental difference is control. With a demand system, the business decides how many leads to generate, from what service area, for what job type, at what volume. <strong>The pipeline responds to the business's capacity rather than the business scrambling to fill capacity gaps between referral waves.</strong></p>
@@ -848,7 +862,7 @@
             <p>Referrals tell you where you have been. <em>A demand system decides where you are going.</em></p>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The referral plateau is not permanent. It is a structural phase in business growth that resolves when the right infrastructure is added. The businesses on the other side of it did not get lucky and the referrals did not magically increase. They made a deliberate decision to install a demand engine alongside what was already working.</p>
 
             <p>The transition point is usually obvious in hindsight and unclear in the moment. The clearest signal is this: <strong>if your business could handle significantly more volume than it is currently receiving - and the team, process, and capacity are already in place - the problem is not the business. It is the pipeline.</strong></p>
@@ -880,8 +894,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related <em>articles.</em></h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related <em>articles.</em></h2>
+        <div class="related-grid rv">
             <a href="/blog/shared-leads-australia.html" class="card card--interactive related-card">
                 <div class="related-tag">Lead Generation</div>
                 <div class="related-title">You Paid for That Lead.<br><em>So Did Three Others.</em></div>

@@ -488,10 +488,24 @@
 
 /* OPTIONAL PILL BADGE */
 .ai-opt{display:inline-flex;align-items:center;font-size:.56rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#4797FF;background:rgba(71,151,255,0.12);border:1px solid rgba(71,151,255,.2);padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle;white-space:nowrap;line-height:1.6}
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
     </style>
 </head>
 <body>
-
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
     <div class="header-inner">
@@ -537,14 +551,14 @@
         <div class="slbl">The Problem</div>
         <h2 class="stitle amber">You cannot optimise what you <em>do not own.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Most trade businesses think about lead generation as a single problem - either they have leads coming in or they do not. That framing hides the real issue, which is that generating a lead and converting it into a signed job are separated by at least six distinct steps, each of which can fail independently and silently.</p>
 
             <p>A homeowner searches for a solar installer. They see an ad. They click through to a page. They fill in a form. The lead arrives somewhere. Someone follows up. A quote gets sent. Maybe a job gets signed. That is not one event. <strong>That is a chain of six handoffs, and the job is lost at whichever one breaks first.</strong></p>
 
             <p>The reason most trade businesses plateau is not that they need more leads. It is that they rent layer one from an external provider, buy layer four from a marketplace, and have nothing connecting the middle. The layers they do not own are the ones leaking revenue - and because they do not own them, they cannot see the leak.</p>
 
-            <div class="callout">
+            <div class="callout rv">
                 <div class="callout-lbl">The exclusivity principle</div>
                 <p>Every layer between a homeowner's first impression and a signed contract is either delivering exclusively to your business or delivering to your competitors at the same time. <strong>The layers that are not exclusive to you are the ones eroding your close rate, inflating your cost per job, and making every lead a race to the bottom on price.</strong> That is not a volume problem. It is a quality problem.</p>
             </div>
@@ -556,9 +570,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Framework</div>
-        <h2 class="stitle">Six layers. Six chances <em>to lose the job.</em></h2>
+        <h2 class="stitle rv">Six layers. Six chances <em>to lose the job.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Every signed job in a trade business passes through the same six layers. They happen whether you design them or not - the difference is whether each layer is intentional and owned, or accidental and rented. Here is what the full chain looks like.</p>
         </div>
 
@@ -614,7 +628,7 @@
         <div class="slbl">Layer by Layer</div>
         <h2 class="stitle amber">What each layer looks like <em>done right vs done wrong.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The difference between a layer that works for you and one that does not is not philosophical. It determines your conversion rate, your cost per job, and whether the homeowner who submitted this morning is still available when your team calls this afternoon. Here is what each layer looks like with a quality exclusive lead provider versus a shared lead marketplace.</p>
         </div>
 
@@ -750,9 +764,9 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">The Compound Effect</div>
-        <h2 class="stitle">Each missing layer compounds <em>the damage.</em></h2>
+        <h2 class="stitle rv">Each missing layer compounds <em>the damage.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The six layers do not operate in isolation. They compound. A 10 percent loss at each layer does not produce a 60 percent total loss - it produces a 47 percent loss, because each reduction multiplies against the one before it. The maths works the same way in reverse: a small improvement at any single layer lifts every layer below it.</p>
 
             <p>This is why businesses that own all six layers outperform businesses spending three times as much on layer one alone. <strong>The total output of the system is determined by the weakest layer, not the strongest.</strong> Pouring more money into ads when your qualification is broken, your response time is six hours, and your follow-up is a single email is not a growth strategy. It is a more expensive version of the same problem.</p>
@@ -773,7 +787,7 @@
             </div>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <h3 class="amber">The layer most businesses <em>completely skip.</em></h3>
 
             <p>Layer three - qualification - is the most commonly missing layer in trade business lead generation. It is also the highest-leverage improvement available. Adding a multi-step qualification survey to the form does not reduce the number of leads. It reduces the number of leads that waste your time. The total volume stays roughly the same; the ratio of actionable leads to noise improves dramatically.</p>
@@ -792,9 +806,9 @@
 <section class="content-section">
     <div class="si">
         <div class="slbl">The Reality</div>
-        <h2 class="stitle">What most trade businesses <em>actually have.</em></h2>
+        <h2 class="stitle rv">What most trade businesses <em>actually have.</em></h2>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>Most established trade businesses operating between $500K and $3M in annual revenue have some version of layer one and some version of layer six. They run ads - either themselves, through an external provider, or through a marketplace - and they send quotes. Everything in between is manual, inconsistent, or missing entirely.</p>
 
             <p>The typical setup looks something like this: an external provider or marketplace provides leads. The leads arrive by email. Someone checks the email when they can. They call the homeowner back - sometimes the same day, sometimes two days later. If the homeowner answers, a quote gets sent. There is no follow-up sequence. There is no pipeline visibility. There is no qualification before the call. <strong>There are six layers, and four of them are held together by hope and manual effort.</strong></p>
@@ -820,7 +834,7 @@
             <p>Most trade businesses rent layer one and skip layers two through five. <em>Then wonder why the leads do not convert.</em></p>
         </div>
 
-        <div class="prose">
+        <div class="prose rv">
             <p>The six layers are not a framework we invented. They are the reality of how every trade business job gets signed - whether the business owner has designed those layers intentionally or not. The homeowner has to see the ad, land on a page, fill in a form, get delivered to someone, hear back, and receive a quote before a contract is signed. Every one of those steps happens. The question is whether you control them or they happen by accident.</p>
 
             <p>QuoteLeads handles layers one through three on your behalf. The advertising, the landing pages, the qualification survey - all run through QuoteLeads' owned infrastructure, generating exclusive enquiries matched to your trade and service area. Qualified leads land in your pipeline at layer four, delivered in real time with full contact details and job context already captured. <strong>You receive the lead the moment the homeowner submits - with their name, phone, email, project scope, and timeline already confirmed.</strong></p>
@@ -852,8 +866,8 @@
 <section class="content-section lifted">
     <div class="si">
         <div class="slbl">Keep Reading</div>
-        <h2 class="stitle">Related <em>articles.</em></h2>
-        <div class="related-grid">
+        <h2 class="stitle rv">Related <em>articles.</em></h2>
+        <div class="related-grid rv">
             <a href="/blog/lead-response-time-trade-business.html" class="card card--interactive related-card">
                 <div class="related-tag">Conversion</div>
                 <div class="related-title">The Trade Business That<br><em>Responds First Wins.</em></div>
