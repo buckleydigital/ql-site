@@ -122,23 +122,8 @@ body::before{content:'';position:fixed;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
   background-size:200px;pointer-events:none;z-index:2;opacity:.4}
 
-/* EOFY ANNOUNCEMENT BAR */
-.eofy-bar{position:fixed;top:0;left:0;right:0;z-index:300;
-  background:linear-gradient(90deg,#1a0e00,#0d1a2e,#1a0e00);
-  border-bottom:1px solid rgba(255,180,60,.25);
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  padding:9px 20px;font-size:.78rem;font-weight:500;color:var(--white);
-  text-align:center;flex-wrap:wrap;line-height:1.4}
-.eofy-bar strong{font-weight:700;color:#ffce6a}
-.eofy-bar .ebar-cta{display:inline-flex;align-items:center;gap:5px;margin-left:6px;
-  background:rgba(255,180,60,.18);border:1px solid rgba(255,180,60,.35);
-  color:#ffce6a;font-weight:600;font-size:.75rem;padding:3px 12px;border-radius:100px;
-  text-decoration:none;transition:background .2s}
-.eofy-bar .ebar-cta:hover{background:rgba(255,180,60,.3)}
-@media(max-width:600px){.eofy-bar{font-size:.72rem;gap:6px;padding:10px 16px}}
-
 /* HEADER */
-.site-header{position:fixed;top:40px;left:0;right:0;z-index:200;padding:0 5%;transition:top 0s,background .4s,border-color .4s,backdrop-filter .4s;
+.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;transition:top 0s,background .4s,border-color .4s,backdrop-filter .4s;
   background:rgba(4,4,10,0);border-bottom:1px solid transparent;
   transition:background .4s,border-color .4s,backdrop-filter .4s}
 .site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
@@ -876,12 +861,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 </head>
 <body>
 
-<!-- EOFY ANNOUNCEMENT BAR -->
-<div class="eofy-bar" id="eofyBar">
-  🔆 <strong>EOFY Sale ends June 30.</strong> Custom systems and lead packages up to <strong>60% OFF.</strong>
-  <a href="/pricing" class="ebar-cta">See deals <svg viewBox="0 0 12 12" fill="none" style="width:10px;height:10px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-</div>
-
 <div id="cur"></div>
 <div id="curR"></div>
 <div id="aura"></div>
@@ -933,7 +912,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </a>
         <a href="#how-it-works" class="btn-ghost">See How It Works</a>
       </div>
-      <p style="font-size:.8rem;color:var(--faint);margin-top:14px;margin-bottom:0;text-align:center;">Pay Per Lead &middot; Full System from <s>$2,500</s> <span style="color:#ffce6a;font-weight:600">$999 EOFY</span> &middot; No lock-in</p>
+      <p style="font-size:.8rem;color:var(--faint);margin-top:14px;margin-bottom:0;text-align:center;">Pay Per Lead &middot; Full System from $2,500 &middot; No lock-in</p>
       <div class="hproof">
         <div class="pcopy">Join hundreds of Australian trade businesses with a 70%+ lead-to-appointment rate.</div>
         <div class="logo-scroll-outer">
@@ -1159,7 +1138,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <h2 class="stitle" style="margin-bottom:12px">Installed in your business. <em>Automated for performance.</em></h2>
           <p style="color:var(--muted);font-size:.95rem;line-height:1.74;max-width:520px;margin:0">A complete, branded lead generation system built on your accounts and automated end-to-end. Not an agency retainer. Not a marketing service. Infrastructure - that produces qualified, exclusive leads automatically.</p>
         </div>
-        <div class="sys-price-pill"><s style="opacity:.5">$2,500</s> <span style="color:#ffce6a">$999 EOFY</span> + GST</div>
+        <div class="sys-price-pill">$2,500 + GST</div>
       </div>
       <div class="sys-feats">
         <div class="sys-feat rv">
@@ -1192,10 +1171,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </div>
       </div>
       <div class="sys-card-btm rv">
-        <a href="https://buy.stripe.com/fZu14nbm2chBfo88oCbfO01" target="_blank" rel="noopener" class="btn-mag" style="display:inline-flex;font-size:.88rem;background:linear-gradient(135deg,#ffce6a,#f59e0b);color:#0f0f1a;font-weight:600">
-          Buy Now · $999+GST
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
-        </a>
         <a href="https://calendly.com/quoteleads/discoverycall" target="_blank" rel="noopener" class="btn-mag" style="background:rgba(16,185,129,.85)">
           Book Activation Call
           <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
@@ -1278,10 +1253,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="offer-card dfy-card rv d1">
         <div class="offer-badge green"><div class="offer-badge-dot"></div>Branded Lead Gen System &middot; Most Popular</div>
         <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:6px">
-          <div class="offer-price offer-price-green" style="color:#ffce6a"><sup style="color:#ffce6a">$</sup>999</div>
-          <div style="font-family:var(--display);font-size:1.5rem;font-weight:500;color:var(--faint);text-decoration:line-through;opacity:.6"><sup style="font-size:.85rem">$</sup>2,500</div>
+          <div class="offer-price offer-price-green"><sup>$</sup>2,500</div>
         </div>
-        <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,180,60,.12);border:1px solid rgba(255,180,60,.3);border-radius:100px;padding:4px 12px;font-size:.72rem;font-weight:600;color:#ffce6a;letter-spacing:.04em;margin-bottom:10px">🔆 EOFY Special &middot; Ends June 30</div>
         <div class="offer-period">+ GST one-time activation fee &middot; then monthly platform fee &middot; no lock-in</div>
         <p class="offer-sub" style="margin-top:4px">The complete platform activated in your business - campaigns on your accounts, branded survey funnel, AI conversion and CRM pipeline. Not a service. Infrastructure. Ad spend starts from <strong style="color:var(--off)">$40/day</strong>, paid directly to Meta/Google.</p>
         <hr class="offer-divider">
@@ -1304,10 +1277,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </li>
         </ul>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="https://buy.stripe.com/fZu14nbm2chBfo88oCbfO01" target="_blank" rel="noopener" class="btn-mag" style="display:inline-flex;font-size:.88rem;background:linear-gradient(135deg,#ffce6a,#f59e0b);color:#0f0f1a;font-weight:600">
-            Buy Now · $999+GST
-            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
-          </a>
           <a href="https://calendly.com/quoteleads/discoverycall" target="_blank" rel="noopener" class="btn-mag" style="display:inline-flex;font-size:.88rem;background:rgba(16,185,129,.85)">
             Book Activation Call
             <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
@@ -1352,7 +1321,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="final-trust rv">
       <span>Pay per qualified lead</span>
       <span>Exclusive opportunities</span>
-      <span>Full system from <s>$2,500</s> $999 EOFY</span>
+      <span>Full system from $2,500</span>
       <span>QuoteLeadsHQ included</span>
       <span>Australian owned and operated</span>
     </div>
@@ -1396,21 +1365,6 @@ class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this
 const pts=Array.from({length:80},()=>new P());
 function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
 animP();
-
-// EOFY BAR HEIGHT
-(function(){
-  const bar=document.getElementById('eofyBar');
-  const hdr=document.getElementById('siteHeader');
-  const hero=document.querySelector('.hero');
-  if(!bar||!hdr)return;
-  function setOffsets(){
-    const bh=bar.offsetHeight;
-    hdr.style.top=bh+'px';
-    if(hero) hero.style.paddingTop=(bh+hdr.offsetHeight+32)+'px';
-  }
-  setOffsets();
-  window.addEventListener('resize',setOffsets);
-})();
 
 // CURSOR
 const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
