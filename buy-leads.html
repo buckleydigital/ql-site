@@ -1283,7 +1283,7 @@ function renderPackGrid(tiers) {
 
 renderPackGrid(FALLBACK_TIERS);
 
-// Load tiers on page load — not city-dependent
+// Load tiers on page load - not city-dependent
 (async function loadTiersEarly(){
   try {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=solar&area=Sydney`);
@@ -1383,7 +1383,7 @@ async function onCityChange() {
   order.soldOut = order.soldOutByNiche[order.niche] === true;
 
   if (order.soldOut) {
-    // The trade the user had selected just went sold out for this city —
+    // The trade the user had selected just went sold out for this city -
     // drop the selection so they can't proceed on a greyed-out card.
     document.querySelectorAll('.trade-card').forEach(c => c.classList.remove('sel'));
     document.getElementById('blockSubNiche').style.display = 'none';
@@ -1554,7 +1554,7 @@ async function fetchSubNichePrice() {
     if (!res.ok) return;
     const data = await res.json();
     if (data.sold_out === true) {
-      // Selected sub-niche went sold out for this city — drop it.
+      // Selected sub-niche went sold out for this city - drop it.
       if (order.sub_niche) order.soldOutByNiche[order.niche + ':' + order.sub_niche] = true;
       document.querySelectorAll('.sub-niche-card').forEach(c => c.classList.remove('sel'));
       order.sub_niche = null;
