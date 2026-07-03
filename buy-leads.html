@@ -790,6 +790,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
             </button>
 
+            <button class="trade-card" data-niche="battery-retrofit" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M7 11v3"/><path d="M11 11v3"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Battery Retrofit</div>
+                <div class="trade-price dim" id="price-battery-retrofit">Select city first</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
           </div>
         </div>
 
@@ -1316,7 +1327,7 @@ async function onCityChange() {
   applyCoverageMode();
 
   if (!city) {
-    ['solar','solar-battery','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, null));
+    ['solar','solar-battery','roofing','hvac','renovation','battery-retrofit'].forEach(n => setPriceLabel(n, null));
     order.prices = {};
     order.soldOutByNiche = {};
     order.pricePerLead = null;
@@ -1325,10 +1336,10 @@ async function onCityChange() {
   }
 
   // Show loading spinners on all trade cards
-  ['solar','solar-battery','roofing','hvac','renovation'].forEach(n => setPriceLabel(n, 'loading'));
+  ['solar','solar-battery','roofing','hvac','renovation','battery-retrofit'].forEach(n => setPriceLabel(n, 'loading'));
 
-  // Fetch all 5 trade prices in parallel from Supabase
-  const trades = ['solar','solar-battery','roofing','hvac','renovation'];
+  // Fetch all trade prices in parallel from Supabase
+  const trades = ['solar','solar-battery','roofing','hvac','renovation','battery-retrofit'];
   const results = await Promise.allSettled(
     trades.map(niche =>
       fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${niche}&area=${encodeURIComponent(city)}`)
@@ -1605,7 +1616,7 @@ function selectPack(el) {
 }
 
 // ─── SUMMARY UPDATE ──────────────────────────────────────
-const nicheLabels = { solar: 'Solar', 'solar-battery': 'Solar + Battery', roofing: 'Roofing', hvac: 'HVAC', renovation: 'Renovation' };
+const nicheLabels = { solar: 'Solar', 'solar-battery': 'Solar + Battery', roofing: 'Roofing', hvac: 'HVAC', renovation: 'Renovation', 'battery-retrofit': 'Battery Retrofit' };
 
 function updateSummary() {
   const tradeEl  = document.getElementById('sum-trade');
