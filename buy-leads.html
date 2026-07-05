@@ -700,7 +700,12 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .sil-lead-field-key{font-size:.72rem;color:var(--faint);letter-spacing:.04em}
 .sil-lead-field-val{font-size:.82rem;color:var(--off);text-align:right}
 .sil-verify-wrap{width:100%;max-width:380px;text-align:center}
-.sil-dots{display:flex;justify-content:center;gap:8px;padding-bottom:20px;position:relative;z-index:1}
+.sil-nav{display:flex;align-items:center;justify-content:center;gap:20px;padding-bottom:20px;position:relative;z-index:1}
+.sil-arrow{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;flex-shrink:0}
+.sil-arrow:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
+.sil-arrow svg{width:14px;height:14px;stroke:var(--off);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sil-dots{display:flex;align-items:center;gap:8px}
 .sil-dot{width:6px;height:6px;border-radius:50%;background:var(--faint);transition:all .3s;cursor:pointer}
 .sil-dot.active{background:var(--blue);width:20px;border-radius:3px}
 @media(max-width:640px){
@@ -1334,11 +1339,15 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
         </div>
       </div>
-      <div class="sil-dots" id="silDots">
-        <div class="sil-dot active" data-d="0"></div>
-        <div class="sil-dot" data-d="1"></div>
-        <div class="sil-dot" data-d="2"></div>
-        <div class="sil-dot" data-d="3"></div>
+      <div class="sil-nav">
+        <div class="sil-arrow" id="silPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+        <div class="sil-dots" id="silDots">
+          <div class="sil-dot active" data-d="0"></div>
+          <div class="sil-dot" data-d="1"></div>
+          <div class="sil-dot" data-d="2"></div>
+          <div class="sil-dot" data-d="3"></div>
+        </div>
+        <div class="sil-arrow" id="silNext"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></div>
       </div>
     </div>
   </div>
@@ -2272,6 +2281,9 @@ function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.cl
     if(cur===1){playFunnel();}else{timer=setInterval(function(){goTo((cur+1)%phases);},DURATION);}}
   tabs.forEach(function(t){t.addEventListener('click',function(){goTo(+t.dataset.p);});});
   dots.forEach(function(d){d.addEventListener('click',function(){goTo(+d.dataset.d);});});
+  var prevBtn=document.getElementById('silPrev'),nextBtn=document.getElementById('silNext');
+  if(prevBtn)prevBtn.addEventListener('click',function(){goTo((cur-1+phases)%phases);});
+  if(nextBtn)nextBtn.addEventListener('click',function(){goTo((cur+1)%phases);});
   goTo(0);
   function scaleAd(){
     var embed=document.getElementById('silAdEmbed'),frame=document.getElementById('silAdFrame');
