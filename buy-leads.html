@@ -582,6 +582,134 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .final-trust{margin-top:24px;font-size:.8rem;color:var(--faint);display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
 .final-trust span{display:flex;align-items:center;gap:6px}
 .final-trust span::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
+
+/* SEE IT LIVE */
+.sil-section{background:var(--surf);padding:110px 5%}
+.sil-badge-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+.sil-live-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.08);
+  border:1px solid rgba(34,197,94,.25);color:#22c55e;font-size:.72rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:100px}
+.sil-live-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:statusPulse 2.5s ease-in-out infinite}
+@keyframes statusPulse{0%,100%{opacity:1}50%{opacity:.45}}
+.sil-note-chip{font-size:.78rem;color:var(--muted)}
+.sil-stage{background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+  border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:8px;position:relative;overflow:hidden;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06)}
+.sil-stage::before{content:'';position:absolute;inset:0;border-radius:24px;
+  background:radial-gradient(ellipse at 50% 0%,rgba(71,151,255,.08),transparent 55%);pointer-events:none}
+.sil-tabs{display:flex;gap:6px;padding:14px 14px 0;position:relative;z-index:1}
+.sil-tab{flex:1;display:flex;flex-direction:column;gap:8px;padding:0 2px 12px;cursor:pointer;position:relative}
+.sil-tab-bar{height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.sil-tab-fill{height:100%;width:0%;background:var(--blue);border-radius:2px}
+.sil-tab.done .sil-tab-fill{width:100%;transition:none}
+.sil-tab.active .sil-tab-fill{width:100%;transition:width 4.4s linear}
+.sil-tab-label{font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);transition:color .3s}
+.sil-tab.active .sil-tab-label,.sil-tab.done .sil-tab-label{color:var(--off)}
+.sil-viewport{position:relative;padding:28px 28px 32px;min-height:480px;display:flex;align-items:center;justify-content:center;z-index:1}
+.sil-frame{position:absolute;inset:28px 28px 32px;opacity:0;transform:translateY(14px);
+  transition:opacity .45s ease,transform .45s ease;pointer-events:none;display:flex;align-items:center;justify-content:center}
+.sil-frame.on{opacity:1;transform:translateY(0);pointer-events:auto;position:relative;inset:auto}
+.sil-phone{width:min(320px,100%);background:#000;border-radius:28px;padding:10px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.08)}
+.sil-phone-screen{background:linear-gradient(180deg,#0d1117,#08090c);border-radius:20px;overflow:hidden}
+.sil-ad-head{display:flex;align-items:center;gap:10px;padding:14px 16px 10px}
+.sil-ad-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--faint),var(--muted));filter:blur(3px);flex-shrink:0}
+.sil-ad-namebar{flex:1;min-width:0}
+.sil-ad-name{width:100%;height:9px;border-radius:4px;background:linear-gradient(90deg,var(--muted),var(--faint));filter:blur(2.5px);margin-bottom:6px;max-width:120px}
+.sil-ad-meta{display:flex;align-items:center;gap:6px;font-size:.62rem;color:var(--faint)}
+.sil-sponsored{font-size:.62rem;color:var(--faint);letter-spacing:.02em}
+.sil-verified-tag{margin-left:auto;flex-shrink:0;display:inline-flex;align-items:center;gap:5px;
+  background:var(--bdim);border:1px solid rgba(71,151,255,.25);color:var(--sky);
+  font-size:.58rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:100px}
+.sil-verified-tag svg{width:9px;height:9px;stroke:var(--sky);fill:none;stroke-width:2.5}
+.sil-ad-copy{padding:0 16px 12px;font-size:.76rem;color:var(--off);line-height:1.5}
+.sil-ad-embed{margin:0 2px;border-radius:12px;overflow:hidden;aspect-ratio:1/1;position:relative;background:#000}
+.sil-ad-embed iframe{position:absolute;top:0;left:0;width:1080px;height:1080px;transform-origin:top left;border:none;display:block;pointer-events:none}
+.sil-ad-cta-row{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(255,255,255,.02)}
+.sil-ad-stats{font-size:.62rem;color:var(--faint)}
+.sil-ad-btn{font-size:.68rem;font-weight:600;color:var(--white);background:rgba(255,255,255,.08);padding:6px 14px;border-radius:6px}
+.sil-tap-hint{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:16px;font-size:.74rem;color:var(--faint)}
+.sil-tap-ring{width:8px;height:8px;border-radius:50%;background:var(--blue);animation:statusPulse 1.6s ease-in-out infinite}
+.sil-funnel-wrap{width:100%;max-width:420px}
+.sil-funnel-card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  border:1px solid var(--bmid);border-radius:16px;overflow:hidden;box-shadow:0 20px 50px -18px rgba(0,0,0,.6)}
+.sil-funnel-topbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05)}
+.sil-funnel-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.12)}
+.sil-funnel-url{margin-left:6px;font-size:.62rem;color:var(--faint);letter-spacing:.02em;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;filter:blur(2.5px)}
+.sil-funnel-lock{width:8px;height:8px;border:1.4px solid #22c55e;border-radius:50%;border-bottom-color:transparent;flex-shrink:0}
+.sil-funnel-body{padding:20px 20px 22px}
+.sil-funnel-progress{height:3px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden;margin-bottom:16px}
+.sil-funnel-progress-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--blue),var(--sky));transition:width .5s ease}
+.sil-funnel-step-label{font-size:.62rem;color:var(--sky);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.sil-funnel-q{font-family:var(--display);font-size:1.02rem;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:16px;min-height:52px}
+.sil-funnel-opts{display:flex;flex-direction:column;gap:8px}
+.sil-funnel-opt{padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,.02);
+  font-size:.8rem;color:var(--off);display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.sil-funnel-opt.picked{border-color:rgba(71,151,255,.5);background:var(--bdim);color:var(--white)}
+.sil-funnel-opt-check{width:16px;height:16px;border-radius:50%;background:var(--blue);display:none;align-items:center;justify-content:center;flex-shrink:0}
+.sil-funnel-opt.picked .sil-funnel-opt-check{display:flex}
+.sil-funnel-opt-check svg{width:9px;height:9px;stroke:#fff;fill:none;stroke-width:3}
+.sil-funnel-mini-note{margin-top:14px;font-size:.68rem;color:var(--faint);line-height:1.5;border-left:2px solid rgba(71,151,255,.3);padding-left:10px}
+.sil-ty{text-align:center;padding:8px 4px 4px;animation:silTyIn .45s ease}
+@keyframes silTyIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.sil-ty-icon{width:56px;height:56px;border-radius:50%;background:rgba(34,197,94,.1);
+  border:1px solid rgba(34,197,94,.3);display:flex;align-items:center;justify-content:center;margin:4px auto 18px}
+.sil-ty-icon svg{width:26px;height:26px;stroke:#22c55e;fill:none;stroke-width:2}
+.sil-ty-title{font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--white);margin-bottom:10px;letter-spacing:-.01em}
+.sil-ty-sub{font-size:.82rem;color:var(--muted);line-height:1.6;max-width:280px;margin:0 auto 20px}
+.sil-ty-sub strong{color:var(--off);font-weight:500}
+.sil-ty-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.sil-ty-badge{font-size:.66rem;font-weight:600;letter-spacing:.02em;padding:6px 12px;border-radius:100px;
+  display:inline-flex;align-items:center;gap:5px}
+.sil-ty-badge.blue{background:var(--bdim);border:1px solid rgba(71,151,255,.25);color:var(--sky)}
+.sil-ty-badge.green{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);color:#22c55e}
+.sil-ff-q{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:14px}
+.sil-ff-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sil-ff-field{margin-bottom:10px}
+.sil-ff-field label{display:block;font-size:.6rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:5px}
+.sil-ff-input{font-size:.8rem;color:var(--off);background:rgba(255,255,255,.03);border:1px solid var(--border);
+  border-radius:8px;padding:9px 12px;display:flex;align-items:center;gap:8px}
+.sil-ff-match{font-size:.62rem;color:#22c55e;margin-left:auto;white-space:nowrap}
+.sil-ff-consent{display:flex;gap:10px;align-items:flex-start;margin:12px 0;padding:12px;border-radius:10px;
+  background:var(--bdim);border:1px solid rgba(71,151,255,.22)}
+.sil-ff-check{width:16px;height:16px;border-radius:4px;background:var(--blue);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;margin-top:1px}
+.sil-ff-check svg{width:10px;height:10px;stroke:#fff;fill:none;stroke-width:3}
+.sil-ff-consent p{font-size:.68rem;color:var(--off);line-height:1.55}
+.sil-ff-consent strong{color:var(--white);font-weight:600}
+.sil-ff-btn{text-align:center;background:var(--blue);color:#fff;font-size:.78rem;font-weight:600;
+  padding:11px;border-radius:8px;margin-top:2px}
+.sil-lead-wrap{width:100%;max-width:380px}
+.sil-preview-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;backdrop-filter:blur(12px);
+  box-shadow:0 24px 60px -20px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06)}
+.sil-preview-card-label{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
+  padding:14px 20px 0;font-weight:500}
+.sil-preview-card-body{padding:16px 20px 20px}
+.sil-lead-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.sil-lead-avatar{width:40px;height:40px;border-radius:50%;background:var(--bdim);
+  border:1px solid rgba(71,151,255,.25);display:flex;align-items:center;justify-content:center;
+  font-size:.84rem;font-weight:500;color:var(--blue)}
+.sil-lead-name-block{flex:1}
+.sil-lead-name{font-size:.92rem;font-weight:500;color:var(--white)}
+.sil-lead-location{font-size:.75rem;color:var(--muted);margin-top:1px}
+.sil-lead-badge{font-size:.68rem;font-weight:500;color:#22c55e;background:rgba(34,197,94,.1);
+  border:1px solid rgba(34,197,94,.25);padding:3px 10px;border-radius:20px;white-space:nowrap}
+.sil-lead-fields{display:flex;flex-direction:column;gap:10px}
+.sil-lead-field{display:flex;justify-content:space-between;gap:12px;padding:6px 0}
+.sil-lead-field-key{font-size:.72rem;color:var(--faint);letter-spacing:.04em}
+.sil-lead-field-val{font-size:.82rem;color:var(--off);text-align:right}
+.sil-verify-wrap{width:100%;max-width:380px;text-align:center}
+.sil-dots{display:flex;justify-content:center;gap:8px;padding-bottom:20px;position:relative;z-index:1}
+.sil-dot{width:6px;height:6px;border-radius:50%;background:var(--faint);transition:all .3s;cursor:pointer}
+.sil-dot.active{background:var(--blue);width:20px;border-radius:3px}
+@media(max-width:640px){
+  .sil-section{padding:72px 5%}
+  .sil-tabs{padding:10px 10px 0}
+  .sil-tab-label{font-size:.58rem}
+  .sil-viewport{padding:20px 16px 24px;min-height:540px}
+  .sil-frame{inset:20px 16px 24px}
+}
 </style>
 </head>
 <body>
@@ -1092,6 +1220,129 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     </div>
   </div>
 </div>
+
+<!-- SEE IT LIVE -->
+<section class="sil-section" id="see-it-live">
+  <div class="si">
+    <div class="sil-stage rv">
+      <div class="sil-tabs" id="silTabs">
+        <div class="sil-tab active" data-p="0"><div class="sil-tab-bar"><div class="sil-tab-fill"></div></div><div class="sil-tab-label">01 · The ad</div></div>
+        <div class="sil-tab" data-p="1"><div class="sil-tab-bar"><div class="sil-tab-fill"></div></div><div class="sil-tab-label">02 · The funnel</div></div>
+        <div class="sil-tab" data-p="2"><div class="sil-tab-bar"><div class="sil-tab-fill"></div></div><div class="sil-tab-label">03 · Lead captured</div></div>
+        <div class="sil-tab" data-p="3"><div class="sil-tab-bar"><div class="sil-tab-fill"></div></div><div class="sil-tab-label">04 · Thank you</div></div>
+      </div>
+      <div class="sil-viewport">
+        <div class="sil-frame on" data-f="0">
+          <div>
+            <div class="sil-phone">
+              <div class="sil-phone-screen">
+                <div class="sil-ad-head">
+                  <div class="sil-ad-avatar"></div>
+                  <div class="sil-ad-namebar">
+                    <div class="sil-ad-name"></div>
+                    <div class="sil-ad-meta"><span class="sil-sponsored">Sponsored</span></div>
+                  </div>
+                  <div class="sil-verified-tag"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Verified Advertiser</div>
+                </div>
+                <div class="sil-ad-copy">Sydney homeowners are cutting their power bills right now. See what you'd save. Free assessment, takes under a minute.</div>
+                <div class="sil-ad-embed" id="silAdEmbed">
+                  <iframe id="silAdFrame" src="/ads/solar-ad.html" scrolling="no" title="Live ad preview"></iframe>
+                </div>
+                <div class="sil-ad-cta-row">
+                  <span class="sil-ad-stats">Active · running now</span>
+                  <span class="sil-ad-btn">Learn More</span>
+                </div>
+              </div>
+            </div>
+            <div class="sil-tap-hint"><span class="sil-tap-ring"></span>Real placement, real spend. Clicking opens the funnel</div>
+          </div>
+        </div>
+        <div class="sil-frame" data-f="1">
+          <div class="sil-funnel-wrap">
+            <div class="sil-funnel-card">
+              <div class="sil-funnel-topbar">
+                <span class="sil-funnel-dot"></span><span class="sil-funnel-dot"></span><span class="sil-funnel-dot"></span>
+                <span class="sil-funnel-lock"></span>
+                <span class="sil-funnel-url">sydneysolarco.com.au/quote</span>
+              </div>
+              <div class="sil-funnel-body" id="silFunnelBody">
+                <div id="silFunnelQuestions">
+                  <div class="sil-funnel-progress"><div class="sil-funnel-progress-fill" id="silFunnelBar" style="width:20%"></div></div>
+                  <div class="sil-funnel-step-label" id="silFunnelStepLabel">Step 1 of 5</div>
+                  <div class="sil-funnel-q" id="silFunnelQ">Do you own your home?</div>
+                  <div class="sil-funnel-opts" id="silFunnelOpts">
+                    <div class="sil-funnel-opt picked"><span>Yes, I own it</span><span class="sil-funnel-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span></div>
+                    <div class="sil-funnel-opt"><span>No, I rent</span><span></span></div>
+                  </div>
+                  <div class="sil-funnel-mini-note" id="silFunnelNote">This qualifying step filters out non-decision-makers before a lead is ever generated.</div>
+                </div>
+                <div id="silFunnelForm" style="display:none">
+                  <div class="sil-funnel-progress"><div class="sil-funnel-progress-fill" style="width:100%"></div></div>
+                  <div class="sil-funnel-step-label">Step 5 of 5 · Almost there</div>
+                  <div class="sil-ff-q">Where should we send your quote?</div>
+                  <div class="sil-ff-row">
+                    <div class="sil-ff-field"><label>First name</label><div class="sil-ff-input">Sarah</div></div>
+                    <div class="sil-ff-field"><label>Last name</label><div class="sil-ff-input">Mitchell</div></div>
+                  </div>
+                  <div class="sil-ff-field"><label>Mobile</label><div class="sil-ff-input">0412 345 678</div></div>
+                  <div class="sil-ff-field"><label>Email</label><div class="sil-ff-input">sarah.m@email.com</div></div>
+                  <div class="sil-ff-field"><label>Postcode</label><div class="sil-ff-input">2150 <span class="sil-ff-match">✓ coverage confirmed</span></div></div>
+                  <div class="sil-ff-consent">
+                    <div class="sil-ff-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    <p>I agree to be contacted by <strong>{{business_name}}</strong> regarding my obligation-free quote. My details are shared only with this business. I've read the Privacy Policy and Terms of Use.</p>
+                  </div>
+                  <div class="sil-ff-btn">Get my free quote</div>
+                  <div class="sil-funnel-mini-note">This is the named consent record - captured and timestamped the moment they submit.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sil-frame" data-f="2">
+          <div class="sil-lead-wrap">
+            <div class="sil-preview-card">
+              <div class="sil-preview-card-label">Lead delivered</div>
+              <div class="sil-preview-card-body">
+                <div class="sil-lead-header">
+                  <div class="sil-lead-avatar">SM</div>
+                  <div class="sil-lead-name-block"><div class="sil-lead-name">Sarah Mitchell</div><div class="sil-lead-location">Parramatta NSW 2150</div></div>
+                  <span class="sil-lead-badge">New lead</span>
+                </div>
+                <div class="sil-lead-fields">
+                  <div class="sil-lead-field"><span class="sil-lead-field-key">Phone</span><span class="sil-lead-field-val">0412 *** ***</span></div>
+                  <div class="sil-lead-field"><span class="sil-lead-field-key">Avg quarterly bill</span><span class="sil-lead-field-val">$500 - $800</span></div>
+                  <div class="sil-lead-field"><span class="sil-lead-field-key">Timeline</span><span class="sil-lead-field-val">ASAP (Next 30 Days)</span></div>
+                  <div class="sil-lead-field"><span class="sil-lead-field-key">Consent</span><span class="sil-lead-field-val">Named, timestamped</span></div>
+                  <div class="sil-lead-field"><span class="sil-lead-field-key">Source</span><span class="sil-lead-field-val">Meta · verified</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sil-frame" data-f="3">
+          <div class="sil-verify-wrap">
+            <div class="sil-ty">
+              <div class="sil-ty-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+              <div class="sil-ty-title">You're all set.</div>
+              <div class="sil-ty-sub">You'll be contacted by <strong>{{business_name}}</strong> shortly.</div>
+              <div class="sil-ty-badges">
+                <span class="sil-ty-badge blue"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Matched locally</span>
+                <span class="sil-ty-badge blue">Consent captured</span>
+                <span class="sil-ty-badge green"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Obligation-free</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sil-dots" id="silDots">
+        <div class="sil-dot active" data-d="0"></div>
+        <div class="sil-dot" data-d="1"></div>
+        <div class="sil-dot" data-d="2"></div>
+        <div class="sil-dot" data-d="3"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- TESTIMONIALS -->
 <div class="testi-section">
@@ -1964,6 +2215,80 @@ function toggleOrderLight(){
   sec.classList.toggle('light');
 }
 function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')}
+
+// See It Live
+(function(){
+  var phases=4,cur=0,timer,DURATION=4400;
+  var tabs=document.querySelectorAll('#silTabs .sil-tab');
+  var frames=document.querySelectorAll('.sil-frame');
+  var dots=document.querySelectorAll('#silDots .sil-dot');
+  if(!tabs.length) return;
+
+  var funnelSteps=[
+    {label:'Step 1 of 5',q:'Do you own your home?',opts:[['Yes, I own it',true],['No, I rent',false]],note:'This qualifying step filters out non-decision-makers before a lead is ever generated.',pct:20},
+    {label:'Step 2 of 5',q:"What's your average quarterly bill?",opts:[['Under $300',false],['$300-$500',false],['$500-$800',true],['$800+',false]],note:'Bill size is captured up front so the buyer never has to ask twice.',pct:40},
+    {label:'Step 3 of 5',q:'When are you looking to move forward?',opts:[['As soon as possible',true],['1-3 months',false],['Just exploring',false]],note:'Timeline is delivered with the lead, no guessing at intent.',pct:60},
+    {label:'Step 4 of 5',q:"What's your postcode?",opts:[['2150 · coverage confirmed',true]],note:'Postcode is checked against live coverage before the contact form is shown.',pct:80}
+  ];
+  var funnelIdx=0,funnelTimer,STEP_MS=1150,FORM_MS=3600;
+
+  function showFunnelView(which){
+    var q=document.getElementById('silFunnelQuestions'),form=document.getElementById('silFunnelForm');
+    if(!q||!form)return;
+    q.style.display=which==='form'?'none':'block';
+    form.style.display=which==='form'?'block':'none';
+  }
+  function renderFunnelStep(i){
+    var s=funnelSteps[i];
+    var bar=document.getElementById('silFunnelBar'),label=document.getElementById('silFunnelStepLabel'),
+        q=document.getElementById('silFunnelQ'),opts=document.getElementById('silFunnelOpts'),
+        note=document.getElementById('silFunnelNote');
+    if(!bar)return;
+    showFunnelView('q');
+    bar.style.width=s.pct+'%';label.textContent=s.label;q.textContent=s.q;note.textContent=s.note;
+    opts.innerHTML=s.opts.map(function(o){
+      return '<div class="sil-funnel-opt'+(o[1]?' picked':'')+'"><span>'+o[0]+'</span><span class="sil-funnel-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span></div>';
+    }).join('');
+  }
+  function playFunnel(){
+    clearTimeout(funnelTimer);funnelIdx=0;renderFunnelStep(0);
+    function tick(){
+      funnelIdx++;
+      if(funnelIdx<funnelSteps.length){renderFunnelStep(funnelIdx);funnelTimer=setTimeout(tick,STEP_MS);}
+      else{showFunnelView('form');funnelTimer=setTimeout(function(){goTo(2);},FORM_MS);}
+    }
+    funnelTimer=setTimeout(tick,STEP_MS);
+  }
+  function stopFunnel(){clearTimeout(funnelTimer);}
+  function goTo(p){
+    cur=p;
+    tabs.forEach(function(t,i){t.classList.remove('active','done');if(i<p)t.classList.add('done');if(i===p)t.classList.add('active');});
+    frames.forEach(function(f){f.classList.toggle('on',+f.dataset.f===p);});
+    dots.forEach(function(d,i){d.classList.toggle('active',i===p);});
+    clearInterval(timer);stopFunnel();
+    if(p===1){playFunnel();}else{timer=setInterval(function(){goTo((cur+1)%phases);},DURATION);}
+  }
+  function startAuto(){clearInterval(timer);stopFunnel();
+    if(cur===1){playFunnel();}else{timer=setInterval(function(){goTo((cur+1)%phases);},DURATION);}}
+  tabs.forEach(function(t){t.addEventListener('click',function(){goTo(+t.dataset.p);});});
+  dots.forEach(function(d){d.addEventListener('click',function(){goTo(+d.dataset.d);});});
+  goTo(0);
+  function scaleAd(){
+    var embed=document.getElementById('silAdEmbed'),frame=document.getElementById('silAdFrame');
+    if(!embed||!frame)return;
+    var w=embed.getBoundingClientRect().width;if(!w)return;
+    frame.style.transform='scale('+(w/1080)+')';
+  }
+  window.addEventListener('resize',scaleAd);window.addEventListener('load',scaleAd);
+  setTimeout(scaleAd,60);setTimeout(scaleAd,400);
+  var stage=document.querySelector('.sil-stage');
+  if(stage){stage.addEventListener('mouseenter',function(){clearInterval(timer);stopFunnel();});
+            stage.addEventListener('mouseleave',function(){startAuto();});}
+  if(window.IntersectionObserver){
+    var ro=new IntersectionObserver(function(ents){ents.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll('#see-it-live .rv').forEach(function(el){ro.observe(el);});
+  }
+})();
 </script>
 </body>
 </html>
