@@ -1005,8 +1005,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="pack-grid" id="pack-grid"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="10" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">leads (min. 10)</span>
+            <input type="number" id="custom_qty" min="25" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">leads (min. 25)</span>
           </div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
@@ -1440,7 +1440,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <span>Pay per qualified lead</span>
       <span>Exclusive opportunities</span>
       <span>7-day replacement policy</span>
-      <span>Start from just 10 leads</span>
+      <span>Start at 25 leads</span>
       <span>No lock-in · Cancel anytime</span>
       <span>Australian owned and operated</span>
     </div>
@@ -1508,10 +1508,11 @@ const SUB_NICHE_OPTIONS = {
 
 // ─── PACK GRID ────────────────────────────────────────────
 const FALLBACK_TIERS = [
-  { min_quantity: 10,  discount_percent: 0,  label: '10 leads',  is_popular: false },
   { min_quantity: 25,  discount_percent: 5,  label: '25 leads',  is_popular: true  },
   { min_quantity: 50,  discount_percent: 10, label: '50 leads',  is_popular: false },
-  { min_quantity: 100, discount_percent: 10, label: '100 leads', is_popular: false },
+  { min_quantity: 100, discount_percent: 15, label: '100 leads', is_popular: false },
+  { min_quantity: 200, discount_percent: 20, label: '200 leads', is_popular: false },
+  { min_quantity: 300, discount_percent: 25, label: '300 leads', is_popular: false },
 ];
 let currentTiers = [...FALLBACK_TIERS];
 
@@ -1560,8 +1561,8 @@ function getTierForQty(qty) {
 function onCustomQty(input) {
   const hint = document.getElementById('custom-qty-hint');
   const raw = parseInt(input.value, 10);
-  if (!raw || raw < 10) {
-    if (hint) hint.textContent = raw && raw < 10 ? 'Minimum 10 leads' : '';
+  if (!raw || raw < 25) {
+    if (hint) hint.textContent = raw && raw < 25 ? 'Minimum 25 leads' : '';
     order.quantity = null;
     order.discount = 0;
     updateSummary();
