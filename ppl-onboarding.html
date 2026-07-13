@@ -154,6 +154,10 @@ section{position:relative;z-index:3;padding:80px 5%}
 .field-group input,.field-group select,.field-group textarea{width:100%;padding:12px 16px;background:var(--glass2);border:1px solid var(--border);border-radius:12px;color:var(--white);font-family:var(--body);font-size:.88rem;transition:border-color 0.2s;outline:none}
 .field-group input::placeholder,.field-group textarea::placeholder{color:var(--faint)}
 .field-group input:focus,.field-group select:focus,.field-group textarea:focus{border-color:var(--blue)}
+.cov-toggle{display:flex;gap:10px;margin-bottom:20px}
+.cov-mode-btn{flex:1;padding:12px 16px;background:var(--glass);border:1px solid var(--border);border-radius:12px;color:var(--muted);font-family:var(--body);font-size:.86rem;font-weight:500;cursor:none;transition:all .2s;text-align:center}
+.cov-mode-btn:hover{border-color:var(--bmid);color:var(--off)}
+.cov-mode-btn.active{background:var(--bdim);border-color:rgba(71,151,255,.4);color:var(--white)}
 .field-group textarea{min-height:100px;resize:vertical}
 .field-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2371717A' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;background-size:12px;cursor:none}
 .field-group select option{background:var(--deep);color:var(--white)}
@@ -413,29 +417,44 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="form-step" id="step4">
             <div class="step-counter"><span class="sc-badge">Step 4 of 6</span></div>
             <div class="step-q">What's your coverage area?</div>
-            <div class="step-hint">Enter a postcode and radius, or email a postcode list to configure your coverage area.</div>
-            <div class="field-row">
-              <div class="field-group">
-                <label>Postcode</label>
-                <input type="text" id="postcode" placeholder="e.g. 4000" maxlength="10" oninput="checkStep4()">
-              </div>
-              <div class="field-group">
-                <label>Radius</label>
-                <select id="service_radius" onchange="checkStep4()">
-                  <option value="" disabled selected>Select radius...</option>
-                  <option value="40km">Up to 40km</option>
-                  <option value="50km">Up to 50km</option>
-                  <option value="75km">Up to 75km</option>
-                  <option value="100km+">100km+</option>
-                  <option value="Statewide">Statewide</option>
-                  <option value="Nationwide">Nationwide</option>
-                  <option value="Send postcode list">I'll send a postcode list</option>
-                </select>
+            <div class="step-hint">Choose how you'd like to define your service area.</div>
+            <div class="cov-toggle">
+              <button type="button" class="cov-mode-btn active" id="covRadiusBtn" onclick="setCoverageMode('radius')">Radius from a postcode</button>
+              <button type="button" class="cov-mode-btn" id="covListBtn" onclick="setCoverageMode('list')">Postcode list</button>
+            </div>
+
+            <!-- Radius mode -->
+            <div id="covRadius">
+              <div class="field-row">
+                <div class="field-group">
+                  <label>Postcode</label>
+                  <input type="text" id="postcode" placeholder="e.g. 4000" maxlength="10" oninput="checkStep4()">
+                </div>
+                <div class="field-group">
+                  <label>Radius</label>
+                  <select id="service_radius" onchange="checkStep4()">
+                    <option value="" disabled selected>Select radius...</option>
+                    <option value="40km">Up to 40km</option>
+                    <option value="50km">Up to 50km</option>
+                    <option value="75km">Up to 75km</option>
+                    <option value="100km+">100km+</option>
+                    <option value="Statewide">Statewide</option>
+                    <option value="Nationwide">Nationwide</option>
+                  </select>
+                </div>
               </div>
             </div>
-            <div id="postcodeListNote" class="inline-note" style="display:none">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <span>Send your postcode list to <strong><a href="mailto:contact@quoteleads.com.au" style="color:var(--blue);text-decoration:none">contact@quoteleads.com.au</a></strong> and your coverage area is configured automatically.</span>
+
+            <!-- Postcode list mode -->
+            <div id="covList" style="display:none">
+              <div class="inline-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                <span>Not sure which postcodes fall inside your radius? Use the free <strong><a href="https://www.embr.com.au/find-australian-postcodes-inside-radius/index.html" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:none">Embr postcode radius tool</a></strong> to grab every postcode in your area, then paste them below.</span>
+              </div>
+              <div class="field-group">
+                <label>Postcode list</label>
+                <textarea id="postcode_list_input" rows="6" placeholder="Paste your postcodes here, e.g. 4000, 4006, 4051, 4059, 4060..." oninput="checkStep4()" style="resize:vertical"></textarea>
+              </div>
             </div>
             <div class="btn-row">
               <button class="btn-back" onclick="goPrev(4)">Back</button>
@@ -507,7 +526,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <h2>Onboarding received.</h2>
-          <p class="sub">Your details are in. Your account is configured automatically and leads begin arriving within a few hours.</p>
+          <p class="sub">Your details are in. Our team will have your account configured within 24 hours.</p>
 
           <p class="success-note">Keep an eye on your inbox for your QuoteLeadsHQ login details.<br>Leads will begin flowing as soon as your account is live.</p>
         </div>
@@ -754,19 +773,36 @@ function captureStep3(){
 }
 
 // ── STEP 4: Coverage area ──
+var coverageMode='radius';
+function setCoverageMode(m){
+  coverageMode=m;
+  document.getElementById('covRadius').style.display=(m==='radius')?'':'none';
+  document.getElementById('covList').style.display=(m==='list')?'':'none';
+  document.getElementById('covRadiusBtn').classList.toggle('active',m==='radius');
+  document.getElementById('covListBtn').classList.toggle('active',m==='list');
+  checkStep4();
+}
 function checkStep4(){
-  var pc=document.getElementById('postcode').value.trim();
-  var rad=document.getElementById('service_radius').value;
-  // Postcode list option doesn't require a postcode entry
-  var postcodeOk=rad==='Send postcode list'||pc.length>0;
-  document.getElementById('next4').disabled=!(postcodeOk&&rad);
-  // Show/hide postcode list note
-  var note=document.getElementById('postcodeListNote');
-  note.style.display=(rad==='Send postcode list')?'flex':'none';
+  var ok;
+  if(coverageMode==='list'){
+    ok=document.getElementById('postcode_list_input').value.trim().length>0;
+  } else {
+    var pc=document.getElementById('postcode').value.trim();
+    var rad=document.getElementById('service_radius').value;
+    ok=pc.length>0 && !!rad;
+  }
+  document.getElementById('next4').disabled=!ok;
 }
 function captureStep4(){
-  formData.postcode=document.getElementById('postcode').value.trim();
-  formData.service_radius=document.getElementById('service_radius').value;
+  if(coverageMode==='list'){
+    // Reuse the existing fields so the Make.com scenario needs no changes:
+    // the pasted postcode block goes into `postcode`, radius flags the mode.
+    formData.postcode=document.getElementById('postcode_list_input').value.trim();
+    formData.service_radius='Postcode list';
+  } else {
+    formData.postcode=document.getElementById('postcode').value.trim();
+    formData.service_radius=document.getElementById('service_radius').value;
+  }
   goNext(4);
 }
 
@@ -790,7 +826,7 @@ function buildReview(){
     ['Delivery',formData.delivery_methods.join(', ')||'Not specified'],
     formData.crm_name?['CRM',formData.crm_name]:null,
     ['Industry',formData.industry],
-    ['Postcode',formData.postcode||(formData.service_radius==='Send postcode list'?'Postcode list to be sent':'Not specified')],
+    ['Postcode',formData.service_radius==='Postcode list'?(formData.postcode.split(/[\s,]+/).filter(Boolean).length+' postcodes'):(formData.postcode||'Not specified')],
     ['Radius',formData.service_radius],
     ['Survey consent',formData.survey_consent?'Granted':'Not granted']
   ].filter(Boolean);
