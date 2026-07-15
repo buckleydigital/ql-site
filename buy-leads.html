@@ -243,6 +243,8 @@ body::before{content:'';position:fixed;inset:0;
   transition:border-color .2s,background .2s;position:relative;width:100%}
 .pack-btn:hover{border-color:rgba(71,151,255,.4);background:var(--bdim)}
 .pack-btn.sel{border-color:var(--blue);background:var(--bdim);box-shadow:0 0 0 1px var(--blue)}
+.pack-btn.cap-off{opacity:.4;cursor:not-allowed;pointer-events:none}
+.pack-cap-note{font-size:.72rem;color:var(--muted,#8a94a6);margin-top:7px;min-height:1em}
 .pack-qty{font-family:var(--display);font-size:1.7rem;font-weight:700;color:var(--white);line-height:1;margin-bottom:3px}
 .pack-unit{font-size:.72rem;color:var(--muted)}
 .pack-saving{font-size:.68rem;color:var(--blue);font-weight:600;margin-top:5px;letter-spacing:.02em}
@@ -981,6 +983,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             </div>
           </div>
           <div class="pack-grid" id="pack-grid"></div>
+          <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
             <input type="number" id="custom_qty" min="25" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
@@ -1463,8 +1466,20 @@ const order = {
   prices: {},
   subPrices: {},
   soldOut: false,        // true when the current trade+area is sold out
-  soldOutByNiche: {}     // sold-out flag per niche / "niche:sub" for the current area
+  soldOutByNiche: {},    // sold-out flag per niche / "niche:sub" for the current area
+  maxByNiche: {}         // per-order cap per niche / "niche:sub" (null/undefined = unlimited)
 };
+
+const BL_HARD_MAX = 500; // absolute ceiling per order regardless of cap
+
+// Effective per-order cap for the current selection (sub-niche cap wins, then
+// niche cap; missing cap means unlimited, so fall back to the hard ceiling).
+function activeMax() {
+  let cap = null;
+  if (order.niche && order.sub_niche && order.maxByNiche[order.niche + ':' + order.sub_niche] != null) cap = order.maxByNiche[order.niche + ':' + order.sub_niche];
+  else if (order.niche && order.maxByNiche[order.niche] != null) cap = order.maxByNiche[order.niche];
+  return cap == null ? BL_HARD_MAX : Math.min(cap, BL_HARD_MAX);
+}
 
 // ─── SUB-NICHE CONFIG ────────────────────────────────────
 const SUB_NICHE_OPTIONS = {
@@ -1489,8 +1504,9 @@ function renderPackGrid(tiers) {
   if (!grid || !tiers?.length) return;
   currentTiers = tiers;
   const prevQty = order.quantity;
+  const cap = activeMax();
   grid.innerHTML = tiers.map(t =>
-    `<button class="pack-btn" data-qty="${t.min_quantity}" data-discount="${t.discount_percent}" onclick="selectPack(this)">` +
+    `<button class="pack-btn${t.min_quantity > cap ? ' cap-off' : ''}" ${t.min_quantity > cap ? 'disabled title="Not available in this area right now"' : ''} data-qty="${t.min_quantity}" data-discount="${t.discount_percent}" onclick="selectPack(this)">` +
     (t.is_popular ? '<div class="pack-popular">POPULAR</div>' : '') +
     `<div class="pack-qty">${t.min_quantity}</div>` +
     `<div class="pack-unit">leads</div>` +
@@ -1501,11 +1517,15 @@ function renderPackGrid(tiers) {
     b.addEventListener('mouseenter', () => document.body.classList.add('hov'));
     b.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
   });
-  const autoTier = tiers.find(t => t.min_quantity === prevQty)
-    || tiers.find(t => t.is_popular)
+  const selectable = tiers.filter(t => t.min_quantity <= cap);
+  const autoTier = selectable.find(t => t.min_quantity === prevQty)
+    || selectable.find(t => t.is_popular)
+    || selectable[selectable.length - 1]
     || tiers[0];
   const btn = autoTier && grid.querySelector(`[data-qty="${autoTier.min_quantity}"]`);
-  if (btn) selectPack(btn);
+  if (btn && !btn.classList.contains('cap-off')) selectPack(btn);
+  const note = document.getElementById('pack-cap-note');
+  if (note) note.textContent = cap < BL_HARD_MAX ? `Up to ${cap} leads per order available for this lead type in this area.` : '';
 }
 
 renderPackGrid(FALLBACK_TIERS);
@@ -1528,7 +1548,7 @@ function getTierForQty(qty) {
 
 function onCustomQty(input) {
   const hint = document.getElementById('custom-qty-hint');
-  const raw = parseInt(input.value, 10);
+  let raw = parseInt(input.value, 10);
   if (!raw || raw < 25) {
     if (hint) hint.textContent = raw && raw < 25 ? 'Minimum 25 leads' : '';
     order.quantity = null;
@@ -1536,13 +1556,18 @@ function onCustomQty(input) {
     updateSummary();
     return;
   }
+  const cap = activeMax();
+  let capped = false;
+  if (raw > cap) { raw = cap; input.value = cap; capped = true; }
   document.querySelectorAll('.pack-btn').forEach(b => b.classList.remove('sel'));
   const tier = getTierForQty(raw);
   order.quantity = raw;
   order.discount = tier.discount_percent;
-  if (hint) hint.textContent = tier.discount_percent > 0
-    ? `${tier.discount_percent}% volume discount applied`
-    : '';
+  if (hint) {
+    if (capped) hint.textContent = `Up to ${cap} leads per order for this area`;
+    else if (tier.discount_percent > 0) hint.textContent = `${tier.discount_percent}% volume discount applied`;
+    else hint.textContent = '';
+  }
   updateSummary();
 }
 
@@ -1562,6 +1587,7 @@ async function onCityChange() {
     ['solar','solar-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, null));
     order.prices = {};
     order.soldOutByNiche = {};
+    order.maxByNiche = {};
     order.pricePerLead = null;
     updateSummary();
     return;
@@ -1581,6 +1607,7 @@ async function onCityChange() {
 
   order.prices = {};
   order.soldOutByNiche = {};
+  order.maxByNiche = {};
   results.forEach((res, i) => {
     const niche = trades[i];
     if (res.status === 'fulfilled' && res.value) {
@@ -1589,6 +1616,7 @@ async function onCityChange() {
         setPriceLabel(niche, 'soldout');
       } else if (res.value.price_per_lead) {
         order.prices[niche] = res.value.price_per_lead;
+        order.maxByNiche[niche] = res.value.max_order_qty ?? null;
         setPriceLabel(niche, res.value.price_per_lead);
       } else {
         setPriceLabel(niche, 'error');
@@ -1674,6 +1702,7 @@ function selectTrade(el) {
   }
 
   order.pricePerLead = order.prices[order.niche] || null;
+  renderPackGrid(currentTiers);
   updateSummary();
 }
 
@@ -1735,6 +1764,7 @@ async function prefetchSubNichePrice(niche, subKey) {
       if (el) { el.textContent = `$${data.price_per_lead}/lead`; el.classList.remove('sn-soldout'); }
       card?.classList.remove('sold-out');
       order.subPrices[key] = data.price_per_lead;
+      order.maxByNiche[key] = data.max_order_qty ?? null;
     } else {
       if (el) el.textContent = '';
     }
@@ -1753,6 +1783,7 @@ function selectSubNiche(el) {
   const cacheKey = order.niche + ':' + order.sub_niche;
   if (order.subPrices[cacheKey]) {
     order.pricePerLead = order.subPrices[cacheKey];
+    renderPackGrid(currentTiers);
     updateSummary();
   } else if (order.area_city) {
     fetchSubNichePrice();
@@ -1768,6 +1799,7 @@ function skipSubNiche() {
   if (order.niche && order.prices[order.niche]) {
     order.pricePerLead = order.prices[order.niche];
   }
+  renderPackGrid(currentTiers);
   updateSummary();
 }
 
@@ -1788,6 +1820,8 @@ async function fetchSubNichePrice() {
       order.pricePerLead = null;
     } else if (data.price_per_lead) {
       order.pricePerLead = data.price_per_lead;
+      const key = order.niche + (order.sub_niche ? ':' + order.sub_niche : '');
+      order.maxByNiche[key] = data.max_order_qty ?? null;
       if (data.discount_tiers?.length) renderPackGrid(data.discount_tiers);
     }
   } catch {}
@@ -1964,6 +1998,13 @@ async function submitOrder() {
     return;
   }
   if (!order.quantity) {
+    document.querySelector('.pack-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  const capNow = activeMax();
+  if (order.quantity > capNow) {
+    const hint = document.getElementById('custom-qty-hint');
+    if (hint) hint.textContent = `Up to ${capNow} leads per order for this area`;
     document.querySelector('.pack-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
