@@ -27,8 +27,8 @@
 <!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Job Cost Calculator - What Are You Actually Paying Per Job? | QuoteLeads</title>
-<meta name="description" content="Calculate your real cost to acquire a customer (CAC). Enter your lead spend, leads per month, and close rate to see what each job actually costs you in marketing.">
+<title>What your leads actually cost - Cost Per Appointment Calculator | QuoteLeads</title>
+<meta name="description" content="See your real cost per appointment versus QuoteLeads, priced live for your area and lead type. Enter what you pay per lead, your appointment rate and your team's hourly cost.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -251,6 +251,54 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .calc-inputs,.calc-results{padding:28px 20px}
   .result-cac{font-size:clamp(38px,10vw,56px)}
 }
+
+/* ===== Cost-per-appointment calculator (docket comparison) ===== */
+.cpa-wrap{max-width:940px;margin:0 auto;padding:0 20px}
+.cpa-inputs{margin:0 0 22px;padding:20px;background:var(--surf);border:1px solid var(--border);border-radius:16px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.cpa-field label{display:block;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.cpa-box{display:flex;align-items:center;gap:6px;background:var(--void);border:1px solid var(--border);border-radius:10px;padding:9px 12px;transition:border-color .2s}
+.cpa-box:focus-within{border-color:var(--blue)}
+.cpa-box span{color:var(--faint);font-size:14px}
+.cpa-box input{width:100%;background:none;border:0;color:var(--white);font-family:var(--body);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
+.cpa-box input:focus{outline:none}
+.cpa-field select{width:100%;background:var(--void);border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--white);font-family:var(--body);font-size:14px;font-weight:500;cursor:pointer;transition:border-color .2s}
+.cpa-field select:focus{outline:none;border-color:var(--blue)}
+.cpa-inputs input[type=number]::-webkit-outer-spin-button,.cpa-inputs input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cpa-inputs input[type=number]{-moz-appearance:textfield}
+
+.dockets{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:680px){.dockets{grid-template-columns:1fr}.cpa-wrap{padding:0 16px}}
+.docket{background:var(--surf);border:1px solid var(--border);border-radius:16px;padding:22px;display:flex;flex-direction:column}
+.docket.ours{border-color:var(--bblue);background:linear-gradient(180deg,rgba(71,151,255,.06),transparent)}
+.docket h2{font-family:var(--display);font-size:20px;font-weight:600;letter-spacing:.01em;margin-bottom:2px}
+.docket.theirs h2{color:var(--off)}
+.docket.ours h2{color:var(--blue)}
+.docket .tag{font-size:11.5px;color:var(--muted);margin-bottom:18px;min-height:16px}
+.dline{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px dashed var(--border);font-size:13px}
+.dline .k{color:var(--muted)}
+.dline .v{font-weight:600;font-size:15px;font-variant-numeric:tabular-nums}
+.dline.hidden-cost .k,.dline.hidden-cost .v{color:var(--amber)}
+.docket.ours .dline.hidden-cost .k,.docket.ours .dline.hidden-cost .v{color:var(--sky)}
+.burn{padding:14px 0 4px}
+.burn-label{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);margin-bottom:8px;display:flex;justify-content:space-between}
+.burn-track{display:flex;gap:2px;height:24px;align-items:flex-end}
+.blk{flex:1;background:var(--border);border-radius:1px;height:30%;transition:height .35s ease,background .35s ease}
+.blk.on{height:100%}
+.theirs .blk.on{background:var(--amber)}
+.ours .blk.on{background:var(--blue)}
+@media(prefers-reduced-motion:reduce){.blk{transition:none}}
+.dtotal{margin-top:auto;padding-top:16px;border-top:2px solid var(--border)}
+.dtotal .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.dtotal .v{font-family:var(--display);font-weight:700;line-height:1;font-size:clamp(38px,8vw,52px);margin-top:4px;font-variant-numeric:tabular-nums}
+.theirs .dtotal .v{color:var(--white)}
+.ours .dtotal .v{color:var(--blue)}
+.verdict{margin-top:18px;padding:22px;border-radius:16px;background:linear-gradient(90deg,rgba(71,151,255,.12),rgba(71,151,255,.02));border:1px solid var(--bblue)}
+.verdict p{font-family:var(--display);font-size:clamp(19px,3.2vw,26px);font-weight:600;line-height:1.22}
+.verdict p b{color:var(--blue);font-weight:700}
+.verdict small{display:block;margin-top:10px;color:var(--muted);font-family:var(--body);font-size:12.5px;line-height:1.55}
+.cpa-foot{margin-top:20px;color:var(--faint);font-size:11.5px;line-height:1.6;max-width:760px}
+.cpa-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 </style>
 </head>
 <body>
@@ -294,149 +342,136 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="hero-ambi ha2"></div>
     <div class="hero-ambi ha3"></div>
     <div class="hc">
-      <div class="hbadge"><div class="bpulse"></div>Job Cost Calculator</div>
-      <h1>What are you <span class="ga">actually</span> paying per job?</h1>
+      <div class="hbadge"><div class="bpulse"></div>Cost per appointment</div>
+      <h1>Your cheap leads <span class="ga">aren't cheap.</span></h1>
       <div class="hrule"></div>
-      <p class="hero-sub">Most installers have no idea what a customer actually costs them to acquire. Plug in your numbers - lead spend, leads, close rate - and see your real CAC in seconds.</p>
+      <p class="hero-sub">Put in what you're paying now. This does the sum your lead supplier would rather you didn't - your real cost per appointment versus ours, priced live for your area and lead type.</p>
     </div>
   </div>
 </section>
 
 <!-- CALCULATOR -->
 <section class="calc-section">
-  <div class="calc-inner rv">
-    <div class="calc-layout">
+  <div class="cpa-wrap rv">
 
-      <!-- INPUTS -->
-      <div class="calc-inputs">
-        <div class="calc-inputs-label">Your numbers</div>
-
-        <div class="field">
-          <div class="field-header">
-            <label class="field-label" for="adSpend">Monthly lead spend</label>
-            <span class="field-value-display accent" id="adSpendDisplay">$1,200</span>
-          </div>
-          <div class="field-hint">Total paid to Meta / Google each month. $40/day = ~$1,200/mo.</div>
-          <div class="slider-wrap">
-            <input type="range" id="adSpend" min="200" max="10000" step="50" value="1200">
-          </div>
-          <div class="slider-minmax"><span>$200</span><span>$10,000</span></div>
-        </div>
-
-        <div class="field">
-          <div class="field-header">
-            <label class="field-label" for="leadsPerMonth">Leads per month</label>
-            <span class="field-value-display accent" id="leadsDisplay">30</span>
-          </div>
-          <div class="field-hint">Qualified leads your system generates. At $40/day expect ~25-40.</div>
-          <div class="slider-wrap">
-            <input type="range" id="leadsPerMonth" min="1" max="300" step="1" value="30">
-          </div>
-          <div class="slider-minmax"><span>1</span><span>300</span></div>
-        </div>
-
-        <div class="field">
-          <div class="field-header">
-            <label class="field-label" for="closeRate">Close rate</label>
-            <span class="field-value-display accent" id="closeRateDisplay">30%</span>
-          </div>
-          <div class="field-hint">% of leads that turn into paid jobs. Industry average: 20-40%.</div>
-          <div class="slider-wrap">
-            <input type="range" id="closeRate" min="1" max="100" step="1" value="30">
-          </div>
-          <div class="slider-minmax"><span>1%</span><span>100%</span></div>
-        </div>
-
-        <div class="field">
-          <div class="field-header">
-            <label class="field-label" for="jobValue">Average job value</label>
-            <span class="field-value-display accent" id="jobValueDisplay">$3,500</span>
-          </div>
-          <div class="field-hint">What each won job is worth in revenue. Used to calculate ROI.</div>
-          <div class="slider-wrap">
-            <input type="range" id="jobValue" min="200" max="50000" step="100" value="3500">
-          </div>
-          <div class="slider-minmax"><span>$200</span><span>$50,000</span></div>
-        </div>
+    <div class="cpa-inputs">
+      <div class="cpa-field">
+        <label for="cpl">You pay per lead</label>
+        <div class="cpa-box"><span>$</span><input id="cpl" type="number" value="40" min="1" step="5"></div>
       </div>
-
-      <!-- RESULTS -->
-      <div class="calc-results">
-        <div class="calc-results-label">Your results</div>
-
-        <div class="result-primary neutral" id="resultPrimary">
-          <div class="result-primary-bg-glow"></div>
-          <div class="result-primary-lbl">Cost to Acquire a Customer (CAC)</div>
-          <div class="result-cac neutral" id="cacDisplay">$133</div>
-          <div class="result-cac-sublabel">per job won</div>
-          <div class="result-verdict neutral" id="verdictBox">
-            Enter your numbers on the left to see how your CAC stacks up.
-          </div>
-        </div>
-
-        <div class="result-breakdown">
-          <div class="result-row">
-            <span class="result-row-label">Cost per lead</span>
-            <span class="result-row-value" id="cplDisplay">-</span>
-          </div>
-          <div class="result-row">
-            <span class="result-row-label">Jobs won per month</span>
-            <span class="result-row-value" id="jobsWonDisplay">-</span>
-          </div>
-          <div class="result-row">
-            <span class="result-row-label">Revenue generated</span>
-            <span class="result-row-value highlight" id="revenueDisplay">-</span>
-          </div>
-          <div class="result-row">
-            <span class="result-row-label">Return on lead investment</span>
-            <span class="result-row-value highlight" id="roasDisplay">-</span>
-          </div>
-          <div class="result-row">
-            <span class="result-row-label">Marketing as % of revenue</span>
-            <span class="result-row-value" id="mktPctDisplay">-</span>
-          </div>
-        </div>
-
-        <div class="calc-cta">
-          <p>A well-built system at $40/day typically delivers a CAC of <strong>$80-$180</strong> for solar and HVAC businesses. If your numbers are higher, the system pays for itself fast.</p>
-          <a href="/buy-leads" class="btn-mag">See how the system works <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
-        </div>
+      <div class="cpa-field">
+        <label for="rate">That book an appointment</label>
+        <div class="cpa-box"><input id="rate" type="number" value="15" min="1" max="100" step="1"><span>%</span></div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EXPLAINER -->
-<section>
-  <div class="si">
-    <div class="rv"><div class="ey">How it's calculated</div></div>
-    <h2 class="stitle rv">Three numbers. <em>One truth.</em></h2>
-    <div class="explainer-grid">
-      <div class="explainer-card rv d1">
-        <div class="explainer-card-step">01</div>
-        <h3>Cost per lead</h3>
-        <p>Ad spend divided by leads generated. This is what you pay to get someone to raise their hand and express interest.</p>
+      <div class="cpa-field">
+        <label for="hour">Your team costs / hour</label>
+        <div class="cpa-box"><span>$</span><input id="hour" type="number" value="75" min="0" step="5"></div>
       </div>
-      <div class="explainer-card rv d2">
-        <div class="explainer-card-step">02</div>
-        <h3>Jobs won</h3>
-        <p>Leads multiplied by your close rate. Not every lead becomes a job - your close rate determines how many do.</p>
+      <div class="cpa-field">
+        <label for="mins">Chasing a dud lead</label>
+        <div class="cpa-box"><input id="mins" type="number" value="8" min="0" step="1"><span>min</span></div>
       </div>
-      <div class="explainer-card rv d3">
-        <div class="explainer-card-step">03</div>
-        <h3>CAC (your number)</h3>
-        <p>Ad spend divided by jobs won. This is the true marketing cost per customer - what every job actually costs you to acquire.</p>
+      <div class="cpa-field">
+        <label for="ql_niche">Your lead type</label>
+        <select id="ql_niche">
+          <option value="solar">All Solar</option>
+          <option value="solar-battery" selected>Solar &amp; Battery</option>
+          <option value="battery-retrofit">Battery Retrofit</option>
+          <option value="hvac">HVAC (Split &amp; Ducted)</option>
+        </select>
+      </div>
+      <div class="cpa-field">
+        <label for="ql_area">Your area</label>
+        <select id="ql_area">
+          <optgroup label="Queensland">
+            <option value="Queensland">Queensland (State Wide)</option>
+            <option value="Brisbane" selected>Brisbane</option>
+            <option value="Gold Coast">Gold Coast</option>
+            <option value="Sunshine Coast">Sunshine Coast</option>
+            <option value="Toowoomba">Toowoomba</option>
+            <option value="Cairns">Cairns</option>
+          </optgroup>
+          <optgroup label="New South Wales">
+            <option value="New South Wales">New South Wales (State Wide)</option>
+            <option value="Sydney">Sydney</option>
+            <option value="Newcastle">Newcastle</option>
+            <option value="Wollongong">Wollongong</option>
+            <option value="Central Coast">Central Coast</option>
+          </optgroup>
+          <optgroup label="Victoria">
+            <option value="Victoria">Victoria (State Wide)</option>
+            <option value="Melbourne">Melbourne</option>
+            <option value="Geelong">Geelong</option>
+          </optgroup>
+          <optgroup label="Western Australia">
+            <option value="Western Australia">Western Australia (State Wide)</option>
+            <option value="Perth">Perth</option>
+          </optgroup>
+          <optgroup label="South Australia">
+            <option value="South Australia">South Australia (State Wide)</option>
+            <option value="Adelaide">Adelaide</option>
+          </optgroup>
+          <optgroup label="Australian Capital Territory">
+            <option value="Australian Capital Territory">Australian Capital Territory (State Wide)</option>
+            <option value="Canberra">Canberra</option>
+          </optgroup>
+        </select>
       </div>
     </div>
-    <div class="explainer-formula rv">
-      <strong style="color:var(--off)">The formula:</strong>&nbsp;
-      <code>CAC = Monthly Ad Spend &divide; (Leads &times; Close Rate)</code>
-      &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-      <code>ROAS = Revenue &divide; Ad Spend</code>
-      &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-      This calculator only includes lead spend - not platform fees, tools, or your time.
+
+    <div class="dockets">
+      <section class="docket theirs">
+        <h2>Shared leads</h2>
+        <div class="tag">Same lead, sold to you and two rivals</div>
+        <div class="dline"><span class="k">Leads per appointment</span><span class="v" id="t-leads">6.7</span></div>
+        <div class="dline"><span class="k">Spend on leads</span><span class="v" id="t-spend">$267</span></div>
+        <div class="dline"><span class="k">Duds to chase</span><span class="v" id="t-duds">5.7</span></div>
+        <div class="dline hidden-cost"><span class="k">Time burned chasing</span><span class="v" id="t-time">45 min</span></div>
+        <div class="dline hidden-cost"><span class="k">What that time cost</span><span class="v" id="t-timecost">$57</span></div>
+        <div class="burn">
+          <div class="burn-label"><span>Dud rate</span><span id="t-burnpct">85%</span></div>
+          <div class="burn-track" id="t-track"></div>
+        </div>
+        <div class="dtotal">
+          <div class="k">True cost per appointment</div>
+          <div class="v" id="t-total">$323</div>
+        </div>
+      </section>
+
+      <section class="docket ours">
+        <h2>QuoteLeads</h2>
+        <div class="tag" id="q-tag">Brisbane &middot; Solar + Battery &middot; exclusive</div>
+        <div class="dline"><span class="k">Leads per appointment</span><span class="v" id="q-leads">2.0</span></div>
+        <div class="dline"><span class="k">Spend on leads</span><span class="v" id="q-spend">$190</span></div>
+        <div class="dline"><span class="k">Duds to chase</span><span class="v" id="q-duds">1.0</span></div>
+        <div class="dline hidden-cost"><span class="k">Time burned chasing</span><span class="v" id="q-time">8 min</span></div>
+        <div class="dline hidden-cost"><span class="k">What that time cost</span><span class="v" id="q-timecost">$10</span></div>
+        <div class="burn">
+          <div class="burn-label"><span>Dud rate</span><span id="q-burnpct">50%</span></div>
+          <div class="burn-track" id="q-track"></div>
+        </div>
+        <div class="dtotal">
+          <div class="k">True cost per appointment</div>
+          <div class="v" id="q-total">$200</div>
+        </div>
+      </section>
     </div>
+
+    <div class="verdict">
+      <p id="verdict-line">Your $40 leads cost you <b>$323</b> an appointment. Ours cost <b>$200</b>.</p>
+      <small id="verdict-sub">You're paying 1.6x more per appointment, and burning 37 minutes of your team's day to do it.</small>
+    </div>
+
+    <p class="cpa-foot" id="cpa-foot">
+      QuoteLeads shown at live pricing for your selected area and lead type, at a <strong>50%</strong> lead-to-appointment rate.
+      Some of our installers report 70%. We've used 50% because it's the number we'll stand behind, not the best one we've seen.
+      Both columns are charged the same rate for chase time, even though our AI does first contact in 60 seconds, so the real figure on our side is lower than shown.
+    </p>
+
+    <div class="cpa-cta">
+      <a href="/buy-leads" class="btn-mag">See live pricing and order <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
+    </div>
+
   </div>
 </section>
 
@@ -568,92 +603,91 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// CALCULATOR LOGIC
-const sliders=[
-  {id:'adSpend',      disp:'adSpendDisplay',   fmt:v=>'$'+v.toLocaleString()},
-  {id:'leadsPerMonth',disp:'leadsDisplay',      fmt:v=>v.toLocaleString()},
-  {id:'closeRate',    disp:'closeRateDisplay',  fmt:v=>v+'%'},
-  {id:'jobValue',     disp:'jobValueDisplay',   fmt:v=>'$'+v.toLocaleString()}
-];
+// ===== COST-PER-APPOINTMENT CALCULATOR (wired to live pricing) =====
+const SUPABASE_URL = 'https://wjadekgptkstfdootuol.supabase.co';
+const $ = id => document.getElementById(id);
+const QL_RATE = 0.50, BLOCKS = 20;
+const money = n => "$" + Math.round(n).toLocaleString("en-AU");
 
-function getVal(id){return parseFloat(document.getElementById(id).value)||0}
+// Sensible fallbacks if the pricing service can't be reached.
+const FALLBACK_PRICE = { 'solar':60, 'solar-battery':95, 'battery-retrofit':90, 'hvac':70 };
+const NICHE_LABEL = { 'solar':'All Solar', 'solar-battery':'Solar + Battery', 'battery-retrofit':'Battery Retrofit', 'hvac':'HVAC' };
+const priceCache = {};
+let qlPrice = 95; // current live QuoteLeads $/lead for the selection
 
-function fmt$(n){return n>=1000?'$'+Math.round(n).toLocaleString():'$'+n.toFixed(0)}
-function fmtX(n){return n.toFixed(1)+'x'}
-
-function updateSliderFill(input){
-  const wrap=input.parentElement;
-  let fill=wrap.querySelector('.slider-track-fill');
-  if(!fill){fill=document.createElement('div');fill.className='slider-track-fill';wrap.insertBefore(fill,input)}
-  const min=parseFloat(input.min),max=parseFloat(input.max),val=parseFloat(input.value);
-  fill.style.width=((val-min)/(max-min)*100)+'%';
-  fill.style.top=(input.offsetHeight/2-1)+'px';
-}
-
-function animNum(el,newText){
-  el.classList.remove('animating');
-  void el.offsetWidth;
-  el.textContent=newText;
-  el.classList.add('animating');
-}
-
-function calcAll(){
-  const spend=getVal('adSpend');
-  const leads=getVal('leadsPerMonth');
-  const rate=getVal('closeRate')/100;
-  const jv=getVal('jobValue');
-
-  const cpl=leads>0?spend/leads:0;
-  const jobs=leads*rate;
-  const cac=jobs>0?spend/jobs:0;
-  const rev=jobs*jv;
-  const roas=spend>0?rev/spend:0;
-  const mktPct=rev>0?(spend/rev*100):0;
-
-  animNum(document.getElementById('cplDisplay'),cpl>0?fmt$(cpl):'-');
-  animNum(document.getElementById('jobsWonDisplay'),jobs>0?jobs.toFixed(1):'-');
-  animNum(document.getElementById('revenueDisplay'),rev>0?fmt$(rev):'-');
-  animNum(document.getElementById('roasDisplay'),roas>0?fmtX(roas):'-');
-  animNum(document.getElementById('mktPctDisplay'),mktPct>0?mktPct.toFixed(1)+'%':'-');
-
-  const cacEl=document.getElementById('cacDisplay');
-  const primary=document.getElementById('resultPrimary');
-  const verdict=document.getElementById('verdictBox');
-
-  if(jobs<=0){
-    animNum(cacEl,'--');
-    ['good','ok','bad','neutral'].forEach(c=>{cacEl.classList.remove(c);primary.classList.remove(c);verdict.classList.remove(c)});
-    cacEl.classList.add('neutral');primary.classList.add('neutral');verdict.classList.add('neutral');
-    verdict.textContent='Enter your numbers on the left to see how your CAC stacks up.';
-    return;
+function track(el, pct){
+  if(el.childElementCount !== BLOCKS){
+    el.innerHTML = "";
+    for(let i=0;i<BLOCKS;i++) el.appendChild(Object.assign(document.createElement("i"),{className:"blk"}));
   }
-
-  animNum(cacEl,fmt$(cac));
-
-  let tier,msg;
-  if(cac<120){tier='good';msg='Strong. Your CAC of '+fmt$(cac)+' is below the $120 benchmark - your ads are working efficiently.'}
-  else if(cac<250){tier='ok';msg='OK. A CAC of '+fmt$(cac)+' is workable, but there is room to improve your lead volume or close rate.'}
-  else{tier='bad';msg='High. At '+fmt$(cac)+' per job, you are likely leaving margin on the table. Improving close rate or increasing leads will help significantly.'}
-
-  ['good','ok','bad','neutral'].forEach(c=>{cacEl.classList.remove(c);primary.classList.remove(c);verdict.classList.remove(c)});
-  cacEl.classList.add(tier);primary.classList.add(tier);verdict.classList.add(tier);
-  verdict.textContent=msg;
+  const on = Math.round((pct/100) * BLOCKS);
+  [...el.children].forEach((b,i) => b.classList.toggle("on", i < on));
 }
 
-sliders.forEach(({id,disp,fmt})=>{
-  const input=document.getElementById(id);
-  const dispEl=document.getElementById(disp);
-  if(!input)return;
-  function upd(){
-    dispEl.textContent=fmt(parseFloat(input.value));
-    updateSliderFill(input);
-    calcAll();
-  }
-  input.addEventListener('input',upd);
-  upd();
-});
+function side(prefix, cpl, rate, hourly, mins){
+  const leads    = 1 / rate;
+  const spend    = leads * cpl;
+  const duds     = leads - 1;
+  const time     = duds * mins;
+  const timeCost = (time/60) * hourly;
+  const total    = spend + timeCost;
+  const dudPct   = (1 - rate) * 100;
 
-calcAll();
+  $(prefix+"-leads").textContent    = leads.toFixed(1);
+  $(prefix+"-spend").textContent    = money(spend);
+  $(prefix+"-duds").textContent     = duds.toFixed(1);
+  $(prefix+"-time").textContent     = Math.round(time) + " min";
+  $(prefix+"-timecost").textContent = money(timeCost);
+  $(prefix+"-total").textContent    = money(total);
+  $(prefix+"-burnpct").textContent  = Math.round(dudPct) + "%";
+  track($(prefix+"-track"), dudPct);
+  return { total, time };
+}
+
+function run(){
+  const cpl    = Math.max(1, +$("cpl").value || 0);
+  const rate   = Math.min(100, Math.max(1, +$("rate").value || 1)) / 100;
+  const hourly = Math.max(0, +$("hour").value || 0);
+  const mins   = Math.max(0, +$("mins").value || 0);
+
+  const theirs = side("t", cpl, rate, hourly, mins);
+  const ours   = side("q", qlPrice, QL_RATE, hourly, mins);
+
+  const niche = $("ql_niche").value, area = $("ql_area").value;
+  $("q-tag").innerHTML = `${area} &middot; ${NICHE_LABEL[niche]} &middot; ${money(qlPrice)}/lead &middot; exclusive`;
+
+  const mult     = theirs.total / ours.total;
+  const savedMin = Math.max(0, theirs.time - ours.time);
+
+  $("verdict-line").innerHTML =
+    `Your ${money(cpl)} leads cost you <b>${money(theirs.total)}</b> an appointment. Ours cost <b>${money(ours.total)}</b>.`;
+  $("verdict-sub").textContent = mult >= 1.02
+    ? `You're paying ${mult.toFixed(1)}x more per appointment, and burning ${Math.round(savedMin)} minutes of your team's day to do it.`
+    : `On these numbers you're line-ball with us. Tell us what you're running, we'd rather know than pitch you.`;
+}
+
+// Pull the real QuoteLeads price for the chosen lead type + area (same source
+// as the buy-leads page). Falls back to a sensible default if unavailable.
+async function refreshPrice(){
+  const niche = $("ql_niche").value, area = $("ql_area").value;
+  const sub = niche === 'hvac' ? '&sub_niche=split_ducted' : '';
+  const cacheKey = niche + '|' + area;
+  if (priceCache[cacheKey] != null){ qlPrice = priceCache[cacheKey]; run(); return; }
+  try {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${niche}${sub}&area=${encodeURIComponent(area)}`);
+    const data = res.ok ? await res.json() : null;
+    const p = data && (data.price_per_lead != null ? data.price_per_lead : (data.prices && data.prices[niche]));
+    qlPrice = (p != null && p > 0) ? p : FALLBACK_PRICE[niche];
+  } catch(e){
+    qlPrice = FALLBACK_PRICE[niche];
+  }
+  priceCache[cacheKey] = qlPrice;
+  run();
+}
+
+["cpl","rate","hour","mins"].forEach(id => $(id).addEventListener("input", run));
+["ql_niche","ql_area"].forEach(id => $(id).addEventListener("change", refreshPrice));
+refreshPrice();
 </script>
 
 </body>
