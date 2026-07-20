@@ -133,7 +133,7 @@ body::before{content:'';position:fixed;inset:0;
   background-size:200px;pointer-events:none;z-index:2;opacity:.4}
 
 /* HEADER */
-.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;transition:top 0s,background .4s,border-color .4s,backdrop-filter .4s;
+.site-header{position:fixed;top:var(--promo-h,0px);left:0;right:0;z-index:200;padding:0 5%;
   background:rgba(4,4,10,0);border-bottom:1px solid transparent;
   transition:background .4s,border-color .4s,backdrop-filter .4s}
 .site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
@@ -867,13 +867,27 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .offer-item strong{color:var(--white);font-weight:500}
 @media(max-width:900px){.offer-grid{grid-template-columns:1fr}}
 @media(max-width:768px){.offer-card{padding:28px 22px}}
+.promo-bar{position:fixed;top:0;left:0;right:0;z-index:300;
+  background:linear-gradient(90deg,#1a0e00,#0d1a2e,#1a0e00);
+  border-bottom:1px solid rgba(255,180,60,.25);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:9px 20px;font-size:.78rem;font-weight:500;color:var(--white);
+  text-align:center;flex-wrap:wrap;line-height:1.4}
+.promo-bar strong{font-weight:700;color:#ffce6a}
+.promo-bar .pbar-cta{display:inline-flex;align-items:center;gap:5px;margin-left:6px;
+  background:rgba(255,180,60,.18);border:1px solid rgba(255,180,60,.35);
+  color:#ffce6a;font-weight:600;font-size:.75rem;padding:3px 12px;border-radius:100px;
+  text-decoration:none;transition:background .2s}
+.promo-bar .pbar-cta:hover{background:rgba(255,180,60,.3)}
+@media(max-width:600px){.promo-bar{font-size:.72rem;gap:6px}}
 </style>
 </head>
 <body>
-<div id="promo-banner" style="display:none;background:linear-gradient(90deg,#081A38,#12447F);color:#fff;text-align:center;padding:12px 18px;font-size:15px;font-weight:600;letter-spacing:.2px;line-height:1.4;position:relative;z-index:2000;box-shadow:0 2px 14px rgba(0,0,0,.3);border-bottom:1px solid rgba(255,255,255,.14)">
-  <span>Limited time: Buy 25 or more Solar or HVAC leads and get <span style="color:#FFD24A;font-weight:800">5 FREE</span>. <span style="opacity:.82;font-weight:500">(applies to all lead types)</span></span>
+<div class="promo-bar" id="promoBar" style="display:none">
+  <strong>Today only:</strong> Buy 25+ Solar or HVAC leads and get <strong>5 FREE.</strong>
+  <a href="/buy-leads" class="pbar-cta">Order now <svg viewBox="0 0 12 12" fill="none" style="width:10px;height:10px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
-<script>(function(){var b=document.getElementById('promo-banner');if(b&&Date.now()<Date.parse('2026-07-20T14:00:00Z'))b.style.display='block';})();</script>
+<script>(function(){var b=document.getElementById('promoBar');if(b&&Date.now()<Date.parse('2026-07-20T14:00:00Z')){b.style.display='flex';var h=b.offsetHeight;document.documentElement.style.setProperty('--promo-h',h+'px');}})();</script>
 
 <div id="cur"></div>
 <div id="curR"></div>
