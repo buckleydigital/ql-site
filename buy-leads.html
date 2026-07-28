@@ -920,6 +920,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
             </button>
 
+            <button class="trade-card" data-niche="roofing" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Roofing</div>
+                <div class="trade-price dim" id="price-roofing">Select city first</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
             <button class="trade-card" data-niche="hvac" onclick="selectTrade(this)">
               <div class="trade-ico">
                 <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
@@ -927,6 +938,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="trade-info">
                 <div class="trade-name">HVAC</div>
                 <div class="trade-price dim" id="price-hvac">Select city first</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
+            <button class="trade-card" data-niche="renovation" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Renovation</div>
+                <div class="trade-price dim" id="price-renovation">Select city first</div>
               </div>
               <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
             </button>
@@ -1503,6 +1525,15 @@ const SUB_NICHE_OPTIONS = {
     { key: 'split_ducted', label: 'Installations (Split & Ducted)' },
     { key: 'maintenance',  label: 'Installations & Maintenance'    },
   ],
+  roofing: [
+    { key: 'restoration', label: 'All Restorations'           },
+    { key: 'replacement', label: 'All Replacements'           },
+    { key: 'tile_metal',  label: 'Tile-to-Metal Replacements' },
+  ],
+  renovation: [
+    { key: 'kitchen',  label: 'Kitchen Renovations'  },
+    { key: 'bathroom', label: 'Bathroom Renovations' },
+  ],
 };
 
 // ─── PACK GRID ────────────────────────────────────────────
@@ -1600,7 +1631,7 @@ async function onCityChange() {
   applyCoverageMode();
 
   if (!city) {
-    ['solar','solar-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, null));
+    ['solar','solar-battery','roofing','hvac','renovation','battery-retrofit'].forEach(n => setPriceLabel(n, null));
     order.prices = {};
     order.soldOutByNiche = {};
     order.maxByNiche = {};
@@ -1610,10 +1641,10 @@ async function onCityChange() {
   }
 
   // Show loading spinners on all trade cards
-  ['solar','solar-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, 'loading'));
+  ['solar','solar-battery','roofing','hvac','renovation','battery-retrofit'].forEach(n => setPriceLabel(n, 'loading'));
 
   // Fetch all trade prices in parallel from Supabase
-  const trades = ['solar','solar-battery','hvac','battery-retrofit'];
+  const trades = ['solar','solar-battery','roofing','hvac','renovation','battery-retrofit'];
   const results = await Promise.allSettled(
     trades.map(niche =>
       fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${niche}&area=${encodeURIComponent(city)}`)
@@ -1646,7 +1677,7 @@ async function onCityChange() {
   const firstOk = results.find(r => r.status === 'fulfilled' && r.value?.discount_tiers?.length);
   if (firstOk) renderPackGrid(firstOk.value.discount_tiers);
 
-  if (order.niche && order.niche === 'hvac') {
+  if (order.niche && ['hvac','roofing','renovation'].includes(order.niche)) {
     order.subPrices = {};
     renderSubNicheGrid(order.niche);
   }
@@ -1710,7 +1741,7 @@ function selectTrade(el) {
   order.soldOut = false;
 
   const subBlock = document.getElementById('blockSubNiche');
-  if (order.niche === 'hvac') {
+  if (['hvac','roofing','renovation'].includes(order.niche)) {
     renderSubNicheGrid(order.niche);
     subBlock.style.display = '';
   } else {
@@ -1898,7 +1929,7 @@ function selectPack(el) {
 }
 
 // ─── SUMMARY UPDATE ──────────────────────────────────────
-const nicheLabels = { solar: 'All Solar', 'solar-battery': 'Solar + Battery', hvac: 'HVAC', 'battery-retrofit': 'Battery Retrofit' };
+const nicheLabels = { solar: 'All Solar', 'solar-battery': 'Solar + Battery', roofing: 'Roofing', hvac: 'HVAC', renovation: 'Renovation', 'battery-retrofit': 'Battery Retrofit' };
 
 function updateSummary() {
   const tradeEl  = document.getElementById('sum-trade');
@@ -1918,7 +1949,7 @@ function updateSummary() {
   const subRow = document.getElementById('sum-subniche-row');
   const subEl  = document.getElementById('sum-subniche');
   if (subRow && subEl) {
-    if (order.niche && order.niche === 'hvac') {
+    if (order.niche && ['hvac','roofing','renovation'].includes(order.niche)) {
       subRow.style.display = 'flex';
       if (order.sub_niche) {
         const opt = (SUB_NICHE_OPTIONS[order.niche] || []).find(o => o.key === order.sub_niche);
@@ -2125,7 +2156,7 @@ function resetToForm() {
   document.getElementById('stateError').classList.remove('active');
   document.querySelectorAll('.buy-block').forEach(b => b.style.display = '');
   const subBlock = document.getElementById('blockSubNiche');
-  if (subBlock && !order.niche === 'hvac') {
+  if (subBlock && !['hvac','roofing','renovation'].includes(order.niche)) {
     subBlock.style.display = 'none';
   }
 }
