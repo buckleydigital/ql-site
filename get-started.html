@@ -338,7 +338,11 @@ async function buyNow(){
   if(!buyValid())return;
   var btn=document.getElementById('buyBtn'),err=document.getElementById('formErr');
   err.style.display='none';btn.disabled=true;btn.textContent='Redirecting to secure checkout…';
-  var payload=Object.assign(basePayload(),{type:'managed',request_type:'purchase'});
+  var payload=Object.assign(basePayload(),{type:'managed',request_type:'purchase',turnstile_token:turnstileToken||''});
+  // Always send the lead details to Make too (so we capture them even if they
+  // abandon the Stripe checkout). Fire-and-forget with keepalive so it survives
+  // the redirect.
+  try{fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true});}catch(e){}
   try{
     var res=await fetch(QLHQ+'/functions/v1/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     var data=await res.json();
