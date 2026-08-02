@@ -830,10 +830,16 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 @media(max-width:480px){.sys-feats{grid-template-columns:1fr}}
 
 /* OFFER CARDS */
-.offer-grid{display:grid;grid-template-columns:1fr;gap:24px;margin:60px auto 0;max-width:760px}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:60px}
 .offer-card{border-radius:24px;padding:40px 36px;position:relative;overflow:hidden;
   backdrop-filter:blur(16px);transition:transform .3s,box-shadow .3s;cursor:none}
 .offer-card:hover{transform:translateY(-3px)}
+.offer-card.ppl-card{background:linear-gradient(145deg,rgba(71,151,255,.1),rgba(71,151,255,.02));
+  border:1px solid rgba(71,151,255,.35)}
+.offer-card.ppl-card::before{content:'';position:absolute;inset:0;border-radius:24px;
+  background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.1),transparent 55%);pointer-events:none}
+.offer-card.ppl-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent);pointer-events:none}
 .offer-card.dfy-card{background:linear-gradient(145deg,rgba(16,185,129,.07),rgba(16,185,129,.01));
   border:1px solid rgba(16,185,129,.22)}
 .offer-card.dfy-card::before{content:'';position:absolute;inset:0;border-radius:24px;
@@ -842,14 +848,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   background:linear-gradient(90deg,transparent,rgba(16,185,129,.4),transparent);pointer-events:none}
 .offer-badge{display:inline-flex;align-items:center;gap:8px;font-size:.62rem;font-weight:700;
   letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:20px}
+.offer-badge.blue{background:rgba(71,151,255,.12);border:1px solid rgba(71,151,255,.28);color:var(--sky)}
 .offer-badge.green{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.25);color:#34d399}
 .offer-badge-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.offer-badge.blue .offer-badge-dot{background:var(--blue)}
 .offer-badge.green .offer-badge-dot{background:#34d399}
 .offer-price{font-family:var(--display);font-size:clamp(2rem,3.2vw,2.8rem);font-weight:600;
   letter-spacing:-.03em;line-height:1;margin-bottom:6px}
 .offer-price sup{font-size:1.2rem;vertical-align:super;font-weight:500;color:var(--sky)}
 .offer-price-green sup{color:#34d399}
 .offer-period{font-size:.82rem;color:var(--muted);margin-bottom:24px;line-height:1.55}
+.offer-title{font-family:var(--display);font-size:1.4rem;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
 .offer-sub{font-size:.85rem;color:var(--muted);line-height:1.65;margin-bottom:24px}
 .offer-divider{border:none;border-top:1px solid var(--border);margin:20px 0}
 .offer-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
@@ -879,6 +888,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
       <li><a href="/get-started" class="nav-cta-dark">Get Started</a></li>
+      <li><a href="/buy-leads" class="nav-cta">Buy Leads <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
     </ul>
     <button class="mob-btn" id="mobBtn" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -889,6 +899,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <a href="/pricing">Pricing</a>
     <a href="https://quoteleadshq.com/dashboard">Login</a>
     <a href="/get-started" class="mob-cta-dark">Get Started</a>
+    <a href="/buy-leads" class="mob-cta-link">Buy Leads</a>
   </nav>
 </header>
 
@@ -1216,6 +1227,36 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <p style="color:var(--muted);font-size:.95rem;line-height:1.74;max-width:560px;margin-bottom:0" class="rv">The complete Branded Lead Gen System activated and running automatically inside your business. Live in 24-48 hours, never longer.</p>
     <div class="offer-grid">
 
+      <!-- PER LEAD -->
+      <div class="offer-card ppl-card rv">
+        <div class="offer-badge blue"><div class="offer-badge-dot"></div>Per Lead &middot; No Lock-In</div>
+        <div class="offer-title">Per Lead</div>
+        <p class="offer-sub">Exclusive, pre-qualified leads delivered in real-time. No retainer, no lock-in. Start at 25 leads.</p>
+        <hr class="offer-divider">
+        <ul class="offer-list">
+          <li class="offer-item">
+            <svg class="offer-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Pay per qualified lead</strong> - no retainer, no lock-in, no minimum spend</span>
+          </li>
+          <li class="offer-item">
+            <svg class="offer-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Exclusive &amp; pre-qualified</strong> - never shared, scope and location verified</span>
+          </li>
+          <li class="offer-item">
+            <svg class="offer-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>7-day replacement policy</strong> - clear terms, no grey area</span>
+          </li>
+          <li class="offer-item">
+            <svg class="offer-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>We text every lead in 60 seconds, not six hours</strong> - the reason 70% book</span>
+          </li>
+        </ul>
+        <a href="/buy-leads" class="btn-mag" style="display:inline-flex;font-size:.88rem">
+          Buy Leads
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
+        </a>
+      </div>
+
       <!-- BRANDED LEAD GEN SYSTEM -->
       <div class="offer-card dfy-card rv d1">
         <div class="offer-badge green"><div class="offer-badge-dot"></div>Branded Lead Gen System &middot; Most Popular</div>
@@ -1336,6 +1377,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="foot-links">
       <a href="/">Home</a>
       <a href="/pricing">Pricing</a>
+      <a href="/buy-leads">Buy Leads</a>
       <a href="https://quoteleadshq.com/dashboard">Login</a>
       <a href="/blog">Blog</a>
       <a href="/privacy">Privacy</a>

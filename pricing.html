@@ -207,6 +207,14 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .pricing-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);pointer-events:none}
 
+/* PRIMARY PPL CARD */
+.pricing-card.ppl{background:linear-gradient(145deg,rgba(71,151,255,.1),rgba(71,151,255,.02));
+  border:1px solid rgba(71,151,255,.35)}
+.pricing-card.ppl::before{background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.12),transparent 55%)}
+.pricing-card.ppl::after{background:linear-gradient(90deg,transparent,var(--blue),transparent)}
+.pricing-card.ppl .pricing-badge{background:rgba(71,151,255,.1);border-color:rgba(71,151,255,.25);color:var(--sky)}
+.pricing-card.ppl .pricing-badge-dot{background:var(--blue)}
+
 /* DFY CARD */
 .pricing-card.dfy{background:linear-gradient(145deg,rgba(16,185,129,.06),rgba(16,185,129,.01));
   border:1px solid rgba(16,185,129,.2)}
@@ -224,6 +232,9 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   line-height:1;letter-spacing:-.03em;margin-bottom:6px}
 .pricing-amount sup{font-size:1.6rem;vertical-align:super;font-weight:500;color:var(--sky)}
 .pricing-period{font-size:.9rem;color:var(--muted);margin-bottom:32px;line-height:1.6}
+.ppl-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.ppl-title{font-family:var(--display);font-size:clamp(1.6rem,2.4vw,2rem);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.ppl-sub{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:24px;max-width:560px}
 .pricing-divider{border:none;border-top:1px solid var(--border);margin:28px 0}
 .pricing-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
 .pricing-item{display:flex;align-items:flex-start;gap:12px;font-size:.87rem;color:var(--muted);line-height:1.55}
@@ -416,6 +427,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
       <li><a href="/pricing" style="color:var(--white)">Pricing</a></li>
       <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
       <li><a href="/get-started" class="nav-cta-dark">Get Started</a></li>
+      <li><a href="/buy-leads" class="nav-cta">Buy Leads <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
     </ul>
     <button class="mob-btn" id="mobBtn" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -426,6 +438,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
     <a href="/pricing">Pricing</a>
     <a href="https://quoteleadshq.com/dashboard">Login</a>
     <a href="/get-started" class="mob-cta-dark">Get Started</a>
+    <a href="/buy-leads" class="mob-cta-link">Buy Leads</a>
   </nav>
 </header>
 
@@ -487,6 +500,50 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
 
       <!-- MAIN PRICING COLUMN -->
       <div class="pricing-main">
+
+        <!-- PER LEAD CARD (PRIMARY) -->
+        <div class="pricing-card ppl rv">
+          <div class="pricing-badge"><div class="pricing-badge-dot"></div>Per Lead</div>
+          <div class="ppl-head">
+            <div class="ppl-title">Per Lead</div>
+          </div>
+          <p class="ppl-sub">Exclusive, pre-qualified leads delivered to your phone, email or CRM. Start at 25 leads. No retainer, no lock-in.</p>
+
+          <hr class="pricing-divider">
+
+          <ul class="pricing-list">
+            <li class="pricing-item">
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>No retainer, no lock-in</strong> - no build fee, no minimum spend. Pay only for the qualified leads delivered.</span>
+            </li>
+            <li class="pricing-item">
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Exclusive opportunities</strong> - never shared or resold. 1:1 consent-based enquiries delivered in real-time.</span>
+            </li>
+            <li class="pricing-item">
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Pre-qualified before delivery</strong> - scope, timing, location and your custom criteria verified. Only qualified leads make it through.</span>
+            </li>
+            <li class="pricing-item">
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>7-day replacement policy</strong> - clear terms in writing, no grey area. If it doesn't meet criteria, it's replaced at no charge.</span>
+            </li>
+            <li class="pricing-item">
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>AI SMS follow-up included</strong> - AI engages every lead within 60 seconds, qualifies scope, and books callbacks in your name.</span>
+            </li>
+            <li class="pricing-item">
+              <svg class="pricing-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Full QuoteLeadsHQ access</strong> - CRM pipeline, AI SMS, follow-up sequences and performance tracking. Included with every lead order.</span>
+            </li>
+          </ul>
+
+          <a href="/buy-leads" class="btn-mag" style="display:inline-flex;font-size:.92rem;padding:16px 36px">
+            Buy Leads
+            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
+          </a>
+          <p style="font-size:.76rem;color:var(--faint);margin-top:16px;line-height:1.6">Start at 25 leads &middot; No lock-in &middot; Cancel anytime</p>
+        </div>
 
         <!-- BRANDED LEAD GEN SYSTEM CARD -->
         <div class="pricing-card dfy rv d1">
@@ -745,6 +802,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
     <div class="foot-links">
       <a href="/">Home</a>
       <a href="/pricing">Pricing</a>
+      <a href="/buy-leads">Buy Leads</a>
       <a href="https://quoteleadshq.com/dashboard">Login</a>
       <a href="/blog">Blog</a>
       <a href="/privacy">Privacy</a>
