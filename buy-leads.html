@@ -1024,8 +1024,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="25" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">leads (min. 25)</span>
+            <input type="number" id="custom_qty" min="25" max="100" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">leads (min. 25, max. 100)</span>
           </div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
@@ -1508,7 +1508,7 @@ const order = {
   maxByNiche: {}         // per-order cap per niche / "niche:sub" (null/undefined = unlimited)
 };
 
-const BL_HARD_MAX = 500; // absolute ceiling per order regardless of cap
+const BL_HARD_MAX = 100; // absolute ceiling per order regardless of cap (100 leads in 90 days is our max PPL delivery capacity)
 
 // Effective per-order cap for the current selection (sub-niche cap wins, then
 // niche cap; missing cap means unlimited, so fall back to the hard ceiling).
@@ -1541,8 +1541,6 @@ const FALLBACK_TIERS = [
   { min_quantity: 25,  discount_percent: 0,  label: '25 leads',  is_popular: false },
   { min_quantity: 50,  discount_percent: 5,  label: '50 leads',  is_popular: true  },
   { min_quantity: 100, discount_percent: 5,  label: '100 leads', is_popular: false },
-  { min_quantity: 200, discount_percent: 10, label: '200 leads', is_popular: false },
-  { min_quantity: 300, discount_percent: 15, label: '300 leads', is_popular: false },
 ];
 let currentTiers = [...FALLBACK_TIERS];
 
