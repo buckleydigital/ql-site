@@ -1471,7 +1471,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="foot-links">
       <a href="/">Home</a>
       <a href="/pricing">Pricing</a>
-      <a href="/pay-per-lead">Pay Per Lead</a>
       <a href="/buy-leads">Buy Leads</a>
       <a href="https://quoteleadshq.com/dashboard">Login</a>
       <a href="/blog">Blog</a>
@@ -1509,10 +1508,10 @@ const order = {
   maxByNiche: {}         // per-order cap per niche / "niche:sub" (null/undefined = unlimited)
 };
 
-const BL_HARD_MAX = 100; // absolute ceiling per order regardless of cap (100 leads in 90 days is our max PPL delivery capacity)
+const BL_HARD_MAX = 100; // maximum leads per order
 
 // Effective per-order cap for the current selection (sub-niche cap wins, then
-// niche cap; missing cap means unlimited, so fall back to the hard ceiling).
+// niche limit; missing means unlimited, so fall back to the maximum).
 function activeMax() {
   let cap = null;
   if (order.niche && order.sub_niche && order.maxByNiche[order.niche + ':' + order.sub_niche] != null) cap = order.maxByNiche[order.niche + ':' + order.sub_niche];
