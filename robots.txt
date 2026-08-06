@@ -7,6 +7,5 @@ Disallow: /sign-in.html
 Disallow: /reset-password.html
 Disallow: /market-pulse-intake.html
 Disallow: /market-pulse-confirmed.html
-Disallow: /requested.html
 
 Sitemap: https://quoteleads.com.au/sitemap.xml
