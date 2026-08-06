@@ -1,11 +1,4 @@
 User-agent: *
 Allow: /
 
-# Exclude auth and transactional pages
-Disallow: /buyer-dashboard.html
-Disallow: /sign-in.html
-Disallow: /reset-password.html
-Disallow: /market-pulse-intake.html
-Disallow: /market-pulse-confirmed.html
-
 Sitemap: https://quoteleads.com.au/sitemap.xml
