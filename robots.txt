@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+# Post-purchase and transitional pages
+Disallow: /payment-success
+Disallow: /payment-success.html
+Disallow: /welcome
+Disallow: /welcome.html
+
 Sitemap: https://quoteleads.com.au/sitemap.xml
