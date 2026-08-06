@@ -66,6 +66,13 @@ body::before{content:'';position:fixed;inset:0;
   font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;
   text-decoration:none;transition:all .2s;position:relative;overflow:hidden}
 .nav-cta:hover{background:var(--sky);transform:translateY(-1px);box-shadow:0 8px 28px rgba(71,151,255,.4)}
+.nav-cta-dark{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);color:var(--off) !important;
+  font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;
+  border:1px solid rgba(255,255,255,.12);text-decoration:none;transition:all .2s}
+.nav-cta-dark:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.22);color:var(--white) !important}
+.mob-cta-dark{background:rgba(255,255,255,.06) !important;color:var(--off) !important;padding:14px 0 !important;
+  border-radius:4px;text-align:center;margin-top:12px;border-bottom:none !important;border:1px solid rgba(255,255,255,.12) !important}
+.mob-cta-dark:hover{background:rgba(255,255,255,.10) !important;color:var(--white) !important}
 .mob-btn{display:none;background:none;border:none;cursor:none;padding:4px;flex-direction:column;gap:5px}
 .mob-btn span{display:block;width:22px;height:1.5px;background:var(--white);transition:.3s}
 .mob-menu{display:none;position:absolute;top:100%;left:0;right:0;
@@ -274,7 +281,9 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <ul class="nav-links">
       <li><a href="/#how-it-works">How It Works</a></li>
       <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/pricing" class="nav-cta">Get Started <svg viewBox="0 0 12 12" fill="none" style="width:12px;height:12px"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+      <li><a href="/buy-leads">Buy Leads</a></li>
+      <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
+      <li><a href="/get-started" class="nav-cta-dark">Get Started</a></li>
     </ul>
     <button class="mob-btn" id="mobBtn" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -283,7 +292,9 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <nav class="mob-menu" id="mobMenu">
     <a href="/#how-it-works">How It Works</a>
     <a href="/pricing">Pricing</a>
-    <a href="/pricing" class="mob-cta-link">Activate My System</a>
+    <a href="/buy-leads">Buy Leads</a>
+    <a href="https://quoteleadshq.com/dashboard">Login</a>
+    <a href="/get-started" class="mob-cta-dark">Get Started</a>
   </nav>
 </header>
 
