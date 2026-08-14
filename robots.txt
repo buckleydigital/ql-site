@@ -6,5 +6,7 @@ Disallow: /payment-success
 Disallow: /payment-success.html
 Disallow: /welcome
 Disallow: /welcome.html
+Disallow: /growth-onboarding
+Disallow: /growth-onboarding.html
 
 Sitemap: https://quoteleads.com.au/sitemap.xml
