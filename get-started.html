@@ -117,6 +117,10 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .callback-hint{font-size:.74rem;color:var(--faint);text-align:center;margin-top:8px}
 .form-note{font-size:.76rem;color:var(--faint);line-height:1.6;margin-top:14px;text-align:center}
 .form-err{color:#f87171;font-size:.82rem;margin-top:12px;text-align:center;display:none}
+.fld-err{display:none;color:#f87171;font-size:.74rem;margin-top:6px;line-height:1.45}
+.fld-err.on{display:block}
+input.invalid,select.invalid{border-color:rgba(248,113,113,.55)}
+.callback-hint.todo{color:var(--off)}
 
 /* SUCCESS */
 .success{display:none;text-align:center;padding:40px 20px}
@@ -179,7 +183,7 @@ footer{position:relative;z-index:3;padding:44px 5%;border-top:1px solid var(--bo
       </div>
 
       <div class="fld">
-        <label class="fld-label">What are you looking to do? <span class="req">*</span></label>
+        <label class="fld-label">How many leads a month are you after? <span class="req">*</span></label>
         <div class="goal-grid">
           <label class="goal-opt"><input type="radio" name="goal" value="30-60 leads/month" required>
             <div class="goal-box"><div class="goal-vol">30-60</div><div class="goal-sub">leads a month</div></div></label>
@@ -200,15 +204,15 @@ footer{position:relative;z-index:3;padding:44px 5%;border-top:1px solid var(--bo
       </div>
       <div class="two-col">
         <div class="fld"><label class="fld-label" for="email">Email <span class="req">*</span></label>
-          <input type="email" id="email" autocomplete="email" placeholder="you@business.com.au" required></div>
+          <input type="email" id="email" autocomplete="email" placeholder="you@business.com.au" required><div class="fld-err" id="emailErr">That email does not look right - check for a typo.</div></div>
         <div class="fld"><label class="fld-label" for="phone">Phone <span class="req">*</span></label>
-          <input type="tel" id="phone" autocomplete="tel" placeholder="04XX XXX XXX" required></div>
+          <input type="tel" id="phone" autocomplete="tel" placeholder="04XX XXX XXX" required><div class="fld-err" id="phoneErr">Enter an Australian mobile or landline, for example 0412 345 678.</div></div>
       </div>
 
       <div class="turnstile-wrap"><div id="turnstile-container"></div></div>
 
       <button class="btn-submit" id="callbackBtn" type="button" disabled onclick="submitGetStarted()">Request a callback</button>
-      <p class="callback-hint">We'll ring you during business hours (AEST). Requires the checkbox above.</p>
+      <p class="callback-hint" id="callbackHint">We'll ring you during business hours (AEST).</p>
       <div class="form-err" id="formErr"></div>
       <p class="form-note">By continuing you agree to receive communications from QuoteLeads, and to our <a href="/quoteleads-terms" style="color:var(--muted)">Platform Terms</a>. View our <a href="/privacy" style="color:var(--muted)">Privacy Policy</a>.</p>
     </div>
@@ -266,20 +270,78 @@ function fields(){
     phone:document.getElementById('phone').value.trim()
   };
 }
+var EMAIL_RE=/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+function emailOk(v){return EMAIL_RE.test(v);}
+// Australian number: mobile, landline, 1300/1800 or 13xxxx. Deliberately
+// permissive - blocking a real enquiry costs far more than accepting a typo.
+function phoneOk(v){
+  var d=v.replace(/[\s()\-.]/g,'').replace(/^\+?61/,'0');
+  return /^0[2-478]\d{8}$/.test(d)||/^1[38]00\d{6}$/.test(d)||/^13\d{4}$/.test(d);
+}
 // Core contact details required for BOTH actions.
 function coreValid(){
   var f=fields();
-  var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email);
-  return !!(f.trade&&f.name&&f.company&&emailOk&&f.phone);
+  return !!(f.trade&&f.name&&f.company&&emailOk(f.email)&&phoneOk(f.phone));
 }
 // Callback also needs a goal + Turnstile on top of the core details.
 function callbackValid(){return coreValid()&&!!fields().goalEl&&!!turnstileToken;}
-function refreshSubmit(){
-  document.getElementById('callbackBtn').disabled=!callbackValid();
+
+// Tell people what is still outstanding instead of leaving a dead button.
+function missingBits(){
+  var f=fields(),m=[];
+  if(!f.trade)m.push('your trade');
+  if(!f.goalEl)m.push('a monthly lead volume');
+  if(!f.name)m.push('your name');
+  if(!f.company)m.push('your company name');
+  if(!emailOk(f.email))m.push('a valid email');
+  if(!phoneOk(f.phone))m.push('a valid phone number');
+  if(!turnstileToken)m.push('the security check to finish');
+  return m;
 }
+function refreshSubmit(){
+  var ok=callbackValid();
+  document.getElementById('callbackBtn').disabled=!ok;
+  var hint=document.getElementById('callbackHint');
+  if(!hint)return;
+  if(ok){
+    hint.textContent="We'll ring you during business hours (AEST).";
+    hint.classList.remove('todo');
+  }else{
+    var m=missingBits(),txt;
+    if(m.length===1){txt='Just add '+m[0]+' to continue.';}
+    else if(m.length===2){txt='Add '+m[0]+' and '+m[1]+' to continue.';}
+    else{txt='Add '+m.slice(0,-1).join(', ')+' and '+m[m.length-1]+' to continue.';}
+    hint.textContent=txt;
+    hint.classList.add('todo');
+  }
+}
+// Inline errors appear on blur only, so nobody is told they are wrong mid-type.
+function markField(id,errId,valid){
+  var el=document.getElementById(id),err=document.getElementById(errId);
+  if(!el||!err)return;
+  var show=el.value.trim()!==''&&!valid;
+  err.classList.toggle('on',show);
+  el.classList.toggle('invalid',show);
+}
+['email','phone'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(!el)return;
+  el.addEventListener('blur',function(){
+    if(id==='email')markField('email','emailErr',emailOk(el.value.trim()));
+    else markField('phone','phoneErr',phoneOk(el.value.trim()));
+  });
+  el.addEventListener('input',function(){
+    var err=document.getElementById(id+'Err');
+    if(err&&err.classList.contains('on')){
+      var good=id==='email'?emailOk(el.value.trim()):phoneOk(el.value.trim());
+      if(good){err.classList.remove('on');el.classList.remove('invalid');}
+    }
+  });
+});
 document.querySelectorAll('#formView select,#formView input').forEach(function(el){
   el.addEventListener('input',refreshSubmit);el.addEventListener('change',refreshSubmit);
 });
+refreshSubmit();
 
 function basePayload(){
   var f=fields();
