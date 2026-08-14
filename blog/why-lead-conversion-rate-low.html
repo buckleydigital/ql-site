@@ -225,12 +225,11 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; font-family: var(--display); }
     display: flex; align-items: center; gap: 4px; padding: 0; transition: color 0.2s;
 }
 .nav-links > a:hover, .nav-links li a:hover { color: var(--ink); }
-.nav-cta {
-    background: var(--button-primary) !important; color: #fff !important;
+.nav-cta{
+    background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%) !important; color: #fff !important;
     padding: 9px 22px !important; border-radius: 100px !important;
     font-family: var(--body) !important; font-size: 0.84rem !important; font-weight: 500 !important;
-    transition: all 0.2s !important; text-decoration: none !important;
-}
+    transition: all 0.2s !important; text-decoration: none !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);border:1px solid rgba(255,255,255,.16);font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09) !important;border:1px solid rgba(255,255,255,.16) !important;font-weight:600 !important;}
 .nav-cta:hover { background: var(--sky) !important; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(71,151,255,0.4); }
 .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
 .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: 0.3s; }
@@ -242,7 +241,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; font-family: var(--display); }
 .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
 .mob-menu a { padding: 14px 0; font-size: 16px; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--border); }
 .mob-menu a:hover { color: var(--ink); }
-.mob-cta-link { background: var(--button-primary) !important; color: #fff !important; padding: 14px 0 !important; border-radius: 100px; text-align: center; margin-top: 12px; border-bottom: none !important; }
+.mob-cta-link{ background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%) !important; color: #fff !important; padding: 14px 0 !important; border-radius: 100px; text-align: center; margin-top: 12px; border-bottom: none !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);border:1px solid rgba(255,255,255,.16);font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09) !important;border:1px solid rgba(255,255,255,.16) !important;font-weight:600 !important;}
 
 .cta-section { padding: 100px 48px; text-align: center; position: relative; overflow: hidden; }
 .cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
@@ -250,266 +249,15 @@ h1, h2, h3, h4, h5, h6 { font-weight: 600; font-family: var(--display); }
 .cta-inner h2 em { font-style: normal; color: var(--button-primary); font-weight:600; }
 .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 40px; font-weight: 400; }
 .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.btn-primary { background: var(--button-primary); color: #fff; padding: 16px 36px; border-radius: 100px; text-decoration: none; font-family: var(--body); font-size: .88rem; font-weight: 500; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
-.btn-primary:hover { opacity: 0.92; box-shadow: 0 8px 28px rgba(71,151,255,.4); transform: translateY(-1px); }
-.btn-secondary { background: none; border: 1px solid var(--border-mid); color: var(--ink-soft); padding: 16px 36px; border-radius: 8px; text-decoration: none; font-family: var(--body); font-size: .88rem; font-weight: 400; display: inline-block; transition: all 0.2s; }
-.btn-secondary:hover { border-color: var(--accent); color: var(--ink); }
-.cta-footnote { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
-.cta-footnote span+span::before { content: ' · '; }
-
-footer { padding: 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.foot-logo { display: flex; align-items: center; gap: 10px; }
-.foot-logo img { height: 28px; width: auto; opacity: 0.65; }
-.foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
-.foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
-.foot-links a:hover { color: var(--ink); }
-.foot-copy { font-size: 13px; color: var(--ink-faint); }
-.foot-social { display: flex; gap: 16px; align-items: center; }
-.foot-social a { color: var(--ink-faint); transition: color 0.2s; display: flex; }
-.foot-social a:hover { color: var(--accent); }
-
-@media(max-width:1024px) { .hero, .content-section, .cta-section { padding: 80px 32px; } .site-header{padding:0 32px;} footer{padding:40px 32px;} }
-@media(max-width: 768px) { .content-section, .cta-section { padding: 64px 24px; } .hero { padding: 120px 24px 64px; } .nav-links{display:none;} .mob-btn{display:flex;} footer{padding:40px 24px;flex-direction:column;align-items:flex-start;gap:20px;} .related-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }
-
-body{cursor:none}
-#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
-#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
-body.hov #cur{width:18px;height:18px}
-body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
-#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
-#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
-.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
-.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
-.rv.in{opacity:1;transform:translateY(0)}
-            .nav-cta-dark{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);color:var(--off) !important;font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;border:1px solid rgba(255,255,255,.12);text-decoration:none;transition:all .2s}
-        .nav-cta-dark:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.22);color:var(--white) !important}
-        .mob-cta-dark{background:rgba(255,255,255,.06) !important;color:var(--off) !important;padding:14px 0 !important;border-radius:4px;text-align:center;margin-top:12px;border-bottom:none !important;border:1px solid rgba(255,255,255,.12) !important}
-        .mob-cta-dark:hover{background:rgba(255,255,255,.10) !important;color:var(--white) !important}
-        </style>
-</head>
-<body>
-<div id="cur"></div>
-<div id="curR"></div>
-<div id="aura"></div>
-<canvas id="particles"></canvas>
-<div class="scroll-prog" id="scrollProg"></div>
-<!-- HEADER -->
-<header class="site-header" id="siteHeader">
-    <div class="header-inner">
-        <a href="/" class="logo">
-            <img src="../quoteleads-logo-white.png" alt="QuoteLeads" style="height:36px;width:auto;display:block">
-        </a>
-        <ul class="nav-links">
-      <li><a href="/#how-it-works">How It Works</a></li>
-      <li><a href="/pricing">Pricing</a></li>
-      <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
-      <li><a href="/get-started" class="nav-cta-dark">Get Started</a></li>
-    </ul>
-        <button class="mob-btn" id="mobBtn" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
-    <nav class="mob-menu" id="mobMenu">
-    <a href="/#how-it-works">How It Works</a>
-    <a href="/pricing">Pricing</a>
-    <a href="https://quoteleadshq.com/dashboard">Login</a>
-    <a href="/get-started" class="mob-cta-dark">Get Started</a>
-  </nav>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-inner">
-        <div class="eyebrow">Conversion · Home Improvement Business · Lead Gen</div>
-        <h1>Why Your Lead Conversion Rate Is Low <em>(And How to Fix It)</em></h1>
-        <p class="hero-sub">A low conversion rate is not always a lead quality problem. Most of the time it is a process problem. Here is how to tell the difference and what to fix first.</p>
-        <div class="article-meta">
-            <span class="article-meta-tag">Conversion</span>
-            <span>QuoteLeads Editorial</span>
-            <span>11 min read</span>
-            <span>2026</span>
-        </div>
-    </div>
-</section>
-
-<!-- INTRO -->
-<section class="content-section">
-    <div class="si">
-        <div class="prose rv">
-            <p>Low conversion rate is the most common complaint in home improvement lead generation. And the most common misdiagnosis. Businesses blame lead quality first. Sometimes they are right. More often, the lead quality is fine and the conversion problem sits in speed, process, or quoting.</p>
-            <p>This distinction matters because the fix is completely different. Blaming lead quality leads to switching providers. Fixing process leads to higher conversion from the same leads you are already buying. One costs more money. The other makes more.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SECTION 1 -->
-<section class="content-section lifted">
-    <div class="si">
-        <div class="slbl">Root Causes</div>
-        <h2 class="stitle rv">The four causes of <em>low conversion rate.</em></h2>
-        <div class="prose rv">
-            <h3>Slow follow-up.</h3>
-            <p>Covered in more depth in the <a href="/blog/lead-follow-up-close-rate.html">follow-up system article</a>, but worth naming here: the single most common cause of low conversion is a slow or inconsistent first contact. If your team is calling leads 24-48 hours after receipt, a significant portion of those homeowners have already booked someone else.</p>
-
-            <h3>Inconsistent quoting process.</h3>
-            <p>Quote sent days after site visit. No follow-up on open quotes. Price delivered verbally with no written scope. Any one of these creates friction that lets a competitor with a better quoting process win the job you earned with the first call.</p>
-
-            <h3>Wrong leads for your business model.</h3>
-            <p>A mismatch between job type and your offering. If you specialise in high-end restoration and you are receiving leads for budget re-roofs, the conversion will be low regardless of follow-up speed. This is a genuine lead quality problem - but it is one of lead fit, not lead authenticity.</p>
-
-            <h3>Trust deficit at first contact.</h3>
-            <p>The homeowner does not know who you are and you make no effort to establish credibility. The first call is a cold introduction. The homeowner is cautious. If your opener is a price pitch before any relationship has been established, you are doing the hardest possible version of sales.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SECTION 2 -->
-<section class="content-section">
-    <div class="si">
-        <div class="slbl">Diagnosis</div>
-        <h2 class="stitle rv">How to tell if it is a lead problem <em>or a process problem.</em></h2>
-        <div class="prose rv">
-            <p>Run this diagnostic against your own numbers:</p>
-            <ul>
-                <li>If your contact rate is above 60% but close rate is below 20%, it is a process problem - likely quoting or trust.</li>
-                <li>If your contact rate is below 50%, it is a follow-up problem before it is a lead problem.</li>
-                <li>If your contact rate is high and close rate is high but volume is low, it is a lead supply problem - you need more leads, not better process.</li>
-            </ul>
-            <p>Most home improvement businesses skip this diagnostic and go straight to blaming the lead source. The data almost always tells a different story once you actually look at it.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SECTION 3 -->
-<section class="content-section lifted">
-    <div class="si">
-        <div class="slbl">Quoting</div>
-        <h2 class="stitle rv">Fixing the <em>quoting process.</em></h2>
-        <div class="prose rv">
-            <p>Quote the same day or next day. Send a professional written quote with clear scope and price. Follow up on every open quote at 48 hours with a single message.</p>
-            <p>Most home improvement businesses send a quote and never follow up, then wonder why the homeowner chose someone else. The homeowner is evaluating multiple quotes. The business that follows up with a brief, professional message at 48 hours - "Just checking if you had any questions on the quote I sent" - converts at meaningfully higher rates than the ones that send and wait.</p>
-            <p>Following up on a quote is not desperate. It is professional. It signals that you want the job and that you will be responsive once the work begins. That is a trust signal, not a weakness.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SECTION 4 -->
-<section class="content-section">
-    <div class="si">
-        <div class="slbl">First Impression</div>
-        <h2 class="stitle rv">The trust gap <em>at first contact.</em></h2>
-        <div class="prose rv">
-            <p>The homeowner just submitted a form. They do not know you. Your first call has one job: establish that you are professional, you read their enquiry, and you are easy to deal with.</p>
-            <p>Launching into a price pitch before building any trust is the fastest way to lose a homeowner to a competitor who called two hours later but sounded more credible. The homeowner's decision is not purely rational. They are hiring someone to work on their home. Trust is the primary variable, not price.</p>
-            <p>A simple opener that references the specific enquiry, confirms the property, and asks one clarifying question before talking about anything else will outperform a scripted pitch in almost every case.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SECTION 5 -->
-<section class="content-section lifted">
-    <div class="si">
-        <div class="slbl">Metrics</div>
-        <h2 class="stitle rv">Tracking <em>the right metrics.</em></h2>
-        <div class="prose rv">
-            <p>Leads received, contact rate, quote rate, close rate. Each step in the funnel has a different lever. If you are only tracking close rate (jobs won divided by leads received), you cannot see where the attrition is happening.</p>
-            <p>A business with a 30% contact rate and a 40% close-to-quote rate has a completely different problem from a business with an 80% contact rate and a 15% close-to-quote rate. The overall close rate might look similar. The fix is entirely different.</p>
-            <p>Track all four steps. Review weekly. The number that is lowest relative to industry benchmarks is the number to work on first.</p>
-
-            <div class="callout rv">
-                <div class="callout-lbl">The benchmark</div>
-                <p>Most home improvement businesses are converting 10-15% of leads when 25-35% is achievable with the same lead source and better process. <strong>The leads are not the ceiling. The process is.</strong></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- RELATED ARTICLES -->
-<section class="content-section">
-    <div class="si">
-        <div class="slbl">Keep Reading</div>
-        <h2 class="stitle rv">Related <em>articles.</em></h2>
-        <div class="related-grid rv">
-            <a href="/blog/lead-follow-up-close-rate.html" class="related-card">
-                <div class="related-tag">Conversion</div>
-                <div class="related-title">How to Follow Up Leads and <em>Actually Close Them.</em></div>
-                <div class="related-desc">The follow-up system that turns more leads into booked jobs. Speed, sequencing, and the mistakes that kill conversion.</div>
-            </a>
-            <a href="/blog/roofing-lead-cost-australia.html" class="related-card">
-                <div class="related-tag">Lead Generation</div>
-                <div class="related-title">How Much Should You Pay for a Roofing Lead <em>in Australia?</em></div>
-                <div class="related-desc">An honest pricing breakdown with real job values, conversion maths, and a formula to find your maximum viable lead cost.</div>
-            </a>
-            <a href="/blog/cost-per-acquisition-trade-business.html" class="related-card">
-                <div class="related-tag">Business Finance</div>
-                <div class="related-title">How to Calculate Your Cost Per Acquisition <em>as a Home Improvement Business.</em></div>
-                <div class="related-desc">Stop optimising for cost per lead. Here is how to calculate true cost per acquisition and use it to make better marketing decisions.</div>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-    <div class="cta-inner">
-        <h2>Fix the process, then <em>scale the leads.</em></h2>
-        <p>The Branded Lead Gen System runs branded campaigns on your own ad accounts, with a survey funnel, AI follow-up and CRM pipeline built into your business. Live in 24-48 hours. Everything we build stays yours.</p>
-        <div class="cta-btns">
-            <a href="/get-started" class="btn-primary">Get Started</a>
-        </div>
-        <p class="cta-footnote"><span>Your ad accounts</span><span>Live in 24-48 hours</span><span>No lock-in</span></p>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <div class="foot-logo">
-        <img src="../quoteleads-logo-white.png" alt="QuoteLeads" style="height:32px;width:auto;opacity:.7">
-    </div>
-    <div class="foot-links">
-      <a href="/">Home</a>
-      <a href="/pricing">Pricing</a>
-      <a href="https://quoteleadshq.com/dashboard">Login</a>
-      <a href="/blog">Blog</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
-    </div>
-    <div class="foot-social">
-        <a href="https://facebook.com/quoteleads" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="https://instagram.com/quoteleads" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://linkedin.com/company/quoteleads" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-    </div>
-    <div class="foot-copy">© 2026 QuoteLeads · Australian owned and operated</div>
-</footer>
-
-<script>
-    var hdr = document.querySelector('.site-header');
-    if(hdr){ var syncHeader = function(){ hdr.classList.toggle('sc', window.scrollY > 20); }; syncHeader(); window.addEventListener('scroll', syncHeader, { passive: true }); }
-    var mobBtn = document.getElementById('mobBtn'), mobMenu = document.getElementById('mobMenu');
-    if(mobBtn && mobMenu){ mobBtn.addEventListener('click', function(){ mobMenu.classList.toggle('open'); }); mobMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mobMenu.classList.remove('open'); }); }); }
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){ a.addEventListener('click', function(e){ var target = document.querySelector(a.getAttribute('href')); if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); } }); });
-</script>
-<script>
-(function(){
-const W=()=>window.innerWidth,H=()=>window.innerHeight;
-const canvas=document.getElementById('particles');
-const ctx=canvas.getContext('2d');
-canvas.width=W();canvas.height=H();
-window.addEventListener('resize',()=>{canvas.width=W();canvas.height=H()});
-class P{constructor(){this.reset(true)}reset(init){this.x=Math.random()*W();this.y=init?Math.random()*H():H()+10;this.r=Math.random()*1.6+.3;this.vx=(Math.random()-.5)*.2;this.vy=-(Math.random()*.35+.08);this.a=Math.random()*.35+.05;this.life=0;this.maxL=Math.random()*450+200;this.c=Math.random()>.5?'#4797FF':Math.random()>.5?'#7CB9FF':'#B8D4FF';this.glow=this.r>1.2}draw(){const t=this.life/this.maxL;const fade=t<.1?t/.1:t>.8?(1-t)/.2:1;ctx.save();ctx.globalAlpha=this.a*fade;if(this.glow){ctx.shadowBlur=this.r*5;ctx.shadowColor=this.c}ctx.fillStyle=this.c;ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fill();ctx.restore()}update(){this.x+=this.vx;this.y+=this.vy;this.life++;if(this.life>this.maxL||this.y<-20)this.reset()}}
-const pts=Array.from({length:80},()=>new P());
-function animP(){ctx.clearRect(0,0,W(),H());pts.forEach(p=>{p.update();p.draw()});requestAnimationFrame(animP)}
-animP();
-})();
+.btn-primary {
+            background: linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%); color: #fff;
+            padding: 16px 38px; border-radius: 100px; text-decoration: none;
+            font-family: var(--body); font-size: .9rem; font-weight: 600; letter-spacing: 0.01em;
+            display: inline-block; border: 1px solid rgba(255,255,255,.16);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 -10px 20px rgba(0,0,0,.14),
+                        0 8px 22px rgba(71,151,255,.34), 0 0 0 6px rgba(71,151,255,.10), 0 0 34px rgba(71,151,255,.20);
+            transition: transform .22s, box-shadow .3s, filter .22s;
+        })();
 (function(){
 const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
 let mx=0,my=0,rx=0,ry=0;
