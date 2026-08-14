@@ -262,15 +262,41 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
 /* BUTTONS */
-.btn-mag{position:relative;display:inline-flex;align-items:center;gap:10px;
-  background:var(--blue);color:#fff;font-family:var(--body);font-size:.88rem;font-weight:500;
-  letter-spacing:.02em;padding:14px 30px;border-radius:100px;text-decoration:none;border:none;
-  overflow:hidden;transition:background .2s,box-shadow .2s;cursor:none}
+.btn-mag{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);
+  color:#fff;font-family:var(--body);font-size:.9rem;font-weight:600;
+  letter-spacing:.01em;padding:15px 34px;border-radius:100px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42),
+             inset 0 -10px 20px rgba(0,0,0,.14),
+             0 8px 22px rgba(71,151,255,.34),
+             0 0 0 6px rgba(71,151,255,.10),
+             0 0 34px rgba(71,151,255,.20);
+  overflow:hidden;transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .3s,filter .22s;cursor:none}
 .btn-mag::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.18),transparent 60%);
+  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.22),transparent 60%);
   opacity:0;transition:opacity .3s}
-.btn-mag:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38)}
+.btn-mag::after{content:'';position:absolute;left:8%;right:8%;top:1px;height:42%;border-radius:100px;
+  background:linear-gradient(180deg,rgba(255,255,255,.30),transparent);pointer-events:none}
+.btn-mag:hover{transform:translateY(-2px);filter:saturate(1.06) brightness(1.05);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),
+             inset 0 -10px 20px rgba(0,0,0,.14),
+             0 14px 34px rgba(71,151,255,.44),
+             0 0 0 7px rgba(71,151,255,.14),
+             0 0 52px rgba(71,151,255,.30)}
+.btn-mag:active{transform:translateY(0)}
 .btn-mag:hover::before{opacity:1}
+.btn-mag.btn-green{background:linear-gradient(180deg,#4FE0A6 0%,#10B981 48%,#0A9268 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),
+             inset 0 -10px 20px rgba(0,0,0,.16),
+             0 8px 22px rgba(16,185,129,.34),
+             0 0 0 6px rgba(16,185,129,.10),
+             0 0 34px rgba(16,185,129,.20)}
+.btn-mag.btn-green:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.46),
+             inset 0 -10px 20px rgba(0,0,0,.16),
+             0 14px 34px rgba(16,185,129,.44),
+             0 0 0 7px rgba(16,185,129,.14),
+             0 0 52px rgba(16,185,129,.30)}
 .btn-mag svg{width:14px;height:14px;transition:transform .2s}
 .btn-mag:hover svg{transform:translateX(4px)}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);
@@ -628,14 +654,14 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="ey rv">Turnkey Lead Engines</div>
 
         <h1>A lead engine that already works.<br><span class="ga">Rent the keys.</span></h1>
-        <p class="hero-sub" style="animation:fadeUp .7s .16s ease both">An established lead brand refers exclusive enquiries to your business, with your name in the consent before the homeowner submits. You hold the ad account and pay Meta and Google direct, and we run and optimise the whole thing. It is already built and already carrying data.</p>
+        <p class="hero-sub" style="animation:fadeUp .7s .16s ease both">We hand you an established lead brand that is already built, already running and already carrying data - and we keep running it for you. Exclusive enquiries arrive with your business named in the consent. Nothing to build, nothing to learn.</p>
         <div class="hbtns">
             <a href="/get-started" class="btn-mag">Enquire About An Engine</a>
         </div>
         <div class="hero-trust">
+            <span>Fully managed, nothing to set up</span>
             <span>Your business named in the consent</span>
-            <span>Fully managed while you rent</span>
-            <span>Ad spend paid direct, from $50/day</span>
+            <span>Live in 24-48 hours</span>
         </div>
     </div>
 
@@ -686,13 +712,43 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     </div>
 </section>
 
+<!-- HANDS OFF -->
+<section>
+    <div class="si">
+        <div class="ey rv">Hands Off</div>
+        <h2 class="stitle rv">You hold the keys.<br><em>We do the driving.</em></h2>
+        <div class="content-body rv">
+            <p>While you rent, the engine is fully managed. You are not handed an ad account and left to work it out - there is nothing to build, nothing to configure and nothing to learn.</p>
+        </div>
+
+        <div class="target-grid rv">
+            <div class="target-card">
+                <span class="target-card-tag">Setup</span>
+                <h3>Nothing for you to build</h3>
+                <p>The brand, the landing page, the survey, the tracking and the campaigns already exist. Activation is us putting your business name into the consent flow and pointing the leads at you.</p>
+            </div>
+            <div class="target-card">
+                <span class="target-card-tag">Managed</span>
+                <h3>We run it and optimise it</h3>
+                <p>Creative, targeting and campaign performance are managed by our team for as long as you rent. You never log in to an ads manager unless you want to look.</p>
+            </div>
+            <div class="target-card">
+                <span class="target-card-tag">No tech needed</span>
+                <h3>No experience required</h3>
+                <p>No pixels, no audiences, no integrations to wire up. If you can answer the phone and quote a job, you can run this. Leads arrive where you already work.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <!-- WHO IT SUITS -->
 <section>
     <div class="si">
         <div class="ey rv">Who It Suits</div>
         <h2 class="stitle rv">Built for businesses that already<br><em>tried the other options.</em></h2>
         <div class="content-body rv">
-            <p>This is not a starter product. It suits businesses with a sales team to feed and a clear view of what a job is worth to them.</p>
+            <p>It suits businesses with a sales team to feed and a clear view of what a job is worth to them.</p>
         </div>
 
         <div class="how-steps rv" style="grid-template-columns:repeat(2,1fr)">
@@ -742,8 +798,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             </div>
             <div class="how-step">
                 <div class="how-num">2</div>
-                <h3>Take the keys</h3>
-                <p>Ad account access, the funnel, the consent flow with your business name in it, and campaign history - handed over. Billing goes on your card, paid direct to the platforms.</p>
+                <h3>We set it up</h3>
+                <p>We put your business name into the consent flow, point the leads at you and get the campaigns live. The only thing we need from you is a card on the ad account, so your spend goes straight to the platforms and never through us.</p>
             </div>
             <div class="how-step">
                 <div class="how-num">3</div>
@@ -769,39 +825,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 <div class="stat-val">24-48h</div>
                 <div class="stat-label">From handover to live</div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- HANDS OFF -->
-<section>
-    <div class="si">
-        <div class="ey rv">Hands Off</div>
-        <h2 class="stitle rv">You hold the keys.<br><em>We do the driving.</em></h2>
-        <div class="content-body rv">
-            <p>While you rent, the engine is fully managed. You are not handed an ad account and left to work it out - there is nothing to build, nothing to configure and nothing to learn.</p>
-        </div>
-
-        <div class="target-grid rv">
-            <div class="target-card">
-                <span class="target-card-tag">Setup</span>
-                <h3>Nothing for you to build</h3>
-                <p>The brand, the landing page, the survey, the tracking and the campaigns already exist. Activation is us putting your business name into the consent flow and pointing the leads at you.</p>
-            </div>
-            <div class="target-card">
-                <span class="target-card-tag">Managed</span>
-                <h3>We run it and optimise it</h3>
-                <p>Creative, targeting and campaign performance are managed by our team for as long as you rent. You never log in to an ads manager unless you want to look.</p>
-            </div>
-            <div class="target-card">
-                <span class="target-card-tag">No tech needed</span>
-                <h3>No experience required</h3>
-                <p>No pixels, no audiences, no integrations to wire up. If you can answer the phone and quote a job, you can run this. Leads arrive where you already work.</p>
-            </div>
-        </div>
-
-        <div class="content-body rv" style="margin-top:32px">
-            <p>Engines are rental only. If you want to own the asset outright rather than rent it, that is the Branded Lead Gen System - built on your own brand, on accounts in your name, and yours permanently.</p>
         </div>
     </div>
 </section>
@@ -888,8 +911,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="economics-box">
                 <div class="economics-box-lbl">What you hold</div>
                 <ul class="economics-list">
-                    <li>The ad account, in your name, with your billing on it</li>
                     <li>Full visibility of spend, creative and campaign performance</li>
+                    <li>The ad account in your name, so the spend is always yours to see</li>
                     <li>The landing page and multi-step qualification survey</li>
                     <li>The consent flow naming your business specifically</li>
                     <li>Existing pixel and conversion history from day one</li>

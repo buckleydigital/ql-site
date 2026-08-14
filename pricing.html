@@ -151,15 +151,41 @@ body::before{content:'';position:fixed;inset:0;
 .hrule{width:48px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);margin:22px auto;animation:fadeUp .7s .12s ease both}
 .hero-sub{font-size:1.04rem;color:var(--muted);line-height:1.74;max-width:600px;margin:0 auto 36px;animation:fadeUp .7s .16s ease both}
 .hbtns{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;animation:fadeUp .7s .24s ease both}
-.btn-mag{position:relative;display:inline-flex;align-items:center;gap:10px;
-  background:var(--blue);color:#fff;font-family:var(--body);font-size:.88rem;font-weight:500;
-  letter-spacing:.02em;padding:14px 30px;border-radius:100px;text-decoration:none;border:none;
-  overflow:hidden;transition:background .2s,box-shadow .2s;cursor:none}
+.btn-mag{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);
+  color:#fff;font-family:var(--body);font-size:.9rem;font-weight:600;
+  letter-spacing:.01em;padding:15px 34px;border-radius:100px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42),
+             inset 0 -10px 20px rgba(0,0,0,.14),
+             0 8px 22px rgba(71,151,255,.34),
+             0 0 0 6px rgba(71,151,255,.10),
+             0 0 34px rgba(71,151,255,.20);
+  overflow:hidden;transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .3s,filter .22s;cursor:none}
 .btn-mag::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.18),transparent 60%);
+  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.22),transparent 60%);
   opacity:0;transition:opacity .3s}
-.btn-mag:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38)}
+.btn-mag::after{content:'';position:absolute;left:8%;right:8%;top:1px;height:42%;border-radius:100px;
+  background:linear-gradient(180deg,rgba(255,255,255,.30),transparent);pointer-events:none}
+.btn-mag:hover{transform:translateY(-2px);filter:saturate(1.06) brightness(1.05);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),
+             inset 0 -10px 20px rgba(0,0,0,.14),
+             0 14px 34px rgba(71,151,255,.44),
+             0 0 0 7px rgba(71,151,255,.14),
+             0 0 52px rgba(71,151,255,.30)}
+.btn-mag:active{transform:translateY(0)}
 .btn-mag:hover::before{opacity:1}
+.btn-mag.btn-green{background:linear-gradient(180deg,#4FE0A6 0%,#10B981 48%,#0A9268 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),
+             inset 0 -10px 20px rgba(0,0,0,.16),
+             0 8px 22px rgba(16,185,129,.34),
+             0 0 0 6px rgba(16,185,129,.10),
+             0 0 34px rgba(16,185,129,.20)}
+.btn-mag.btn-green:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.46),
+             inset 0 -10px 20px rgba(0,0,0,.16),
+             0 14px 34px rgba(16,185,129,.44),
+             0 0 0 7px rgba(16,185,129,.14),
+             0 0 52px rgba(16,185,129,.30)}
 .btn-mag svg{width:14px;height:14px;transition:transform .2s}
 .btn-mag:hover svg{transform:translateX(4px)}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);
@@ -538,7 +564,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
           <p style="font-size:.82rem;color:var(--off);margin-bottom:16px;line-height:1.7;padding:14px 16px;border-radius:12px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.16)"><strong style="color:#34d399">Only this option runs under your own brand.</strong> The campaigns, the landing page and the ad accounts carry your business name, they are yours permanently, and you can scale as far as your team can handle.</p>
           <p style="font-size:.78rem;color:var(--faint);margin-bottom:24px;line-height:1.6">Ad budget paid directly to Meta/Google - never through us. Start from as little as <strong style="color:var(--off)">$50/day</strong> and scale as return is confirmed.</p>
           <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
-            <a href="/get-started" class="btn-mag" style="display:inline-flex;font-size:.92rem;padding:16px 36px;background:rgba(16,185,129,.85)">
+            <a href="/get-started" class="btn-mag btn-green" style="display:inline-flex;font-size:.92rem;padding:16px 36px">
               Get Started
               <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
             </a>
