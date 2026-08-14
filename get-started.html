@@ -113,12 +113,8 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .btn-submit{width:100%;background:var(--blue);color:#fff;border:none;padding:15px;border-radius:100px;font-family:var(--body);font-size:.95rem;font-weight:600;cursor:pointer;transition:opacity .2s,transform .2s,background .2s}
 .btn-submit:hover:not(:disabled){background:var(--sky);transform:translateY(-1px)}
 .btn-submit:disabled{opacity:.4;cursor:not-allowed}
-.btn-buy{background:var(--green);color:#04120c}
-.btn-buy:hover:not(:disabled){background:#4ee0a8;transform:translateY(-1px)}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--off)}
 .btn-ghost:hover:not(:disabled){background:var(--glass);border-color:var(--bmid);color:var(--white)}
-.or-divider{display:flex;align-items:center;gap:12px;margin:14px 0;color:var(--faint);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em}
-.or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:var(--border)}
 .callback-hint{font-size:.74rem;color:var(--faint);text-align:center;margin-top:8px}
 .form-note{font-size:.76rem;color:var(--faint);line-height:1.6;margin-top:14px;text-align:center}
 .form-err{color:#f87171;font-size:.82rem;margin-top:12px;text-align:center;display:none}
@@ -166,7 +162,7 @@ footer{position:relative;z-index:3;padding:44px 5%;border-top:1px solid var(--bo
   <div id="formView">
     <div class="eyebrow">Get Started</div>
     <h1>Let's get you <em>more jobs.</em></h1>
-    <p class="lead">Fill in your details, then either buy the Branded Lead Gen System now, or request a callback and we'll walk you through it.</p>
+    <p class="lead">Fill in your details and request a callback - we'll walk you through the Branded Lead Gen System and get you set up.</p>
 
     <div class="card">
       <div class="fld">
@@ -212,9 +208,7 @@ footer{position:relative;z-index:3;padding:44px 5%;border-top:1px solid var(--bo
 
       <div class="turnstile-wrap"><div id="turnstile-container"></div></div>
 
-      <button class="btn-submit btn-buy" id="buyBtn" type="button" disabled onclick="buyNow()">Buy the system now - $2,500 + GST</button>
-      <div class="or-divider"><span>or</span></div>
-      <button class="btn-submit btn-ghost" id="callbackBtn" type="button" disabled onclick="submitGetStarted()">Request a callback instead</button>
+      <button class="btn-submit" id="callbackBtn" type="button" disabled onclick="submitGetStarted()">Request a callback</button>
       <p class="callback-hint">We'll ring you during business hours (AEST). Requires the checkbox above.</p>
       <div class="form-err" id="formErr"></div>
       <p class="form-note">By continuing you agree to receive communications from QuoteLeads, and to our <a href="/quoteleads-terms" style="color:var(--muted)">Platform Terms</a>. View our <a href="/privacy" style="color:var(--muted)">Privacy Policy</a>.</p>
@@ -279,11 +273,9 @@ function coreValid(){
   var emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email);
   return !!(f.trade&&f.name&&f.company&&emailOk&&f.phone);
 }
-// Buy now: core details are enough. Callback: also needs a goal + Turnstile.
-function buyValid(){return coreValid();}
+// Callback also needs a goal + Turnstile on top of the core details.
 function callbackValid(){return coreValid()&&!!fields().goalEl&&!!turnstileToken;}
 function refreshSubmit(){
-  document.getElementById('buyBtn').disabled=!buyValid();
   document.getElementById('callbackBtn').disabled=!callbackValid();
 }
 document.querySelectorAll('#formView select,#formView input').forEach(function(el){
@@ -325,32 +317,10 @@ async function submitGetStarted(){
     window.scrollTo(0,0);
   }catch(e){
     err.textContent='Something went wrong sending your request. Please try again, or email contact@quoteleads.com.au.';
-    err.style.display='block';btn.disabled=false;btn.textContent='Request a callback instead';
+    err.style.display='block';btn.disabled=false;btn.textContent='Request a callback';
   }
 }
 
-// ── Buy now → $2,500 DFY Stripe checkout (ql-hq create-checkout) ──
-var QLHQ='https://wjadekgptkstfdootuol.supabase.co';
-async function buyNow(){
-  if(!buyValid())return;
-  var btn=document.getElementById('buyBtn'),err=document.getElementById('formErr');
-  err.style.display='none';btn.disabled=true;btn.textContent='Redirecting to secure checkout…';
-  var payload=Object.assign(basePayload(),{type:'managed',request_type:'purchase',turnstile_token:turnstileToken||''});
-  // Always send the lead details to Make too (so we capture them even if they
-  // abandon the Stripe checkout). Fire-and-forget with keepalive so it survives
-  // the redirect.
-  try{fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true});}catch(e){}
-  try{
-    var res=await fetch(QLHQ+'/functions/v1/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    var data=await res.json();
-    if(!res.ok||!data.url)throw new Error(data.error||('HTTP '+res.status));
-    try{if(window.fbq)fbq('track','InitiateCheckout');}catch(e){}
-    window.location.href=data.url;
-  }catch(e){
-    err.textContent='Could not start checkout. Please try again, or email contact@quoteleads.com.au.';
-    err.style.display='block';btn.disabled=false;btn.textContent='Buy the system now - $2,500 + GST';
-  }
-}
 </script>
 </body>
 </html>
