@@ -987,5 +987,13 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
 
 </script>
 
+<script>
+// REVEAL
+(function(){
+const rvEls=document.querySelectorAll('.rv');
+const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}})},{threshold:.1});
+rvEls.forEach(el=>ro.observe(el));
+})();
+</script>
 </body>
 </html>

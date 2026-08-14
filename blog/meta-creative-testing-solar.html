@@ -132,15 +132,315 @@
         .cta-inner h2 em { font-style: normal; color: var(--button-primary); font-weight: 600; }
         .cta-inner p { font-size: 16px; color: var(--ink-muted); line-height: 1.75; margin-bottom: 40px; font-weight: 400; }
         .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-        .btn-primary {
-            background: linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%); color: #fff;
-            padding: 16px 38px; border-radius: 100px; text-decoration: none;
-            font-family: var(--body); font-size: .9rem; font-weight: 600; letter-spacing: 0.01em;
-            display: inline-block; border: 1px solid rgba(255,255,255,.16);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 -10px 20px rgba(0,0,0,.14),
-                        0 8px 22px rgba(71,151,255,.34), 0 0 0 6px rgba(71,151,255,.10), 0 0 34px rgba(71,151,255,.20);
-            transition: transform .22s, box-shadow .3s, filter .22s;
-        });
+        .btn-primary { background: linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%); color: #fff; padding: 16px 36px; border-radius: 100px; text-decoration: none; font-family: var(--body); font-size: .88rem; font-weight: 500; letter-spacing: 0.02em; display: inline-block; transition: opacity 0.2s, transform 0.2s; font-weight: 600; border: 1px solid rgba(255,255,255,.16); box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 -10px 20px rgba(0,0,0,.14), 0 8px 22px rgba(71,151,255,.34), 0 0 0 6px rgba(71,151,255,.10), 0 0 34px rgba(71,151,255,.20);}
+        .btn-primary:hover { opacity: 0.92; box-shadow: 0 8px 28px rgba(71,151,255,.4); transform: translateY(-1px); }
+        .btn-secondary { background: none; border: 1px solid var(--border-mid); color: var(--ink-soft); padding: 16px 36px; border-radius: 8px; text-decoration: none; font-family: var(--body); font-size: .88rem; font-weight: 400; display: inline-block; transition: all 0.2s; }
+        .btn-secondary:hover { border-color: var(--accent); color: var(--ink); }
+        .cta-footnote { margin-top: 20px; font-size: 13px; color: var(--ink-faint); }
+        .cta-footnote span+span::before { content: ' · '; }
+
+        .related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 48px; }
+        .related-card { padding: 32px 24px; text-decoration: none; display: block; transition: all 0.3s; background: var(--bg-card); }
+        .related-card:hover { background: var(--bg-lift); }
+        .related-tag { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-dim); padding: 3px 10px; border-radius: 3px; display: inline-block; margin-bottom: 16px; }
+        .related-title { font-family: var(--display); font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.3; margin-bottom: 10px; }
+        .related-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.6; font-weight: 400; }
+
+        .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 5%; background: rgba(4,4,10,0); border-bottom: 1px solid transparent; transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s; }
+        .site-header.sc { background: rgba(4,4,10,0.92); backdrop-filter: blur(28px); border-bottom-color: var(--border); }
+        .header-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+        .nav-links > a, .nav-links li a { font-family: var(--body); font-size: 0.84rem; font-weight: 400; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
+        .nav-links > a:hover, .nav-links li a:hover { color: var(--ink); }
+        .nav-cta { background: linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%) !important; color: #fff !important; padding: 9px 22px !important; border-radius: 100px !important; font-family: var(--body) !important; font-size: 0.84rem !important; font-weight: 500 !important; transition: all 0.2s !important; text-decoration: none !important; font-weight: 600; border: 1px solid rgba(255,255,255,.16); box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 -10px 20px rgba(0,0,0,.14), 0 8px 22px rgba(71,151,255,.34), 0 0 0 6px rgba(71,151,255,.10), 0 0 34px rgba(71,151,255,.20);}
+        .mob-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+        .mob-btn span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: 0.3s; }
+        .mob-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(4,4,10,0.97); border-bottom: 1px solid var(--border); padding: 0 5% 20px; backdrop-filter: blur(28px); }
+        .mob-menu.open { display: flex; flex-direction: column; gap: 0; }
+        .mob-menu a { padding: 14px 0; font-size: 16px; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--border); }
+        .mob-cta-link { background: linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%) !important; color: #fff !important; padding: 14px 0 !important; border-radius: 100px; text-align: center; margin-top: 12px; border-bottom: none !important; font-weight: 600; border: 1px solid rgba(255,255,255,.16); box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 -10px 20px rgba(0,0,0,.14), 0 8px 22px rgba(71,151,255,.34), 0 0 0 6px rgba(71,151,255,.10), 0 0 34px rgba(71,151,255,.20);}
+
+        footer { padding: 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        .foot-logo img { height: 28px; width: auto; opacity: 0.65; }
+        .foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+        .foot-links a { font-size: 13px; color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+        .foot-links a:hover { color: var(--ink); }
+        .foot-copy { font-size: 13px; color: var(--ink-faint); }
+
+        @media(max-width:1024px) { .hero,.content-section,.cta-section { padding: 80px 32px; } .site-header { padding: 0 32px; } footer { padding: 40px 32px; } }
+        @media(max-width:768px) { .hero { padding: 120px 24px 64px; } .content-section,.cta-section { padding: 64px 24px; } .nav-links { display: none; } .mob-btn { display: flex; } footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; gap: 20px; } .myth-row { grid-template-columns: 1fr; } .related-grid { grid-template-columns: 1fr; } .cta-btns { flex-direction: column; align-items: center; } }
+    body{cursor:none}
+#cur{position:fixed;width:8px;height:8px;background:#4797FF;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left .8s ease,top .8s ease}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;transform-origin:left center;transform:scaleX(0);background:linear-gradient(90deg,#4797FF,#7CB9FF)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+            .nav-cta-dark{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);color:var(--off) !important;font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;border:1px solid rgba(255,255,255,.12);text-decoration:none;transition:all .2s; font-weight: 600; border: 1px solid rgba(255,255,255,.16); box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 -10px 20px rgba(0,0,0,.14), 0 8px 22px rgba(71,151,255,.34), 0 0 0 6px rgba(71,151,255,.10), 0 0 34px rgba(71,151,255,.20);}
+        .nav-cta-dark:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.22);color:var(--white) !important}
+        .mob-cta-dark{background:rgba(255,255,255,.06) !important;color:var(--off) !important;padding:14px 0 !important;border-radius:100px;text-align:center;margin-top:12px;border-bottom:none !important;border:1px solid rgba(255,255,255,.12) !important; font-weight: 600; border: 1px solid rgba(255,255,255,.16); box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 -10px 20px rgba(0,0,0,.14), 0 8px 22px rgba(71,151,255,.34), 0 0 0 6px rgba(71,151,255,.10), 0 0 34px rgba(71,151,255,.20);}
+        .mob-cta-dark:hover{background:rgba(255,255,255,.10) !important;color:var(--white) !important}
+        </style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+<canvas id="particles"></canvas>
+<div class="scroll-prog" id="scrollProg"></div>
+<header class="site-header" id="siteHeader">
+    <div class="header-inner">
+        <a href="/" class="logo">
+            <img src="../quoteleads-logo-white.png" alt="QuoteLeads" style="height:36px;width:auto;display:block">
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+      <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
+      <li><a href="/get-started" class="nav-cta-dark">Get Started</a></li>
+      
+        </ul>
+        <button class="mob-btn" id="mobBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="mob-menu" id="mobMenu">
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/pricing">Pricing</a>
+    <a href="https://quoteleadshq.com/dashboard">Login</a>
+    <a href="/get-started" class="mob-cta-dark">Get Started</a>
+    
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="eyebrow">Paid Media Reality Check · Meta Ads · Solar Lead Gen</div>
+        <h1>Why Meta creative testing for solar<br><em>feels like gambling.</em></h1>
+        <p class="hero-sub">You've been there. A creative starts performing. So you try to replicate it. Same format, same copy angle, same targeting. And it completely dies. You're not doing anything wrong. The system is just less predictable than Meta wants you to believe.</p>
+        <div class="article-meta">
+            <span class="article-meta-tag">Paid Media</span>
+            <span>6 min read</span>
+            <span>Meta Ads</span>
+            <span>Solar Lead Gen</span>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 1 -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">The Core Problem</div>
+        <h2 class="stitle rv">The auction is never <em>the same twice.</em></h2>
+        <div class="prose rv">
+            <p>Every Meta ad result is a product of a specific moment in a specific auction. When your creative "won," it won against a particular set of competing advertisers, at a particular CPM, targeting people in a particular mood on a particular day.</p>
+            <p>None of those variables are stable. Replicate the campaign a month later and you're entering a completely different auction. Different competitors are bidding. Different inventory is available. Seasonality shifts consumer attention. Your creative is identical, but the context around it isn't.</p>
+
+            <div class="pull-quote">
+                <p>Your creative is one variable in an auction with <em>hundreds of variables</em> you can't see or control.</p>
+            </div>
+
+            <p>Treating a result as proof that your creative "works" is like crediting your umbrella for the rain stopping. The conditions matter as much as the execution.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">What You Don't See</div>
+        <h2 class="stitle rv">The hidden variables your results <em>don't show you.</em></h2>
+        <div class="prose rv">
+            <p>When you look at your Meta results dashboard, you see cost per lead, CTR, spend, volume. Here's what you don't see:</p>
+            <ul>
+                <li>
+                    <strong>Account history</strong>
+                    Your pixel and ad account carry an optimisation history Meta uses to shape delivery. An aged account with strong conversion data gets different, usually better, inventory than a fresh one.
+                </li>
+                <li>
+                    <strong>Audience saturation</strong>
+                    Meta serves your ad to the most likely converters first. Early results look great because you're hitting the top 5 to 10% of your audience. Performance declines as that pool exhausts.
+                </li>
+                <li>
+                    <strong>Auction competitiveness</strong>
+                    Other solar companies, home improvement advertisers, and finance brands compete for the same homeowner audience. Their budgets affect your CPM whether you know it or not.
+                </li>
+                <li>
+                    <strong>Learning phase variance</strong>
+                    Two identical campaigns entering learning at the same time can produce different results based on early random delivery signals. The algorithm locks in patterns from the first few days.
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: MYTHS -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">Common Misconceptions</div>
+        <h2 class="stitle rv">The myths most advertisers <em>still believe.</em></h2>
+
+        <div class="myths-grid">
+            <div class="myth-row">
+                <div class="myth-cell myth-col">
+                    <div class="myth-lbl">Myth</div>
+                    <div class="myth-text">If a creative wins a test, it will work consistently.</div>
+                </div>
+                <div class="myth-cell real-col">
+                    <div class="real-lbl">Reality</div>
+                    <div class="myth-text">It won in one specific auction window. Decay is inevitable. The question is how fast, not if.</div>
+                </div>
+            </div>
+            <div class="myth-row">
+                <div class="myth-cell myth-col">
+                    <div class="myth-lbl">Myth</div>
+                    <div class="myth-text">You can replicate a winner across accounts.</div>
+                </div>
+                <div class="myth-cell real-col">
+                    <div class="real-lbl">Reality</div>
+                    <div class="myth-text">Account history, pixel data, and page history are invisible variables. The same creative in a different account is a different experiment.</div>
+                </div>
+            </div>
+            <div class="myth-row">
+                <div class="myth-cell myth-col">
+                    <div class="myth-lbl">Myth</div>
+                    <div class="myth-text">More creative testing equals better results.</div>
+                </div>
+                <div class="myth-cell real-col">
+                    <div class="real-lbl">Reality</div>
+                    <div class="myth-text">Most tests don't reach statistical significance. You're often making decisions based on noise. Testing principles rather than executions is more valuable.</div>
+                </div>
+            </div>
+            <div class="myth-row">
+                <div class="myth-cell myth-col">
+                    <div class="myth-lbl">Myth</div>
+                    <div class="myth-text">When performance drops, something is wrong with the creative.</div>
+                </div>
+                <div class="myth-cell real-col">
+                    <div class="real-lbl">Reality</div>
+                    <div class="myth-text">Often the creative is fine. Audience fatigue, auction shifts, and seasonal changes in competing spend account for most unexplained drops.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">Solar Specifically</div>
+        <h2 class="stitle rv">Why solar is particularly brutal <em>on Meta.</em></h2>
+        <div class="prose rv">
+            <p>Solar is a high-consideration, high-ticket purchase. The homeowner who converts from a Meta ad is typically months into a research process. They saw your ad at the right moment in a longer journey, not because of it.</p>
+            <p>This makes attribution on Meta almost meaningless for solar. You're not measuring whether your creative caused a conversion. You're measuring whether Meta's algorithm found someone already close to deciding, at a moment when your ad happened to appear.</p>
+
+            <div class="callout amber">
+                <div class="callout-lbl">Worth knowing</div>
+                <p>Meta has a financial incentive to keep you testing and spending. Every new creative you launch restarts the learning phase, which costs you data and money. <strong>The platform is not neutral. It benefits from your uncertainty.</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">What Actually Helps</div>
+        <h2 class="stitle rv">What actually works, <em>sort of.</em></h2>
+        <div class="prose rv">
+            <p><strong>Test principles, not executions.</strong> Does emotional or fear-of-missing-out messaging beat rational ROI messaging? Does social proof beat authority? These learnings transfer. Whether a specific video beats a specific image does not.</p>
+            <p><strong>Demand statistical significance before calling a winner.</strong> Most "winning" creatives in solar ad accounts have fewer than 20 conversions. That's not a result, that's noise. Minimum 50 conversions per variant before you decide anything.</p>
+            <p><strong>Expect decay and plan for it.</strong> Budget for creative refresh from day one. A creative working well now will fatigue. The teams that stay consistent are the ones with a production pipeline, not ones desperately searching for the next winner.</p>
+            <p><strong>Use Meta for retargeting, not cold prospecting alone.</strong> Meta works best when it's reinforcing interest built elsewhere, through Google Search, referral, or direct mail. Cold prospecting on Meta for a $10k purchase is hard. Retargeting warm website traffic is not.</p>
+            <p><strong>Diversify before you're forced to.</strong> If Meta is your only lead gen channel, one bad month can collapse your pipeline. Build secondary channels while Meta is working, not after it stops.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 6: WHAT THIS MEANS FOR YOUR LEADS -->
+<section class="content-section lifted">
+    <div class="si">
+        <div class="slbl">What This Means For You</div>
+        <h2 class="stitle rv">What this means if you're <em>buying leads.</em></h2>
+        <div class="prose rv">
+            <p>If your lead seller relies entirely on Meta, you're inheriting all of this volatility in your supply. Volume will be inconsistent. Cost per lead will fluctuate, and those fluctuations will eventually affect either the price you pay or the quality you get.</p>
+            <p>Ask any lead seller you work with what channels they use. If the answer is just Meta, that's a risk worth knowing about upfront.</p>
+
+            <div class="callout blue">
+                <div class="callout-lbl">Our position</div>
+                <p>We're not immune to this either. Meta is part of our mix. But it's not the whole story, and we think you deserve to understand exactly what you're buying and where it comes from.</p>
+            </div>
+
+            <p>The operators who do well on Meta aren't better at finding winning creatives. They're better at managing the uncertainty.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="cta-inner">
+        <h2>Want leads from a <em>diversified source?</em></h2>
+        <p>The Branded Lead Gen System runs branded campaigns across Meta and Google on your own ad accounts - not one fragile channel - with full transparency on how every enquiry is generated. Everything we build stays yours.</p>
+        <div class="cta-btns">
+            <a href="/get-started" class="btn-primary">Get Started</a>
+        </div>
+        <p class="cta-footnote">
+            <span>No lock-in</span>
+            <span>Your ad accounts</span>
+            <span>Australian solar specialists</span>
+        </p>
+    </div>
+</section>
+
+<!-- RELATED -->
+<section class="content-section">
+    <div class="si">
+        <div class="slbl">Keep Reading</div>
+        <h2 class="stitle rv">Related articles.</h2>
+        <div class="related-grid rv">
+            <a href="/blog/exclusive-solar-lead-myth.html" class="related-card">
+                <span class="related-tag">Industry Truth</span>
+                <div class="related-title">The "Exclusive" Solar Lead Is Mostly a Myth</div>
+                <div class="related-desc">Your exclusivity agreement is with the lead seller, not the homeowner. Here's what that actually means for your close rate.</div>
+            </a>
+            <a href="/blog/exclusive-vs-shared-solar-leads.html" class="related-card">
+                <span class="related-tag">Solar Lead Gen</span>
+                <div class="related-title">Exclusive vs Shared Solar Leads</div>
+                <div class="related-desc">The full economics breakdown. Why cost per job won tells a very different story to cost per lead.</div>
+            </a>
+            <a href="/blog/solar-lead-cost-australia.html" class="related-card">
+                <span class="related-tag">Pricing</span>
+                <div class="related-title">Solar Lead Cost in Australia</div>
+                <div class="related-desc">What solar leads actually cost in 2026, what drives price variation, and what to look for beyond the headline number.</div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="foot-logo">
+        <img src="../quoteleads-logo-white.png" alt="QuoteLeads">
+    </div>
+    <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/pricing">Pricing</a>
+        <a href="https://quoteleadshq.com/dashboard">Login</a>
+        <a href="/blog">Blog</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 QuoteLeads. All rights reserved.</div>
+</footer>
+
+<script>
+    const hdr = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => hdr.classList.toggle('sc', window.scrollY > 20));
+    document.getElementById('mobBtn').addEventListener('click', function() {
+        document.getElementById('mobMenu').classList.toggle('open');
+    });
 </script>
 <script>
 // PARTICLES
