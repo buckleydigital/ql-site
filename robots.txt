@@ -1,9 +1,7 @@
 User-agent: *
 Allow: /
 
-# Post-purchase and transitional pages
-Disallow: /payment-success
-Disallow: /payment-success.html
+# Transitional pages
 Disallow: /welcome
 Disallow: /welcome.html
 Disallow: /growth-onboarding
