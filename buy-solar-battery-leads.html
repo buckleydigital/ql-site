@@ -237,9 +237,9 @@ body::before{content:'';position:fixed;inset:0;
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
 .nav-links a{font-size:.84rem;font-weight:400;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.02em}
 .nav-links a:hover{color:var(--white)}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff !important;
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);color:#fff !important;
   font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;
-  text-decoration:none;transition:all .2s}
+  text-decoration:none;transition:all .2s;position:relative;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);border:1px solid rgba(255,255,255,.16);font-weight:600;}
 .nav-cta:hover{background:var(--sky);transform:translateY(-1px);box-shadow:0 8px 28px rgba(71,151,255,.4)}
 .mob-btn{display:none;background:none;border:none;cursor:none;padding:4px;flex-direction:column;gap:5px}
 .mob-btn span{display:block;width:22px;height:1.5px;background:var(--white);transition:.3s}
@@ -249,15 +249,12 @@ body::before{content:'';position:fixed;inset:0;
 .mob-menu.open{display:flex;flex-direction:column;gap:0}
 .mob-menu a{padding:14px 0;font-size:1rem;color:var(--off);text-decoration:none;border-bottom:1px solid var(--border)}
 .mob-menu a:hover{color:var(--white)}
-.mob-cta-link{background:var(--blue) !important;color:#fff !important;padding:14px 0 !important;
-  border-radius:4px;text-align:center;margin-top:12px;border-bottom:none !important}
-.nav-cta-dark{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);color:var(--off) !important;
-  font-family:var(--body);font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;
-  border:1px solid rgba(255,255,255,.12);text-decoration:none;transition:all .2s}
-.nav-cta-dark:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.22);color:var(--white) !important}
-.mob-cta-dark{background:rgba(255,255,255,.06) !important;color:var(--off) !important;padding:14px 0 !important;
-  border-radius:4px;text-align:center;margin-top:12px;border-bottom:none !important;border:1px solid rgba(255,255,255,.12) !important}
-.mob-cta-dark:hover{background:rgba(255,255,255,.10) !important;color:var(--white) !important}
+.mob-cta-link{background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%) !important;color:#fff !important;padding:14px 0 !important;
+  border-radius:100px;text-align:center;margin-top:12px;border-bottom:none !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);border:1px solid rgba(255,255,255,.16);font-weight:600;}
+.nav-cta-dark{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);color:#fff !important;font-family:var(--body);font-size:.84rem;font-weight:600;padding:10px 24px;border-radius:100px;border:1px solid rgba(255,255,255,.16);text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);transition:transform .2s,box-shadow .3s,filter .2s}
+.nav-cta-dark:hover{transform:translateY(-1px);filter:brightness(1.06);color:#fff !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.46),inset 0 -6px 12px rgba(0,0,0,.12),0 8px 24px rgba(71,151,255,.42),0 0 0 5px rgba(71,151,255,.13)}
+.mob-cta-dark{background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%) !important;color:#fff !important;padding:15px 0 !important;font-weight:600;border-radius:100px;text-align:center;margin-top:12px;border-bottom:none !important;border:1px solid rgba(255,255,255,.16) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 6px 18px rgba(71,151,255,.30)}
+.mob-cta-dark:hover{filter:brightness(1.06);color:#fff !important}
 
 /* HERO */
 .page-hero{position:relative;z-index:3;padding:140px 5% 60px;text-align:center;background:var(--void)}
@@ -276,14 +273,26 @@ body::before{content:'';position:fixed;inset:0;
 .page-hero-meta span::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-.btn-mag{position:relative;display:inline-flex;align-items:center;gap:10px;
-  background:var(--blue);color:#fff;font-family:var(--body);font-size:.88rem;font-weight:500;
-  letter-spacing:.02em;padding:14px 30px;border-radius:100px;text-decoration:none;border:none;
-  overflow:hidden;transition:background .2s,box-shadow .2s;cursor:none}
+.btn-mag{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);
+  color:#fff;font-family:var(--body);font-size:.9rem;font-weight:600;
+  letter-spacing:.01em;padding:15px 34px;border-radius:100px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42),
+             inset 0 -10px 20px rgba(0,0,0,.14),
+             0 8px 22px rgba(71,151,255,.34),
+             0 0 0 6px rgba(71,151,255,.10),
+             0 0 34px rgba(71,151,255,.20);
+  overflow:hidden;transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .3s,filter .22s;cursor:none}
 .btn-mag::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.18),transparent 60%);
+  background:radial-gradient(circle at var(--bx,50%) var(--by,50%),rgba(255,255,255,.22),transparent 60%);
   opacity:0;transition:opacity .3s}
-.btn-mag:hover{background:var(--sky);box-shadow:0 16px 40px rgba(71,151,255,.38)}
+.btn-mag:hover{transform:translateY(-2px);filter:saturate(1.06) brightness(1.05);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),
+             inset 0 -10px 20px rgba(0,0,0,.14),
+             0 14px 34px rgba(71,151,255,.44),
+             0 0 0 7px rgba(71,151,255,.14),
+             0 0 52px rgba(71,151,255,.30)}
 .btn-mag:hover::before{opacity:1}
 .btn-mag svg{width:14px;height:14px;transition:transform .2s}
 .btn-mag:hover svg{transform:translateX(4px)}
@@ -923,6 +932,24 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .area-links a{font-size:.8rem;color:var(--off);text-decoration:none;background:var(--glass);
   border:1px solid var(--border);border-radius:100px;padding:8px 16px;transition:all .2s}
 .area-links a:hover{border-color:var(--bblue);color:var(--white);background:var(--bdim)}
+.btn-mag::after{content:'';position:absolute;left:8%;right:8%;top:1px;height:42%;border-radius:100px;
+  background:linear-gradient(180deg,rgba(255,255,255,.30),transparent);pointer-events:none}
+.btn-mag:active{transform:translateY(0)}
+.btn-mag.btn-green{background:linear-gradient(180deg,#4FE0A6 0%,#10B981 48%,#0A9268 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),
+             inset 0 -10px 20px rgba(0,0,0,.16),
+             0 8px 22px rgba(16,185,129,.34),
+             0 0 0 6px rgba(16,185,129,.10),
+             0 0 34px rgba(16,185,129,.20)}
+.btn-mag.btn-green:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.46),
+             inset 0 -10px 20px rgba(0,0,0,.16),
+             0 14px 34px rgba(16,185,129,.44),
+             0 0 0 7px rgba(16,185,129,.14),
+             0 0 52px rgba(16,185,129,.30)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--muted);
+  border:1px solid var(--border);font-family:var(--body);font-size:.88rem;font-weight:400;
+  padding:14px 28px;border-radius:100px;text-decoration:none;transition:all .25s;cursor:none}
+.btn-ghost:hover{border-color:var(--faint);color:var(--white)}
 </style>
 </head>
 <body>
@@ -941,16 +968,16 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <ul class="nav-links">
       <li><a href="/#how-it-works">How It Works</a></li>
       <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/buy-leads">Buy Leads</a></li>
       <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
       <li><a href="/get-started" class="nav-cta-dark">Get Started</a></li>
     </ul>
-    <button class="mob-btn" id="mobBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="mob-btn" id="mobBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <nav class="mob-menu" id="mobMenu">
+            <nav class="mob-menu" id="mobMenu">
     <a href="/#how-it-works">How It Works</a>
     <a href="/pricing">Pricing</a>
-    <a href="/buy-leads">Buy Leads</a>
     <a href="https://quoteleadshq.com/dashboard">Login</a>
     <a href="/get-started" class="mob-cta-dark">Get Started</a>
   </nav>
@@ -1770,12 +1797,12 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
 <footer>
   <div class="foot-inner">
-    <div class="foot-logo"><img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:32px;width:auto;opacity:.7"></div>
+    <div class="foot-logo">
+      <img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:32px;width:auto;opacity:.7">
+    </div>
     <div class="foot-links">
       <a href="/">Home</a>
       <a href="/pricing">Pricing</a>
-      <a href="/buy-leads">Buy Leads</a>
-      <a href="/battery-retrofit-leads">Battery Retrofit Leads</a>
       <a href="https://quoteleadshq.com/dashboard">Login</a>
       <a href="/blog">Blog</a>
       <a href="/privacy">Privacy</a>
@@ -1787,7 +1814,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <a href="https://instagram.com/quoteleads" target="_blank" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
       <a href="https://linkedin.com/company/quoteleads" target="_blank" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
     </div>
-    <div class="foot-copy">&copy; 2026 QuoteLeads &middot; Australian owned and operated</div>
+    <div class="foot-copy">© 2026 QuoteLeads · Australian owned and operated</div>
     <div class="foot-status"><span class="foot-status-dot"></span>All systems operational</div>
   </div>
 </footer>
