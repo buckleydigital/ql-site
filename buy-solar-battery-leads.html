@@ -156,7 +156,7 @@
           "name": "What information comes with each solar battery lead?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Full name, verified mobile, verified email and postcode, plus survey answers covering their existing solar system size, their average quarterly electricity bill and their purchase timeline. That tells you whether the job suits an AC-coupled retrofit or a hybrid inverter upgrade before you spend time on a site visit."
+            "text": "Full name, verified mobile, verified email and postcode, plus survey answers covering their existing solar system size, their average quarterly electricity bill and their purchase timeline. You have the shape of the job in hand before you spend time on a site visit."
           }
         },
         {
@@ -1348,7 +1348,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
       <h4>Qualified on their existing system.</h4>
-      <p>Before a battery lead reaches you it has answered how big its current solar system is, what the quarterly bill looks like and when it wants to buy. You know <strong>whether it's an AC-coupled retrofit or a hybrid swap</strong> before you get in the ute.</p>
+      <p>Before a battery lead reaches you it has answered how big its current solar system is, what the quarterly bill looks like and when it wants to buy. You know <strong>what you are walking into</strong> before you get in the ute.</p>
     </div>
   </div>
 </div>
@@ -1566,7 +1566,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What information comes with each solar battery lead?</span><span class="faq-qi">+</span></button>
-        <div class="faq-a">Full name, verified mobile, verified email and postcode, plus survey answers covering their existing solar system size, their average quarterly electricity bill and their purchase timeline. Those extra data points are the difference between a name and a job: system size tells you whether it's an AC-coupled retrofit or a hybrid inverter upgrade, bill size tells you what capacity to quote, and timeline tells you who to call first.</div>
+        <div class="faq-a">Full name, verified mobile, verified email and postcode, plus survey answers covering their existing solar system size, their average quarterly electricity bill and their purchase timeline. Those extra data points are the difference between a name and a job: you know the size of the existing setup, what the household is spending, and who to call first.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Where do the leads come from?</span><span class="faq-qi">+</span></button>
@@ -2248,7 +2248,7 @@ function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.cl
 
   var funnelSteps=[
     {label:'Step 1 of 5',q:'Do you already have solar panels installed?',opts:[['Yes, already installed',true],['No, not yet',false]],note:'This first step filters out anyone without existing solar, so you only pay for genuine retrofit prospects.',pct:20},
-    {label:'Step 2 of 5',q:'How big is your current solar system?',opts:[['Under 5kW',false],['5kW - 10kW',true],['Over 10kW',false],['Not sure',false]],note:'System size tells you whether the job suits an AC-coupled retrofit or a hybrid inverter upgrade.',pct:40},
+    {label:'Step 2 of 5',q:'How big is your current solar system?',opts:[['Under 5kW',false],['5kW - 10kW',true],['Over 10kW',false],['Not sure',false]],note:'System size tells you the shape of the job before you book the visit.',pct:40},
     {label:'Step 3 of 5',q:"What's your average quarterly bill?",opts:[['Under $300',false],['$300-$500',false],['$500-$800',true],['$800+',false]],note:'Bill size is captured up front so the buyer never has to ask twice.',pct:60},
     {label:'Step 4 of 5',q:'When are you looking to move forward?',opts:[['As soon as possible',true],['1-3 months',false],['Just exploring',false]],note:'Timeline is delivered with the lead, no guessing at intent.',pct:80}
   ];
