@@ -496,34 +496,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 ::-webkit-scrollbar-thumb:hover{background:var(--blue)}
 
 /* FEATURE CARDS (inline glassmorphism from index.html) */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
-.feat-wrap{perspective:1200px;cursor:none}
-.feat-card{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px 32px 32px;
-  display:flex;flex-direction:column;overflow:hidden;
-  transform-style:preserve-3d;transition:transform .08s ease,box-shadow .3s ease;
-  will-change:transform;backdrop-filter:blur(12px)}
-.feat-card::before{content:'';position:absolute;inset:0;border-radius:20px;
-  background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.08),transparent 55%);opacity:0;transition:opacity .4s}
-.feat-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .4s}
-.feat-wrap:hover .feat-card{box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 40px rgba(71,151,255,.07)}
-.feat-wrap:hover .feat-card::before{opacity:1}
-.feat-wrap:hover .feat-card::after{opacity:1}
-.feat-shine{position:absolute;inset:0;border-radius:20px;pointer-events:none;opacity:0;transition:opacity .3s;z-index:1}
-.feat-wrap:hover .feat-shine{opacity:1}
-.feat-orb{position:absolute;width:180px;height:180px;border-radius:50%;filter:blur(50px);
-  top:50%;right:-30px;transform:translateY(-50%);opacity:0;transition:opacity .4s;pointer-events:none;
-  background:rgba(71,151,255,.1)}
-.feat-wrap:hover .feat-orb{opacity:1}
-.fnum{font-family:var(--display);font-size:.67rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:28px;position:relative;z-index:2}
-.fico{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-  margin-bottom:22px;background:var(--bdim);border:1px solid rgba(71,151,255,.22);
-  position:relative;z-index:2;transition:all .3s}
-.fico svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.feat-wrap:hover .fico{transform:translateZ(10px) scale(1.05);box-shadow:0 0 20px rgba(71,151,255,.2)}
-.fname{font-family:var(--display);font-size:1.1rem;font-weight:600;letter-spacing:-.01em;margin-bottom:10px;position:relative;z-index:2}
-.fdesc{color:var(--muted);font-size:.84rem;line-height:1.7;position:relative;z-index:2;flex:1}
 
 /* COMPARISON TABLE */
 .comparison-wrap{margin-top:48px;border:1px solid var(--border);border-radius:16px;overflow:auto;background:var(--deep)}
@@ -601,7 +573,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .feat-grid{grid-template-columns:1fr 1fr}
   .target-grid{grid-template-columns:1fr 1fr}
   .economics-grid{grid-template-columns:1fr;gap:40px}
   .blog-grid{grid-template-columns:1fr 1fr}
@@ -614,7 +585,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .hbtns{flex-direction:column;align-items:center;width:100%}
   .btn-mag,.btn-ghost{width:100%;justify-content:center}
   .hero-trust{flex-direction:column;text-align:center;gap:8px}
-  .feat-grid{grid-template-columns:1fr}
+
   .problem-grid{grid-template-columns:1fr}
   .target-grid{grid-template-columns:1fr}
   .how-steps{grid-template-columns:1fr}
@@ -738,36 +709,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 <p>Enquiries route straight to your phone, inbox or CRM the moment they submit, through QuoteLeadsHQ or into whatever system you already run.</p>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- HANDS OFF -->
-<section>
-    <div class="si">
-        <div class="ey rv">Hands Off</div>
-        <h2 class="stitle rv">We run it.<br><em>You just take the calls.</em></h2>
-        <div class="content-body rv">
-            <p>While you rent, the engine is fully managed. You are not handed an ad account and left to work it out - there is nothing to build, nothing to configure and nothing to learn.</p>
-        </div>
-
-        <div class="target-grid rv">
-            <div class="target-card">
-                <span class="target-card-tag">Setup</span>
-                <h3>Nothing for you to build</h3>
-                <p>The brand, the landing page, the survey, the tracking and the campaigns already exist. Activation is us building the creative around your offer, putting your business name into the consent flow and pointing the leads at you. You approve the ads before they run.</p>
-            </div>
-            <div class="target-card">
-                <span class="target-card-tag">Managed</span>
-                <h3>We run it and optimise it</h3>
-                <p>Creative, targeting and campaign performance are managed by our team for as long as you rent. You never log in to an ads manager unless you want to look.</p>
-            </div>
-            <div class="target-card">
-                <span class="target-card-tag">No tech needed</span>
-                <h3>No experience required</h3>
-                <p>No pixels, no audiences, no integrations to wire up. If you can answer the phone and quote a job, you can run this. Leads arrive where you already work.</p>
-            </div>
-        </div>
-
     </div>
 </section>
 
