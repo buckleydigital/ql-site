@@ -94,7 +94,7 @@
       "name": "Who pays for the advertising?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You do, and you pay Meta and Google directly - never through us. Your payment method sits on the ad account and you are an admin on it, so the spend goes straight to the platforms and you can see and change it yourself. Most engines run from around $50 a day, and you can raise or lower that whenever you want."
+        "text": "You do, and you pay Meta and Google directly. We never handle it, never mark it up, and never take a clip of it. Your payment method sits on the ad account and you are an admin on it, so the spend goes straight to the platforms and you can see and change it yourself. Most engines run from around $50 a day, and you can raise or lower that whenever you want."
       }
     },
     {
@@ -403,19 +403,6 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   font-size:.82rem;color:var(--muted);line-height:1.6}
 .lead-card-foot strong{color:var(--white);font-weight:500}
 
-/* ECONOMICS */
-.economics-grid{display:grid;grid-template-columns:5fr 4fr;gap:80px;align-items:start;margin-top:48px}
-.economics-body{font-size:.95rem;font-weight:400;color:var(--muted);line-height:1.85}
-.economics-body p+p{margin-top:20px}
-.economics-body strong{color:var(--white);font-weight:500}
-.economics-box{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border:1px solid var(--bmid);border-radius:16px;padding:32px;backdrop-filter:blur(12px)}
-.economics-box::before{content:'';display:block;width:24px;height:2px;background:var(--blue);opacity:.5;margin-bottom:20px}
-.economics-box-lbl{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:20px}
-.economics-list{list-style:none;display:flex;flex-direction:column;gap:14px}
-.economics-list li{font-size:.84rem;color:var(--off);line-height:1.55;display:flex;align-items:flex-start;gap:10px}
-.economics-list li::before{content:'→';color:var(--blue);flex-shrink:0;font-size:.75rem;margin-top:2px}
-
 /* PRICING GRID */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);
   border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:48px}
@@ -566,7 +553,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 /* RESPONSIVE */
 @media(max-width:1024px){
   .target-grid{grid-template-columns:1fr 1fr}
-  .economics-grid{grid-template-columns:1fr;gap:40px}
+
   .blog-grid{grid-template-columns:1fr 1fr}
   .own-grid-page{grid-template-columns:1fr 1fr}
 }
@@ -583,7 +570,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .how-steps{grid-template-columns:1fr}
   .stats-row{grid-template-columns:1fr 1fr}
   .lead-card-body{grid-template-columns:1fr}
-  .economics-grid{grid-template-columns:1fr;gap:40px}
+
   .pricing-grid{grid-template-columns:1fr 1fr}
   .cta-paths{grid-template-columns:1fr}
   .blog-grid{grid-template-columns:1fr}
@@ -858,34 +845,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     </div>
 </section>
 
-<!-- AD SPEND -->
-<section>
-    <div class="si">
-        <div class="ey rv">The Spend</div>
-        <h2 class="stitle rv">Your budget. Your card.<br><em>Never through us.</em></h2>
-        <div class="economics-grid rv">
-            <div class="economics-body">
-                <p>Advertising spend goes straight from your payment method to Meta and Google. We never handle it, never mark it up, and never take a clip of it. You can see every dollar in the account it runs through.</p>
-                <p>Most engines run from around <strong>$50 a day</strong>. Raise it when your sales team has capacity, drop it when they do not. You are an admin on the account and it is your card, so the ceiling is always your call.</p>
-                <p><strong>There are no hidden fees on top.</strong> Renting is from $600/mo, includes QuoteLeadsHQ access, and covers us running and optimising the engine for you.</p>
-            </div>
-            <div class="economics-box">
-                <div class="economics-box-lbl">What you get</div>
-                <ul class="economics-list">
-                    <li>Approval of every ad before it goes live, and full visibility of spend, creative and campaign performance</li>
-                    <li>Admin access to the ad account and Business Manager, with your billing on it, so nothing can be hidden from you</li>
-                    <li>A landing page and multi-step qualification survey, already built and tested</li>
-                    <li>The consent flow naming your business specifically</li>
-                    <li>The benefit of pixel and conversion history already accumulated, from day one</li>
-                    <li>Lead routing into your phone, inbox or CRM</li>
-                    <li>The freedom to scale the budget up or down at any time, yourself</li>
-                    <li>QuoteLeadsHQ access included, or routed into the CRM you already use</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- VS BUYING LEADS -->
 <section>
     <div class="si">
@@ -972,7 +931,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What exactly am I renting?</span><span class="faq-qi">+</span></button><div class="faq-a">A working lead engine: an established third-party lead brand with campaign history behind it, the landing page and multi-step survey funnel, the consent flow that names your business, and admin access to the ad account and Business Manager the campaigns run in. It is already built and already carrying performance data, so it does not start from zero, and we run and optimise it for you.</div></div>
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Should I rent an engine or own a system?</span><span class="faq-qi">+</span></button><div class="faq-a">Rent an engine if you want enquiries quickly with no commitment - it is live in 24-48 hours and you can cancel at any time. Take the Branded Lead Gen System if you want the asset itself: we build it under your brand, on ad accounts in your name, and it stays yours. Engines are rental only, so if ownership is what you are after, the system is the right answer. Plenty of businesses run an engine while their system is being built.</div></div>
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do I need to know anything about running ads?</span><span class="faq-qi">+</span></button><div class="faq-a">No. While you rent, the engine is fully managed - we handle the setup, the creative, the targeting and the ongoing optimisation, and you never need to open an ads manager. There is nothing to configure at your end. Engines are rental only, so this never changes hands mid-flight - it stays managed for as long as you rent.</div></div>
-            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Who pays for the advertising?</span><span class="faq-qi">+</span></button><div class="faq-a">You do, and you pay Meta and Google directly - never through us. Your payment method sits on the ad account and you are an admin on it, so the spend goes straight to the platforms and you can see and change it yourself. Most engines run from around $50 a day, and you can raise or lower that whenever you want.</div></div>
+            <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Who pays for the advertising?</span><span class="faq-qi">+</span></button><div class="faq-a">You do, and you pay Meta and Google directly. We never handle it, never mark it up, and never take a clip of it. Your payment method sits on the ad account and you are an admin on it, so the spend goes straight to the platforms and you can see and change it yourself. Most engines run from around $50 a day, and you can raise or lower that whenever you want.</div></div>
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Are engines limited?</span><span class="faq-qi">+</span></button><div class="faq-a">Yes, genuinely. Each engine is held by one business at a time, and we only run a limited number per trade, so availability is finite rather than a sales tactic. If the engine that suits you is already taken we will tell you on the call and offer an alternative, or you can have your own system built instead.</div></div>
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Will the leads be exclusive to my business?</span><span class="faq-qi">+</span></button><div class="faq-a">Yes. Each engine is held by one business only - nobody else runs it, and nobody else receives what it produces. Every enquiry goes to you alone, and the homeowner sees your business name in the consent text before they submit. Exclusivity attaches to the engine itself, so nothing it generates is ever shared, resold, or sent to a second business.</div></div>
             <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Can I run this alongside my existing agency or in-house marketing?</span><span class="faq-qi">+</span></button><div class="faq-a">Yes, and most businesses do. The engine runs on its own brand, its own ad account and its own funnel, so it does not compete with your existing campaigns, touch your existing ad account or interfere with your own brand's performance data. It runs as a second, parallel channel.</div></div>
