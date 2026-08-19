@@ -581,6 +581,33 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .stats-row{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr}
 }
+
+/* QUOTELEADSHQ MOCK - tokens mirrored from the live app */
+.hq-frame{--hq-bg:#f3f5f9;--hq-surface:#fff;--hq-surface2:#f7f9fc;--hq-border:#d8e0ec;--hq-text:#121826;--hq-muted:#667284;--hq-accent:#1f6fff;
+  margin-top:52px;border-radius:18px;overflow:hidden;background:var(--hq-bg);
+  border:1px solid rgba(255,255,255,.10);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.hq-bar{display:flex;align-items:center;gap:10px;padding:11px 16px;background:var(--hq-surface);border-bottom:1px solid var(--hq-border)}
+.hq-dot{width:9px;height:9px;border-radius:50%;background:#d8e0ec}
+.hq-url{margin-left:8px;font-family:var(--body);font-size:11px;color:var(--hq-muted);letter-spacing:.01em}
+.hq-body{padding:18px}
+.hq-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.hq-title{font-family:var(--body);font-size:14px;font-weight:600;color:var(--hq-text)}
+.hq-sub{font-family:var(--body);font-size:11px;color:var(--hq-muted)}
+.hq-scroll{overflow-x:auto}
+.hq-table{width:100%;border-collapse:collapse;min-width:760px;background:var(--hq-surface);border-radius:12px}
+.hq-table th{font-family:var(--body);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--hq-muted);font-weight:500;
+  padding:12px;border-bottom:1px solid var(--hq-border);text-align:left;vertical-align:top}
+.hq-table td{font-family:var(--body);font-size:12px;color:var(--hq-text);padding:12px;border-bottom:1px solid var(--hq-border);text-align:left;vertical-align:top;line-height:1.5}
+.hq-table tr:last-child td{border-bottom:none}
+.hq-name{font-weight:600;display:block}
+.hq-meta{color:var(--hq-muted);font-size:11px}
+.hq-chip{padding:5px 9px;border-radius:999px;font-family:var(--body);font-size:11px;font-weight:500;border:1px solid var(--hq-border);background:var(--hq-surface2);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.hq-hot{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.3);color:#991b1b}
+.hq-warm{background:rgba(251,191,36,.12);border-color:rgba(251,191,36,.3);color:#92400e}
+.hq-new{background:rgba(107,114,128,.12);border-color:rgba(107,114,128,.3);color:#374151}
+.hq-sum{color:var(--hq-muted);font-style:italic;max-width:300px;display:block}
+.hq-note{font-size:.78rem;color:var(--faint);margin-top:14px;line-height:1.7}
+@media(max-width:640px){.hq-body{padding:12px}}
 </style>
 </head>
 <body>
@@ -765,6 +792,65 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="stat-cell">
                 <div class="stat-val">24-48h</div>
                 <div class="stat-label">From activation to live</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- THE PIPELINE -->
+<section>
+    <div class="si">
+        <div class="ey rv">The Pipeline</div>
+        <h2 class="stitle rv">Where the enquiries land.<br><em>Scored, summarised, waiting.</em></h2>
+        <div class="content-body rv">
+            <p>Every enquiry routes into QuoteLeadsHQ, included with the rental. The AI works the first contact, then writes back what it learned, so you open the morning knowing who to ring first.</p>
+        </div>
+
+        <div class="hq-frame rv">
+            <div class="hq-bar">
+                <span class="hq-dot"></span><span class="hq-dot"></span><span class="hq-dot"></span>
+                <span class="hq-url">quoteleadshq.com/dashboard</span>
+            </div>
+            <div class="hq-body">
+                <div class="hq-head">
+                    <span class="hq-title">Leads</span>
+                    <span class="hq-sub">3 new today &middot; Solar</span>
+                </div>
+                <div class="hq-scroll">
+                    <table class="hq-table">
+                        <thead>
+                            <tr><th>Lead</th><th>Contact</th><th>Source</th><th>AI Score</th><th>AI Status</th><th>AI Summary</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="hq-name">James Mitchell</span><span class="hq-meta">Penrith NSW 2750</span></td>
+                                <td>0412 *** ***<br><span class="hq-meta">james.m@email.com</span></td>
+                                <td>Meta</td>
+                                <td><span class="hq-chip hq-hot">Hot</span></td>
+                                <td><span class="hq-chip">Replied</span></td>
+                                <td><span class="hq-sum">Owner-occupier, $600-$900 quarterly bill, wants to move in the next 30 days. Agreed to a callback this afternoon.</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="hq-name">Sarah Nguyen</span><span class="hq-meta">Blacktown NSW 2148</span></td>
+                                <td>0413 *** ***<br><span class="hq-meta">s.nguyen@email.com</span></td>
+                                <td>Meta</td>
+                                <td><span class="hq-chip hq-warm">Warm</span></td>
+                                <td><span class="hq-chip">Replied</span></td>
+                                <td><span class="hq-sum">$400-$600 quarterly bill, comparing quotes, 1-3 month timeline. Asked whether a battery can be added later.</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="hq-name">Daniel Cross</span><span class="hq-meta">Camden NSW 2570</span></td>
+                                <td>0448 *** ***<br><span class="hq-meta">d.cross@email.com</span></td>
+                                <td>Google</td>
+                                <td><span class="hq-chip hq-new">New</span></td>
+                                <td><span class="hq-chip">Messaging</span></td>
+                                <td><span class="hq-sum">First SMS sent, awaiting reply. Survey answers captured and attached to the record.</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="hq-note">Illustrative view of QuoteLeadsHQ. Contact details are masked.</p>
             </div>
         </div>
     </div>
