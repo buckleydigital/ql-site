@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Branded Lead Gen System | QuoteLeads</title>
+<meta name="description" content="A solar lead engine built on your own accounts, brand and data. Built, launched and managed for 30 days. Yours to keep.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040A;--deep:#08080F;--surf:#0C0C18;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07);--bmid:rgba(255,255,255,0.10);
+  --bblue:rgba(71,151,255,0.3);
+  --blue:#4797FF;--bdim:rgba(71,151,255,0.12);
+  --sky:#7CB9FF;--mist:#B8D4FF;
+  --white:#F2F2F2;--off:#CACAD0;--muted:#9A9AA3;--faint:#78787F;
+  --display:'General Sans','PP Neue Montreal',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --maxw:660px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--void);color:var(--white);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:'cv11','ss01','ss03'}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:-0.02em;line-height:1.1;font-weight:600}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.center{text-align:center}
+em{font-style:normal;color:var(--blue)}
+
+/* AMBIENT GRADIENT - matched to the home page hero */
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(115% 60% at 50% -6%,rgba(71,151,255,.17),rgba(71,151,255,.05) 38%,transparent 64%),
+             radial-gradient(70% 44% at 50% 102%,rgba(71,151,255,.07),transparent 74%)}
+.page{position:relative;z-index:1}
+
+/* GUARANTEE */
+.guarantee{display:flex;align-items:center;justify-content:center;gap:10px;margin:26px auto 0;padding:15px 24px;
+  max-width:100%;width:fit-content;border:1px solid var(--bblue);border-radius:100px;color:var(--mist);
+  font-family:var(--display);font-weight:600;font-size:clamp(.85rem,3.4vw,1rem);text-align:center;line-height:1.3;
+  background:linear-gradient(180deg,rgba(71,151,255,.2),rgba(71,151,255,.06));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 14px 32px -16px rgba(71,151,255,.7)}
+.inc .tick.shield{background:linear-gradient(180deg,#8FC0FF,#4797FF);font-size:.8rem}
+
+/* PILL */
+.pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-size:.72rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--bblue);border-radius:100px;padding:9px 18px;
+  color:var(--mist);background:linear-gradient(180deg,rgba(71,151,255,.16),rgba(71,151,255,.05));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 8px 22px -12px rgba(71,151,255,.5)}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue)}
+
+/* BUTTONS - matched to the site's premium treatment */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  font-family:var(--body);font-weight:600;font-size:1rem;padding:18px 26px;border-radius:100px;border:none;
+  cursor:pointer;transition:transform .2s,box-shadow .3s,filter .2s;overflow:hidden}
+.btn-primary{background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -10px 20px rgba(0,0,0,.16),0 10px 28px rgba(71,151,255,.36)}
+.btn-primary::after{content:'';position:absolute;left:8%;right:8%;top:1px;height:42%;border-radius:100px;
+  background:linear-gradient(180deg,rgba(255,255,255,.30),transparent);pointer-events:none}
+.btn-primary:hover{transform:translateY(-2px);filter:saturate(1.06) brightness(1.05);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 16px 38px rgba(71,151,255,.46),0 0 0 6px rgba(71,151,255,.1)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary:disabled{opacity:.55;cursor:not-allowed;transform:none;filter:none}
+.btn-ghost{background:var(--glass);color:var(--off);border:1px solid var(--bmid)}
+.btn-ghost:hover{border-color:var(--bblue);color:var(--white);background:var(--glass2)}
+
+/* SECTIONS */
+section{padding:56px 0;position:relative}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  border:1px solid var(--bmid);border-radius:22px;padding:30px;backdrop-filter:blur(14px);
+  box-shadow:0 30px 70px -40px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.05)}
+
+/* HERO */
+.hero{padding:44px 0 8px}
+.hero h1{font-size:clamp(2rem,7.6vw,3.05rem);margin:22px 0 0;text-align:center;font-weight:600}
+.hero .sub{color:var(--muted);text-align:center;font-size:1.02rem;line-height:1.72;margin:18px auto 0;max-width:34ch}
+.hero .sub b{color:var(--off);font-weight:500}
+.hrule{width:52px;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);margin:26px auto 0}
+
+/* PRODUCT SHOT */
+.shot{margin:34px auto 0;max-width:400px;position:relative}
+.shot::before{content:'';position:absolute;inset:8% 12% 4%;border-radius:50%;
+  background:radial-gradient(circle,rgba(71,151,255,.28),transparent 68%);filter:blur(34px);z-index:0}
+.shot img{position:relative;z-index:1;width:100%;height:auto;display:block;
+  filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
+
+/* INCLUDED */
+.inc{display:flex;gap:14px;padding:19px 0;border-bottom:1px solid var(--border)}
+.inc:last-child{border-bottom:none}
+.tick{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin-top:2px;background:linear-gradient(180deg,#6FADFF,#2F82F0);color:#fff;font-size:.72rem;font-weight:700;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 6px 14px -6px rgba(71,151,255,.6)}
+.inc h4{font-size:.83rem;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:5px;font-weight:600}
+.inc p{color:var(--muted);font-size:.95rem;line-height:1.68}
+
+/* LEAD EXAMPLE */
+.lead-card{background:var(--deep);border:1px solid var(--bmid);border-radius:18px;overflow:hidden;margin-top:24px}
+.lead-top{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);background:var(--glass)}
+.lead-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(145deg,#2F82F0,#6FADFF);display:flex;
+  align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:.85rem;color:#fff}
+.lead-name{font-family:var(--display);font-weight:600;font-size:.98rem}
+.lead-loc{color:var(--faint);font-size:.78rem}
+.lead-badge{margin-left:auto;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
+  border:1px solid var(--bblue);background:var(--bdim);padding:5px 11px;border-radius:100px;font-weight:600}
+.lead-fields{padding:6px 20px 18px}
+.lf{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--border);font-size:.88rem}
+.lf:last-child{border-bottom:none}
+.lf-k{color:var(--faint)}
+.lf-v{color:var(--off);text-align:right;font-weight:500}
+.lead-note{margin-top:14px;padding:14px 16px;border-radius:12px;background:var(--bdim);border:1px solid var(--bblue);
+  color:var(--mist);font-size:.85rem;line-height:1.65}
+
+/* PRICE */
+.price-row{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:8px}
+.price-was{font-family:var(--display);font-size:1.5rem;color:var(--faint);text-decoration:line-through}
+.price-now{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,11vw,3.6rem);color:var(--blue);
+  text-shadow:0 0 44px rgba(71,151,255,.4)}
+.price-tag{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--mist);border:1px solid var(--bblue);background:var(--bdim);padding:6px 13px;border-radius:100px}
+.price-note{text-align:center;color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:16px}
+
+/* FORM */
+.field{width:100%;background:var(--glass);border:1px solid var(--bmid);border-radius:12px;padding:15px 16px;
+  font-family:var(--body);font-size:1rem;color:var(--white);margin-bottom:11px;transition:border-color .2s}
+.field::placeholder{color:var(--faint)}
+.field:focus{outline:none;border-color:var(--bblue);background:var(--glass2)}
+.field.err{border-color:#f87171}
+.consent{display:flex;gap:11px;align-items:flex-start;margin:8px 0 18px;color:var(--muted);font-size:.83rem;line-height:1.6}
+.consent input{margin-top:3px;width:17px;height:17px;flex-shrink:0;accent-color:var(--blue)}
+.formmsg{min-height:20px;margin-top:12px;text-align:center;font-size:.88rem;color:#f87171}
+.divider{display:flex;align-items:center;gap:14px;margin:16px 0;color:var(--faint);font-size:.76rem;
+  letter-spacing:.12em;text-transform:uppercase}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* THANK YOU */
+.thanks{display:none;text-align:center;padding:14px 0}
+.thanks.on{display:block}
+.thanks-ico{width:62px;height:62px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#6FADFF,#2F82F0);color:#fff;font-size:1.5rem;
+  box-shadow:0 0 0 8px rgba(71,151,255,.1),0 16px 40px -12px rgba(71,151,255,.6)}
+.thanks h3{font-size:1.5rem;margin-bottom:12px}
+.thanks p{color:var(--muted);font-size:.98rem;line-height:1.72;max-width:38ch;margin:0 auto}
+.thanks .mail{display:inline-block;margin-top:20px;color:var(--blue);font-size:.92rem}
+
+/* TESTIMONIALS */
+.quote{background:var(--glass);border:1px solid var(--border);border-radius:18px;padding:24px;margin-top:12px}
+.qstars{color:var(--blue);letter-spacing:3px;font-size:.82rem}
+.quote p{font-size:1rem;line-height:1.7;margin:12px 0 12px;color:var(--off)}
+.who{color:var(--faint);font-size:.78rem;font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+/* TICKER */
+.ticker{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--glass);padding:18px 0;margin-top:44px}
+.ticker-inner{display:flex;gap:34px;justify-content:center;flex-wrap:wrap;font-family:var(--display);font-weight:600;
+  color:var(--blue);font-size:.9rem}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
+.foot-logo img{height:30px;width:auto;opacity:.7}
+.foot-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.foot-links a{color:var(--muted);font-size:.86rem}
+.foot-links a:hover{color:var(--white)}
+.foot-bottom{color:var(--faint);font-size:.76rem}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
+@media(max-width:520px){section{padding:44px 0}.card{padding:24px 20px}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="page">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="center rv"><span class="pill"><span class="dot"></span>Branded Lead Gen System</span></div>
+    <h1 class="rv">Stop renting leads. <em>Own the machine that makes them.</em></h1>
+    <div class="hrule rv"></div>
+    <p class="sub rv">A solar lead engine built on <b>your</b> accounts, your brand and your data. We build it, launch it, and manage it for the first 30 days. Then it is yours to keep.</p>
+    <div class="guarantee rv">10 quoted jobs in 30 days, or your $1,250 back</div>
+    <div class="shot rv">
+      <img src="/solar-lead-gen-system-product.png" alt="The QuoteLeads Branded Lead Gen System" width="500" height="500">
+    </div>
+    <div class="rv" style="margin-top:30px">
+      <button class="btn btn-primary" data-scroll="order">Get Started</button>
+      <button class="btn btn-ghost" data-scroll="order" style="margin-top:10px">Request a callback</button>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT IS INCLUDED -->
+<section>
+  <div class="wrap">
+    <div class="center rv"><span class="pill">What's included</span></div>
+    <div class="card rv" style="margin-top:20px">
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>Done-For-You Campaigns</h4><p>Built and launched on your own ad account. Real paid traffic, not scraped lists. We handle setup, creative, targeting and optimisation.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>Branded Survey Funnel</h4><p>Your brand, your domain. A qualifier that filters out renters and tyre-kickers, so only real homeowners with real bills reach your phone.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>AI SMS Follow-Up</h4><p>Every lead texted within 60 seconds, confirming scope and booking the callback for you, before they have closed the tab or called a competitor.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>Full Asset Ownership</h4><p>Ad account, funnel, creative and lead data, all in your name from day one. You own the machine outright. It is yours to keep, forever.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>30 Days Managed</h4><p>We run and optimise the whole thing for the first month while it ramps. Your ad spend, around $50 a day, goes direct to your own Meta account. We never touch it.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>QuoteLeadsHQ Access</h4><p>Track every lead, appointment and quote in one dashboard, in real time.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>Dedicated Account Manager</h4><p>One person who knows your business and runs your engine, not a ticket queue. Direct line for anything you need.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick shield">&#9733;</div>
+        <div><h4>10 Quoted Jobs Guaranteed</h4><p>10 quoted jobs in your first 30 days, or your $1,250 back in full. Fund the ads, keep the follow-up on, and work the leads we deliver. <a href="/promotional-terms" style="color:var(--blue)">Full promotional terms</a>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT A LEAD LOOKS LIKE -->
+<section>
+  <div class="wrap">
+    <div class="center rv"><span class="pill">What a lead looks like</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">Everything you need <em>before you call.</em></h2>
+    <div class="lead-card rv">
+      <div class="lead-top">
+        <div class="lead-av">JM</div>
+        <div>
+          <div class="lead-name">James Mitchell</div>
+          <div class="lead-loc">Penrith NSW 2750</div>
+        </div>
+        <div class="lead-badge">New lead</div>
+      </div>
+      <div class="lead-fields">
+        <div class="lf"><span class="lf-k">Name</span><span class="lf-v">James Mitchell</span></div>
+        <div class="lf"><span class="lf-k">Email</span><span class="lf-v">james.m@email.com</span></div>
+        <div class="lf"><span class="lf-k">Phone</span><span class="lf-v">0412 *** ***</span></div>
+        <div class="lf"><span class="lf-k">Postcode</span><span class="lf-v">2750</span></div>
+        <div class="lf"><span class="lf-k">Avg quarterly bill</span><span class="lf-v">$600 - $900</span></div>
+        <div class="lf"><span class="lf-k">Purchase timeline</span><span class="lf-v">ASAP (next 30 days)</span></div>
+        <div class="lf"><span class="lf-k">Custom fields</span><span class="lf-v">Roof type, storeys, ownership</span></div>
+        <div class="lead-note">Custom fields are yours to set. Capture any information you need for the call or the quote, and it arrives with every lead.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE + ORDER -->
+<section id="order">
+  <div class="wrap">
+    <div class="card rv">
+      <div id="offerBlock">
+        <div class="center">
+          <div class="price-row">
+            <span class="price-was">$2,500</span>
+            <span class="price-now">$1,250</span>
+            <span class="price-tag">Limited</span>
+          </div>
+          <p class="price-note">Build plus 30 days management, ex GST. After that, management is optional at $600/mo, month to month, cancel any time. Ad spend is paid direct to Meta from your own account, around $50 a day, never through us. <a href="/promotional-terms" style="color:var(--blue)">See full promotional terms</a>.</p>
+          <div class="guarantee" style="margin-top:22px">10 quoted jobs in 30 days, or your $1,250 back</div>
+        </div>
+
+        <div style="margin-top:26px">
+          <input class="field" id="fName" type="text" placeholder="Full name" autocomplete="name">
+          <input class="field" id="fCompany" type="text" placeholder="Business name" autocomplete="organization">
+          <input class="field" id="fEmail" type="email" placeholder="Email address" autocomplete="email">
+          <input class="field" id="fPhone" type="tel" placeholder="Phone number" autocomplete="tel">
+          <input class="field" id="fPostcode" inputmode="numeric" placeholder="Main service area or postcode">
+          <label class="consent">
+            <input type="checkbox" id="fConsent">
+            <span>I agree to be contacted by QuoteLeads about setting up my system, and confirm my details are correct.</span>
+          </label>
+          <button class="btn btn-primary" id="btnBuy">Buy now, $1,250</button>
+          <div class="divider">or</div>
+          <button class="btn btn-ghost" id="btnCall">Request a callback</button>
+          <div class="formmsg" id="formMsg" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="thanks" id="thanks">
+        <div class="thanks-ico">&#10003;</div>
+        <h3>You're all set.</h3>
+        <p>We will call you within the next hour. Keep your phone handy.</p>
+        <a class="mail" href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="center rv"><span class="pill">Results</span></div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"The quality is genuinely better than what we were getting through other platforms. Leads come through with all the info you need, bill size, etc so you're not wasting time on tyre kickers."</p>
+      <div class="who">Better Energy Group &middot; Solar Installations</div>
+    </div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"We get about 70% of leads turning into quality appointments."</p>
+      <div class="who">Lamm Solar &middot; Solar Installations</div>
+    </div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Setup was quick, first leads came through the same day. A platform that actually delivers."</p>
+      <div class="who">SunReady Solar &middot; Solar Installations</div>
+    </div>
+  </div>
+  <div class="ticker rv">
+    <div class="ticker-inner">
+      <span>You own everything</span>
+      <span>Built on your accounts</span>
+      <span>Live in 24-48 hours</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-logo"><img src="/quoteleads-logo-white.png" alt="QuoteLeads"></div>
+    <div class="foot-links">
+      <a href="/pricing">Pricing</a>
+      <a href="/quoteleads-terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+      <a href="mailto:contact@quoteleads.com.au">Contact</a>
+    </div>
+    <div class="foot-bottom">&copy; 2026 QuoteLeads &middot; Australian owned and operated</div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var SUPABASE_URL = 'https://wjadekgptkstfdootuol.supabase.co';
+  var MAKE_HOOK    = 'https://hook.eu2.make.com/fj6du42icof5njorxkqoh5wg933hu14i';
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+  function phoneOk(v){
+    var d = v.replace(/[\s()\-.]/g,'').replace(/^\+?61/,'0');
+    return /^0[2-478]\d{8}$/.test(d) || /^1[38]00\d{6}$/.test(d) || /^13\d{4}$/.test(d);
+  }
+
+  var els = {
+    name: document.getElementById('fName'),
+    company: document.getElementById('fCompany'),
+    email: document.getElementById('fEmail'),
+    phone: document.getElementById('fPhone'),
+    postcode: document.getElementById('fPostcode'),
+    consent: document.getElementById('fConsent'),
+    msg: document.getElementById('formMsg'),
+    buy: document.getElementById('btnBuy'),
+    call: document.getElementById('btnCall'),
+    offer: document.getElementById('offerBlock'),
+    thanks: document.getElementById('thanks')
+  };
+
+  function collect(){
+    return {
+      name: els.name.value.trim(),
+      company: els.company.value.trim(),
+      email: els.email.value.trim(),
+      phone: els.phone.value.trim(),
+      postcode: els.postcode.value.trim()
+    };
+  }
+
+  function validate(){
+    var d = collect(), missing = [], bad = [];
+    [['name','Full name'],['company','Business name'],['email','Email'],['phone','Phone'],['postcode','Service area']].forEach(function(p){
+      var el = els[p[0]];
+      el.classList.remove('err');
+      if(!d[p[0]]){ missing.push(p[1]); el.classList.add('err'); }
+    });
+    if(d.email && !EMAIL_RE.test(d.email)){ bad.push('a valid email'); els.email.classList.add('err'); }
+    if(d.phone && !phoneOk(d.phone)){ bad.push('an Australian phone number'); els.phone.classList.add('err'); }
+    if(!els.consent.checked) missing.push('your consent');
+
+    if(missing.length){
+      els.msg.textContent = 'Add ' + missing.slice(0,-1).join(', ') + (missing.length>1 ? ' and ' : '') + missing[missing.length-1] + ' to continue.';
+      return null;
+    }
+    if(bad.length){
+      els.msg.textContent = 'Enter ' + bad.join(' and ') + ' to continue.';
+      return null;
+    }
+    els.msg.textContent = '';
+    return d;
+  }
+
+  els.buy.addEventListener('click', function(){
+    var d = validate(); if(!d) return;
+    els.buy.disabled = true;
+    els.buy.textContent = 'Opening secure checkout...';
+    d.plan = 'promo1250';
+    d.source = 'branded-lead-system-funnel';
+    fetch(SUPABASE_URL + '/functions/v1/create-checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(d)
+    }).then(function(r){ return r.json().then(function(j){ return { ok: r.ok, body: j }; }); })
+      .then(function(res){
+        if(!res.ok || !res.body.url) throw new Error(res.body.error || 'Could not start checkout');
+        window.location.href = res.body.url;
+      })
+      .catch(function(){
+        els.buy.disabled = false;
+        els.buy.textContent = 'Buy now, $1,250';
+        els.msg.textContent = 'Something went wrong opening checkout. Email contact@quoteleads.com.au and we will sort it.';
+      });
+  });
+
+  els.call.addEventListener('click', function(){
+    var d = validate(); if(!d) return;
+    els.call.disabled = true;
+    els.call.textContent = 'Sending...';
+    d.request = 'callback';
+    d.source = 'branded-lead-system-funnel';
+    d.submitted_at = new Date().toISOString();
+    fetch(MAKE_HOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(d)
+    }).then(function(r){
+        if(!r.ok) throw new Error('bad response');
+        els.offer.style.display = 'none';
+        els.thanks.classList.add('on');
+        els.thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function(){
+        els.call.disabled = false;
+        els.call.textContent = 'Request a callback';
+        els.msg.textContent = 'That did not send. Email contact@quoteleads.com.au and we will call you straight back.';
+      });
+  });
+
+  document.querySelectorAll('[data-scroll]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var t = document.getElementById(b.getAttribute('data-scroll'));
+      if(t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
