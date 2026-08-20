@@ -47,6 +47,41 @@ em{font-style:normal;color:var(--blue)}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 14px 32px -16px rgba(71,151,255,.7)}
 .inc .tick.shield{background:linear-gradient(180deg,#8FC0FF,#4797FF);font-size:.8rem}
 
+/* SCROLL PROGRESS */
+.sprog{position:fixed;top:0;left:0;height:2px;width:100%;z-index:600;transform-origin:left center;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--blue),var(--sky))}
+
+/* SECTION RHYTHM */
+section+section{border-top:1px solid var(--border)}
+
+/* INCLUDED ROW HOVER */
+.inc{transition:background .25s,padding-left .25s;border-radius:10px;margin:0 -12px;padding-left:12px;padding-right:12px}
+.inc:hover{background:rgba(71,151,255,.045)}
+
+/* PRICE SHINE */
+.price-now{position:relative;background:linear-gradient(100deg,#4797FF 20%,#B8D4FF 42%,#4797FF 60%);
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shine 5s ease-in-out infinite}
+@keyframes shine{0%,100%{background-position:180% 0}50%{background-position:0 0}}
+.save{display:block;text-align:center;margin-top:6px;font-family:var(--display);font-weight:600;font-size:.82rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--sky)}
+
+/* TRUST ROW */
+.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:18px}
+.trust-row span{display:inline-flex;align-items:center;gap:7px;color:var(--faint);font-size:.78rem}
+.trust-row span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);opacity:.75}
+
+/* STICKY MOBILE CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:500;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(4,4,10,.82),rgba(4,4,10,.97));backdrop-filter:blur(14px);
+  border-top:1px solid var(--bmid);transform:translateY(110%);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.sticky.on{transform:translateY(0)}
+.sticky .btn{padding:15px 22px;font-size:.95rem}
+.sticky-note{text-align:center;color:var(--faint);font-size:.7rem;margin-top:7px}
+@media(min-width:781px){.sticky{display:none}}
+@media(max-width:780px){body.has-sticky{padding-bottom:96px}}
+@media(prefers-reduced-motion:reduce){.price-now{animation:none}.sticky{transition:none}}
+
 /* TOP BAR */
 .topbar{padding:22px 0 0;text-align:center}
 .topbar img{height:30px;width:auto;opacity:.9}
@@ -177,6 +212,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 </style>
 </head>
 <body>
+<div class="sprog" id="sprog"></div>
 <div class="glow"></div>
 <div class="page">
 
@@ -279,6 +315,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
             <span class="price-now">$1,250</span>
             <span class="price-tag">Limited</span>
           </div>
+          <span class="save">You save $1,250</span>
           <p class="price-note">Build plus 30 days management, ex GST. After that, management is optional at $600/mo, month to month, cancel any time. Ad spend is paid direct to Meta from your own account, around $50 a day, never through us. <a href="/promotional-terms" style="color:var(--blue)">See full promotional terms</a>.</p>
           <div class="guarantee" style="margin-top:22px">10 quoted jobs in 30 days, or your $1,250 back</div>
         </div>
@@ -297,6 +334,11 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           <div class="divider">or</div>
           <button class="btn btn-ghost" id="btnCall">Request a callback</button>
           <div class="formmsg" id="formMsg" aria-live="polite"></div>
+          <div class="trust-row">
+            <span>Secure Stripe checkout</span>
+            <span>No lock-in</span>
+            <span>Australian owned and operated</span>
+          </div>
         </div>
       </div>
 
@@ -357,6 +399,11 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   </div>
 </footer>
 
+</div>
+
+<div class="sticky" id="sticky">
+  <button class="btn btn-primary" data-scroll="order">Get Started, $1,250</button>
+  <div class="sticky-note">10 quoted jobs in 30 days, or your money back</div>
 </div>
 
 <script>
@@ -474,6 +521,29 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  // Scroll progress
+  var sprog = document.getElementById('sprog');
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    sprog.style.transform = 'scaleX(' + (h > 0 ? window.scrollY / h : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Sticky CTA appears once the hero is behind you, hides over the order form
+  var sticky = document.getElementById('sticky');
+  var orderEl = document.getElementById('order');
+  document.body.classList.add('has-sticky');
+  var stickyIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ sticky.classList.toggle('on', !e.isIntersecting); });
+  }, { threshold: 0, rootMargin: '-72% 0px 0px 0px' });
+  var heroEl = document.querySelector('.hero');
+  if (heroEl) stickyIO.observe(heroEl);
+  var orderIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) sticky.classList.remove('on'); });
+  }, { threshold: 0.25 });
+  if (orderEl) orderIO.observe(orderEl);
 })();
 </script>
 </body>
