@@ -193,9 +193,18 @@ section{padding:56px 0;position:relative}
 .who{color:var(--faint);font-size:.78rem;font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
 
 /* TICKER */
-.ticker{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--glass);padding:18px 0;margin-top:44px}
-.ticker-inner{display:flex;gap:34px;justify-content:center;flex-wrap:wrap;font-family:var(--display);font-weight:600;
-  color:var(--blue);font-size:.9rem}
+.ticker{margin-top:48px}
+.ticker-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ticker-inner span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  text-align:center;padding:20px 14px;border:1px solid var(--bmid);border-radius:16px;
+  background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  font-family:var(--display);font-weight:600;font-size:.86rem;color:var(--off);line-height:1.35;
+  transition:border-color .25s,background .25s}
+.ticker-inner span::before{content:'';width:8px;height:8px;border-radius:50%;
+  background:linear-gradient(180deg,#8FC0FF,#2F82F0);box-shadow:0 0 14px rgba(71,151,255,.7)}
+.ticker-inner span:hover{border-color:var(--bblue);background:rgba(71,151,255,.05)}
+@media(max-width:560px){.ticker-inner{grid-template-columns:1fr}
+  .ticker-inner span{flex-direction:row;justify-content:flex-start;text-align:left;padding:15px 18px}}
 
 /* FOOTER */
 footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
@@ -230,7 +239,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     </div>
     <div class="rv" style="margin-top:30px">
       <button class="btn btn-primary" data-scroll="order">Get Started</button>
-      <button class="btn btn-ghost" data-scroll="order" style="margin-top:10px">See what's included</button>
+      <button class="btn btn-ghost" data-scroll="order" style="margin-top:10px">Request a callback</button>
     </div>
   </div>
 </header>
@@ -331,6 +340,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
             <span>I agree to be contacted by QuoteLeads about setting up my system, and confirm my details are correct.</span>
           </label>
           <button class="btn btn-primary" id="btnBuy">Buy now, $1,250</button>
+          <div class="divider">or</div>
+          <button class="btn btn-ghost" id="btnCall">Request a callback</button>
           <div class="formmsg" id="formMsg" aria-live="polite"></div>
           <div class="trust-row">
             <span>Secure Stripe checkout</span>
@@ -375,11 +386,13 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <div class="who">SolarHarvest &middot; Solar Installations</div>
     </div>
   </div>
-  <div class="ticker rv">
-    <div class="ticker-inner">
-      <span>You own everything</span>
-      <span>Built on your accounts</span>
-      <span>Live in 24-48 hours</span>
+  <div class="wrap">
+    <div class="ticker rv">
+      <div class="ticker-inner">
+        <span>You own everything</span>
+        <span>Built on your accounts</span>
+        <span>Live in 24-48 hours</span>
+      </div>
     </div>
   </div>
 </section>
@@ -422,7 +435,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     postcode: document.getElementById('fPostcode'),
     consent: document.getElementById('fConsent'),
     msg: document.getElementById('formMsg'),
-    buy: document.getElementById('btnBuy')
+    buy: document.getElementById('btnBuy'),
+    call: document.getElementById('btnCall'),
+    offer: document.getElementById('offerBlock'),
+    thanks: document.getElementById('thanks')
   };
 
   function collect(){
@@ -480,6 +496,27 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       });
   });
 
+
+  els.call.addEventListener('click', function(){
+    var d = validate(); if(!d) return;
+    els.call.disabled = true;
+    els.call.textContent = 'Sending...';
+    d.source = 'branded-solar-lead-system-funnel';
+    fetch(SUPABASE_URL + '/functions/v1/callback-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(d)
+    }).then(function(r){
+      if(!r.ok) throw new Error('bad response');
+      els.offer.style.display = 'none';
+      els.thanks.classList.add('on');
+      els.thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(function(){
+      els.call.disabled = false;
+      els.call.textContent = 'Request a callback';
+      els.msg.textContent = 'That did not send. Email contact@quoteleads.com.au and we will call you straight back.';
+    });
+  });
 
   document.querySelectorAll('[data-scroll]').forEach(function(b){
     b.addEventListener('click', function(){
