@@ -63,8 +63,6 @@ section+section{border-top:1px solid var(--border)}
   background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   animation:shine 5s ease-in-out infinite}
 @keyframes shine{0%,100%{background-position:180% 0}50%{background-position:0 0}}
-.save{display:block;text-align:center;margin-top:6px;font-family:var(--display);font-weight:600;font-size:.82rem;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--sky)}
 
 /* TRUST ROW */
 .trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:18px}
@@ -156,11 +154,8 @@ section{padding:56px 0;position:relative}
 
 /* PRICE */
 .price-row{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:8px}
-.price-was{font-family:var(--display);font-size:1.5rem;color:var(--faint);text-decoration:line-through}
 .price-now{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,11vw,3.6rem);color:var(--blue);
   text-shadow:0 0 44px rgba(71,151,255,.4)}
-.price-tag{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--mist);border:1px solid var(--bblue);background:var(--bdim);padding:6px 13px;border-radius:100px}
 .price-note{text-align:center;color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:16px}
 
 /* FORM */
@@ -233,7 +228,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <h1 class="rv">Stop renting leads. <em>Own the machine that makes them.</em></h1>
     <div class="hrule rv"></div>
     <p class="sub rv">A solar lead engine built on <b>your</b> accounts, your brand and your data. We build it, launch it, and manage it for the first 30 days. Then it is yours to keep.</p>
-    <div class="guarantee rv">10 quoted jobs in 30 days, or your $1,250 back</div>
+    <div class="guarantee rv">10 quoted jobs in 30 days, or your money back</div>
     <div class="shot rv">
       <img src="/solar-lead-gen-system-product.png" alt="The QuoteLeads Branded Lead Gen System" width="500" height="500">
     </div>
@@ -279,7 +274,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       </div>
       <div class="inc">
         <div class="tick shield">&#9733;</div>
-        <div><h4>10 Quoted Jobs Guaranteed</h4><p>10 quoted jobs in your first 30 days, or your $1,250 back in full. Fund the ads, keep the follow-up on, and work the leads we deliver. <a href="/promotional-terms" style="color:var(--blue)">Full promotional terms</a>.</p></div>
+        <div><h4>10 Quoted Jobs Guaranteed</h4><p>10 quoted jobs in your first 30 days, or your build fee back in full. Fund the ads, keep the follow-up on, and work the leads we deliver. <a href="/promotional-terms" style="color:var(--blue)">Full guarantee terms</a>.</p></div>
       </div>
     </div>
   </div>
@@ -320,13 +315,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <div id="offerBlock">
         <div class="center">
           <div class="price-row">
-            <span class="price-was">$2,500</span>
-            <span class="price-now">$1,250</span>
-            <span class="price-tag">Limited</span>
+            <span class="price-now">$2,500</span>
           </div>
-          <span class="save">You save $1,250</span>
-          <p class="price-note">Build plus 30 days management, ex GST. After that, management is optional at $600/mo, month to month, cancel any time. Ad spend is paid direct to Meta from your own account, around $50 a day, never through us. <a href="/promotional-terms" style="color:var(--blue)">See full promotional terms</a>.</p>
-          <div class="guarantee" style="margin-top:22px">10 quoted jobs in 30 days, or your $1,250 back</div>
+          <p class="price-note">One-off build plus your first 30 days of management, ex GST. After that, management is optional at $600/mo, month to month, cancel any time. Ad spend is paid direct to Meta from your own account, around $50 a day, never through us. <a href="/quoteleads-terms" style="color:var(--blue)">See full terms</a>.</p>
+          <div class="guarantee" style="margin-top:22px">10 quoted jobs in 30 days, or your money back</div>
         </div>
 
         <div style="margin-top:26px">
@@ -339,7 +331,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
             <input type="checkbox" id="fConsent">
             <span>I agree to be contacted by QuoteLeads about setting up my system, and confirm my details are correct.</span>
           </label>
-          <button class="btn btn-primary" id="btnBuy">Buy now, $1,250</button>
+          <button class="btn btn-primary" id="btnBuy">Buy now, $2,500</button>
           <div class="divider">or</div>
           <button class="btn btn-ghost" id="btnCall">Request a callback</button>
           <div class="formmsg" id="formMsg" aria-live="polite"></div>
@@ -413,7 +405,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 </div>
 
 <div class="sticky" id="sticky">
-  <button class="btn btn-primary" data-scroll="order">Get Started, $1,250</button>
+  <button class="btn btn-primary" data-scroll="order">Get Started, $2,500</button>
   <div class="sticky-note">10 quoted jobs in 30 days, or your money back</div>
 </div>
 
@@ -478,7 +470,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     var d = validate(); if(!d) return;
     els.buy.disabled = true;
     els.buy.textContent = 'Opening secure checkout...';
-    d.plan = 'promo1250';
+    d.plan = 'standard';
     d.source = 'branded-solar-lead-system-funnel';
     fetch(SUPABASE_URL + '/functions/v1/create-checkout', {
       method: 'POST',
@@ -491,7 +483,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       })
       .catch(function(){
         els.buy.disabled = false;
-        els.buy.textContent = 'Buy now, $1,250';
+        els.buy.textContent = 'Buy now, $2,500';
         els.msg.textContent = 'Something went wrong opening checkout. Email contact@quoteleads.com.au and we will sort it.';
       });
   });
