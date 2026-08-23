@@ -217,6 +217,21 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
 .stitle em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
+/* TESTIMONIALS */
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.tst-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.018));
+  border:1px solid var(--border);border-radius:20px;padding:28px 26px;
+  backdrop-filter:blur(16px);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.tst-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);pointer-events:none}
+.tst-stars{color:var(--blue);letter-spacing:3px;font-size:.8rem;margin-bottom:14px}
+.tst-q{font-size:.95rem;line-height:1.72;color:var(--off);margin-bottom:20px;flex:1}
+.tst-who{font-family:var(--display);font-size:.72rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--white)}
+.tst-role{font-size:.72rem;color:var(--faint);margin-top:4px}
+@media(max-width:900px){.tst-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.tst-grid{grid-template-columns:1fr}}
+
 /* PRICING LAYOUT */
 .pricing-wrap{display:flex;flex-direction:column;gap:32px;margin-top:60px}
 .pricing-main{display:flex;flex-direction:column;gap:24px}
@@ -614,6 +629,53 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
           <a href="/get-started" style="font-size:.8rem;color:#34d399;text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-weight:500">Get Started <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
         </div>
 
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="si">
+    <div class="rv" style="text-align:center"><div class="ey" style="justify-content:center">Results</div></div>
+    <h2 class="stitle rv" style="text-align:center;margin-bottom:16px">What businesses are <em>saying.</em></h2>
+    <p style="color:var(--muted);font-size:1rem;line-height:1.74;max-width:560px;margin:0 auto;text-align:center" class="rv">Home improvement businesses running the Branded Lead Gen System, in their own words.</p>
+    <div class="tst-grid">
+      <div class="tst-card rv">
+        <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tst-q">"We get about 70% of leads turning into quality appointments"</p>
+        <div class="tst-who">Lamm Solar</div>
+        <div class="tst-role">Solar Installations</div>
+      </div>
+      <div class="tst-card rv d1">
+        <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tst-q">"The quality is genuinely better than what we were getting through other platforms. Leads come through with all the info you need, bill size, etc so you're not wasting time on tyre kickers."</p>
+        <div class="tst-who">Better Energy Group</div>
+        <div class="tst-role">Solar Installations</div>
+      </div>
+      <div class="tst-card rv d2">
+        <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tst-q">"I've had some good local leads coming in lately and filling up next year rather quickly and converting around 50%"</p>
+        <div class="tst-who">AB Built</div>
+        <div class="tst-role">Contractor</div>
+      </div>
+      <div class="tst-card rv d3">
+        <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tst-q">"First sale $25k, next one $39k. Buzzing."</p>
+        <div class="tst-who">Max &amp; Mitchell</div>
+        <div class="tst-role">Contractor</div>
+      </div>
+      <div class="tst-card rv">
+        <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tst-q">"Setup was quick, first leads came through the same day. A platform that actually delivers."</p>
+        <div class="tst-who">SunReady Solar</div>
+        <div class="tst-role">Solar Installations</div>
+      </div>
+      <div class="tst-card rv d1">
+        <div class="tst-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="tst-q">"Fast setup, great support and higher intent solar leads."</p>
+        <div class="tst-who">SolarHarvest</div>
+        <div class="tst-role">Solar Installations</div>
       </div>
     </div>
   </div>
