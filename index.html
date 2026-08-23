@@ -245,11 +245,7 @@ body::before{content:'';position:fixed;inset:0;
   border:1px solid var(--border);font-family:var(--body);font-size:.88rem;font-weight:400;
   padding:14px 28px;border-radius:100px;text-decoration:none;transition:all .25s;cursor:none}
 .btn-ghost:hover{border-color:var(--faint);color:var(--white)}
-.live-counter{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px;animation:fadeUp .7s ease both}
-.live-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:livePulse 2s ease infinite}
 @keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}50%{box-shadow:0 0 0 7px rgba(34,197,94,0)}}
-.live-counter span{font-size:.88rem;color:var(--off);font-weight:400;letter-spacing:.01em}
-.live-counter strong{color:var(--white);font-weight:600;font-variant-numeric:tabular-nums}
 .cta-proof{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;animation:fadeUp .7s .28s ease both}
 .cta-proof-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;flex-shrink:0;animation:livePulse 2s ease infinite}
 .cta-proof span{font-size:.82rem;color:var(--muted);font-weight:400}
@@ -909,7 +905,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="hero-ambi ha3"></div>
     <div class="hc">
       <div class="hbadge"><div class="bpulse"></div>Better Leads. Lower Cost Per Job.</div>
-      <div class="live-counter"><span class="live-dot"></span><span><strong id="leadCount" data-target="5723">4,600</strong> leads generated last month</span></div>
       <h1>The Lead System <span style="color:var(--blue)">Home Improvement Trades Run On.</span></h1>
       <div class="hrule"></div>
       <p class="hero-sub">We generate exclusive, qualified leads that only you receive.</p>
@@ -1406,45 +1401,6 @@ function toggleFaq(btn){const item=btn.parentElement,isOpen=item.classList.conta
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}})});
 
-// LIVE LEAD COUNTER
-(function(){
-  const el=document.getElementById('leadCount');
-  if(!el)return;
-
-  const parsedStart=parseInt((el.textContent||'0').replace(/,/g,''),10);
-  const parsedTarget=parseInt(el.dataset.target||'0',10);
-  if(!Number.isFinite(parsedStart))console.warn('leadCount start value is invalid');
-  if(!Number.isFinite(parsedTarget))console.warn('leadCount target value is invalid');
-  const startCount=Number.isFinite(parsedStart)?parsedStart:0;
-  if(Number.isFinite(parsedTarget)&&parsedTarget<=startCount){
-    console.warn('leadCount target is not greater than start value, skipping animation');
-  }
-  const target=Number.isFinite(parsedTarget)&&parsedTarget>startCount?parsedTarget:startCount;
-  const dur=1600;
-  let start=null;
-
-  function step(ts){
-    if(!start)start=ts;
-    const p=Math.min((ts-start)/dur,1);
-    const ease=1-Math.pow(1-p,3);
-    el.textContent=Math.floor(startCount+ease*(target-startCount)).toLocaleString();
-    if(p<1)requestAnimationFrame(step);
-  }
-
-  const obs=new IntersectionObserver(function(entries){
-    if(entries[0].isIntersecting){
-      if(target===startCount){
-        el.textContent=target.toLocaleString();
-        obs.disconnect();
-        return;
-      }
-      requestAnimationFrame(step);
-      obs.disconnect();
-    }
-  },{threshold:0.1});
-
-  obs.observe(el);
-})();
 </script>
 </body>
 </html>
