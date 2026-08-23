@@ -172,6 +172,16 @@ section{padding:56px 0;position:relative}
 .field::placeholder{color:var(--faint)}
 .field:focus{outline:none;border-color:var(--bblue);background:var(--glass2)}
 .field.err{border-color:#f87171}
+.nsel{margin-bottom:11px}
+.nsel-lbl{font-size:.83rem;color:var(--muted);margin-bottom:9px}
+.nsel-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.nsel-opt{background:var(--glass);border:1px solid var(--bmid);border-radius:12px;padding:13px 12px;
+  font-family:var(--body);font-size:.9rem;color:var(--off);cursor:pointer;text-align:center;
+  transition:border-color .2s,background .2s,color .2s}
+.nsel-opt:hover{border-color:var(--bblue);color:var(--white)}
+.nsel-opt[aria-pressed="true"]{border-color:var(--blue);background:rgba(71,151,255,.12);color:var(--white);font-weight:600}
+.nsel.err .nsel-opts{outline:1px solid #f87171;outline-offset:3px;border-radius:14px}
+@media(max-width:420px){.nsel-opts{grid-template-columns:1fr}}
 .consent{display:flex;gap:11px;align-items:flex-start;margin:8px 0 18px;color:var(--muted);font-size:.83rem;line-height:1.6}
 .consent input{margin-top:3px;width:17px;height:17px;flex-shrink:0;accent-color:var(--blue)}
 .formmsg{min-height:20px;margin-top:12px;text-align:center;font-size:.88rem;color:#f87171}
@@ -237,7 +247,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <div class="center rv"><span class="pill"><span class="dot"></span>Branded Lead Gen System</span></div>
     <h1 class="rv">Stop renting leads. <em>Own the machine that makes them.</em></h1>
     <div class="hrule rv"></div>
-    <p class="sub rv">A solar lead engine built on <b>your</b> accounts, your brand and your data. We build it, launch it, and manage it for the first 30 days. Then it is yours to keep.</p>
+    <p class="sub rv">A solar lead engine built on <b>your</b> accounts, your brand and your data. We build it, launch it, and manage it for the first 30 days. Yours to keep from day 1.</p>
     <div class="guarantee rv">10 quoted jobs in 30 days, or your money back</div>
     <div class="shot rv">
       <img src="/solar-lead-gen-system-product.png" alt="The QuoteLeads Branded Lead Gen System" width="500" height="500">
@@ -359,6 +369,15 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         </div>
 
         <div style="margin-top:26px">
+          <div class="nsel" id="fNicheWrap">
+            <div class="nsel-lbl" id="nicheLbl">Which campaign should we build first?</div>
+            <div class="nsel-opts" role="group" aria-labelledby="nicheLbl">
+              <button type="button" class="nsel-opt" data-niche="solar" aria-pressed="false">All solar</button>
+              <button type="button" class="nsel-opt" data-niche="solar_battery" aria-pressed="false">Solar + battery</button>
+              <button type="button" class="nsel-opt" data-niche="battery_retrofit" aria-pressed="false">Battery retrofit</button>
+              <button type="button" class="nsel-opt" data-niche="commercial_solar" aria-pressed="false">Commercial solar</button>
+            </div>
+          </div>
           <input class="field" id="fName" type="text" placeholder="Full name" autocomplete="name">
           <input class="field" id="fCompany" type="text" placeholder="Business name" autocomplete="organization">
           <input class="field" id="fEmail" type="email" placeholder="Email address" autocomplete="email">
@@ -463,6 +482,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     email: document.getElementById('fEmail'),
     phone: document.getElementById('fPhone'),
     postcode: document.getElementById('fPostcode'),
+    nicheWrap: document.getElementById('fNicheWrap'),
     consent: document.getElementById('fConsent'),
     msg: document.getElementById('formMsg'),
     buy: document.getElementById('btnBuy'),
@@ -471,13 +491,27 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     thanks: document.getElementById('thanks')
   };
 
+  // Campaign choice. Deliberately not pre-selected: a default would just be
+  // echoed back by most buyers and tell us nothing on the onboarding call.
+  var selectedNiche = null;
+  Array.prototype.forEach.call(els.nicheWrap.querySelectorAll('.nsel-opt'), function(btn){
+    btn.addEventListener('click', function(){
+      selectedNiche = btn.dataset.niche;
+      Array.prototype.forEach.call(els.nicheWrap.querySelectorAll('.nsel-opt'), function(b){
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+      els.nicheWrap.classList.remove('err');
+    });
+  });
+
   function collect(){
     return {
       name: els.name.value.trim(),
       company: els.company.value.trim(),
       email: els.email.value.trim(),
       phone: els.phone.value.trim(),
-      postcode: els.postcode.value.trim()
+      postcode: els.postcode.value.trim(),
+      niche: selectedNiche || ''
     };
   }
 
@@ -490,6 +524,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     });
     if(d.email && !EMAIL_RE.test(d.email)){ bad.push('a valid email'); els.email.classList.add('err'); }
     if(d.phone && !phoneOk(d.phone)){ bad.push('an Australian phone number'); els.phone.classList.add('err'); }
+    els.nicheWrap.classList.remove('err');
+    if(!d.niche){ missing.push('which campaign to build'); els.nicheWrap.classList.add('err'); }
     if(!els.consent.checked) missing.push('your consent');
 
     if(missing.length){
