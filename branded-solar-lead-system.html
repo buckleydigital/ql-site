@@ -228,6 +228,161 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 .foot-bottom{color:var(--faint);font-size:.76rem}
 .foot-disc{color:var(--faint);font-size:.72rem;line-height:1.65;max-width:62ch;margin:14px auto 0;opacity:.85}
 
+
+/* ── Wide container, for the showcase only ───────────────────────────── */
+.wrap-wide{max-width:980px;margin:0 auto;padding:0 20px}
+
+/* ── Stats bar ───────────────────────────────────────────────────────── */
+.statbar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--deep)}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);max-width:980px;margin:0 auto}
+.statc{padding:30px 22px;border-right:1px solid var(--border);text-align:center}
+.statc:last-child{border-right:none}
+.statn{font-family:var(--display);font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:600;letter-spacing:-.025em;
+  line-height:1;display:block;margin-bottom:8px;
+  background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.statl{color:var(--muted);font-size:.76rem;line-height:1.5}
+.statl b{color:var(--white);font-weight:500;display:block;margin-bottom:3px;font-size:.82rem}
+@media(max-width:720px){.statrow{grid-template-columns:1fr 1fr}
+  .statc:nth-child(2){border-right:none}.statc:nth-child(1),.statc:nth-child(2){border-bottom:1px solid var(--border)}}
+
+/* ── Showcase ────────────────────────────────────────────────────────── */
+.show{margin-top:34px}
+.show + .show{margin-top:52px}
+.show-lbl{font-family:var(--display);font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--blue);text-align:center;margin-bottom:10px}
+.show-h{font-family:var(--display);font-size:1.15rem;font-weight:600;text-align:center;margin-bottom:8px}
+.show-p{font-size:.87rem;color:var(--muted);line-height:1.7;text-align:center;max-width:52ch;margin:0 auto 22px}
+
+/* ── After you pay ───────────────────────────────────────────────────── */
+.tl{list-style:none;counter-reset:tl;margin:30px 0 0;padding:0}
+.tl li{counter-increment:tl;position:relative;padding:0 0 26px 46px;border-left:1px solid var(--bmid);margin-left:13px}
+.tl li:last-child{border-left-color:transparent;padding-bottom:0}
+.tl li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:-14px;top:-2px;width:28px;height:28px;
+  border-radius:50%;background:var(--deep);border:1px solid var(--bblue);color:var(--blue);
+  display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:.68rem;font-weight:600}
+.tl-when{font-family:var(--display);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);margin-bottom:5px}
+.tl h4{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:7px}
+.tl p{font-size:.88rem;color:var(--muted);line-height:1.72;margin:0}
+
+/* ── FAQ ─────────────────────────────────────────────────────────────── */
+.faq{margin-top:28px;border-top:1px solid var(--border)}
+.faqi{border-bottom:1px solid var(--border)}
+.faqq{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:flex-start;
+  justify-content:space-between;gap:16px;text-align:left;padding:19px 0;
+  font-family:var(--display);font-size:.96rem;font-weight:500;color:var(--white);line-height:1.45}
+.faqq:hover{color:var(--blue)}
+.faqi-ic{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:1px solid var(--bmid);color:var(--muted);
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;line-height:1;transition:transform .28s,color .2s,border-color .2s}
+.faqi.on .faqi-ic{transform:rotate(45deg);color:var(--blue);border-color:var(--bblue)}
+.faqa{max-height:0;overflow:hidden;transition:max-height .32s ease}
+.faqi.on .faqa{max-height:520px}
+.faqa p{font-size:.88rem;color:var(--muted);line-height:1.75;padding:0 0 20px;margin:0;max-width:62ch}
+
+/* ── Ported from the home page journey ───────────────────────────────── */
+.ad-platform{position:absolute;top:-10px;right:20px;background:var(--deep);border:1px solid var(--bmid);padding:4px 10px;border-radius:100px;font-size:.62rem;color:var(--blue);font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;z-index:2}
+.ad-platform::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue)}
+.ad-iframe-wrap{
+  width:min(400px,100%);
+  overflow:hidden;border-radius:16px;
+  margin:0 auto;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
+  position:relative;
+}
+.ad-iframe{
+  width:1080px;height:1080px;
+  transform-origin:top left;
+  border:none;display:block;
+  pointer-events:none;
+}
+.mk-mockup{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid var(--bmid);border-radius:16px;padding:8px;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 20px 40px -10px rgba(71,151,255,.12),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(20px);max-width:100%;overflow:hidden}
+.mk-mockup::before{content:'';position:absolute;top:-1px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent)}
+.mk-bar{display:flex;align-items:center;gap:8px;padding:8px 12px 10px}
+.mk-dot{width:9px;height:9px;border-radius:50%;background:var(--faint)}
+.mk-dot.r{background:#FF5F57}
+.mk-dot.y{background:#FEBC2E}
+.mk-dot.g{background:#28C840}
+.mk-url{flex:1;margin:0 16px;padding:5px 12px;background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:6px;font-size:.66rem;color:var(--muted);display:flex;align-items:center;gap:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mk-url::before{content:'';width:9px;height:9px;border-radius:50%;flex-shrink:0;border:1.5px solid #22c55e;border-bottom-color:transparent}
+.mk-body{background:linear-gradient(180deg,#0A0A14,#06060C);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.mk-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.05)}
+.mk-logo{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:.92rem;color:var(--white)}
+.mk-logo-mark{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--blue),var(--sky));box-shadow:0 0 12px rgba(71,151,255,.3);position:relative}
+.mk-logo-mark::after{content:'';position:absolute;inset:5px;border-radius:2px;background:#06060C}
+.mk-nav-links{display:flex;gap:18px;font-size:.7rem;color:var(--muted)}
+.mk-nav-cta{font-size:.68rem;padding:7px 14px;border-radius:100px;background:var(--blue);color:#fff;font-weight:500;white-space:nowrap}
+.mk-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;padding:28px 22px 24px;align-items:center}
+.mk-hero-left{min-width:0}
+.mk-tag{display:inline-flex;align-items:center;gap:6px;background:var(--bdim);border:1px solid var(--bblue);padding:4px 10px;border-radius:100px;font-size:.58rem;color:var(--sky);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;font-weight:500}
+.mk-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0}
+.mk-h5{font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.12;letter-spacing:-.02em;margin-bottom:10px;color:var(--white)}
+.mk-h5 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mk-h5-script{
+  font-family:'Lora',serif;font-style:italic;font-weight:500;letter-spacing:0;
+  background:linear-gradient(90deg,var(--mist),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+}
+.mk-p{font-size:.74rem;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.mk-hero-ctas{display:flex;gap:8px;flex-wrap:wrap}
+.mk-btn{font-size:.66rem;padding:8px 14px;border-radius:6px;font-weight:500;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.mk-btn-prim{background:var(--blue);color:#fff}
+.mk-btn-sec{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--off)}
+.mk-survey{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--border);border-radius:10px;padding:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.mk-survey-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;font-size:.58rem;color:var(--muted);letter-spacing:.04em}
+.mk-survey-step{color:var(--sky);font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+.mk-survey-bar{height:3px;border-radius:100px;background:rgba(255,255,255,.06);overflow:hidden;margin-bottom:14px}
+.mk-survey-fill{height:100%;width:50%;border-radius:100px;background:linear-gradient(90deg,var(--blue),var(--sky));box-shadow:0 0 8px rgba(71,151,255,.4)}
+.mk-survey-q{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:12px}
+.mk-survey-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.mk-opt{padding:10px 8px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.02);text-align:center;cursor:default;position:relative;min-height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.mk-opt.selected{border-color:rgba(71,151,255,.5);background:var(--bdim);box-shadow:inset 0 0 0 1px rgba(71,151,255,.18),0 0 14px rgba(71,151,255,.15)}
+.mk-opt-ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.mk-opt-ic svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.mk-opt.selected .mk-opt-ic{color:var(--blue)}
+.mk-opt-lbl{font-size:.68rem;color:var(--off);font-weight:500;line-height:1.2}
+.mk-opt.selected .mk-opt-lbl{color:var(--white)}
+.mk-opt-check{position:absolute;top:5px;right:5px;width:13px;height:13px;border-radius:50%;background:var(--blue);display:none;align-items:center;justify-content:center;box-shadow:0 0 6px rgba(71,151,255,.6)}
+.mk-opt.selected .mk-opt-check{display:flex}
+.mk-opt-check svg{width:9px;height:9px;stroke:#fff;fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.mk-survey-continue{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px;border-radius:7px;background:var(--blue);color:#fff;font-size:.72rem;font-weight:500}
+.mk-survey-continue svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mk-trust{border-top:1px solid rgba(255,255,255,.05);padding:12px 22px;display:flex;align-items:center;gap:14px;font-size:.58rem;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;flex-wrap:wrap}
+.mk-trust-item{display:flex;align-items:center;gap:5px}
+.mk-trust-item::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--blue)}
+.mk-hero{grid-template-columns:1fr;gap:18px;padding:22px 18px 20px}
+.mk-nav-links{display:none}
+.mk-trust{padding:10px 16px;gap:10px;font-size:.54rem}
+.mk-mockup{padding:6px}
+.mk-nav{padding:12px 16px;gap:10px}
+.mk-logo{font-size:.82rem}
+.mk-logo-mark{width:20px;height:20px}
+.mk-h5{font-size:1.05rem}
+.mk-p{font-size:.68rem}
+.mk-survey-q{font-size:.78rem}
+.mk-mockup{padding:4px;border-radius:12px}
+.mk-bar{padding:6px 8px 8px;gap:6px}
+.mk-url{margin:0 8px;padding:4px 8px;font-size:.58rem}
+.mk-nav{padding:10px 14px}
+.mk-logo{font-size:.76rem;gap:6px}
+.mk-logo-mark{width:18px;height:18px;border-radius:4px}
+.mk-nav-cta{font-size:.6rem;padding:5px 10px}
+.mk-hero{padding:18px 14px 16px;gap:14px}
+.mk-h5{font-size:.92rem;margin-bottom:8px}
+.mk-p{font-size:.64rem;margin-bottom:12px}
+.mk-tag{font-size:.52rem;padding:3px 8px;margin-bottom:10px}
+.mk-btn{font-size:.58rem;padding:6px 10px}
+.mk-survey{padding:12px}
+.mk-survey-q{font-size:.72rem;margin-bottom:10px}
+.mk-survey-opts{gap:4px}
+.mk-opt{padding:8px 6px;min-height:56px}
+.mk-opt-lbl{font-size:.6rem}
+.mk-opt-ic{width:18px;height:18px}
+.mk-opt-ic svg{width:14px;height:14px}
+.mk-survey-continue{padding:8px;font-size:.64rem}
+.mk-trust{padding:8px 14px;gap:8px;font-size:.5rem}
+@media(max-width:768px){.mk-hero{grid-template-columns:1fr;gap:18px;padding:22px 18px 20px}.mk-nav-links{display:none}.mk-trust{padding:10px 16px;gap:10px;font-size:.54rem}.mk-mockup{padding:6px}.mk-nav{padding:12px 16px;gap:10px}.mk-logo{font-size:.82rem}.mk-logo-mark{width:20px;height:20px}.mk-h5{font-size:1.05rem}.mk-p{font-size:.68rem}.mk-survey-q{font-size:.78rem}}
+@media(max-width:480px){.mk-mockup{padding:4px;border-radius:12px}.mk-bar{padding:6px 8px 8px;gap:6px}.mk-url{margin:0 8px;padding:4px 8px;font-size:.58rem}.mk-nav{padding:10px 14px}.mk-logo{font-size:.76rem;gap:6px}.mk-logo-mark{width:18px;height:18px;border-radius:4px}.mk-nav-cta{font-size:.6rem;padding:5px 10px}.mk-hero{padding:18px 14px 16px;gap:14px}.mk-h5{font-size:.92rem;margin-bottom:8px}.mk-p{font-size:.64rem;margin-bottom:12px}.mk-tag{font-size:.52rem;padding:3px 8px;margin-bottom:10px}.mk-btn{font-size:.58rem;padding:6px 10px}.mk-survey{padding:12px}.mk-survey-q{font-size:.72rem;margin-bottom:10px}.mk-survey-opts{gap:4px}.mk-opt{padding:8px 6px;min-height:56px}.mk-opt-lbl{font-size:.6rem}.mk-opt-ic{width:18px;height:18px}.mk-opt-ic svg{width:14px;height:14px}.mk-survey-continue{padding:8px;font-size:.64rem}.mk-trust{padding:8px 14px;gap:8px;font-size:.5rem}}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
@@ -258,6 +413,16 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     </div>
   </div>
 </header>
+
+<!-- STATS BAR -->
+<div class="statbar">
+  <div class="statrow">
+    <div class="statc rv"><span class="statn">$20M+</span><div class="statl"><b>Ad Spend Deployed</b>Across Meta and Google campaigns</div></div>
+    <div class="statc rv d1"><span class="statn">47s</span><div class="statl"><b>Average AI Response</b>From lead submission to SMS reply</div></div>
+    <div class="statc rv d2"><span class="statn">70%</span><div class="statl"><b>Lead to Appointment</b>When AI activates within 60 seconds</div></div>
+    <div class="statc rv d3"><span class="statn">218</span><div class="statl"><b>Branded Systems</b>Built and deployed</div></div>
+  </div>
+</div>
 
 <!-- WHAT IS INCLUDED -->
 <section>
@@ -295,6 +460,72 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <div class="inc">
         <div class="tick shield">&#9733;</div>
         <div><h4>10 Quoted Jobs Guaranteed</h4><p>10 quoted jobs in your first 30 days, or your build fee back in full. Fund the ads, keep the follow-up on, and work the leads we deliver. <a href="/quoteleads-terms#s5" style="color:var(--blue)">Full guarantee terms</a>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT -->
+<section style="background:var(--deep)">
+  <div class="wrap">
+    <div class="center rv"><span class="pill">The actual machine</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">This is what <em>gets built.</em></h2>
+    <p class="center rv" style="font-size:.9rem;color:var(--muted);line-height:1.72;max-width:50ch;margin:14px auto 0">Not a template you fill in later. These are the two pieces that do the work, built under your brand.</p>
+  </div>
+  <div class="wrap-wide">
+    <div class="show rv">
+      <div class="show-lbl">Piece one</div>
+      <div class="show-h">The ad that runs</div>
+      <p class="show-p">A real paid placement in your name, targeting your trade and your postcodes. Not a scraped list, not a directory listing.</p>
+      <div style="position:relative">
+        <div class="ad-platform">Meta &amp; Google Ads</div>
+        <div class="ad-iframe-wrap">
+          <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" loading="lazy" title="Example Meta ad built for a solar installer"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="show rv">
+      <div class="show-lbl">Piece two</div>
+      <div class="show-h">The survey funnel they land on</div>
+      <p class="show-p">Your brand, your domain. The qualifying steps filter out renters, wrong postcodes and browsers before anyone reaches your phone.</p>
+      <div class="mk-mockup">
+        <div class="mk-bar">
+          <span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span>
+          <div class="mk-url">yourcompany.com.au / get-a-quote</div>
+        </div>
+        <div class="mk-body">
+          <div class="mk-nav">
+            <div class="mk-logo"><div class="mk-logo-mark"></div><span>Your Solar Co.</span></div>
+            <div class="mk-nav-links"><span>Systems</span><span>Finance</span><span>Reviews</span></div>
+            <span class="mk-nav-cta">Get Quote</span>
+          </div>
+          <div class="mk-hero">
+            <div class="mk-hero-left">
+              <div class="mk-tag"><span class="mk-tag-dot"></span>CEC Accredited &middot; 500+ Installs</div>
+              <div class="mk-h5">82% power bill reduction. <span class="mk-h5-script">or we'll tell you honestly if it's not worth it.</span></div>
+              <div class="mk-p">Local crew. No call centre. We'll tell you exactly what your system pays back, in writing, same day.</div>
+              <div class="mk-hero-ctas"><span class="mk-btn mk-btn-prim">Start Survey</span><span class="mk-btn mk-btn-sec">View Systems</span></div>
+            </div>
+            <div class="mk-survey">
+              <div class="mk-survey-head"><span class="mk-survey-step">Step 2 of 4</span><span>&larr; Back</span></div>
+              <div class="mk-survey-bar"><div class="mk-survey-fill"></div></div>
+              <div class="mk-survey-head">This helps us calculate your exact savings estimate</div>
+              <div class="mk-survey-q">What's your average quarterly power bill?</div>
+              <div class="mk-survey-opts">
+                <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1 2 1 3.3h6c0-1.3 0-2.5 1-3.3A7 7 0 0 0 12 2z"/></svg></div><div class="mk-opt-lbl">Under $400</div></div>
+                <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 10 14 10 22 21 10 14 10 14 2"/></svg></div><div class="mk-opt-lbl">$400 - $600</div></div>
+                <div class="mk-opt selected"><div class="mk-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M20 10v4"/><rect x="5" y="10" width="8" height="4" rx="1" fill="currentColor" stroke="none"/></svg></div><div class="mk-opt-lbl">$600 - $900</div></div>
+                <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg></div><div class="mk-opt-lbl">$900+</div></div>
+              </div>
+              <div class="mk-survey-head">No sales pressure. No obligation. Takes 90 seconds.</div>
+              <div class="mk-survey-continue">Continue <svg viewBox="0 0 16 16"><path d="M2 8h12M9 4l4 4-4 4"/></svg></div>
+            </div>
+          </div>
+          <div class="mk-trust">
+            <span class="mk-trust-item">4.9 stars &middot; 287 homeowners &middot; last review 2 days ago</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -352,6 +583,38 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       </div>
     </div>
     <p class="cam-note">Pick one at activation, or run more than one and split the budget. Because the system is yours, you can change what it targets whenever you want, without rebuilding anything.</p>
+  </div>
+</section>
+
+<!-- AFTER YOU PAY -->
+<section style="background:var(--deep)">
+  <div class="wrap">
+    <div class="center rv"><span class="pill">After you pay</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">Exactly what happens <em>next.</em></h2>
+    <p class="center rv" style="font-size:.9rem;color:var(--muted);line-height:1.72;max-width:52ch;margin:14px auto 0">You are buying a build, so it is fair to know what the next fortnight looks like before you pay for it. This is the whole thing.</p>
+
+    <ol class="tl rv">
+      <li>
+        <div class="tl-when">Straight away</div>
+        <h4>Onboarding form, and you grant access</h4>
+        <p>Your QuoteLeadsHQ account is created the moment payment clears and a login lands in your inbox. You fill in the onboarding form, your service area, the jobs you want, your daily budget, then grant access to your Meta ad account and Page. The dashboard walks you through the permissions one by one. It takes about five minutes, and it is the step that makes the system yours rather than ours.</p>
+      </li>
+      <li>
+        <div class="tl-when">Within 24 to 48 hours</div>
+        <h4>Your previews arrive</h4>
+        <p>We build the whole thing on your accounts, campaigns, creative, landing page, survey funnel, tracking, AI SMS agent and CRM pipeline, then send you the previews. Nothing has spent a cent at this point.</p>
+      </li>
+      <li>
+        <div class="tl-when">Your call</div>
+        <h4>You approve, and it goes live</h4>
+        <p>You look over the ads and the funnel and give the word. Nothing runs until you do. Your ad spend then starts going direct to Meta from your own card, never through us.</p>
+      </li>
+      <li>
+        <div class="tl-when">This week</div>
+        <h4>Leads start coming in</h4>
+        <p>Enquiries usually start landing the same day the ads go live. Every one gets an SMS within 60 seconds confirming what they need and booking the callback for you. We run and optimise the whole thing for your first 30 days, which begins the day your ads go live, not the day you paid.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -442,6 +705,57 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <span>Live in 24-48 hours</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="center rv"><span class="pill">Questions</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">Answered <em>straight.</em></h2>
+    <div class="faq rv">
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>What if it does not work for my business?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Then you get your money back. If the system does not produce 10 quoted jobs in your first 30 days, we refund the build fee in full, provided you funded the ads, left the follow-up on and actually worked the leads. Those conditions exist because the system cannot make calls for you, not to give us a way out. The full terms are linked above the buy button.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>Do I need to know anything about running ads?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>No. That is the point of the build. We set up the campaigns, write the creative, configure the targeting and run it for the first 30 days. You approve the ads before they go live and you can see everything at any time, but you are never asked to build or manage anything yourself.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>How much do I need to spend on ads, and does that go to you?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Around $50 a day is the usual starting point, and none of it comes to us. Your ad spend is billed by Meta directly to your own card on your own ad account. That means no markup on any lead, and your cost per lead falls as the campaigns optimise rather than staying fixed at whatever a lead seller charges.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>Why $2,500 when I could just buy leads?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Because you are buying the asset rather than the output. Bought leads stop the day you stop paying, and the price per lead never really comes down. Here the campaigns, funnel, creative and data are yours permanently, so the same spend gets cheaper per job over time and you keep everything if you ever stop working with us.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>What actually happens if I cancel management after 30 days?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Nothing switches off. The campaigns, ad account, funnel, creative and every lead you have collected stay exactly where they are, on your accounts, because they were never on ours. You can run it yourself, hand it to an in-house marketer, or give another agency access. There is no handover process because there is nothing to hand over.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>Are the leads exclusive, or shared with other installers?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Exclusive, always. The campaigns run under your brand and the homeowner agrees to hear from your business by name before they submit. There is no marketplace, no second buyer and no version of this where the same enquiry goes to three of your competitors.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>How fast will I actually see leads?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>The build takes 24 to 48 hours once you have granted access, and leads usually start arriving the same day the ads go live. What arrives first is a trickle rather than a flood, because campaigns need a few days of data before they find the right people consistently.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>I already have an agency running ads. Does this clash?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>It can run alongside them, but be straight with us on the call about what is already live so we can keep the audiences and accounts from competing with each other. If your existing campaigns are already producing qualified leads reliably, tell us that too. We would rather say the timing is wrong than sell you something you do not need.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>What if I want to change what it targets later?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>You change it. The system is yours, so you can point it at a different campaign type, a different postcode set or a different job size whenever you want. If we are still managing it we do that for you. If we are not, the accounts are in your name and nothing is locked.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>Who is this not for?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Anyone who cannot fund ad spend on top of the build fee, since the system needs traffic to produce anything. Anyone who wants leads today with no setup at all, because there is a 24 to 48 hour build. And anyone who is not going to ring the leads back quickly, because speed to contact is most of what makes this work.</p></div>
+      </div>
+    </div>
+    <p class="center rv" style="font-size:.86rem;color:var(--muted);line-height:1.7;margin-top:26px">Something not covered? Email <a href="mailto:contact@quoteleads.com.au" style="color:var(--blue)">contact@quoteleads.com.au</a> or request a callback above and ask.</p>
   </div>
 </section>
 
@@ -595,6 +909,18 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  // FAQ accordion. One open at a time.
+  Array.prototype.forEach.call(document.querySelectorAll('.faqq'), function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement, wasOpen = item.classList.contains('on');
+      Array.prototype.forEach.call(document.querySelectorAll('.faqi'), function(i){
+        i.classList.remove('on');
+        var b = i.querySelector('.faqq'); if(b) b.setAttribute('aria-expanded','false');
+      });
+      if(!wasOpen){ item.classList.add('on'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
 
   // Scroll progress
   var sprog = document.getElementById('sprog');
