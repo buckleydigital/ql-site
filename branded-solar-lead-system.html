@@ -103,8 +103,13 @@ section+section{border-top:1px solid var(--border)}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 16px 38px rgba(71,151,255,.46),0 0 0 6px rgba(71,151,255,.1)}
 .btn-primary:active{transform:translateY(0)}
 .btn-primary:disabled{opacity:.55;cursor:not-allowed;transform:none;filter:none}
-.btn-ghost{background:var(--glass);color:var(--off);border:1px solid var(--bmid)}
-.btn-ghost:hover{border-color:var(--bblue);color:var(--white);background:var(--glass2)}
+.btn-second{background:var(--glass2);color:var(--white);border:1px solid var(--bblue)}
+.btn-second:hover{border-color:var(--blue);background:rgba(71,151,255,.14)}
+.cta-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sticky .cta-pair{gap:8px}
+.sticky .btn{padding:14px 16px;font-size:.9rem}
+.cta-hint{font-size:.78rem;color:var(--faint);line-height:1.6;text-align:center;margin-top:12px}
+@media(max-width:520px){.cta-pair{grid-template-columns:1fr}}
 
 /* SECTIONS */
 section{padding:56px 0;position:relative}
@@ -185,9 +190,6 @@ section{padding:56px 0;position:relative}
 .consent{display:flex;gap:11px;align-items:flex-start;margin:8px 0 18px;color:var(--muted);font-size:.83rem;line-height:1.6}
 .consent input{margin-top:3px;width:17px;height:17px;flex-shrink:0;accent-color:var(--blue)}
 .formmsg{min-height:20px;margin-top:12px;text-align:center;font-size:.88rem;color:#f87171}
-.divider{display:flex;align-items:center;gap:14px;margin:16px 0;color:var(--faint);font-size:.76rem;
-  letter-spacing:.12em;text-transform:uppercase}
-.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
 
 /* THANK YOU */
 .thanks{display:none;text-align:center;padding:14px 0}
@@ -400,7 +402,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 <div class="topbar"><img src="/quoteleads-logo-white.png" alt="QuoteLeads"></div>
 <header class="hero">
   <div class="wrap">
-    <div class="center rv"><span class="pill"><span class="dot"></span>Branded Lead Gen System</span></div>
+    <div class="center rv"><span class="pill"><span class="dot"></span>For Australian solar installers</span></div>
     <h1 class="rv">Stop renting leads. <em>Own the machine that makes them.</em></h1>
     <div class="hrule rv"></div>
     <p class="sub rv">A solar lead engine built on <b>your</b> accounts, your brand and your data. We build it, launch it, and manage it for the first 30 days. Yours to keep from day 1.</p>
@@ -408,9 +410,9 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <div class="shot rv">
       <img src="/solar-lead-gen-system-product.png" alt="The QuoteLeads Branded Lead Gen System" width="1200" height="1200" fetchpriority="high" decoding="async">
     </div>
-    <div class="rv" style="margin-top:30px">
+    <div class="rv cta-pair" style="margin-top:30px">
       <button class="btn btn-primary" data-scroll="order">Get Started</button>
-      <button class="btn btn-ghost" data-scroll="order" style="margin-top:10px">Request a callback</button>
+      <button class="btn btn-second" data-scroll="order">Request a callback</button>
     </div>
   </div>
 </header>
@@ -618,6 +620,42 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   </div>
 </section>
 
+<!-- PROOF -->
+<section>
+  <div class="wrap">
+    <div class="center rv"><span class="pill">Results</span></div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"The quality is genuinely better than what we were getting through other platforms. Leads come through with all the info you need, bill size, etc so you're not wasting time on tyre kickers."</p>
+      <div class="who">Better Energy Group &middot; Solar Installations</div>
+    </div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"We get about 70% of leads turning into quality appointments"</p>
+      <div class="who">Lamm Solar &middot; Solar Installations</div>
+    </div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Setup was quick, first leads came through the same day. A platform that actually delivers."</p>
+      <div class="who">SunReady Solar &middot; Solar Installations</div>
+    </div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Fast setup, great support and higher intent solar leads."</p>
+      <div class="who">SolarHarvest &middot; Solar Installations</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="ticker rv">
+      <div class="ticker-inner">
+        <span>You own everything</span>
+        <span>Built on your accounts</span>
+        <span>Live in 24-48 hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICE + ORDER -->
 <section id="order">
   <div class="wrap">
@@ -650,9 +688,11 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
             <input type="checkbox" id="fConsent">
             <span>I agree to be contacted by QuoteLeads about setting up my system, and confirm my details are correct.</span>
           </label>
-          <button class="btn btn-primary" id="btnBuy">Buy now, $2,500</button>
-          <div class="divider">or</div>
-          <button class="btn btn-ghost" id="btnCall">Request a callback</button>
+          <div class="cta-pair">
+            <button class="btn btn-primary" id="btnBuy">Buy now, $2,500</button>
+            <button class="btn btn-second" id="btnCall">Request a callback</button>
+          </div>
+          <p class="cta-hint">Not ready to buy outright? Ask for a callback and we will talk it through first. Same details, no payment.</p>
           <div class="formmsg" id="formMsg" aria-live="polite"></div>
           <div class="trust-row">
             <span>Secure Stripe checkout</span>
@@ -667,42 +707,6 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <h3>You're all set.</h3>
         <p>We will call you within the next hour. Keep your phone handy.</p>
         <a class="mail" href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROOF -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="center rv"><span class="pill">Results</span></div>
-    <div class="quote rv">
-      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p>"The quality is genuinely better than what we were getting through other platforms. Leads come through with all the info you need, bill size, etc so you're not wasting time on tyre kickers."</p>
-      <div class="who">Better Energy Group &middot; Solar Installations</div>
-    </div>
-    <div class="quote rv">
-      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p>"We get about 70% of leads turning into quality appointments"</p>
-      <div class="who">Lamm Solar &middot; Solar Installations</div>
-    </div>
-    <div class="quote rv">
-      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p>"Setup was quick, first leads came through the same day. A platform that actually delivers."</p>
-      <div class="who">SunReady Solar &middot; Solar Installations</div>
-    </div>
-    <div class="quote rv">
-      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p>"Fast setup, great support and higher intent solar leads."</p>
-      <div class="who">SolarHarvest &middot; Solar Installations</div>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="ticker rv">
-      <div class="ticker-inner">
-        <span>You own everything</span>
-        <span>Built on your accounts</span>
-        <span>Live in 24-48 hours</span>
       </div>
     </div>
   </div>
@@ -776,7 +780,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 </div>
 
 <div class="sticky" id="sticky">
-  <button class="btn btn-primary" data-scroll="order">Get Started, $2,500</button>
+  <div class="cta-pair">
+    <button class="btn btn-primary" data-scroll="order">Get Started, $2,500</button>
+    <button class="btn btn-second" data-scroll="order">Request a callback</button>
+  </div>
   <div class="sticky-note">10 quoted jobs in 30 days, or your money back</div>
 </div>
 
