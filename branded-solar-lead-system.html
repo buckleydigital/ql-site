@@ -230,7 +230,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 
 
 /* ── Wide container, for the showcase only ───────────────────────────── */
-.wrap-wide{max-width:980px;margin:0 auto;padding:0 20px}
+.ad-hold{position:relative;width:min(400px,100%);margin:0 auto}
 
 /* ── Stats bar ───────────────────────────────────────────────────────── */
 .statbar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--deep)}
@@ -267,7 +267,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 .tl p{font-size:.88rem;color:var(--muted);line-height:1.72;margin:0}
 
 /* ── FAQ ─────────────────────────────────────────────────────────────── */
-.faq{margin-top:28px;border-top:1px solid var(--border)}
+.faq{margin-top:18px;border-top:1px solid var(--border)}
+.faqi:first-child .faqq{padding-top:13px}
 .faqi{border-bottom:1px solid var(--border)}
 .faqq{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:flex-start;
   justify-content:space-between;gap:16px;text-align:left;padding:19px 0;
@@ -471,13 +472,12 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <div class="center rv"><span class="pill">The actual machine</span></div>
     <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">This is what <em>gets built.</em></h2>
     <p class="center rv" style="font-size:.9rem;color:var(--muted);line-height:1.72;max-width:50ch;margin:14px auto 0">Not a template you fill in later. These are the two pieces that do the work, built under your brand.</p>
-  </div>
-  <div class="wrap-wide">
+
     <div class="show rv">
       <div class="show-lbl">Piece one</div>
-      <div class="show-h">The ad that runs</div>
-      <p class="show-p">A real paid placement in your name, targeting your trade and your postcodes. Not a scraped list, not a directory listing.</p>
-      <div style="position:relative">
+      <div class="show-h">The ads that run</div>
+      <p class="show-p">Real paid placements in your name, targeting your trade and your postcodes. Not a scraped list, not a directory listing.</p>
+      <div class="ad-hold">
         <div class="ad-platform">Meta &amp; Google Ads</div>
         <div class="ad-iframe-wrap">
           <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" loading="lazy" title="Example Meta ad built for a solar installer"></iframe>
@@ -612,7 +612,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <li>
         <div class="tl-when">This week</div>
         <h4>Leads start coming in</h4>
-        <p>Enquiries usually start landing the same day the ads go live. Every one gets an SMS within 60 seconds confirming what they need and booking the callback for you. We run and optimise the whole thing for your first 30 days, which begins the day your ads go live, not the day you paid.</p>
+        <p>Enquiries usually start landing the same day the ads go live. Every one gets an SMS within 60 seconds confirming what they need and booking the callback for you. We run and optimise the whole thing for your first 30 days upon your ads going live.</p>
       </li>
     </ol>
   </div>
@@ -709,7 +709,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 </section>
 
 <!-- FAQ -->
-<section style="padding-top:0">
+<section style="padding-top:34px">
   <div class="wrap">
     <div class="center rv"><span class="pill">Questions</span></div>
     <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">Answered <em>straight.</em></h2>
@@ -909,6 +909,22 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  // The ad creative is a 1080x1080 iframe scaled down to fit its holder.
+  // Without this it overflows an overflow:hidden box and shows only its
+  // top-left corner, which is exactly how it looked before this existed.
+  function scaleAdIframe(){
+    var wrap = document.querySelector('.ad-iframe-wrap');
+    if(!wrap) return;
+    var fr = wrap.querySelector('.ad-iframe');
+    if(!fr) return;
+    var s = wrap.getBoundingClientRect().width / 1080;
+    fr.style.transform = 'scale(' + s + ')';
+    wrap.style.height = (1080 * s) + 'px';
+  }
+  window.addEventListener('resize', scaleAdIframe);
+  window.addEventListener('load', scaleAdIframe);
+  scaleAdIframe();
 
   // FAQ accordion. One open at a time.
   Array.prototype.forEach.call(document.querySelectorAll('.faqq'), function(btn){
