@@ -137,6 +137,14 @@ section{padding:56px 0;position:relative}
 
 /* LEAD EXAMPLE */
 .lead-card{background:var(--deep);border:1px solid var(--bmid);border-radius:18px;overflow:hidden;margin-top:24px}
+.cam-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.cam{background:var(--deep);border:1px solid var(--bmid);border-radius:16px;padding:22px 20px;
+  transition:border-color .25s,transform .25s}
+.cam:hover{border-color:rgba(71,151,255,.4);transform:translateY(-2px)}
+.cam h4{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px}
+.cam p{font-size:.86rem;color:var(--muted);line-height:1.68;margin:0}
+.cam-note{font-size:.82rem;color:var(--faint);line-height:1.7;text-align:center;max-width:56ch;margin:22px auto 0}
+@media(max-width:640px){.cam-grid{grid-template-columns:1fr}}
 .lead-top{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);background:var(--glass)}
 .lead-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(145deg,#2F82F0,#6FADFF);display:flex;
   align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:.85rem;color:#fff}
@@ -212,6 +220,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
 @media(max-width:520px){section{padding:44px 0}.card{padding:24px 20px}}
 </style>
@@ -306,6 +315,33 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <div class="lead-note">Custom fields are yours to set. Capture any information you need for the call or the quote, and it arrives with every lead.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CAMPAIGN TYPES -->
+<section>
+  <div class="wrap">
+    <div class="center rv"><span class="pill">What we point it at</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">One system. <em>Four ways to aim it.</em></h2>
+    <div class="cam-grid">
+      <div class="cam rv">
+        <h4>All solar</h4>
+        <p>Homeowners looking to go solar for the first time. The widest pool and the cheapest enquiries, qualified on bill size, ownership and timeline before they reach you.</p>
+      </div>
+      <div class="cam rv d1">
+        <h4>Solar + battery</h4>
+        <p>Homeowners buying panels and storage together as one system. Bigger job values than solar alone, and they are shopping for a complete setup rather than a price per kW.</p>
+      </div>
+      <div class="cam rv d2">
+        <h4>Battery retrofit</h4>
+        <p>Homes that already have panels and want storage added. They have bought from an installer before, so there is far less educating to do on the call.</p>
+      </div>
+      <div class="cam rv d3">
+        <h4>Commercial solar</h4>
+        <p>Facility managers, property owners and decision makers enquiring for a business site. Fewer enquiries, far larger jobs, qualified on decision-making authority.</p>
+      </div>
+    </div>
+    <p class="cam-note">Pick one at activation, or run more than one and split the budget. Because the system is yours, you can change what it targets whenever you want, without rebuilding anything.</p>
   </div>
 </section>
 
