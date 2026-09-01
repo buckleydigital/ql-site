@@ -106,6 +106,7 @@ section+section{border-top:1px solid var(--border)}
 .btn-second{background:var(--glass2);color:var(--white);border:1px solid var(--bblue)}
 .btn-second:hover{border-color:var(--blue);background:rgba(71,151,255,.14)}
 .cta-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta-pair.one{grid-template-columns:1fr}
 .sticky .cta-pair{gap:8px}
 .sticky .btn{padding:14px 16px;font-size:.9rem}
 .cta-hint{font-size:.78rem;color:var(--faint);line-height:1.6;text-align:center;margin-top:12px}
@@ -166,6 +167,24 @@ section{padding:56px 0;position:relative}
   color:var(--mist);font-size:.85rem;line-height:1.65}
 
 /* PRICE */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.tier{background:var(--deep);border:1px solid var(--bmid);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column}
+.tier.lead{border-color:var(--bblue);background:linear-gradient(180deg,rgba(71,151,255,.07),var(--deep) 60%)}
+.tier-name{font-family:var(--display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.tier-price{font-family:var(--display);font-weight:600;font-size:clamp(2.1rem,8vw,2.7rem);color:var(--white);line-height:1.1;margin-top:12px}
+.tier-price sup{font-size:.5em;top:-.55em;position:relative;color:var(--mist)}
+.tier-mo{font-size:.86rem;color:var(--mist);margin-top:6px;line-height:1.6}
+.tier-for{font-size:.86rem;color:var(--muted);line-height:1.68;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.tier-for b{color:var(--off);font-weight:500}
+.rule{margin-top:16px;padding:18px 20px;border-radius:14px;background:var(--bdim);border:1px solid var(--bblue)}
+.rule-h{font-size:.92rem;color:var(--white);font-weight:600;margin-bottom:10px}
+.rule ul{list-style:none;display:grid;gap:8px}
+.rule li{display:flex;gap:10px;font-size:.87rem;color:var(--mist);line-height:1.6}
+.rule li b{color:var(--white);font-weight:600}
+.rule li::before{content:'';flex-shrink:0;width:6px;height:6px;margin-top:.55em;border-radius:50%;background:var(--blue)}
+.rule-note{font-size:.83rem;color:var(--faint);line-height:1.7;margin-top:12px}
+@media(max-width:640px){.tiers{grid-template-columns:1fr}}
+
 .price-row{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:8px}
 .price-now{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,11vw,3.6rem);color:var(--blue);
   text-shadow:0 0 44px rgba(71,151,255,.4)}
@@ -411,8 +430,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <img src="/solar-lead-gen-system-product.png" alt="The QuoteLeads Branded Lead Gen System" width="1200" height="1200" fetchpriority="high" decoding="async">
     </div>
     <div class="rv cta-pair" style="margin-top:30px">
-      <button class="btn btn-primary" data-scroll="order">Get Started</button>
-      <button class="btn btn-second" data-scroll="order">Request a callback</button>
+      <button class="btn btn-primary" data-scroll="order">Book a call</button>
+      <button class="btn btn-second" data-scroll="order">See what it costs</button>
     </div>
   </div>
 </header>
@@ -662,10 +681,38 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <div class="card rv">
       <div id="offerBlock">
         <div class="center">
-          <div class="price-row">
-            <span class="price-now">$2,500</span>
+          <h3 style="font-family:var(--display);font-size:clamp(1.4rem,5vw,1.8rem);font-weight:600">Two builds. <em>Same system.</em></h3>
+          <p class="price-note" style="margin-top:10px">Which one you are on comes down to how much there is to run, not how much we think you will pay.</p>
+        </div>
+
+        <div class="tiers">
+          <div class="tier lead">
+            <div class="tier-name">Standard</div>
+            <div class="tier-price"><sup>$</sup>2,500</div>
+            <div class="tier-mo">one-off build, ex GST<br>then $600/mo, optional</div>
+            <p class="tier-for">For <b>one campaign, one service area, one offer</b>, running up to <b>$100 a day</b> in ad spend.</p>
           </div>
-          <p class="price-note">One-off build plus your first 30 days of management, ex GST. After that, management is optional at $600/mo, month to month, cancel any time. Ad spend is paid direct to Meta from your own account, around $50 a day, never through us. <a href="/quoteleads-terms" style="color:var(--blue)">See full terms</a>.</p>
+          <div class="tier">
+            <div class="tier-name">Multi-Campaign</div>
+            <div class="tier-price"><sup>$</sup>5,000</div>
+            <div class="tier-mo">one-off build, ex GST<br>then from $1,200/mo</div>
+            <p class="tier-for">For <b>more moving parts</b>: several campaigns, areas or offers, or spend past $100 a day.</p>
+          </div>
+        </div>
+
+        <div class="rule">
+          <div class="rule-h">You are on Multi-Campaign if any one of these is true</div>
+          <ul>
+            <li><span>You are running more than <b>$100 a day</b> in ad spend, managed by us</span></li>
+            <li><span>You need <b>two or more campaigns</b> live at once</span></li>
+            <li><span>You are advertising across <b>more than one service area</b></span></li>
+            <li><span>You are selling <b>more than one offering</b> - say solar and battery retrofit as separate funnels</span></li>
+          </ul>
+          <p class="rule-note">One is enough to put you there. None of them and you are on Standard. Not sure which you are? That is what the call is for, and we would rather put you on the smaller build than sell you the bigger one.</p>
+        </div>
+
+        <div class="center">
+          <p class="price-note">Both builds include your first 30 days of management. Ad spend is paid direct to Meta from your own account, never through us. <a href="/quoteleads-terms" style="color:var(--blue)">See full terms</a>.</p>
           <div class="guarantee" style="margin-top:22px">10 quoted jobs in 30 days, or your money back</div>
         </div>
 
@@ -688,14 +735,13 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
             <input type="checkbox" id="fConsent">
             <span>I agree to be contacted by QuoteLeads about setting up my system, and confirm my details are correct.</span>
           </label>
-          <div class="cta-pair">
-            <button class="btn btn-primary" id="btnBuy">Buy now, $2,500</button>
-            <button class="btn btn-second" id="btnCall">Request a callback</button>
+          <div class="cta-pair one">
+            <button class="btn btn-primary" id="btnCall">Request a callback</button>
           </div>
-          <p class="cta-hint">Not ready to buy outright? Ask for a callback and we will talk it through first. Same details, no payment.</p>
+          <p class="cta-hint">No payment now. We ring you, work out which build you actually need, and quote it on the call.</p>
           <div class="formmsg" id="formMsg" aria-live="polite"></div>
           <div class="trust-row">
-            <span>Secure Stripe checkout</span>
+            <span>No obligation</span>
             <span>No lock-in</span>
             <span>Australian owned and operated</span>
           </div>
@@ -720,7 +766,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <div class="faq rv">
       <div class="faqi">
         <button class="faqq" type="button" aria-expanded="false"><span>What if it does not work for my business?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
-        <div class="faqa"><p>Then you get your money back. If the system does not produce 10 quoted jobs in your first 30 days, we refund the build fee in full, provided you funded the ads, left the follow-up on and actually worked the leads. Those conditions exist because the system cannot make calls for you, not to give us a way out. The full terms are linked above the buy button.</p></div>
+        <div class="faqa"><p>Then you get your money back. If the system does not produce 10 quoted jobs in your first 30 days, we refund the build fee in full, provided you funded the ads, left the follow-up on and actually worked the leads. Those conditions exist because the system cannot make calls for you, not to give us a way out. The full terms are linked above the callback form.</p></div>
       </div>
       <div class="faqi">
         <button class="faqq" type="button" aria-expanded="false"><span>Do I need to know anything about running ads?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
@@ -731,8 +777,12 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <div class="faqa"><p>Around $50 a day is the usual starting point, and none of it comes to us. Your ad spend is billed by Meta directly to your own card on your own ad account. That means no markup on any lead, and your cost per lead falls as the campaigns optimise rather than staying fixed at whatever a lead seller charges.</p></div>
       </div>
       <div class="faqi">
-        <button class="faqq" type="button" aria-expanded="false"><span>Why $2,500 when I could just buy leads?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <button class="faqq" type="button" aria-expanded="false"><span>Why pay for a build when I could just buy leads?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
         <div class="faqa"><p>Because you are buying the asset rather than the output. Bought leads stop the day you stop paying, and the price per lead never really comes down. Here the campaigns, funnel, creative and data are yours permanently, so the same spend gets cheaper per job over time and you keep everything if you ever stop working with us.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>How do I know whether I am on the $2,500 or the $5,000 build?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>By how much there is to run, and you only need to trip one of four things: more than $100 a day in managed ad spend, two or more campaigns live at once, more than one service area, or more than one offering run as its own funnel. Any one of those and it is the $5,000 build with management from $1,200 a month, because it is several engines being run rather than one. None of them and it is $2,500 with management optional at $600 a month. We work this out with you on the call before anything is quoted, and if you are on the line between the two we will start you on the smaller one.</p></div>
       </div>
       <div class="faqi">
         <button class="faqq" type="button" aria-expanded="false"><span>What actually happens if I cancel management after 30 days?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
@@ -781,8 +831,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 
 <div class="sticky" id="sticky">
   <div class="cta-pair">
-    <button class="btn btn-primary" data-scroll="order">Get Started, $2,500</button>
-    <button class="btn btn-second" data-scroll="order">Request a callback</button>
+    <button class="btn btn-primary" data-scroll="order">Book a call</button>
+    <button class="btn btn-second" data-scroll="order">See what it costs</button>
   </div>
   <div class="sticky-note">10 quoted jobs in 30 days, or your money back</div>
 </div>
@@ -806,7 +856,6 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     nicheWrap: document.getElementById('fNicheWrap'),
     consent: document.getElementById('fConsent'),
     msg: document.getElementById('formMsg'),
-    buy: document.getElementById('btnBuy'),
     call: document.getElementById('btnCall'),
     offer: document.getElementById('offerBlock'),
     thanks: document.getElementById('thanks')
@@ -860,29 +909,6 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     els.msg.textContent = '';
     return d;
   }
-
-  els.buy.addEventListener('click', function(){
-    var d = validate(); if(!d) return;
-    els.buy.disabled = true;
-    els.buy.textContent = 'Opening secure checkout...';
-    d.plan = 'standard';
-    d.source = 'branded-solar-lead-system-funnel';
-    fetch(SUPABASE_URL + '/functions/v1/create-checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(d)
-    }).then(function(r){ return r.json().then(function(j){ return { ok: r.ok, body: j }; }); })
-      .then(function(res){
-        if(!res.ok || !res.body.url) throw new Error(res.body.error || 'Could not start checkout');
-        window.location.href = res.body.url;
-      })
-      .catch(function(){
-        els.buy.disabled = false;
-        els.buy.textContent = 'Buy now, $2,500';
-        els.msg.textContent = 'Something went wrong opening checkout. Email contact@quoteleads.com.au and we will sort it.';
-      });
-  });
-
 
   els.call.addEventListener('click', function(){
     var d = validate(); if(!d) return;
