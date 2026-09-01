@@ -863,6 +863,25 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 }
 @media(max-width:480px){.sys-feats{grid-template-columns:1fr}}
 
+/* ═══ NEXT STEPS ═══ */
+.ns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.ns-step{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:28px 24px 26px;
+  transition:border-color .25s,background .25s}
+.ns-step:hover{border-color:rgba(71,151,255,.22);background:linear-gradient(145deg,rgba(71,151,255,.05),rgba(71,151,255,.01))}
+.ns-step.last{border-color:rgba(16,185,129,.22);background:linear-gradient(145deg,rgba(16,185,129,.05),rgba(16,185,129,.01))}
+.ns-step.last:hover{border-color:rgba(16,185,129,.34)}
+.ns-num{font-family:var(--display);font-size:1.5rem;font-weight:600;
+  color:var(--blue);opacity:.5;margin-bottom:10px;display:block;line-height:1}
+.ns-step.last .ns-num{color:#34d399}
+.ns-name{font-family:var(--display);font-size:1.02rem;font-weight:600;color:var(--white);
+  letter-spacing:-.01em;line-height:1.3;margin-bottom:10px}
+.ns-desc{font-size:.84rem;color:var(--muted);line-height:1.66}
+.ns-when{font-size:.72rem;color:var(--faint);margin-top:14px;padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.06);font-weight:500}
+@media(max-width:900px){.ns-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.ns-grid{grid-template-columns:1fr;gap:12px}.ns-step{padding:22px 20px}}
+
 </style>
 </head>
 <body>
@@ -1238,6 +1257,32 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
     <p class="rv" style="color:var(--faint);font-size:.78rem;line-height:1.6;max-width:640px;margin:16px auto 0;text-align:center">Illustrative: shared leads booking 15%, the Branded Lead Gen System at a 50% lead-to-appointment rate. Some installers report 70%. Lead-to-appointment rates are driven largely by the business receiving them - how fast you respond, what you offer and how you sell.</p>
 
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section id="next-steps" style="background:var(--deep)">
+  <div class="si">
+    <div class="rv" style="text-align:center"><div class="ey" style="justify-content:center">Next steps</div></div>
+    <h2 class="stitle rv" style="text-align:center;max-width:640px;margin:0 auto 12px">Next steps.</h2>
+
+    <div class="ns-grid rv">
+      <div class="ns-step">
+        <span class="ns-num">01</span>
+        <div class="ns-name">Strategy Call &amp; Onboarding</div>
+        <p class="ns-desc">A quick call to scope it, then five minutes of setup.</p>
+      </div>
+      <div class="ns-step">
+        <span class="ns-num">02</span>
+        <div class="ns-name">Get Leads &amp; Appointments</div>
+        <p class="ns-desc">Live in 24 to 48 hours. Every enquiry texted back in 60 seconds.</p>
+      </div>
+      <div class="ns-step last">
+        <span class="ns-num">03</span>
+        <div class="ns-name">Close New Jobs</div>
+        <p class="ns-desc">You quote homeowners who came to you by name.</p>
+      </div>
+    </div>
   </div>
 </section>
 
