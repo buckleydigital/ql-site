@@ -173,6 +173,18 @@ section{position:relative;z-index:3;padding:80px 5%}
 .cond-field{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
 .cond-field.show{display:block}
 
+/* GOOGLE DRIVE SHARE BOX */
+.drive-box{background:linear-gradient(135deg,rgba(71,151,255,.08),rgba(71,151,255,.03));border:1px solid rgba(71,151,255,.25);border-radius:12px;padding:18px 18px 16px}
+.drive-box .db-eyebrow{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:9px;display:flex;align-items:center;gap:8px}
+.drive-box p{font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:13px}
+.drive-email{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.28);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.drive-email code{flex:1;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;color:var(--white);word-break:break-all}
+.btn-copy{background:none;border:1px solid var(--bmid);color:var(--off);padding:6px 13px;border-radius:100px;font-family:var(--body);font-size:.72rem;cursor:none;transition:all .2s;flex-shrink:0}
+.btn-copy:hover{border-color:var(--blue);color:var(--white)}
+.btn-copy.copied{border-color:var(--blue);color:var(--blue)}
+.drive-note{font-size:.72rem;color:var(--faint);line-height:1.55;margin-top:12px}
+.drive-note strong{color:var(--off);font-weight:500}
+
 /* BTN ROW */
 .btn-row{display:flex;gap:10px;margin-top:8px}
 .btn-back{background:none;border:1px solid var(--border);color:var(--muted);padding:13px 22px;border-radius:100px;font-family:var(--body);font-size:.88rem;cursor:none;transition:all 0.2s}
@@ -511,13 +523,26 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <div class="opt-grid cols-2">
               <div class="opt-card" data-field="provide_assets" data-value="Yes - I'll send through photos/video">
                 <div class="opt-label">Yes - I'll send through photos &amp; video</div>
-                <div class="opt-sub">A link to upload will be sent after onboarding</div>
+                <div class="opt-sub">Share them with us on Google Drive</div>
               </div>
               <div class="opt-card" data-field="provide_assets" data-value="No - use your existing stock creative">
                 <div class="opt-label">No - use existing stock creative</div>
                 <div class="opt-sub">Proven in-industry templates</div>
               </div>
             </div>
+
+            <div class="cond-field" id="driveShareBox">
+              <div class="drive-box">
+                <div class="db-eyebrow"><span class="bpulse"></span> How to send your assets</div>
+                <p>Put your photos and video into a Google Drive folder and share it with the address below. No need to wait &mdash; you can do this as soon as you finish onboarding.</p>
+                <div class="drive-email">
+                  <code id="driveEmail">quoteleadsau@gmail.com</code>
+                  <button type="button" class="btn-copy" id="copyDriveEmail" onclick="copyDriveEmail()">Copy</button>
+                </div>
+                <div class="drive-note">Upload the <strong>original files</strong> straight from your camera roll or computer &mdash; footage sent via WhatsApp or text is compressed and won't hold up in an ad.</div>
+              </div>
+            </div>
+
             <div class="btn-row">
               <button class="btn-back" onclick="goPrev(8)">Back</button>
               <button class="btn-next" id="next8" disabled onclick="goNext(8)">Continue</button>
@@ -588,6 +613,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               View Access Guide
               <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
             </a>
+          </div>
+
+          <div class="cond-field" id="driveShareReminder" style="margin-top:0;padding-top:0;border-top:none">
+            <div class="drive-box" style="text-align:left">
+              <div class="db-eyebrow">Send your photos &amp; video</div>
+              <p>Share your Google Drive folder with the address below so we can start building your creative.</p>
+              <div class="drive-email">
+                <code>quoteleadsau@gmail.com</code>
+                <button type="button" class="btn-copy" id="copyDriveEmail2" onclick="copyDriveEmail('copyDriveEmail2')">Copy</button>
+              </div>
+            </div>
           </div>
 
           <p class="success-note">Once access is granted, add your payment method inside Meta Ads Manager.<br>Your build starts as soon as access is confirmed.</p>
@@ -775,6 +811,11 @@ document.querySelectorAll('.opt-card:not(.multi)').forEach(function(card){
       oi.classList.toggle('show', formData.industry==='Other');
     }
 
+    // Google Drive share instructions
+    if(field==='provide_assets'){
+      document.getElementById('driveShareBox')
+        .classList.toggle('show', formData.provide_assets.indexOf('Yes')===0);
+    }
 
     var nextIds={'industry':'next2','provide_assets':'next8','use_crm':'submitBtn'};
     if(nextIds[field]){
@@ -918,8 +959,37 @@ function sendToWebhook(payload){
   setTimeout(function(){
     document.getElementById('formLoading').classList.remove('active');
     document.getElementById('successScreen').classList.add('active');
+    if((formData.provide_assets||'').indexOf('Yes')===0){
+      document.getElementById('driveShareReminder').classList.add('show');
+    }
     document.getElementById('formCard').scrollIntoView({behavior:'smooth',block:'start'});
   }, 1200);
+}
+
+// ── Copy the Drive address to the clipboard ──
+function copyDriveEmail(btnId){
+  var btn=document.getElementById(btnId||'copyDriveEmail');
+  var addr='quoteleadsau@gmail.com';
+  function done(){
+    btn.textContent='Copied';
+    btn.classList.add('copied');
+    setTimeout(function(){btn.textContent='Copy';btn.classList.remove('copied');},2000);
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(addr).then(done).catch(fallback);
+  } else {
+    fallback();
+  }
+  function fallback(){
+    var t=document.createElement('textarea');
+    t.value=addr;
+    t.style.position='fixed';
+    t.style.opacity='0';
+    document.body.appendChild(t);
+    t.select();
+    try{document.execCommand('copy');done();}catch(e){}
+    document.body.removeChild(t);
+  }
 }
 
 // Init
