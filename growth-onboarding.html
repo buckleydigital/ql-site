@@ -950,7 +950,34 @@ function submitForm(){
   sendToWebhook(formData);
 }
 
+// The form posts to BOTH destinations.
+//
+//   1. growth-onboarding in ql-hq is now the real pipeline: it captures the
+//      submission, runs the spam gate against the ql-mc sales pipeline, and - if
+//      this person is someone we have actually spoken to - creates their account
+//      and sends the welcome email with no manual step. If they match nobody it
+//      holds the signup for review instead of creating anything.
+//
+//   2. The Make webhook stays live so nothing already wired downstream of it
+//      breaks. Retire it once the new flow has been running a while; this is the
+//      only line that needs deleting.
+//
+// Both are fire-and-forget with keepalive, because the success screen shows on a
+// timer and must not wait on either. Neither can block the other: a failure in
+// one is caught on its own.
+var QL_HQ_ONBOARDING_URL = 'https://wjadekgptkstfdootuol.supabase.co/functions/v1/growth-onboarding';
+var QL_HQ_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndqYWRla2dwdGtzdGZkb290dW9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ5OTc3NzQsImV4cCI6MjA5MDU3Mzc3NH0.g45wqe_F9KHh3TVzkq8LimxxT4UiuTZpJZcWkzzD7IM';
+
 function sendToWebhook(payload){
+  // ── 1. The pipeline ──
+  fetch(QL_HQ_ONBOARDING_URL,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','apikey':QL_HQ_ANON_KEY,'Authorization':'Bearer '+QL_HQ_ANON_KEY},
+    body:JSON.stringify(payload),
+    keepalive:true
+  }).catch(e=>console.error('Onboarding pipeline error:',e));
+
+  // ── 2. Make, kept so existing downstream automation is unaffected ──
   fetch('https://hook.eu2.make.com/0ztjovwevxcf57cywtp4h2xld3mvavln',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
