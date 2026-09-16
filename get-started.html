@@ -362,16 +362,48 @@ function basePayload(){
   };
 }
 
-// ── Request a callback → Make.com ──
+// ── Request a callback ──
+// Goes to TWO places:
+//
+//   1. callback-request on ql-hq, which puts the enquiry straight onto ql-mc's
+//      Sales Pipeline as a New Lead and emails contact@. This is the half a rep
+//      actually works from, and until now this page never reached it - it only
+//      ever posted to Make, so nothing a visitor submitted here appeared on the
+//      board.
+//   2. The Make webhook, kept so anything already wired downstream of it keeps
+//      working. Delete the second fetch once you are happy the board is getting
+//      them.
+//
+// The pipeline call is awaited and decides success, because that is the one that
+// matters; Make is fire-and-forget so a problem there cannot stop a real enquiry
+// being accepted.
+var PIPELINE_URL='https://wjadekgptkstfdootuol.supabase.co/functions/v1/callback-request';
 var WEBHOOK='https://hook.eu2.make.com/yshzuyu34mjslnmrufh3krwrcyyl8my8';
 async function submitGetStarted(){
   if(!callbackValid())return;
   var btn=document.getElementById('callbackBtn'),err=document.getElementById('formErr');
   err.style.display='none';btn.disabled=true;btn.textContent='Sending…';
-  var payload=Object.assign(basePayload(),{request_type:'callback',callback_window:'business hours (AEST)',turnstile_token:turnstileToken});
+  var base=basePayload();
+  var payload=Object.assign({},base,{request_type:'callback',callback_window:'business hours (AEST)',turnstile_token:turnstileToken});
   try{
-    var res=await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    // callback-request wants a single `name`, plus the trade and the volume goal
+    // so the card a rep opens already says what they asked for.
+    var res=await fetch(PIPELINE_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        name:base.name,
+        company:base.company,
+        email:base.email,
+        phone:base.phone,
+        niche:base.niche,                 // the slug this page already maps to
+        trade:base.trade||'',             // the label they actually picked
+        goal:base.monthly_lead_goal||'',
+        source:'quoteleads.com.au/get-started'
+      })
+    });
     if(!res.ok)throw new Error('HTTP '+res.status);
+    fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).catch(function(e){console.error('Make webhook error:',e);});
     try{if(window.fbq)fbq('track','Lead');if(window.gtag)gtag('event','generate_lead');}catch(e){}
     document.getElementById('formView').style.display='none';
     document.getElementById('successView').style.display='block';
