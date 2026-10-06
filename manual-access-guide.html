@@ -179,6 +179,17 @@ body::before{content:'';position:fixed;inset:0;
 .next-card h3{font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:4px}
 .next-card p{font-size:.82rem;color:var(--muted);line-height:1.6}
 
+/* CRM CTA */
+.crm-cta{position:relative;z-index:3;padding:0 5% 80px}
+.crm-cta-inner{max-width:760px;margin:0 auto;background:linear-gradient(145deg,rgba(71,151,255,.10),rgba(71,151,255,.03));
+  border:1px solid var(--bblue);border-radius:20px;padding:32px;text-align:center}
+.crm-cta h2{font-family:var(--display);font-size:1.2rem;font-weight:600;color:var(--white);margin-bottom:8px;letter-spacing:-.02em}
+.crm-cta p{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:22px}
+.crm-cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;text-decoration:none;
+  font-family:var(--body);font-size:.88rem;font-weight:500;padding:12px 26px;border-radius:100px;transition:all .2s;cursor:none}
+.crm-cta-btn:hover{background:var(--sky);box-shadow:0 6px 20px rgba(71,151,255,.4)}
+.crm-cta-btn svg{width:14px;height:14px}
+
 /* FOOTER CTA */
 .guide-footer{position:relative;z-index:3;padding:48px 5% 64px;border-top:1px solid var(--border);text-align:center}
 .guide-footer-inner{max-width:520px;margin:0 auto}
@@ -204,6 +215,9 @@ body::before{content:'';position:fixed;inset:0;
   .copy-btn{width:100%;justify-content:center}
   .perm-table th,.perm-table td{padding:10px 12px;font-size:.78rem}
   .next-section{padding:0 5% 60px}
+  .crm-cta{padding:0 5% 60px}
+  .crm-cta-inner{padding:24px 20px}
+  .crm-cta-btn{width:100%;justify-content:center}
 }
 @media(max-width:480px){
   .guide-hero h1{font-size:1.7rem}
@@ -504,6 +518,18 @@ body::before{content:'';position:fixed;inset:0;
     </div>
   </div>
 </div>
+
+<!-- CRM CTA -->
+<section class="crm-cta">
+  <div class="crm-cta-inner">
+    <h2>Connecting to a custom CRM?</h2>
+    <p>Provide us the details by following these steps.</p>
+    <a href="/crm-integration" class="crm-cta-btn">
+      CRM Integration Setup
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h8M8 4l3 3-3 3"/></svg>
+    </a>
+  </div>
+</section>
 
 <!-- FOOTER CTA -->
 <footer class="guide-footer">
