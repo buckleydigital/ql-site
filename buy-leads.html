@@ -285,11 +285,37 @@ body::before{content:'';position:fixed;inset:0;
 .cov-map-cap{padding:12px 16px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border)}
 .cov-map-cap strong{color:var(--white);font-weight:600}
 .cov-pin{width:16px;height:16px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.cov-pin-n{width:22px;height:22px;border-width:2px;color:#fff;font:600 11px/18px var(--body);text-align:center}
 .cov-travel{display:flex;align-items:center;gap:14px}
 .cov-travel-lbl{font-size:.82rem;color:var(--muted);flex-shrink:0}
 .cov-travel input[type=range]{flex:1;min-width:0;accent-color:var(--blue);cursor:none}
 .cov-travel-val{font-size:.86rem;color:var(--white);font-variant-numeric:tabular-nums;min-width:58px;text-align:right}
-.cov-travel-ticks{display:flex;justify-content:space-between;font-size:.68rem;color:var(--faint);margin:6px 72px 0 64px}
+.cov-row{padding:14px 0;border-bottom:1px solid var(--border)}
+.cov-row:first-child{padding-top:4px}
+.cov-row-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.cov-num{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:600;background:var(--glass2);color:var(--muted)}
+.cov-num.set{background:var(--blue);color:#fff}
+.cov-input-wrap{position:relative;flex:1;min-width:0}
+.cov-input-wrap input{width:100%;padding:12px 15px;background:var(--glass2);border:1px solid var(--border);border-radius:12px;color:var(--white);font-family:var(--body);font-size:.88rem;outline:none;transition:border-color .2s}
+.cov-input-wrap input:focus{border-color:var(--blue)}
+.cov-input-wrap input::placeholder{color:var(--faint)}
+.cov-input-wrap input.err{border-color:rgba(255,80,80,.7)}
+.cov-remove{background:none;border:none;color:var(--faint);font-size:1.2rem;line-height:1;padding:4px 6px;cursor:none;flex-shrink:0}
+.cov-remove:hover{color:var(--white)}
+.cov-sugg{display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;background:var(--deep);border:1px solid var(--bmid);border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.cov-sugg.show{display:block}
+.cov-sugg div{padding:11px 14px;font-size:.84rem;color:var(--off);cursor:none;border-bottom:1px solid var(--border)}
+.cov-sugg div:last-child{border-bottom:none}
+.cov-sugg div:hover,.cov-sugg div.act{background:var(--bdim);color:var(--white)}
+.cov-add{display:flex;align-items:center;gap:8px;padding:14px 0 2px;background:none;border:none;color:var(--blue);font-family:var(--body);font-size:.86rem;font-weight:500;cursor:none}
+.cov-add:disabled{opacity:.4;cursor:not-allowed}
+#order-form.light .cov-row{border-bottom-color:rgba(0,0,0,.1)}
+#order-form.light .cov-num{background:rgba(0,0,0,.06);color:#52525B}
+#order-form.light .cov-num.set{background:var(--blue);color:#fff}
+#order-form.light .cov-input-wrap input{background:#fff;border-color:rgba(0,0,0,.15);color:#0f0f1a}
+#order-form.light .cov-sugg{background:#fff;border-color:rgba(0,0,0,.12)}
+#order-form.light .cov-sugg div{color:#3f3f46;border-bottom-color:rgba(0,0,0,.06)}
+#order-form.light .cov-sugg div:hover,#order-form.light .cov-sugg div.act{color:#0f0f1a}
 #order-form.light .cov-map-card{border-color:rgba(0,0,0,.12);background:#fff}
 #order-form.light .cov-map-cap{color:#52525B;border-top-color:rgba(0,0,0,.1)}
 #order-form.light .cov-map-cap strong,#order-form.light .cov-travel-val{color:#0f0f1a}
@@ -1042,12 +1068,11 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <button class="cov-toggle-btn" id="togPostcodes" onclick="setCovMode('postcodes')">Postcode List</button>
           </div>
           <div class="cov-panel" id="panelRadius">
-            <div class="cov-travel">
-              <span class="cov-travel-lbl">Travel</span>
-              <input type="range" id="radius_km" min="50" max="100" step="25" value="50" aria-label="Coverage radius from city centre in km" oninput="onRadiusInput()">
-              <span class="cov-travel-val" id="radiusVal">50 km</span>
-            </div>
-            <div class="cov-travel-ticks"><span>50</span><span>75</span><span>100</span></div>
+            <div id="covRows"></div>
+            <button type="button" class="cov-add" id="covAdd" onclick="covAddRow()">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg>
+              Add another suburb
+            </button>
           </div>
           <div class="cov-panel" id="panelPostcodes" style="display:none">
             <textarea class="cov-postcode-ta" id="postcode_list" placeholder="Paste postcodes here, one per line or comma-separated&#10;e.g. 2000, 2010, 2011" oninput="updateSummary()"></textarea>
@@ -1684,7 +1709,8 @@ async function onCityChange() {
   order.area_city = city || null;
   order.statewide = !!city && sel.selectedOptions[0]?.dataset.statewide === '1';
   applyCoverageMode();
-  covRender();
+  covSyncCity();
+  covChanged(true);
 
   if (!city) {
     ['solar','solar-battery','roofing','hvac','renovation','battery-retrofit'].forEach(n => setPriceLabel(n, null));
@@ -1998,7 +2024,7 @@ const COV_TILES = {
   dark:['Canvas/World_Dark_Gray_Base','Canvas/World_Dark_Gray_Reference'],
   light:['Canvas/World_Light_Gray_Base','Canvas/World_Light_Gray_Reference']
 };
-let covMap = null, covLayers = [], covTileTheme = null, covCircle = null, covPin = null;
+let covMap = null, covLayers = [], covTileTheme = null;
 
 function covTileUrl(svc){ return `https://server.arcgisonline.com/ArcGIS/rest/services/${svc}/MapServer/tile/{z}/{y}/{x}`; }
 
@@ -2025,45 +2051,240 @@ function covInitMap(){
   if ('ResizeObserver' in window) new ResizeObserver(() => covMap.invalidateSize()).observe(document.getElementById('covMap'));
 }
 
-function onRadiusInput(){
-  document.getElementById('radiusVal').textContent = document.getElementById('radius_km').value + ' km';
+// Suburbs on a radius order. The first row starts as the chosen city's centre
+// at 50 km, which is exactly the old single-radius order; buyers can move it,
+// widen it, or add more suburbs (up to 5), each with its own 50/75/100 km.
+// Suburb search uses Esri's geocoder; if it is unreachable the city-centre
+// row still works.
+const COV_GEO = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/';
+const COV_MAX = 5;
+var covAreas = [], covSeq = 0, covShapes = [];
+
+function covEsc(t){ return String(t).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function covValid(){ return (covAreas || []).filter(a => a.lat !== null); }
+
+function covAddRow(preset){
+  if (covAreas.length >= COV_MAX) return null;
+  const area = Object.assign({ id: ++covSeq, label: '', lat: null, lng: null, radius_km: 50, auto: false, reqId: 0 }, preset || {});
+  covAreas.push(area);
+  const row = document.createElement('div');
+  row.className = 'cov-row';
+  row.id = 'covRow' + area.id;
+  row.innerHTML =
+    '<div class="cov-row-top">' +
+      '<div class="cov-num"></div>' +
+      '<div class="cov-input-wrap"><input type="text" autocomplete="off" placeholder="Suburb or postcode, e.g. Carindale or 4152"><div class="cov-sugg"></div></div>' +
+      '<button type="button" class="cov-remove" aria-label="Remove suburb">&times;</button>' +
+    '</div>' +
+    '<div class="cov-travel">' +
+      '<span class="cov-travel-lbl">Travel</span>' +
+      '<input type="range" min="50" max="100" step="25" aria-label="Travel distance in km">' +
+      '<span class="cov-travel-val"></span>' +
+    '</div>';
+  document.getElementById('covRows').appendChild(row);
+
+  const input = row.querySelector('input[type=text]');
+  const sugg  = row.querySelector('.cov-sugg');
+  const range = row.querySelector('input[type=range]');
+  input.value = area.label;
+  range.value = area.radius_km;
+  row.querySelector('.cov-travel-val').textContent = area.radius_km + ' km';
+  let timer = null, items = [], active = -1;
+
+  function renderSugg(){
+    sugg.innerHTML = '';
+    items.forEach((it, i) => {
+      const d = document.createElement('div');
+      d.textContent = it.text;
+      if (i === active) d.className = 'act';
+      d.addEventListener('mousedown', e => { e.preventDefault(); pick(i); });
+      sugg.appendChild(d);
+    });
+    sugg.classList.toggle('show', items.length > 0);
+  }
+  function pick(i){
+    const it = items[i];
+    items = []; active = -1; renderSugg();
+    if (!it) return;
+    input.value = it.text;
+    area.label = it.text;
+    const myReq = ++area.reqId;
+    fetch(COV_GEO + 'findAddressCandidates?f=json&maxLocations=1&outFields=none&SingleLine=' +
+          encodeURIComponent(it.text) + '&magicKey=' + encodeURIComponent(it.magicKey))
+      .then(r => r.json())
+      .then(d => {
+        if (myReq !== area.reqId) return;
+        const c = (d.candidates || [])[0];
+        if (!c || !c.location) return;
+        area.lat = +c.location.y.toFixed(5);
+        area.lng = +c.location.x.toFixed(5);
+        covChanged(true);
+      }).catch(() => {});
+  }
+
+  input.addEventListener('input', () => {
+    area.label = input.value.trim();
+    area.lat = area.lng = null;
+    area.auto = false;
+    input.classList.remove('err');
+    covChanged(false);
+    clearTimeout(timer);
+    const q = input.value.trim();
+    if (q.length < 2) { items = []; renderSugg(); return; }
+    timer = setTimeout(() => {
+      const myReq = ++area.reqId;
+      fetch(COV_GEO + 'suggest?f=json&countryCode=AUS&maxSuggestions=6&category=' +
+            encodeURIComponent('Postal,City,Neighborhood,District,Populated Place') + '&text=' + encodeURIComponent(q))
+        .then(r => r.json())
+        .then(d => {
+          if (myReq !== area.reqId) return;
+          items = (d.suggestions || []).filter(x => !x.isCollection)
+            .map(x => ({ text: x.text.replace(/,\s*AUS$/, ''), magicKey: x.magicKey }));
+          active = items.length ? 0 : -1;
+          renderSugg();
+        }).catch(() => { items = []; renderSugg(); });
+    }, 220);
+  });
+  input.addEventListener('keydown', e => {
+    if (!items.length) return;
+    if (e.key === 'ArrowDown') { e.preventDefault(); active = (active + 1) % items.length; renderSugg(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); active = (active - 1 + items.length) % items.length; renderSugg(); }
+    else if (e.key === 'Enter') { e.preventDefault(); pick(active < 0 ? 0 : active); }
+    else if (e.key === 'Escape') { items = []; renderSugg(); }
+  });
+  input.addEventListener('blur', () => {
+    if (items.length && area.lat === null) pick(active < 0 ? 0 : active);
+    else { items = []; renderSugg(); }
+  });
+  range.addEventListener('input', () => {
+    area.radius_km = parseInt(range.value, 10);
+    row.querySelector('.cov-travel-val').textContent = area.radius_km + ' km';
+    covChanged(false);
+  });
+  range.addEventListener('change', () => covRender(true));
+  row.querySelector('.cov-remove').addEventListener('click', () => covRemove(area.id));
+
+  covChanged(false);
+  if (!preset) input.focus();
+  return area;
+}
+
+function covRemove(id){
+  const i = covAreas.findIndex(a => a.id === id);
+  if (i < 0) return;
+  covAreas[i].reqId++;
+  covAreas.splice(i, 1);
+  document.getElementById('covRow' + id)?.remove();
+  if (!covAreas.length) covSyncCity(true);
+  covChanged(true);
+}
+
+// When the city changes, the auto city-centre row follows it. Suburbs the
+// buyer typed are left alone.
+function covSyncCity(force){
+  const centre = order.area_city && !order.statewide && COV_CITIES[order.area_city];
+  const first = covAreas[0];
+  const label = order.area_city + ' (city centre)';
+  if (!centre) {
+    if (first && first.auto) { first.label = ''; first.lat = first.lng = null; covFillRow(first); }
+    return;
+  }
+  if (!first) { covAddRow({ label, lat: centre[0], lng: centre[1], auto: true }); return; }
+  if (first.auto || force || (!first.label && first.lat === null)) {
+    Object.assign(first, { label, lat: centre[0], lng: centre[1], auto: true });
+    first.reqId++;
+    covFillRow(first);
+  }
+}
+
+function covFillRow(a){
+  const row = document.getElementById('covRow' + a.id);
+  if (row) row.querySelector('input[type=text]').value = a.label;
+}
+
+function covChanged(refit){
+  covAreas.forEach((a, i) => {
+    const row = document.getElementById('covRow' + a.id);
+    if (!row) return;
+    const n = row.querySelector('.cov-num');
+    n.textContent = i + 1;
+    n.classList.toggle('set', a.lat !== null);
+    row.querySelector('.cov-remove').style.visibility = covAreas.length > 1 ? 'visible' : 'hidden';
+  });
+  const add = document.getElementById('covAdd');
+  if (add) add.disabled = covAreas.length >= COV_MAX;
   updateSummary();
-  covRender(false);
+  covRender(refit);
+}
+
+// What goes to checkout for a radius order. Only sent when it says more than
+// the old single city-centre circle did, so a buyer who changes nothing
+// produces exactly the old payload.
+function covPayload(){
+  const v = covValid();
+  const radius_km = v.length ? Math.max(...v.map(a => a.radius_km)) : 50;
+  const plain = v.length === 1 && v[0].auto;
+  return {
+    radius_km,
+    service_areas: (v.length && !plain) ? v.map(a => ({ label: a.label, lat: a.lat, lng: a.lng, radius_km: a.radius_km })) : null
+  };
+}
+
+function covSummaryText(){
+  const v = covValid();
+  if (!v.length) return '50 km radius';
+  if (v.length === 1) return `${v[0].radius_km} km radius`;
+  return `${v.length} suburbs`;
 }
 
 function covRender(refit = true){
   const cap = document.getElementById('covMapCap');
   const city = order.area_city;
-  const km = parseInt(document.getElementById('radius_km').value, 10) || 50;
   const centre = city && COV_CITIES[city];
+  const v = covValid();
 
   if (cap) {
     if (!city) cap.textContent = 'Pick a city above to see your coverage.';
-    else if (order.statewide) cap.innerHTML = `Leads from anywhere in <strong>${city}</strong>.`;
-    else if (order.location_type === 'postcodes') cap.innerHTML = `Leads from the postcodes you list below, around <strong>${city}</strong>.`;
-    else cap.innerHTML = `Leads from within <strong>${km} km</strong> of ${city} city centre.`;
+    else if (order.statewide) cap.innerHTML = `Leads from anywhere in <strong>${covEsc(city)}</strong>.`;
+    else if (order.location_type === 'postcodes') cap.innerHTML = `Leads from the postcodes you list below, around <strong>${covEsc(city)}</strong>.`;
+    else if (v.length > 1) cap.innerHTML = `Leads from around <strong>${v.length} suburbs</strong>, priced at the ${covEsc(city)} rate.`;
+    else if (v.length === 1) cap.innerHTML = `Leads from within <strong>${v[0].radius_km} km</strong> of ${covEsc(v[0].label)}.`;
+    else cap.innerHTML = `Add a suburb below, or leads come from within <strong>50 km</strong> of ${covEsc(city)} city centre.`;
   }
 
   if (!covMap) return;
-  if (covCircle) { covMap.removeLayer(covCircle); covCircle = null; }
-  if (covPin)    { covMap.removeLayer(covPin);    covPin = null; }
+  covShapes.forEach(l => covMap.removeLayer(l));
+  covShapes = [];
 
-  if (centre) {
-    covPin = L.marker(centre, { interactive: false,
-      icon: L.divIcon({ className: '', html: '<div class="cov-pin"></div>', iconSize: [16,16], iconAnchor: [8,8] }) }).addTo(covMap);
-    if (order.location_type === 'radius') {
-      covCircle = L.circle(centre, { radius: km * 1000, color: '#4797FF', weight: 2, fillColor: '#4797FF', fillOpacity: .14 }).addTo(covMap);
-    }
+  const radius = order.location_type === 'radius' && !order.statewide;
+  if (radius && v.length) {
+    v.forEach(a => {
+      covShapes.push(L.circle([a.lat, a.lng], { radius: a.radius_km * 1000, color: '#4797FF', weight: 2, fillColor: '#4797FF', fillOpacity: .14 }).addTo(covMap));
+      const n = covAreas.indexOf(a) + 1;
+      covShapes.push(L.marker([a.lat, a.lng], { interactive: false,
+        icon: L.divIcon({ className: '', html: v.length > 1 ? `<div class="cov-pin cov-pin-n">${n}</div>` : '<div class="cov-pin"></div>',
+          iconSize: v.length > 1 ? [22,22] : [16,16], iconAnchor: v.length > 1 ? [11,11] : [8,8] }) }).addTo(covMap));
+    });
+  } else if (centre && !order.statewide) {
+    covShapes.push(L.marker(centre, { interactive: false,
+      icon: L.divIcon({ className: '', html: '<div class="cov-pin"></div>', iconSize: [16,16], iconAnchor: [8,8] }) }).addTo(covMap));
   }
-  if (!refit && covCircle) { covMap.fitBounds(covCircle.getBounds(), { padding: [20,20] }); return; }
+
   if (!refit) return;
+  const circles = covShapes.filter(l => l instanceof L.Circle);
   if (order.statewide && COV_STATES[city]) covMap.fitBounds(COV_STATES[city]);
-  else if (covCircle) covMap.fitBounds(covCircle.getBounds(), { padding: [20,20] });
+  else if (circles.length) {
+    let b = circles[0].getBounds();
+    circles.slice(1).forEach(c => b.extend(c.getBounds()));
+    covMap.fitBounds(b, { padding: [20,20] });
+  }
   else if (centre) covMap.setView(centre, 9);
   else covMap.fitBounds(COV_AU);
 }
 
 covInitMap();
+covSyncCity();
+if (!covAreas.length) covAddRow({});
 covRender();
 
 // ─── PACK SELECT ─────────────────────────────────────────
@@ -2129,9 +2350,8 @@ function updateSummary() {
       covEl.className = 'sum-val';
       covEl.textContent = 'State wide';
     } else if (order.location_type === 'radius') {
-      const km = document.getElementById('radius_km')?.value || 50;
       covEl.className = 'sum-val';
-      covEl.textContent = `${km} km radius`;
+      covEl.textContent = typeof covSummaryText === 'function' ? covSummaryText() : '50 km radius';
     } else {
       const taVal = document.getElementById('postcode_list')?.value.trim();
       covEl.className = taVal ? 'sum-val' : 'sum-val dim';
@@ -2207,6 +2427,16 @@ async function submitOrder() {
     return;
   }
 
+  if (order.location_type === 'radius') {
+    // A suburb typed but never matched would silently drop out of the order.
+    const unmatched = covAreas.find(a => a.label && a.lat === null);
+    if (unmatched) {
+      const inp = document.querySelector('#covRow' + unmatched.id + ' input[type=text]');
+      if (inp) { inp.classList.add('err'); inp.scrollIntoView({ behavior: 'smooth', block: 'center' }); inp.focus(); }
+      return;
+    }
+  }
+
   if (order.location_type === 'postcodes') {
     const taEl = document.getElementById('postcode_list');
     if (!taEl.value.trim()) {
@@ -2274,7 +2504,9 @@ async function submitOrder() {
   };
   if (order.sub_niche) payload.sub_niche = order.sub_niche;
   if (order.location_type === 'radius') {
-    payload.radius_km = parseInt(document.getElementById('radius_km').value, 10);
+    const cov = covPayload();
+    payload.radius_km = cov.radius_km;
+    if (cov.service_areas) payload.service_areas = cov.service_areas;
   } else if (order.location_type === 'postcodes') {
     payload.postcode_list = document.getElementById('postcode_list').value.trim();
   }
