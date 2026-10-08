@@ -188,6 +188,48 @@ section{position:relative;z-index:3;padding:80px 5%}
   .btn-copy{width:100%;padding:9px 13px}
 }
 
+/* COVERAGE MAP (step 3) */
+.cov-card{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--glass);margin-bottom:14px}
+.cov-map{height:300px;background:#1b1b1f;isolation:isolate;cursor:none}
+.cov-map .leaflet-container,.cov-map.leaflet-container,.cov-map .leaflet-interactive,.cov-map .leaflet-grab,.cov-map .leaflet-dragging .leaflet-grab{cursor:none !important}
+.cov-map .leaflet-control-attribution{background:rgba(4,4,10,.7);color:var(--faint);font-size:.62rem}
+.cov-map .leaflet-control-attribution a{color:var(--muted)}
+.cov-map .leaflet-control-zoom a{background:rgba(12,12,24,.9);color:var(--off);border-color:var(--border);cursor:none}
+.cov-pin{width:22px;height:22px;border-radius:50%;background:var(--blue);border:2px solid #fff;color:#fff;font:600 11px/18px var(--body);text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.cov-rows{padding:6px 18px}
+.cov-row{padding:14px 0;border-bottom:1px solid var(--border)}
+.cov-row:last-child{border-bottom:none}
+.cov-row-top{display:flex;align-items:center;gap:12px}
+.cov-num{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:600;background:var(--glass2);color:var(--muted);transition:background .2s,color .2s}
+.cov-num.set{background:var(--blue);color:#fff}
+.cov-input-wrap{position:relative;flex:1;min-width:0}
+.cov-input-wrap input{width:100%;padding:12px 16px;background:var(--glass2);border:1px solid var(--border);border-radius:12px;color:var(--white);font-family:var(--body);font-size:.88rem;outline:none;transition:border-color .2s}
+.cov-input-wrap input:focus{border-color:var(--blue)}
+.cov-input-wrap input::placeholder{color:var(--faint)}
+.cov-remove{background:none;border:none;color:var(--faint);font-size:1.2rem;line-height:1;padding:4px 6px;cursor:none;flex-shrink:0}
+.cov-remove:hover{color:var(--white)}
+.cov-sugg{display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;background:var(--deep);border:1px solid var(--bmid);border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.cov-sugg.show{display:block}
+.cov-sugg div{padding:11px 14px;font-size:.84rem;color:var(--off);cursor:none;border-bottom:1px solid var(--border)}
+.cov-sugg div:last-child{border-bottom:none}
+.cov-sugg div:hover,.cov-sugg div.act{background:var(--bdim);color:var(--white)}
+.cov-travel{display:flex;align-items:center;gap:14px;margin:12px 0 0 38px}
+.cov-travel-lbl{font-size:.78rem;color:var(--muted);flex-shrink:0}
+.cov-travel input[type=range]{flex:1;min-width:0;accent-color:var(--blue);cursor:none}
+.cov-travel-val{font-size:.82rem;color:var(--white);font-variant-numeric:tabular-nums;min-width:56px;text-align:right}
+.cov-add{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;background:none;border:none;border-top:1px solid var(--border);color:var(--blue);font-family:var(--body);font-size:.88rem;font-weight:500;cursor:none}
+.cov-add:hover{background:var(--bdim)}
+.cov-add:disabled{opacity:.4;cursor:not-allowed;background:none}
+.cov-note{font-size:.78rem;color:var(--faint);line-height:1.55;margin-bottom:16px}
+.cov-wide{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.cov-wide-btn{background:var(--glass);border:1px solid var(--border);color:var(--muted);padding:8px 14px;border-radius:100px;font-family:var(--body);font-size:.78rem;cursor:none;transition:all .2s}
+.cov-wide-btn.sel{background:var(--bdim);border-color:var(--bblue);color:var(--blue)}
+@media(max-width:520px){
+  .cov-map{height:240px}
+  .cov-rows{padding:4px 14px}
+  .cov-travel{margin-left:0}
+}
+
 /* BTN ROW */
 .btn-row{display:flex;gap:10px;margin-top:8px}
 .btn-back{background:none;border:1px solid var(--border);color:var(--muted);padding:13px 22px;border-radius:100px;font-family:var(--body);font-size:.88rem;cursor:none;transition:all 0.2s}
@@ -276,6 +318,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .btn-back{flex:none;min-width:80px}
 }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
 
@@ -418,21 +462,19 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="form-step" id="step3">
             <div class="step-counter"><span class="sc-badge">Step 3 of 10</span></div>
             <div class="step-q">What is your coverage area?</div>
-            <div class="step-hint">Enter your primary city or suburb, then select how far out you're willing to travel.</div>
-            <div class="field-group">
-              <label>Primary location (city or suburb)</label>
-              <input type="text" id="service_location" placeholder="e.g. Brisbane, Sydney, Gold Coast…" oninput="checkStep3()">
+            <div class="step-hint">Add the suburbs you work from, then set how far you'll travel from each. Every circle is where your leads will come from.</div>
+            <div class="cov-card">
+              <div class="cov-map" id="covMap"></div>
+              <div class="cov-rows" id="covRows"></div>
+              <button type="button" class="cov-add" id="covAdd" onclick="covAddRow()">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v12M2 8h12"/></svg>
+                Add another suburb
+              </button>
             </div>
-            <div class="field-group">
-              <label>Coverage radius</label>
-              <select id="service_radius" onchange="checkStep3()">
-                <option value="" disabled selected>Select radius…</option>
-                <option value="50km">Up to 50km</option>
-                <option value="75km">Up to 75km</option>
-                <option value="100km+">100km+</option>
-                <option value="Statewide">Statewide</option>
-                <option value="Nationwide">Nationwide</option>
-              </select>
+            <div class="cov-note">Covering a much wider area? Pick one below and we'll target accordingly.</div>
+            <div class="cov-wide">
+              <button type="button" class="cov-wide-btn" data-wide="Statewide" onclick="covToggleWide(this)">Whole state</button>
+              <button type="button" class="cov-wide-btn" data-wide="Nationwide" onclick="covToggleWide(this)">Nationwide</button>
             </div>
             <div class="btn-row">
               <button class="btn-back" onclick="goPrev(3)">Back</button>
@@ -765,7 +807,7 @@ var currentStep = 1;
 var formData = {
   first_name:'',last_name:'',company:'',phone:'',email:'',
   industry:'',
-  service_location:'',service_radius:'',
+  service_location:'',service_radius:'',service_areas:[],service_coverage:'',
   lead_delivery_methods:[],delivery_phone:'',delivery_email:'',
   max_daily_spend:'',
   special_offers:'',
@@ -894,20 +936,239 @@ document.getElementById('next2').addEventListener('click',function(){
   goNext(2);
 },true);
 
-// ── STEP 3: Coverage area ──
-function checkStep3(){
-  var loc=document.getElementById('service_location').value.trim();
-  var rad=document.getElementById('service_radius').value;
-  document.getElementById('next3').disabled=!(loc&&rad);
+// ── STEP 3: Coverage area (map + suburbs + travel radius) ──
+// Each suburb is geocoded with Esri's World Geocoder (suggest -> candidate) and
+// drawn as a circle. If geocoding is unreachable the typed text is still kept,
+// it just isn't drawn, so the step never blocks on a third-party service.
+var COV_MAX = 5, COV_DEFAULT_KM = 25;
+var COV_GEO = 'https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/';
+var COV_AU_BOUNDS = [[-43.7,113.0],[-10.6,153.7]];
+var covMap = null, covAreas = [], covWide = '', covSeq = 0;
+
+function covInitMap(){
+  if(covMap || typeof L === 'undefined') return;
+  covMap = L.map('covMap',{zoomControl:true,attributionControl:true,scrollWheelZoom:false});
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+    {maxZoom:16,attribution:'&copy; Esri, OpenStreetMap contributors'}).addTo(covMap);
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}',
+    {maxZoom:16}).addTo(covMap);
+  covMap.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+  covMap.fitBounds(COV_AU_BOUNDS);
+  covAreas.forEach(covDraw);
+  covFit();
 }
 
-// Override next3 button to capture values
+function covAddRow(){
+  if(covAreas.length >= COV_MAX) return;
+  var area = {id:++covSeq,label:'',lat:null,lng:null,radius_km:COV_DEFAULT_KM,circle:null,pin:null,reqId:0};
+  covAreas.push(area);
+  var row = document.createElement('div');
+  row.className = 'cov-row';
+  row.id = 'covRow'+area.id;
+  row.innerHTML =
+    '<div class="cov-row-top">'+
+      '<div class="cov-num"></div>'+
+      '<div class="cov-input-wrap">'+
+        '<input type="text" autocomplete="off" placeholder="e.g. Carindale or 4152">'+
+        '<div class="cov-sugg"></div>'+
+      '</div>'+
+      '<button type="button" class="cov-remove" aria-label="Remove suburb">&times;</button>'+
+    '</div>'+
+    '<div class="cov-travel">'+
+      '<span class="cov-travel-lbl">Travel</span>'+
+      '<input type="range" min="5" max="150" step="5" value="'+COV_DEFAULT_KM+'" aria-label="Travel distance in km">'+
+      '<span class="cov-travel-val">'+COV_DEFAULT_KM+' km</span>'+
+    '</div>';
+  document.getElementById('covRows').appendChild(row);
+
+  var input = row.querySelector('input[type=text]');
+  var sugg = row.querySelector('.cov-sugg');
+  var range = row.querySelector('input[type=range]');
+  var timer = null, items = [], active = -1;
+
+  function renderSugg(){
+    sugg.innerHTML = '';
+    items.forEach(function(it,i){
+      var d = document.createElement('div');
+      d.textContent = it.text;
+      if(i===active) d.className = 'act';
+      d.addEventListener('mousedown',function(e){e.preventDefault();pick(i);});
+      sugg.appendChild(d);
+    });
+    sugg.classList.toggle('show', items.length>0);
+  }
+  function pick(i){
+    var it = items[i];
+    items = []; active = -1; renderSugg();
+    if(!it) return;
+    input.value = it.text;
+    covGeocode(area, it);
+  }
+
+  input.addEventListener('input',function(){
+    area.label = input.value.trim();
+    area.lat = area.lng = null;
+    covDraw(area); covUpdate();
+    clearTimeout(timer);
+    var q = input.value.trim();
+    if(q.length < 2){ items=[]; renderSugg(); return; }
+    timer = setTimeout(function(){
+      var myReq = ++area.reqId;
+      fetch(COV_GEO+'suggest?f=json&countryCode=AUS&maxSuggestions=6'+
+            '&category='+encodeURIComponent('Postal,City,Neighborhood,District,Populated Place')+
+            '&text='+encodeURIComponent(q))
+        .then(function(r){return r.json();})
+        .then(function(d){
+          if(myReq !== area.reqId) return;
+          items = (d.suggestions||[]).filter(function(x){return !x.isCollection;})
+            .map(function(x){return {text:x.text.replace(/,\s*AUS$/,''),magicKey:x.magicKey};});
+          active = items.length ? 0 : -1;
+          renderSugg();
+        }).catch(function(){ items=[]; renderSugg(); });
+    }, 220);
+  });
+  input.addEventListener('keydown',function(e){
+    if(!items.length) return;
+    if(e.key==='ArrowDown'){e.preventDefault();active=(active+1)%items.length;renderSugg();}
+    else if(e.key==='ArrowUp'){e.preventDefault();active=(active-1+items.length)%items.length;renderSugg();}
+    else if(e.key==='Enter'){e.preventDefault();pick(active<0?0:active);}
+    else if(e.key==='Escape'){items=[];renderSugg();}
+  });
+  input.addEventListener('blur',function(){
+    // Typed a name and moved on without choosing: take the top suggestion.
+    if(items.length && area.lat===null) pick(active<0?0:active);
+    else { items=[]; renderSugg(); }
+  });
+  range.addEventListener('input',function(){
+    area.radius_km = parseInt(range.value,10);
+    row.querySelector('.cov-travel-val').textContent = area.radius_km+' km';
+    if(area.circle) area.circle.setRadius(area.radius_km*1000);
+    covUpdate();
+  });
+  range.addEventListener('change',covFit);
+  row.querySelector('.cov-remove').addEventListener('click',function(){covRemove(area.id);});
+
+  covRenumber(); covUpdate();
+  if(covAreas.length>1) input.focus();
+}
+
+function covGeocode(area, it){
+  area.label = it.text;
+  var myReq = ++area.reqId;
+  fetch(COV_GEO+'findAddressCandidates?f=json&maxLocations=1&outFields=none'+
+        '&SingleLine='+encodeURIComponent(it.text)+'&magicKey='+encodeURIComponent(it.magicKey))
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(myReq !== area.reqId) return;
+      var c = (d.candidates||[])[0];
+      if(!c || !c.location) return;
+      area.lat = +c.location.y.toFixed(5);
+      area.lng = +c.location.x.toFixed(5);
+      covDraw(area); covFit(); covUpdate();
+    }).catch(function(){ covUpdate(); });
+  covUpdate();
+}
+
+function covDraw(area){
+  if(!covMap) return;
+  if(area.circle){ covMap.removeLayer(area.circle); area.circle=null; }
+  if(area.pin){ covMap.removeLayer(area.pin); area.pin=null; }
+  if(area.lat===null) return;
+  area.circle = L.circle([area.lat,area.lng],{radius:area.radius_km*1000,color:'#4797FF',weight:2,fillColor:'#4797FF',fillOpacity:.14}).addTo(covMap);
+  area.pin = L.marker([area.lat,area.lng],{icon:L.divIcon({className:'',html:'<div class="cov-pin">'+(covAreas.indexOf(area)+1)+'</div>',iconSize:[22,22],iconAnchor:[11,11]}),interactive:false}).addTo(covMap);
+}
+
+function covFit(){
+  if(!covMap) return;
+  var b = null;
+  covAreas.forEach(function(a){
+    if(!a.circle) return;
+    var cb = a.circle.getBounds();
+    b = b ? b.extend(cb) : L.latLngBounds(cb.getSouthWest(),cb.getNorthEast());
+  });
+  if(b) covMap.fitBounds(b,{padding:[24,24],maxZoom:12});
+  else if(covWide==='Nationwide' || !covAreas.some(function(a){return a.label;})) covMap.fitBounds(COV_AU_BOUNDS);
+}
+
+function covRemove(id){
+  var i = covAreas.findIndex(function(a){return a.id===id;});
+  if(i<0) return;
+  var a = covAreas[i];
+  a.reqId++;
+  if(covMap){ if(a.circle) covMap.removeLayer(a.circle); if(a.pin) covMap.removeLayer(a.pin); }
+  covAreas.splice(i,1);
+  var row = document.getElementById('covRow'+id);
+  if(row) row.remove();
+  if(!covAreas.length) covAddRow();
+  covRenumber(); covAreas.forEach(covDraw); covFit(); covUpdate();
+}
+
+function covRenumber(){
+  covAreas.forEach(function(a,i){
+    var row = document.getElementById('covRow'+a.id);
+    if(!row) return;
+    var n = row.querySelector('.cov-num');
+    n.textContent = i+1;
+    n.classList.toggle('set', a.lat!==null);
+    row.querySelector('.cov-remove').style.visibility = covAreas.length>1 ? 'visible' : 'hidden';
+  });
+  document.getElementById('covAdd').disabled = covAreas.length >= COV_MAX;
+}
+
+function covToggleWide(btn){
+  var v = btn.getAttribute('data-wide');
+  covWide = covWide===v ? '' : v;
+  document.querySelectorAll('.cov-wide-btn').forEach(function(b){
+    b.classList.toggle('sel', b.getAttribute('data-wide')===covWide);
+  });
+  covFit(); covUpdate();
+}
+
+function covUpdate(){
+  covRenumber();
+  checkStep3();
+}
+
+function checkStep3(){
+  var hasArea = covAreas.some(function(a){return a.label;});
+  document.getElementById('next3').disabled = !(hasArea || covWide==='Nationwide');
+}
+
+// Keep the original two text fields (the pipeline and Make both read them) and
+// add the structured list alongside for anything that wants coordinates.
+function covCollect(){
+  var list = covAreas.filter(function(a){return a.label;}).map(function(a){
+    return {label:a.label,lat:a.lat,lng:a.lng,radius_km:a.radius_km};
+  });
+  formData.service_areas = list;
+  formData.service_coverage = covWide || 'Radius';
+  formData.service_location = list.map(function(a){return a.label+' ('+a.radius_km+'km)';}).join('; ')
+    || (covWide==='Nationwide' ? 'Australia' : '');
+  if(covWide){
+    formData.service_radius = covWide;
+  } else {
+    var kms = list.map(function(a){return a.radius_km;});
+    var lo = Math.min.apply(null,kms), hi = Math.max.apply(null,kms);
+    formData.service_radius = lo===hi ? lo+'km' : lo+'-'+hi+'km';
+  }
+}
+
 document.getElementById('next3').addEventListener('click',function(e){
   e.stopImmediatePropagation();
-  formData.service_location=document.getElementById('service_location').value.trim();
-  formData.service_radius=document.getElementById('service_radius').value;
+  covCollect();
   goNext(3);
 },true);
+
+// The map can only measure itself once step 3 is visible.
+var _showStep = showStep;
+showStep = function(n){
+  _showStep(n);
+  if(n===3){
+    covInitMap();
+    if(covMap) setTimeout(function(){ covMap.invalidateSize(); covFit(); }, 60);
+  }
+};
+covAddRow();
 
 // ── STEP 4: Lead delivery ──
 function checkStep4(){
