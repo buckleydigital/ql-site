@@ -108,6 +108,15 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .goal-vol{font-family:var(--display);font-size:1.05rem;font-weight:600;color:var(--white)}
 .goal-sub{font-size:.76rem;color:var(--muted);margin-top:3px}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.goal-wide{grid-column:1/-1}
+/* Optional suburb search */
+.opt-tag{font-weight:400;color:var(--muted);margin-left:4px}
+.area-wrap{position:relative}
+.area-sugg{display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;background:var(--deep);border:1px solid var(--bmid);border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.area-sugg.show{display:block}
+.area-sugg div{padding:11px 14px;font-size:.88rem;color:var(--off);cursor:pointer;border-bottom:1px solid var(--border)}
+.area-sugg div:last-child{border-bottom:none}
+.area-sugg div:hover,.area-sugg div.act{background:var(--bdim);color:var(--white)}
 .turnstile-wrap{margin:6px 0 20px}
 .btn-submit{width:100%;background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);color:#fff;border:none;padding:15px;border-radius:100px;font-family:var(--body);font-size:.95rem;font-weight:600;cursor:pointer;transition:opacity .2s,transform .2s,background .2s;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);border:1px solid rgba(255,255,255,.16);font-weight:600;}
 .btn-submit:hover:not(:disabled){background:var(--sky);transform:translateY(-1px)}
@@ -189,9 +198,11 @@ footer{position:relative;z-index:3;padding:44px 5%;border-top:1px solid var(--bo
             <div class="goal-box"><div class="goal-vol">30-60</div><div class="goal-sub">leads a month</div></div></label>
           <label class="goal-opt"><input type="radio" name="goal" value="60-90 leads/month">
             <div class="goal-box"><div class="goal-vol">60-90</div><div class="goal-sub">leads a month</div></div></label>
-          <label class="goal-opt"><input type="radio" name="goal" value="90-200+ leads/month">
-            <div class="goal-box"><div class="goal-vol">90-200+</div><div class="goal-sub">leads a month</div></div></label>
-          <label class="goal-opt"><input type="radio" name="goal" value="500+ leads/month">
+          <label class="goal-opt"><input type="radio" name="goal" value="90-200 leads/month">
+            <div class="goal-box"><div class="goal-vol">90-200</div><div class="goal-sub">leads a month</div></div></label>
+          <label class="goal-opt"><input type="radio" name="goal" value="200-500 leads/month">
+            <div class="goal-box"><div class="goal-vol">200-500</div><div class="goal-sub">leads a month</div></div></label>
+          <label class="goal-opt goal-wide"><input type="radio" name="goal" value="500+ leads/month">
             <div class="goal-box"><div class="goal-vol">500+</div><div class="goal-sub">leads a month</div></div></label>
         </div>
       </div>
@@ -209,6 +220,14 @@ footer{position:relative;z-index:3;padding:44px 5%;border-top:1px solid var(--bo
           <input type="tel" id="phone" autocomplete="tel" placeholder="04XX XXX XXX" required><div class="fld-err" id="phoneErr">Enter an Australian mobile or landline, for example 0412 345 678.</div></div>
       </div>
 
+      <div class="fld">
+        <label class="fld-label" for="area">Where are you based? <span class="opt-tag">(optional)</span></label>
+        <div class="area-wrap">
+          <input type="text" id="area" autocomplete="off" placeholder="Suburb or postcode, e.g. Carindale or 4152">
+          <div class="area-sugg" id="areaSugg"></div>
+        </div>
+      </div>
+
       <div class="turnstile-wrap"><div id="turnstile-container"></div></div>
 
       <button class="btn-submit" id="callbackBtn" type="button" disabled onclick="submitGetStarted()">Request a callback</button>
@@ -220,8 +239,8 @@ footer{position:relative;z-index:3;padding:44px 5%;border-top:1px solid var(--bo
 
   <div class="success" id="successView">
     <div class="badge"><span>✓</span> Request received</div>
-    <h2>You're in.</h2>
-    <p>Thanks - we've got your details. You'll shortly hear from your account manager during business hours (AEST) to get you set up. Keep an eye on your phone.</p>
+    <h2>Thanks, we'll call you shortly.</h2>
+    <p>We've got your details. Someone from our team will ring you during business hours (AEST) to talk through the Branded Lead Gen System and answer any questions. Keep an eye on your phone.</p>
   </div>
 </div>
 
@@ -357,10 +376,53 @@ function basePayload(){
     company:f.company,
     email:f.email,
     phone:f.phone,
+    service_area:document.getElementById('area').value.trim(),
     submitted_at:new Date().toISOString(),
     page_url:location.href
   };
 }
+
+// ── Optional suburb search ──
+// Suggests Australian suburbs/postcodes as they type (Esri geocoder, same as the
+// onboarding forms). Whatever is in the box is sent, picked or not, and if the
+// lookup is unreachable the field is simply a plain text box.
+(function(){
+  var GEO='https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest';
+  var input=document.getElementById('area'),box=document.getElementById('areaSugg');
+  var items=[],active=-1,timer=null,req=0;
+  function render(){
+    box.innerHTML='';
+    items.forEach(function(t,i){
+      var d=document.createElement('div');d.textContent=t;if(i===active)d.className='act';
+      d.addEventListener('mousedown',function(e){e.preventDefault();pick(i);});
+      box.appendChild(d);
+    });
+    box.classList.toggle('show',items.length>0);
+  }
+  function pick(i){if(items[i])input.value=items[i];items=[];active=-1;render();}
+  input.addEventListener('input',function(){
+    clearTimeout(timer);var q=input.value.trim();
+    if(q.length<2){items=[];render();return;}
+    timer=setTimeout(function(){
+      var my=++req;
+      fetch(GEO+'?f=json&countryCode=AUS&maxSuggestions=6&category='+encodeURIComponent('Postal,City,Neighborhood,District,Populated Place')+'&text='+encodeURIComponent(q))
+        .then(function(r){return r.json();})
+        .then(function(d){
+          if(my!==req)return;
+          items=(d.suggestions||[]).filter(function(x){return !x.isCollection;}).map(function(x){return x.text.replace(/,\s*AUS$/,'');});
+          active=-1;render();
+        }).catch(function(){items=[];render();});
+    },220);
+  });
+  input.addEventListener('keydown',function(e){
+    if(!items.length)return;
+    if(e.key==='ArrowDown'){e.preventDefault();active=(active+1)%items.length;render();}
+    else if(e.key==='ArrowUp'){e.preventDefault();active=(active-1+items.length)%items.length;render();}
+    else if(e.key==='Enter'&&active>=0){e.preventDefault();pick(active);}
+    else if(e.key==='Escape'){items=[];render();}
+  });
+  input.addEventListener('blur',function(){items=[];render();});
+})();
 
 // ── Request a callback ──
 // Goes to TWO places:
@@ -399,6 +461,8 @@ async function submitGetStarted(){
         niche:base.niche,                 // the slug this page already maps to
         trade:base.trade||'',             // the label they actually picked
         goal:base.monthly_lead_goal||'',
+        postcode:base.service_area||'',   // shown as "Service area" on the card and email
+        turnstile_token:turnstileToken,   // verified server-side
         source:'quoteleads.com.au/get-started'
       })
     });
@@ -409,6 +473,8 @@ async function submitGetStarted(){
     document.getElementById('successView').style.display='block';
     window.scrollTo(0,0);
   }catch(e){
+    // A security-check token works once; get a fresh one for the retry.
+    turnstileToken='';try{if(window.turnstile)turnstile.reset('#turnstile-container');}catch(_){}
     err.textContent='Something went wrong sending your request. Please try again, or email contact@quoteleads.com.au.';
     err.style.display='block';btn.disabled=false;btn.textContent='Request a callback';
   }

@@ -458,6 +458,7 @@ async function submitGetStarted(){
       body:JSON.stringify({
         name:base.name,company:base.company,email:base.email,phone:base.phone,
         niche:base.niche,trade:base.trade||'',goal:base.monthly_lead_goal||'',
+        turnstile_token:turnstileToken,   // verified server-side
         source:'quoteleads.com.au/growth-info'
       })
     });
@@ -468,6 +469,8 @@ async function submitGetStarted(){
     document.getElementById('successView').style.display='block';
     window.scrollTo(0,0);
   }catch(e){
+    // A security-check token works once; get a fresh one for the retry.
+    turnstileToken='';try{if(window.turnstile)turnstile.reset('#turnstile-container');}catch(_){}
     err.textContent='Something went wrong sending your request. Please try again, or email contact@quoteleads.com.au.';
     err.style.display='block';btn.disabled=false;btn.textContent='Request a callback';
   }

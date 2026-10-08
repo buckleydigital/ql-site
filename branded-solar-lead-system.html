@@ -201,6 +201,7 @@ section{padding:56px 0;position:relative}
 @media(max-width:420px){.nsel-opts{grid-template-columns:1fr}}
 .consent{display:flex;gap:11px;align-items:flex-start;margin:8px 0 18px;color:var(--muted);font-size:.83rem;line-height:1.6}
 .consent input{margin-top:3px;width:17px;height:17px;flex-shrink:0;accent-color:var(--blue)}
+.ts-wrap{margin:0 0 16px;min-height:0}
 .formmsg{min-height:20px;margin-top:12px;text-align:center;font-size:.88rem;color:#f87171}
 
 /* THANK YOU */
@@ -404,6 +405,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
 @media(max-width:520px){section{padding:44px 0}.card{padding:24px 20px}}
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
 <div class="sprog" id="sprog"></div>
@@ -711,6 +713,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
             <input type="checkbox" id="fConsent">
             <span>I agree to be contacted by QuoteLeads about setting up my system, and confirm my details are correct.</span>
           </label>
+          <div class="ts-wrap"><div id="turnstile-container"></div></div>
           <div class="cta-pair one">
             <button class="btn btn-primary" id="btnCall">Request a callback</button>
           </div>
@@ -817,6 +820,22 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 (function(){
   var SUPABASE_URL = 'https://wjadekgptkstfdootuol.supabase.co';
 
+  // Cloudflare Turnstile, the same check as the rest of the site. 'interaction-only'
+  // keeps it invisible for most visitors; the token is verified by callback-request.
+  var turnstileToken = '';
+  var tsTimer = setInterval(function(){
+    if(typeof turnstile === 'undefined') return;
+    clearInterval(tsTimer);
+    turnstile.render('#turnstile-container', {
+      sitekey: '0x4AAAAAABj4xsGpuNPXeW_7',
+      theme: 'dark',
+      appearance: 'interaction-only',
+      callback: function(t){ turnstileToken = t; },
+      'expired-callback': function(){ turnstileToken = ''; },
+      'error-callback': function(){ turnstileToken = ''; }
+    });
+  }, 200);
+
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
   function phoneOk(v){
     var d = v.replace(/[\s()\-.]/g,'').replace(/^\+?61/,'0');
@@ -882,6 +901,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       els.msg.textContent = 'Enter ' + bad.join(' and ') + ' to continue.';
       return null;
     }
+    if(!turnstileToken){
+      els.msg.textContent = 'One moment, the security check is still finishing. Try again in a second.';
+      return null;
+    }
     els.msg.textContent = '';
     return d;
   }
@@ -891,6 +914,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     els.call.disabled = true;
     els.call.textContent = 'Sending...';
     d.source = 'branded-solar-lead-system-funnel';
+    d.turnstile_token = turnstileToken;
     fetch(SUPABASE_URL + '/functions/v1/callback-request', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -903,6 +927,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     }).catch(function(){
       els.call.disabled = false;
       els.call.textContent = 'Request a callback';
+      // A security-check token works once; get a fresh one for the retry.
+      turnstileToken = ''; try { if(window.turnstile) turnstile.reset('#turnstile-container'); } catch(_){}
       els.msg.textContent = 'That did not send. Email contact@quoteleads.com.au and we will call you straight back.';
     });
   });
