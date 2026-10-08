@@ -275,6 +275,28 @@ body::before{content:'';position:fixed;inset:0;
 .custom-qty-unit{font-size:.82rem;color:var(--muted)}
 .custom-qty-hint{font-size:.72rem;color:var(--blue);font-weight:600;margin-top:7px;min-height:1em}
 
+/* COVERAGE MAP */
+.cov-map-card{border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:14px;background:var(--glass)}
+.cov-map{height:260px;background:#1b1b1f;isolation:isolate}
+.cov-map.leaflet-container,.cov-map .leaflet-interactive,.cov-map .leaflet-grab,.cov-map .leaflet-dragging .leaflet-grab{cursor:none !important}
+.cov-map .leaflet-control-attribution{background:rgba(4,4,10,.7);color:var(--faint);font-size:.62rem}
+.cov-map .leaflet-control-attribution a{color:var(--muted)}
+.cov-map .leaflet-control-zoom a{background:rgba(12,12,24,.9);color:var(--off);border-color:var(--border);cursor:none}
+.cov-map-cap{padding:12px 16px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--border)}
+.cov-map-cap strong{color:var(--white);font-weight:600}
+.cov-pin{width:16px;height:16px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.cov-travel{display:flex;align-items:center;gap:14px}
+.cov-travel-lbl{font-size:.82rem;color:var(--muted);flex-shrink:0}
+.cov-travel input[type=range]{flex:1;min-width:0;accent-color:var(--blue);cursor:none}
+.cov-travel-val{font-size:.86rem;color:var(--white);font-variant-numeric:tabular-nums;min-width:58px;text-align:right}
+.cov-travel-ticks{display:flex;justify-content:space-between;font-size:.68rem;color:var(--faint);margin:6px 72px 0 64px}
+#order-form.light .cov-map-card{border-color:rgba(0,0,0,.12);background:#fff}
+#order-form.light .cov-map-cap{color:#52525B;border-top-color:rgba(0,0,0,.1)}
+#order-form.light .cov-map-cap strong,#order-form.light .cov-travel-val{color:#0f0f1a}
+#order-form.light .cov-travel-lbl{color:#52525B}
+#order-form.light .cov-map .leaflet-control-attribution{background:rgba(255,255,255,.8);color:#52525B}
+#order-form.light .cov-map .leaflet-control-zoom a{background:#fff;color:#0f0f1a;border-color:rgba(0,0,0,.12)}
+@media(max-width:520px){.cov-map{height:220px}}
 /* COVERAGE TOGGLE */
 .cov-toggle{display:flex;border:1px solid var(--border);border-radius:10px;overflow:hidden}
 .cov-toggle-btn{flex:1;padding:11px 16px;background:transparent;border:none;font-family:var(--body);font-size:.88rem;font-weight:500;color:var(--muted);cursor:none;transition:background .2s,color .2s}
@@ -746,6 +768,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   padding:14px 28px;border-radius:100px;text-decoration:none;transition:all .25s;cursor:none}
 .btn-ghost:hover{border-color:var(--faint);color:var(--white)}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
 
@@ -1009,18 +1033,21 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="block-sub">Define where your leads come from.</div>
             </div>
           </div>
+          <div class="cov-map-card">
+            <div class="cov-map" id="covMap"></div>
+            <div class="cov-map-cap" id="covMapCap">Pick a city above to see your coverage.</div>
+          </div>
           <div class="cov-toggle" id="covToggle">
             <button class="cov-toggle-btn sel" id="togRadius" onclick="setCovMode('radius')">Radius</button>
             <button class="cov-toggle-btn" id="togPostcodes" onclick="setCovMode('postcodes')">Postcode List</button>
           </div>
           <div class="cov-panel" id="panelRadius">
-            <div class="city-select-wrap">
-              <select id="radius_km" onchange="updateSummary()">
-                <option value="50">50 km from city centre</option>
-                <option value="75">75 km from city centre</option>
-                <option value="100">100 km from city centre</option>
-              </select>
+            <div class="cov-travel">
+              <span class="cov-travel-lbl">Travel</span>
+              <input type="range" id="radius_km" min="50" max="100" step="25" value="50" aria-label="Coverage radius from city centre in km" oninput="onRadiusInput()">
+              <span class="cov-travel-val" id="radiusVal">50 km</span>
             </div>
+            <div class="cov-travel-ticks"><span>50</span><span>75</span><span>100</span></div>
           </div>
           <div class="cov-panel" id="panelPostcodes" style="display:none">
             <textarea class="cov-postcode-ta" id="postcode_list" placeholder="Paste postcodes here, one per line or comma-separated&#10;e.g. 2000, 2010, 2011" oninput="updateSummary()"></textarea>
@@ -1657,6 +1684,7 @@ async function onCityChange() {
   order.area_city = city || null;
   order.statewide = !!city && sel.selectedOptions[0]?.dataset.statewide === '1';
   applyCoverageMode();
+  covRender();
 
   if (!city) {
     ['solar','solar-battery','roofing','hvac','renovation','battery-retrofit'].forEach(n => setPriceLabel(n, null));
@@ -1916,6 +1944,7 @@ function setCovMode(mode) {
   document.getElementById('panelRadius').style.display = mode === 'radius' ? '' : 'none';
   document.getElementById('panelPostcodes').style.display = mode === 'postcodes' ? '' : 'none';
   updateSummary();
+  covRender();
 }
 
 // Locks coverage to "state-wide" when a whole state is selected,
@@ -1942,6 +1971,100 @@ function applyCoverageMode() {
     panelPost.style.display   = covMode === 'postcodes' ? '' : 'none';
   }
 }
+
+// ─── COVERAGE MAP ────────────────────────────────────────
+// Visual only: what is sent to checkout is still area_city + radius_km
+// (or the postcode list / state-wide), exactly as before.
+const COV_CITIES = {
+  'Brisbane':[-27.4698,153.0251],'Gold Coast':[-28.0167,153.4000],'Sunshine Coast':[-26.6500,153.0667],
+  'Toowoomba':[-27.5598,151.9507],'Cairns':[-16.9186,145.7781],'Rockhampton':[-23.3781,150.5136],
+  'Bundaberg':[-24.8661,152.3489],'Hervey Bay':[-25.2882,152.8531],
+  'Sydney':[-33.8688,151.2093],'Newcastle':[-32.9283,151.7817],'Wollongong':[-34.4278,150.8931],
+  'Central Coast':[-33.4269,151.3417],'Albury/Wodonga':[-36.0737,146.9135],'Tamworth':[-31.0927,150.9320],
+  'Coffs Harbour':[-30.2963,153.1135],'Port Macquarie':[-31.4333,152.9000],
+  'Melbourne':[-37.8136,144.9631],'Geelong':[-38.1499,144.3617],'Shepparton':[-36.3833,145.4000],
+  'Mildura':[-34.2080,142.1246],'Frankston / Mornington Peninsula':[-38.1440,145.1260],'Dandenong':[-37.9870,145.2140],
+  'Bendigo':[-36.7570,144.2794],'Ballarat':[-37.5622,143.8503],'Warragul':[-38.1590,145.9310],
+  'Perth':[-31.9505,115.8605],'Mandurah':[-32.5269,115.7217],'Bunbury':[-33.3271,115.6414],
+  'Adelaide':[-34.9285,138.6007],'Canberra':[-35.2809,149.1300]
+};
+const COV_STATES = {
+  'Queensland':[[-29.2,138.0],[-10.6,153.6]],'New South Wales':[[-37.6,141.0],[-28.1,153.7]],
+  'Victoria':[[-39.2,140.9],[-33.9,150.0]],'Western Australia':[[-35.2,112.9],[-13.7,129.0]],
+  'South Australia':[[-38.1,129.0],[-26.0,141.0]],'Australian Capital Territory':[[-35.93,148.76],[-35.12,149.40]]
+};
+const COV_AU = [[-43.7,113.0],[-10.6,153.7]];
+const COV_TILES = {
+  dark:['Canvas/World_Dark_Gray_Base','Canvas/World_Dark_Gray_Reference'],
+  light:['Canvas/World_Light_Gray_Base','Canvas/World_Light_Gray_Reference']
+};
+let covMap = null, covLayers = [], covTileTheme = null, covCircle = null, covPin = null;
+
+function covTileUrl(svc){ return `https://server.arcgisonline.com/ArcGIS/rest/services/${svc}/MapServer/tile/{z}/{y}/{x}`; }
+
+function covSetTiles(){
+  if (!covMap) return;
+  const theme = document.getElementById('order-form').classList.contains('light') ? 'light' : 'dark';
+  if (theme === covTileTheme) return;
+  covTileTheme = theme;
+  covLayers.forEach(l => covMap.removeLayer(l));
+  covLayers = [
+    L.tileLayer(covTileUrl(COV_TILES[theme][0]), { maxZoom: 16, attribution: '&copy; Esri, OpenStreetMap contributors' }).addTo(covMap),
+    L.tileLayer(covTileUrl(COV_TILES[theme][1]), { maxZoom: 16 }).addTo(covMap)
+  ];
+  document.getElementById('covMap').style.background = theme === 'light' ? '#e8e8e8' : '#1b1b1f';
+}
+
+function covInitMap(){
+  if (covMap || typeof L === 'undefined') return;
+  covMap = L.map('covMap', { scrollWheelZoom: false });
+  covMap.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+  covSetTiles();
+  covMap.fitBounds(COV_AU);
+  // Lazy-loaded page sections can change the map's size after init.
+  if ('ResizeObserver' in window) new ResizeObserver(() => covMap.invalidateSize()).observe(document.getElementById('covMap'));
+}
+
+function onRadiusInput(){
+  document.getElementById('radiusVal').textContent = document.getElementById('radius_km').value + ' km';
+  updateSummary();
+  covRender(false);
+}
+
+function covRender(refit = true){
+  const cap = document.getElementById('covMapCap');
+  const city = order.area_city;
+  const km = parseInt(document.getElementById('radius_km').value, 10) || 50;
+  const centre = city && COV_CITIES[city];
+
+  if (cap) {
+    if (!city) cap.textContent = 'Pick a city above to see your coverage.';
+    else if (order.statewide) cap.innerHTML = `Leads from anywhere in <strong>${city}</strong>.`;
+    else if (order.location_type === 'postcodes') cap.innerHTML = `Leads from the postcodes you list below, around <strong>${city}</strong>.`;
+    else cap.innerHTML = `Leads from within <strong>${km} km</strong> of ${city} city centre.`;
+  }
+
+  if (!covMap) return;
+  if (covCircle) { covMap.removeLayer(covCircle); covCircle = null; }
+  if (covPin)    { covMap.removeLayer(covPin);    covPin = null; }
+
+  if (centre) {
+    covPin = L.marker(centre, { interactive: false,
+      icon: L.divIcon({ className: '', html: '<div class="cov-pin"></div>', iconSize: [16,16], iconAnchor: [8,8] }) }).addTo(covMap);
+    if (order.location_type === 'radius') {
+      covCircle = L.circle(centre, { radius: km * 1000, color: '#4797FF', weight: 2, fillColor: '#4797FF', fillOpacity: .14 }).addTo(covMap);
+    }
+  }
+  if (!refit && covCircle) { covMap.fitBounds(covCircle.getBounds(), { padding: [20,20] }); return; }
+  if (!refit) return;
+  if (order.statewide && COV_STATES[city]) covMap.fitBounds(COV_STATES[city]);
+  else if (covCircle) covMap.fitBounds(covCircle.getBounds(), { padding: [20,20] });
+  else if (centre) covMap.setView(centre, 9);
+  else covMap.fitBounds(COV_AU);
+}
+
+covInitMap();
+covRender();
 
 // ─── PACK SELECT ─────────────────────────────────────────
 function selectPack(el) {
@@ -2309,6 +2432,7 @@ document.getElementById('termsCheck').addEventListener('change', function () {
 function toggleOrderLight(){
   const sec=document.getElementById('order-form');
   sec.classList.toggle('light');
+  covSetTiles();
 }
 function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open')}
 
