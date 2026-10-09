@@ -111,6 +111,10 @@ body::before{content:'';position:fixed;inset:0;
 .step-title{font-family:var(--display);font-size:1.05rem;font-weight:600;
   color:var(--white);letter-spacing:-.015em}
 .step-body{padding:28px 32px}
+.overview-fig{margin:0 0 28px}
+.overview-fig a{display:block;background:#fff;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:10px;overflow:hidden}
+.overview-fig img{display:block;width:100%;height:auto;border-radius:8px}
+.overview-fig figcaption{font-size:13px;color:rgba(255,255,255,.55);margin-top:10px;text-align:center}
 .step-instruction{font-size:.9rem;color:var(--off);line-height:1.7;margin-bottom:24px}
 
 /* SCREENSHOT */
@@ -291,6 +295,15 @@ body::before{content:'';position:fixed;inset:0;
         <p>Your Pixel (called a Dataset in Meta) tells Meta which ads are turning into real enquiries. Sharing it with us lets us track conversions and optimise your campaigns for better quality leads. The Pixel stays owned by your business.</p>
       </div>
     </div>
+
+    <!-- OVERVIEW IMAGE -->
+    <figure class="overview-fig">
+      <a href="Pixel-Instructions.png" target="_blank" rel="noopener">
+        <img src="Pixel-Instructions.png" width="1080" height="500" loading="lazy"
+             alt="Meta Business Settings: 1 Data sources, 2 Datasets and pixels then Add, 3 create a new dataset, 4 share it with QuoteLeads' partner business ID with full access">
+      </a>
+      <figcaption>The whole process at a glance. Tap to open full size.</figcaption>
+    </figure>
 
     <!-- STEP 1 -->
     <div class="step-card">
