@@ -135,6 +135,7 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
   background-repeat:no-repeat;background-position:right 15px center}
 ::placeholder{color:var(--faint)}
 .goal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.goal-grid .goal-opt:last-child:nth-child(odd){grid-column:1 / -1}
 .goal-opt{position:relative;cursor:pointer}
 .goal-opt input{position:absolute;opacity:0;pointer-events:none}
 .goal-box{border:1.5px solid var(--border);border-radius:14px;padding:16px;background:var(--void);transition:border-color .15s,background .15s;height:100%}
@@ -300,8 +301,10 @@ footer{border-top:1px solid var(--border);padding:42px 0;text-align:center;backg
                 <div class="goal-box"><div class="goal-vol">30-60</div><div class="goal-sub">leads a month</div></div></label>
               <label class="goal-opt"><input type="radio" name="goal" value="60-90 leads/month">
                 <div class="goal-box"><div class="goal-vol">60-90</div><div class="goal-sub">leads a month</div></div></label>
-              <label class="goal-opt"><input type="radio" name="goal" value="90-200+ leads/month">
-                <div class="goal-box"><div class="goal-vol">90-200+</div><div class="goal-sub">leads a month</div></div></label>
+              <label class="goal-opt"><input type="radio" name="goal" value="90-200 leads/month">
+                <div class="goal-box"><div class="goal-vol">90-200</div><div class="goal-sub">leads a month</div></div></label>
+              <label class="goal-opt"><input type="radio" name="goal" value="200-500 leads/month">
+                <div class="goal-box"><div class="goal-vol">200-500</div><div class="goal-sub">leads a month</div></div></label>
               <label class="goal-opt"><input type="radio" name="goal" value="500+ leads/month">
                 <div class="goal-box"><div class="goal-vol">500+</div><div class="goal-sub">leads a month</div></div></label>
             </div>
