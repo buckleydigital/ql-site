@@ -1,0 +1,58 @@
+/*
+ * Shared blog typography fixes.
+ * Loaded after each blog page's inline <style>, so these rules win at equal
+ * specificity. Keeps blog type in line with the homepage (index.html):
+ * General Sans 600 for display text, Inter 700 for eyebrow labels,
+ * real bold for emphasis, and the blue headline gradient.
+ */
+
+/* 1. Bold text. Every post set strong to weight 400, so emphasis only
+      changed colour and read as thin. */
+.prose strong, .prose b,
+.callout p strong, .note-box strong, .sim-content-text strong,
+.faq-item p strong, .check-list li strong, .tier-table td strong,
+.score-result strong, .stat-label strong, .layer-card p strong,
+.layer-section-body strong { font-weight: 600; }
+
+/* 2. Body copy. Long-form text was the same faint grey as small UI copy;
+      lift it one step so paragraphs don't look washed out on the dark background. */
+.prose, .faq-item p { color: var(--ink-soft); }
+.prose strong, .faq-item p strong { color: var(--ink); }
+
+/* 3. Eyebrow and section labels. Homepage .ey is Inter 700 with wide tracking;
+      blog labels were 400 and looked thin. */
+.eyebrow, .slbl { font-weight: 700; letter-spacing: .18em; }
+.callout-lbl, .note-box-lbl, .sim-body-lbl, .article-meta-tag, .related-tag,
+.compare-header-cell, .pc-lbl, .rank-cap, .stage-tag, .failure-tag, .real-lbl,
+.myth-lbl, .layer-tag, .layer-rent-lbl, .layer-own-lbl, .blog-card-tag { font-weight: 600; }
+
+/* 4. Display-font numbers and titles. These used General Sans with no weight
+      (400), which renders thin at large sizes. Homepage uses 600 throughout. */
+.stat-num, .stat-val, .stage-num, .failure-num, .layer-num, .layer-section-num,
+.layer-section-title, .rank-num, .rank-name, .rank-cost,
+.stage-card h3, .scenario-card h3, .failure-card h3, .layer-card h3,
+.data-table tr.total td, .formula { font-weight: 600; }
+.pull-quote p { font-weight: 600; }
+.pull-quote p em, .layer-section-title em { font-weight: 600; }
+
+/* 5. Headline accent. Posts mixed red, amber and blue hero gradients; the
+      homepage and blog index use the mist-to-blue gradient. */
+.hero h1 em {
+    background: linear-gradient(90deg, #B8D4FF, #4797FF);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+/* 6. Nav "Get Started" button. `.nav-links li a` (weight 400) out-ranked
+      `.nav-cta-dark` (weight 600), so the button text rendered thin. */
+.nav-links li a.nav-cta-dark { font-weight: 600; color: #fff; }
+
+/* 7. Gradient headings wrap cleanly across lines in Safari. */
+.stitle em, .prose h3 em, .related-title em, .blog-card-title em {
+    -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+/* 8. Article links. Not every post styled them, so some showed browser-default blue. */
+.prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; }
+.prose a:hover { color: var(--ink); }
