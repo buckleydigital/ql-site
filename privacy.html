@@ -656,7 +656,7 @@ a:hover{color:var(--sky)}
         <p class="sbody">How we collect, use, store, and protect your personal information. We've kept this as plain as possible.</p>
         <div class="page-hero-meta">
             <span>Effective: August 9, 2026</span>
-            <span>Last Updated: August 9, 2026</span>
+            <span>Last Updated: October 13, 2026</span>
         </div>
     </div>
 </section>
@@ -818,7 +818,7 @@ a:hover{color:var(--sky)}
                     <div class="providers-grid" style="margin-top:28px;">
                         <div class="provider-item">
                             <div class="provider-cat">Application &amp; database hosting</div>
-                            <div class="provider-name">Supabase</div>
+                            <div class="provider-name">Supabase (South Korea, Australia)</div>
                         </div>
                         <div class="provider-item">
                             <div class="provider-cat">Website hosting &amp; CDN</div>
@@ -835,6 +835,22 @@ a:hover{color:var(--sky)}
                         <div class="provider-item">
                             <div class="provider-cat">SMS &amp; voice</div>
                             <div class="provider-name">Twilio (United States)</div>
+                        </div>
+                        <div class="provider-item">
+                            <div class="provider-cat">AI processing</div>
+                            <div class="provider-name">OpenAI, Anthropic (United States)</div>
+                        </div>
+                        <div class="provider-item">
+                            <div class="provider-cat">Email delivery</div>
+                            <div class="provider-name">Resend (United States)</div>
+                        </div>
+                        <div class="provider-item">
+                            <div class="provider-cat">Phone number verification</div>
+                            <div class="provider-name">Veriphone (United Kingdom, hosted in the EU)</div>
+                        </div>
+                        <div class="provider-item">
+                            <div class="provider-cat">Business prospecting</div>
+                            <div class="provider-name">Google Places, Instantly (United States), MillionVerifier (Hungary)</div>
                         </div>
                         <div class="provider-item">
                             <div class="provider-cat">Analytics &amp; advertising</div>
@@ -861,15 +877,17 @@ a:hover{color:var(--sky)}
                     <div class="group-lbl">Section 05</div>
                     <h2 class="group-title">Data storage and<br>location.</h2>
                     <div class="group-body">
-                        <p>QuoteLeads is an Australian business, but the systems we use to run it are hosted overseas. Your personal information, including lead data, is stored and processed outside Australia. Australian Privacy Principle 8 requires us to tell you this and name the countries involved, so they are all listed below.</p>
+                        <p>QuoteLeads is an Australian business, but most of the systems we use to run it are hosted overseas. Most of your personal information, including lead data, is stored and processed outside Australia. Australian Privacy Principle 8 requires us to tell you this and name the countries involved, so they are all listed below.</p>
                     </div>
                     <div class="sub-section">
                         <div class="sub-title">Where your information is held</div>
                         <div class="group-body">
                         <ul>
-                            <li><strong>South Korea</strong> - our primary database, which holds your account records and all lead data, is hosted by Supabase in its Seoul (ap-northeast-2) region. This is where the bulk of the personal information we hold is stored.</li>
-                            <li><strong>European Union</strong> - enquiry and onboarding form submissions (name, business name, email, phone, and the answers you give) are sent to Make.com, our workflow automation provider, which processes them on servers in the EU.</li>
-                            <li><strong>United States</strong> - this website is served by GitHub Pages via the Fastly content delivery network. Payment details are handled by Stripe. SMS and voice messages are sent through Twilio. Analytics and advertising data, including your IP address and browsing activity on this site, is processed by Google Analytics and the Meta Pixel. Cloudflare Turnstile processes your IP address when you submit a form.</li>
+                            <li><strong>South Korea</strong> - our primary database, which holds your account records and most lead data, is hosted by Supabase in its Seoul (ap-northeast-2) region. This is where the bulk of the personal information we hold is stored.</li>
+                            <li><strong>Australia</strong> - our internal operations database, which holds lead delivery records and our sales pipeline, is hosted by Supabase in its Sydney (ap-southeast-2) region.</li>
+                            <li><strong>European Union</strong> - enquiry and onboarding form submissions (name, business name, email, phone, and the answers you give) are sent to Make.com, our workflow automation provider, which processes them on servers in the EU. Email addresses we check before sending business emails are verified by MillionVerifier, based in Hungary.</li>
+                            <li><strong>United Kingdom and European Union</strong> - phone numbers on new leads are checked by Veriphone, a UK company whose service is hosted on Google Cloud in the EU, to confirm they are real and reachable.</li>
+                            <li><strong>United States</strong> - this website is served by GitHub Pages via the Fastly content delivery network. Payment details are handled by Stripe. SMS and voice messages are sent through Twilio. Analytics and advertising data, including your IP address and browsing activity on this site, is processed by Google Analytics and the Meta Pixel. Cloudflare Turnstile processes your IP address when you submit a form. Our AI features, including the AI SMS agent that replies to leads, quote drafting and our internal assistant, send the relevant messages and lead or account details to OpenAI and Anthropic for processing. Emails, including account, lead and booking notifications, are sent through Resend. Business contact details we use for prospecting are found through Google Places and emailed through Instantly.</li>
                             <li><strong>United States and India</strong> - our web fonts are loaded from Google Fonts and Fontshare, which receive your IP address when a page loads.</li>
                         </ul>
                         </div>
