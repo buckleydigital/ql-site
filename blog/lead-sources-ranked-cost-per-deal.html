@@ -639,6 +639,64 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
             .pc-grid { grid-template-columns: 1fr; }
             .formula { padding: 24px 20px; }
         }
+
+        /* CALCULATOR */
+        .calc-disclaimer {
+            margin-top: 36px; padding: 22px 26px; border-radius: 8px;
+            background: var(--amber-dim); border: 1px solid rgba(251,185,14,0.35);
+        }
+        .calc-disclaimer-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+        .calc-disclaimer p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+        .calc-disclaimer strong { color: var(--ink); font-weight: 600; }
+        .calc {
+            margin-top: 28px; padding: 28px; border-radius: 10px;
+            background: var(--bg-card); border: 1px solid var(--border-mid);
+        }
+        .calc-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+        .calc-presets { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 13px; color: var(--ink-muted); }
+        .calc-preset {
+            font-family: var(--body); font-size: 13px; color: var(--ink-soft); cursor: pointer;
+            background: transparent; border: 1px solid var(--border-mid); border-radius: 100px; padding: 7px 14px;
+            transition: border-color .2s, color .2s, background .2s;
+        }
+        .calc-preset:hover { border-color: var(--accent); color: var(--ink); }
+        .calc-preset.active { background: var(--accent-dim); border-color: var(--accent); color: var(--ink); }
+        .calc-toggle { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink); cursor: pointer; }
+        .calc label.calc-toggle { flex-direction: row; font-size: 14px; color: var(--ink); }
+        .calc-toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
+        .calc-shared { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .calc-card { background: var(--bg-deep); border: 1px solid var(--border); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+        .calc-card-name { font-family: var(--display); font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+        .calc label { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--ink-muted); line-height: 1.4; }
+        .calc input[type=number] {
+            font-family: var(--body); font-size: 15px; color: var(--ink); width: 100%;
+            background: var(--bg); border: 1px solid var(--border-mid); border-radius: 6px; padding: 10px 12px;
+            transition: border-color .2s;
+        }
+        .calc input[type=number]:focus { outline: none; border-color: var(--accent); }
+        .calc input[type=number]:disabled { cursor: not-allowed; }
+        .calc-hint { display: none; margin-top: 16px; font-size: 13px; color: var(--amber); line-height: 1.6; }
+        .calc-results { margin-top: 24px; border-top: 1px solid var(--border); padding-top: 22px; }
+        .calc-results-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
+        .calc-row { display: grid; grid-template-columns: 32px 1fr auto; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        .calc-row:last-child { border-bottom: none; }
+        .calc-row-rank { font-family: var(--display); font-size: 22px; font-weight: 600; color: var(--ink-faint); }
+        .calc-row.top .calc-row-rank, .calc-row.top .calc-row-cost { color: var(--green); }
+        .calc-row-name { font-size: 14px; color: var(--ink); margin-bottom: 8px; }
+        .calc-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); background: var(--green-dim); padding: 2px 8px; border-radius: 3px; margin-left: 6px; white-space: nowrap; }
+        .calc-bar { height: 6px; background: var(--bg-deep); border-radius: 3px; overflow: hidden; }
+        .calc-bar span { display: block; height: 100%; background: var(--accent); border-radius: 3px; transition: width .3s; }
+        .calc-row.top .calc-bar span { background: var(--green); }
+        .calc-row-cost { font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--ink-soft); white-space: nowrap; }
+        .calc-na { font-family: var(--body); font-size: 12px; font-weight: 400; color: var(--ink-faint); }
+        @media(max-width: 1024px) { .calc-grid { grid-template-columns: 1fr 1fr; } }
+        @media(max-width: 768px) {
+            .calc { padding: 20px; }
+            .calc-grid, .calc-shared { grid-template-columns: 1fr; }
+            .calc-row { grid-template-columns: 24px 1fr auto; gap: 12px; }
+            .calc-row-cost { font-size: 17px; }
+        }
         </style>
 <link rel="stylesheet" href="/blog/blog.css">
 </head>
@@ -737,7 +795,7 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
         </div>
 
         <div class="prose rv">
-            <p>We have deliberately left prices out of this article. What you pay for leads, appointments and ad spend depends on your trade, your area, your offer and the provider - and any figure we printed would be right for some installers and wrong for most. The order is what holds. The rest of this article explains why, and shows you how to check it against your own numbers.</p>
+            <p>We have deliberately kept prices out of the main article. What you pay for leads, appointments and ad spend depends on your trade, your area, your offer and the provider, so any single figure would be right for some installers and wrong for most. The order is what holds. If you want to see it with numbers, <a href="#calculator">the calculator further down</a> lets you put in your own - it starts with example figures, clearly marked as examples.</p>
         </div>
     </div>
 </section>
@@ -1166,8 +1224,156 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
     </div>
 </section>
 
+<!-- SECTION: CALCULATOR -->
+<section class="content-section lifted" id="calculator">
+    <div class="si">
+        <div class="slbl">Calculator</div>
+        <h2 class="stitle rv">Work out <em>your own ranking.</em></h2>
+
+        <div class="prose rv">
+            <p>Put in what you actually pay and how often each source closes for you, and the calculator ranks the four sources by cost per signed deal. If you are not sure of a number, start with the example figures and change the ones you know.</p>
+        </div>
+
+        <div class="calc-disclaimer rv">
+            <div class="calc-disclaimer-lbl">Example figures only</div>
+            <p>The calculator starts filled in with <strong>example numbers, not real prices or results</strong>. They are rough estimates to show how the maths works. We are not claiming that is what any source costs or what you will get. Replace them with your own figures. How we estimated each example is listed under the calculator.</p>
+        </div>
+
+        <div class="calc rv">
+            <div class="calc-top">
+                <div class="calc-presets">
+                    <span>Load example:</span>
+                    <button type="button" class="calc-preset active" data-preset="setter">With a setter</button>
+                    <button type="button" class="calc-preset" data-preset="nosetter">Without a setter</button>
+                </div>
+                <label class="calc-toggle"><input type="checkbox" id="cSetter" checked> I have a setter</label>
+            </div>
+
+            <div class="calc-shared">
+                <label>Leads per month you want<input type="number" id="cLeads" min="1" step="1" inputmode="numeric"></label>
+                <label class="calc-setter-field">Setter cost per lead ($)<input type="number" id="cSetterCost" min="0" step="1" inputmode="decimal"></label>
+            </div>
+
+            <div class="calc-grid">
+                <div class="calc-card">
+                    <div class="calc-card-name">Own ad account</div>
+                    <label>Ad spend per lead ($)<input type="number" id="cOwnCpl" min="0" step="1" inputmode="decimal"></label>
+                    <label>Monthly management or fixed costs ($)<input type="number" id="cOwnFixed" min="0" step="10" inputmode="decimal"></label>
+                    <label>Leads that become deals (%)<input type="number" id="cOwnClose" min="0" max="100" step="1" inputmode="decimal"></label>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-card-name">Exclusive leads, pay per lead</div>
+                    <label>Price per lead ($)<input type="number" id="cExPrice" min="0" step="1" inputmode="decimal"></label>
+                    <label>Leads that become deals (%)<input type="number" id="cExClose" min="0" max="100" step="1" inputmode="decimal"></label>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-card-name">Bought appointments</div>
+                    <label>Price per appointment ($)<input type="number" id="cApPrice" min="0" step="1" inputmode="decimal"></label>
+                    <label>Appointments that go ahead (%)<input type="number" id="cApShow" min="0" max="100" step="1" inputmode="decimal"></label>
+                    <label>Of those, how many sign (%)<input type="number" id="cApClose" min="0" max="100" step="1" inputmode="decimal"></label>
+                </div>
+                <div class="calc-card">
+                    <div class="calc-card-name">Shared leads</div>
+                    <label>Price per lead ($)<input type="number" id="cShPrice" min="0" step="1" inputmode="decimal"></label>
+                    <label>Leads that become deals (%)<input type="number" id="cShClose" min="0" max="100" step="1" inputmode="decimal"></label>
+                </div>
+            </div>
+
+            <p class="calc-hint" id="cHint">No setter? Lower your close rates - leads called back hours later close far less often. The "Without a setter" example does this for you.</p>
+
+            <div class="calc-results" aria-live="polite">
+                <div class="calc-results-lbl" id="cResultsLbl">Estimated cost per signed deal</div>
+                <div id="cResults"></div>
+            </div>
+        </div>
+
+        <div class="note-box rv">
+            <div class="note-box-lbl">How the example figures were estimated</div>
+            <p><strong>These are illustrations, not quotes or promises.</strong> Real prices and close rates vary a lot by trade, area, offer, provider and how well your team follows up.</p>
+            <p><strong>Own ad account - $40 per lead, $690 a month.</strong> Residential installers running Meta campaigns commonly see roughly $25 to $50 per enquiry; $40 is a middle figure. $690 a month is our own Branded Lead Gen System management fee (+ GST), used as an example fixed cost. Put in yours, or zero if you run ads yourself.</p>
+            <p><strong>Exclusive pay-per-lead - $80 per lead.</strong> Roughly the middle of the $50 to $100+ range for verified, consented leads sent to one business.</p>
+            <p><strong>Bought appointments - $180, 75% go ahead, 40% of those sign.</strong> Our estimate. Residential appointments are commonly priced from about $150 to $300 or more, and show rates vary widely by provider.</p>
+            <p><strong>Shared leads - $45 per lead.</strong> Our estimate; shared lead prices vary widely by trade and platform.</p>
+            <p><strong>Close rates - 25% for own and exclusive leads, 7% for shared.</strong> Taken from the low end of typical ranges: 25 to 45 per cent for exclusive, consented leads and 5 to 15 per cent for shared leads. The "Without a setter" example lowers them to 12% and 3% to reflect slow callbacks - that drop is our judgement, not measured data.</p>
+            <p><strong>Setter cost - $8 per lead.</strong> About 15 minutes of calling, texting and booking per lead at roughly $32 an hour.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+(function(){
+    var presets = {
+        setter:   { cSetter:true,  cLeads:60, cSetterCost:8, cOwnCpl:40, cOwnFixed:690, cOwnClose:25, cExPrice:80, cExClose:25, cApPrice:180, cApShow:75, cApClose:40, cShPrice:45, cShClose:7 },
+        nosetter: { cSetter:false, cLeads:60, cSetterCost:8, cOwnCpl:40, cOwnFixed:690, cOwnClose:12, cExPrice:80, cExClose:12, cApPrice:180, cApShow:75, cApClose:40, cShPrice:45, cShClose:3 }
+    };
+    var $ = function(id){ return document.getElementById(id); };
+    var num = function(id){ var v = parseFloat($(id).value); return isFinite(v) && v >= 0 ? v : 0; };
+    var money = function(v){ return '$' + Math.round(v).toLocaleString('en-AU'); };
+    var editedSinceExample = false;
+
+    function load(name){
+        var p = presets[name];
+        Object.keys(p).forEach(function(k){
+            if (k === 'cSetter') $(k).checked = p[k]; else $(k).value = p[k];
+        });
+        document.querySelectorAll('.calc-preset').forEach(function(b){ b.classList.toggle('active', b.dataset.preset === name); });
+        editedSinceExample = false;
+        calc();
+    }
+
+    function calc(){
+        var setter = $('cSetter').checked;
+        var s = setter ? num('cSetterCost') : 0;
+        var leads = Math.max(num('cLeads'), 1);
+        document.querySelector('.calc-setter-field').style.opacity = setter ? 1 : .4;
+        $('cSetterCost').disabled = !setter;
+
+        var perLead = function(price, closePct){
+            var c = closePct / 100;
+            return c > 0 ? (price + s) / c : null;
+        };
+        var ownC = num('cOwnClose') / 100;
+        var rows = [
+            { name:'Own ad account',              cost: ownC > 0 ? (num('cOwnCpl') + s) / ownC + num('cOwnFixed') / (leads * ownC) : null },
+            { name:'Exclusive leads, pay per lead', cost: perLead(num('cExPrice'), num('cExClose')) },
+            { name:'Bought appointments',          cost: (num('cApShow') * num('cApClose')) > 0 ? num('cApPrice') / ((num('cApShow') / 100) * (num('cApClose') / 100)) : null },
+            { name:'Shared leads',                 cost: perLead(num('cShPrice'), num('cShClose')) }
+        ];
+        var valid = rows.filter(function(r){ return r.cost !== null; }).sort(function(a,b){ return a.cost - b.cost; });
+        var invalid = rows.filter(function(r){ return r.cost === null; });
+        var max = valid.length ? valid[valid.length - 1].cost : 1;
+
+        var html = valid.map(function(r, i){
+            var w = Math.max(6, Math.round(r.cost / max * 100));
+            return '<div class="calc-row' + (i === 0 ? ' top' : '') + '">' +
+                '<div class="calc-row-rank">' + (i + 1) + '</div>' +
+                '<div class="calc-row-main"><div class="calc-row-name">' + r.name + (i === 0 ? ' <span class="calc-badge">Cheapest per deal</span>' : '') + '</div>' +
+                '<div class="calc-bar"><span style="width:' + w + '%"></span></div></div>' +
+                '<div class="calc-row-cost">' + money(r.cost) + '</div></div>';
+        }).join('') + invalid.map(function(r){
+            return '<div class="calc-row"><div class="calc-row-rank">-</div><div class="calc-row-main"><div class="calc-row-name">' + r.name + '</div></div><div class="calc-row-cost calc-na">Add a close rate</div></div>';
+        }).join('');
+        $('cResults').innerHTML = html;
+        $('cResultsLbl').textContent = editedSinceExample ? 'Estimated cost per signed deal - your figures' : 'Estimated cost per signed deal - example figures only';
+        $('cHint').style.display = setter ? 'none' : 'block';
+    }
+
+    document.querySelectorAll('.calc input').forEach(function(el){
+        el.addEventListener('input', function(){
+            editedSinceExample = true;
+            document.querySelectorAll('.calc-preset').forEach(function(b){ b.classList.remove('active'); });
+            calc();
+        });
+    });
+    document.querySelectorAll('.calc-preset').forEach(function(b){
+        b.addEventListener('click', function(){ load(b.dataset.preset); });
+    });
+    load('setter');
+})();
+</script>
+
 <!-- SECTION 10: WHEN THE RANKING CHANGES -->
-<section class="content-section lifted">
+<section class="content-section">
     <div class="si">
         <div class="slbl">Exceptions</div>
         <h2 class="stitle rv">When the ranking <em>can change.</em></h2>
@@ -1193,14 +1399,14 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
 
         <div class="note-box rv">
             <div class="note-box-lbl">Run your own numbers</div>
-            <p>For each source you use now, take one recent month and write down: <strong>total spent (including fees and setter time), number of leads or appointments, and number of signed deals.</strong> Divide spend by deals. That is your real cost per deal for that source.</p>
+            <p>For each source you use now, take one recent month and write down: <strong>total spent (including fees and setter time), number of leads or appointments, and number of signed deals.</strong> Divide spend by deals. That is your real cost per deal for that source. Or put your figures into <a href="#calculator" style="color:var(--accent);text-decoration:none;">the calculator above</a>.</p>
             <p>If you do not track which source each signed deal came from, that is the first thing to fix. Without it, every lead source looks equally good on the invoice - and you will keep buying the one with the smallest bill rather than the one with the cheapest deals. Our <a href="/lead-job-cost-calculator" style="color:var(--accent);text-decoration:none;">lead and job cost calculator</a> does the arithmetic for you.</p>
         </div>
     </div>
 </section>
 
 <!-- SECTION 11: PUTTING IT TOGETHER -->
-<section class="content-section">
+<section class="content-section lifted">
     <div class="si">
         <div class="slbl">Putting It Together</div>
         <h2 class="stitle rv">What to do <em>at each stage.</em></h2>
@@ -1228,7 +1434,7 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
 </section>
 
 <!-- SECTION 12: FAQ -->
-<section class="content-section lifted">
+<section class="content-section">
     <div class="si">
         <div class="slbl">FAQ</div>
         <h2 class="stitle rv">Frequently asked <em>questions.</em></h2>
