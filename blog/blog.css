@@ -44,10 +44,6 @@
     -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
 
-/* 6. Nav "Get Started" button. `.nav-links li a` (weight 400) out-ranked
-      `.nav-cta-dark` (weight 600), so the button text rendered thin. */
-.nav-links li a.nav-cta-dark { font-weight: 600; color: #fff; }
-
 /* 7. Gradient headings wrap cleanly across lines in Safari. */
 .stitle em, .prose h3 em, .related-title em, .blog-card-title em {
     -webkit-box-decoration-break: clone; box-decoration-break: clone;
