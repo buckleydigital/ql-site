@@ -2407,15 +2407,20 @@ function flashErr(el) {
 }
 
 // ─── SUBMIT ──────────────────────────────────────────────
-// Pay-per-lead orders are paused. Set to false to take orders again (and
-// set platform_settings.ppl_orders_paused to false in ql-hq).
-const PPL_PAUSED = true;
-if (PPL_PAUSED) {
-  const b = document.getElementById('btnSubmit');
-  if (b) { b.disabled = true; b.style.opacity = '.5'; b.style.cursor = 'not-allowed'; b.textContent = 'Orders paused'; }
-  const n = document.getElementById('pplPausedNote');
-  if (n) n.style.display = 'block';
-}
+// Pay-per-lead orders can be paused with platform_settings.ppl_orders_paused
+// in ql-hq, the one switch this page, the dashboard and the checkout all read.
+let PPL_PAUSED = false;
+fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?status=1`)
+  .then(r => r.json())
+  .then(d => {
+    if (d.paused !== true) return;
+    PPL_PAUSED = true;
+    const b = document.getElementById('btnSubmit');
+    if (b) { b.disabled = true; b.style.opacity = '.5'; b.style.cursor = 'not-allowed'; b.textContent = 'Orders paused'; }
+    const n = document.getElementById('pplPausedNote');
+    if (n) n.style.display = 'block';
+  })
+  .catch(() => {}); // the checkout still refuses while paused
 
 async function submitOrder() {
   if (PPL_PAUSED) return;
