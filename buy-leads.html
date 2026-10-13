@@ -963,16 +963,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           </div>
           <div class="trade-grid">
 
-            <button class="trade-card" data-niche="solar" onclick="selectTrade(this)">
-              <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-              </div>
-              <div class="trade-info">
-                <div class="trade-name">All Solar</div>
-                <div class="trade-price dim" id="price-solar">Select city first</div>
-              </div>
-              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
-            </button>
 
             <button class="trade-card" data-niche="solar-battery" onclick="selectTrade(this)">
               <div class="trade-ico">
@@ -1632,7 +1622,7 @@ renderPackGrid(FALLBACK_TIERS);
 // Load tiers on page load - not city-dependent
 (async function loadTiersEarly(){
   try {
-    const res = await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=solar&area=Sydney`);
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=solar-battery&area=Sydney`);
     if (!res.ok) return;
     const data = await res.json();
     if (data?.discount_tiers?.length) renderPackGrid(data.discount_tiers);
@@ -1685,7 +1675,7 @@ async function onCityChange() {
   covChanged(true);
 
   if (!city) {
-    ['solar','solar-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, null));
+    ['solar-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, null));
     order.prices = {};
     order.soldOutByNiche = {};
     order.maxByNiche = {};
@@ -1695,10 +1685,10 @@ async function onCityChange() {
   }
 
   // Show loading spinners on all trade cards
-  ['solar','solar-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, 'loading'));
+  ['solar-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, 'loading'));
 
   // Fetch all trade prices in parallel from Supabase
-  const trades = ['solar','solar-battery','hvac','battery-retrofit'];
+  const trades = ['solar-battery','hvac','battery-retrofit'];
   const results = await Promise.allSettled(
     trades.map(niche =>
       fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${niche}&area=${encodeURIComponent(city)}`)
@@ -2273,7 +2263,7 @@ function selectPack(el) {
 }
 
 // ─── SUMMARY UPDATE ──────────────────────────────────────
-const nicheLabels = { solar: 'All Solar', 'solar-battery': 'Solar + Battery', hvac: 'HVAC', 'battery-retrofit': 'Battery Retrofit' };
+const nicheLabels = { 'solar-battery': 'Solar + Battery', hvac: 'HVAC', 'battery-retrofit': 'Battery Retrofit' };
 
 function updateSummary() {
   const tradeEl  = document.getElementById('sum-trade');
