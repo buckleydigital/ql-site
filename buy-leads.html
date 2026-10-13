@@ -1160,6 +1160,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               I agree to the <a href="/pay-per-lead-terms" target="_blank" style="color:var(--blue);text-decoration:underline">Pay Per Lead Terms</a>.
             </label>
           </div>
+          <p id="pplPausedNote" style="display:none;margin:0 0 12px;padding:12px 14px;border-radius:10px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.4);font-size:14px;line-height:1.5">Pay-per-lead orders are paused right now. Check back soon, or email <a href="mailto:contact@quoteleads.com.au" style="color:inherit;text-decoration:underline">contact@quoteleads.com.au</a>.</p>
           <button class="btn-submit" id="btnSubmit" onclick="submitOrder()">
             Proceed to Payment
             <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h8M7 3l3 3-3 3"/></svg>
@@ -2406,7 +2407,18 @@ function flashErr(el) {
 }
 
 // ─── SUBMIT ──────────────────────────────────────────────
+// Pay-per-lead orders are paused. Set to false to take orders again (and
+// set platform_settings.ppl_orders_paused to false in ql-hq).
+const PPL_PAUSED = true;
+if (PPL_PAUSED) {
+  const b = document.getElementById('btnSubmit');
+  if (b) { b.disabled = true; b.style.opacity = '.5'; b.style.cursor = 'not-allowed'; b.textContent = 'Orders paused'; }
+  const n = document.getElementById('pplPausedNote');
+  if (n) n.style.display = 'block';
+}
+
 async function submitOrder() {
+  if (PPL_PAUSED) return;
   if (!order.area_city) {
     document.getElementById('area_city').focus();
     return;
