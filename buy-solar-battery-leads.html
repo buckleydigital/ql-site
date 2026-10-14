@@ -1128,15 +1128,15 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <span class="block-num">04</span>
             <div>
               <div class="block-title">How many leads?</div>
-              <div class="block-sub">Larger packs include a volume discount.</div>
+              <div class="block-sub">Per area. Larger packs include a volume discount.</div>
             </div>
           </div>
           <div class="pack-grid" id="pack-grid"></div>
           <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="50" max="100" step="1" placeholder="e.g. 60" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">leads (min. 50 for a first order). Contact us for orders over 100</span>
+            <input type="number" id="custom_qty" min="50" max="300" step="1" placeholder="e.g. 60" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">leads per area (min. 50 for a first order). Up to 100 per area, or 300 state wide</span>
           </div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
@@ -1691,13 +1691,17 @@ const order = {
   maxOrderQty: null      // per-order cap for the current area (null = unlimited)
 };
 
-const BL_HARD_MAX = 100; // maximum leads per order
+// Leads per area per order: up to 100 for a radius or postcode list, 300
+// for a whole state. The checkout enforces the same caps (ppl-areas.ts).
+const BL_HARD_MAX = 100;
+const BL_STATE_MAX = 300;
 
 // Effective per-order cap for the selected area (missing means unlimited,
 // so fall back to the hard maximum).
 function activeMax() {
   const cap = order.maxOrderQty;
-  return cap == null ? BL_HARD_MAX : Math.min(cap, BL_HARD_MAX);
+  const typeMax = order.statewide ? BL_STATE_MAX : BL_HARD_MAX;
+  return cap == null ? typeMax : Math.min(cap, typeMax);
 }
 
 // ─── PACK GRID ────────────────────────────────────────────
@@ -1733,7 +1737,7 @@ function renderPackGrid(tiers) {
   const btn = autoTier && grid.querySelector(`[data-qty="${autoTier.min_quantity}"]`);
   if (btn && !btn.classList.contains('cap-off')) selectPack(btn);
   const note = document.getElementById('pack-cap-note');
-  if (note) note.textContent = cap < BL_HARD_MAX ? `Up to ${cap} leads per order available for this lead type in this area.` : '';
+  if (note) note.textContent = cap < (order.statewide ? BL_STATE_MAX : BL_HARD_MAX) ? `Up to ${cap} leads per area available for this lead type here.` : '';
 }
 
 renderPackGrid(FALLBACK_TIERS);
@@ -1772,7 +1776,7 @@ function onCustomQty(input) {
   order.quantity = raw;
   order.discount = tier.discount_percent;
   if (hint) {
-    if (capped) hint.textContent = `Up to ${cap} leads per order for this area`;
+    if (capped) hint.textContent = `Up to ${cap} leads per area`;
     else if (tier.discount_percent > 0) hint.textContent = `${tier.discount_percent}% volume discount applied`;
     else hint.textContent = '';
   }
@@ -1897,6 +1901,7 @@ function applyCoverageMode() {
     panelRadius.style.display = covMode === 'radius' ? '' : 'none';
     panelPost.style.display   = covMode === 'postcodes' ? '' : 'none';
   }
+  renderPackGrid(currentTiers);
 }
 
 // ─── PACK SELECT ─────────────────────────────────────────
@@ -2028,7 +2033,7 @@ async function submitOrder() {
   const capNow = activeMax();
   if (order.quantity > capNow) {
     const hint = document.getElementById('custom-qty-hint');
-    if (hint) hint.textContent = `Up to ${capNow} leads per order for this area`;
+    if (hint) hint.textContent = `Up to ${capNow} leads per area`;
     document.querySelector('.pack-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }

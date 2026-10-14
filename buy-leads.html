@@ -1068,15 +1068,15 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <span class="block-num">05</span>
             <div>
               <div class="block-title">How many leads?</div>
-              <div class="block-sub">Larger packs include a volume discount.</div>
+              <div class="block-sub">Per area: each suburb you add is its own order with this many leads. Larger packs include a volume discount.</div>
             </div>
           </div>
           <div class="pack-grid" id="pack-grid"></div>
           <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="50" max="100" step="1" placeholder="e.g. 60" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">leads (min. 50 for a first order). Contact us for orders over 100</span>
+            <input type="number" id="custom_qty" min="50" max="300" step="1" placeholder="e.g. 60" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">leads per area (min. 50 for a first order). Up to 100 per area, or 300 state wide</span>
           </div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
@@ -1194,6 +1194,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <span class="sum-lbl">Price per lead</span>
           <span class="sum-val accent" id="sum-ppl">-</span>
         </div>
+        <div id="sum-areas" style="display:none;margin:6px 0;padding:8px 0;border-top:1px dashed rgba(127,127,127,.25);border-bottom:1px dashed rgba(127,127,127,.25);font-size:.8rem;line-height:1.9;color:var(--muted)"></div>
         <div class="sum-row" id="sum-discount-row" style="display:none">
           <span class="sum-lbl">Volume discount</span>
           <span class="sum-val saving" id="sum-discount">-</span>
@@ -1561,7 +1562,10 @@ const order = {
   maxByNiche: {}         // per-order cap per niche / "niche:sub" (null/undefined = unlimited)
 };
 
-const BL_HARD_MAX = 100; // maximum leads per order
+// Leads per area per order: up to 100 for a radius or postcode list, 300
+// for a whole state. The checkout enforces the same caps (ppl-areas.ts).
+const BL_HARD_MAX = 100;
+const BL_STATE_MAX = 300;
 
 // Effective per-order cap for the current selection (sub-niche cap wins, then
 // niche limit; missing means unlimited, so fall back to the maximum).
@@ -1569,7 +1573,8 @@ function activeMax() {
   let cap = null;
   if (order.niche && order.sub_niche && order.maxByNiche[order.niche + ':' + order.sub_niche] != null) cap = order.maxByNiche[order.niche + ':' + order.sub_niche];
   else if (order.niche && order.maxByNiche[order.niche] != null) cap = order.maxByNiche[order.niche];
-  return cap == null ? BL_HARD_MAX : Math.min(cap, BL_HARD_MAX);
+  const typeMax = order.statewide ? BL_STATE_MAX : BL_HARD_MAX;
+  return cap == null ? typeMax : Math.min(cap, typeMax);
 }
 
 // ─── SUB-NICHE CONFIG ────────────────────────────────────
@@ -1613,7 +1618,7 @@ function renderPackGrid(tiers) {
   const btn = autoTier && grid.querySelector(`[data-qty="${autoTier.min_quantity}"]`);
   if (btn && !btn.classList.contains('cap-off')) selectPack(btn);
   const note = document.getElementById('pack-cap-note');
-  if (note) note.textContent = cap < BL_HARD_MAX ? `Up to ${cap} leads per order available for this lead type in this area.` : '';
+  if (note) note.textContent = cap < (order.statewide ? BL_STATE_MAX : BL_HARD_MAX) ? `Up to ${cap} leads per area available for this lead type here.` : '';
 }
 
 renderPackGrid(FALLBACK_TIERS);
@@ -1652,7 +1657,7 @@ function onCustomQty(input) {
   order.quantity = raw;
   order.discount = tier.discount_percent;
   if (hint) {
-    if (capped) hint.textContent = `Up to ${cap} leads per order for this area`;
+    if (capped) hint.textContent = `Up to ${cap} leads per area`;
     else if (tier.discount_percent > 0) hint.textContent = `${tier.discount_percent}% volume discount applied`;
     else hint.textContent = '';
   }
@@ -1957,6 +1962,7 @@ function applyCoverageMode() {
     panelRadius.style.display = covMode === 'radius' ? '' : 'none';
     panelPost.style.display   = covMode === 'postcodes' ? '' : 'none';
   }
+  renderPackGrid(currentTiers);
 }
 
 // ─── COVERAGE MAP ────────────────────────────────────────
@@ -2208,7 +2214,7 @@ function covRender(refit = true){
     if (!city) cap.textContent = 'Pick a city above to see your coverage.';
     else if (order.statewide) cap.innerHTML = `Leads from anywhere in <strong>${covEsc(city)}</strong>.`;
     else if (order.location_type === 'postcodes') cap.innerHTML = `Leads from the postcodes you list below, around <strong>${covEsc(city)}</strong>.`;
-    else if (v.length > 1) cap.innerHTML = `Leads from around <strong>${v.length} suburbs</strong>, priced at the ${covEsc(city)} rate.`;
+    else if (v.length > 1) cap.innerHTML = `<strong>${v.length} suburbs</strong>, each its own order with its own leads, priced at its nearest city.`;
     else if (v.length === 1) cap.innerHTML = `Leads from within <strong>${v[0].radius_km} km</strong> of ${covEsc(v[0].label)}.`;
     else cap.innerHTML = `Add a suburb below, or leads come from within <strong>50 km</strong> of ${covEsc(city)} city centre.`;
   }
@@ -2320,8 +2326,16 @@ function updateSummary() {
     }
   }
 
+  // Each suburb is its own order of order.quantity leads at its own nearest
+  // city's price. This estimate shows at once; sumQuote swaps in the exact
+  // per-suburb prices from the checkout.
+  const areaCount = (order.location_type === 'radius' && !order.statewide && typeof covValid === 'function')
+    ? Math.max(1, covValid().length) : 1;
+  const areasEl = document.getElementById('sum-areas');
+  if (areasEl) { areasEl.innerHTML = ''; areasEl.style.display = 'none'; }
   if (order.quantity) {
-    packEl.className = 'sum-val'; packEl.textContent = `${order.quantity} leads`;
+    packEl.className = 'sum-val';
+    packEl.textContent = areaCount > 1 ? `${order.quantity * areaCount} leads (${order.quantity} per suburb)` : `${order.quantity} leads`;
   } else {
     packEl.className = 'sum-val dim'; packEl.textContent = 'Not selected';
   }
@@ -2333,7 +2347,7 @@ function updateSummary() {
   }
 
   if (order.pricePerLead && order.quantity) {
-    const base   = order.pricePerLead * order.quantity;
+    const base   = order.pricePerLead * order.quantity * areaCount;
     const saving = Math.round(base * order.discount / 100);
     const total  = base - saving;
 
@@ -2351,6 +2365,60 @@ function updateSummary() {
     totalEl.className = 'sum-total-amt dim';
     totalEl.textContent = '$-';
   }
+  sumQuoteSoon();
+}
+
+// The order as the checkout will charge it: one line per area, each at its
+// own price. Debounced; a stale answer never overwrites a newer one.
+let sumQuoteTimer = null, sumQuoteSeq = 0;
+function sumQuoteSoon() {
+  clearTimeout(sumQuoteTimer);
+  sumQuoteTimer = setTimeout(sumQuote, 400);
+}
+async function sumQuote() {
+  if (!order.niche || !order.area_city || !order.quantity || order.soldOut) return;
+  if (order.quantity > activeMax()) return;
+  const body = { niche: order.niche, area_city: order.area_city, location_type: order.location_type, quantity: order.quantity, dry_run: true };
+  if (order.sub_niche) body.sub_niche = order.sub_niche;
+  if (order.location_type === 'radius') {
+    if (covAreas.some(a => a.label && a.lat === null)) return;
+    const cov = covPayload();
+    body.radius_km = cov.radius_km;
+    if (cov.service_areas) body.service_areas = cov.service_areas;
+  } else if (order.location_type === 'postcodes') {
+    body.postcode_list = document.getElementById('postcode_list')?.value.trim() || '';
+    if (!body.postcode_list) return;
+  }
+  const seq = ++sumQuoteSeq;
+  try {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/create-ppl-signup-checkout`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+    });
+    const q = await res.json();
+    if (seq !== sumQuoteSeq || !res.ok || !Array.isArray(q.areas)) return;
+    const money = v => '$' + Math.round(v).toLocaleString();
+    const prices = [...new Set(q.areas.map(a => a.price_per_lead))];
+    document.getElementById('sum-ppl').textContent = prices.length === 1 ? `$${prices[0]}` : 'Varies by suburb';
+    document.getElementById('sum-pack').textContent = q.areas.length > 1
+      ? `${q.total_quantity} leads (${q.areas[0].quantity} per suburb)` : `${q.total_quantity} leads`;
+    const totalEl = document.getElementById('sum-total');
+    totalEl.className = 'sum-total-amt';
+    totalEl.textContent = money(q.total_ex_gst);
+    const full = q.areas.reduce((n, a) => n + a.price_per_lead * a.quantity, 0);
+    const saving = full - q.total_ex_gst;
+    const discRow = document.getElementById('sum-discount-row');
+    if (saving > 0.5) {
+      discRow.style.display = 'flex';
+      document.getElementById('sum-discount').textContent = `-${money(saving)} (${q.areas[0].discount_percent}%)`;
+    } else discRow.style.display = 'none';
+    const areasEl = document.getElementById('sum-areas');
+    if (areasEl) {
+      areasEl.innerHTML = q.areas.length > 1 ? q.areas.map(a =>
+        `<div style="display:flex;justify-content:space-between;gap:10px"><span>${covEsc(a.label)} &middot; ${a.quantity} &times; $${a.price_per_lead}</span><span>${money(a.total_amount)}</span></div>`
+      ).join('') + '<div style="font-size:.72rem;line-height:1.5;margin-top:4px">Each suburb is its own order with its own leads, priced at its nearest city.</div>' : '';
+      areasEl.style.display = q.areas.length > 1 ? '' : 'none';
+    }
+  } catch (e) {}
 }
 
 // ─── CONSENT LABEL ───────────────────────────────────────
@@ -2399,7 +2467,7 @@ async function submitOrder() {
   const capNow = activeMax();
   if (order.quantity > capNow) {
     const hint = document.getElementById('custom-qty-hint');
-    if (hint) hint.textContent = `Up to ${capNow} leads per order for this area`;
+    if (hint) hint.textContent = `Up to ${capNow} leads per area`;
     document.querySelector('.pack-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
