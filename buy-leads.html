@@ -1075,8 +1075,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="25" max="100" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">leads (min. 25). Contact us for orders over 100</span>
+            <input type="number" id="custom_qty" min="50" max="100" step="1" placeholder="e.g. 60" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">leads (min. 50 for a first order). Contact us for orders over 100</span>
           </div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
@@ -1510,7 +1510,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <span>Pay per qualified lead</span>
       <span>Exclusive opportunities</span>
       <span>Disconnected numbers replaced</span>
-      <span>Start at 25 leads</span>
+      <span>Start with a 50-lead trial</span>
       <span>No ongoing contract</span>
       <span>Australian owned and operated</span>
     </div>
@@ -1582,7 +1582,6 @@ const SUB_NICHE_OPTIONS = {
 
 // ─── PACK GRID ────────────────────────────────────────────
 const FALLBACK_TIERS = [
-  { min_quantity: 25,  discount_percent: 0,  label: '25 leads',  is_popular: false },
   { min_quantity: 50,  discount_percent: 5,  label: '50 leads',  is_popular: true  },
   { min_quantity: 100, discount_percent: 5,  label: '100 leads', is_popular: false },
 ];
@@ -1638,8 +1637,8 @@ function getTierForQty(qty) {
 function onCustomQty(input) {
   const hint = document.getElementById('custom-qty-hint');
   let raw = parseInt(input.value, 10);
-  if (!raw || raw < 25) {
-    if (hint) hint.textContent = raw && raw < 25 ? 'Minimum 25 leads' : '';
+  if (!raw || raw < 50) {
+    if (hint) hint.textContent = raw && raw < 50 ? 'Minimum 50 leads for a first order' : '';
     order.quantity = null;
     order.discount = 0;
     updateSummary();
