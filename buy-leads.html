@@ -1566,6 +1566,7 @@ const order = {
 // for a whole state. The checkout enforces the same caps (ppl-areas.ts).
 const BL_HARD_MAX = 100;
 const BL_STATE_MAX = 300;
+let sumQuoteTimer = null, sumQuoteSeq = 0;
 
 // Effective per-order cap for the current selection (sub-niche cap wins, then
 // niche limit; missing means unlimited, so fall back to the maximum).
@@ -2370,7 +2371,6 @@ function updateSummary() {
 
 // The order as the checkout will charge it: one line per area, each at its
 // own price. Debounced; a stale answer never overwrites a newer one.
-let sumQuoteTimer = null, sumQuoteSeq = 0;
 function sumQuoteSoon() {
   clearTimeout(sumQuoteTimer);
   sumQuoteTimer = setTimeout(sumQuote, 400);
