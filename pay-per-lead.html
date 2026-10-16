@@ -332,6 +332,17 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:.88rem;color:var(--muted);line-height:1.8}
 .faq-item.open .faq-a{max-height:800px;padding-bottom:28px}
 
+/* COMPARISON TABLE */
+.comparison-wrap{margin-top:48px;border:1px solid var(--border);border-radius:16px;overflow:auto;background:var(--deep)}
+.comparison-table{width:100%;border-collapse:collapse;min-width:680px}
+.comparison-table th,.comparison-table td{padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+.comparison-table th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:500;background:var(--glass)}
+.comparison-table td{font-size:.84rem;color:var(--muted);line-height:1.6}
+.comparison-table td:first-child{font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-good{color:var(--off)}
+.comparison-bad{color:var(--faint)}
+
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
 .rv.in{opacity:1;transform:translateY(0)}
@@ -634,35 +645,35 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
     <div class="rv"><div class="ey">What's Different</div></div>
     <h2 class="stitle rv">Lower cost per closed job than shared leads.</h2>
     <p class="slead rv">Every lead is generated, consented and qualified before it ever reaches you. What you get isn't a name - it's a local prospect ready to quote.</p>
-    <div class="comparison-wrap rv" style="margin:32px 0 0 0;overflow:auto">
-      <table class="comparison-table" aria-label="QuoteLeads vs shared marketplace leads" style="width:100%;border-collapse:collapse;min-width:600px">
+    <div class="comparison-wrap rv" style="margin:32px 0 0 0">
+      <table class="comparison-table" aria-label="QuoteLeads vs shared marketplace leads">
         <thead>
           <tr>
-            <th style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:500;background:var(--glass)"></th>
-            <th style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:500;background:var(--glass)">Shared Marketplace Leads</th>
-            <th style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:500;background:var(--glass)">QuoteLeads Exclusive</th>
+            <th>Category</th>
+            <th>Shared Marketplace Leads</th>
+            <th>QuoteLeads Exclusive</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600">Cost per lead</td>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.84rem;color:var(--faint);line-height:1.6">$40–$70</td>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.84rem;color:var(--off);line-height:1.6">$80–$120</td>
+            <td>Cost per lead</td>
+            <td class="comparison-bad">$40–$70</td>
+            <td class="comparison-good">$80–$120</td>
           </tr>
           <tr>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600">Typical close rate</td>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.84rem;color:var(--faint);line-height:1.6">8–15%</td>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.84rem;color:var(--off);line-height:1.6">25–40%</td>
+            <td>Typical close rate</td>
+            <td class="comparison-bad">8–15%</td>
+            <td class="comparison-good">25–40%</td>
           </tr>
           <tr>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600">Cost per closed job</td>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.84rem;color:var(--faint);line-height:1.6">$400–$800+</td>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.84rem;color:var(--off);line-height:1.6">$200–$350</td>
+            <td>Cost per closed job</td>
+            <td class="comparison-bad">$400–$800+</td>
+            <td class="comparison-good">$200–$350</td>
           </tr>
           <tr>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600">Consent</td>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.84rem;color:var(--faint);line-height:1.6">Shared with 3–5 companies</td>
-            <td style="padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;font-size:.84rem;color:var(--off);line-height:1.6">Named to your business only</td>
+            <td>Consent</td>
+            <td class="comparison-bad">Shared with 3–5 companies</td>
+            <td class="comparison-good">Named to your business only</td>
           </tr>
         </tbody>
       </table>

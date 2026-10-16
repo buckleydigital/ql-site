@@ -610,6 +610,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .trade-grid .trade-card:nth-child(5):last-child{max-width:100%}
   .sub-niche-grid{grid-template-columns:1fr}
 }
+/* COMPARISON TABLE */
+.comparison-wrap{margin-top:48px;border:1px solid var(--border);border-radius:16px;overflow:auto;background:var(--deep)}
+.comparison-table{width:100%;border-collapse:collapse;min-width:680px}
+.comparison-table th,.comparison-table td{padding:16px 18px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+.comparison-table th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);font-weight:500;background:var(--glass)}
+.comparison-table td{font-size:.84rem;color:var(--muted);line-height:1.6}
+.comparison-table td:first-child{font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-good{color:var(--off)}
+.comparison-bad{color:var(--faint)}
+
 /* FAQ */
 .faq-section{padding:100px 5%}
 .faq-list{margin-top:52px}
@@ -895,33 +906,33 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   </div>
 </div>
 
-<div class="comparison-intro" style="margin:40px 0 0 0">
-  <table class="comparison-table" aria-label="QuoteLeads vs shared marketplace leads" style="margin:0 auto 16px auto">
+<div class="comparison-wrap">
+  <table class="comparison-table" aria-label="QuoteLeads vs shared marketplace leads">
     <thead>
       <tr>
-        <th></th>
+        <th>Category</th>
         <th>Shared Marketplace Leads</th>
         <th>QuoteLeads Exclusive</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td style="font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600">Cost per lead</td>
+        <td>Cost per lead</td>
         <td class="comparison-bad">$40–$70</td>
         <td class="comparison-good">$80–$120</td>
       </tr>
       <tr>
-        <td style="font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600">Typical close rate</td>
+        <td>Typical close rate</td>
         <td class="comparison-bad">8–15%</td>
         <td class="comparison-good">25–40%</td>
       </tr>
       <tr>
-        <td style="font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600">Cost per closed job</td>
+        <td>Cost per closed job</td>
         <td class="comparison-bad">$400–$800+</td>
         <td class="comparison-good">$200–$350</td>
       </tr>
       <tr>
-        <td style="font-family:var(--display);font-size:.82rem;color:var(--white);font-weight:600">Consent</td>
+        <td>Consent</td>
         <td class="comparison-bad">Shared with 3–5 companies</td>
         <td class="comparison-good">Named to your business only</td>
       </tr>
