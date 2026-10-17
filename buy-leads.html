@@ -610,7 +610,9 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .trade-grid .trade-card:nth-child(5):last-child{max-width:100%}
   .sub-niche-grid{grid-template-columns:1fr}
 }
-/* GUARANTEE LIST */
+/* GUARANTEE BOX */
+.guarantee-box{border:1px solid rgba(71,151,255,.3);border-radius:16px;padding:20px 24px;background:linear-gradient(145deg,rgba(71,151,255,.08),rgba(71,151,255,.02));backdrop-filter:blur(12px);position:relative;overflow:hidden;margin:16px 0}
+.guarantee-box::before{content:'';position:absolute;inset:0;border-radius:16px;background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.12),transparent 55%);pointer-events:none}
 .guarantee-list{display:flex;flex-direction:column;gap:10px}
 .guarantee-item{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--muted);white-space:nowrap}
 .guarantee-item svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
@@ -837,14 +839,16 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   <div class="page-hero-inner">
 <div class="hero-eyebrow">Pay-Per-Lead</div>
     <h1>Exclusive leads that cost less per closed job.</h1>
-    <div style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:12px">Lead Quality Guarantee</div>
-    <div class="guarantee-list">
-      <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>100% exclusive - sent only to your business</div></div>
-      <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Every lead is real and contactable</div></div>
-      <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Disconnected numbers replaced free of charge</div></div>
-      <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>Leads outside your service area are filtered out or replaced</div></div>
+    <div class="guarantee-box">
+      <div style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:12px">Lead Quality Guarantee</div>
+      <div class="guarantee-list">
+        <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>100% exclusive - sent only to your business</div></div>
+        <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Every lead is real and contactable</div></div>
+        <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Disconnected numbers replaced free of charge</div></div>
+        <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>Leads outside your service area are filtered out or replaced</div></div>
+      </div>
+      <div style="font-size:.7rem;color:var(--faint);margin-top:12px">If a lead fails any of the above, it is replaced at no cost.</div>
     </div>
-    <div style="font-size:.7rem;color:var(--faint);margin-top:12px">If a lead fails any of the above, it is replaced at no cost.</div>
     <p class="sbody">Real-time, exclusive leads generated fresh. Select your lead type, service area and quantity. Price shown upfront, no surprises at checkout.</p>
     <div class="page-hero-meta">
       <span>Exclusive, not shared</span>

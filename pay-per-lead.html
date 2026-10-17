@@ -297,6 +297,8 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .guarantee-list{display:flex;flex-direction:column;gap:10px}
 .guarantee-item{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--muted);white-space:nowrap}
 .guarantee-item svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.guarantee-box{border:1px solid rgba(71,151,255,.3);border-radius:16px;padding:20px 24px;background:linear-gradient(145deg,rgba(71,151,255,.08),rgba(71,151,255,.02));backdrop-filter:blur(12px);position:relative;overflow:hidden;margin:16px 0}
+.guarantee-box::before{content:'';position:absolute;inset:0;border-radius:16px;background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.12),transparent 55%);pointer-events:none}
 
 /* FINAL CTA */
 .final-cta{position:relative;z-index:3;padding:120px 5%;background:var(--void);border-top:1px solid var(--border);overflow:hidden;text-align:center}
@@ -532,14 +534,16 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
       <div class="hbadge"><div class="bpulse"></div>PAY PER LEAD</div>
       <h1>Exclusive leads with a clear guarantee - not shared, not cold.</h1>
       <div class="hrule"></div>
-      <div style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:12px">Lead Quality Guarantee</div>
-      <div class="guarantee-list">
-        <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>100% exclusive - sent only to your business</div></div>
-        <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Every lead is real and contactable</div></div>
-        <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Disconnected numbers replaced free of charge</div></div>
-        <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>Leads outside your service area are filtered out or replaced</div></div>
+      <div class="guarantee-box">
+        <div style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:12px">Lead Quality Guarantee</div>
+        <div class="guarantee-list">
+          <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>100% exclusive - sent only to your business</div></div>
+          <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Every lead is real and contactable</div></div>
+          <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Disconnected numbers replaced free of charge</div></div>
+          <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>Leads outside your service area are filtered out or replaced</div></div>
+        </div>
+        <div style="font-size:.7rem;color:var(--faint);margin-top:12px">If a lead fails any of the above, it is replaced at no cost.</div>
       </div>
-      <div style="font-size:.7rem;color:var(--faint);margin-top:12px">If a lead fails any of the above, it is replaced at no cost.</div>
       <p class="hero-sub">Exclusive, pre-qualified leads delivered to your phone, email or CRM. Expect first leads within 24-48 hours, occasionally longer while we wait on real-time demand. Full QuoteLeadsHQ access included.</p>
 
       <div class="hero-bullets">
