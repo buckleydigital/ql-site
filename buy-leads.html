@@ -598,7 +598,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .app-sidebar{position:static}
   .buy-block{padding:22px 20px}
   .trade-grid{grid-template-columns:1fr 1fr}
-  .pack-grid{grid-template-columns:repeat(2,1fr)}
+  .pack-grid{grid-template-columns:repeat(3,1fr)}
   .form-row{grid-template-columns:1fr}
   .car-scene{height:420px}
   .tc.pos-right,.tc.pos-left{opacity:0}
@@ -639,9 +639,12 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .stitle{font-family:var(--display);font-size:clamp(2rem,3.4vw,2.8rem);font-weight:600;
   letter-spacing:-.02em;line-height:1.15;color:var(--white)}
 .stitle em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.content-section{padding:96px 5%}
-.content-section .ey{margin-bottom:16px}
-.prose{font-size:.92rem;color:var(--muted);line-height:1.75;margin-bottom:20px}
+.content-section{padding:0 5% 100px}
+.bespoke-box{border:1px solid var(--border);border-radius:20px;background:var(--glass);padding:56px 56px 52px}
+.bespoke-box .stitle{margin-bottom:24px;max-width:720px}
+.prose{font-size:.95rem;color:var(--muted);line-height:1.8;margin-bottom:16px;max-width:720px}
+.bespoke-box .btn-mag{margin-top:20px}
+@media(max-width:768px){.content-section{padding-bottom:72px}.bespoke-box{padding:36px 24px 32px}}
 .final-cta{text-align:center;position:relative;overflow:hidden;padding:110px 5%}
 .cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(71,151,255,.06),transparent 65%);pointer-events:none}
 .cta-rings{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;pointer-events:none}
@@ -1084,8 +1087,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="25" max="300" step="1" placeholder="e.g. 25" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">Starter pack: 25 leads (50 and 100 include a volume discount).</span>
+            <input type="number" id="custom_qty" min="25" max="300" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">leads per area (min. 25). Up to 100 per area, or 300 state wide</span>
           </div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
@@ -1350,16 +1353,17 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         <div class="faq-a">Expect your first lead within 24-48 hours of payment confirmation. It can occasionally take longer, as every lead is generated in real time and we wait on genuine demand in your area. After that, how quickly the full order arrives depends on the market in your area: how many homeowners are looking, and how many other installers are advertising to them. A full order can take up to 90 days, and any leads not delivered by then are refunded. We work to deliver as fast as we can, because a quick delivery is what brings you back for the next order. Wider service areas (100km+ radius) give us more homeowners to reach, so they usually fill faster. The quality doesn't change at volume. The same verification, the same named consent, the same survey depth. If your geo supports it, we deliver at scale without compromise. See our <a href="/pay-per-lead-terms#delivery" style="color:var(--blue)">Pay Per Lead Terms</a> for full details.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- BESPOKE PRICING -->
-<section class="content-section rv">
-  <div class="si">
-    <div class="ey rv">Bespoke pricing</div>
-    <h2 class="stitle rv">Need extra fields or customisation?</h2>
-    <p class="prose rv">Every solar lead includes name, email, phone, postcode, average quarterly electricity bill and purchase timeline. Every HVAC lead includes name, email, phone, postcode, system type and purchase timeline.</p>
-    <p class="prose rv">If you need extra fields, or anything else specific to your sales process, we can build a custom lead form and quote a custom price for your order.</p>
-    <a href="/get-started" class="btn-mag rv" style="display:inline-block;margin-top:8px">Request a custom quote <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
+<section class="content-section">
+  <div class="si bespoke-box rv">
+    <div class="ey">Bespoke pricing</div>
+    <h2 class="stitle">Need extra fields or customisation?</h2>
+    <p class="prose">Every solar lead includes name, email, phone, postcode, average quarterly electricity bill and purchase timeline. Every HVAC lead includes name, email, phone, postcode, system type and purchase timeline.</p>
+    <p class="prose">If you need extra fields, or anything else specific to your sales process, we can build a custom lead form and quote a custom price for your order.</p>
+    <a href="/get-started" class="btn-mag">Request a custom quote <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
   </div>
 </section>
 
@@ -1377,7 +1381,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <span>Pay per qualified lead</span>
       <span>Exclusive opportunities</span>
       <span>Disconnected numbers replaced</span>
-      <span>Start with a 50-lead trial</span>
+      <span>Start from 25 leads</span>
       <span>No ongoing contract</span>
       <span>Australian owned and operated</span>
     </div>
@@ -1454,15 +1458,17 @@ const SUB_NICHE_OPTIONS = {
 
 // ─── PACK GRID ────────────────────────────────────────────
 const FALLBACK_TIERS = [
-  { min_quantity: 25,  discount_percent: 0,  label: '25 leads',  is_popular: false  },
+  { min_quantity: 25,  discount_percent: 0,  label: '25 leads',  is_popular: false },
   { min_quantity: 50,  discount_percent: 0,  label: '50 leads',  is_popular: true  },
-  { min_quantity: 100, discount_percent: 0,  label: '100 leads', is_popular: false },
+  { min_quantity: 100, discount_percent: 5,  label: '100 leads', is_popular: false },
 ];
 let currentTiers = [...FALLBACK_TIERS];
 
 function renderPackGrid(tiers) {
   const grid = document.getElementById('pack-grid');
   if (!grid || !tiers?.length) return;
+  // Smallest pack first, whatever order the API sends them in.
+  tiers = [...tiers].sort((a, b) => a.min_quantity - b.min_quantity);
   currentTiers = tiers;
   const prevQty = order.quantity;
   const cap = activeMax();
@@ -1497,11 +1503,7 @@ renderPackGrid(FALLBACK_TIERS);
     const res = await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=solar-battery&area=Sydney`);
     if (!res.ok) return;
     const data = await res.json();
-    if (data?.discount_tiers?.length) {
-      const apiQty = new Set(data.discount_tiers.map(t => t.min_quantity));
-      const merged = [...data.discount_tiers, ...FALLBACK_TIERS.filter(t => !apiQty.has(t.min_quantity))];
-      renderPackGrid(merged);
-    }
+    if (data?.discount_tiers?.length) renderPackGrid(data.discount_tiers);
   } catch(e) {}
 })();
 
@@ -1515,7 +1517,7 @@ function onCustomQty(input) {
   const hint = document.getElementById('custom-qty-hint');
   let raw = parseInt(input.value, 10);
   if (!raw || raw < 25) {
-    if (hint) hint.textContent = raw && raw < 25 ? 'Minimum 25 leads for a first order' : '';
+    if (hint) hint.textContent = raw && raw < 25 ? 'Minimum 25 leads per area' : '';
     order.quantity = null;
     order.discount = 0;
     updateSummary();
@@ -1642,7 +1644,7 @@ function setPriceLabel(niche, val) {
     card?.classList.remove('sold-out');
   } else if (val === 'soldout') {
     el.className = 'trade-price soldout';
-    el.textContent = 'Sold out';
+    el.textContent = 'Unavailable';
     card?.classList.add('sold-out');
   } else {
     el.className = 'trade-price';

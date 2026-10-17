@@ -27,7 +27,7 @@
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1323684475060326&ev=PageView&noscript=1"/></noscript>
 <title>Buy Solar Battery Leads Australia | Exclusive Retrofit Leads | QuoteLeads</title>
-<meta name="description" content="Buy exclusive solar battery retrofit leads in Australia. Pre-qualified homeowners who already own solar, delivered in real time. Start with a 50-lead trial, no lock-in.">
+<meta name="description" content="Buy exclusive solar battery retrofit leads in Australia. Pre-qualified homeowners who already own solar, delivered in real time. Start from 25 leads, no lock-in.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="keywords" content="buy solar battery leads, solar battery leads australia, battery retrofit leads, home battery leads, exclusive battery storage leads, pay per lead battery installer">
 <link rel="canonical" href="https://quoteleads.com.au/buy-solar-battery-leads">
@@ -172,7 +172,7 @@
           "name": "What is the minimum order for solar battery leads?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "50 leads for your first order, as a trial. Re-orders are a minimum of 100 leads. There is no contract, no retainer and no ongoing commitment. Larger packs carry a volume discount, and orders above 100 leads are arranged directly with us."
+            "text": "25 leads per area. There is no contract, no retainer and no ongoing commitment. Larger packs carry a volume discount, and orders above 100 leads are arranged directly with us."
           }
         },
         {
@@ -658,7 +658,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .app-layout{grid-template-columns:1fr;gap:28px}
   .app-sidebar{position:static}
   .buy-block{padding:22px 20px}
-  .pack-grid{grid-template-columns:repeat(2,1fr)}
+  .pack-grid{grid-template-columns:repeat(3,1fr)}
   .form-row{grid-template-columns:1fr}
   .car-scene{height:420px}
   .tc.pos-right,.tc.pos-left{opacity:0}
@@ -942,7 +942,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
     <div class="page-hero-meta">
       <span>Existing solar owners only</span>
       <span>Exclusive, not shared</span>
-      <span>50-lead trial, no lock-in</span>
+      <span>From 25 leads, no lock-in</span>
     </div>
     <p style="margin-top:20px;font-size:.84rem;color:var(--muted)">Already have an account? <a href="https://quoteleadshq.com/dashboard" style="color:var(--blue);text-decoration:none">Buy leads inside your dashboard</a></p>
     <div style="margin-top:32px">
@@ -1135,8 +1135,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="50" max="300" step="1" placeholder="e.g. 60" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">leads per area (min. 50 for a first order). Up to 100 per area, or 300 state wide</span>
+            <input type="number" id="custom_qty" min="25" max="300" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">leads per area (min. 25). Up to 100 per area, or 300 state wide</span>
           </div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
@@ -1579,7 +1579,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What's the minimum order, and is there a contract?</span><span class="faq-qi">+</span></button>
-        <div class="faq-a">50 leads for your first order, as a trial, then a minimum of 100 leads per re-order. No contract of any kind. No retainer, no lock-in, no minimum ongoing spend. Larger packs carry a volume discount, and orders above 100 leads are arranged directly with us. Buy a pack, receive your leads, done.</div>
+        <div class="faq-a">25 leads per area. No contract of any kind. No retainer, no lock-in, no minimum ongoing spend. Larger packs carry a volume discount, and orders above 100 leads are arranged directly with us. Buy a pack, receive your leads, done.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Which areas of Australia can I buy solar battery leads in?</span><span class="faq-qi">+</span></button>
@@ -1608,7 +1608,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <span>Pay per qualified lead</span>
       <span>Exclusive opportunities</span>
       <span>Disconnected numbers replaced</span>
-      <span>Start with a 50-lead trial</span>
+      <span>Start from 25 leads</span>
       <span>No ongoing contract</span>
       <span>Australian owned and operated</span>
     </div>
@@ -1706,7 +1706,8 @@ function activeMax() {
 
 // ─── PACK GRID ────────────────────────────────────────────
 const FALLBACK_TIERS = [
-  { min_quantity: 50,  discount_percent: 5,  label: '50 leads',  is_popular: true  },
+  { min_quantity: 25,  discount_percent: 0,  label: '25 leads',  is_popular: false },
+  { min_quantity: 50,  discount_percent: 0,  label: '50 leads',  is_popular: true  },
   { min_quantity: 100, discount_percent: 5,  label: '100 leads', is_popular: false },
 ];
 let currentTiers = [...FALLBACK_TIERS];
@@ -1714,6 +1715,8 @@ let currentTiers = [...FALLBACK_TIERS];
 function renderPackGrid(tiers) {
   const grid = document.getElementById('pack-grid');
   if (!grid || !tiers?.length) return;
+  // Smallest pack first, whatever order the API sends them in.
+  tiers = [...tiers].sort((a, b) => a.min_quantity - b.min_quantity);
   currentTiers = tiers;
   const prevQty = order.quantity;
   const cap = activeMax();
@@ -1761,8 +1764,8 @@ function getTierForQty(qty) {
 function onCustomQty(input) {
   const hint = document.getElementById('custom-qty-hint');
   let raw = parseInt(input.value, 10);
-  if (!raw || raw < 50) {
-    if (hint) hint.textContent = raw && raw < 50 ? 'Minimum 50 leads for a first order' : '';
+  if (!raw || raw < 25) {
+    if (hint) hint.textContent = raw && raw < 25 ? 'Minimum 25 leads per area' : '';
     order.quantity = null;
     order.discount = 0;
     updateSummary();
@@ -1856,7 +1859,7 @@ function setPriceLabel(val) {
     el.textContent = 'See checkout';
   } else if (val === 'soldout') {
     el.className = 'locked-trade-price soldout';
-    el.textContent = 'Sold out in this area';
+    el.textContent = 'Unavailable in this area';
   } else {
     el.className = 'locked-trade-price';
     el.textContent = `$${val} / lead`;
