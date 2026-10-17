@@ -610,23 +610,10 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .trade-grid .trade-card:nth-child(5):last-child{max-width:100%}
   .sub-niche-grid{grid-template-columns:1fr}
 }
-/* GUARANTEE */
-.guar-card{background:linear-gradient(145deg,rgba(71,151,255,.1),rgba(71,151,255,.02));
-  border:1px solid rgba(71,151,255,.35);border-radius:24px;padding:32px 36px;
-  backdrop-filter:blur(16px);position:relative;overflow:hidden;margin-top:24px}
-.guar-card::before{content:'';position:absolute;inset:0;border-radius:24px;
-  background:radial-gradient(circle at 50% 0%,rgba(71,151,255,.12),transparent 55%);pointer-events:none}
-.guar-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--blue),transparent);pointer-events:none}
-.guar-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.12);
-  border:1px solid rgba(16,185,129,.2);color:#34d399;font-size:.58rem;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:16px}
-.guar-badge-dot{width:4px;height:4px;background:#34d399;border-radius:50%}
-.guar-body{font-size:.82rem;color:var(--off);line-height:1.6;margin-bottom:12px;position:relative;z-index:1}
-.guar-list{list-style:none;display:flex;flex-wrap:wrap;gap:12px}
-.guar-item{flex:1 1 48%;min-width:48%;display:flex;align-items:flex-start;gap:8px;font-size:.76rem;color:var(--muted);line-height:1.5}
-.guar-check{width:12px;height:12px;color:#34d399;flex-shrink:0;margin-top:2px;font-weight:700;font-size:9px}
-.guar-fair{font-size:.7rem;color:var(--faint);letter-spacing:.04em;margin-top:14px;position:relative;z-index:1}
+/* GUARANTEE LIST */
+.guarantee-list{display:flex;flex-direction:column;gap:10px}
+.guarantee-item{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--muted);white-space:nowrap}
+.guarantee-item svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 
 /* FAQ */
 .faq-section{padding:100px 5%}
@@ -850,17 +837,14 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   <div class="page-hero-inner">
 <div class="hero-eyebrow">Pay-Per-Lead</div>
     <h1>Exclusive leads that cost less per closed job.</h1>
-    <div class="guar-card" style="margin:20px 0 24px 0;max-width:700px">
-      <div class="guar-badge"><div class="guar-badge-dot"></div>Lead Quality Guarantee</div>
-      <div class="guar-body">On every lead pack we guarantee:</div>
-      <ul class="guar-list">
-        <li class="guar-item"><div class="guar-check">✓</div><div>100% exclusive - sent only to your business</div></li>
-        <li class="guar-item"><div class="guar-check">✓</div><div>Every lead is real and contactable</div></li>
-        <li class="guar-item"><div class="guar-check">✓</div><div>Disconnected numbers replaced free of charge</div></li>
-        <li class="guar-item"><div class="guar-check">✓</div><div>Any lead outside your service area is filtered out before delivery or replaced</div></li>
-      </ul>
-      <div class="guar-fair">If a lead fails any of the above, it is replaced at no cost.</div>
+    <div style="font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:12px">Lead Quality Guarantee</div>
+    <div class="guarantee-list">
+      <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>100% exclusive - sent only to your business</div></div>
+      <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Every lead is real and contactable</div></div>
+      <div class="guarantee-item"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><div>Disconnected numbers replaced free of charge</div></div>
+      <div class="guarantee-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div>Leads outside your service area are filtered out or replaced</div></div>
     </div>
+    <div style="font-size:.7rem;color:var(--faint);margin-top:12px">If a lead fails any of the above, it is replaced at no cost.</div>
     <p class="sbody">Real-time, exclusive leads generated fresh. Select your lead type, service area and quantity. Price shown upfront, no surprises at checkout.</p>
     <div class="page-hero-meta">
       <span>Exclusive, not shared</span>
