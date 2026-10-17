@@ -1494,7 +1494,11 @@ renderPackGrid(FALLBACK_TIERS);
     const res = await fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=solar-battery&area=Sydney`);
     if (!res.ok) return;
     const data = await res.json();
-    if (data?.discount_tiers?.length) renderPackGrid(data.discount_tiers);
+    if (data?.discount_tiers?.length) {
+      const apiQty = new Set(data.discount_tiers.map(t => t.min_quantity));
+      const merged = [...data.discount_tiers, ...FALLBACK_TIERS.filter(t => !apiQty.has(t.min_quantity))];
+      renderPackGrid(merged);
+    }
   } catch(e) {}
 })();
 
