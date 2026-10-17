@@ -557,6 +557,12 @@ a:hover{color:var(--sky)}
 .group-body a:hover{text-decoration:underline}
 .group-body ul,.group-body ol{margin:16px 0 16px 20px}
 .group-body li{margin-bottom:8px}
+/* LISTS */
+.p-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.p-list li{font-size:.88rem;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.6}
+.p-list li::before{content:'\2192';color:var(--blue);font-size:.72rem;flex-shrink:0;margin-top:2px}
+.content-group{scroll-margin-top:90px}
+
 .terms-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);
   border:1px solid var(--border);border-radius:16px;overflow:hidden}
 .terms-card{padding:22px 20px;background:var(--deep)}
@@ -599,6 +605,7 @@ a:hover{color:var(--sky)}
 }
 
 </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -919,23 +926,6 @@ a:hover{color:var(--sky)}
 
             </div>
 
-        </div>
-    </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta" style="border-top:1px solid var(--border);">
-    <div class="si">
-        <div class="ey" style="justify-content:center;">Ready to get started?</div>
-        <h2 class="stitle" style="max-width:520px; margin:0 auto 20px; text-align:center;">If the terms work<br><em>for you, get started.</em></h2>
-        <p class="sbody" style="margin:0 auto 40px; text-align:center;">Exclusive, pre-qualified leads for your trade and service area.</p>
-        <div style="display:flex; justify-content:center;">
-            <a href="/get-started" class="btn-primary">Get Started</a>
-        </div>
-        <div class="final-trust">
-            <span>No lock-in contracts</span>
-            <span>Australian owned and operated</span>
-            <span>Every enquiry delivered to one business only</span>
         </div>
     </div>
 </section>
