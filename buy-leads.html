@@ -1084,8 +1084,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="50" max="300" step="1" placeholder="e.g. 60" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">Recommended first order: 50 leads (smaller starter packs available on request).</span>
+            <input type="number" id="custom_qty" min="25" max="300" step="1" placeholder="e.g. 25" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">Starter pack: 25 leads (50 and 100 include a volume discount).</span>
           </div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
@@ -1454,6 +1454,7 @@ const SUB_NICHE_OPTIONS = {
 
 // ─── PACK GRID ────────────────────────────────────────────
 const FALLBACK_TIERS = [
+  { min_quantity: 25,  discount_percent: 0,  label: '25 leads',  is_popular: false  },
   { min_quantity: 50,  discount_percent: 5,  label: '50 leads',  is_popular: true  },
   { min_quantity: 100, discount_percent: 5,  label: '100 leads', is_popular: false },
 ];
@@ -1509,8 +1510,8 @@ function getTierForQty(qty) {
 function onCustomQty(input) {
   const hint = document.getElementById('custom-qty-hint');
   let raw = parseInt(input.value, 10);
-  if (!raw || raw < 50) {
-    if (hint) hint.textContent = raw && raw < 50 ? 'Minimum 50 leads for a first order' : '';
+  if (!raw || raw < 25) {
+    if (hint) hint.textContent = raw && raw < 25 ? 'Minimum 25 leads for a first order' : '';
     order.quantity = null;
     order.discount = 0;
     updateSummary();
