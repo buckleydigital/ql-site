@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Branded Solar Lead System | QuoteLeads</title>
+<meta name="description" content="A solar lead engine built on your own accounts, brand and data. Built, launched and managed for 30 days. Yours to keep.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040A;--deep:#08080F;--surf:#0C0C18;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07);--bmid:rgba(255,255,255,0.10);
+  --bblue:rgba(71,151,255,0.3);
+  --blue:#4797FF;--bdim:rgba(71,151,255,0.12);
+  --sky:#7CB9FF;--mist:#B8D4FF;
+  --white:#F2F2F2;--off:#CACAD0;--muted:#9A9AA3;--faint:#78787F;
+  --display:'General Sans','PP Neue Montreal',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --maxw:660px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--void);color:var(--white);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:'cv11','ss01','ss03'}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:-0.02em;line-height:1.1;font-weight:600}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.center{text-align:center}
+em{font-style:normal;color:var(--blue)}
+
+/* AMBIENT GRADIENT - matched to the home page hero */
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(115% 60% at 50% -6%,rgba(71,151,255,.17),rgba(71,151,255,.05) 38%,transparent 64%),
+             radial-gradient(70% 44% at 50% 102%,rgba(71,151,255,.07),transparent 74%)}
+.page{position:relative;z-index:1}
+
+/* SCROLL PROGRESS */
+.sprog{position:fixed;top:0;left:0;height:2px;width:100%;z-index:600;transform-origin:left center;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--blue),var(--sky))}
+
+/* SECTION RHYTHM */
+section+section{border-top:1px solid var(--border)}
+
+/* INCLUDED ROW HOVER */
+.inc{transition:background .25s,padding-left .25s;border-radius:10px;margin:0 -12px;padding-left:12px;padding-right:12px}
+.inc:hover{background:rgba(71,151,255,.045)}
+
+/* PRICE SHINE */
+.price-now{position:relative;background:linear-gradient(100deg,#4797FF 20%,#B8D4FF 42%,#4797FF 60%);
+  background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shine 5s ease-in-out infinite}
+@keyframes shine{0%,100%{background-position:180% 0}50%{background-position:0 0}}
+
+/* TRUST ROW */
+.trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:18px}
+.trust-row span{display:inline-flex;align-items:center;gap:7px;color:var(--faint);font-size:.78rem}
+.trust-row span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);opacity:.75}
+
+/* STICKY MOBILE CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:500;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,rgba(4,4,10,.82),rgba(4,4,10,.97));backdrop-filter:blur(14px);
+  border-top:1px solid var(--bmid);transform:translateY(110%);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.sticky.on{transform:translateY(0)}
+.sticky .btn{padding:15px 22px;font-size:.95rem}
+@media(min-width:781px){.sticky{display:none}}
+@media(max-width:780px){body.has-sticky{padding-bottom:96px}}
+@media(prefers-reduced-motion:reduce){.price-now{animation:none}.sticky{transition:none}}
+
+/* TOP BAR */
+.topbar{padding:22px 0 0;text-align:center}
+.topbar img{height:30px;width:auto;opacity:.9}
+
+/* PILL */
+.pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-size:.72rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--bblue);border-radius:100px;padding:9px 18px;
+  color:var(--mist);background:linear-gradient(180deg,rgba(71,151,255,.16),rgba(71,151,255,.05));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 8px 22px -12px rgba(71,151,255,.5)}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px var(--blue)}
+
+/* BUTTONS - matched to the site's premium treatment */
+.btn{position:relative;display:inline-flex;text-decoration:none;align-items:center;justify-content:center;gap:10px;width:100%;
+  font-family:var(--body);font-weight:600;font-size:1rem;padding:18px 26px;border-radius:100px;border:none;
+  cursor:pointer;transition:transform .2s,box-shadow .3s,filter .2s;overflow:hidden}
+.btn-primary{background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -10px 20px rgba(0,0,0,.16),0 10px 28px rgba(71,151,255,.36)}
+.btn-primary::after{content:'';position:absolute;left:8%;right:8%;top:1px;height:42%;border-radius:100px;
+  background:linear-gradient(180deg,rgba(255,255,255,.30),transparent);pointer-events:none}
+.btn-primary:hover{transform:translateY(-2px);filter:saturate(1.06) brightness(1.05);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 16px 38px rgba(71,151,255,.46),0 0 0 6px rgba(71,151,255,.1)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary:disabled{opacity:.55;cursor:not-allowed;transform:none;filter:none}
+.btn-second{background:var(--glass2);color:var(--white);border:1px solid var(--bblue)}
+.btn-second:hover{border-color:var(--blue);background:rgba(71,151,255,.14)}
+.cta-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cta-pair.one{grid-template-columns:1fr}
+.sticky .cta-pair{gap:8px}
+.sticky .btn{padding:14px 16px;font-size:.9rem}
+.cta-hint{font-size:.78rem;color:var(--faint);line-height:1.6;text-align:center;margin-top:12px}
+@media(max-width:520px){.cta-pair{grid-template-columns:1fr}}
+
+/* SECTIONS */
+section{padding:56px 0;position:relative}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  border:1px solid var(--bmid);border-radius:22px;padding:30px;backdrop-filter:blur(14px);
+  box-shadow:0 30px 70px -40px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.05)}
+
+/* HERO */
+.hero{padding:30px 0 8px}
+.hero h1{font-size:clamp(2rem,7.6vw,3.05rem);margin:22px 0 0;text-align:center;font-weight:600}
+.hero .sub{color:var(--muted);text-align:center;font-size:1.02rem;line-height:1.72;margin:18px auto 0;max-width:34ch}
+.hero .sub b{color:var(--off);font-weight:500}
+.hrule{width:52px;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);margin:26px auto 0}
+
+/* PRODUCT SHOT */
+.shot{margin:34px auto 0;max-width:400px;position:relative}
+.shot::before{content:'';position:absolute;inset:8% 12% 4%;border-radius:50%;
+  background:radial-gradient(circle,rgba(71,151,255,.28),transparent 68%);filter:blur(34px);z-index:0}
+.shot img{position:relative;z-index:1;width:100%;height:auto;display:block;
+  filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
+
+/* INCLUDED */
+.inc{display:flex;gap:14px;padding:19px 0;border-bottom:1px solid var(--border)}
+.inc:last-child{border-bottom:none}
+.tick{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  margin-top:2px;background:linear-gradient(180deg,#6FADFF,#2F82F0);color:#fff;font-size:.72rem;font-weight:700;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 6px 14px -6px rgba(71,151,255,.6)}
+.inc h4{font-size:.83rem;letter-spacing:.08em;text-transform:uppercase;color:var(--white);margin-bottom:5px;font-weight:600}
+.inc p{color:var(--muted);font-size:.95rem;line-height:1.68}
+
+/* LEAD EXAMPLE */
+.lead-card{background:var(--deep);border:1px solid var(--bmid);border-radius:18px;overflow:hidden;margin-top:24px}
+.cam-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.cam{background:var(--deep);border:1px solid var(--bmid);border-radius:16px;padding:22px 20px;
+  transition:border-color .25s,transform .25s}
+.cam:hover{border-color:rgba(71,151,255,.4);transform:translateY(-2px)}
+.cam h4{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:8px}
+.cam p{font-size:.86rem;color:var(--muted);line-height:1.68;margin:0}
+.cam-note{font-size:.82rem;color:var(--faint);line-height:1.7;text-align:center;max-width:56ch;margin:22px auto 0}
+@media(max-width:640px){.cam-grid{grid-template-columns:1fr}}
+.lead-top{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);background:var(--glass)}
+.lead-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(145deg,#2F82F0,#6FADFF);display:flex;
+  align-items:center;justify-content:center;font-family:var(--display);font-weight:600;font-size:.85rem;color:#fff}
+.lead-name{font-family:var(--display);font-weight:600;font-size:.98rem}
+.lead-loc{color:var(--faint);font-size:.78rem}
+.lead-badge{margin-left:auto;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
+  border:1px solid var(--bblue);background:var(--bdim);padding:5px 11px;border-radius:100px;font-weight:600}
+.lead-fields{padding:6px 20px 18px}
+.lf{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--border);font-size:.88rem}
+.lf:last-child{border-bottom:none}
+.lf-k{color:var(--faint)}
+.lf-v{color:var(--off);text-align:right;font-weight:500}
+.lead-note{margin-top:14px;padding:14px 16px;border-radius:12px;background:var(--bdim);border:1px solid var(--bblue);
+  color:var(--mist);font-size:.85rem;line-height:1.65}
+
+/* PRICE */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
+.tier{background:var(--deep);border:1px solid var(--bmid);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column}
+.tier.lead{border-color:var(--bblue);background:linear-gradient(180deg,rgba(71,151,255,.07),var(--deep) 60%)}
+.tier-name{font-family:var(--display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.tier-price{font-family:var(--display);font-weight:600;font-size:clamp(2.1rem,8vw,2.7rem);color:var(--white);line-height:1.1;margin-top:12px}
+.tier-price sup{font-size:.5em;top:-.55em;position:relative;color:var(--mist)}
+.tier-mo{font-size:.86rem;color:var(--mist);margin-top:6px;line-height:1.6}
+.tier-for{font-size:.86rem;color:var(--muted);line-height:1.68;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.tier-for b{color:var(--off);font-weight:500}
+@media(max-width:640px){.tiers{grid-template-columns:1fr}}
+
+.price-row{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:8px}
+.price-now{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,11vw,3.6rem);color:var(--blue);
+  text-shadow:0 0 44px rgba(71,151,255,.4)}
+.price-note{text-align:center;color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:16px}
+
+/* FORM */
+.field{width:100%;background:var(--glass);border:1px solid var(--bmid);border-radius:12px;padding:15px 16px;
+  font-family:var(--body);font-size:1rem;color:var(--white);margin-bottom:11px;transition:border-color .2s}
+.field::placeholder{color:var(--faint)}
+.field:focus{outline:none;border-color:var(--bblue);background:var(--glass2)}
+.field.err{border-color:#f87171}
+.nsel{margin-bottom:11px}
+.nsel-lbl{font-size:.83rem;color:var(--muted);margin-bottom:9px}
+.nsel-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.nsel-opt{background:var(--glass);border:1px solid var(--bmid);border-radius:12px;padding:13px 12px;
+  font-family:var(--body);font-size:.9rem;color:var(--off);cursor:pointer;text-align:center;
+  transition:border-color .2s,background .2s,color .2s}
+.nsel-opt:hover{border-color:var(--bblue);color:var(--white)}
+.nsel-opt[aria-pressed="true"]{border-color:var(--blue);background:rgba(71,151,255,.12);color:var(--white);font-weight:600}
+.nsel.err .nsel-opts{outline:1px solid #f87171;outline-offset:3px;border-radius:14px}
+@media(max-width:420px){.nsel-opts{grid-template-columns:1fr}}
+.consent{display:flex;gap:11px;align-items:flex-start;margin:8px 0 18px;color:var(--muted);font-size:.83rem;line-height:1.6}
+.consent input{margin-top:3px;width:17px;height:17px;flex-shrink:0;accent-color:var(--blue)}
+.ts-wrap{margin:0 0 16px;min-height:0}
+.formmsg{min-height:20px;margin-top:12px;text-align:center;font-size:.88rem;color:#f87171}
+
+/* THANK YOU */
+.thanks{display:none;text-align:center;padding:14px 0}
+.thanks.on{display:block}
+.thanks-ico{width:62px;height:62px;border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#6FADFF,#2F82F0);color:#fff;font-size:1.5rem;
+  box-shadow:0 0 0 8px rgba(71,151,255,.1),0 16px 40px -12px rgba(71,151,255,.6)}
+.thanks h3{font-size:1.5rem;margin-bottom:12px}
+.thanks p{color:var(--muted);font-size:.98rem;line-height:1.72;max-width:38ch;margin:0 auto}
+.thanks .mail{display:inline-block;margin-top:20px;color:var(--blue);font-size:.92rem}
+
+/* TESTIMONIALS */
+.quote{background:var(--glass);border:1px solid var(--border);border-radius:18px;padding:24px;margin-top:12px}
+.qstars{color:var(--blue);letter-spacing:3px;font-size:.82rem}
+.quote p{font-size:1rem;line-height:1.7;margin:12px 0 12px;color:var(--off)}
+.who{color:var(--faint);font-size:.78rem;font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+
+/* TICKER */
+.ticker{margin-top:48px}
+.ticker-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ticker-inner span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  text-align:center;padding:20px 14px;border:1px solid var(--bmid);border-radius:16px;
+  background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  font-family:var(--display);font-weight:600;font-size:.86rem;color:var(--off);line-height:1.35;
+  transition:border-color .25s,background .25s}
+.ticker-inner span::before{content:'';width:8px;height:8px;border-radius:50%;
+  background:linear-gradient(180deg,#8FC0FF,#2F82F0);box-shadow:0 0 14px rgba(71,151,255,.7)}
+.ticker-inner span:hover{border-color:var(--bblue);background:rgba(71,151,255,.05)}
+@media(max-width:560px){.ticker-inner{grid-template-columns:1fr}
+  .ticker-inner span{flex-direction:row;justify-content:flex-start;text-align:left;padding:15px 18px}}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
+.foot-logo img{height:30px;width:auto;opacity:.7}
+.foot-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.foot-links a{color:var(--muted);font-size:.86rem}
+.foot-links a:hover{color:var(--white)}
+.foot-bottom{color:var(--faint);font-size:.76rem}
+.foot-disc{color:var(--faint);font-size:.72rem;line-height:1.65;max-width:62ch;margin:14px auto 0;opacity:.85}
+
+
+/* ── Wide container, for the showcase only ───────────────────────────── */
+.ad-hold{position:relative;width:min(400px,100%);margin:0 auto}
+
+/* ── Stats bar ───────────────────────────────────────────────────────── */
+.statbar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--deep)}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);max-width:980px;margin:0 auto}
+.statc{padding:30px 22px;border-right:1px solid var(--border);text-align:center}
+.statc:last-child{border-right:none}
+.statn{font-family:var(--display);font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:600;letter-spacing:-.025em;
+  line-height:1;display:block;margin-bottom:8px;
+  background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-clip:text}
+.statl{color:var(--muted);font-size:.76rem;line-height:1.5}
+.statl b{color:var(--white);font-weight:500;display:block;margin-bottom:3px;font-size:.82rem}
+@media(max-width:720px){.statrow{grid-template-columns:1fr 1fr}
+  .statc:nth-child(2){border-right:none}.statc:nth-child(1),.statc:nth-child(2){border-bottom:1px solid var(--border)}}
+
+/* ── Showcase ────────────────────────────────────────────────────────── */
+.show{margin-top:34px}
+.show + .show{margin-top:52px}
+.show-lbl{font-family:var(--display);font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--blue);text-align:center;margin-bottom:10px}
+.show-h{font-family:var(--display);font-size:1.15rem;font-weight:600;text-align:center;margin-bottom:8px}
+.show-p{font-size:.87rem;color:var(--muted);line-height:1.7;text-align:center;max-width:52ch;margin:0 auto 22px}
+
+/* ── Next steps timeline ─────────────────────────────────────────────── */
+.tl{list-style:none;counter-reset:tl;margin:30px 0 0;padding:0}
+.tl li{counter-increment:tl;position:relative;padding:0 0 26px 46px;border-left:1px solid var(--bmid);margin-left:13px}
+.tl li:last-child{border-left-color:transparent;padding-bottom:0}
+.tl li::before{content:counter(tl,decimal-leading-zero);position:absolute;left:-14px;top:-2px;width:28px;height:28px;
+  border-radius:50%;background:var(--deep);border:1px solid var(--bblue);color:var(--blue);
+  display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:.68rem;font-weight:600}
+.tl-when{font-family:var(--display);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);margin-bottom:5px}
+.tl h4{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:7px}
+.tl p{font-size:.88rem;color:var(--muted);line-height:1.72;margin:0}
+
+/* ── FAQ ─────────────────────────────────────────────────────────────── */
+.faq{margin-top:18px;border-top:1px solid var(--border)}
+.faqi:first-child .faqq{padding-top:13px}
+.faqi{border-bottom:1px solid var(--border)}
+.faqq{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:flex-start;
+  justify-content:space-between;gap:16px;text-align:left;padding:19px 0;
+  font-family:var(--display);font-size:.96rem;font-weight:500;color:var(--white);line-height:1.45}
+.faqq:hover{color:var(--blue)}
+.faqi-ic{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:1px solid var(--bmid);color:var(--muted);
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;line-height:1;transition:transform .28s,color .2s,border-color .2s}
+.faqi.on .faqi-ic{transform:rotate(45deg);color:var(--blue);border-color:var(--bblue)}
+.faqa{max-height:0;overflow:hidden;transition:max-height .32s ease}
+.faqi.on .faqa{max-height:520px}
+.faqa p{font-size:.88rem;color:var(--muted);line-height:1.75;padding:0 0 20px;margin:0;max-width:62ch}
+
+/* ── Ported from the home page journey ───────────────────────────────── */
+.ad-platform{position:absolute;top:-10px;right:20px;background:var(--deep);border:1px solid var(--bmid);padding:4px 10px;border-radius:100px;font-size:.62rem;color:var(--blue);font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;z-index:2}
+.ad-platform::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue)}
+.ad-iframe-wrap{
+  width:min(400px,100%);
+  overflow:hidden;border-radius:16px;
+  margin:0 auto;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
+  position:relative;
+}
+.ad-iframe{
+  width:1080px;height:1080px;
+  transform-origin:top left;
+  border:none;display:block;
+  pointer-events:none;
+}
+.mk-mockup{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid var(--bmid);border-radius:16px;padding:8px;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 20px 40px -10px rgba(71,151,255,.12),inset 0 1px 0 rgba(255,255,255,.1);backdrop-filter:blur(20px);max-width:100%;overflow:hidden}
+.mk-mockup::before{content:'';position:absolute;top:-1px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent)}
+.mk-bar{display:flex;align-items:center;gap:8px;padding:8px 12px 10px}
+.mk-dot{width:9px;height:9px;border-radius:50%;background:var(--faint)}
+.mk-dot.r{background:#FF5F57}
+.mk-dot.y{background:#FEBC2E}
+.mk-dot.g{background:#28C840}
+.mk-url{flex:1;margin:0 16px;padding:5px 12px;background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:6px;font-size:.66rem;color:var(--muted);display:flex;align-items:center;gap:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mk-url::before{content:'';width:9px;height:9px;border-radius:50%;flex-shrink:0;border:1.5px solid #22c55e;border-bottom-color:transparent}
+.mk-body{background:linear-gradient(180deg,#0A0A14,#06060C);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.mk-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 22px;border-bottom:1px solid rgba(255,255,255,.05)}
+.mk-logo{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:.92rem;color:var(--white)}
+.mk-logo-mark{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--blue),var(--sky));box-shadow:0 0 12px rgba(71,151,255,.3);position:relative}
+.mk-logo-mark::after{content:'';position:absolute;inset:5px;border-radius:2px;background:#06060C}
+.mk-nav-links{display:flex;gap:18px;font-size:.7rem;color:var(--muted)}
+.mk-nav-cta{font-size:.68rem;padding:7px 14px;border-radius:100px;background:var(--blue);color:#fff;font-weight:500;white-space:nowrap}
+.mk-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;padding:28px 22px 24px;align-items:center}
+.mk-hero-left{min-width:0}
+.mk-tag{display:inline-flex;align-items:center;gap:6px;background:var(--bdim);border:1px solid var(--bblue);padding:4px 10px;border-radius:100px;font-size:.58rem;color:var(--sky);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;font-weight:500}
+.mk-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0}
+.mk-h5{font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.12;letter-spacing:-.02em;margin-bottom:10px;color:var(--white)}
+.mk-h5 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mk-h5-script{
+  font-family:'Lora',serif;font-style:italic;font-weight:500;letter-spacing:0;
+  background:linear-gradient(90deg,var(--mist),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+}
+.mk-p{font-size:.74rem;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.mk-hero-ctas{display:flex;gap:8px;flex-wrap:wrap}
+.mk-btn{font-size:.66rem;padding:8px 14px;border-radius:6px;font-weight:500;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.mk-btn-prim{background:var(--blue);color:#fff}
+.mk-btn-sec{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--off)}
+.mk-survey{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--border);border-radius:10px;padding:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.mk-survey-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;font-size:.58rem;color:var(--muted);letter-spacing:.04em}
+.mk-survey-step{color:var(--sky);font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+.mk-survey-bar{height:3px;border-radius:100px;background:rgba(255,255,255,.06);overflow:hidden;margin-bottom:14px}
+.mk-survey-fill{height:100%;width:50%;border-radius:100px;background:linear-gradient(90deg,var(--blue),var(--sky));box-shadow:0 0 8px rgba(71,151,255,.4)}
+.mk-survey-q{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:12px}
+.mk-survey-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.mk-opt{padding:10px 8px;border-radius:8px;border:1px solid var(--border);background:rgba(255,255,255,.02);text-align:center;cursor:default;position:relative;min-height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.mk-opt.selected{border-color:rgba(71,151,255,.5);background:var(--bdim);box-shadow:inset 0 0 0 1px rgba(71,151,255,.18),0 0 14px rgba(71,151,255,.15)}
+.mk-opt-ic{width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.mk-opt-ic svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.mk-opt.selected .mk-opt-ic{color:var(--blue)}
+.mk-opt-lbl{font-size:.68rem;color:var(--off);font-weight:500;line-height:1.2}
+.mk-opt.selected .mk-opt-lbl{color:var(--white)}
+.mk-opt-check{position:absolute;top:5px;right:5px;width:13px;height:13px;border-radius:50%;background:var(--blue);display:none;align-items:center;justify-content:center;box-shadow:0 0 6px rgba(71,151,255,.6)}
+.mk-opt.selected .mk-opt-check{display:flex}
+.mk-opt-check svg{width:9px;height:9px;stroke:#fff;fill:none;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+.mk-survey-continue{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px;border-radius:7px;background:var(--blue);color:#fff;font-size:.72rem;font-weight:500}
+.mk-survey-continue svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mk-trust{border-top:1px solid rgba(255,255,255,.05);padding:12px 22px;display:flex;align-items:center;gap:14px;font-size:.58rem;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;flex-wrap:wrap}
+.mk-trust-item{display:flex;align-items:center;gap:5px}
+.mk-trust-item::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--blue)}
+.mk-hero{grid-template-columns:1fr;gap:18px;padding:22px 18px 20px}
+.mk-nav-links{display:none}
+.mk-trust{padding:10px 16px;gap:10px;font-size:.54rem}
+.mk-mockup{padding:6px}
+.mk-nav{padding:12px 16px;gap:10px}
+.mk-logo{font-size:.82rem}
+.mk-logo-mark{width:20px;height:20px}
+.mk-h5{font-size:1.05rem}
+.mk-p{font-size:.68rem}
+.mk-survey-q{font-size:.78rem}
+.mk-mockup{padding:4px;border-radius:12px}
+.mk-bar{padding:6px 8px 8px;gap:6px}
+.mk-url{margin:0 8px;padding:4px 8px;font-size:.58rem}
+.mk-nav{padding:10px 14px}
+.mk-logo{font-size:.76rem;gap:6px}
+.mk-logo-mark{width:18px;height:18px;border-radius:4px}
+.mk-nav-cta{font-size:.6rem;padding:5px 10px}
+.mk-hero{padding:18px 14px 16px;gap:14px}
+.mk-h5{font-size:.92rem;margin-bottom:8px}
+.mk-p{font-size:.64rem;margin-bottom:12px}
+.mk-tag{font-size:.52rem;padding:3px 8px;margin-bottom:10px}
+.mk-btn{font-size:.58rem;padding:6px 10px}
+.mk-survey{padding:12px}
+.mk-survey-q{font-size:.72rem;margin-bottom:10px}
+.mk-survey-opts{gap:4px}
+.mk-opt{padding:8px 6px;min-height:56px}
+.mk-opt-lbl{font-size:.6rem}
+.mk-opt-ic{width:18px;height:18px}
+.mk-opt-ic svg{width:14px;height:14px}
+.mk-survey-continue{padding:8px;font-size:.64rem}
+.mk-trust{padding:8px 14px;gap:8px;font-size:.5rem}
+@media(max-width:768px){.mk-hero{grid-template-columns:1fr;gap:18px;padding:22px 18px 20px}.mk-nav-links{display:none}.mk-trust{padding:10px 16px;gap:10px;font-size:.54rem}.mk-mockup{padding:6px}.mk-nav{padding:12px 16px;gap:10px}.mk-logo{font-size:.82rem}.mk-logo-mark{width:20px;height:20px}.mk-h5{font-size:1.05rem}.mk-p{font-size:.68rem}.mk-survey-q{font-size:.78rem}}
+@media(max-width:480px){.mk-mockup{padding:4px;border-radius:12px}.mk-bar{padding:6px 8px 8px;gap:6px}.mk-url{margin:0 8px;padding:4px 8px;font-size:.58rem}.mk-nav{padding:10px 14px}.mk-logo{font-size:.76rem;gap:6px}.mk-logo-mark{width:18px;height:18px;border-radius:4px}.mk-nav-cta{font-size:.6rem;padding:5px 10px}.mk-hero{padding:18px 14px 16px;gap:14px}.mk-h5{font-size:.92rem;margin-bottom:8px}.mk-p{font-size:.64rem;margin-bottom:12px}.mk-tag{font-size:.52rem;padding:3px 8px;margin-bottom:10px}.mk-btn{font-size:.58rem;padding:6px 10px}.mk-survey{padding:12px}.mk-survey-q{font-size:.72rem;margin-bottom:10px}.mk-survey-opts{gap:4px}.mk-opt{padding:8px 6px;min-height:56px}.mk-opt-lbl{font-size:.6rem}.mk-opt-ic{width:18px;height:18px}.mk-opt-ic svg{width:14px;height:14px}.mk-survey-continue{padding:8px;font-size:.64rem}.mk-trust{padding:8px 14px;gap:8px;font-size:.5rem}}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
+@media(max-width:520px){section{padding:44px 0}.card{padding:24px 20px}}
+</style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+</head>
+<body>
+<div class="sprog" id="sprog"></div>
+<div class="glow"></div>
+<div class="page">
+
+<!-- HERO -->
+<div class="topbar"><img src="/quoteleads-logo-white.png" alt="QuoteLeads"></div>
+<header class="hero">
+  <div class="wrap">
+    <div class="center rv"><span class="pill"><span class="dot"></span>For Australian solar installers</span></div>
+    <h1 class="rv">Ready to own the machine? <em>Build it on your accounts and keep it.</em></h1>
+    <div class="hrule rv"></div>
+    <p class="sub rv">A solar lead engine built on <b>your</b> accounts, your brand and your data. We build it, launch it, and manage it for the first 30 days. Yours to keep from day 1.</p>
+    <div class="shot rv">
+      <img src="/solar-lead-gen-system-product.png" alt="The QuoteLeads Branded Lead Gen System" width="1200" height="1200" fetchpriority="high" decoding="async">
+    </div>
+    <div class="rv cta-pair" style="margin-top:30px">
+      <a class="btn btn-primary" href="/buy-system" style="text-decoration:none">Buy now</a>
+      <button class="btn btn-second" data-scroll="order">See what it costs</button>
+    </div>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="statbar">
+  <div class="statrow">
+    <div class="statc rv"><span class="statn">$20M+</span><div class="statl"><b>Ad Spend Deployed</b>Across Meta and Google campaigns</div></div>
+    <div class="statc rv d1"><span class="statn">3s</span><div class="statl"><b>Average AI Response</b>From lead submission to SMS reply</div></div>
+    <div class="statc rv d3"><span class="statn">218</span><div class="statl"><b>Branded Systems</b>Built and deployed</div></div>
+  </div>
+</div>
+
+<!-- WHAT IS INCLUDED -->
+<section>
+  <div class="wrap">
+    <div class="center rv"><span class="pill">What's included</span></div>
+    <div class="card rv" style="margin-top:20px">
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>Done-For-You Campaigns</h4><p>Built and launched on your own ad account. Real paid traffic, not scraped lists. We handle setup, creative, targeting and optimisation.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>Branded Survey Funnel</h4><p>Your brand, your domain. A qualifier that filters out renters and tyre-kickers, so only real homeowners with real bills reach your phone.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>AI SMS Follow-Up</h4><p>Every lead texted within 3 seconds, confirming scope and booking the callback for you, before they have closed the tab or called a competitor.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>Full Asset Ownership</h4><p>Ad account, funnel, creative and lead data, all in your name from day one. You own the machine outright. It is yours to keep, forever.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>30 Days Managed</h4><p>We run and optimise the whole thing for the first month while it ramps. Your ad spend, around $50 a day, goes direct to your own Meta account. We never touch it.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>QuoteLeadsHQ Access</h4><p>Track every lead, appointment and quote in one dashboard, in real time.</p></div>
+      </div>
+      <div class="inc">
+        <div class="tick">&#10003;</div>
+        <div><h4>Dedicated Account Manager</h4><p>One person who knows your business and runs your engine, not a ticket queue. Direct line for anything you need.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE IT -->
+<section style="background:var(--deep)">
+  <div class="wrap">
+    <div class="center rv"><span class="pill">The actual machine</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">This is what <em>gets built.</em></h2>
+    <p class="center rv" style="font-size:.9rem;color:var(--muted);line-height:1.72;max-width:50ch;margin:14px auto 0">Not a template you fill in later. These are the two pieces that do the work, built under your brand.</p>
+
+    <div class="show rv">
+      <div class="show-lbl">Piece one</div>
+      <div class="show-h">The ads that run</div>
+      <p class="show-p">Real paid placements in your name, targeting your trade and your postcodes. Not a scraped list, not a directory listing.</p>
+      <div class="ad-hold">
+        <div class="ad-platform">Meta &amp; Google Ads</div>
+        <div class="ad-iframe-wrap">
+          <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" loading="lazy" title="Example Meta ad built for a solar installer"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="show rv">
+      <div class="show-lbl">Piece two</div>
+      <div class="show-h">The survey funnel they land on</div>
+      <p class="show-p">Your brand, your domain. The qualifying steps filter out renters, wrong postcodes and browsers before anyone reaches your phone.</p>
+      <div class="mk-mockup">
+        <div class="mk-bar">
+          <span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span>
+          <div class="mk-url">yourcompany.com.au / get-a-quote</div>
+        </div>
+        <div class="mk-body">
+          <div class="mk-nav">
+            <div class="mk-logo"><div class="mk-logo-mark"></div><span>Your Solar Co.</span></div>
+            <div class="mk-nav-links"><span>Systems</span><span>Finance</span><span>Reviews</span></div>
+            <span class="mk-nav-cta">Get Quote</span>
+          </div>
+          <div class="mk-hero">
+            <div class="mk-hero-left">
+              <div class="mk-tag"><span class="mk-tag-dot"></span>Local Installer &middot; 500+ Installs</div>
+              <div class="mk-h5">82% power bill reduction. <span class="mk-h5-script">or we'll tell you honestly if it's not worth it.</span></div>
+              <div class="mk-p">Local crew. No call centre. We'll tell you exactly what your system pays back, in writing, same day.</div>
+              <div class="mk-hero-ctas"><span class="mk-btn mk-btn-prim">Start Survey</span><span class="mk-btn mk-btn-sec">View Systems</span></div>
+            </div>
+            <div class="mk-survey">
+              <div class="mk-survey-head"><span class="mk-survey-step">Step 2 of 4</span><span>&larr; Back</span></div>
+              <div class="mk-survey-bar"><div class="mk-survey-fill"></div></div>
+              <div class="mk-survey-head">This helps us calculate your exact savings estimate</div>
+              <div class="mk-survey-q">What's your average quarterly power bill?</div>
+              <div class="mk-survey-opts">
+                <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1 2 1 3.3h6c0-1.3 0-2.5 1-3.3A7 7 0 0 0 12 2z"/></svg></div><div class="mk-opt-lbl">Under $400</div></div>
+                <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 10 14 10 22 21 10 14 10 14 2"/></svg></div><div class="mk-opt-lbl">$400 - $600</div></div>
+                <div class="mk-opt selected"><div class="mk-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M20 10v4"/><rect x="5" y="10" width="8" height="4" rx="1" fill="currentColor" stroke="none"/></svg></div><div class="mk-opt-lbl">$600 - $900</div></div>
+                <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg></div><div class="mk-opt-lbl">$900+</div></div>
+              </div>
+              <div class="mk-survey-head">No sales pressure. No obligation. Takes 90 seconds.</div>
+              <div class="mk-survey-continue">Continue <svg viewBox="0 0 16 16"><path d="M2 8h12M9 4l4 4-4 4"/></svg></div>
+            </div>
+          </div>
+          <div class="mk-trust">
+            <span class="mk-trust-item">4.9 stars &middot; 287 homeowners &middot; last review 2 days ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT A LEAD LOOKS LIKE -->
+<section>
+  <div class="wrap">
+    <div class="center rv"><span class="pill">What a lead looks like</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">Everything you need <em>before you call.</em></h2>
+    <div class="lead-card rv">
+      <div class="lead-top">
+        <div class="lead-av">JM</div>
+        <div>
+          <div class="lead-name">James Mitchell</div>
+          <div class="lead-loc">Penrith NSW 2750</div>
+        </div>
+        <div class="lead-badge">New lead</div>
+      </div>
+      <div class="lead-fields">
+        <div class="lf"><span class="lf-k">Name</span><span class="lf-v">James Mitchell</span></div>
+        <div class="lf"><span class="lf-k">Email</span><span class="lf-v">james.m@email.com</span></div>
+        <div class="lf"><span class="lf-k">Phone</span><span class="lf-v">0412 *** ***</span></div>
+        <div class="lf"><span class="lf-k">Postcode</span><span class="lf-v">2750</span></div>
+        <div class="lf"><span class="lf-k">Avg quarterly bill</span><span class="lf-v">$600 - $900</span></div>
+        <div class="lf"><span class="lf-k">Purchase timeline</span><span class="lf-v">ASAP (next 30 days)</span></div>
+        <div class="lf"><span class="lf-k">Custom fields</span><span class="lf-v">Scope, ownership</span></div>
+        <div class="lead-note">Custom fields are yours to set. Capture any information you need for the call or the quote, and it arrives with every lead.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPAIGN TYPES -->
+<section>
+  <div class="wrap">
+    <div class="center rv"><span class="pill">What we point it at</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">One system. <em>Four ways to aim it.</em></h2>
+    <div class="cam-grid">
+      <div class="cam rv">
+        <h4>All solar</h4>
+        <p>Homeowners looking to go solar for the first time. The widest pool and the cheapest enquiries, qualified on bill size, ownership and timeline before they reach you.</p>
+      </div>
+      <div class="cam rv d1">
+        <h4>Solar + battery</h4>
+        <p>Homeowners buying panels and storage together as one system. Bigger job values than solar alone, and they are shopping for a complete setup rather than a price per kW.</p>
+      </div>
+      <div class="cam rv d2">
+        <h4>Battery retrofit</h4>
+        <p>Homes that already have panels and want storage added. They have bought from an installer before, so there is far less educating to do on the call.</p>
+      </div>
+      <div class="cam rv d3">
+        <h4>Commercial solar</h4>
+        <p>Facility managers, property owners and decision makers enquiring for a business site. Fewer enquiries, far larger jobs, qualified on decision-making authority.</p>
+      </div>
+    </div>
+    <p class="cam-note">Pick one at activation, or run more than one and split the budget. Because the system is yours, you can change what it targets whenever you want, without rebuilding anything.</p>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section style="background:var(--deep)">
+  <div class="wrap">
+    <div class="center rv"><span class="pill">Next steps</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">Next <em>steps.</em></h2>
+
+    <ol class="tl rv">
+      <li>
+        <div class="tl-when">01</div>
+        <h4>Strategy Call &amp; Onboarding</h4>
+        <p>A quick call to scope it, then five minutes of setup.</p>
+      </li>
+      <li>
+        <div class="tl-when">02</div>
+        <h4>Get Leads &amp; Appointments</h4>
+        <p>Live in 24 to 48 hours. Every enquiry texted back in 3 seconds.</p>
+      </li>
+      <li>
+        <div class="tl-when">03</div>
+        <h4>Close New Jobs</h4>
+        <p>You quote homeowners who came to you by name.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section>
+  <div class="wrap">
+    <div class="center rv"><span class="pill">Results</span></div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"The quality is genuinely better than what we were getting through other platforms. Leads come through with all the info you need, bill size, etc so you're not wasting time on tyre kickers."</p>
+      <div class="who">Better Energy Group &middot; Solar Installations</div>
+    </div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"We get about 70% of leads turning into quality appointments"</p>
+      <div class="who">Lamm Solar &middot; Solar Installations</div>
+    </div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Setup was quick, first leads came through the same day. A platform that actually delivers."</p>
+      <div class="who">SunReady Solar &middot; Solar Installations</div>
+    </div>
+    <div class="quote rv">
+      <div class="qstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p>"Fast setup, great support and higher intent solar leads."</p>
+      <div class="who">SolarHarvest &middot; Solar Installations</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="ticker rv">
+      <div class="ticker-inner">
+        <span>You own everything</span>
+        <span>Built on your accounts</span>
+        <span>Live in 24-48 hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE + ORDER -->
+<section id="order">
+  <div class="wrap">
+    <div class="card rv">
+      <div id="offerBlock">
+        <div class="center">
+          <h3 style="font-family:var(--display);font-size:clamp(1.4rem,5vw,1.8rem);font-weight:600">Two tiers. <em>Same system.</em></h3>
+          <p class="price-note" style="margin-top:10px">Which one you are on comes down to how much there is to run.</p>
+        </div>
+
+        <div class="tiers">
+          <div class="tier lead">
+            <div class="tier-name">Standard</div>
+            <div class="tier-price"><sup>$</sup>2,500</div>
+            <div class="tier-mo">one-off build, ex GST, first 30 days managed<br>then optional: $690/mo + GST</div>
+            <p class="tier-for">Around 30 to 60 enquiries a month from about $50/day in ad spend. One campaign, one service area, one offer.</p>
+            <a class="btn btn-primary" href="/buy-system?tier=standard" style="margin-top:16px">Buy the Standard build</a>
+          </div>
+          <div class="tier">
+            <div class="tier-name">Growth</div>
+            <div class="tier-price"><sup>$</sup>5,000</div>
+            <div class="tier-mo">one-off build, ex GST, first 30 days managed<br>then optional: $1,200/mo + GST</div>
+            <p class="tier-for">Around 60 to 90+ enquiries a month from about $100/day and up. Several campaigns, service areas or offers, Meta and Google.</p>
+            <a class="btn btn-primary" href="/buy-system?tier=growth" style="margin-top:auto;margin-top:16px">Buy the Growth build</a>
+          </div>
+        </div>
+
+        <div class="center">
+          <p class="price-note">Both builds include your first 30 days of management. Ad spend is paid direct to Meta from your own account, never through us. <a href="/quoteleads-terms" style="color:var(--blue)">See full terms</a>.</p>
+        </div>
+
+        <div style="margin-top:26px">
+          <h4 class="center" style="font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:6px">Rather talk it through first?</h4>
+          <p class="price-note center" style="margin-bottom:18px">Leave your details and we'll ring you, work out which build fits, and answer your questions.</p>
+          <div class="nsel" id="fNicheWrap">
+            <div class="nsel-lbl" id="nicheLbl">Which campaign should we build first?</div>
+            <div class="nsel-opts" role="group" aria-labelledby="nicheLbl">
+              <button type="button" class="nsel-opt" data-niche="solar" aria-pressed="false">All solar</button>
+              <button type="button" class="nsel-opt" data-niche="solar_and_battery" aria-pressed="false">Solar + battery</button>
+              <button type="button" class="nsel-opt" data-niche="battery_retrofit" aria-pressed="false">Battery retrofit</button>
+              <button type="button" class="nsel-opt" data-niche="commercial_solar" aria-pressed="false">Commercial solar</button>
+            </div>
+          </div>
+          <input class="field" id="fName" type="text" placeholder="Full name" autocomplete="name">
+          <input class="field" id="fCompany" type="text" placeholder="Business name" autocomplete="organization">
+          <input class="field" id="fEmail" type="email" placeholder="Email address" autocomplete="email">
+          <input class="field" id="fPhone" type="tel" placeholder="Phone number" autocomplete="tel">
+          <input class="field" id="fPostcode" inputmode="numeric" placeholder="Main service area or postcode">
+          <label class="consent">
+            <input type="checkbox" id="fConsent">
+            <span>I agree to be contacted by QuoteLeads about setting up my system, and confirm my details are correct.</span>
+          </label>
+          <div class="ts-wrap"><div id="turnstile-container"></div></div>
+          <div class="cta-pair one">
+            <button class="btn btn-second" id="btnCall">Request a callback</button>
+          </div>
+          <p class="cta-hint">No payment now. Ready to go instead? <a href="/buy-system" style="color:var(--blue)">Buy online</a> and onboarding starts today.</p>
+          <div class="formmsg" id="formMsg" aria-live="polite"></div>
+          <div class="trust-row">
+            <span>No obligation</span>
+            <span>No lock-in</span>
+            <span>Australian owned and operated</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="thanks" id="thanks">
+        <div class="thanks-ico">&#10003;</div>
+        <h3>You're all set.</h3>
+        <p>We will call you during business hours (AEST). Keep your phone handy.</p>
+        <a class="mail" href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:34px">
+  <div class="wrap">
+    <div class="center rv"><span class="pill">Questions</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">Answered <em>straight.</em></h2>
+    <div class="faq rv">
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>What if it does not work for my business?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>There is no lock-in. Your first 30 days of management are included in the build, and after that the monthly fee is optional. Stop at any time and the ad accounts, ads, funnel and lead data stay yours. The full terms are linked above the callback form.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>Do I need to know anything about running ads?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>No. That is the point of the build. We set up the campaigns, write the creative, configure the targeting and run it for the first 30 days. You approve the ads before they go live and you can see everything at any time, but you are never asked to build or manage anything yourself.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>How much do I need to spend on ads, and does that go to you?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Around $50 a day is the usual starting point, and none of it comes to us. Your ad spend is billed by Meta directly to your own card on your own ad account. That means no markup on any lead, and your cost per lead falls as the campaigns optimise rather than staying fixed at whatever a lead seller charges.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>Why pay for a build when I could just buy leads?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Because you are buying the asset rather than the output. Bought leads stop the day you stop paying, and the price per lead never really comes down. Here the campaigns, funnel, creative and data are yours permanently, so the same spend gets cheaper per job over time and you keep the whole lead generation system if you ever stop working with us.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>How do I know whether I am on the $2,500 or the $5,000 build?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>By how much there is to run, and you only need to trip one of three things: wanting 60 or more enquiries a month (around $100 a day and up in ad spend), more than one campaign (a second offer or a second service area), or Google as well as Meta. Any one of those and it is the $5,000 Growth build, with the first 30 days of management included and $1,200 a month + GST after that if you want it kept running on our system (ongoing optimisation, reporting and QuoteLeadsHQ access), because it is several engines being run rather than one. None of them and it is the $2,500 Standard build, with the first 30 days included and $690 a month + GST after that, also optional. 30 to 60 enquiries a month takes around $50 a day in ad spend. The <a href="/buy-system" style="color:var(--blue)">buy page</a> asks you those three questions and picks for you, or request a callback and we will work it out with you.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>What actually happens if I cancel management after 30 days?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>The lead generation system stays yours. The campaigns, ad account, funnel, creative and every lead you have collected stay exactly where they are, on your accounts, because they were never on ours. You can run it yourself, hand it to an in-house marketer, or give another agency access. The one thing that does not come with you is QuoteLeadsHQ. It is our platform, not part of the system you own, so the AI SMS follow-up and CRM pipeline stop when your QuoteLeadsHQ access ends.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>Are the leads exclusive, or shared with other installers?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Exclusive, always. The campaigns run under your brand and the homeowner agrees to hear from your business by name before they submit. There is no marketplace, no second buyer and no version of this where the same enquiry goes to three of your competitors.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>How fast will I actually see leads?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>The build takes 24 to 48 hours once you have granted access, and first leads usually arrive within 24-48 hours of the ads going live. What arrives first is a trickle rather than a flood, because campaigns need a few days of data before they find the right people consistently.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>I already have an agency running ads. Does this clash?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>It can run alongside them, but be straight with us on the call about what is already live so we can keep the audiences and accounts from competing with each other. If your existing campaigns are already producing qualified leads reliably, tell us that too. We would rather say the timing is wrong than sell you something you do not need.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>What if I want to change what it targets later?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>You change it. The system is yours, so you can point it at a different campaign type, a different postcode set or a different job size whenever you want. If we are still managing it we do that for you. If we are not, the accounts are in your name and nothing is locked.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>Who is this not for?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>Anyone who cannot fund ad spend on top of the build fee, since the system needs traffic to produce anything. Anyone who wants leads today with no setup at all, because there is a 24 to 48 hour build. And anyone who is not going to ring the leads back quickly, because speed to contact is most of what makes this work.</p></div>
+      </div>
+    </div>
+    <p class="center rv" style="font-size:.86rem;color:var(--muted);line-height:1.7;margin-top:26px">Something not covered? Email <a href="mailto:contact@quoteleads.com.au" style="color:var(--blue)">contact@quoteleads.com.au</a> or request a callback above and ask.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-logo"><img src="/quoteleads-logo-white.png" alt="QuoteLeads"></div>
+    <div class="foot-links">
+      <a href="/pricing">Pricing</a>
+      <a href="/quoteleads-terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+      <a href="mailto:contact@quoteleads.com.au">Contact</a>
+    </div>
+    <div class="foot-bottom">&copy; 2026 QuoteLeads &middot; Australian owned and operated</div>
+    <div class="foot-disc">This site is not a part of the Meta or Google websites, Meta Platforms, Inc. or Google LLC, and is not endorsed by them in any way. Meta, Facebook and Instagram are trademarks of Meta Platforms, Inc. Google is a trademark of Google LLC. Results described on this page are examples of what the system has produced for other businesses and are not a promise of what your business will achieve.</div>
+  </div>
+</footer>
+
+</div>
+
+<div class="sticky" id="sticky">
+  <div class="cta-pair">
+    <a class="btn btn-primary" href="/buy-system" style="text-decoration:none">Buy now</a>
+    <button class="btn btn-second" data-scroll="order">See what it costs</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var SUPABASE_URL = 'https://wjadekgptkstfdootuol.supabase.co';
+
+  // Cloudflare Turnstile, the same check as the rest of the site. 'interaction-only'
+  // keeps it invisible for most visitors; the token is verified by callback-request.
+  var turnstileToken = '';
+  var tsTimer = setInterval(function(){
+    if(typeof turnstile === 'undefined') return;
+    clearInterval(tsTimer);
+    turnstile.render('#turnstile-container', {
+      sitekey: '0x4AAAAAABj4xsGpuNPXeW_7',
+      theme: 'dark',
+      appearance: 'interaction-only',
+      callback: function(t){ turnstileToken = t; },
+      'expired-callback': function(){ turnstileToken = ''; },
+      'error-callback': function(){ turnstileToken = ''; }
+    });
+  }, 200);
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+  function phoneOk(v){
+    var d = v.replace(/[\s()\-.]/g,'').replace(/^\+?61/,'0');
+    return /^0[2-478]\d{8}$/.test(d) || /^1[38]00\d{6}$/.test(d) || /^13\d{4}$/.test(d);
+  }
+
+  var els = {
+    name: document.getElementById('fName'),
+    company: document.getElementById('fCompany'),
+    email: document.getElementById('fEmail'),
+    phone: document.getElementById('fPhone'),
+    postcode: document.getElementById('fPostcode'),
+    nicheWrap: document.getElementById('fNicheWrap'),
+    consent: document.getElementById('fConsent'),
+    msg: document.getElementById('formMsg'),
+    call: document.getElementById('btnCall'),
+    offer: document.getElementById('offerBlock'),
+    thanks: document.getElementById('thanks')
+  };
+
+  // Campaign choice. Deliberately not pre-selected: a default would just be
+  // echoed back by most buyers and tell us nothing on the onboarding call.
+  var selectedNiche = null;
+  Array.prototype.forEach.call(els.nicheWrap.querySelectorAll('.nsel-opt'), function(btn){
+    btn.addEventListener('click', function(){
+      selectedNiche = btn.dataset.niche;
+      Array.prototype.forEach.call(els.nicheWrap.querySelectorAll('.nsel-opt'), function(b){
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
+      els.nicheWrap.classList.remove('err');
+    });
+  });
+
+  function collect(){
+    return {
+      name: els.name.value.trim(),
+      company: els.company.value.trim(),
+      email: els.email.value.trim(),
+      phone: els.phone.value.trim(),
+      postcode: els.postcode.value.trim(),
+      niche: selectedNiche || ''
+    };
+  }
+
+  function validate(){
+    var d = collect(), missing = [], bad = [];
+    [['name','Full name'],['company','Business name'],['email','Email'],['phone','Phone'],['postcode','Service area']].forEach(function(p){
+      var el = els[p[0]];
+      el.classList.remove('err');
+      if(!d[p[0]]){ missing.push(p[1]); el.classList.add('err'); }
+    });
+    if(d.email && !EMAIL_RE.test(d.email)){ bad.push('a valid email'); els.email.classList.add('err'); }
+    if(d.phone && !phoneOk(d.phone)){ bad.push('an Australian phone number'); els.phone.classList.add('err'); }
+    els.nicheWrap.classList.remove('err');
+    if(!d.niche){ missing.push('which campaign to build'); els.nicheWrap.classList.add('err'); }
+    if(!els.consent.checked) missing.push('your consent');
+
+    if(missing.length){
+      els.msg.textContent = 'Add ' + missing.slice(0,-1).join(', ') + (missing.length>1 ? ' and ' : '') + missing[missing.length-1] + ' to continue.';
+      return null;
+    }
+    if(bad.length){
+      els.msg.textContent = 'Enter ' + bad.join(' and ') + ' to continue.';
+      return null;
+    }
+    if(!turnstileToken){
+      els.msg.textContent = 'One moment, the security check is still finishing. Try again in a second.';
+      return null;
+    }
+    els.msg.textContent = '';
+    return d;
+  }
+
+  els.call.addEventListener('click', function(){
+    var d = validate(); if(!d) return;
+    els.call.disabled = true;
+    els.call.textContent = 'Sending...';
+    d.source = 'branded-solar-lead-system-funnel';
+    d.turnstile_token = turnstileToken;
+    fetch(SUPABASE_URL + '/functions/v1/callback-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(d)
+    }).then(function(r){
+      if(!r.ok) throw new Error('bad response');
+      els.offer.style.display = 'none';
+      els.thanks.classList.add('on');
+      els.thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(function(){
+      els.call.disabled = false;
+      els.call.textContent = 'Request a callback';
+      // A security-check token works once; get a fresh one for the retry.
+      turnstileToken = ''; try { if(window.turnstile) turnstile.reset('#turnstile-container'); } catch(_){}
+      els.msg.textContent = 'That did not send. Email contact@quoteleads.com.au and we will call you straight back.';
+    });
+  });
+
+  document.querySelectorAll('[data-scroll]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var t = document.getElementById(b.getAttribute('data-scroll'));
+      if(t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  // The ad creative is a 1080x1080 iframe scaled down to fit its holder.
+  // Without this it overflows an overflow:hidden box and shows only its
+  // top-left corner, which is exactly how it looked before this existed.
+  function scaleAdIframe(){
+    var wrap = document.querySelector('.ad-iframe-wrap');
+    if(!wrap) return;
+    var fr = wrap.querySelector('.ad-iframe');
+    if(!fr) return;
+    var s = wrap.getBoundingClientRect().width / 1080;
+    fr.style.transform = 'scale(' + s + ')';
+    wrap.style.height = (1080 * s) + 'px';
+  }
+  window.addEventListener('resize', scaleAdIframe);
+  window.addEventListener('load', scaleAdIframe);
+  scaleAdIframe();
+
+  // FAQ accordion. One open at a time.
+  Array.prototype.forEach.call(document.querySelectorAll('.faqq'), function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement, wasOpen = item.classList.contains('on');
+      Array.prototype.forEach.call(document.querySelectorAll('.faqi'), function(i){
+        i.classList.remove('on');
+        var b = i.querySelector('.faqq'); if(b) b.setAttribute('aria-expanded','false');
+      });
+      if(!wasOpen){ item.classList.add('on'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+
+  // Scroll progress
+  var sprog = document.getElementById('sprog');
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    sprog.style.transform = 'scaleX(' + (h > 0 ? window.scrollY / h : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Sticky CTA appears once the hero is behind you, hides over the order form
+  var sticky = document.getElementById('sticky');
+  var orderEl = document.getElementById('order');
+  document.body.classList.add('has-sticky');
+  var stickyIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ sticky.classList.toggle('on', !e.isIntersecting); });
+  }, { threshold: 0, rootMargin: '-72% 0px 0px 0px' });
+  var heroEl = document.querySelector('.hero');
+  if (heroEl) stickyIO.observe(heroEl);
+  var orderIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) sticky.classList.remove('on'); });
+  }, { threshold: 0.25 });
+  if (orderEl) orderIO.observe(orderEl);
+})();
+</script>
+</body>
+</html>

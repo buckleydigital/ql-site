@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F36W0PEFR4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F36W0PEFR4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM Integration Setup | QuoteLeads</title>
+<meta name="description" content="What QuoteLeads needs from you to send your leads straight into your CRM in real time.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040A;--deep:#08080F;--surf:#0C0C18;
+  --glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.07);--bmid:rgba(255,255,255,0.10);
+  --bblue:rgba(71,151,255,0.3);
+  --blue:#4797FF;--bdim:rgba(71,151,255,0.12);
+  --sky:#7CB9FF;--mist:#B8D4FF;
+  --white:#F2F2F2;--off:#CACAD0;--muted:#9A9AA3;--faint:#78787F;
+  --display:'General Sans','PP Neue Montreal','Neue Montreal',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --nh:68px;
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--void);color:var(--white);font-family:var(--body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;font-feature-settings:'cv11','ss01','ss03'}
+
+/* CURSOR */
+#cur{position:fixed;width:8px;height:8px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s}
+#curR{position:fixed;width:32px;height:32px;border:1px solid rgba(71,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+body.hov #cur{width:18px;height:18px}
+body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
+
+/* AURA */
+#aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(71,151,255,.035) 0%,transparent 65%);
+  transform:translate(-50%,-50%);transition:left .5s ease,top .5s ease}
+
+/* PARTICLES */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.6}
+
+/* GRAIN */
+body::before{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+  background-size:200px;pointer-events:none;z-index:2;opacity:.4}
+
+/* SCROLL PROGRESS */
+.scroll-prog{position:fixed;top:0;left:0;width:100%;height:2px;z-index:500;
+  transform-origin:left center;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--blue),var(--sky))}
+
+/* HEADER */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;
+  background:rgba(4,4,10,0);border-bottom:1px solid transparent;
+  transition:background .4s,border-color .4s,backdrop-filter .4s}
+.site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:var(--nh)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.back-link:hover{color:var(--white)}
+.back-link svg{width:14px;height:14px}
+
+/* GUIDE HERO */
+.guide-hero{position:relative;z-index:3;padding:120px 5% 80px;text-align:center;
+  background:linear-gradient(180deg,#0E0F1E 0%,var(--void) 100%);
+  border-bottom:1px solid var(--border)}
+.guide-hero-inner{max-width:720px;margin:0 auto}
+.guide-hero .logo-wrap{display:flex;justify-content:center;margin-bottom:32px}
+.guide-hero h1{font-family:var(--display);font-size:clamp(1.9rem,5vw,3rem);font-weight:600;
+  line-height:1.1;letter-spacing:-.025em;margin-bottom:16px;animation:fadeUp .7s ease both}
+.guide-hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.guide-hero .sub{font-size:1.05rem;color:var(--muted);line-height:1.7;animation:fadeUp .7s .12s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* GUIDE BODY */
+.guide-body{position:relative;z-index:3;padding:60px 5% 80px}
+.guide-inner{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+
+/* WHY CALLOUT */
+.why-callout{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.22);
+  border-radius:16px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start}
+.why-callout .why-icon{font-size:1.4rem;flex-shrink:0;line-height:1;margin-top:2px}
+.why-callout-body{}
+.why-callout h2{font-family:var(--display);font-size:.95rem;font-weight:600;
+  color:#FCD34D;margin-bottom:8px;letter-spacing:-.01em}
+.why-callout p{font-size:.85rem;color:var(--muted);line-height:1.7}
+
+/* STEP CARD */
+.step-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;
+  backdrop-filter:blur(12px)}
+.step-header{display:flex;align-items:center;gap:16px;padding:28px 32px 22px;
+  border-bottom:1px solid var(--border)}
+.step-header.done{background:rgba(34,197,94,.06);border-bottom-color:rgba(34,197,94,.18)}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--blue);
+  color:#fff;font-family:var(--display);font-size:.9rem;font-weight:600;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-header.done .step-num{background:rgba(34,197,94,.85)}
+.step-title{font-family:var(--display);font-size:1.05rem;font-weight:600;
+  color:var(--white);letter-spacing:-.015em}
+.step-body{padding:28px 32px}
+.step-instruction{font-size:.9rem;color:var(--off);line-height:1.7;margin-bottom:24px}
+
+/* FOOTER CTA */
+.guide-footer{position:relative;z-index:3;padding:48px 5% 64px;border-top:1px solid var(--border);text-align:center}
+.guide-footer-inner{max-width:520px;margin:0 auto}
+.guide-footer p{font-size:.9rem;color:var(--muted);margin-bottom:12px}
+.guide-footer a{color:var(--blue);text-decoration:none;font-weight:500;transition:color .2s}
+.guide-footer a:hover{color:var(--sky)}
+.guide-footer .foot-logo{display:flex;justify-content:center;margin-bottom:28px}
+
+/* SECTION DIVIDER */
+.step-divider{display:flex;align-items:center;gap:16px;color:var(--faint);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+.step-divider::before,.step-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* NEED LIST */
+.need-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.need-item{display:flex;gap:16px;align-items:flex-start;background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.need-num{width:28px;height:28px;border-radius:50%;background:var(--bdim);border:1px solid var(--bblue);color:var(--sky);font-family:var(--display);font-size:.8rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.need-item h3{font-family:var(--display);font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:4px;letter-spacing:-.01em}
+.need-item p{font-size:.85rem;color:var(--muted);line-height:1.65}
+.field-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.field-tag{font-family:monospace;font-size:.78rem;color:var(--mist);background:rgba(71,151,255,.08);border:1px solid rgba(71,151,255,.22);padding:4px 10px;border-radius:8px}
+
+/* INFO CALLOUT */
+.info-callout{display:flex;gap:14px;background:var(--bdim);border:1px solid rgba(71,151,255,.2);border-radius:12px;padding:16px 20px}
+.info-callout .ic-icon{color:var(--blue);flex-shrink:0;margin-top:2px}
+.info-callout p{font-size:.85rem;color:var(--sky);line-height:1.65}
+
+/* SECURE CALLOUT */
+.secure-callout{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.35);border-radius:16px;padding:24px 26px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 0 0 4px rgba(251,191,36,.04)}
+.secure-callout .sc-icon{color:#FCD34D;flex-shrink:0;margin-top:2px}
+.secure-callout h3{font-family:var(--display);font-size:.95rem;font-weight:600;color:#FCD34D;margin-bottom:8px;letter-spacing:-.01em}
+.secure-callout p{font-size:.88rem;color:var(--off);line-height:1.7}
+.secure-callout a{color:#FCD34D;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.secure-callout a:hover{color:#FDE68A}
+
+@media(max-width:768px){
+  .guide-hero{padding:100px 5% 60px}
+  .guide-body{padding:40px 5% 60px}
+  .guide-inner{gap:32px}
+  .step-header{padding:22px 20px 16px;gap:12px}
+  .step-num{width:30px;height:30px;font-size:.82rem}
+  .step-title{font-size:.95rem}
+  .step-body{padding:20px}
+  .need-item{padding:16px;gap:12px}
+  .secure-callout{flex-direction:column;gap:12px;padding:20px}
+}
+@media(max-width:480px){
+  .guide-hero h1{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="aura"></div>
+
+<!-- GRAIN + PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:30px;width:auto;display:block">
+    </a>
+    <a href="/" class="back-link">
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 7H3M6 4 3 7l3 3"/></svg>
+      Back to site
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="guide-hero">
+  <div class="guide-hero-inner">
+    <div class="logo-wrap">
+      <img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:38px;width:auto;display:block">
+    </div>
+    <h1>CRM Integration <em>Setup</em></h1>
+    <p class="sub">To send your leads straight into your CRM in real time, we push each new enquiry to your system via an HTTP POST. To set this up, we need a few details from you.</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="guide-body">
+  <div class="guide-inner">
+
+    <!-- SECTION 1 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title">What we need</div>
+      </div>
+      <div class="step-body">
+        <ol class="need-list">
+          <li class="need-item">
+            <div class="need-num">1</div>
+            <div>
+              <h3>Endpoint URL</h3>
+              <p>The URL we should POST your leads to.</p>
+            </div>
+          </li>
+          <li class="need-item">
+            <div class="need-num">2</div>
+            <div>
+              <h3>Format</h3>
+              <p>How the data should be sent (JSON, form-data, etc.).</p>
+            </div>
+          </li>
+          <li class="need-item">
+            <div class="need-num">3</div>
+            <div>
+              <h3>Authentication</h3>
+              <p>Any API key, token, or header your endpoint requires.</p>
+            </div>
+          </li>
+          <li class="need-item">
+            <div class="need-num">4</div>
+            <div>
+              <h3>Field mapping</h3>
+              <p>The exact field names your CRM expects, so we can match our form fields to yours. Our form captures:</p>
+              <div class="field-tags">
+                <span class="field-tag">name</span>
+                <span class="field-tag">email</span>
+                <span class="field-tag">phone</span>
+                <span class="field-tag">postcode</span>
+                <span class="field-tag">purchase timeline</span>
+                <span class="field-tag">average quarterly bill</span>
+              </div>
+            </div>
+          </li>
+        </ol>
+        <div class="info-callout">
+          <div class="ic-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <p>If your CRM has API documentation, just send us the relevant page and we'll take it from there.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title">Sending your API key or token securely</div>
+      </div>
+      <div class="step-body">
+        <div class="secure-callout">
+          <div class="sc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div>
+            <h3>Never send API keys or tokens over plain email</h3>
+            <p>Please send any sensitive credentials using <a href="https://onetimesecret.com" target="_blank" rel="noopener">onetimesecret.com</a>. Paste your key there, generate a one-time link, and send us that link. It can only be opened once and then it's gone, which keeps your credentials safe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER CTA -->
+<footer class="guide-footer">
+  <div class="guide-footer-inner">
+    <div class="foot-logo">
+      <img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:28px;width:auto;opacity:.55">
+    </div>
+    <p>Questions? We're happy to help.</p>
+    <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+  </div>
+</footer>
+
+<script>
+/* CURSOR */
+const cur=document.getElementById('cur'),curR=document.getElementById('curR'),aura=document.getElementById('aura');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+
+/* SCROLL HEADER + PROGRESS */
+const hdr=document.getElementById('siteHeader'),prog=document.getElementById('scrollProg');
+window.addEventListener('scroll',()=>{
+  hdr.classList.toggle('sc',window.scrollY>40);
+  const p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))||0;
+  prog.style.transform='scaleX('+p+')';
+},{passive:true});
+
+/* PARTICLES */
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let W=canvas.width=window.innerWidth,H=canvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight});
+const cols=['rgba(71,151,255,','rgba(124,185,255,','rgba(184,212,255,'];
+const pts=Array.from({length:60},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.5+.5,a:Math.random(),c:cols[Math.floor(Math.random()*cols.length)]}));
+(function draw(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c+p.a+')';ctx.fill()});requestAnimationFrame(draw)})();
+
+</script>
+</body>
+</html>
