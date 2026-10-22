@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1323684475060326');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1323684475060326&ev=PageView&noscript=1"/></noscript>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sydney Solar Ad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --blue: #4797FF;
+    --sky: #7CB9FF;
+    --mist: #B8D4FF;
+    --void: #04040A;
+    --deep: #08080F;
+    --surf: #0C0C18;
+    --glass: rgba(255,255,255,0.04);
+    --glass2: rgba(255,255,255,0.07);
+    --border: rgba(255,255,255,0.08);
+    --bmid: rgba(255,255,255,0.10);
+    --bdim: rgba(71,151,255,0.12);
+    --bblue: rgba(71,151,255,0.3);
+    --white: #F2F2F2;
+    --off: #CACAD0;
+    --muted: #71717A;
+  }
+
+  html, body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: var(--void);
+  }
+
+  .ad {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    background: var(--void);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* BACKGROUND PHOTO */
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    background-image: url('../solar-ad-img.png');
+    background-size: cover;
+    background-position: center 40%;
+    z-index: 0;
+  }
+
+  .bg-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(4,4,10,0.88) 0%,
+      rgba(4,4,10,0.62) 42%,
+      rgba(4,4,10,0.45) 62%,
+      rgba(4,4,10,0.96) 100%
+    );
+  }
+
+  .bg-photo::after {
+    content: '';
+    position: absolute;
+    top: -140px;
+    left: -100px;
+    width: 760px;
+    height: 760px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(71,151,255,0.14) 0%, transparent 65%);
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
+    background-size: 200px;
+    opacity: 0.35;
+  }
+
+  /* LOGO BAR */
+  .logo-bar {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 56px 76px 0;
+  }
+
+  .logo-lockup {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--blue), var(--sky));
+    box-shadow: 0 0 24px rgba(71,151,255,0.35);
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .logo-icon::after {
+    content: '';
+    position: absolute;
+    inset: 11px;
+    border-radius: 4px;
+    background: var(--void);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-name {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .logo-tagline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+  }
+
+  .cec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--bblue);
+    background: var(--bdim);
+    padding: 10px 22px 10px 14px;
+    border-radius: 100px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--sky);
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(12px);
+    margin-top: 6px;
+  }
+
+  .cec-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--blue);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(71,151,255,0.7);
+    flex-shrink: 0;
+  }
+
+  /* HEAD BLOCK */
+  .head {
+    position: relative;
+    z-index: 10;
+    padding: 52px 76px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .locality {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.09em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+  }
+
+  .locality svg {
+    width: 34px;
+    height: 34px;
+    fill: var(--blue);
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 10px rgba(71,151,255,0.5));
+  }
+
+  .headline {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 92px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+    margin-top: 14px;
+    text-shadow: 0 6px 40px rgba(0,0,0,0.65);
+  }
+
+  .rule {
+    width: 96px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), transparent);
+    border-radius: 100px;
+    margin: 28px 0 34px;
+  }
+
+  /* SPEC STACK */
+  .specs {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .spec {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    white-space: nowrap;
+  }
+
+  .spec-size {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 62px;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--mist), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    min-width: 250px;
+  }
+
+  .spec-brand {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-shadow: 0 3px 22px rgba(0,0,0,0.7);
+  }
+
+  .spec-type {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--off);
+    letter-spacing: 0.01em;
+    line-height: 1;
+  }
+
+  /* BOTTOM STRIP */
+  .bottom-strip {
+    position: relative;
+    z-index: 10;
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 72px 62px;
+    gap: 34px;
+  }
+
+  .trust-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    padding: 22px 40px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    backdrop-filter: blur(20px);
+    box-shadow:
+      0 24px 60px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.07);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--off);
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+  }
+
+  .trust-item svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--blue);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 24px 60px;
+    border-radius: 100px;
+    text-decoration: none;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(71,151,255,0.38);
+  }
+
+  .cta-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  }
+
+  .cta-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-btn span {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+  <div class="bg-photo"></div>
+  <div class="grain"></div>
+
+  <div class="logo-bar">
+    <div class="logo-lockup">
+      <div class="logo-icon"></div>
+      <div class="logo-text">
+        <div class="logo-name">Sydney Solar Co.</div>
+        <div class="logo-tagline">500+ Local Installs</div>
+      </div>
+    </div>
+    <div class="cec-badge">
+      <span class="cec-dot"></span>
+      Free assessment · No obligation
+    </div>
+  </div>
+
+  <div class="head">
+    <div class="locality">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+      Sydney
+    </div>
+    <div class="headline">Premium Energy Plan</div>
+    <div class="rule"></div>
+
+    <div class="specs">
+      <div class="spec">
+        <span class="spec-size">13.3kW</span>
+        <span class="spec-brand">Jinko</span>
+        <span class="spec-type">Panels</span>
+      </div>
+      <div class="spec">
+        <span class="spec-size">24kWh</span>
+        <span class="spec-brand">Sigenergy</span>
+        <span class="spec-type">Battery</span>
+      </div>
+      <div class="spec">
+        <span class="spec-size">10kW</span>
+        <span class="spec-brand">Sigenergy</span>
+        <span class="spec-type">Inverter</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-strip">
+    <div class="trust-items">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        Local &amp; Family Owned
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M12 3 2 10h3v10h6v-6h2v6h6V10h3L12 3z"/></svg>
+        Qualified Electricians
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24"><path d="M9 21h8a2 2 0 0 0 1.86-1.26l3-7A2 2 0 0 0 20 10h-6l1-4.5A2.5 2.5 0 0 0 12.5 2a1 1 0 0 0-.9.55L9 8v13zM2 10h4v11H2V10z"/></svg>
+        Obligation Free Quotes
+      </div>
+    </div>
+    <a class="cta-btn" href="#">
+      <span>Get My Free Quote</span>
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg>
+    </a>
+  </div>
+</div>
+</body>
+</html>

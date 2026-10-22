@@ -1,0 +1,23 @@
+/* The site footer, the same on every page. Linked from each page's <head>;
+   the markup is the same everywhere, so change it in every page at once.
+   Class names are ql-foot-* so no page's own footer styles can reach them. */
+footer.ql-foot{display:block;margin:0;padding:56px 5%;border-top:1px solid rgba(255,255,255,0.07);background:#08080F;position:relative;z-index:3;text-align:left;color:#78787F;font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.5}
+.ql-foot-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.ql-foot-logo img{display:block;height:32px;width:auto;opacity:.7}
+.ql-foot-links{display:flex;gap:24px;flex-wrap:wrap;margin:0}
+.ql-foot-links a{font-size:.8rem;font-weight:400;color:#78787F;text-decoration:none;transition:color .2s}
+.ql-foot-links a:hover{color:#F2F2F2}
+.ql-foot-social{display:flex;gap:12px}
+.ql-foot-social a{width:34px;height:34px;border:1px solid rgba(255,255,255,0.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9A9AA3;text-decoration:none;transition:all .2s;background:rgba(255,255,255,0.04)}
+.ql-foot-social a:hover{border-color:#4797FF;color:#4797FF;background:rgba(71,151,255,0.12)}
+.ql-foot-social svg{display:block}
+.ql-foot-copy{font-size:.78rem;color:#78787F}
+.ql-foot-status{display:inline-flex;align-items:center;gap:7px;font-size:.75rem;color:#78787F}
+.ql-foot-status-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.5);flex-shrink:0;animation:qlFootPulse 2.5s ease-in-out infinite}
+@keyframes qlFootPulse{0%,100%{opacity:1}50%{opacity:.45}}
+/* Landing pages for our ads carry Meta's required disclaimer. */
+.ql-foot-disc{flex:0 0 100%;font-size:.7rem;line-height:1.65;color:#78787F;opacity:.85}
+@media(max-width:768px){
+  footer.ql-foot{padding:40px 5%}
+  .ql-foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
+}
