@@ -232,10 +232,15 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(-
   .sticky b{color:var(--white);font-family:var(--display);font-size:1.05rem}
 }
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+.note{display:none;position:relative;z-index:6;padding:14px 5%;text-align:center;font-size:.92rem;font-weight:500;background:rgba(248,113,113,.12);border-bottom:1px solid rgba(248,113,113,.3);color:#fecaca}
+.note.on{display:block}
+.note.ok{background:rgba(52,211,153,.12);border-bottom-color:rgba(52,211,153,.35);color:#bbf7d0}
+.note.on~.ar-head{top:50px}
 </style>
 </head>
 <body>
 <div id="aura"></div>
+<div class="note" id="note" role="status"></div>
 <header class="ar-head"><img src="quoteleads-logo-white.png" alt="QuoteLeads"></header>
 
 <section class="hero">
@@ -337,10 +342,34 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(-
 <div class="sticky" id="sticky"><div><b>$499</b> + GST &middot; ad-ready</div><a class="btn-buy btn-sm js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get started <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
 
 <script>
-// Stripe Payment Link for the $499 setup + $49/mo subscription. Until it is
-// set, the buy buttons open an email to us.
-var AD_READY_PAYMENT_LINK = '';
-if (AD_READY_PAYMENT_LINK) document.querySelectorAll('.js-buy').forEach(function(a){ a.href = AD_READY_PAYMENT_LINK; });
+// Checkout: create-ad-ready-checkout in ql-hq (separate from the build
+// checkouts) returns a Stripe session for the $499 setup + $49/mo. The email
+// href stays as the fallback if the script or checkout fails.
+var CHECKOUT_FN = 'https://wjadekgptkstfdootuol.supabase.co/functions/v1/create-ad-ready-checkout';
+document.querySelectorAll('.js-buy').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    if (a.dataset.busy) return;
+    var label = a.innerHTML; a.dataset.busy = '1'; a.textContent = 'Opening secure checkout…';
+    fetch(CHECKOUT_FN, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' })
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if (d && d.url) { location.href = d.url; return; } throw new Error((d && d.error) || 'no url'); })
+      .catch(function(){ delete a.dataset.busy; a.innerHTML = label; showNote('Sorry, checkout did not open. Try again, or email contact@quoteleads.com.au.', false); });
+  });
+});
+
+// Back from Stripe: ?paid=1 after payment, ?cancelled=1 if they backed out.
+function showNote(text, ok){
+  var n = document.getElementById('note');
+  n.textContent = text; n.className = 'note on' + (ok ? ' ok' : '');
+}
+var qs = new URLSearchParams(location.search);
+if (qs.get('paid')) {
+  showNote('Payment received, thank you. We will be in touch within one business day to collect your details and get started.', true);
+  if (window.fbq) fbq('track', 'Purchase', { currency: 'AUD', value: 499 });
+} else if (qs.get('cancelled')) {
+  showNote('Checkout cancelled. Nothing was charged, so you can try again whenever you are ready.', false);
+}
 
 // Phone buy bar: shows once the hero button is off screen, hides at the offer.
 var sticky=document.getElementById('sticky'),heroBuy=document.querySelector('.hero .js-buy'),offer=document.getElementById('offer');
