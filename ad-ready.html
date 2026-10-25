@@ -134,32 +134,20 @@ h2{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:6
 @media(max-width:640px){.inc,.steps{grid-template-columns:1fr}.price-row{flex-direction:column;align-items:stretch}.btn-buy{width:100%}}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 @media(max-width:900px){.nav-links{display:none}.mob-btn{display:flex}}
+.ar-foot{position:relative;z-index:3;border-top:1px solid var(--border);padding:28px 24px 36px;text-align:center}
+.ar-foot div{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;margin-bottom:10px}
+.ar-foot a{font-size:.84rem;color:var(--muted);text-decoration:none}
+.ar-foot a:hover{color:var(--white)}
+.ar-foot p{font-size:.78rem;color:var(--faint)}
 </style>
-<link rel="stylesheet" href="/footer.css">
 </head>
 <body>
 <div id="aura"></div>
-
-<!-- HEADER -->
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
-    <a href="/" class="logo"><img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:34px;width:auto;display:block"></a>
-    <ul class="nav-links">
-      <li><a href="/#how-it-works">How It Works</a></li>
-      <li><a href="/pricing">Pricing</a></li>
-      <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
-      <li><a href="/pricing#whats-included" class="nav-cta-dark">Get Started</a></li>
-    </ul>
-    <button class="mob-btn" id="mobBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    <span class="logo"><img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:34px;width:auto;display:block"></span>
   </div>
-  <nav class="mob-menu" id="mobMenu">
-    <a href="/#how-it-works">How It Works</a>
-    <a href="/pricing">Pricing</a>
-    <a href="https://quoteleadshq.com/dashboard">Login</a>
-    <a href="/pricing#whats-included" class="mob-cta-dark">Get Started</a>
-  </nav>
 </header>
-
 <div class="wrap">
   <div class="eyebrow">Before you advertise</div>
   <h1>Get ad-ready <em>before you spend a dollar on ads.</em></h1>
@@ -171,11 +159,11 @@ h2{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:6
         <div class="price-big">$499<small>+ GST one-off setup</small></div>
         <div class="price-then">Then $49/mo + GST for hosting, updates and your review bot. Cancel any time.</div>
       </div>
-      <a class="btn-buy js-buy" href="/get-started">Get ad-ready <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a class="btn-buy js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
     <div class="price-credit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span><b>Upgrade later and it pays for itself.</b> Move to a Standard or Growth ads build within 60 days and your $499 comes off the price.</span></div>
   </div>
-  <p class="alt">Questions first? <a href="/get-started">Book a call</a></p>
+  <p class="alt">Questions first? <a href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Email us</a></p>
 
   <section class="sec">
     <h2>Why this comes <em>before</em> ads</h2>
@@ -206,46 +194,24 @@ h2{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:6
   <div class="final rv">
     <h2>Ready when your ads are.</h2>
     <p>Get the foundations right now, and your $499 comes off your ads build if you upgrade within 60 days.</p>
-    <a class="btn-buy js-buy" href="/get-started">Get ad-ready <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <p class="alt" style="margin:16px 0 0">Not sure yet? <a href="/get-started">Book a call</a></p>
+    <a class="btn-buy js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <p class="alt" style="margin:16px 0 0">Not sure yet? <a href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Email us</a></p>
   </div>
 </div>
 
-<footer class="ql-foot">
-  <div class="ql-foot-inner">
-    <div class="ql-foot-logo">
-      <img src="/quoteleads-logo-white.png" alt="QuoteLeads">
-    </div>
-    <div class="ql-foot-links">
-      <a href="/">Home</a>
-      <a href="/pricing">Pricing</a>
-      <a href="https://quoteleadshq.com/dashboard">Login</a>
-      <a href="/blog">Blog</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
-    </div>
-    <div class="ql-foot-social">
-      <a href="https://facebook.com/quoteleads" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-      <a href="https://instagram.com/quoteleads" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-      <a href="https://linkedin.com/company/quoteleads" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-    </div>
-    <div class="ql-foot-copy">&copy; 2026 QuoteLeads &middot; Australian owned and operated</div>
-    <div class="ql-foot-status"><span class="ql-foot-status-dot"></span>All systems operational</div>
-  </div>
+<footer class="ar-foot">
+  <div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a></div>
+  <p>&copy; 2026 QuoteLeads &middot; Australian owned and operated</p>
 </footer>
 
 <script>
 // Stripe Payment Link for the $499 setup + $49/mo subscription. Until it is
-// set, the buy buttons fall back to the callback form.
+// set, the buy buttons open an email to us.
 var AD_READY_PAYMENT_LINK = '';
 if (AD_READY_PAYMENT_LINK) document.querySelectorAll('.js-buy').forEach(function(a){ a.href = AD_READY_PAYMENT_LINK; });
 
 var hdr=document.getElementById('siteHeader');
 window.addEventListener('scroll',function(){hdr.classList.toggle('sc',window.scrollY>20)});
-var mobBtn=document.getElementById('mobBtn'),mobMenu=document.getElementById('mobMenu');
-if(mobBtn&&mobMenu){mobBtn.addEventListener('click',function(){mobMenu.classList.toggle('open')});
-  mobMenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mobMenu.classList.remove('open')})});}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.08});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 </script>
