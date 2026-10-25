@@ -132,7 +132,6 @@ body::before{content:'';position:fixed;inset:0;
   border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.06);
   height:auto}
 .screenshot-wrap{text-align:center;margin-bottom:24px}
-.step-screenshot-sm{max-width:420px}
 .screenshot-wrap + .screenshot-wrap{margin-top:16px}
 
 /* INFO CALLOUT */
@@ -534,7 +533,7 @@ body::before{content:'';position:fixed;inset:0;
 <div class="step-title">Go to Datasets and pixels</div>
 </div>
 <div class="step-body">
-<p class="step-instruction">Still in Business Settings, open <strong style="color:var(--white)">Data Sources</strong> in the left sidebar and select <strong style="color:var(--white)">Datasets and pixels</strong>.</p>
+<p class="step-instruction">Still in Business Settings, open <strong style="color:var(--white)">Data sources</strong> in the left sidebar and select <strong style="color:var(--white)">Datasets and pixels</strong>.</p>
 <div class="leads-alert">
 <div class="la-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
 <div>
@@ -543,7 +542,7 @@ body::before{content:'';position:fixed;inset:0;
 </div>
 </div>
 <div class="screenshot-wrap">
-<img src="images/guide/pixel-7.png" width="638" height="354" alt="Data sources menu with Datasets and pixels selected" class="step-screenshot step-screenshot-sm" loading="lazy">
+<img src="images/guide/pixel-7.png" width="1200" height="630" alt="Datasets and pixels page in Meta Business Settings" class="step-screenshot" loading="lazy">
 </div>
 </div>
 </div>
@@ -551,15 +550,18 @@ body::before{content:'';position:fixed;inset:0;
 <div class="step-card">
 <div class="step-header">
 <div class="step-num">8</div>
-<div class="step-title">Add Your Pixel (Dataset)</div>
+<div class="step-title">Click Add</div>
 </div>
 <div class="step-body">
-<p class="step-instruction">Click <strong style="color:var(--white)">Add</strong>. Give your dataset a name (for example, your business name) and click <strong style="color:var(--white)">Create</strong>.</p>
+<p class="step-instruction">Click the blue <strong style="color:var(--white)">+ Add</strong> button at the top right.</p>
 <div class="info-callout">
 <div class="ic-icon">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
 </div>
-<p>Already have a Pixel? Skip creating a new one and simply select your existing dataset from the list.</p>
+<p>Already have a Pixel? Skip steps 8 and 9. Click your existing dataset in the list and go straight to step 10.</p>
+</div>
+<div class="screenshot-wrap">
+<img src="images/guide/pixel-8.png" width="1200" height="630" alt="Add button on the Datasets and pixels page" class="step-screenshot" loading="lazy">
 </div>
 </div>
 </div>
@@ -567,14 +569,39 @@ body::before{content:'';position:fixed;inset:0;
 <div class="step-card">
 <div class="step-header">
 <div class="step-num">9</div>
+<div class="step-title">Name Your Pixel (Dataset)</div>
+</div>
+<div class="step-body">
+<p class="step-instruction">Enter a name, for example <strong style="color:var(--white)">your business name + pixel</strong>, then click <strong style="color:var(--white)">Create</strong>.</p>
+<div class="screenshot-wrap">
+<img src="images/guide/pixel-9.png" width="1256" height="1238" alt="Create a new dataset dialog with a name entered" class="step-screenshot" loading="lazy">
+</div>
+</div>
+</div>
+<!-- STEP 10 -->
+<div class="step-card">
+<div class="step-header">
+<div class="step-num">10</div>
+<div class="step-title">Open the Partners Tab</div>
+</div>
+<div class="step-body">
+<p class="step-instruction">With your dataset selected, open the <strong style="color:var(--white)">Partners</strong> tab and click <strong style="color:var(--white)">Assign partner</strong>.</p>
+<div class="screenshot-wrap">
+<img src="images/guide/pixel-10.png" width="1200" height="630" alt="Partners tab on the dataset with the Assign partner button" class="step-screenshot" loading="lazy">
+</div>
+</div>
+</div>
+<!-- STEP 11 -->
+<div class="step-card">
+<div class="step-header">
+<div class="step-num">11</div>
 <div class="step-title">Share Your Pixel with QuoteLeads</div>
 </div>
 <div class="step-body">
 <ol class="sub-steps">
-<li>With your dataset selected, click <strong>Assign partners</strong>.</li>
-<li>Choose <strong>Business ID</strong> and paste the ID below.</li>
-<li>Turn on <strong>Full control (Manage dataset)</strong>. Partial access is not enough for us to set up your tracking.</li>
-<li>Click <strong>Assign</strong>.</li>
+<li>Paste the Business ID below into <strong style="color:var(--white)">Enter partner business ID</strong>.</li>
+<li>Under <strong style="color:var(--white)">Full access</strong>, turn on <strong style="color:var(--white)">Manage events dataset</strong>. Partial access is not enough for us to set up your tracking.</li>
+<li>Click <strong style="color:var(--white)">Assign</strong>.</li>
 </ol>
 <div class="copy-box" onclick="copyBizId(this)">
 <div>
@@ -586,12 +613,15 @@ body::before{content:'';position:fixed;inset:0;
 Copy
 </button>
 </div>
+<div class="screenshot-wrap">
+<img src="images/guide/pixel-11.png" width="1194" height="818" alt="Share this dataset with a partner dialog with Manage events dataset switched on" class="step-screenshot" loading="lazy">
 </div>
 </div>
-<!-- STEP 10 -->
+</div>
+<!-- STEP 12 -->
 <div class="step-card">
 <div class="step-header done">
-<div class="step-num">10</div>
+<div class="step-num">12</div>
 <div class="step-title">Confirm - You're Done!</div>
 </div>
 <div class="step-body">
@@ -599,7 +629,7 @@ Copy
 <ul class="final-check">
 <li><label><input type="checkbox"><span>Your <strong>Page</strong> is shared with <strong style="color:#FCA5A5">Leads ON</strong> <a href="#fix-leads">How to fix</a></span></label></li>
 <li><label><input type="checkbox"><span>Your <strong>Ad Account</strong> is shared with Full control</span></label></li>
-<li><label><input type="checkbox"><span>Your <strong>Pixel (Dataset)</strong> is shared with Full control <a href="#pixel">Go to step 7</a></span></label></li>
+<li><label><input type="checkbox"><span>Your <strong>Pixel (Dataset)</strong> is shared with Full access <a href="#pixel">Go to step 7</a></span></label></li>
 </ul>
 <p class="check-status" id="checkStatus">0 of 3 checked</p>
 <div class="screenshot-wrap">
