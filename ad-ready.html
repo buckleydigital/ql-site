@@ -56,153 +56,285 @@ a{color:inherit}
 #aura{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;left:50%;top:0;
   background:radial-gradient(circle,rgba(71,151,255,.05) 0%,transparent 65%);transform:translate(-50%,-30%)}
 
-/* HEADER */
-.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;
-  background:rgba(4,4,10,.6);border-bottom:1px solid transparent;
-  transition:background .4s,border-color .4s,backdrop-filter .4s;backdrop-filter:blur(20px)}
-.site-header.sc{background:rgba(4,4,10,.92);border-bottom-color:var(--border)}
-.header-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:var(--nh)}
-.logo{display:flex;align-items:center;text-decoration:none}
-.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-links a{font-size:.84rem;font-weight:400;color:var(--muted);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--white)}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);color:#fff !important;
-  font-size:.84rem;font-weight:500;padding:9px 22px;border-radius:100px;text-decoration:none;transition:all .2s;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);border:1px solid rgba(255,255,255,.16);font-weight:600;}
-.nav-cta:hover{background:var(--sky);transform:translateY(-1px);box-shadow:0 8px 28px rgba(71,151,255,.4)}
-.nav-cta-dark{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);color:#fff !important;font-family:var(--body);font-size:.84rem;font-weight:600;padding:10px 24px;border-radius:100px;border:1px solid rgba(255,255,255,.16);text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);transition:transform .2s,box-shadow .3s,filter .2s}
-.nav-cta-dark:hover{transform:translateY(-1px);filter:brightness(1.06);color:#fff !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.46),inset 0 -6px 12px rgba(0,0,0,.12),0 8px 24px rgba(71,151,255,.42),0 0 0 5px rgba(71,151,255,.13)}
-.mob-btn{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px}
-.mob-btn span{display:block;width:22px;height:1.5px;background:var(--white);transition:.3s}
-.mob-menu{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(4,4,10,.97);border-bottom:1px solid var(--border);padding:0 5% 20px;backdrop-filter:blur(28px)}
-.mob-menu.open{display:flex;flex-direction:column}
-.mob-menu a{padding:14px 0;font-size:1rem;color:var(--off);text-decoration:none;border-bottom:1px solid var(--border)}
-.mob-cta-dark{background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%) !important;color:#fff !important;padding:15px 0 !important;font-weight:600;border-radius:100px;text-align:center;margin-top:12px;border-bottom:none !important;border:1px solid rgba(255,255,255,.16) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 6px 18px rgba(71,151,255,.30)}
-.mob-cta-link{color:var(--blue) !important;font-weight:500;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);border:1px solid rgba(255,255,255,.16);font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09) !important;border:1px solid rgba(255,255,255,.16) !important;font-weight:600 !important;}
-
-/* PAGE */
-.wrap{position:relative;z-index:3;max-width:760px;margin:0 auto;padding:130px 24px 80px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
-.eyebrow::before{content:'';width:22px;height:1px;background:var(--blue)}
-h1{font-family:var(--display);font-size:clamp(2.1rem,5.4vw,3.3rem);font-weight:600;line-height:1.06;letter-spacing:-.025em;margin-bottom:16px}
+/* AD-READY SALES PAGE */
+.ar-head{position:absolute;top:0;left:0;right:0;z-index:5;padding:22px 5%}
+.ar-head img{height:34px;width:auto;display:block}
+section{position:relative;z-index:2;padding:96px 5%}
+.in{max-width:1120px;margin:0 auto}
+.in-narrow{max-width:760px}
+.band{background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(255,255,255,.008));border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em}
 h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.lead{font-size:1.04rem;color:var(--muted);line-height:1.7;max-width:600px}
-h2{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:600;line-height:1.15;letter-spacing:-.02em;margin-bottom:10px}
-.sec{margin-top:72px}
-.sec-sub{color:var(--muted);line-height:1.7;margin-bottom:26px;max-width:600px}
-.price{margin-top:30px;padding:26px;border-radius:22px;background:linear-gradient(145deg,rgba(71,151,255,.14),rgba(71,151,255,.04));border:1px solid rgba(71,151,255,.35)}
-.price-row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.price-big{font-family:var(--display);font-size:2.6rem;font-weight:600;letter-spacing:-.03em;line-height:1}
-.price-big small{font-size:.95rem;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:6px}
-.price-then{font-size:.92rem;color:var(--off);margin-top:8px}
-.price-credit{display:flex;gap:10px;align-items:flex-start;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:.86rem;color:var(--off);line-height:1.55}
-.price-credit svg{width:18px;height:18px;color:var(--green);flex-shrink:0;margin-top:1px}
-.btn-buy{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:100px;color:#fff;text-decoration:none;font-size:.98rem;font-weight:600;
-  background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);border:1px solid rgba(255,255,255,.16);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 6px 20px rgba(71,151,255,.34),0 0 0 4px rgba(71,151,255,.09);transition:transform .2s,filter .2s}
-.btn-buy:hover{transform:translateY(-1px);filter:brightness(1.06)}
-.btn-buy svg{width:17px;height:17px}
-.alt{font-size:.84rem;color:var(--muted);margin-top:14px}
+.ey{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(1.8rem,3.8vw,2.7rem);font-weight:600;line-height:1.1}
+.sec-head p{color:var(--muted);line-height:1.7;margin-top:14px;font-size:1.02rem}
+
+/* buttons */
+.btn-buy{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 30px;border-radius:100px;color:#fff;text-decoration:none;font-size:1.02rem;font-weight:600;white-space:nowrap;
+  background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);border:1px solid rgba(255,255,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -8px 14px rgba(0,0,0,.12),0 10px 30px rgba(71,151,255,.4),0 0 0 5px rgba(71,151,255,.1);transition:transform .2s,filter .2s}
+.btn-buy:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.btn-buy svg{width:18px;height:18px}
+.btn-block{width:100%}
+.btn-sm{padding:11px 18px;font-size:.88rem}
+.alt{font-size:.84rem;color:var(--muted);margin-top:14px;text-align:center}
 .alt a{color:var(--sky);text-decoration:none}
-.alt a:hover{color:var(--white)}
-.why-list{display:flex;flex-direction:column;gap:14px}
-.why{display:flex;gap:16px;padding:20px 22px;border-radius:18px;background:var(--surf);border:1px solid var(--border)}
-.why-ic{width:40px;height:40px;flex-shrink:0;border-radius:11px;display:grid;place-items:center;background:var(--bdim);border:1px solid rgba(71,151,255,.2);color:var(--sky)}
-.why-ic svg{width:20px;height:20px}
-.why h3{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:5px}
-.why p{font-size:.9rem;color:var(--muted);line-height:1.65}
-.inc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.inc li{display:flex;gap:12px;padding:16px 18px;border-radius:16px;background:var(--surf);border:1px solid var(--border)}
-.inc-ck{width:24px;height:24px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:rgba(52,211,153,.12);color:var(--green)}
-.inc-ck svg{width:13px;height:13px}
-.inc b{display:block;font-size:.92rem;font-weight:600;color:var(--white);margin-bottom:3px}
-.inc li div span{font-size:.82rem;color:var(--muted);line-height:1.55}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:s}
-.step{padding:20px;border-radius:18px;background:var(--surf);border:1px solid var(--border)}
-.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;font-weight:600;font-size:.85rem;margin-bottom:12px}
-.step h3{font-family:var(--display);font-size:.98rem;font-weight:600;margin-bottom:5px}
-.step p{font-size:.85rem;color:var(--muted);line-height:1.6}
-.faq{border-bottom:1px solid var(--border);padding:18px 0}
-.faq summary{cursor:pointer;list-style:none;font-weight:600;font-size:.96rem;display:flex;justify-content:space-between;gap:16px}
+
+/* hero */
+.hero{padding:140px 5% 100px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 55% at 78% 40%,rgba(71,151,255,.18),transparent 70%),radial-gradient(50% 40% at 10% 0%,rgba(71,151,255,.08),transparent 70%)}
+.hero-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;position:relative}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--sky);background:var(--bdim);border:1px solid rgba(71,151,255,.3);margin-bottom:22px}
+.pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.hero h1{font-size:clamp(2.4rem,5.2vw,3.9rem);font-weight:600;line-height:1.03;margin-bottom:20px}
+.sub{font-size:1.1rem;color:var(--muted);line-height:1.65;max-width:540px}
+.hero-buy{display:flex;align-items:center;gap:22px;margin-top:32px;flex-wrap:wrap}
+.hero-price{font-size:.9rem;color:var(--off);line-height:1.45}
+.hero-price b{font-family:var(--display);font-size:1.5rem;color:var(--white)}
+.hero-price span{color:var(--muted);font-size:.82rem}
+.hero-ticks{list-style:none;display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px}
+.hero-ticks li{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--off)}
+.hero-ticks svg{width:16px;height:16px;color:var(--green)}
+
+/* hero mock */
+.mock{position:relative;height:460px}
+.mock-card{position:absolute;background:#fff;color:#1c1c24;border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.06)}
+.mock-site{left:0;right:60px;top:30px;overflow:hidden}
+.mock-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#f1f3f6;border-bottom:1px solid #e3e6ea}
+.mock-bar i{width:9px;height:9px;border-radius:50%;background:#d4d8de}
+.mock-bar span{margin-left:10px;font-size:.72rem;color:#7a8190;background:#fff;padding:3px 10px;border-radius:6px}
+.mock-hero{padding:34px 26px 30px;background:linear-gradient(135deg,#0f2550,#1c4aa0);color:#fff;display:flex;flex-direction:column;gap:8px;min-height:190px}
+.mock-hero b{font-family:var(--display);font-size:1.45rem;line-height:1.15}
+.mock-hero small{font-size:.76rem;opacity:.75}
+.mock-cta{align-self:flex-start;margin-top:10px;background:#4797FF;color:#fff;font-size:.78rem;font-weight:600;padding:9px 16px;border-radius:100px}
+.mock-gbp{right:0;top:200px;width:290px;padding:18px;z-index:2}
+.mock-top{display:flex;gap:12px;align-items:center}
+.mock-logo{width:40px;height:40px;border-radius:10px;background:#1c4aa0;color:#fff;display:grid;place-items:center;font-weight:700;font-size:.85rem}
+.mock-top b{display:block;font-size:.95rem}
+.mock-top small{font-size:.74rem;color:#188038}
+.mock-rating{display:flex;align-items:center;gap:6px;margin:12px 0 14px;font-size:.8rem}
+.mock-rating small{color:#70757a}
+.stars{color:#fbbc04;letter-spacing:1px}
+.mock-btns{display:flex;gap:6px}
+.mock-btns span{flex:1;text-align:center;font-size:.72rem;font-weight:600;padding:8px 0;border-radius:100px;border:1px solid #dadce0;color:#1a73e8}
+.mock-btns .on{background:#1a73e8;color:#fff;border-color:#1a73e8}
+.mock-review{left:24px;top:290px;width:250px;padding:16px;z-index:3}
+.mock-review p{font-size:.8rem;line-height:1.45;margin:6px 0}
+.mock-review small{font-size:.7rem;color:#70757a}
+.mock-chip{position:absolute;right:30px;top:0;z-index:4;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:100px;font-size:.78rem;font-weight:600;color:#fff;background:rgba(52,211,153,.18);border:1px solid rgba(52,211,153,.45);backdrop-filter:blur(8px)}
+.mock-chip svg{width:14px;height:14px;color:var(--green)}
+
+/* compare */
+.cmp{display:flex;flex-direction:column;gap:10px}
+.cmp-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%}
+.cmp-row>div{padding:18px 20px;border-radius:14px;font-size:.92rem;line-height:1.5}
+.cmp-q{background:var(--surf);border:1px solid var(--border);font-weight:600;color:var(--white)}
+.cmp-bad,.cmp-good{display:flex;gap:10px;align-items:flex-start}
+.cmp-bad{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.2);color:var(--off)}
+.cmp-good{background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.25);color:var(--white)}
+.cmp-bad span,.cmp-good span{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
+.cmp-bad span{background:rgba(248,113,113,.15);color:#f87171}
+.cmp-good span{background:rgba(52,211,153,.15);color:var(--green)}
+.cmp-bad svg,.cmp-good svg{width:11px;height:11px}
+.cmp-labels>div{padding:0 20px !important;background:none !important;border:none !important;font-size:.72rem !important;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.cmp-labels .cmp-bad{color:#f87171}
+.cmp-labels .cmp-good{color:var(--green)}
+
+/* what you get */
+.gets{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.get{padding:22px 18px;border-radius:18px;background:var(--surf);border:1px solid var(--border);transition:border-color .2s,transform .2s}
+.get:hover{border-color:rgba(71,151,255,.35);transform:translateY(-2px)}
+.get-ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--bdim);border:1px solid rgba(71,151,255,.22);color:var(--sky);margin-bottom:16px}
+.get-ic svg{width:21px;height:21px}
+.get h3{font-size:.98rem;font-weight:600;margin-bottom:6px}
+.get p{font-size:.82rem;color:var(--muted);line-height:1.55}
+
+/* offer */
+.offer{display:grid;grid-template-columns:1.3fr 1fr;gap:0;border-radius:28px;overflow:hidden;border:1px solid rgba(71,151,255,.35);box-shadow:0 40px 100px rgba(0,0,0,.45),0 0 80px rgba(71,151,255,.08)}
+.offer-l{padding:44px;background:var(--surf)}
+.offer-l h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:600;line-height:1.1;margin-bottom:24px}
+.stack{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}
+.stack li{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--off)}
+.tick{width:22px;height:22px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:rgba(52,211,153,.14);color:var(--green)}
+.tick svg{width:12px;height:12px}
+.offer-r{padding:44px 38px;background:linear-gradient(160deg,rgba(71,151,255,.2),rgba(71,151,255,.05));display:flex;flex-direction:column;justify-content:center;text-align:center}
+.offer-price{font-family:var(--display);font-size:4.2rem;font-weight:600;letter-spacing:-.04em;line-height:1}
+.offer-price small{font-size:1.1rem;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:6px}
+.offer-once{font-size:.9rem;color:var(--off);margin:6px 0 16px}
+.offer-then{font-size:.88rem;color:var(--muted);line-height:1.55;margin-bottom:24px}
+.offer-then b{color:var(--white)}
+.credit{display:flex;gap:10px;text-align:left;margin-top:20px;padding:14px 16px;border-radius:14px;background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);font-size:.84rem;color:var(--off);line-height:1.5}
+.credit svg{width:20px;height:20px;color:var(--green);flex-shrink:0}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{padding:28px;border-radius:20px;background:var(--surf);border:1px solid var(--border)}
+.step span{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;margin-bottom:16px;box-shadow:0 6px 18px rgba(71,151,255,.35)}
+.step h3{font-size:1.08rem;font-weight:600;margin-bottom:6px}
+.step p{font-size:.9rem;color:var(--muted);line-height:1.6}
+
+/* faq */
+.faq{border-bottom:1px solid var(--border);padding:20px 0}
+.faq summary{cursor:pointer;list-style:none;font-weight:600;font-size:1rem;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';color:var(--blue);font-size:1.2rem;line-height:1}
+.faq summary::after{content:'+';color:var(--blue);font-size:1.3rem;line-height:1}
 .faq[open] summary::after{content:'\2212'}
-.faq p{color:var(--muted);line-height:1.7;font-size:.9rem;margin-top:10px}
-.final{margin-top:72px;text-align:center;padding:40px 24px;border-radius:24px;background:linear-gradient(145deg,rgba(71,151,255,.14),rgba(71,151,255,.03));border:1px solid rgba(71,151,255,.3)}
-.final p{color:var(--muted);margin:0 auto 22px;max-width:480px;line-height:1.7}
-.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.rv.in{opacity:1;transform:none}
-@media(max-width:640px){.inc,.steps{grid-template-columns:1fr}.price-row{flex-direction:column;align-items:stretch}.btn-buy{width:100%}}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
-@media(max-width:900px){.nav-links{display:none}.mob-btn{display:flex}}
-.ar-foot{position:relative;z-index:3;border-top:1px solid var(--border);padding:28px 24px 36px;text-align:center}
+.faq p{color:var(--muted);line-height:1.7;font-size:.94rem;margin-top:10px}
+
+/* final */
+.final{text-align:center;padding:110px 5%;background:radial-gradient(60% 70% at 50% 100%,rgba(71,151,255,.16),transparent 70%)}
+.final h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:600;line-height:1.1;margin-bottom:16px}
+.final p{color:var(--muted);line-height:1.7;margin:0 auto 30px;max-width:520px;font-size:1.02rem}
+
+/* footer + sticky */
+.ar-foot{position:relative;z-index:2;border-top:1px solid var(--border);padding:28px 24px 36px;text-align:center}
 .ar-foot div{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;margin-bottom:10px}
 .ar-foot a{font-size:.84rem;color:var(--muted);text-decoration:none}
 .ar-foot a:hover{color:var(--white)}
 .ar-foot p{font-size:.78rem;color:var(--faint)}
+.sticky{display:none}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:1000px){
+  .hero-in{grid-template-columns:1fr;gap:40px}
+  .mock{height:400px;max-width:520px}
+  .gets{grid-template-columns:repeat(2,1fr)}
+  .offer{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  section{padding:72px 5%}
+  .hero{padding:110px 5% 70px}
+  .hero-buy{flex-direction:column;align-items:stretch;text-align:center}
+  .btn-buy{width:100%}
+  .btn-sm{width:auto}
+  .mock{height:330px}
+  .mock-site{right:0;top:20px}
+  .mock-hero{min-height:150px;padding:24px 20px}
+  .mock-hero b{font-size:1.2rem}
+  .mock-gbp{width:240px;top:175px;right:-6px}
+  .mock-review{display:none}
+  .mock-chip{right:10px;top:-6px}
+  .cmp-row{grid-template-columns:1fr}
+  .cmp-labels{display:none}
+  .cmp-row{padding:6px;border-radius:18px;background:rgba(255,255,255,.02);border:1px solid var(--border)}
+  .gets{grid-template-columns:1fr 1fr;gap:10px}
+  .get{padding:18px 14px}
+  .offer-l,.offer-r{padding:30px 22px}
+  .stack{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .sticky{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:50;align-items:center;justify-content:space-between;gap:12px;
+    padding:10px 10px 10px 18px;border-radius:100px;background:rgba(12,12,24,.92);border:1px solid rgba(71,151,255,.35);backdrop-filter:blur(14px);
+    box-shadow:0 14px 40px rgba(0,0,0,.5);font-size:.86rem;color:var(--off);transform:translateY(140%);transition:transform .3s}
+  .sticky.on{transform:none}
+  .sticky b{color:var(--white);font-family:var(--display);font-size:1.05rem}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 <div id="aura"></div>
-<header class="site-header" id="siteHeader">
-  <div class="header-inner">
-    <span class="logo"><img src="quoteleads-logo-white.png" alt="QuoteLeads" style="height:34px;width:auto;display:block"></span>
-  </div>
-</header>
-<div class="wrap">
-  <div class="eyebrow">Before you advertise</div>
-  <h1>Get ad-ready <em>before you spend a dollar on ads.</em></h1>
-  <p class="lead">Your website, Google profile, reviews, listings and tracking, all set up properly so every dollar you later put into ads works harder.</p>
+<header class="ar-head"><img src="quoteleads-logo-white.png" alt="QuoteLeads"></header>
 
-  <div class="price">
-    <div class="price-row">
-      <div>
-        <div class="price-big">$499<small>+ GST one-off setup</small></div>
-        <div class="price-then">Then $49/mo + GST for hosting, updates and your review bot. Cancel any time.</div>
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-copy">
+      <div class="pill">Before you spend on ads</div>
+      <h1>Get <em>ad-ready</em> so every ad dollar actually lands.</h1>
+      <p class="sub">We set up your website, Google profile, reviews, listings and tracking, done for you, so the people your ads reach find a business worth calling.</p>
+      <div class="hero-buy"><a class="btn-buy js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="hero-price"><b>$499</b> + GST one-off<br><span>then $49/mo &middot; cancel any time</span></div>
       </div>
-      <a class="btn-buy js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <ul class="hero-ticks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Done for you</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Everything in your name</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>$499 back if you upgrade</li></ul>
     </div>
-    <div class="price-credit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span><b>Upgrade later and it pays for itself.</b> Move to a Standard or Growth ads build within 60 days and your $499 comes off the price.</span></div>
+    <div class="mock" aria-hidden="true">
+  <div class="mock-card mock-gbp">
+    <div class="mock-top"><div class="mock-logo">YB</div><div><b>Your Business</b><small>Roofing contractor &middot; Open now</small></div></div>
+    <div class="mock-rating"><b>4.9</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><small>Google reviews</small></div>
+    <div class="mock-btns"><span>Website</span><span>Directions</span><span class="on">Call</span></div>
   </div>
-  <p class="alt">Questions first? <a href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Email us</a></p>
-
-  <section class="sec">
-    <h2>Why this comes <em>before</em> ads</h2>
-    <p class="sec-sub">Ads bring people to your door. What they find when they get there decides whether they call you or the next tradie.</p>
-    <div class="why-list"><div class="why rv"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><div><h3>They look you up before they ring</h3><p>Most homeowners check your Google profile and website before they call. A thin site or a profile with three reviews loses the job your ad just paid to find.</p></div></div><div class="why rv"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="7" y1="13" x2="13" y2="13"/><line x1="7" y1="16" x2="11" y2="16"/></svg></div><div><h3>Ads need somewhere good to land</h3><p>Every click costs money. A slow or generic page wastes it, while a fast page built for one offer turns more of those clicks into enquiries.</p></div></div><div class="why rv"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3 12 2"/></svg></div><div><h3>Reviews do the selling for you</h3><p>Put two quotes side by side and the one with plenty of recent reviews usually wins. Starting with your past customers and asking after every job builds that proof on autopilot.</p></div></div><div class="why rv"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><div><h3>Tracking is how ads get smarter</h3><p>Meta and Google learn who becomes a real enquiry from your tracking. Without the pixel and conversion events in place, you pay to train them blind.</p></div></div><div class="why rv"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div><h3>Ad platforms check you out too</h3><p>Meta and Google expect a privacy policy and real, consistent business details. Getting these right up front avoids rejected ads and helps you rank locally.</p></div></div></div>
-  </section>
-
-  <section class="sec">
-    <h2>What's included</h2>
-    <p class="sec-sub">Everything below, done for you, for a one-off $499 + GST.</p>
-    <ul class="inc"><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Website built to rank</b><span>Up to 5 pages, fast on mobile, local SEO and schema, with your licence, insurance and ABN on show.</span></div></li><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Landing page ready for ads</b><span>One page, one offer, built to turn ad clicks into enquiries.</span></div></li><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Google Business Profile</b><span>Set up or optimised: categories, services, service area, photos and posts.</span></div></li><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Google review campaign</b><span>We contact your past customers and ask for a review, so you start with proof.</span></div></li><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Review bot for every new job</b><span>Automatically asks each new customer for a review once the job is done.</span></div></li><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>5+ local directory listings</b><span>Quality Australian directories, with your name, address and phone identical everywhere.</span></div></li><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Tracking installed</b><span>Meta Pixel, Google Analytics, Google Tag and Search Console, with your sitemap submitted.</span></div></li><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Meta set up properly</b><span>Business Portfolio, Facebook Page and Instagram ready for ads.</span></div></li><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Privacy policy page</b><span>Required by Meta and Google before you can run lead ads.</span></div></li><li><span class="inc-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><div><b>Domain, hosting and email</b><span>Set up in your name if you need them.</span></div></li></ul>
-  </section>
-
-  <section class="sec">
-    <h2>How it works</h2>
-    <div class="steps">
-      <div class="step rv"><h3>Buy online</h3><p>Pay the $499 setup and you are booked in straight away.</p></div>
-      <div class="step rv"><h3>Send us the basics</h3><p>Your logo, services, service area, photos and a list of past customers for the review campaign.</p></div>
-      <div class="step rv"><h3>Approve and go live</h3><p>We build everything and send it to you to approve before it goes live.</p></div>
-    </div>
-  </section>
-
-  <section class="sec">
-    <h2>Questions</h2>
-    <details class="faq rv"><summary>I already have a website. Do I still need this?</summary><p>We start by checking what you have. If your site is solid we optimise it, otherwise we build a new one. Either way you end up ad-ready.</p></details><details class="faq rv"><summary>What does the $49 a month cover?</summary><p>Hosting and updates for your website, the review bot, and keeping your Google profile and listings current. Month to month, cancel any time.</p></details><details class="faq rv"><summary>Will I rank number one on Google?</summary><p>Nobody can honestly promise a ranking. What we do is set up everything Google looks at for local businesses, so you are in the best position to rank.</p></details><details class="faq rv"><summary>What is not included?</summary><p>Ad spend and running ads. When you are ready for that, upgrade to a Standard or Growth build and your $499 comes off the price.</p></details><details class="faq rv"><summary>Who owns everything?</summary><p>You do. Your domain, website content, Google profile and listings are in your business name.</p></details>
-  </section>
-
-  <div class="final rv">
-    <h2>Ready when your ads are.</h2>
-    <p>Get the foundations right now, and your $499 comes off your ads build if you upgrade within 60 days.</p>
-    <a class="btn-buy js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-    <p class="alt" style="margin:16px 0 0">Not sure yet? <a href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Email us</a></p>
+  <div class="mock-card mock-review"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>&ldquo;Turned up on time, quoted fairly and the job was spotless.&rdquo;</p><small>New review &middot; just now</small></div>
+  <div class="mock-card mock-site">
+    <div class="mock-bar"><i></i><i></i><i></i><span>yourbusiness.com.au</span></div>
+    <div class="mock-hero"><b>Local roofing, done right.</b><small>Licensed &middot; Insured &middot; ABN shown</small><span class="mock-cta">Get a free quote</span></div>
   </div>
+  <div class="mock-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Tracking live</div>
 </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="in">
+    <div class="sec-head rv"><div class="ey">The problem</div><h2>Ads bring them to your door. <em>This decides if they call.</em></h2>
+    <p>Most trades start ads with gaps that quietly burn their budget. Here is what a homeowner sees either way.</p></div>
+    <div class="cmp">
+      <div class="cmp-row cmp-labels"><div></div><div class="cmp-bad">Without it</div><div class="cmp-good">Ad-ready</div></div>
+      <div class="cmp-row rv"><div class="cmp-q">Homeowner Googles you after seeing your ad</div><div class="cmp-bad"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>A thin profile with a handful of reviews</div><div class="cmp-good"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>A full profile and a steady stream of fresh reviews</div></div><div class="cmp-row rv"><div class="cmp-q">They click through to your website</div><div class="cmp-bad"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>A slow, generic page that loses them</div><div class="cmp-good"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>A fast page built for the exact offer</div></div><div class="cmp-row rv"><div class="cmp-q">Meta and Google try to find more customers</div><div class="cmp-bad"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>No tracking, so they guess with your money</div><div class="cmp-good"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Pixel and conversions feeding them real data</div></div><div class="cmp-row rv"><div class="cmp-q">Your ad goes in for review</div><div class="cmp-bad"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>Missing privacy policy or business details</div><div class="cmp-good"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Everything they check for, already in place</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <div class="sec-head rv"><div class="ey">What you get</div><h2>Ten things done for you. <em>One price.</em></h2></div>
+    <div class="gets"><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>Website built to rank</h3><p>Up to 5 pages, fast on mobile, local SEO, with your licence, insurance and ABN on show.</p></div><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="7" y1="13" x2="13" y2="13"/></svg></div><h3>Ad-ready landing page</h3><p>One page, one offer, built to turn ad clicks into enquiries.</p></div><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Google Business Profile</h3><p>Set up or optimised so you show up in local searches and on Maps.</p></div><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3 12 2"/></svg></div><h3>Review campaign</h3><p>We ask your past customers for Google reviews, so you start with proof.</p></div><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="3"/><line x1="12" y1="3" x2="12" y2="7"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/></svg></div><h3>Review bot</h3><p>Asks every new customer for a review once the job is done. Automatically.</p></div><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="5" cy="6" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="5" cy="18" r="1"/></svg></div><h3>5+ directory listings</h3><p>Quality Australian directories, with your details identical everywhere.</p></div><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><h3>Tracking installed</h3><p>Meta Pixel, Google Analytics, Google Tag and Search Console.</p></div><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15c0-4 2-8 4.5-8S12 12 12 12s2-5 4.5-5S21 11 21 15c0 2-1 3-2.5 3S15 15 12 12c-3 3-4 6-6.5 6S3 17 3 15z"/></svg></div><h3>Meta set up properly</h3><p>Business Portfolio, Facebook Page and Instagram ready for ads.</p></div><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><h3>Privacy policy</h3><p>Required by Meta and Google before you can run lead ads.</p></div><div class="get rv"><div class="get-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></div><h3>Domain, hosting and email</h3><p>Set up in your name if you need them.</p></div></div>
+  </div>
+</section>
+
+<section class="band" id="offer">
+  <div class="in">
+    <div class="offer rv">
+      <div class="offer-l">
+        <div class="ey">The offer</div>
+        <h2>Everything above, for <em>$499</em>.</h2>
+        <ul class="stack"><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Website built to rank</li><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Ad-ready landing page</li><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Google Business Profile</li><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Review campaign</li><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Review bot</li><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>5+ directory listings</li><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Tracking installed</li><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Meta set up properly</li><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Privacy policy</li><li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>Domain, hosting and email</li></ul>
+      </div>
+      <div class="offer-r">
+        <div class="offer-price">$499<small>+ GST</small></div>
+        <div class="offer-once">one-off setup</div>
+        <div class="offer-then">then <b>$49/mo + GST</b> for hosting, updates and your review bot. Cancel any time.</div>
+        <a class="btn-buy btn-block js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <div class="credit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span><b>It pays for itself.</b> Upgrade to a Standard or Growth ads build within 60 days and your $499 comes off.</span></div>
+        <p class="alt">Questions first? <a href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Email us</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="in">
+    <div class="sec-head rv"><div class="ey">How it works</div><h2>Three steps. <em>We do the heavy lifting.</em></h2></div>
+    <div class="steps">
+      <div class="step rv"><span>1</span><h3>Buy online</h3><p>Pay the $499 setup and you are booked in straight away.</p></div>
+      <div class="step rv"><span>2</span><h3>Send us the basics</h3><p>Logo, services, service area, photos and a list of past customers.</p></div>
+      <div class="step rv"><span>3</span><h3>Approve and go live</h3><p>We build it all and send it to you to approve before it goes live.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="in in-narrow">
+    <div class="sec-head rv"><div class="ey">Questions</div><h2>Answered.</h2></div>
+    <details class="faq"><summary>I already have a website. Do I still need this?</summary><p>We start by checking what you have. If your site is solid we optimise it, otherwise we build a new one. Either way you end up ad-ready.</p></details><details class="faq"><summary>What does the $49 a month cover?</summary><p>Hosting and updates for your website, the review bot, and keeping your Google profile and listings current. Month to month, cancel any time.</p></details><details class="faq"><summary>Will I rank number one on Google?</summary><p>Nobody can honestly promise a ranking. We set up everything Google looks at for local businesses, so you are in the best position to rank.</p></details><details class="faq"><summary>What is not included?</summary><p>Ad spend and running ads. When you are ready, upgrade to a Standard or Growth ads build and your $499 comes off the price.</p></details><details class="faq"><summary>Who owns everything?</summary><p>You do. Your domain, website content, Google profile and listings are in your business name.</p></details>
+  </div>
+</section>
+
+<section class="final">
+  <div class="in in-narrow rv">
+    <h2>Get the foundations right <em>before</em> you pay for clicks.</h2>
+    <p>$499 + GST, done for you, and it comes off your ads build if you upgrade within 60 days.</p>
+    <a class="btn-buy js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+  </div>
+</section>
 
 <footer class="ar-foot">
   <div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a></div>
   <p>&copy; 2026 QuoteLeads &middot; Australian owned and operated</p>
 </footer>
+
+<div class="sticky" id="sticky"><div><b>$499</b> + GST &middot; ad-ready</div><a class="btn-buy btn-sm js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get started <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
 
 <script>
 // Stripe Payment Link for the $499 setup + $49/mo subscription. Until it is
@@ -210,8 +342,13 @@ h2{font-family:var(--display);font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:6
 var AD_READY_PAYMENT_LINK = '';
 if (AD_READY_PAYMENT_LINK) document.querySelectorAll('.js-buy').forEach(function(a){ a.href = AD_READY_PAYMENT_LINK; });
 
-var hdr=document.getElementById('siteHeader');
-window.addEventListener('scroll',function(){hdr.classList.toggle('sc',window.scrollY>20)});
+// Phone buy bar: shows once the hero button is off screen, hides at the offer.
+var sticky=document.getElementById('sticky'),heroBuy=document.querySelector('.hero .js-buy'),offer=document.getElementById('offer');
+var seenHero=true,seenOffer=false;
+function upd(){sticky.classList.toggle('on',!seenHero&&!seenOffer)}
+new IntersectionObserver(function(e){seenHero=e[0].isIntersecting;upd()}).observe(heroBuy);
+new IntersectionObserver(function(e){seenOffer=e[0].isIntersecting;upd()}).observe(offer);
+
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.08});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 </script>
