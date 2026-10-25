@@ -187,6 +187,24 @@ body::before{content:'';position:fixed;inset:0;
 .leads-alert h3{font-family:var(--display);font-size:.98rem;font-weight:600;color:#FCA5A5;margin-bottom:6px;letter-spacing:-.01em}
 .leads-alert p{font-size:.86rem;color:var(--off);line-height:1.65}
 .leads-alert strong{color:var(--white)}
+
+/* FIX-IT + FINAL CHECKLIST */
+.fix-callout{background:var(--glass2);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-top:24px}
+.fix-callout h4{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:6px}
+.fix-callout p,.fix-callout li{font-size:.82rem;color:var(--muted);line-height:1.65}
+.fix-callout ol,.sub-steps{padding-left:20px}
+.fix-callout strong,.sub-steps strong{color:var(--white)}
+.sub-steps{margin:0 0 24px}
+.sub-steps li{font-size:.9rem;color:var(--off);line-height:1.7;margin-bottom:6px}
+.final-check{list-style:none;margin:0 0 24px;display:flex;flex-direction:column;gap:10px}
+.final-check label{display:flex;gap:12px;align-items:flex-start;background:var(--glass2);border:1px solid var(--border);
+  border-radius:12px;padding:14px 18px;cursor:none;font-size:.88rem;color:var(--off);line-height:1.6;transition:border-color .2s,background .2s}
+.final-check input{width:18px;height:18px;margin-top:3px;flex-shrink:0;accent-color:#22C55E}
+.final-check strong{color:var(--white)}
+.final-check a{color:var(--sky);white-space:nowrap}
+.final-check label:has(input:checked){border-color:rgba(34,197,94,.4);background:rgba(34,197,94,.06)}
+.check-status{font-size:.85rem;color:var(--muted);margin-bottom:24px}
+.check-status.ok{color:#4ADE80;font-weight:500}
 .perm-table tr.row-leads{background:rgba(239,68,68,.08)}
 .perm-table tr.row-leads td{border-bottom-color:rgba(239,68,68,.2)}
 .perm-table tr.row-leads td:first-child{color:#FCA5A5;font-weight:600}
@@ -451,6 +469,14 @@ body::before{content:'';position:fixed;inset:0;
             </tbody>
           </table>
         </div>
+        <div class="fix-callout" id="fix-leads">
+          <h4>Already saved with Leads OFF? Here's how to fix it</h4>
+          <ol>
+            <li>Go to <strong>Settings → Users → Partners</strong> and click <strong>QuoteLeads</strong>.</li>
+            <li>Under the shared assets, select your <strong>Page</strong> and choose to edit or manage its permissions.</li>
+            <li>Switch <strong>Leads</strong> ON and click <strong>Save</strong>. No need to start again.</li>
+          </ol>
+        </div>
       </div>
     </div>
 
@@ -551,7 +577,12 @@ alt="Meta Business Settings: 1 Data sources, 2 Datasets and pixels then Add, 3 c
 <div class="step-title">Share Your Pixel with QuoteLeads</div>
 </div>
 <div class="step-body">
-<p class="step-instruction">With your dataset selected, click <strong style="color:var(--white)">Assign partners</strong>. Choose <strong style="color:var(--white)">Business ID</strong>, paste the ID below, turn on <strong style="color:var(--white)">Full control (Manage dataset)</strong>, then click <strong style="color:var(--white)">Assign</strong>.</p>
+<ol class="sub-steps">
+<li>With your dataset selected, click <strong>Assign partners</strong>.</li>
+<li>Choose <strong>Business ID</strong> and paste the ID below.</li>
+<li>Turn on <strong>Full control (Manage dataset)</strong>. Partial access is not enough for us to set up your tracking.</li>
+<li>Click <strong>Assign</strong>.</li>
+</ol>
 <div class="copy-box" onclick="copyBizId(this)">
 <div>
 <div class="copy-box-label">QuoteLeads Business ID</div>
@@ -571,7 +602,13 @@ Copy
 <div class="step-title">Confirm - You're Done!</div>
 </div>
 <div class="step-body">
-<p class="step-instruction">Check that QuoteLeads now appears under <strong style="color:var(--white)">Partners</strong> for your Page (with <strong style="color:#FCA5A5">Leads</strong> ON), your Ad Account and your Pixel. That's it, you're all set!</p>
+<p class="step-instruction">Open <strong style="color:var(--white)">Settings → Users → Partners → QuoteLeads</strong> and tick off each item below. Leads and the Pixel are the two most often missed, so please check them before you finish.</p>
+<ul class="final-check">
+<li><label><input type="checkbox"><span>Your <strong>Page</strong> is shared with <strong style="color:#FCA5A5">Leads ON</strong> <a href="#fix-leads">How to fix</a></span></label></li>
+<li><label><input type="checkbox"><span>Your <strong>Ad Account</strong> is shared with Full control</span></label></li>
+<li><label><input type="checkbox"><span>Your <strong>Pixel (Dataset)</strong> is shared with Full control <a href="#pixel">Go to step 7</a></span></label></li>
+</ul>
+<p class="check-status" id="checkStatus">0 of 3 checked</p>
 <div class="screenshot-wrap">
 <img src="images/guide/bm1-9.png" alt="Assets assigned confirmation" class="step-screenshot" loading="lazy">
 </div>
@@ -661,7 +698,7 @@ const cur=document.getElementById('cur'),curR=document.getElementById('curR'),au
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';aura.style.left=mx+'px';aura.style.top=my+'px'});
 (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
-document.querySelectorAll('a,button,.copy-box').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
+document.querySelectorAll('a,button,.copy-box,.final-check label').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'))});
 
 /* SCROLL HEADER + PROGRESS */
 const hdr=document.getElementById('siteHeader'),prog=document.getElementById('scrollProg');
@@ -678,6 +715,14 @@ window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.
 const cols=['rgba(71,151,255,','rgba(124,185,255,','rgba(184,212,255,'];
 const pts=Array.from({length:60},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.5+.5,a:Math.random(),c:cols[Math.floor(Math.random()*cols.length)]}));
 (function draw(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c+p.a+')';ctx.fill()});requestAnimationFrame(draw)})();
+
+/* FINAL CHECKLIST */
+const checks=document.querySelectorAll('.final-check input'),checkStatus=document.getElementById('checkStatus');
+checks.forEach(c=>c.addEventListener('change',()=>{
+const n=[...checks].filter(x=>x.checked).length;
+checkStatus.textContent=n===checks.length?"All set! We'll take it from here.":n+' of '+checks.length+' checked';
+checkStatus.classList.toggle('ok',n===checks.length);
+}));
 
 /* COPY TO CLIPBOARD */
 function copyBizId(box){
