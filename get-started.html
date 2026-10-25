@@ -85,6 +85,17 @@ a{color:inherit}
 .eyebrow::before{content:'';width:22px;height:1px;background:var(--blue)}
 h1{font-family:var(--display);font-size:clamp(2rem,5vw,3rem);font-weight:600;line-height:1.06;letter-spacing:-.025em;margin-bottom:14px}
 h1 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.buy-first{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:26px 0 0;padding:20px 22px;border-radius:18px;
+  text-decoration:none;background:linear-gradient(145deg,rgba(71,151,255,.16),rgba(71,151,255,.06));border:1px solid rgba(71,151,255,.35);transition:border-color .2s,transform .2s}
+.buy-first:hover{border-color:rgba(71,151,255,.6);transform:translateY(-1px)}
+.buy-first-title{font-family:var(--display);font-size:1.02rem;font-weight:600;color:var(--white)}
+.buy-first-sub{font-size:.84rem;color:var(--muted);line-height:1.55;margin-top:4px}
+.buy-first-btn{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;padding:11px 18px;border-radius:100px;color:#fff;font-size:.86rem;font-weight:600;
+  background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);box-shadow:0 6px 18px rgba(71,151,255,.3)}
+.buy-first-btn svg{width:15px;height:15px}
+.or-divider{display:flex;align-items:center;gap:14px;margin:30px 0 18px;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+@media(max-width:520px){.buy-first{flex-direction:column;align-items:flex-start}.buy-first-btn{align-self:stretch;justify-content:center}}
 .lead{font-size:1rem;color:var(--muted);line-height:1.7;max-width:520px;margin-bottom:8px}
 .callback-note{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--off);background:var(--bdim);border:1px solid var(--bblue);border-radius:100px;padding:7px 14px;margin-top:18px}
 .callback-note svg{width:14px;height:14px;stroke:var(--blue);fill:none;stroke-width:2}
@@ -153,7 +164,7 @@ input.invalid,select.invalid{border-color:rgba(248,113,113,.55)}
       <li><a href="/#how-it-works">How It Works</a></li>
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
-      <li><a href="/get-started" class="nav-cta-dark">Get Started</a></li>
+      <li><a href="/pricing#whats-included" class="nav-cta-dark">Get Started</a></li>
     </ul>
     <button class="mob-btn" id="mobBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -161,7 +172,7 @@ input.invalid,select.invalid{border-color:rgba(248,113,113,.55)}
     <a href="/#how-it-works">How It Works</a>
     <a href="/pricing">Pricing</a>
     <a href="https://quoteleadshq.com/dashboard">Login</a>
-    <a href="/get-started" class="mob-cta-dark">Get Started</a>
+    <a href="/pricing#whats-included" class="mob-cta-dark">Get Started</a>
   </nav>
 </header>
 
@@ -169,6 +180,14 @@ input.invalid,select.invalid{border-color:rgba(248,113,113,.55)}
   <div id="formView">
     <div class="eyebrow">Get Started</div>
     <h1>Let's get you <em>more jobs.</em></h1>
+    <a class="buy-first" href="/pricing#whats-included">
+      <div>
+        <div class="buy-first-title">Ready to go? Buy online.</div>
+        <div class="buy-first-sub">Pick your build, pay, and onboarding starts today. Standard $2,500 or Growth $5,000 + GST.</div>
+      </div>
+      <span class="buy-first-btn">See plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+    </a>
+    <div class="or-divider">or talk to us first</div>
     <p class="lead">Fill in your details and request a callback - we'll walk you through the Branded Lead Gen System and get you set up.</p>
 
     <div class="card">
