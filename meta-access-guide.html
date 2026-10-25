@@ -219,7 +219,9 @@ body::before{content:'';position:fixed;inset:0;
 .next-card{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
   border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px 24px;
   display:flex;align-items:flex-start;gap:18px}
-.next-card-icon{font-size:1.3rem;flex-shrink:0;line-height:1;margin-top:1px}
+.next-card-icon{flex-shrink:0;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  background:var(--bdim);border:1px solid rgba(71,151,255,.2);color:var(--sky)}
+.next-card-icon svg{width:19px;height:19px}
 .next-card h3{font-family:var(--display);font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:4px}
 .next-card p{font-size:.82rem;color:var(--muted);line-height:1.6}
 
@@ -702,28 +704,28 @@ Copy
     <div class="next-title">What happens next?</div>
     <div class="next-cards">
       <div class="next-card">
-        <div class="next-card-icon">✅</div>
+        <div class="next-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="8 12.5 11 15.5 16 9.5"/></svg></div>
         <div>
           <h3>Access confirmed</h3>
           <p>We start your campaign build once access is granted.</p>
         </div>
       </div>
       <div class="next-card">
-        <div class="next-card-icon">🎨</div>
+        <div class="next-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l4.5-1 10-10a2.1 2.1 0 0 0-3-3l-10 10L4 20z"/><line x1="14" y1="7" x2="17" y2="10"/></svg></div>
         <div>
           <h3>Your campaigns are built and ready to launch</h3>
           <p>Your ads, landing page and tracking are set up on your accounts.</p>
         </div>
       </div>
       <div class="next-card">
-        <div class="next-card-icon">👀</div>
+        <div class="next-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
         <div>
           <h3>Preview before launch</h3>
           <p>Within 24-48 hours you'll receive campaign previews for review before anything goes live.</p>
         </div>
       </div>
       <div class="next-card">
-        <div class="next-card-icon">🔒</div>
+        <div class="next-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
         <div>
           <h3>You stay in control</h3>
           <p>You can review or revoke access any time via Settings → Users → Partners.</p>
