@@ -143,8 +143,7 @@ section{padding:56px 0;position:relative}
   background:radial-gradient(circle,rgba(71,151,255,.22),transparent 70%);filter:blur(40px);z-index:0}
 .vsl-frame{position:relative;z-index:1;border:1px solid var(--bmid);border-radius:16px;overflow:hidden;background:var(--deep);
   box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
-wistia-player[media-id='cmsbkzyetl']:not(:defined){background:center / contain no-repeat url('https://fast.wistia.com/embed/medias/cmsbkzyetl/swatch');
-  display:block;filter:blur(5px);padding-top:56.25%}
+.vsl-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:var(--deep)}
 
 /* INCLUDED */
 .inc{display:flex;gap:14px;padding:19px 0;border-bottom:1px solid var(--border)}
@@ -421,8 +420,6 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <link rel="stylesheet" href="/footer.css">
-<script src="https://fast.wistia.com/player.js" async></script>
-<script src="https://fast.wistia.com/embed/cmsbkzyetl.js" async type="module"></script>
 </head>
 <body>
 <div class="sprog" id="sprog"></div>
@@ -438,10 +435,12 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <div class="hrule rv"></div>
     <p class="sub rv">A solar lead engine built on <b>your</b> accounts, your brand and your data. We build it, launch it, and manage it for the first 30 days. Yours to keep from day 1.</p>
   </div>
-  <!-- VSL (Wistia) -->
+  <!-- VSL (self-hosted) -->
   <div class="vsl rv">
     <div class="vsl-frame">
-      <wistia-player media-id="cmsbkzyetl" aspect="1.7777777777777777"></wistia-player>
+      <video controls playsinline preload="metadata" poster="/videos/quoteleads-vsl-poster.jpg" width="1920" height="1080" aria-label="Branded Lead Gen System: how it works (2 minutes)">
+        <source src="/videos/quoteleads-vsl.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
   <div class="wrap">
