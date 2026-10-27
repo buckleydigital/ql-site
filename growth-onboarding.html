@@ -368,7 +368,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 <!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="hero-eyebrow">Growth Onboarding</div>
+    <div class="hero-eyebrow" id="heroEyebrow">Growth Onboarding</div>
     <h1>Let's build your<br><em>lead machine.</em></h1>
     <p class="sbody">Complete this form so we have everything needed to begin your build. Takes about 5 minutes.</p>
     <div class="page-hero-meta">
@@ -929,6 +929,8 @@ document.querySelectorAll('.opt-card.multi').forEach(function(card){
     var v=q.get(id);
     if(v) document.getElementById(id).value=v.slice(0,200);
   });
+  // Straight from paying for a system on /buy-system.
+  if(q.get('paid')==='1') document.getElementById('heroEyebrow').textContent='Payment received. One last step';
   checkContact();
 })();
 function checkContact(){

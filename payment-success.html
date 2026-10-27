@@ -82,25 +82,9 @@ footer a{color:var(--muted)}
   <div class="tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
   <div class="badge"><span>✓</span> Payment received</div>
   <h1>You're <em>in.</em></h1>
-  <p class="lead">Your Branded Lead Gen System is locked in. We're already getting the build underway.</p>
+  <p class="lead">Your Branded Lead Gen System is locked in. Next, a 5 minute form about your business so we can start the build. Taking you there now&hellip;</p>
 
-  <div class="steps">
-    <div class="steps-h">What happens next</div>
-    <div class="step">
-      <div class="step-ico">🎨</div>
-      <div><div class="step-t">Previews within 24-48 hours</div><div class="step-d">You'll receive your landing page and campaign previews within 24-48 hours to review and approve.</div></div>
-    </div>
-    <div class="step">
-      <div class="step-ico">📞</div>
-      <div><div class="step-t">Your account manager</div><div class="step-d">You'll shortly hear from your dedicated account manager to walk you through everything and kick off the build.</div></div>
-    </div>
-    <div class="step">
-      <div class="step-ico">📥</div>
-      <div><div class="step-t">Check your inbox</div><div class="step-d">A welcome email with your dashboard access is on its way now.</div></div>
-    </div>
-  </div>
-
-  <a class="btn" href="https://quoteleadshq.com/dashboard">Go to my dashboard →</a>
+  <a class="btn" id="toForm" href="/growth-onboarding">Continue to the onboarding form →</a>
   <p class="note">Questions? Email <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a> and we'll sort you out.</p>
 </div>
 <footer class="ql-foot">
@@ -126,5 +110,17 @@ footer a{color:var(--muted)}
     <div class="ql-foot-status"><span class="ql-foot-status-dot"></span>All systems operational</div>
   </div>
 </footer>
+<script>
+// Straight on to the onboarding form, pre-filled with what they gave at
+// checkout. The form is what creates their QuoteLeadsHQ account. The short
+// pause lets the Purchase pixel above fire before the page changes.
+(function(){
+  var q = new URLSearchParams(location.search), f = new URLSearchParams({ paid: '1' });
+  ['first_name','last_name','company','phone','email'].forEach(function(k){ var v = q.get(k); if (v) f.set(k, v); });
+  var url = '/growth-onboarding?' + f.toString();
+  document.getElementById('toForm').href = url;
+  setTimeout(function(){ location.replace(url); }, 1500);
+})();
+</script>
 </body>
 </html>
