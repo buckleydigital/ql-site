@@ -930,7 +930,13 @@ document.querySelectorAll('.opt-card.multi').forEach(function(card){
     if(v) document.getElementById(id).value=v.slice(0,200);
   });
   // Straight from paying for a system on /buy-system.
-  if(q.get('paid')==='1') document.getElementById('heroEyebrow').textContent='Payment received. One last step';
+  if(q.get('paid')==='1'){
+    document.getElementById('heroEyebrow').textContent='Payment received. One last step';
+    // The email is what ties this form to their payment, so it stays the one
+    // they paid with.
+    var em=document.getElementById('email');
+    if(em.value){ em.readOnly=true; em.title='The email you paid with'; em.style.opacity='.7'; }
+  }
   checkContact();
 })();
 function checkContact(){
