@@ -23,7 +23,12 @@
   fbq('init', '1323684475060326');
   fbq('track', 'PageView');
   // The build bought, from create-checkout's success_url (?plan=growth), ex GST.
-  fbq('track', 'Purchase', {currency: 'AUD', value: new URLSearchParams(location.search).get('plan') === 'growth' ? 5000 : 2500});
+  // Only for a real checkout, and keyed to its session so a reload is not a
+  // second sale.
+  (function(){
+    var q = new URLSearchParams(location.search), sid = q.get('session_id');
+    if (sid && /^cs_/.test(sid)) fbq('track', 'Purchase', {currency: 'AUD', value: q.get('plan') === 'growth' ? 5000 : 2500}, {eventID: sid});
+  })();
 </script>
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1323684475060326&ev=PageView&noscript=1"/></noscript>
