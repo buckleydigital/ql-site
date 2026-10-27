@@ -23,11 +23,22 @@
   fbq('init', '1323684475060326');
   fbq('track', 'PageView');
   // The build bought, from create-checkout's success_url (?plan=growth), ex GST.
-  // Only for a real checkout, and keyed to its session so a reload is not a
-  // second sale.
-  (function(){
+  // Only for a real checkout, keyed to its session so a reload is not a second
+  // sale, and at what Stripe actually took (after any promo code). If that
+  // lookup is slow or fails, the list price stands in.
+  window.qlPurchaseSent = (function(){
     var q = new URLSearchParams(location.search), sid = q.get('session_id');
-    if (sid && /^cs_/.test(sid)) fbq('track', 'Purchase', {currency: 'AUD', value: q.get('plan') === 'growth' ? 5000 : 2500}, {eventID: sid});
+    if (!sid || !/^cs_/.test(sid)) return Promise.resolve();
+    var list = q.get('plan') === 'growth' ? 5000 : 2500, sent = false;
+    function send(v){ if (sent) return; sent = true; fbq('track', 'Purchase', {currency: 'AUD', value: v}, {eventID: sid}); }
+    return new Promise(function(done){
+      var t = setTimeout(function(){ send(list); done(); }, 1500);
+      fetch('https://wjadekgptkstfdootuol.supabase.co/functions/v1/create-checkout?session_id=' + encodeURIComponent(sid))
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(d){ send(d && typeof d.value === 'number' ? d.value : list); })
+        .catch(function(){ send(list); })
+        .then(function(){ clearTimeout(t); done(); });
+    });
   })();
 </script>
 <noscript><img height="1" width="1" style="display:none"
@@ -121,10 +132,13 @@ footer a{color:var(--muted)}
 // pause lets the Purchase pixel above fire before the page changes.
 (function(){
   var q = new URLSearchParams(location.search), f = new URLSearchParams({ paid: '1' });
+  // The checkout session ties the form to this payment.
+  if (q.get('session_id')) f.set('sid', q.get('session_id'));
   ['first_name','last_name','company','phone','email'].forEach(function(k){ var v = q.get(k); if (v) f.set(k, v); });
   var url = '/growth-onboarding?' + f.toString();
   document.getElementById('toForm').href = url;
-  setTimeout(function(){ location.replace(url); }, 1500);
+  // Once the pixel has gone (at most about 1.5s), with a short beat after it.
+  (window.qlPurchaseSent || Promise.resolve()).then(function(){ setTimeout(function(){ location.replace(url); }, 400); });
 })();
 </script>
 </body>
