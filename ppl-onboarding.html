@@ -757,7 +757,7 @@ function showStep(n){
       turnstileRendered = true;
       turnstile.render('#turnstile-container',{
         sitekey:'0x4AAAAAABj4xsGpuNPXeW_7',
-        theme:'dark',
+        theme:'dark',appearance:'interaction-only',
         callback:function(token){turnstileToken=token;document.getElementById('submitBtn').disabled=false;},
         'expired-callback':function(){turnstileToken='';document.getElementById('submitBtn').disabled=true;}
       });

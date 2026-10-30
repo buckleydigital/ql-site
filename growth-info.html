@@ -368,7 +368,7 @@ function renderTurnstile(){
   turnstileRendered=true;
   turnstile.render('#turnstile-container',{
     sitekey:'0x4AAAAAABj4xsGpuNPXeW_7',
-    theme:'dark',
+    theme:'dark',appearance:'interaction-only',
     callback:function(token){turnstileToken=token;refreshSubmit();},
     'expired-callback':function(){turnstileToken='';refreshSubmit();}
   });
