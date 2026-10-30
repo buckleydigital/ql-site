@@ -307,7 +307,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 
 /* SOCIAL PROOF BAR */
 .stats-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--deep);padding:0;z-index:3;position:relative}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);max-width:1120px;margin:0 auto}
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);max-width:1120px;margin:0 auto}
 .stat{padding:52px 40px;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s;cursor:none}
 .stat:last-child{border-right:none}
 .stat::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
@@ -402,7 +402,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
 @media(max-width:1024px){
   .proc-steps{grid-template-columns:1fr 1fr}
   .proc-step:nth-child(2){border-right:none}
-  .stats-row{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}
+  .stats-row{grid-template-columns:1fr 1fr}.stat:nth-child(even){border-right:none}.stat:nth-child(-n+4){border-bottom:1px solid var(--border)}
 }
 @media(max-width:768px){
   section{padding:72px 5%}
@@ -683,9 +683,11 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stats-row">
-    <div class="stat rv"><span class="stn">$20M+</span><div class="stl"><b>Ad Spend Deployed</b>Across Meta and Google campaigns</div></div>
+    <div class="stat rv"><span class="stn">100%</span><div class="stl"><b>Exclusive Leads</b>Straight to you. Never resold, never shared.</div></div>
     <div class="stat rv d1"><span class="stn">3s</span><div class="stl"><b>Average AI Response</b>From lead submission to SMS reply</div></div>
-    <div class="stat rv d3"><span class="stn">100s</span><div class="stl"><b>Home Improvement Businesses</b>Scaling residential and commercial projects</div></div>
+    <div class="stat rv d2"><span class="stn">20M+</span><div class="stl"><b>Ad Spend Managed</b>Across Meta and Google campaigns</div></div>
+    <div class="stat rv d3"><span class="stn">7 Years</span><div class="stl"><b>Industry Experience</b>Generating high quality leads for high-value Australian trades</div></div>
+    <div class="stat rv d4"><span class="stn">218</span><div class="stl"><b>Branded Systems</b>Built and deployed</div></div>
   </div>
 </div>
 
