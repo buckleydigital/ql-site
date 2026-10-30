@@ -262,17 +262,28 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 
 /* Stats bar */
 .statbar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--deep)}
-.statrow{display:grid;grid-template-columns:repeat(4,1fr);max-width:980px;margin:0 auto}
-.statc{padding:30px 22px;border-right:1px solid var(--border);text-align:center}
-.statc:last-child{border-right:none}
-.statn{font-family:var(--display);font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:600;letter-spacing:-.025em;
-  line-height:1;display:block;margin-bottom:8px;
-  background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;background-clip:text}
-.statl{color:var(--muted);font-size:.76rem;line-height:1.5}
-.statl b{color:var(--white);font-weight:500;display:block;margin-bottom:3px;font-size:.82rem}
-@media(max-width:720px){.statrow{grid-template-columns:1fr 1fr}
-  .statc:nth-child(2){border-right:none}.statc:nth-child(1),.statc:nth-child(2){border-bottom:1px solid var(--border)}}
+  .statrow{display:grid;grid-template-columns:repeat(5,1fr);max-width:980px;margin:0 auto}
+  .statc{padding:30px 18px;border-right:1px solid var(--border);text-align:center}
+  .statc:last-child{border-right:none}
+  .statn{font-family:var(--display);font-size:clamp(1.4rem,3.4vw,2rem);font-weight:600;letter-spacing:-.025em;
+    line-height:1;display:block;margin-bottom:8px;
+    background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;background-clip:text}
+  .statl{color:var(--muted);font-size:.74rem;line-height:1.5}
+  .statl b{color:var(--white);font-weight:500;display:block;margin-bottom:3px;font-size:.8rem}
+  @media(max-width:980px){.statrow{grid-template-columns:repeat(3,1fr)}
+    .statc:nth-child(3n-1){border-right:none}
+    .statc:nth-child(1),.statc:nth-child(2),.statc:nth-child(3){border-bottom:1px solid var(--border)}
+    .statc:nth-child(4),.statc:nth-child(5){border-top:1px solid var(--border)}
+    .statc:nth-child(4){border-right:none}}
+  @media(max-width:640px){.statrow{grid-template-columns:repeat(2,1fr)}
+    .statc:nth-child(odd){border-right:none}
+    .statc:nth-child(-n+2){border-bottom:1px solid var(--border)}
+    .statc:nth-child(3),.statc:nth-child(4),.statc:nth-child(5){border-top:1px solid var(--border)}
+    .statc:nth-child(3){border-right:none}}
+  @media(max-width:420px){.statrow{grid-template-columns:1fr}
+    .statc{border-right:none;border-bottom:1px solid var(--border)}
+    .statc:last-child{border-bottom:none}}
 
 /* Showcase */
 .show{margin-top:34px}
@@ -455,9 +466,11 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 <!-- STATS BAR -->
 <div class="statbar">
   <div class="statrow">
-    <div class="statc rv"><span class="statn">$20M+</span><div class="statl"><b>Ad Spend Deployed</b>Across Meta and Google campaigns</div></div>
+    <div class="statc rv"><span class="statn">100%</span><div class="statl"><b>Exclusive Leads</b>Straight to you. Never resold, never shared.</div></div>
     <div class="statc rv d1"><span class="statn">3s</span><div class="statl"><b>Average AI Response</b>From lead submission to SMS reply</div></div>
-    <div class="statc rv d3"><span class="statn">218</span><div class="statl"><b>Branded Systems</b>Built and deployed</div></div>
+    <div class="statc rv d2"><span class="statn">$20M+</span><div class="statl"><b>Ad Spend Managed</b>Across Meta and Google campaigns</div></div>
+    <div class="statc rv d3"><span class="statn">7 Years</span><div class="statl"><b>Industry Experience</b>Generating high quality leads for high-value Australian trades</div></div>
+    <div class="statc rv d4"><span class="statn">218</span><div class="statl"><b>Branded Systems</b>Built and deployed</div></div>
   </div>
 </div>
 
