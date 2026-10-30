@@ -367,6 +367,19 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   box-shadow:0 30px 70px -20px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
   position:relative;
 }
+.fb-post{width:min(420px,100%);margin:0 auto;background:#18191A;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.6);text-align:left;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.fb-head{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
+.fb-av{width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fb-name{font-size:.86rem;font-weight:600;color:#E4E6EB}
+.fb-meta{font-size:.72rem;color:#B0B3B8;display:flex;align-items:center;gap:4px}.fb-meta svg{width:11px;height:11px}
+.fb-more{margin-left:auto;color:#B0B3B8;font-weight:700;letter-spacing:1px}
+.fb-copy{font-size:.84rem;line-height:1.45;color:#E4E6EB;padding:0 14px 12px;margin:0}
+.fb-post .ad-iframe-wrap{width:100%;border-radius:0;box-shadow:none}
+.fb-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#242526;padding:10px 14px}
+.fb-dom{font-size:.66rem;color:#B0B3B8;letter-spacing:.02em}
+.fb-hl{font-size:.86rem;font-weight:600;color:#E4E6EB;margin-top:2px}
+.fb-cta{background:#3A3B3C;color:#E4E6EB;font-size:.8rem;font-weight:600;padding:8px 14px;border-radius:6px;white-space:nowrap}
+.fb-acts{display:flex;justify-content:space-around;padding:8px 6px;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;font-weight:600;color:#B0B3B8}
 .ad-iframe{
   width:1080px;height:1080px;
   transform-origin:top left;
@@ -995,8 +1008,21 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
       <div class="journey-visual">
         <div style="position:relative">
           <div class="ad-platform">Meta &amp; Google Ads</div>
-          <div class="ad-iframe-wrap">
-            <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" title="Sydney Solar Co meta ad example"></iframe>
+          <div class="fb-post">
+            <div class="fb-head">
+              <div class="fb-av">S</div>
+              <div><div class="fb-name">Sydney Solar Co.</div><div class="fb-meta">Sponsored · <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></div></div>
+              <div class="fb-more">···</div>
+            </div>
+            <p class="fb-copy">Upgrade your home with one of the smartest solar + battery systems available today.<br><br>Whether you're looking to lower your power bills or futureproof your energy needs, Sigenergy delivers premium performance - harvesting power from your panels by day and storing it for whenever you need it.</p>
+            <div class="ad-iframe-wrap">
+              <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" title="Sydney Solar Co meta ad example"></iframe>
+            </div>
+            <div class="fb-link">
+              <div><div class="fb-dom">SYDNEYSOLARCO.COM.AU</div><div class="fb-hl">Get your free solar + battery quote</div></div>
+              <span class="fb-cta">Get quote</span>
+            </div>
+            <div class="fb-acts"><span>👍 Like</span><span>💬 Comment</span><span>↗ Share</span></div>
           </div>
         </div>
       </div>
