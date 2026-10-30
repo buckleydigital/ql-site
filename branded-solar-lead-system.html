@@ -329,6 +329,20 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   box-shadow:0 30px 70px -20px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);
   position:relative;
 }
+.fb-post{width:min(420px,100%);margin:0 auto;background:#18191A;border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.6);text-align:left;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.fb-head{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
+.fb-av{width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fb-name{font-size:.86rem;font-weight:600;color:#E4E6EB}
+.fb-meta{font-size:.72rem;color:#B0B3B8;display:flex;align-items:center;gap:4px}.fb-meta svg{width:11px;height:11px}
+.fb-more{margin-left:auto;color:#B0B3B8;font-weight:700;letter-spacing:1px}
+.fb-copy{font-size:.84rem;line-height:1.45;color:#E4E6EB;padding:0 14px 12px;margin:0}
+.fb-post .ad-iframe-wrap{width:100%;border-radius:0;box-shadow:none}
+.fb-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#242526;padding:10px 14px}
+.fb-dom{font-size:.66rem;color:#B0B3B8;letter-spacing:.02em}
+.fb-hl{font-size:.86rem;font-weight:600;color:#E4E6EB;margin-top:2px}
+.fb-cta{background:#3A3B3C;color:#E4E6EB;font-size:.8rem;font-weight:600;padding:8px 14px;border-radius:6px;white-space:nowrap}
+.fb-acts{display:flex;justify-content:space-around;padding:8px 6px;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;font-weight:600;color:#B0B3B8}
+.fb-acts span{display:inline-flex;align-items:center;gap:6px}.fb-acts svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .ad-iframe{
   width:1080px;height:1080px;
   transform-origin:top left;
@@ -526,8 +540,21 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <p class="show-p">Real paid placements in your name, targeting your trade and your postcodes. Not a scraped list, not a directory listing.</p>
       <div class="ad-hold">
         <div class="ad-platform">Meta &amp; Google Ads</div>
-        <div class="ad-iframe-wrap">
-          <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" loading="lazy" title="Example Meta ad built for a solar installer"></iframe>
+        <div class="fb-post">
+          <div class="fb-head">
+            <div class="fb-av">S</div>
+            <div><div class="fb-name">Sydney Solar Co.</div><div class="fb-meta">Sponsored · <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></div></div>
+            <div class="fb-more">···</div>
+          </div>
+          <p class="fb-copy">Upgrade your home with one of the smartest solar + battery systems available today.<br><br>Whether you're looking to lower your power bills or futureproof your energy needs, Sigenergy delivers premium performance - harvesting power from your panels by day and storing it for whenever you need it.</p>
+          <div class="ad-iframe-wrap">
+            <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" loading="lazy" title="Example Meta ad built for a solar installer"></iframe>
+          </div>
+          <div class="fb-link">
+            <div><div class="fb-dom">SYDNEYSOLARCO.COM.AU</div><div class="fb-hl">Get your free solar + battery quote</div></div>
+            <span class="fb-cta">Get quote</span>
+          </div>
+          <div class="fb-acts"><span><svg viewBox="0 0 24 24"><path d="M7 10v11H3V10h4zm0 0l4-8a3 3 0 0 1 3 3v4h5.5a2 2 0 0 1 2 2.3l-1.4 8a2 2 0 0 1-2 1.7H7"/></svg>Like</span><span><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.4A8.5 8.5 0 1 1 21 12z"/></svg>Comment</span><span><svg viewBox="0 0 24 24"><path d="M14 4l7 7-7 7M21 11H10a7 7 0 0 0-7 7v2"/></svg>Share</span></div>
         </div>
       </div>
     </div>
