@@ -441,6 +441,19 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 .rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
 @media(max-width:520px){section{padding:44px 0}.card{padding:24px 20px}}
+
+/* MOCKUPS: one shell for the ad, landing page, lead and SMS cards */
+.fb-post,.mk-mockup,.preview-card{background:#0B0B13;border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:0;overflow:hidden;backdrop-filter:none;box-shadow:0 30px 70px -24px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.05);font-family:var(--body)}
+.mk-mockup::before{display:none}
+.mk-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02)}
+.mk-dot,.mk-dot.r,.mk-dot.y,.mk-dot.g{width:9px;height:9px;background:rgba(255,255,255,.16)}
+.mk-url{margin:0 0 0 10px;padding:5px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:.68rem;color:var(--muted)}
+.mock-app::before{display:none}
+.mk-mockup .mk-body{border:none;border-radius:0;background:transparent}
+.mk-h5-script{font-family:var(--display);font-style:normal;font-weight:600;letter-spacing:-.02em}
+.fb-name,.fb-hl,.fb-copy{color:var(--white)}
+.fb-link{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06)}
+.fb-cta{background:var(--blue);color:#fff}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <link rel="stylesheet" href="/footer.css">
@@ -541,6 +554,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <div class="ad-hold">
         <div class="ad-platform">Meta &amp; Google Ads</div>
         <div class="fb-post">
+          <div class="mk-bar"><span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span><div class="mk-url mock-app">Facebook · Sponsored post</div></div>
           <div class="fb-head">
             <div class="fb-av">S</div>
             <div><div class="fb-name">Sydney Solar Co.</div><div class="fb-meta">Sponsored · <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></div></div>
