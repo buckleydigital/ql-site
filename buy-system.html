@@ -201,6 +201,7 @@ section{padding:56px 0;position:relative}
   transition:border-color .2s,background .2s,color .2s}
 .nsel-opt:hover{border-color:var(--bblue);color:var(--white)}
 .nsel-opt[aria-pressed="true"]{border-color:var(--blue);background:rgba(71,151,255,.12);color:var(--white);font-weight:600}
+.nsel-sub[hidden]{display:none}
 .nsel.err .nsel-opts{outline:1px solid #f87171;outline-offset:3px;border-radius:14px}
 @media(max-width:420px){.nsel-opts{grid-template-columns:1fr}}
 .consent{display:flex;gap:11px;align-items:flex-start;margin:8px 0 18px;color:var(--muted);font-size:.83rem;line-height:1.6}
@@ -500,13 +501,44 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <div class="step-h">3. Your details</div>
       <p class="step-sub">So we can set up your account and start onboarding as soon as you've paid.</p>
       <div class="nsel" id="fNicheWrap">
-        <div class="nsel-lbl" id="nicheLbl">Which campaign should we build first?</div>
+        <div class="nsel-lbl" id="nicheLbl">Which trade should we build your campaign for?</div>
         <div class="nsel-opts" role="group" aria-labelledby="nicheLbl">
-          <button type="button" class="nsel-opt" data-niche="solar" aria-pressed="false">All solar</button>
-          <button type="button" class="nsel-opt" data-niche="solar_and_battery" aria-pressed="false">Solar + battery</button>
-          <button type="button" class="nsel-opt" data-niche="battery_retrofit" aria-pressed="false">Battery retrofit</button>
-          <button type="button" class="nsel-opt" data-niche="commercial_solar" aria-pressed="false">Commercial solar</button>
-          <button type="button" class="nsel-opt" data-niche="other" aria-pressed="false" style="grid-column:1/-1">Another trade</button>
+          <button type="button" class="nsel-opt" data-niche="solar" aria-pressed="false">Solar</button>
+          <button type="button" class="nsel-opt" data-niche="roofing" aria-pressed="false">Roofing</button>
+          <button type="button" class="nsel-opt" data-niche="hvac" aria-pressed="false">HVAC</button>
+          <button type="button" class="nsel-opt" data-niche="renovations" aria-pressed="false">Renovations</button>
+        </div>
+        <div class="nsel-sub" data-for="solar" hidden>
+          <div class="nsel-lbl" style="margin-top:14px">Which type of solar work?</div>
+          <div class="nsel-opts" role="group">
+            <button type="button" class="nsel-opt" data-sub="solar" aria-pressed="false">All solar</button>
+            <button type="button" class="nsel-opt" data-sub="solar_and_battery" aria-pressed="false">Solar + battery</button>
+            <button type="button" class="nsel-opt" data-sub="battery_retrofit" aria-pressed="false">Battery retrofit</button>
+            <button type="button" class="nsel-opt" data-sub="commercial_solar" aria-pressed="false">Commercial solar</button>
+          </div>
+        </div>
+        <div class="nsel-sub" data-for="roofing" hidden>
+          <div class="nsel-lbl" style="margin-top:14px">Which type of roofing work?</div>
+          <div class="nsel-opts" role="group">
+            <button type="button" class="nsel-opt" data-sub="restorations" aria-pressed="false">Restorations</button>
+            <button type="button" class="nsel-opt" data-sub="reroofs" aria-pressed="false">Reroofs</button>
+          </div>
+        </div>
+        <div class="nsel-sub" data-for="hvac" hidden>
+          <div class="nsel-lbl" style="margin-top:14px">Which type of HVAC work?</div>
+          <div class="nsel-opts" role="group">
+            <button type="button" class="nsel-opt" data-sub="split_systems" aria-pressed="false">Split systems</button>
+            <button type="button" class="nsel-opt" data-sub="ducted_systems" aria-pressed="false">Ducted systems</button>
+            <button type="button" class="nsel-opt" data-sub="installs_maintenance" aria-pressed="false">Installs + maintenance</button>
+          </div>
+        </div>
+        <div class="nsel-sub" data-for="renovations" hidden>
+          <div class="nsel-lbl" style="margin-top:14px">Which type of renovations work?</div>
+          <div class="nsel-opts" role="group">
+            <button type="button" class="nsel-opt" data-sub="kitchen" aria-pressed="false">Kitchen renovations</button>
+            <button type="button" class="nsel-opt" data-sub="laundry" aria-pressed="false">Laundry renovations</button>
+            <button type="button" class="nsel-opt" data-sub="bathroom" aria-pressed="false">Bathroom renovations</button>
+          </div>
         </div>
       </div>
       <div class="namepair">
@@ -575,7 +607,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     growth:   { name: 'Growth',   build: 5000, monthly: 1200 }
   };
   var answers = { leads: null, multi: null };
-  var tier = null, niche = '';
+  var tier = null, niche = '', subNiche = '';
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + n.toLocaleString('en-AU', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }); };
 
@@ -622,10 +654,19 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   document.querySelectorAll('.tier').forEach(function(b){
     b.addEventListener('click', function(){ setTier(b.getAttribute('data-tier')); });
   });
-  document.querySelectorAll('.nsel-opt').forEach(function(b){
+  document.querySelectorAll('.nsel-opt[data-niche]').forEach(function(b){
     b.addEventListener('click', function(){
-      document.querySelectorAll('.nsel-opt').forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
-      niche = b.getAttribute('data-niche');
+      document.querySelectorAll('.nsel-opt[data-niche]').forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+      niche = b.getAttribute('data-niche'); subNiche = '';
+      document.querySelectorAll('.nsel-sub').forEach(function(g){ g.hidden = g.getAttribute('data-for') !== niche; });
+      document.querySelectorAll('.nsel-opt[data-sub]').forEach(function(x){ x.setAttribute('aria-pressed', 'false'); });
+      $('fNicheWrap').classList.remove('err');
+    });
+  });
+  document.querySelectorAll('.nsel-opt[data-sub]').forEach(function(b){
+    b.addEventListener('click', function(){
+      b.parentNode.querySelectorAll('.nsel-opt').forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+      subNiche = b.getAttribute('data-sub');
       $('fNicheWrap').classList.remove('err');
     });
   });
@@ -645,7 +686,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     };
     var bad = [];
     ['fFirst','fCompany','fEmail','fPhone','fArea'].forEach(function(id){ $(id).classList.remove('err'); });
-    if (!niche) { $('fNicheWrap').classList.add('err'); bad.push('the campaign to build first'); }
+    if (!niche) { $('fNicheWrap').classList.add('err'); bad.push('your trade'); }
+    else if (!subNiche) { $('fNicheWrap').classList.add('err'); bad.push('the type of work'); }
     if (!f.first) { $('fFirst').classList.add('err'); bad.push('your name'); }
     if (!f.company) { $('fCompany').classList.add('err'); bad.push('your business name'); }
     if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(f.email)) { $('fEmail').classList.add('err'); bad.push('a valid email'); }
@@ -663,7 +705,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         plan: tier,
         first_name: f.first, last_name: f.last, name: (f.first + ' ' + f.last).trim(),
         company: f.company, email: f.email, phone: f.phone,
-        niche: niche, service_location: f.area,
+        niche: niche, sub_niche: subNiche, service_location: f.area,
         monthly_lead_goal: answers.leads || '', multi_campaign: answers.multi || '',
         source: 'buy-system'
       })
