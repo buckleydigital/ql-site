@@ -514,20 +514,50 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <div class="hrule rv"></div>
     <p class="sub rv">Every lead arrives with their quarterly bill, their current system, their timeframe and confirmation they own the home. <b>10 quote-ready leads in your first 30 days, or your next month is free and we keep going until you have them.</b> Built on your own accounts, so you keep everything.</p>
   </div>
-  <!-- VSL (self-hosted) -->
-  <div class="vsl rv">
-    <div class="vsl-frame">
-      <video controls playsinline preload="metadata" poster="/videos/quoteleads-vsl-poster.jpg" width="1920" height="1080" aria-label="Branded Lead Gen System: how it works (2 minutes)">
-        <source src="/videos/quoteleads-vsl.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
   <div class="wrap">
-    <div class="rv cta-pair" style="margin-top:30px">
-      <button class="btn btn-primary" data-scroll="order">Claim the offer</button>
-      <button class="btn btn-second" data-scroll="guarantee">How the guarantee works</button>
+    <div class="card rv" id="claim" style="margin-top:26px">
+      <div id="offerBlock">
+          <h2 class="center" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Claim the offer</h2>
+          <p class="price-note center" style="margin-bottom:18px">Leave your details and we'll ring you, confirm your service area and ad budget, and get your build started.</p>
+          <div class="nsel" id="fNicheWrap">
+            <div class="nsel-lbl" id="nicheLbl">Which campaign should we build first?</div>
+            <div class="nsel-opts" role="group" aria-labelledby="nicheLbl">
+              <button type="button" class="nsel-opt" data-niche="solar" aria-pressed="false">All solar</button>
+              <button type="button" class="nsel-opt" data-niche="solar_and_battery" aria-pressed="false">Solar + battery</button>
+              <button type="button" class="nsel-opt" data-niche="battery_retrofit" aria-pressed="false">Battery retrofit</button>
+              <button type="button" class="nsel-opt" data-niche="commercial_solar" aria-pressed="false">Commercial solar</button>
+            </div>
+          </div>
+          <input class="field" id="fName" type="text" placeholder="Full name" autocomplete="name">
+          <input class="field" id="fCompany" type="text" placeholder="Business name" autocomplete="organization">
+          <input class="field" id="fEmail" type="email" placeholder="Email address" autocomplete="email">
+          <input class="field" id="fPhone" type="tel" placeholder="Phone number" autocomplete="tel">
+          <input class="field" id="fPostcode" inputmode="numeric" placeholder="Main service area or postcode">
+          <label class="consent">
+            <input type="checkbox" id="fConsent">
+            <span>I agree to be contacted by QuoteLeads about setting up my system, and confirm my details are correct.</span>
+          </label>
+          <div class="ts-wrap"><div id="turnstile-container"></div></div>
+          <div class="cta-pair one">
+            <button class="btn btn-primary" id="btnCall">Claim the offer</button>
+          </div>
+          <p class="cta-hint">No payment now. We take the $2,500 once we have confirmed the offer is a fit for your area.</p>
+          <div class="formmsg" id="formMsg" aria-live="polite"></div>
+          <div class="trust-row">
+            <span>No obligation</span>
+            <span>No lock-in</span>
+            <span>You own everything</span>
+            <span>Australian owned and operated</span>
+          </div>
+      </div>
+      <div class="thanks" id="thanks">
+        <div class="thanks-ico">&#10003;</div>
+        <h3>You're all set.</h3>
+        <p>We will call you during business hours (AEST). Keep your phone handy.</p>
+        <a class="mail" href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+      </div>
     </div>
-    <p class="cta-hint rv">Promotional offer. See the <a href="#terms" style="color:var(--blue)">guarantee terms</a>.</p>
+    <p class="cta-hint rv">Promotional offer. <a href="#guarantee" style="color:var(--blue)">How the guarantee works</a> &middot; <a href="#terms" style="color:var(--blue)">Guarantee terms</a></p>
   </div>
 </header>
 
@@ -844,7 +874,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 <section id="order">
   <div class="wrap">
     <div class="card rv">
-      <div id="offerBlock">
+      <div>
         <div class="center">
           <h3 style="font-family:var(--display);font-size:clamp(1.4rem,5vw,1.8rem);font-weight:600">One build. <em>One guarantee.</em></h3>
           <p class="price-note" style="margin-top:10px">Prices ex GST. Ad spend is paid direct to Meta from your own account, never through us.</p>
@@ -863,47 +893,9 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           <p class="price-note">After that, management is optional at $600/mo + GST, or take it in-house. No lock-in. See the <a href="#terms" style="color:var(--blue)">guarantee terms</a>.</p>
         </div>
 
-        <div style="margin-top:26px">
-          <h4 class="center" style="font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:6px">Claim the offer</h4>
-          <p class="price-note center" style="margin-bottom:18px">Leave your details and we'll ring you, confirm your service area and ad budget, and get your build started.</p>
-          <div class="nsel" id="fNicheWrap">
-            <div class="nsel-lbl" id="nicheLbl">Which campaign should we build first?</div>
-            <div class="nsel-opts" role="group" aria-labelledby="nicheLbl">
-              <button type="button" class="nsel-opt" data-niche="solar" aria-pressed="false">All solar</button>
-              <button type="button" class="nsel-opt" data-niche="solar_and_battery" aria-pressed="false">Solar + battery</button>
-              <button type="button" class="nsel-opt" data-niche="battery_retrofit" aria-pressed="false">Battery retrofit</button>
-              <button type="button" class="nsel-opt" data-niche="commercial_solar" aria-pressed="false">Commercial solar</button>
-            </div>
-          </div>
-          <input class="field" id="fName" type="text" placeholder="Full name" autocomplete="name">
-          <input class="field" id="fCompany" type="text" placeholder="Business name" autocomplete="organization">
-          <input class="field" id="fEmail" type="email" placeholder="Email address" autocomplete="email">
-          <input class="field" id="fPhone" type="tel" placeholder="Phone number" autocomplete="tel">
-          <input class="field" id="fPostcode" inputmode="numeric" placeholder="Main service area or postcode">
-          <label class="consent">
-            <input type="checkbox" id="fConsent">
-            <span>I agree to be contacted by QuoteLeads about setting up my system, and confirm my details are correct.</span>
-          </label>
-          <div class="ts-wrap"><div id="turnstile-container"></div></div>
-          <div class="cta-pair one">
-            <button class="btn btn-primary" id="btnCall">Claim the offer</button>
-          </div>
-          <p class="cta-hint">No payment now. We take the $2,500 once we have confirmed the offer is a fit for your area.</p>
-          <div class="formmsg" id="formMsg" aria-live="polite"></div>
-          <div class="trust-row">
-            <span>No obligation</span>
-            <span>No lock-in</span>
-            <span>You own everything</span>
-            <span>Australian owned and operated</span>
-          </div>
+        <div class="cta-pair one" style="margin-top:20px">
+          <button class="btn btn-primary" data-scroll="claim">Claim the offer</button>
         </div>
-      </div>
-
-      <div class="thanks" id="thanks">
-        <div class="thanks-ico">&#10003;</div>
-        <h3>You're all set.</h3>
-        <p>We will call you during business hours (AEST). Keep your phone handy.</p>
-        <a class="mail" href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
       </div>
     </div>
   </div>
@@ -1049,7 +1041,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 
 <div class="sticky" id="sticky">
   <div class="cta-pair">
-    <button class="btn btn-primary" data-scroll="order">Claim the offer</button>
+    <button class="btn btn-primary" data-scroll="claim">Claim the offer</button>
     <button class="btn btn-second" data-scroll="guarantee">The guarantee</button>
   </div>
 </div>
