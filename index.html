@@ -1020,7 +1020,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   <div class="stats-row">
     <div class="stat rv d1"><span class="stn" data-t="100" data-s="%">0</span><div class="stl"><b>Exclusive Leads</b>Straight to you. Never resold, never shared.</div></div>
     <div class="stat rv d2"><span class="stn" data-t="3" data-s="s">0</span><div class="stl"><b>Average AI Response</b>From lead submission to SMS reply</div></div>
-    <div class="stat rv d3"><span class="stn" data-t="20" data-s="M+">$0</span><div class="stl"><b>Ad Spend Managed</b>Across Meta and Google campaigns</div></div>
+    <div class="stat rv d3"><span class="stn" data-t="20" data-p="$" data-s="M+">$0</span><div class="stl"><b>Ad Spend Managed</b>Across Meta and Google campaigns</div></div>
     <div class="stat rv d4"><span class="stn" data-t="7" data-s=" Years">0</span><div class="stl"><b>Industry Experience</b>Generating high quality leads for high-value Australian trades</div></div>
     <div class="stat rv d5"><span class="stn" data-t="218" data-s="">0</span><div class="stl"><b>Branded Systems</b>Built and deployed</div></div>
   </div>
@@ -1465,7 +1465,7 @@ const ro=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){e
 rvEls.forEach(el=>ro.observe(el));
 
 // STAT COUNTERS
-function countUp(el){const t=parseInt(el.dataset.t),s=el.dataset.s||'',d=1800,t0=performance.now();function step(now){const p=Math.min((now-t0)/d,1),e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*t)+s;if(p<1)requestAnimationFrame(step);else{el.textContent=t+s;el.classList.add('lit')}}requestAnimationFrame(step)}
+function countUp(el){const t=parseInt(el.dataset.t),s=el.dataset.s||'',pre=el.dataset.p||'',d=1800,t0=performance.now();function step(now){const p=Math.min((now-t0)/d,1),e=1-Math.pow(1-p,3);el.textContent=pre+Math.floor(e*t)+s;if(p<1)requestAnimationFrame(step);else{el.textContent=pre+t+s;el.classList.add('lit')}}requestAnimationFrame(step)}
 const statEls=document.querySelectorAll('.stn[data-t]');
 const so=new IntersectionObserver(ents=>{ents.forEach(e=>{if(e.isIntersecting){countUp(e.target);so.unobserve(e.target)}})},{threshold:.5});
 statEls.forEach(el=>so.observe(el));
