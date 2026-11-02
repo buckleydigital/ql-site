@@ -1045,7 +1045,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       var labels = steps.map(function(st){ var b = st.querySelector('.nsel-opt[aria-pressed="true"]'); return b ? b.textContent : ''; }).filter(Boolean);
       document.getElementById('fChosen').textContent = labels.join(' \u00b7 ');
     }
-    try { els.card.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(_) {}
+    // Stay put. Only if the card's top has gone off-screen (a shorter step
+    // after scrolling down) bring it back into view, without animating.
+    var top = els.card.getBoundingClientRect().top;
+    if (top < 0) window.scrollBy(0, top - 12);
   }
   steps.forEach(function(st, i){
     Array.prototype.forEach.call(st.querySelectorAll('.nsel-opt'), function(btn){
