@@ -517,7 +517,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   <div class="wrap">
     <div class="card rv" id="claim" style="margin-top:26px">
       <div id="offerBlock">
-          <h2 class="center" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Claim the offer</h2>
+          <h2 class="center" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Request a callback</h2>
           <p class="price-note center" style="margin-bottom:18px">Leave your details and we'll ring you, confirm your service area and ad budget, and get your build started.</p>
           <div class="nsel" id="fNicheWrap">
             <div class="nsel-lbl" id="nicheLbl">Which campaign should we build first?</div>
@@ -539,7 +539,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           </label>
           <div class="ts-wrap"><div id="turnstile-container"></div></div>
           <div class="cta-pair one">
-            <button class="btn btn-primary" id="btnCall">Claim the offer</button>
+            <button class="btn btn-primary" id="btnCall">Request a callback</button>
           </div>
           <div class="formmsg" id="formMsg" aria-live="polite"></div>
           <div class="trust-row">
@@ -851,7 +851,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <p class="price-note" style="font-size:.8rem;color:var(--faint);margin-top:10px">Covering more than one service area, or after 60 to 90+ enquiries a month? There's also a Growth build at $5,000 + GST (then $1,200/mo + GST, optional). We'll tell you on the call if you need it.</p>
 
         <div class="cta-pair one" style="margin-top:20px">
-          <button class="btn btn-primary" data-scroll="claim">Claim the offer</button>
+          <button class="btn btn-primary" data-scroll="claim">Request a callback</button>
         </div>
       </div>
     </div>
@@ -897,7 +897,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <div class="faqa"><p>Anyone who can't fund at least $50 a day in ad spend, anyone who won't ring leads back quickly, and anyone with a service area too small to find enough homeowners each month. We'll tell you on the call if your area is too tight.</p></div>
       </div>
     </div>
-    <p class="center rv" style="font-size:.86rem;color:var(--muted);line-height:1.7;margin-top:26px">Something not covered? Email <a href="mailto:contact@quoteleads.com.au" style="color:var(--blue)">contact@quoteleads.com.au</a> or claim the offer above and ask on the call.</p>
+    <p class="center rv" style="font-size:.86rem;color:var(--muted);line-height:1.7;margin-top:26px">Something not covered? Email <a href="mailto:contact@quoteleads.com.au" style="color:var(--blue)">contact@quoteleads.com.au</a> or request a callback above and ask on the call.</p>
   </div>
 </section>
 
@@ -926,7 +926,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 
 <div class="sticky" id="sticky">
   <div class="cta-pair">
-    <button class="btn btn-primary" data-scroll="claim">Claim the offer</button>
+    <button class="btn btn-primary" data-scroll="claim">Request a callback</button>
     <button class="btn btn-second" data-scroll="expect">What to expect</button>
   </div>
 </div>
@@ -1041,7 +1041,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       els.thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }).catch(function(){
       els.call.disabled = false;
-      els.call.textContent = 'Claim the offer';
+      els.call.textContent = 'Request a callback';
       // A security-check token works once; get a fresh one for the retry.
       turnstileToken = ''; try { if(window.turnstile) turnstile.reset('#turnstile-container'); } catch(_){}
       els.msg.textContent = 'That did not send. Email contact@quoteleads.com.au and we will call you straight back.';
