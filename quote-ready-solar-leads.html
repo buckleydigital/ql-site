@@ -209,6 +209,14 @@ section{padding:56px 0;position:relative}
   transition:border-color .2s,background .2s,color .2s}
 .nsel-opt:hover{border-color:var(--bblue);color:var(--white)}
 .nsel-opt[aria-pressed="true"]{border-color:var(--blue);background:rgba(71,151,255,.12);color:var(--white);font-weight:600}
+/* Two-step form: the campaign question first, then the details. */
+.fstep2{display:none}
+#claim.go .fstep1{display:none}
+#claim.go .fstep2{display:block;animation:fstepIn .35s ease both}
+@keyframes fstepIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fchosen{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:14px;padding:9px 12px;border:1px solid var(--bmid);border-radius:10px;background:var(--glass)}
+.fchosen b{color:var(--white);font-weight:600}
+.fchosen button{background:none;border:0;color:var(--blue);font:inherit;font-size:.82rem;cursor:pointer;padding:0}
 .nsel.err .nsel-opts{outline:1px solid #f87171;outline-offset:3px;border-radius:14px}
 @media(max-width:420px){.nsel-opts{grid-template-columns:1fr}}
 .consent{display:flex;gap:11px;align-items:flex-start;margin:8px 0 18px;color:var(--muted);font-size:.83rem;line-height:1.6}
@@ -517,10 +525,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   <div class="wrap">
     <div class="card rv" id="claim" style="margin-top:26px">
       <div id="offerBlock">
-          <h2 class="center" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Request a callback</h2>
-          <p class="price-note center" style="margin-bottom:18px">Leave your details and we'll ring you, confirm your service area and ad budget, and get your build started.</p>
+        <div class="fstep1">
+          <h2 class="center" id="nicheLbl" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Which campaign should we build first?</h2>
+          <p class="price-note center" style="margin-bottom:18px">Tap one to request a callback.</p>
           <div class="nsel" id="fNicheWrap">
-            <div class="nsel-lbl" id="nicheLbl">Which campaign should we build first?</div>
             <div class="nsel-opts" role="group" aria-labelledby="nicheLbl">
               <button type="button" class="nsel-opt" data-niche="solar" aria-pressed="false">All solar</button>
               <button type="button" class="nsel-opt" data-niche="solar_and_battery" aria-pressed="false">Solar + battery</button>
@@ -528,6 +536,11 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
               <button type="button" class="nsel-opt" data-niche="commercial_solar" aria-pressed="false">Commercial solar</button>
             </div>
           </div>
+        </div>
+        <div class="fstep2" id="fStep2">
+          <div class="fchosen"><span>Campaign: <b id="fChosen"></b></span><button type="button" id="fChange">Change</button></div>
+          <h2 class="center" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Great. Where should we call you?</h2>
+          <p class="price-note center" style="margin-bottom:18px">We'll ring you, confirm your service area and ad budget, and get your build started.</p>
           <input class="field" id="fName" type="text" placeholder="Full name" autocomplete="name">
           <input class="field" id="fCompany" type="text" placeholder="Business name" autocomplete="organization">
           <input class="field" id="fEmail" type="email" placeholder="Email address" autocomplete="email">
@@ -542,6 +555,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
             <button class="btn btn-primary" id="btnCall">Request a callback</button>
           </div>
           <div class="formmsg" id="formMsg" aria-live="polite"></div>
+        </div>
           <div class="trust-row">
             <span>No obligation</span>
             <span>No lock-in</span>
@@ -968,7 +982,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     msg: document.getElementById('formMsg'),
     call: document.getElementById('btnCall'),
     offer: document.getElementById('offerBlock'),
-    thanks: document.getElementById('thanks')
+    thanks: document.getElementById('thanks'),
+    card: document.getElementById('claim')
   };
 
   // Campaign choice. Deliberately not pre-selected: a default would just be
@@ -981,7 +996,14 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         b.setAttribute('aria-pressed', String(b === btn));
       });
       els.nicheWrap.classList.remove('err');
+      // Answering the first question opens the details form.
+      document.getElementById('fChosen').textContent = btn.textContent;
+      els.card.classList.add('go');
+      try { els.card.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(_) {}
     });
+  });
+  document.getElementById('fChange').addEventListener('click', function(){
+    els.card.classList.remove('go');
   });
 
   function collect(){
