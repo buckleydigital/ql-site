@@ -45,7 +45,7 @@
     "description": "How to get better solar leads in Australia: send ads to a landing page with an 8-question survey that filters tyre-kickers, track with the Meta Pixel and CAPI, and post to your CRM.",
     "url": "https://quoteleads.com.au/blog/how-to-get-better-solar-leads",
     "datePublished": "2026-11-01",
-    "dateModified": "2026-11-01",
+    "dateModified": "2026-11-03",
     "image": "https://quoteleads.com.au/quoteleadsogimage.png",
     "author": {
       "@type": "Organization",
@@ -77,6 +77,8 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
+      {"@type": "Question", "name": "How much should I spend on Meta ads for solar leads?", "acceptedAnswer": {"@type": "Answer", "text": "Start at $50 a day or more, set at campaign level, with one broad ad set and 8 to 12 creatives. Less than that and Meta doesn't get enough data to learn who your good leads are."}},
+      {"@type": "Question", "name": "How fast can I scale a solar ad campaign?", "acceptedAnswer": {"@type": "Answer", "text": "After at least two weeks of steady data, raise the budget by about 20%, then wait 3 to 5 days for the cost per lead to settle before the next increase. Big jumps reset Meta's learning and usually push your cost per lead up."}},
       {
         "@type": "Question",
         "name": "Won't more questions mean fewer leads?",
@@ -346,7 +348,7 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
         <p class="hero-sub">Most bad solar leads aren't a targeting problem. They're a capture problem. A one-tap form lets anyone through and tells you nothing. Here's the system we use to get quote-ready leads instead: the ad, the landing page, a multi-step survey, tracking that teaches Meta what a good lead looks like, and the exact tech stack and prompts to build it yourself.</p>
         <div class="article-meta">
             <span class="article-meta-tag">Solar Lead Gen</span>
-            <span>14 min read</span>
+            <span>18 min read</span>
             <span>Updated November 2026</span>
         </div>
     </div>
@@ -360,11 +362,15 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
             <li><a href="#why">Why most solar leads are bad</a></li>
             <li><a href="#system">The system: ad, landing page, survey, CRM</a></li>
             <li><a href="#ad">The ad</a></li>
+            <li><a href="#creative">Making the ad creative</a></li>
             <li><a href="#landing-page">The landing page</a></li>
             <li><a href="#survey">The survey: the 8 questions that filter tyre-kickers</a></li>
             <li><a href="#bill">The optional power bill upload</a></li>
             <li><a href="#tracking">Tracking: telling Meta you want better leads</a></li>
+            <li><a href="#setup">Campaign setup</a></li>
+            <li><a href="#scaling">Scaling</a></li>
             <li><a href="#speed">Speed to lead</a></li>
+            <li><a href="#cost-per-job">Cost per booked job</a></li>
             <li><a href="#stack">The tech stack</a></li>
             <li><a href="#prompt">Example Claude Code prompt</a></li>
             <li><a href="#crm">Posting leads to your CRM</a></li>
@@ -425,8 +431,42 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
     </div>
 </section>
 
+<!-- CREATIVE -->
+<section class="content-section lifted" id="creative">
+    <div class="si">
+        <div class="slbl">Creative</div>
+        <h2 class="stitle rv">Making the ad creative: <em>real jobs, real owner.</em></h2>
+        <div class="prose rv">
+            <p>Good hooks need something to sit on. You don't need a studio or an agency to make it: a phone, Canva and an AI writing tool cover almost everything.</p>
+            <h3>Static creatives</h3>
+            <ul>
+                <li><strong>Use real job photos.</strong>Your own installs, your crew on a roof, a finished battery on a garage wall. They beat stock photos and AI images every time, because homeowners can tell, and they prove you actually do the work.</li>
+                <li><strong>One idea per creative.</strong>A short headline that matches the hook ("Panels from 2012? Add a battery."), one strong photo, your logo. If it needs a paragraph, it's an ad's primary text, not the image.</li>
+                <li><strong>Build them in Canva.</strong>Make one template in your brand colours, then swap the photo and headline for each version. Use AI (ChatGPT or Claude) to write 10 headline options from your offer and pick the best 3 or 4.</li>
+                <li><strong>Make variations, not one perfect ad.</strong>Different photos and different hooks. Meta works out which ones win; your job is to give it enough options to choose from.</li>
+            </ul>
+            <h3>Videos: the owner pitching the offer</h3>
+            <p>The creative that works best is usually the simplest: <strong>the owner, on their phone, explaining the offer to camera.</strong> 30 to 60 seconds, shot on a job site or in the van. Who you are, what the offer is, who it's for, and "answer a few quick questions to see what you'd save". It feels local and trustworthy in a way a polished ad doesn't. Add captions, because most people watch with the sound off.</p>
+            <h3>Formats and sizes</h3>
+        </div>
+        <div class="tbl-wrap rv">
+            <table class="tbl">
+                <thead><tr><th>Format</th><th>Size</th><th>Where it shows</th></tr></thead>
+                <tbody>
+                    <tr><td>Portrait 4:5</td><td>1080 x 1350 px</td><td>Facebook and Instagram feeds. The best all-rounder on mobile.</td></tr>
+                    <tr><td>Square 1:1</td><td>1080 x 1080 px</td><td>Feeds, and a safe fallback anywhere.</td></tr>
+                    <tr><td>Vertical 9:16</td><td>1080 x 1920 px</td><td>Stories and Reels. Keep text and faces away from the top and bottom edges, where the app's buttons sit.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="prose rv">
+            <p>Make each creative in at least 4:5 and 9:16, so it fits every placement without Meta cropping it badly. Start with <strong>8 to 12 creatives, roughly 60% images and 40% video.</strong></p>
+        </div>
+    </div>
+</section>
+
 <!-- LANDING PAGE -->
-<section class="content-section lifted" id="landing-page">
+<section class="content-section" id="landing-page">
     <div class="si">
         <div class="slbl">Step 2</div>
         <h2 class="stitle rv">The landing page: <em>one job.</em></h2>
@@ -443,7 +483,7 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
 </section>
 
 <!-- SURVEY -->
-<section class="content-section" id="survey">
+<section class="content-section lifted" id="survey">
     <div class="si">
         <div class="slbl">Step 3</div>
         <h2 class="stitle rv">The survey: <em>8 questions that filter tyre-kickers.</em></h2>
@@ -492,7 +532,7 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
 </section>
 
 <!-- BILL -->
-<section class="content-section lifted" id="bill">
+<section class="content-section" id="bill">
     <div class="si">
         <div class="slbl">Optional</div>
         <h2 class="stitle rv">The power bill upload: <em>half a quote.</em></h2>
@@ -504,7 +544,7 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
 </section>
 
 <!-- TRACKING -->
-<section class="content-section" id="tracking">
+<section class="content-section lifted" id="tracking">
     <div class="si">
         <div class="slbl">Step 4</div>
         <h2 class="stitle rv">Tracking: <em>tell Meta you want better leads.</em></h2>
@@ -525,14 +565,95 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
     </div>
 </section>
 
+<!-- SETUP -->
+<section class="content-section" id="setup">
+    <div class="si">
+        <div class="slbl">Setup</div>
+        <h2 class="stitle rv">Campaign setup: <em>keep it simple.</em></h2>
+        <div class="prose rv">
+            <p>A simple structure gives Meta enough data to learn fast. Splitting a small budget across lots of ad sets starves every one of them.</p>
+        </div>
+        <div class="tbl-wrap rv">
+            <table class="tbl">
+                <thead><tr><th>Setting</th><th>What we use</th></tr></thead>
+                <tbody>
+                    <tr><td>Campaign</td><td>One campaign per offer (for example Solar + battery). Objective <strong>Leads</strong>, conversion location <strong>Website</strong>, optimise for the <strong>Lead</strong> event.</td></tr>
+                    <tr><td>Budget</td><td>At least <strong>$50 a day</strong>, set at campaign level.</td></tr>
+                    <tr><td>Ad sets</td><td>One, broad. Location is your service area (a radius or postcodes). Age and gender left open, unless your own sales data says otherwise. The survey does the filtering.</td></tr>
+                    <tr><td>Ads</td><td>8 to 12 creatives, about 60% images and 40% video, with 3 to 5 versions of the primary text. Call to action: <strong>Get quote</strong>.</td></tr>
+                    <tr><td>Advantage+ creative</td><td>Turn off the automatic enhancements (text changes, image touch-ups, music). They can change your copy into something you didn't approve.</td></tr>
+                    <tr><td>Tracking</td><td>UTM tags on every ad, so each lead traces back to the exact ad that made it.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="prose rv">
+            <ul>
+                <li><strong>Days 1 to 3: don't touch it.</strong>Meta is learning. Only check that it's spending and the ads are approved.</li>
+                <li><strong>Refresh, don't rebuild.</strong>When frequency passes 3, or the click rate drops 30% from week one, add 3 or 4 new creatives and pause the 3 weakest. Never rebuild a campaign that's working.</li>
+                <li><strong>One change at a time,</strong>so you know what made the difference.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- SCALING -->
+<section class="content-section lifted" id="scaling">
+    <div class="si">
+        <div class="slbl">Scaling</div>
+        <h2 class="stitle rv">Scaling: <em>slowly, then steadily.</em></h2>
+        <div class="prose rv">
+            <p>The fastest way to break a good campaign is to double its budget overnight. Meta treats a big jump as a new campaign and starts learning again, and your cost per lead usually jumps with it.</p>
+            <ol>
+                <li><strong>Get at least two weeks of data first.</strong>Don't scale on a good few days. Wait until the cost per lead is steady.</li>
+                <li><strong>Raise the budget by about 20%.</strong>For example from $50 to $60 a day.</li>
+                <li><strong>Wait 3 to 5 days</strong>and let the cost per lead settle before you judge it.</li>
+                <li><strong>Holding steady? Do it again.</strong>Another 20%, another 3 to 5 days.</li>
+                <li><strong>Cost per lead jumped and stayed up?</strong>Step back to the last budget that worked and give it a few more days before trying again.</li>
+            </ol>
+            <div class="callout amber">
+                <div class="callout-lbl">One rule</div>
+                <p>Don't change the creatives and the budget at the same time. If results move, you won't know which change did it.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- SPEED -->
-<section class="content-section lifted" id="speed">
+<section class="content-section" id="speed">
     <div class="si">
         <div class="slbl">Step 5</div>
         <h2 class="stitle rv">Speed to lead: <em>seconds, not hours.</em></h2>
         <div class="prose rv">
             <p>A quote-ready lead goes cold fast. The homeowner who just finished your survey is probably filling in a competitor's too. An automatic SMS within seconds ("Thanks Sarah, got your details. Is now a good time for a quick call about the battery?") keeps them warm, and an AI agent can confirm their details and book the call before a human picks up the phone.</p>
             <p>The data on this is consistent. See <a href="/blog/lead-response-time-trade-business.html">why lead response time matters</a> for the numbers.</p>
+        </div>
+    </div>
+</section>
+
+<!-- COST PER JOB -->
+<section class="content-section lifted" id="cost-per-job">
+    <div class="si">
+        <div class="slbl">The number that matters</div>
+        <h2 class="stitle rv">Cost per booked job, <em>not cost per lead.</em></h2>
+        <div class="prose rv">
+            <p>Everything in this guide is built around one number: what it costs you to get a job booked. Cost per lead is easy to see in Ads Manager, so it's the number most people chase. But a cheap lead that never answers isn't cheap.</p>
+            <p><strong>Cost per booked job = cost per lead ÷ the share of leads that book.</strong></p>
+        </div>
+        <div class="tbl-wrap rv">
+            <table class="tbl">
+                <thead><tr><th></th><th>Cheap one-tap lead</th><th>Survey lead</th></tr></thead>
+                <tbody>
+                    <tr><td>Cost per lead</td><td>$30</td><td>$100</td></tr>
+                    <tr><td>Leads that book a job</td><td>1 in 15</td><td>1 in 3</td></tr>
+                    <tr><td><strong>Cost per booked job</strong></td><td><strong>$450</strong></td><td><strong>$300</strong></td></tr>
+                    <tr><td>Calls to get one job</td><td>15</td><td>3</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="prose rv">
+            <p class="muted" style="font-size:.9rem">Example numbers to show the maths. Use your own booking rate.</p>
+            <p>The "expensive" lead wins: it costs less per job, and it takes a fifth of the phone calls. That's why the survey asks 8 questions, and why the tracking tells Meta which leads booked. You're not trying to make leads cheap. You're trying to make jobs cheap.</p>
+            <p>Track it monthly: ad spend ÷ jobs booked. Our breakdown of <a href="/blog/solar-lead-cost-australia.html">what solar leads cost in Australia</a> covers what to expect for each lead type.</p>
         </div>
     </div>
 </section>
@@ -709,6 +830,10 @@ Content-Type: application/json
             <p>A landing page with a survey, if lead quality matters. Instant forms are cheap per lead because they're easy to submit, and that's exactly the problem: they're easy to submit without meaning it.</p>
             <h3>Do I need the Conversions API if I have the Pixel?</h3>
             <p>Yes. The Pixel alone misses a meaningful share of conversions because of ad blockers and browser privacy settings. CAPI sends the same events from your server, so Meta sees more of your real leads and optimises better.</p>
+            <h3>How much should I spend on Meta ads for solar leads?</h3>
+            <p>Start at $50 a day or more, set at campaign level, with one broad ad set and 8 to 12 creatives. Less than that and Meta doesn't get enough data to learn who your good leads are.</p>
+            <h3>How fast can I scale a solar ad campaign?</h3>
+            <p>After at least two weeks of steady data, raise the budget by about 20%, then wait 3 to 5 days for the cost per lead to settle before the next increase. Big jumps reset Meta's learning and usually push your cost per lead up.</p>
             <h3>Can I build this without a developer?</h3>
             <p>With Claude Code, mostly yes. It writes the pages, the backend function and the CRM mapping from a plain-English brief. You'll still need to set up the accounts (GitHub, Supabase, your domain, Meta) and test it properly before you spend on ads.</p>
         </div>
