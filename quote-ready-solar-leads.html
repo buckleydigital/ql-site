@@ -1122,6 +1122,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       if(!r.ok) throw new Error('bad response');
       els.offer.style.display = 'none';
       els.thanks.classList.add('on');
+      // Tell Meta a lead came in, only once the enquiry has actually been accepted.
+      try{if(window.fbq)fbq('track','Lead');if(window.gtag)gtag('event','generate_lead');}catch(e){}
       els.thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }).catch(function(){
       els.call.disabled = false;
