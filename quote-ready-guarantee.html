@@ -515,7 +515,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 .rules li::before{content:'';position:absolute;left:4px;top:24px;width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue)}
 .rules b{color:var(--white);font-weight:600}
 .tier-solo{max-width:420px;margin:8px auto 0}
-.tier-g{display:inline-block;margin-top:12px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);background:var(--bdim);border:1px solid var(--bblue);border-radius:100px;padding:5px 12px}
+.tier-g{display:inline-block;margin:12px 0 16px;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);background:var(--bdim);border:1px solid var(--bblue);border-radius:100px;padding:5px 12px}
 @media (max-width:560px){
   .math{grid-template-columns:1fr;gap:8px}
   .math-op{text-align:center;line-height:1}
@@ -600,7 +600,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <li><b>Averaged across your first 30 days live.</b> Total ad spend Meta bills you, divided by the quote-ready enquiries it produced.</li>
       <li><b>If the average is over $100,</b> your monthly management fee is waived and we keep working until a 30-day window lands under $100. Ad spend is always yours to pay, direct to Meta.</li>
       <li><b>Log your call attempts in QuoteLeadsHQ.</b> If a lead has not had three logged attempts within 48 hours, it counts as quote-ready.</li>
-      <li><b>Approve our creative change requests within 24 hours.</b> When results dip, new ads are how we fix it fast.</li>
+      <li><b>Approve our creative change requests within 24 hours.</b></li>
       <li><b>Keep the campaign running as agreed.</b> The ads stay live at $100 a day or more, in the agreed service area, running the creative and offer we built.</li>
     </ul>
     <p class="cam-note rv">The full conditions are in the <a href="/quote-ready-guarantee-terms" style="color:var(--blue)">guarantee terms</a>.</p>
@@ -657,17 +657,25 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <div class="card rv">
       <div id="offerBlock">
         <div class="center">
-          <h3 style="font-family:var(--display);font-size:clamp(1.4rem,5vw,1.8rem);font-weight:600">One build. <em>Guarantee included.</em></h3>
-          <p class="price-note" style="margin-top:10px">The guarantee runs on the Growth build, sized for $100 a day and up.</p>
+          <h3 style="font-family:var(--display);font-size:clamp(1.4rem,5vw,1.8rem);font-weight:600">Two builds. <em>Guarantee included.</em></h3>
+          <p class="price-note" style="margin-top:10px">The guarantee applies on either build, with $100 a day or more in ad spend.</p>
         </div>
-        <div class="tiers" style="grid-template-columns:1fr">
-          <div class="tier lead tier-solo">
+        <div class="tiers">
+          <div class="tier">
+            <div class="tier-name">Standard</div>
+            <div class="tier-price"><sup>$</sup>2,500</div>
+            <div class="tier-mo">one-off build, ex GST, first 30 days managed<br>then $600/mo + GST, waived if we miss</div>
+            <p class="tier-for">Around 30 to 60 enquiries a month. One campaign, one service area, one offer, on your own accounts.</p>
+            <div class="center"><span class="tier-g">Under $100 per quote-ready enquiry, guaranteed</span></div>
+            <a class="btn btn-primary" href="/buy-system?tier=standard" style="margin-top:auto">Buy Standard</a>
+          </div>
+          <div class="tier lead">
             <div class="tier-name">Growth</div>
             <div class="tier-price"><sup>$</sup>5,000</div>
             <div class="tier-mo">one-off build, ex GST, first 30 days managed<br>then $1,200/mo + GST, waived if we miss</div>
-            <p class="tier-for">Around 60 to 90+ enquiries a month from $100/day in ad spend, on your own accounts.</p>
+            <p class="tier-for">Around 60 to 90+ enquiries a month. Several campaigns, service areas or offers, on your own accounts.</p>
             <div class="center"><span class="tier-g">Under $100 per quote-ready enquiry, guaranteed</span></div>
-            <a class="btn btn-primary" href="/buy-system?tier=growth" style="margin-top:16px">Buy the Growth build</a>
+            <a class="btn btn-primary" href="/buy-system?tier=growth" style="margin-top:auto">Buy Growth</a>
           </div>
         </div>
         <div class="center">
