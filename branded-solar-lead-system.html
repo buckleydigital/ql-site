@@ -498,6 +498,19 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 .mk-mockup.mk-light .mk-bar{border-bottom-color:#DADDE3}
 .mk-mockup.mk-light .mk-dot.r{background:#FF5F57}.mk-mockup.mk-light .mk-dot.y{background:#FEBC2E}.mk-mockup.mk-light .mk-dot.g{background:#28C840}
 .fb-av.fb-av-sun{background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}.fb-av-sun .ml-sun{width:26px;height:26px}
+/* Leadshook-style: the campaign question first, the details form only once it is answered. */
+.ls-form{display:none}
+.ls-wrap.ls-go .ls-q{display:none}
+.ls-wrap.ls-go .ls-form{display:block;animation:lsIn .35s ease both}
+.ls-wrap .ls-q{animation:lsIn .35s ease both}
+@keyframes lsIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ls-top{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--faint,#8a8a94);margin-bottom:8px}
+.ls-bar{height:3px;border-radius:3px;background:var(--glass2,rgba(255,255,255,.08));margin-bottom:18px;overflow:hidden}
+.ls-bar div{height:100%;background:var(--blue,#4797ff);border-radius:3px;transition:width .3s}
+.ls-chosen{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.82rem;color:var(--muted,#a1a1aa);margin-bottom:14px;padding:9px 12px;border:1px solid var(--bmid,rgba(255,255,255,.12));border-radius:10px;background:var(--glass,rgba(255,255,255,.03))}
+.ls-chosen b{color:var(--white,#fff);font-weight:600}
+.ls-chosen button{background:none;border:0;color:var(--blue,#4797ff);font:inherit;font-size:.82rem;cursor:pointer;padding:0}
+.ls-form-h{font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:14px;text-align:center}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <link rel="stylesheet" href="/footer.css">
@@ -810,6 +823,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <div style="margin-top:26px">
           <h4 class="center" style="font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:6px">Rather talk it through first?</h4>
           <p class="price-note center" style="margin-bottom:18px">Leave your details and we'll ring you, work out which build fits, and answer your questions.</p>
+          <div class="ls-wrap" id="lsWrap">
+          <div class="ls-top"><span id="lsStep">Quick question, then where to call you</span></div>
+          <div class="ls-bar"><div id="lsBar" style="width:50%"></div></div>
+          <div class="ls-q">
           <div class="nsel" id="fNicheWrap">
             <div class="nsel-lbl" id="nicheLbl">Which campaign should we build first?</div>
             <div class="nsel-opts" role="group" aria-labelledby="nicheLbl">
@@ -818,6 +835,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
               <button type="button" class="nsel-opt" data-niche="commercial_solar" aria-pressed="false">Commercial solar</button>
             </div>
           </div>
+          </div>
+          <div class="ls-form">
+          <div class="ls-chosen"><span>Campaign: <b id="lsChosen"></b></span><button type="button" id="lsChange">Change</button></div>
+          <div class="ls-form-h">Great. Where should we call you?</div>
           <input class="field" id="fName" type="text" placeholder="Full name" autocomplete="name">
           <input class="field" id="fCompany" type="text" placeholder="Business name" autocomplete="organization">
           <input class="field" id="fEmail" type="email" placeholder="Email address" autocomplete="email">
@@ -833,6 +854,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           </div>
           <p class="cta-hint">No payment now. Ready to go instead? <a href="/buy-system" style="color:var(--blue)">Buy online</a> and onboarding starts today.</p>
           <div class="formmsg" id="formMsg" aria-live="polite"></div>
+          </div>
+          </div>
           <div class="trust-row">
             <span>No obligation</span>
             <span>No lock-in</span>
@@ -1126,6 +1149,27 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     entries.forEach(function(e){ if (e.isIntersecting) sticky.classList.remove('on'); });
   }, { threshold: 0.25 });
   if (orderEl) orderIO.observe(orderEl);
+})();
+</script>
+<script>
+// Leadshook-style survey: answer the question, then the details form appears.
+(function(){
+  var wrap = document.getElementById('lsWrap'); if (!wrap) return;
+  var q = document.getElementById('fNicheWrap');
+  function go(on){
+    wrap.classList.toggle('ls-go', on);
+    document.getElementById('lsBar').style.width = on ? '100%' : '50%';
+    if (on) {
+      var b = q.querySelector('.nsel-opt[aria-pressed="true"]');
+      document.getElementById('lsChosen').textContent = b ? b.textContent : '';
+    }
+    var top = wrap.getBoundingClientRect().top;
+    if (top < 0) window.scrollBy(0, top - 12);
+  }
+  Array.prototype.forEach.call(q.querySelectorAll('.nsel-opt'), function(btn){
+    btn.addEventListener('click', function(){ setTimeout(function(){ go(true); }, 160); });
+  });
+  document.getElementById('lsChange').addEventListener('click', function(){ go(false); });
 })();
 </script>
 </body>
