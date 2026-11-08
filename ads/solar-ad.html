@@ -121,22 +121,16 @@
     gap: 16px;
   }
 
+  /* The sun mark, the same as the landing-page example's logo. */
   .logo-icon {
     width: 56px;
     height: 56px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--blue), var(--sky));
-    box-shadow: 0 0 24px rgba(71,151,255,0.35);
-    position: relative;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%, #9CC5FF 0 38%, transparent 39%),
+      conic-gradient(from 0deg, #4797FF 0 6%, transparent 6% 12.5%, #4797FF 12.5% 18.5%, transparent 18.5% 25%, #4797FF 25% 31%, transparent 31% 37.5%, #4797FF 37.5% 43.5%, transparent 43.5% 50%, #4797FF 50% 56%, transparent 56% 62.5%, #4797FF 62.5% 68.5%, transparent 68.5% 75%, #4797FF 75% 81%, transparent 81% 87.5%, #4797FF 87.5% 93.5%, transparent 93.5%);
+    filter: drop-shadow(0 0 14px rgba(71,151,255,0.45));
     flex-shrink: 0;
-  }
-
-  .logo-icon::after {
-    content: '';
-    position: absolute;
-    inset: 11px;
-    border-radius: 4px;
-    background: var(--void);
   }
 
   .logo-text {
