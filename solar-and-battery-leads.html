@@ -489,6 +489,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 }
 </style>
 <link rel="stylesheet" href="/footer.css">
+<link rel="stylesheet" href="/funnel-example.css">
 </head>
 <body>
 
@@ -697,6 +698,58 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 <div class="stat-label">To first lead</div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- FUNNEL EXAMPLE: the ad, then the landing page it opens, then the lead below -->
+<section>
+    <div class="si">
+        <div class="ey rv">How It Works</div>
+        <h2 class="stitle rv">From their feed<br><em>to your phone.</em></h2>
+        <div class="fx-grid rv">
+            <div class="fx-col fx-col-ad">
+                <div class="fx-lbl"><b>1</b>The ad they see</div>
+                <div class="fx-fb">
+                    <div class="fx-fb-top">
+                        <div class="fx-fb-av"><span class="fx-sun"></span></div>
+                        <div><div class="fx-fb-name">Sydney Solar Co.</div><div class="fx-fb-meta">Sponsored</div></div>
+                    </div>
+                    <p class="fx-fb-copy">Upgrade your home with one of the smartest solar + battery systems available today. Lower your power bills and futureproof your energy needs.</p>
+                    <div class="fx-ad"><iframe src="/ads/solar-ad.html" scrolling="no" loading="lazy" title="Example solar + battery ad" tabindex="-1"></iframe></div>
+                    <div class="fx-fb-link">
+                        <div><div class="fx-fb-dom">SYDNEYSOLARCO.COM.AU</div><div class="fx-fb-hl">Get your free solar + battery quote</div></div>
+                        <span class="fx-fb-cta">Get quote</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fx-col">
+                <div class="fx-lbl"><b>2</b>The page they land on</div>
+                <div class="fx-site">
+                    <div class="fx-bar"><span class="fx-dot r"></span><span class="fx-dot y"></span><span class="fx-dot g"></span><div class="fx-url">sydneysolarco.com.au / get-a-quote</div></div>
+                    <div class="fx-body">
+                        <div class="fx-nav"><div class="fx-logo"><span class="fx-sun"></span><span>Sydney Solar Co.</span></div><span class="fx-nav-cta">Get my quote</span></div>
+                        <div class="fx-hero">
+                            <div>
+                                <div class="fx-rating"><span class="fx-stars">★★★★★</span> 4.9 on Google · local Sydney crew</div>
+                                <h3 class="fx-h">Cut your power bill with solar + battery.</h3>
+                                <p class="fx-p">Tell us about your home and get a fixed quote with your exact payback, in writing, within 24 hours.</p>
+                                <div class="fx-review"><div class="fx-review-q">“Install was done in a day. Our bill went from $780 to $95 a quarter.”</div><div class="fx-review-by"><span class="fx-av">S</span>Sarah, Penrith <span class="fx-stars">★★★★★</span></div></div>
+                            </div>
+                            <div class="fx-survey">
+                                <div class="fx-sv-head"><span class="fx-sv-step">Question 5 of 8</span><span>← Back</span></div>
+                                <div class="fx-sv-bar"><div class="fx-sv-fill" style="width:62.5%"></div></div>
+                                <div class="fx-sv-q">What's your average quarterly power bill?</div>
+                                <div class="fx-opts"><div class="fx-opt"><b>Under $300</b><span>under $100/mo</span></div><div class="fx-opt"><b>$300 – $600</b><span>$100–200/mo</span></div><div class="fx-opt on"><b>$600 – $1,000</b><span>$200–330/mo</span></div><div class="fx-opt"><b>$1,000+</b><span>over $330/mo</span></div></div>
+                                <div class="fx-go">Continue →</div>
+                                <div class="fx-motive">3 questions left · your quote is next</div>
+                            </div>
+                        </div>
+                        <div class="fx-trust"><span>Licensed and insured</span><span>25-year panel warranty</span><span>No obligation, takes 90 seconds</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fx-next rv"><b>3</b> The lead it sends you ↓</div>
     </div>
 </section>
 
@@ -1020,5 +1073,6 @@ function toggleFaq(btn){
   item.classList.toggle('open');
 }
 </script>
+<script src="/funnel-example.js"></script>
 </body>
 </html>

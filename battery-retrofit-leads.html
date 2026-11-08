@@ -482,6 +482,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 }
 </style>
 <link rel="stylesheet" href="/footer.css">
+<link rel="stylesheet" href="/funnel-example.css">
 </head>
 <body>
 
@@ -690,6 +691,58 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 <div class="stat-label">To first lead</div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- FUNNEL EXAMPLE: the ad, then the landing page it opens, then the lead below -->
+<section>
+    <div class="si">
+        <div class="ey rv">How It Works</div>
+        <h2 class="stitle rv">From their feed<br><em>to your phone.</em></h2>
+        <div class="fx-grid rv">
+            <div class="fx-col fx-col-ad">
+                <div class="fx-lbl"><b>1</b>The ad they see</div>
+                <div class="fx-fb">
+                    <div class="fx-fb-top">
+                        <div class="fx-fb-av"><span class="fx-mark"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="17" height="10" rx="2.2"/><path d="M21.5 10.5v3"/><path d="M11.8 9 9.5 12.3h3.2L10.5 15"/></svg></span></div>
+                        <div><div class="fx-fb-name">Sydney Battery Co.</div><div class="fx-fb-meta">Sponsored</div></div>
+                    </div>
+                    <p class="fx-fb-copy">Already have solar? Store your daytime power for the evening. Free battery assessment and a fixed quote in 24 hours.</p>
+                    <div class="fx-ad"><iframe src="/ads/battery-ad.html" scrolling="no" loading="lazy" title="Example battery ad" tabindex="-1"></iframe></div>
+                    <div class="fx-fb-link">
+                        <div><div class="fx-fb-dom">SYDNEYBATTERYCO.COM.AU</div><div class="fx-fb-hl">Get your free battery quote</div></div>
+                        <span class="fx-fb-cta">Get quote</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fx-col">
+                <div class="fx-lbl"><b>2</b>The page they land on</div>
+                <div class="fx-site">
+                    <div class="fx-bar"><span class="fx-dot r"></span><span class="fx-dot y"></span><span class="fx-dot g"></span><div class="fx-url">sydneybatteryco.com.au / get-a-quote</div></div>
+                    <div class="fx-body">
+                        <div class="fx-nav"><div class="fx-logo"><span class="fx-mark"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="17" height="10" rx="2.2"/><path d="M21.5 10.5v3"/><path d="M11.8 9 9.5 12.3h3.2L10.5 15"/></svg></span><span>Sydney Battery Co.</span></div><span class="fx-nav-cta">Get my quote</span></div>
+                        <div class="fx-hero">
+                            <div>
+                                <div class="fx-rating"><span class="fx-stars">★★★★★</span> 4.9 on Google · local Sydney crew</div>
+                                <h3 class="fx-h">Add a battery to the solar you already have.</h3>
+                                <p class="fx-p">Store your daytime power for the evening. Fixed quote within 24 hours. Qualified electricians.</p>
+                                <div class="fx-review"><div class="fx-review-q">“Battery went in alongside our old panels. Our bill is basically zero now.”</div><div class="fx-review-by"><span class="fx-av">D</span>Dave, Penrith <span class="fx-stars">★★★★★</span></div></div>
+                            </div>
+                            <div class="fx-survey">
+                                <div class="fx-sv-head"><span class="fx-sv-step">Question 3 of 8</span><span>← Back</span></div>
+                                <div class="fx-sv-bar"><div class="fx-sv-fill" style="width:37.5%"></div></div>
+                                <div class="fx-sv-q">How old is your solar system?</div>
+                                <div class="fx-opts"><div class="fx-opt"><b>Under 5 years</b><span>newer inverter</span></div><div class="fx-opt on"><b>5 to 10 years</b><span>the most common</span></div><div class="fx-opt"><b>10 to 15 years</b><span>may need a new inverter</span></div><div class="fx-opt"><b>15+ years</b><span>worth a check</span></div></div>
+                                <div class="fx-go">Continue →</div>
+                                <div class="fx-motive">5 questions left · your quote is next</div>
+                            </div>
+                        </div>
+                        <div class="fx-trust"><span>Qualified electricians</span><span>10-year battery warranty</span><span>No obligation, takes 60 seconds</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fx-next rv"><b>3</b> The lead it sends you ↓</div>
     </div>
 </section>
 
@@ -1024,5 +1077,6 @@ function toggleFaq(btn){
   item.classList.toggle('open');
 }
 </script>
+<script src="/funnel-example.js"></script>
 </body>
 </html>

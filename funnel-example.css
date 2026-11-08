@@ -1,0 +1,77 @@
+/* Funnel example on the trade pages: the ad (step 1) and the landing page it
+   opens (step 2), above the page's own lead card (step 3). Self-contained:
+   every class starts fx- so nothing clashes with the page's own styles. */
+.fx-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:28px;align-items:start;margin-top:34px}
+.fx-col{min-width:0}
+.fx-lbl{display:flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;color:var(--sky,#7CB9FF);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+.fx-lbl b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(71,151,255,.15);border:1px solid rgba(71,151,255,.35);font-size:.72rem;color:#fff}
+.fx-next{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:30px;font-size:.84rem;color:var(--muted,#9A9AA3)}
+.fx-next b{color:var(--sky,#7CB9FF);font-weight:600}
+
+/* Logo marks: a line icon in a blue ring, the same family as the solar sun. */
+.fx-mark{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#EDF4FF;box-shadow:inset 0 0 0 1.5px #4797FF;flex-shrink:0}
+.fx-mark svg{width:13px;height:13px;fill:none;stroke:#4797FF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fx-sun{width:22px;height:22px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 50% 50%,#9CC5FF 0 38%,transparent 39%),conic-gradient(from 0deg,#4797FF 0 6%,transparent 6% 12.5%,#4797FF 12.5% 18.5%,transparent 18.5% 25%,#4797FF 25% 31%,transparent 31% 37.5%,#4797FF 37.5% 43.5%,transparent 43.5% 50%,#4797FF 50% 56%,transparent 56% 62.5%,#4797FF 62.5% 68.5%,transparent 68.5% 75%,#4797FF 75% 81%,transparent 81% 87.5%,#4797FF 87.5% 93.5%,transparent 93.5%)}
+
+/* Step 1: the Facebook post. */
+.fx-fb{background:#0B0B13;border:1px solid rgba(255,255,255,.09);border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.75)}
+.fx-fb-top{display:flex;align-items:center;gap:10px;padding:12px 14px 6px}
+.fx-fb-av{width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fx-fb-av .fx-mark,.fx-fb-av .fx-sun{width:28px;height:28px}
+.fx-fb-av .fx-mark svg{width:16px;height:16px}
+.fx-fb-name{font-size:.88rem;font-weight:600;color:#F2F2F2;line-height:1.2}
+.fx-fb-meta{font-size:.72rem;color:#8A8A93}
+.fx-fb-copy{font-size:.8rem;color:#D4D4DA;line-height:1.55;padding:6px 14px 10px;margin:0}
+.fx-ad{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#05070f}
+.fx-ad iframe{position:absolute;top:0;left:0;width:1080px;height:1080px;border:0;transform-origin:0 0;transform:scale(var(--fx-s,.35));pointer-events:none}
+.fx-fb-link{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06)}
+.fx-fb-dom{font-size:.64rem;color:#8A8A93;letter-spacing:.04em}
+.fx-fb-hl{font-size:.82rem;font-weight:600;color:#F2F2F2}
+.fx-fb-cta{font-size:.76rem;font-weight:600;padding:8px 14px;border-radius:7px;background:#4797FF;color:#fff;white-space:nowrap}
+
+/* Step 2: the installer's landing page, light like a real trade website. */
+.fx-site{--acc:#4797FF;--ink:#16181D;--mute:#5B6170;--line:#E7E8EC;background:#F4F5F7;border:1px solid rgba(255,255,255,.18);border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.75);color:var(--ink)}
+.fx-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#EEF0F3;border-bottom:1px solid #DADDE3}
+.fx-dot{width:9px;height:9px;border-radius:50%}
+.fx-dot.r{background:#FF5F57}.fx-dot.y{background:#FEBC2E}.fx-dot.g{background:#28C840}
+.fx-url{flex:1;margin-left:10px;padding:5px 12px;background:#fff;border:1px solid #DADDE3;border-radius:7px;font-size:.68rem;color:#4B5160;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fx-body{background:#fff}
+.fx-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 20px;border-bottom:1px solid var(--line)}
+.fx-logo{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.88rem;color:var(--ink)}
+.fx-nav-cta{font-size:.68rem;font-weight:600;padding:7px 14px;border-radius:100px;background:var(--acc);color:#fff;white-space:nowrap}
+.fx-hero{display:grid;grid-template-columns:1fr 1.08fr;gap:20px;padding:24px 20px;align-items:center;background:linear-gradient(180deg,#F7FAFF 0%,#fff 70%)}
+.fx-rating{font-size:.62rem;color:var(--mute);margin-bottom:8px}
+.fx-stars{color:#F5A623;letter-spacing:1px}
+.fx-h{font-size:1.12rem;font-weight:650;line-height:1.2;letter-spacing:-.015em;margin:0 0 8px;color:var(--ink)}
+.fx-p{font-size:.72rem;color:var(--mute);line-height:1.55;margin:0 0 12px}
+.fx-review{border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:#FAFAFB}
+.fx-review-q{font-size:.66rem;color:var(--ink);line-height:1.5;margin-bottom:5px}
+.fx-review-by{display:flex;align-items:center;gap:6px;font-size:.6rem;color:var(--mute)}
+.fx-av{width:16px;height:16px;border-radius:50%;background:#DCE9FF;color:#1D4E9E;display:inline-flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700}
+.fx-survey{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:0 10px 30px -12px rgba(22,24,29,.18)}
+.fx-sv-head{display:flex;justify-content:space-between;font-size:.6rem;color:var(--mute);margin-bottom:7px}
+.fx-sv-step{color:var(--acc);font-weight:600}
+.fx-sv-bar{height:3px;border-radius:100px;background:#F0F1F4;overflow:hidden;margin-bottom:12px}
+.fx-sv-fill{height:100%;background:var(--acc);border-radius:100px}
+.fx-sv-q{font-size:.84rem;font-weight:650;line-height:1.3;margin-bottom:10px;color:var(--ink)}
+.fx-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
+.fx-opt{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 6px;text-align:center;background:#fff}
+.fx-opt b{display:block;font-size:.68rem;font-weight:600;color:var(--ink)}
+.fx-opt span{display:block;font-size:.56rem;color:var(--mute);margin-top:2px}
+.fx-opt.on{border-color:var(--acc);background:#EDF4FF;box-shadow:inset 0 0 0 1px var(--acc)}
+.fx-opt.on b{color:#1D4E9E}
+.fx-opt.on::after{content:'✓';position:absolute;top:-6px;right:-6px;width:16px;height:16px;border-radius:50%;background:var(--acc);color:#fff;font-size:.55rem;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff}
+.fx-go{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:7px;background:var(--acc);color:#fff;font-size:.74rem;font-weight:600}
+.fx-motive{text-align:center;font-size:.58rem;color:var(--mute);margin-top:7px}
+.fx-trust{display:flex;flex-wrap:wrap;gap:6px 16px;padding:11px 20px;border-top:1px solid var(--line);background:#FAFAFB;font-size:.6rem;color:var(--mute)}
+.fx-trust span::before{content:'✓ ';color:#1F9D55}
+
+@media (max-width:900px){
+  .fx-grid{grid-template-columns:1fr;gap:26px}
+  .fx-col-ad{max-width:420px}
+}
+@media (max-width:560px){
+  .fx-hero{grid-template-columns:1fr;padding:18px 14px}
+  .fx-nav{padding:11px 14px}
+  .fx-trust{padding:10px 14px}
+}

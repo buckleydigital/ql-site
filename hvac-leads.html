@@ -510,6 +510,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 }
 </style>
 <link rel="stylesheet" href="/footer.css">
+<link rel="stylesheet" href="/funnel-example.css">
 </head>
 <body>
 
@@ -703,6 +704,58 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 <div class="stat-label">To first lead</div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- FUNNEL EXAMPLE: the ad, then the landing page it opens, then the lead below -->
+<section>
+    <div class="si">
+        <div class="ey rv">How It Works</div>
+        <h2 class="stitle rv">From their feed<br><em>to your phone.</em></h2>
+        <div class="fx-grid rv">
+            <div class="fx-col fx-col-ad">
+                <div class="fx-lbl"><b>1</b>The ad they see</div>
+                <div class="fx-fb">
+                    <div class="fx-fb-top">
+                        <div class="fx-fb-av"><span class="fx-mark"><svg viewBox="0 0 24 24"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/><path d="m9.5 4.5 2.5 2.5 2.5-2.5M9.5 19.5l2.5-2.5 2.5 2.5"/></svg></span></div>
+                        <div><div class="fx-fb-name">Sydney Air Co.</div><div class="fx-fb-meta">Sponsored</div></div>
+                    </div>
+                    <p class="fx-fb-copy">Beat the heat this summer. Ducted and split systems from Daikin, installed by licensed local technicians.</p>
+                    <div class="fx-ad"><iframe src="/ads/hvac-ad.html" scrolling="no" loading="lazy" title="Example HVAC ad" tabindex="-1"></iframe></div>
+                    <div class="fx-fb-link">
+                        <div><div class="fx-fb-dom">SYDNEYAIRCO.COM.AU</div><div class="fx-fb-hl">Get your free air conditioning quote</div></div>
+                        <span class="fx-fb-cta">Get quote</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fx-col">
+                <div class="fx-lbl"><b>2</b>The page they land on</div>
+                <div class="fx-site">
+                    <div class="fx-bar"><span class="fx-dot r"></span><span class="fx-dot y"></span><span class="fx-dot g"></span><div class="fx-url">sydneyairco.com.au / get-a-quote</div></div>
+                    <div class="fx-body">
+                        <div class="fx-nav"><div class="fx-logo"><span class="fx-mark"><svg viewBox="0 0 24 24"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/><path d="m9.5 4.5 2.5 2.5 2.5-2.5M9.5 19.5l2.5-2.5 2.5 2.5"/></svg></span><span>Sydney Air Co.</span></div><span class="fx-nav-cta">Get my quote</span></div>
+                        <div class="fx-hero">
+                            <div>
+                                <div class="fx-rating"><span class="fx-stars">★★★★★</span> 4.9 on Google · local Sydney crew</div>
+                                <h3 class="fx-h">Stay cool this summer. Ducted or split, installed right.</h3>
+                                <p class="fx-p">Tell us about your home and get a fixed quote within 24 hours. Licensed local technicians.</p>
+                                <div class="fx-review"><div class="fx-review-q">“Ducted system in by Thursday and the house is finally cool. Great crew.”</div><div class="fx-review-by"><span class="fx-av">P</span>Priya, Kellyville <span class="fx-stars">★★★★★</span></div></div>
+                            </div>
+                            <div class="fx-survey">
+                                <div class="fx-sv-head"><span class="fx-sv-step">Question 3 of 8</span><span>← Back</span></div>
+                                <div class="fx-sv-bar"><div class="fx-sv-fill" style="width:37.5%"></div></div>
+                                <div class="fx-sv-q">What are you looking for?</div>
+                                <div class="fx-opts"><div class="fx-opt"><b>Split system</b><span>one or two rooms</span></div><div class="fx-opt on"><b>Ducted</b><span>the whole home</span></div><div class="fx-opt"><b>Replace existing</b><span>an old system</span></div><div class="fx-opt"><b>Not sure</b><span>we will advise</span></div></div>
+                                <div class="fx-go">Continue →</div>
+                                <div class="fx-motive">5 questions left · your quote is next</div>
+                            </div>
+                        </div>
+                        <div class="fx-trust"><span>Licensed and insured</span><span>5-year install warranty</span><span>No obligation, takes 60 seconds</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fx-next rv"><b>3</b> The lead it sends you ↓</div>
     </div>
 </section>
 
@@ -946,5 +999,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 </script>
+<script src="/funnel-example.js"></script>
 </body>
 </html>

@@ -510,6 +510,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 }
 </style>
 <link rel="stylesheet" href="/footer.css">
+<link rel="stylesheet" href="/funnel-example.css">
 </head>
 <body>
 
@@ -707,6 +708,58 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 <div class="stat-label">To first lead</div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- FUNNEL EXAMPLE: the ad, then the landing page it opens, then the lead below -->
+<section>
+    <div class="si">
+        <div class="ey rv">How It Works</div>
+        <h2 class="stitle rv">From their feed<br><em>to your phone.</em></h2>
+        <div class="fx-grid rv">
+            <div class="fx-col fx-col-ad">
+                <div class="fx-lbl"><b>1</b>The ad they see</div>
+                <div class="fx-fb">
+                    <div class="fx-fb-top">
+                        <div class="fx-fb-av"><span class="fx-mark"><svg viewBox="0 0 24 24"><path d="M4 21V8a4 4 0 0 1 4-4h1a4 4 0 0 1 4 4"/><path d="M9.5 8h7"/><path d="M11 12v1.2M14 12v1.2M17 12v1.2M12.5 15.5v1.2M15.5 15.5v1.2"/></svg></span></div>
+                        <div><div class="fx-fb-name">Sydney Bathrooms Co.</div><div class="fx-fb-meta">Sponsored</div></div>
+                    </div>
+                    <p class="fx-fb-copy">Your new bathroom, done in weeks, not months. Fixed-price quote after a free design consult.</p>
+                    <div class="fx-ad"><iframe src="/ads/renovation-ad.html" scrolling="no" loading="lazy" title="Example renovation ad" tabindex="-1"></iframe></div>
+                    <div class="fx-fb-link">
+                        <div><div class="fx-fb-dom">SYDNEYBATHROOMSCO.COM.AU</div><div class="fx-fb-hl">Book your free design consult</div></div>
+                        <span class="fx-fb-cta">Book now</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fx-col">
+                <div class="fx-lbl"><b>2</b>The page they land on</div>
+                <div class="fx-site">
+                    <div class="fx-bar"><span class="fx-dot r"></span><span class="fx-dot y"></span><span class="fx-dot g"></span><div class="fx-url">sydneybathroomsco.com.au / get-a-quote</div></div>
+                    <div class="fx-body">
+                        <div class="fx-nav"><div class="fx-logo"><span class="fx-mark"><svg viewBox="0 0 24 24"><path d="M4 21V8a4 4 0 0 1 4-4h1a4 4 0 0 1 4 4"/><path d="M9.5 8h7"/><path d="M11 12v1.2M14 12v1.2M17 12v1.2M12.5 15.5v1.2M15.5 15.5v1.2"/></svg></span><span>Sydney Bathrooms Co.</span></div><span class="fx-nav-cta">Get my quote</span></div>
+                        <div class="fx-hero">
+                            <div>
+                                <div class="fx-rating"><span class="fx-stars">★★★★★</span> 4.9 on Google · local Sydney crew</div>
+                                <h3 class="fx-h">Your new bathroom, done in weeks, not months.</h3>
+                                <p class="fx-p">Fixed-price quote after a free design consult. Licensed local builders.</p>
+                                <div class="fx-review"><div class="fx-review-q">“Bathroom gutted and finished in three weeks. Spotless job.”</div><div class="fx-review-by"><span class="fx-av">E</span>Emma, Ryde <span class="fx-stars">★★★★★</span></div></div>
+                            </div>
+                            <div class="fx-survey">
+                                <div class="fx-sv-head"><span class="fx-sv-step">Question 2 of 8</span><span>← Back</span></div>
+                                <div class="fx-sv-bar"><div class="fx-sv-fill" style="width:25.0%"></div></div>
+                                <div class="fx-sv-q">What are you renovating?</div>
+                                <div class="fx-opts"><div class="fx-opt on"><b>Bathroom</b><span>full or partial</span></div><div class="fx-opt"><b>Kitchen</b><span>layout or refresh</span></div><div class="fx-opt"><b>Laundry</b><span>including tiling</span></div><div class="fx-opt"><b>Whole home</b><span>several rooms</span></div></div>
+                                <div class="fx-go">Continue →</div>
+                                <div class="fx-motive">6 questions left · your quote is next</div>
+                            </div>
+                        </div>
+                        <div class="fx-trust"><span>Licensed builders</span><span>7-year waterproofing warranty</span><span>No obligation, takes 60 seconds</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fx-next rv"><b>3</b> The lead it sends you ↓</div>
     </div>
 </section>
 
@@ -947,5 +1000,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 </script>
+<script src="/funnel-example.js"></script>
 </body>
 </html>
