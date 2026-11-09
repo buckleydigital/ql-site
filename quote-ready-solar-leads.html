@@ -218,6 +218,10 @@ section{padding:56px 0;position:relative}
 .fq-bar{height:3px;border-radius:3px;background:var(--glass2);margin-bottom:18px;overflow:hidden}
 .fq-bar div{height:100%;background:var(--blue);border-radius:3px}
 .fstep2{display:none}
+.fq-dq{display:none;padding:10px 0 4px}
+#claim.dq .fq{display:none}
+#claim.dq .fq-dq{display:block;animation:fstepIn .35s ease both}
+.fq-dq-ico{width:46px;height:46px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;font-size:1.3rem;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3)}
 #claim.go .fq{display:none}
 #claim.go .fstep2{display:block;animation:fstepIn .35s ease both}
 @keyframes fstepIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -627,6 +631,12 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
               <button type="button" class="nsel-opt" data-v="Referrals only" aria-pressed="false">Referrals only</button>
             </div>
           </div>
+        </div>
+        <div class="fq-dq" id="fDq">
+          <div class="fq-dq-ico">&#9888;</div>
+          <h2 class="center" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:8px">Come back when you're ready to invest in your growth.</h2>
+          <p class="price-note center" style="margin-bottom:16px">To get results we need a monthly ad budget of at least $1.5k. When you're ready to run that, we'd love to hear from you.</p>
+          <div class="center"><button type="button" class="fq-back" id="fDqBack">&larr; Change my answer</button></div>
         </div>
         <div class="fstep2" id="fStep2">
           <div class="fchosen"><span id="fChosen"></span><button type="button" id="fChange">Change</button></div>
@@ -1084,6 +1094,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   var answers = { installs: '', budget: '', lead_source: '' };
   var steps = Array.prototype.slice.call(document.querySelectorAll('#claim .fq'));
   function show(i){
+    els.card.classList.remove('dq');
     els.card.classList.toggle('go', i >= steps.length);
     steps.forEach(function(st, k){ st.classList.toggle('on', k === i); });
     if (i >= steps.length) {
@@ -1102,6 +1113,11 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         var key = st.dataset.q;
         if (key === 'niche') { selectedNiche = btn.dataset.v; els.nicheWrap.classList.remove('err'); }
         else answers[key] = btn.dataset.v;
+        // Under $1.5k a month can't fund a campaign that works: stop here.
+        if (key === 'budget' && btn.dataset.v === 'Under $1.5k') {
+          setTimeout(function(){ disqualify(i); }, 160);
+          return;
+        }
         setTimeout(function(){ show(i + 1); }, 160);
       });
     });
@@ -1109,6 +1125,16 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     if (back) back.addEventListener('click', function(){ show(i - 1); });
   });
   document.getElementById('fChange').addEventListener('click', function(){ show(steps.length - 1); });
+  var dqFrom = 0;
+  function disqualify(i){
+    dqFrom = i;
+    steps.forEach(function(st){ st.classList.remove('on'); });
+    els.card.classList.remove('go');
+    els.card.classList.add('dq');
+    var top = els.card.getBoundingClientRect().top;
+    if (top < 0) window.scrollBy(0, top - 12);
+  }
+  document.getElementById('fDqBack').addEventListener('click', function(){ show(dqFrom); });
 
   function collect(){
     return {
@@ -1155,6 +1181,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 
   els.call.addEventListener('click', function(){
     var d = validate(); if(!d) return;
+    if (d.budget === 'Under $1.5k') { disqualify(dqFrom); return; }
     els.call.disabled = true;
     els.call.textContent = 'Sending...';
     d.source = 'quote-ready-solar-leads-funnel';
