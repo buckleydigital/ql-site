@@ -502,18 +502,20 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 /* The survey stays hidden until "See if you qualify" is pressed. */
 #claim{display:none}
 #claim.open{display:block;animation:lsIn .35s ease both}
-/* Leadshook-style: the campaign question first, the details form only once it is answered. */
-.ls-form{display:none}
-.ls-wrap.ls-go .ls-q{display:none}
-.ls-wrap.ls-go .ls-form{display:block;animation:lsIn .35s ease both}
-@keyframes lsIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.ls-top{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--faint,#8a8a94);margin-bottom:8px}
-.ls-bar{height:3px;border-radius:3px;background:var(--glass2,rgba(255,255,255,.08));margin-bottom:18px;overflow:hidden}
-.ls-bar div{height:100%;background:var(--blue,#4797ff);border-radius:3px;transition:width .3s}
-.ls-chosen{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.82rem;color:var(--muted,#a1a1aa);margin-bottom:14px;padding:9px 12px;border:1px solid var(--bmid,rgba(255,255,255,.12));border-radius:10px;background:var(--glass,rgba(255,255,255,.03))}
-.ls-chosen b{color:var(--white,#fff);font-weight:600}
-.ls-chosen button{background:none;border:0;color:var(--blue,#4797ff);font:inherit;font-size:.82rem;cursor:pointer;padding:0}
-.ls-form-h{font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:6px;text-align:center}
+/* Two-step form: the campaign question first, then the details. */
+.fq{display:none}
+.fq.on{display:block;animation:fstepIn .35s ease both}
+.fq-top{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--faint);margin-bottom:8px}
+.fq-back{background:none;border:0;color:var(--blue);font:inherit;font-size:.8rem;cursor:pointer;padding:0}
+.fq-bar{height:3px;border-radius:3px;background:var(--glass2);margin-bottom:18px;overflow:hidden}
+.fq-bar div{height:100%;background:var(--blue);border-radius:3px}
+.fstep2{display:none}
+#claim.go .fq{display:none}
+#claim.go .fstep2{display:block;animation:fstepIn .35s ease both}
+@keyframes fstepIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fchosen{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:14px;padding:9px 12px;border:1px solid var(--bmid);border-radius:10px;background:var(--glass)}
+.fchosen b{color:var(--white);font-weight:600}
+.fchosen button{background:none;border:0;color:var(--blue);font:inherit;font-size:.82rem;cursor:pointer;padding:0}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <link rel="stylesheet" href="/footer.css">
@@ -539,24 +541,65 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   <div class="wrap">
     <div class="card" id="claim" style="margin-top:26px">
       <div id="offerBlock">
-          <div class="ls-wrap" id="lsWrap">
-          <div class="ls-top"><span>See if you qualify</span><span id="lsStep">Step 1 of 2</span></div>
-          <div class="ls-bar"><div id="lsBar" style="width:50%"></div></div>
-          <div class="ls-q">
+        <div class="fq on" data-q="niche">
+          <div class="fq-top"><span>Question 1 of 4</span></div>
+          <div class="fq-bar"><div style="width:20%"></div></div>
+          <h2 class="center" id="q_niche" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Which campaign should we build first?</h2>
+          <p class="price-note center" style="margin-bottom:18px">Four quick taps, then we call you.</p>
           <div class="nsel" id="fNicheWrap">
-            <div class="nsel-lbl" id="nicheLbl">Which campaign should we build first?</div>
-            <div class="nsel-opts" role="group" aria-labelledby="nicheLbl">
-              <button type="button" class="nsel-opt" data-niche="solar" aria-pressed="false">All solar</button>
-              <button type="button" class="nsel-opt" data-niche="solar_and_battery" aria-pressed="false">Solar + battery</button>
-              <button type="button" class="nsel-opt" data-niche="battery_retrofit" aria-pressed="false">Battery retrofit</button>
-              <button type="button" class="nsel-opt" data-niche="commercial_solar" aria-pressed="false">Commercial solar</button>
+            <div class="nsel-opts" role="group" aria-labelledby="q_niche">
+              <button type="button" class="nsel-opt" data-v="solar_and_battery" aria-pressed="false">Solar + battery</button>
+              <button type="button" class="nsel-opt" data-v="battery_retrofit" aria-pressed="false">Battery retrofit</button>
+              <button type="button" class="nsel-opt" data-v="commercial_solar" aria-pressed="false">Commercial solar</button>
             </div>
           </div>
+        </div>
+        <div class="fq" data-q="installs">
+          <div class="fq-top"><span>Question 2 of 4</span><button type="button" class="fq-back">&larr; Back</button></div>
+          <div class="fq-bar"><div style="width:40%"></div></div>
+          <h2 class="center" id="q_installs" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">How many installs do you do a month?</h2>
+          <p class="price-note center" style="margin-bottom:18px">So we know what volume your team can handle.</p>
+          <div class="nsel">
+            <div class="nsel-opts" role="group" aria-labelledby="q_installs">
+              <button type="button" class="nsel-opt" data-v="Under 5" aria-pressed="false">Under 5</button>
+              <button type="button" class="nsel-opt" data-v="5 to 15" aria-pressed="false">5 to 15</button>
+              <button type="button" class="nsel-opt" data-v="15 to 30" aria-pressed="false">15 to 30</button>
+              <button type="button" class="nsel-opt" data-v="30+" aria-pressed="false">30+</button>
+            </div>
           </div>
-          <div class="ls-form">
-          <div class="ls-chosen"><span>Campaign: <b id="lsChosen"></b></span><button type="button" id="lsChange">Change</button></div>
-          <div class="ls-form-h">Great. Where should we call you?</div>
-          <p class="price-note center" style="margin-bottom:14px">We'll ring you, confirm your service area and ad budget, and check you qualify.</p>
+        </div>
+        <div class="fq" data-q="budget">
+          <div class="fq-top"><span>Question 3 of 4</span><button type="button" class="fq-back">&larr; Back</button></div>
+          <div class="fq-bar"><div style="width:60%"></div></div>
+          <h2 class="center" id="q_budget" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">What monthly ad budget can you run?</h2>
+          <p class="price-note center" style="margin-bottom:18px">Paid straight to Meta from your own account, never through us.</p>
+          <div class="nsel">
+            <div class="nsel-opts" role="group" aria-labelledby="q_budget">
+              <button type="button" class="nsel-opt" data-v="Under $1.5k" aria-pressed="false">Under $1.5k</button>
+              <button type="button" class="nsel-opt" data-v="$1.5k to $3k" aria-pressed="false">$1.5k to $3k</button>
+              <button type="button" class="nsel-opt" data-v="$3k to $6k" aria-pressed="false">$3k to $6k</button>
+              <button type="button" class="nsel-opt" data-v="$6k+" aria-pressed="false">$6k+</button>
+            </div>
+          </div>
+        </div>
+        <div class="fq" data-q="lead_source">
+          <div class="fq-top"><span>Question 4 of 4</span><button type="button" class="fq-back">&larr; Back</button></div>
+          <div class="fq-bar"><div style="width:80%"></div></div>
+          <h2 class="center" id="q_lead_source" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Where do your leads come from now?</h2>
+          <p class="price-note center" style="margin-bottom:18px">Pick the main one.</p>
+          <div class="nsel">
+            <div class="nsel-opts" role="group" aria-labelledby="q_lead_source">
+              <button type="button" class="nsel-opt" data-v="Shared leads" aria-pressed="false">Shared leads</button>
+              <button type="button" class="nsel-opt" data-v=""Exclusive" lead sellers" aria-pressed="false">"Exclusive" lead sellers</button>
+              <button type="button" class="nsel-opt" data-v="Our own ads" aria-pressed="false">Our own ads</button>
+              <button type="button" class="nsel-opt" data-v="Referrals only" aria-pressed="false">Referrals only</button>
+            </div>
+          </div>
+        </div>
+        <div class="fstep2" id="fStep2">
+          <div class="fchosen"><span id="fChosen"></span><button type="button" id="fChange">Change</button></div>
+          <h2 class="center" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Great. Where should we call you?</h2>
+          <p class="price-note center" style="margin-bottom:18px">We'll ring you, confirm your service area and ad budget, and get your build started.</p>
           <input class="field" id="fName" type="text" placeholder="Full name" autocomplete="name">
           <input class="field" id="fCompany" type="text" placeholder="Business name" autocomplete="organization">
           <input class="field" id="fEmail" type="email" placeholder="Email address" autocomplete="email">
@@ -570,10 +613,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           <div class="cta-pair one">
             <button class="btn btn-primary" id="btnCall">See if you qualify</button>
           </div>
-          <p class="cta-hint">No payment now. We take the $2,500 once we have confirmed the offer is a fit for your area.</p>
           <div class="formmsg" id="formMsg" aria-live="polite"></div>
-          </div>
-          </div>
+        </div>
           <div class="trust-row">
             <span>No obligation</span>
             <span>No lock-in</span>
@@ -1019,21 +1060,42 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     msg: document.getElementById('formMsg'),
     call: document.getElementById('btnCall'),
     offer: document.getElementById('offerBlock'),
-    thanks: document.getElementById('thanks')
+    thanks: document.getElementById('thanks'),
+    card: document.getElementById('claim')
   };
 
-  // Campaign choice. Deliberately not pre-selected: a default would just be
-  // echoed back by most buyers and tell us nothing on the onboarding call.
+  // The qualifying questions, one per screen. Nothing is pre-selected: a
+  // default would just be echoed back and tell us nothing on the call. Each
+  // tap records the answer and moves on; after the last, the details form.
   var selectedNiche = null;
-  Array.prototype.forEach.call(els.nicheWrap.querySelectorAll('.nsel-opt'), function(btn){
-    btn.addEventListener('click', function(){
-      selectedNiche = btn.dataset.niche;
-      Array.prototype.forEach.call(els.nicheWrap.querySelectorAll('.nsel-opt'), function(b){
-        b.setAttribute('aria-pressed', String(b === btn));
+  var answers = { installs: '', budget: '', lead_source: '' };
+  var steps = Array.prototype.slice.call(document.querySelectorAll('#claim .fq'));
+  function show(i){
+    els.card.classList.toggle('go', i >= steps.length);
+    steps.forEach(function(st, k){ st.classList.toggle('on', k === i); });
+    if (i >= steps.length) {
+      var labels = steps.map(function(st){ var b = st.querySelector('.nsel-opt[aria-pressed="true"]'); return b ? b.textContent : ''; }).filter(Boolean);
+      document.getElementById('fChosen').textContent = labels.join(' \u00b7 ');
+    }
+    // Stay put. Only if the card's top has gone off-screen (a shorter step
+    // after scrolling down) bring it back into view, without animating.
+    var top = els.card.getBoundingClientRect().top;
+    if (top < 0) window.scrollBy(0, top - 12);
+  }
+  steps.forEach(function(st, i){
+    Array.prototype.forEach.call(st.querySelectorAll('.nsel-opt'), function(btn){
+      btn.addEventListener('click', function(){
+        Array.prototype.forEach.call(st.querySelectorAll('.nsel-opt'), function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
+        var key = st.dataset.q;
+        if (key === 'niche') { selectedNiche = btn.dataset.v; els.nicheWrap.classList.remove('err'); }
+        else answers[key] = btn.dataset.v;
+        setTimeout(function(){ show(i + 1); }, 160);
       });
-      els.nicheWrap.classList.remove('err');
     });
+    var back = st.querySelector('.fq-back');
+    if (back) back.addEventListener('click', function(){ show(i - 1); });
   });
+  document.getElementById('fChange').addEventListener('click', function(){ show(steps.length - 1); });
 
   function collect(){
     return {
@@ -1042,7 +1104,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       email: els.email.value.trim(),
       phone: els.phone.value.trim(),
       postcode: els.postcode.value.trim(),
-      niche: selectedNiche || ''
+      niche: selectedNiche || '',
+      installs: answers.installs,
+      budget: answers.budget,
+      lead_source: answers.lead_source
     };
   }
 
@@ -1087,10 +1152,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       body: JSON.stringify(d)
     }).then(function(r){
       if(!r.ok) throw new Error('bad response');
-      // Tell Meta a lead came in, only once the enquiry has actually been accepted.
-      try{if(window.fbq)fbq('track','Lead');if(window.gtag)gtag('event','generate_lead');}catch(e){}
       els.offer.style.display = 'none';
       els.thanks.classList.add('on');
+      // Tell Meta a lead came in, only once the enquiry has actually been accepted.
+      try{if(window.fbq)fbq('track','Lead');if(window.gtag)gtag('event','generate_lead');}catch(e){}
       els.thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }).catch(function(){
       els.call.disabled = false;
@@ -1165,28 +1230,6 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     entries.forEach(function(e){ if (e.isIntersecting) sticky.classList.remove('on'); });
   }, { threshold: 0.25 });
   if (orderEl) orderIO.observe(orderEl);
-})();
-</script>
-<script>
-// Leadshook-style survey: answer the question, then the details form appears.
-(function(){
-  var wrap = document.getElementById('lsWrap'); if (!wrap) return;
-  var q = document.getElementById('fNicheWrap');
-  function go(on){
-    wrap.classList.toggle('ls-go', on);
-    document.getElementById('lsBar').style.width = on ? '100%' : '50%';
-    document.getElementById('lsStep').textContent = on ? 'Step 2 of 2' : 'Step 1 of 2';
-    if (on) {
-      var b = q.querySelector('.nsel-opt[aria-pressed="true"]');
-      document.getElementById('lsChosen').textContent = b ? b.textContent : '';
-    }
-    var top = document.getElementById('claim').getBoundingClientRect().top;
-    if (top < 0) window.scrollBy(0, top - 12);
-  }
-  Array.prototype.forEach.call(q.querySelectorAll('.nsel-opt'), function(btn){
-    btn.addEventListener('click', function(){ setTimeout(function(){ go(true); }, 160); });
-  });
-  document.getElementById('lsChange').addEventListener('click', function(){ go(false); });
 })();
 </script>
 </body>
