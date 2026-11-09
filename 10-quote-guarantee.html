@@ -200,6 +200,12 @@ section{padding:56px 0;position:relative}
 .price-row{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:8px}
 .price-now{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,11vw,3.6rem);color:var(--blue);
   text-shadow:0 0 44px rgba(71,151,255,.4)}
+.nocatch{border-color:var(--bblue)!important;background:linear-gradient(145deg,rgba(71,151,255,.13),rgba(71,151,255,.03))!important}
+.nocatch h3{font-family:var(--display);font-size:1.3rem;font-weight:600;color:var(--white);line-height:1.3}
+.nocatch h3 em{color:var(--blue);font-style:normal}
+.nocatch p{color:var(--off);line-height:1.7;margin-top:10px}
+.nocatch .nc-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.nocatch .nc-list span{font-size:.8rem;color:var(--mist);background:var(--bdim);border:1px solid var(--bblue);border-radius:100px;padding:5px 12px}
 .price-note{text-align:center;color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:16px}
 
 /* FORM */
@@ -589,7 +595,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     <p class="sub rv">Using the Quote-Ready Funnel&trade; we've implemented to scale 84+ solar and battery companies Australia wide.</p>
     <div class="hero-cta rv">
       <button class="btn btn-primary" type="button" data-scroll="claim">SEE IF YOU QUALIFY</button>
-      <p class="cta-hint">No obligation. Takes 1 minute to apply</p>
+      <p class="cta-hint">No obligation. No catch buried in your sales process.<br>Takes 1 minute to apply</p>
     </div>
   </div>
   <div class="wrap">
@@ -862,6 +868,12 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <p class="center" style="color:var(--off);line-height:1.7">If you don't have 10 quote-ready leads within 30 days of your ads going live, we keep running and optimising the system with <b>no management fee</b> until you do, for up to 60 extra days. You don't pay another month until you've had your 10. Every lead has to be quote-ready, or it doesn't count.</p>
     </div>
 
+    <div class="card nocatch rv" style="margin-top:16px">
+      <h3>No guarantee with a catch <em>buried in your sales process.</em></h3>
+      <p>Most lead guarantees come with fine print about how you sell: follow our script, use our CRM, sit through our training, or it's void. Ours doesn't. You've been closing jobs for years. The guarantee counts quote-ready leads, the part we control. How you quote, sell and close stays yours.</p>
+      <div class="nc-list"><span>No scripts</span><span>No sales training</span><span>No one checking how you sell</span></div>
+    </div>
+
     <div class="card rv" style="margin-top:16px">
       <h3 style="font-family:var(--display);font-size:1.15rem;font-weight:600">What counts as a <em>quote-ready lead</em></h3>
       <p class="price-note" style="text-align:left;margin-top:8px">A homeowner in your service area who came through your funnel, gave their name, phone, email and postcode, and answered every question on our standard 8-question solar survey:</p>
@@ -898,6 +910,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <div class="faqi">
         <button class="faqq" type="button" aria-expanded="false"><span>Does it count if I don't quote them?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
         <div class="faqa"><p>Yes. We control who comes through the funnel and what they tell us. We can't control whether you ring them back or send a quote. That's why the 72-hour flag needs a logged call attempt: it keeps the guarantee about lead quality, which is the part we're responsible for.</p></div>
+      </div>
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false"><span>Do I have to follow your sales process for the guarantee to apply?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
+        <div class="faqa"><p>No. No scripts, no training sessions, no one looking over your shoulder. The guarantee is about lead quality, which is the part we control. How you quote, sell and close is your business, and it stays that way.</p></div>
       </div>
       <div class="faqi">
         <button class="faqq" type="button" aria-expanded="false"><span>Can I add my own questions to the survey?</span><span class="faqi-ic" aria-hidden="true">+</span></button>
