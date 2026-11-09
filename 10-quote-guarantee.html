@@ -527,6 +527,49 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 .fchosen{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.82rem;color:var(--muted);margin-bottom:14px;padding:9px 12px;border:1px solid var(--bmid);border-radius:10px;background:var(--glass)}
 .fchosen b{color:var(--white);font-weight:600}
 .fchosen button{background:none;border:0;color:var(--blue);font:inherit;font-size:.82rem;cursor:pointer;padding:0}
+
+/* Light, real-installer-style funnel mockup (homepage Stage 02). */
+.mk-mockup.mk-light{background:#F4F5F7;border-color:rgba(255,255,255,.18);--ml-acc:#4797FF;--ml-acc-soft:#EDF4FF;--ml-ink:#16181D;--ml-mute:#5B6170;--ml-line:#E7E8EC}
+.mk-mockup.mk-light .mk-bar{background:#EEF0F3;border-radius:10px 10px 0 0}
+.mk-mockup.mk-light .mk-url{background:#fff;border-color:#DADDE3;color:#4B5160}
+.mk-mockup.mk-light .mk-url::before{border-color:#9AA0AC;border-bottom-color:transparent}
+.mk-mockup.mk-light .mk-body{background:#fff;border-color:var(--ml-line);border-radius:0 0 10px 10px}
+.mk-mockup.mk-light .mk-nav{border-bottom-color:var(--ml-line)}
+.mk-mockup.mk-light .mk-logo{color:var(--ml-ink)}
+.ml-sun{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#9CC5FF 0 38%,transparent 39%),conic-gradient(from 0deg,#4797FF 0 6%,transparent 6% 12.5%,#4797FF 12.5% 18.5%,transparent 18.5% 25%,#4797FF 25% 31%,transparent 31% 37.5%,#4797FF 37.5% 43.5%,transparent 43.5% 50%,#4797FF 50% 56%,transparent 56% 62.5%,#4797FF 62.5% 68.5%,transparent 68.5% 75%,#4797FF 75% 81%,transparent 81% 87.5%,#4797FF 87.5% 93.5%,transparent 93.5%)}
+.mk-mockup.mk-light .mk-nav-links{color:var(--ml-mute)}
+.mk-mockup.mk-light .mk-nav-cta{background:var(--ml-acc);color:#fff}
+.mk-mockup.mk-light .mk-h5{color:var(--ml-ink)}
+.mk-mockup.mk-light .mk-p{color:var(--ml-mute)}
+.mk-mockup.mk-light .mk-hero{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.93) 40%,rgba(255,255,255,.35) 68%,rgba(255,255,255,.05) 100%),url('solar-ad-img.png') 70% 55%/cover no-repeat}
+.ml-rating{display:inline-flex;align-items:center;gap:6px;font-size:.62rem;color:var(--ml-mute);margin-bottom:10px}
+.ml-stars{color:#F5A623;letter-spacing:1px}
+.ml-review{border:1px solid var(--ml-line);border-radius:10px;padding:10px 12px;background:#FAFAFB}
+.ml-review-q{font-size:.68rem;color:var(--ml-ink);line-height:1.5;margin-bottom:6px}
+.ml-review-by{display:flex;align-items:center;gap:6px;font-size:.6rem;color:var(--ml-mute)}
+.ml-av{width:16px;height:16px;border-radius:50%;background:#DCE9FF;color:#1D4E9E;display:inline-flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700}
+.mk-mockup.mk-light .mk-survey{background:#fff;border-color:var(--ml-line);box-shadow:0 10px 30px -12px rgba(22,24,29,.18)}
+.mk-mockup.mk-light .mk-survey-head{color:var(--ml-mute);letter-spacing:0}
+.mk-mockup.mk-light .mk-survey-step{color:var(--ml-acc);text-transform:none;letter-spacing:0}
+.mk-mockup.mk-light .mk-survey-bar{background:#F0F1F4}
+.mk-mockup.mk-light .mk-survey-fill{background:var(--ml-acc);box-shadow:none}
+.mk-mockup.mk-light .mk-survey-q{color:var(--ml-ink)}
+.mk-mockup.mk-light .mk-opt{background:#fff;border-color:var(--ml-line);padding:11px 8px;gap:3px}
+.mk-mockup.mk-light .mk-opt-lbl{color:var(--ml-ink);font-weight:600}
+.ml-sub{font-size:.56rem;color:var(--ml-mute)}
+.mk-mockup.mk-light .mk-opt.selected{border-color:var(--ml-acc);background:var(--ml-acc-soft);box-shadow:inset 0 0 0 1px var(--ml-acc)}
+.mk-mockup.mk-light .mk-opt.selected .mk-opt-lbl{color:#1D4E9E}
+.mk-mockup.mk-light .mk-opt-check{background:var(--ml-acc);top:-6px;right:-6px;width:16px;height:16px;box-shadow:0 0 0 2px #fff}
+.mk-mockup.mk-light .mk-survey-continue{background:var(--ml-acc);color:#fff}
+.ml-motive{text-align:center;font-size:.58rem;color:var(--ml-mute);margin-top:8px}
+.mk-mockup.mk-light .mk-trust{border-top-color:var(--ml-line);color:var(--ml-mute);letter-spacing:0;text-transform:none;background:#FAFAFB;flex-wrap:wrap}
+.mk-mockup.mk-light .mk-trust-item::before{content:'✓';width:auto;height:auto;background:none;color:#1F9D55;font-size:.62rem}
+.mk-mockup.mk-light .mk-bar{border-bottom-color:#DADDE3}
+.mk-mockup.mk-light .mk-dot.r{background:#FF5F57}
+.mk-mockup.mk-light .mk-dot.y{background:#FEBC2E}
+.mk-mockup.mk-light .mk-dot.g{background:#28C840}
+.fb-av-sun .ml-sun{width:26px;height:26px}
+@media (max-width:760px){.mk-mockup.mk-light .mk-hero{background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.9) 30%,#fff 55%),url('solar-ad-img.png') 50% 45%/cover no-repeat}}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <link rel="stylesheet" href="/footer.css">
@@ -661,6 +704,127 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   </div>
 </div>
 
+<!-- SEE IT -->
+<section>
+  <div class="wrap">
+    <div class="center rv"><span class="pill">The actual machine</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">This is what <em>gets built.</em></h2>
+    <p class="center rv" style="font-size:.9rem;color:var(--muted);line-height:1.72;max-width:50ch;margin:14px auto 0">Not a template you fill in later. These are the two pieces that do the work, built under your brand.</p>
+
+    <div class="show rv">
+      <div class="show-lbl">Piece one</div>
+      <div class="show-h">The ads that run</div>
+      <p class="show-p">Real paid placements in your name, targeting your trade and your postcodes. Not a scraped list, not a directory listing.</p>
+      <div class="ad-hold">
+        <div class="ad-platform">Meta &amp; Google Ads</div>
+        <div class="fb-post">
+          <div class="mk-bar"><span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span><div class="mk-url mock-app">Facebook · Sponsored post</div></div>
+          <div class="fb-head">
+            <div class="fb-av">S</div>
+            <div><div class="fb-name">Sydney Solar Co.</div><div class="fb-meta">Sponsored · <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></div></div>
+            <div class="fb-more">···</div>
+          </div>
+          <p class="fb-copy">Upgrade your home with one of the smartest solar + battery systems available today.<br><br>Whether you're looking to lower your power bills or futureproof your energy needs, Sigenergy delivers premium performance - harvesting power from your panels by day and storing it for whenever you need it.</p>
+            <div class="fb-see">See more</div>
+          <div class="ad-iframe-wrap">
+            <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" loading="lazy" title="Example Meta ad built for a solar installer"></iframe>
+          </div>
+          <div class="fb-link">
+            <div><div class="fb-dom">SYDNEYSOLARCO.COM.AU</div><div class="fb-hl">Get your free solar + battery quote</div></div>
+            <span class="fb-cta">Get quote</span>
+          </div>
+          <div class="fb-acts"><span><svg viewBox="0 0 24 24"><path d="M7 10v11H3V10h4zm0 0l4-8a3 3 0 0 1 3 3v4h5.5a2 2 0 0 1 2 2.3l-1.4 8a2 2 0 0 1-2 1.7H7"/></svg>Like</span><span><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.4A8.5 8.5 0 1 1 21 12z"/></svg>Comment</span><span><svg viewBox="0 0 24 24"><path d="M14 4l7 7-7 7M21 11H10a7 7 0 0 0-7 7v2"/></svg>Share</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="show rv">
+      <div class="show-lbl">Piece two</div>
+      <div class="show-h">The survey funnel they land on</div>
+      <p class="show-p">Your brand, your domain. The qualifying steps filter out renters, wrong postcodes and browsers before anyone reaches your phone.</p>
+      <div class="mk-mockup mk-light">
+          <div class="mk-bar">
+            <span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span>
+            <div class="mk-url">sydneysolarco.com.au / get-a-quote</div>
+          </div>
+          <div class="mk-body">
+            <div class="mk-nav">
+              <div class="mk-logo"><div class="ml-sun"></div><span>Sydney Solar Co.</span></div>
+              <div class="mk-nav-links"><span>Systems</span><span>Finance</span><span>Reviews</span></div>
+              <span class="mk-nav-cta">Get my quote</span>
+            </div>
+            <div class="mk-hero">
+              <div class="mk-hero-left">
+                <div class="ml-rating"><span class="ml-stars">★★★★★</span> 4.9 on Google · local Sydney crew</div>
+                <div class="mk-h5">Cut your power bill with solar + battery.</div>
+                <div class="mk-p">Tell us about your home and get a fixed quote with your exact payback, in writing, within 24 hours. No call centre.</div>
+                <div class="ml-review">
+                  <div class="ml-review-q">“Install was done in a day. Our bill went from $780 to $95 a quarter.”</div>
+                  <div class="ml-review-by"><span class="ml-av">S</span>Sarah, Penrith <span class="ml-stars">★★★★★</span></div>
+                </div>
+              </div>
+              <div class="mk-survey">
+                <div class="mk-survey-head"><span class="mk-survey-step">Question 5 of 8</span><span>← Back</span></div>
+                <div class="mk-survey-bar"><div class="mk-survey-fill" style="width:62.5%"></div></div>
+                <div class="mk-survey-q">What's your average quarterly power bill?</div>
+                <div class="mk-survey-opts">
+                  <div class="mk-opt"><div class="mk-opt-lbl">Under $300</div><div class="ml-sub">under $100/mo</div></div>
+                  <div class="mk-opt"><div class="mk-opt-lbl">$300 – $600</div><div class="ml-sub">$100–200/mo</div></div>
+                  <div class="mk-opt selected"><div class="mk-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="mk-opt-lbl">$600 – $1,000</div><div class="ml-sub">$200–330/mo</div></div>
+                  <div class="mk-opt"><div class="mk-opt-lbl">$1,000+</div><div class="ml-sub">over $330/mo</div></div>
+                </div>
+                <div class="mk-survey-continue">Continue <svg viewBox="0 0 16 16"><path d="M2 8h12M9 4l4 4-4 4"/></svg></div>
+                <div class="ml-motive">3 questions left · your savings estimate is next</div>
+              </div>
+            </div>
+            <div class="mk-trust">
+              <span class="mk-trust-item">Licensed and insured</span>
+              <span class="mk-trust-item">25-year panel warranty</span>
+              <span class="mk-trust-item">No obligation, takes 90 seconds</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT A LEAD LOOKS LIKE -->
+<section style="background:var(--deep)" id="lead">
+  <div class="wrap">
+    <div class="center rv"><span class="pill">What you actually get</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">This is a <em>quote-ready lead.</em></h2>
+    <p class="price-note rv" style="margin-top:10px">Not a name and a number shared with four other installers. Everything you'd normally spend the first ten minutes of the call finding out, before you dial.</p>
+    <div class="lcard rv">
+      <div class="lcard-h">
+        <div class="lcard-who"><div class="lcard-av">JM</div><div><b class="blur">Jordan Mitchell</b><div style="font-size:.78rem;color:var(--faint)"><span class="blur">0412 345 678</span> &middot; <span class="blur">jordan@email.com</span></div></div></div>
+        <span class="lcard-tag">Quote-ready</span>
+      </div>
+      <div class="lcard-rows">
+        <div class="lcard-row"><span>Interested in</span><b>Solar + battery</b></div>
+        <div class="lcard-row"><span>Location</span><b>Penrith NSW 2750</b></div>
+        <div class="lcard-row"><span>Existing solar</span><b>Yes, panels only</b></div>
+        <div class="lcard-row"><span>System age</span><b>10 to 15 years</b></div>
+        <div class="lcard-row"><span>Feed-in tariff</span><b>Yes, 44c</b></div>
+        <div class="lcard-row"><span>Property</span><b>Freestanding house</b></div>
+        <div class="lcard-row"><span>Quarterly bill</span><b>$300 to $600</b></div>
+        <div class="lcard-row"><span>Ownership</span><b>Owns outright</b></div>
+        <div class="lcard-row"><span>Timeframe</span><b>1 to 3 months</b></div>
+        <div class="lcard-row"><span>AI SMS</span><b>Replied in 3 seconds</b></div>
+      </div>
+      <div class="lcard-file"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6"/></svg>Power bill uploaded (PDF)</div>
+    </div>
+    <p class="cta-hint rv">Example lead. Personal details changed and hidden.</p>
+
+    <h3 class="center rv" style="font-family:var(--display);font-size:1.1rem;font-weight:600;margin-top:34px">A recent client's first 30 days</h3>
+    <div class="stats4 rv">
+      <div class="st"><b>18 of 18</b><span>owned the home</span></div>
+      <div class="st"><b>18 of 18</b><span>gave phone and email</span></div>
+      <div class="st"><b>13 of 18</b><span>knew their feed-in tariff</span></div>
+      <div class="st"><b>11 of 18</b><span>buying within 3 months</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- WHAT IS INCLUDED -->
 <section>
   <div class="wrap">
@@ -701,136 +865,32 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   </div>
 </section>
 
-<!-- SEE IT -->
-<section style="background:var(--deep)">
+<!-- GUARANTEE -->
+<section style="background:var(--deep)" id="guarantee">
   <div class="wrap">
-    <div class="center rv"><span class="pill">The actual machine</span></div>
-    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">This is what <em>gets built.</em></h2>
-    <p class="center rv" style="font-size:.9rem;color:var(--muted);line-height:1.72;max-width:50ch;margin:14px auto 0">Not a template you fill in later. These are the two pieces that do the work, built under your brand.</p>
-
-    <div class="show rv">
-      <div class="show-lbl">Piece one</div>
-      <div class="show-h">The ads that run</div>
-      <p class="show-p">Real paid placements in your name, targeting your trade and your postcodes. Not a scraped list, not a directory listing.</p>
-      <div class="ad-hold">
-        <div class="ad-platform">Meta &amp; Google Ads</div>
-        <div class="fb-post">
-          <div class="mk-bar"><span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span><div class="mk-url mock-app">Facebook · Sponsored post</div></div>
-          <div class="fb-head">
-            <div class="fb-av">S</div>
-            <div><div class="fb-name">Sydney Solar Co.</div><div class="fb-meta">Sponsored · <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></div></div>
-            <div class="fb-more">···</div>
-          </div>
-          <p class="fb-copy">Upgrade your home with one of the smartest solar + battery systems available today.<br><br>Whether you're looking to lower your power bills or futureproof your energy needs, Sigenergy delivers premium performance - harvesting power from your panels by day and storing it for whenever you need it.</p>
-            <div class="fb-see">See more</div>
-          <div class="ad-iframe-wrap">
-            <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" loading="lazy" title="Example Meta ad built for a solar installer"></iframe>
-          </div>
-          <div class="fb-link">
-            <div><div class="fb-dom">SYDNEYSOLARCO.COM.AU</div><div class="fb-hl">Get your free solar + battery quote</div></div>
-            <span class="fb-cta">Get quote</span>
-          </div>
-          <div class="fb-acts"><span><svg viewBox="0 0 24 24"><path d="M7 10v11H3V10h4zm0 0l4-8a3 3 0 0 1 3 3v4h5.5a2 2 0 0 1 2 2.3l-1.4 8a2 2 0 0 1-2 1.7H7"/></svg>Like</span><span><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.4A8.5 8.5 0 1 1 21 12z"/></svg>Comment</span><span><svg viewBox="0 0 24 24"><path d="M14 4l7 7-7 7M21 11H10a7 7 0 0 0-7 7v2"/></svg>Share</span></div>
-        </div>
-      </div>
+    <div class="center rv"><span class="pill">The guarantee</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">10 in 30 days, <em>or we keep working free.</em></h2>
+    <div class="card rv" style="margin-top:22px">
+      <div class="gbadge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <p class="center" style="color:var(--off);line-height:1.7">If you don't have 10 quote-ready leads within 30 days of your ads going live, we keep running and optimising the system with <b>no management fee</b> until you do, for up to 60 extra days. You don't pay another month until you've had your 10. Every lead has to be quote-ready, or it doesn't count.</p>
     </div>
 
-    <div class="show rv">
-      <div class="show-lbl">Piece two</div>
-      <div class="show-h">The survey funnel they land on</div>
-      <p class="show-p">Your brand, your domain. The qualifying steps filter out renters, wrong postcodes and browsers before anyone reaches your phone.</p>
-      <div class="mk-mockup">
-        <div class="mk-bar">
-          <span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span>
-          <div class="mk-url">yourbusiness.online / get-a-quote</div>
-        </div>
-        <div class="mk-body">
-          <div class="mk-nav">
-            <div class="mk-logo"><div class="mk-logo-mark"></div><span>Your Solar Co.</span></div>
-            <div class="mk-nav-links"><span>Systems</span><span>Finance</span><span>Reviews</span></div>
-            <span class="mk-nav-cta">Get Quote</span>
-          </div>
-          <div class="mk-hero">
-            <div class="mk-hero-left">
-              <div class="mk-tag"><span class="mk-tag-dot"></span>Local Installer &middot; 500+ Installs</div>
-              <div class="mk-h5">82% power bill reduction. <span class="mk-h5-script">or we'll tell you honestly if it's not worth it.</span></div>
-              <div class="mk-p">Local crew. No call centre. We'll tell you exactly what your system pays back, in writing, same day.</div>
-              <div class="mk-hero-ctas"><span class="mk-btn mk-btn-prim">Start Survey</span><span class="mk-btn mk-btn-sec">View Systems</span></div>
-            </div>
-            <div class="mk-survey">
-              <div class="mk-survey-head"><span class="mk-survey-step">Step 5 of 8</span><span>&larr; Back</span></div>
-              <div class="mk-survey-bar"><div class="mk-survey-fill" style="width:62.5%"></div></div>
-              <div class="mk-survey-head">This helps us calculate your exact savings estimate</div>
-              <div class="mk-survey-q">What's your average quarterly power bill?</div>
-              <div class="mk-survey-opts">
-                <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c1 .8 1 2 1 3.3h6c0-1.3 0-2.5 1-3.3A7 7 0 0 0 12 2z"/></svg></div><div class="mk-opt-lbl">Under $300</div></div>
-                <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 10 14 10 22 21 10 14 10 14 2"/></svg></div><div class="mk-opt-lbl">$300 - $600</div></div>
-                <div class="mk-opt selected"><div class="mk-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M20 10v4"/><rect x="5" y="10" width="8" height="4" rx="1" fill="currentColor" stroke="none"/></svg></div><div class="mk-opt-lbl">$600 - $1,000</div></div>
-                <div class="mk-opt"><div class="mk-opt-ic"><svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg></div><div class="mk-opt-lbl">$1,000+</div></div>
-              </div>
-              <div class="mk-survey-head">No sales pressure. No obligation. Takes 90 seconds.</div>
-              <div class="mk-survey-continue">Continue <svg viewBox="0 0 16 16"><path d="M2 8h12M9 4l4 4-4 4"/></svg></div>
-            </div>
-          </div>
-          <div class="mk-trust">
-            <span class="mk-trust-item">4.9 stars &middot; 287 homeowners &middot; last review 2 days ago</span>
-          </div>
-        </div>
-      </div>
+    <div class="card rv" style="margin-top:16px">
+      <h3 style="font-family:var(--display);font-size:1.15rem;font-weight:600">What counts as a <em>quote-ready lead</em></h3>
+      <p class="price-note" style="text-align:left;margin-top:8px">A homeowner in your service area who came through your funnel, gave their name, phone, email and postcode, and answered every question on our standard 8-question solar survey:</p>
+      <ol class="def">
+        <li>What they're interested in: solar, battery or both</li>
+        <li>Whether they already have solar, and if it has a battery</li>
+        <li>How old their system is (if they have one)</li>
+        <li>Their feed-in tariff (if they have one)</li>
+        <li>Their average quarterly power bill</li>
+        <li>Whether they own the home (renters are screened out)</li>
+        <li>What type of property it is</li>
+        <li>When they're looking to install</li>
+      </ol>
+      <p class="price-note" style="text-align:left;margin-top:14px">Some leads upload their power bill too, as an optional extra. Want different questions? Swap any of the 8 for what matters to your business at onboarding, as long as the total stays at 8. Duplicates of a lead delivered in the last 90 days don't count.</p>
+      <p class="price-note" style="text-align:left;margin-top:10px"><b style="color:var(--off)">Got a dud?</b> Within 72 hours, call it once, note the attempt and move it to Closed Lost, and it won't count toward your 10. The only exception is a lead that replied positively to the AI SMS.</p>
     </div>
-  </div>
-</section>
-
-<!-- CAMPAIGN TYPES -->
-<section>
-  <div class="wrap">
-    <div class="center rv"><span class="pill">What we point it at</span></div>
-    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">One system. <em>Four ways to aim it.</em></h2>
-    <div class="cam-grid">
-      <div class="cam rv">
-        <h4>All solar</h4>
-        <p>Homeowners looking to go solar for the first time. The widest pool and the cheapest enquiries, qualified on bill size, ownership and timeline before they reach you.</p>
-      </div>
-      <div class="cam rv d1">
-        <h4>Solar + battery</h4>
-        <p>Homeowners buying panels and storage together as one system. Bigger job values than solar alone, and they are shopping for a complete setup rather than a price per kW.</p>
-      </div>
-      <div class="cam rv d2">
-        <h4>Battery retrofit</h4>
-        <p>Homes that already have panels and want storage added. They have bought from an installer before, so there is far less educating to do on the call.</p>
-      </div>
-      <div class="cam rv d3">
-        <h4>Commercial solar</h4>
-        <p>Facility managers, property owners and decision makers enquiring for a business site. Fewer enquiries, far larger jobs, qualified on decision-making authority.</p>
-      </div>
-    </div>
-    <p class="cam-note">Pick one at activation, or run more than one and split the budget. Because the system is yours, you can change what it targets whenever you want, without rebuilding anything.</p>
-  </div>
-</section>
-
-<!-- NEXT STEPS -->
-<section style="background:var(--deep)">
-  <div class="wrap">
-    <div class="center rv"><span class="pill">Next steps</span></div>
-    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">Next <em>steps.</em></h2>
-
-    <ol class="tl rv">
-      <li>
-        <div class="tl-when">01</div>
-        <h4>Strategy Call &amp; Onboarding</h4>
-        <p>A quick call to scope it, then five minutes of setup.</p>
-      </li>
-      <li>
-        <div class="tl-when">02</div>
-        <h4>Live In 48 Hours</h4>
-        <p>Ready to go live within 48 hours of you granting access. Every enquiry texted back in 3 seconds.</p>
-      </li>
-      <li>
-        <div class="tl-when">03</div>
-        <h4>10 Quote-Ready Leads</h4>
-        <p>10 in your first 30 days, or we keep working for free until you have them.</p>
-      </li>
-    </ol>
   </div>
 </section>
 
@@ -865,69 +925,29 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   </div>
 </section>
 
-<!-- WHAT A LEAD LOOKS LIKE -->
-<section id="lead">
+<!-- NEXT STEPS -->
+<section style="background:var(--deep)">
   <div class="wrap">
-    <div class="center rv"><span class="pill">What you actually get</span></div>
-    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">This is a <em>quote-ready lead.</em></h2>
-    <p class="price-note rv" style="margin-top:10px">Not a name and a number shared with four other installers. Everything you'd normally spend the first ten minutes of the call finding out, before you dial.</p>
-    <div class="lcard rv">
-      <div class="lcard-h">
-        <div class="lcard-who"><div class="lcard-av">JM</div><div><b class="blur">Jordan Mitchell</b><div style="font-size:.78rem;color:var(--faint)"><span class="blur">0412 345 678</span> &middot; <span class="blur">jordan@email.com</span></div></div></div>
-        <span class="lcard-tag">Quote-ready</span>
-      </div>
-      <div class="lcard-rows">
-        <div class="lcard-row"><span>Interested in</span><b>Solar + battery</b></div>
-        <div class="lcard-row"><span>Location</span><b>Penrith NSW 2750</b></div>
-        <div class="lcard-row"><span>Existing solar</span><b>Yes, panels only</b></div>
-        <div class="lcard-row"><span>System age</span><b>10 to 15 years</b></div>
-        <div class="lcard-row"><span>Feed-in tariff</span><b>Yes, 44c</b></div>
-        <div class="lcard-row"><span>Property</span><b>Freestanding house</b></div>
-        <div class="lcard-row"><span>Quarterly bill</span><b>$300 to $600</b></div>
-        <div class="lcard-row"><span>Ownership</span><b>Owns outright</b></div>
-        <div class="lcard-row"><span>Timeframe</span><b>1 to 3 months</b></div>
-        <div class="lcard-row"><span>AI SMS</span><b>Replied in 3 seconds</b></div>
-      </div>
-      <div class="lcard-file"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6"/></svg>Power bill uploaded (PDF)</div>
-    </div>
-    <p class="cta-hint rv">Example lead. Personal details changed and hidden.</p>
+    <div class="center rv"><span class="pill">Next steps</span></div>
+    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">Next <em>steps.</em></h2>
 
-    <h3 class="center rv" style="font-family:var(--display);font-size:1.1rem;font-weight:600;margin-top:34px">A recent client's first 30 days</h3>
-    <div class="stats4 rv">
-      <div class="st"><b>18 of 18</b><span>owned the home</span></div>
-      <div class="st"><b>18 of 18</b><span>gave phone and email</span></div>
-      <div class="st"><b>13 of 18</b><span>knew their feed-in tariff</span></div>
-      <div class="st"><b>11 of 18</b><span>buying within 3 months</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- GUARANTEE -->
-<section id="guarantee" style="background:var(--deep)">
-  <div class="wrap">
-    <div class="center rv"><span class="pill">The guarantee</span></div>
-    <h2 class="center rv" style="font-size:clamp(1.5rem,5.5vw,2rem);margin-top:16px">10 in 30 days, <em>or we keep working free.</em></h2>
-    <div class="card rv" style="margin-top:22px">
-      <div class="gbadge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <p class="center" style="color:var(--off);line-height:1.7">If you don't have 10 quote-ready leads within 30 days of your ads going live, we keep running and optimising the system with <b>no management fee</b> until you do, for up to 60 extra days. You don't pay another month until you've had your 10. Every lead has to be quote-ready, or it doesn't count.</p>
-    </div>
-
-    <div class="card rv" style="margin-top:16px">
-      <h3 style="font-family:var(--display);font-size:1.15rem;font-weight:600">What counts as a <em>quote-ready lead</em></h3>
-      <p class="price-note" style="text-align:left;margin-top:8px">A homeowner in your service area who came through your funnel, gave their name, phone, email and postcode, and answered every question on our standard 8-question solar survey:</p>
-      <ol class="def">
-        <li>What they're interested in: solar, battery or both</li>
-        <li>Whether they already have solar, and if it has a battery</li>
-        <li>How old their system is (if they have one)</li>
-        <li>Their feed-in tariff (if they have one)</li>
-        <li>Their average quarterly power bill</li>
-        <li>Whether they own the home (renters are screened out)</li>
-        <li>What type of property it is</li>
-        <li>When they're looking to install</li>
-      </ol>
-      <p class="price-note" style="text-align:left;margin-top:14px">Some leads upload their power bill too, as an optional extra. Want different questions? Swap any of the 8 for what matters to your business at onboarding, as long as the total stays at 8. Duplicates of a lead delivered in the last 90 days don't count.</p>
-      <p class="price-note" style="text-align:left;margin-top:10px"><b style="color:var(--off)">Got a dud?</b> Within 72 hours, call it once, note the attempt and move it to Closed Lost, and it won't count toward your 10. The only exception is a lead that replied positively to the AI SMS.</p>
-    </div>
+    <ol class="tl rv">
+      <li>
+        <div class="tl-when">01</div>
+        <h4>Strategy Call &amp; Onboarding</h4>
+        <p>A quick call to scope it, then five minutes of setup.</p>
+      </li>
+      <li>
+        <div class="tl-when">02</div>
+        <h4>Live In 48 Hours</h4>
+        <p>Ready to go live within 48 hours of you granting access. Every enquiry texted back in 3 seconds.</p>
+      </li>
+      <li>
+        <div class="tl-when">03</div>
+        <h4>10 Quote-Ready Leads</h4>
+        <p>10 in your first 30 days, or we keep working for free until you have them.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
