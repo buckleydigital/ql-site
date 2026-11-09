@@ -906,8 +906,8 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .mk-mockup.mk-light .mk-nav-cta{background:var(--ml-acc);color:#fff}
 .mk-mockup.mk-light .mk-h5{color:var(--ml-ink)}
 .mk-mockup.mk-light .mk-p{color:var(--ml-mute)}
-.mk-mockup.mk-light .mk-hero{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.93) 40%,rgba(255,255,255,.35) 68%,rgba(255,255,255,.05) 100%),url('solar-ad-img.webp') 70% 55%/cover no-repeat}
-@media (max-width:760px){.mk-mockup.mk-light .mk-hero{background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.9) 30%,#fff 55%),url('solar-ad-img.webp') 50% 45%/cover no-repeat}}
+.mk-mockup.mk-light .mk-hero{background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.93) 40%,rgba(255,255,255,.35) 68%,rgba(255,255,255,.05) 100%),var(--ml-hero,url('solar-ad-img.webp')) 70% 55%/cover no-repeat}
+@media (max-width:760px){.mk-mockup.mk-light .mk-hero{background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.9) 30%,#fff 55%),var(--ml-hero,url('solar-ad-img.webp')) 50% 45%/cover no-repeat}}
 .ml-rating{display:inline-flex;align-items:center;gap:6px;font-size:.62rem;color:var(--ml-mute);margin-bottom:10px}
 .ml-stars{color:#F5A623;letter-spacing:1px}
 .ml-review{border:1px solid var(--ml-line);border-radius:10px;padding:10px 12px;background:#FAFAFB}
@@ -961,6 +961,23 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .fb-see{font-size:.84rem;font-weight:600;color:var(--muted);padding:2px 14px 12px;cursor:default;user-select:none}
 
 .fb-av.fb-av-sun{background:#fff;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}.fb-av-sun .ml-sun{width:26px;height:26px}
+/* NICHE SWITCHER (How It Works storyboard) */
+.niche-sw{position:sticky;top:calc(var(--nh) + 10px);z-index:40;margin-top:28px;display:flex;justify-content:flex-start}
+.niche-tabs{display:flex;gap:4px;padding:5px;border-radius:100px;background:rgba(8,8,15,.82);border:1px solid var(--bmid);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 12px 40px -12px rgba(0,0,0,.7);max-width:100%;overflow-x:auto;scrollbar-width:none}
+.niche-tabs::-webkit-scrollbar{display:none}
+.niche-tab{flex-shrink:0;background:none;border:none;cursor:none;padding:9px 16px;border-radius:100px;font-family:var(--body);font-size:.8rem;font-weight:500;color:var(--muted);white-space:nowrap;transition:background .25s,color .25s}
+.niche-tab:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.niche-tab.on{background:var(--blue);color:#fff;box-shadow:0 0 18px rgba(71,151,255,.35)}
+.niche-tab:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+@media(max-width:768px){.niche-sw{margin-left:-5%;margin-right:-5%;padding:0 5%}.niche-tab{padding:8px 13px;font-size:.76rem}}
+@media(hover:none){.niche-tab{cursor:pointer}}
+.journey-visual{transition:opacity .22s ease}
+.niche-swapping .journey-visual{opacity:0}
+.sms-msgs{display:flex;flex-direction:column;gap:8px}
+.ml-mark{display:inline-flex}
+.nm-ico{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#EDF4FF;box-shadow:inset 0 0 0 1.5px #4797FF;flex-shrink:0}
+.nm-ico svg{width:13px;height:13px;fill:none;stroke:#4797FF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fb-av .nm-ico{width:30px;height:30px}.fb-av .nm-ico svg{width:17px;height:17px}
 </style>
 <link rel="stylesheet" href="/footer.css">
 </head>
@@ -1075,7 +1092,17 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
   <div class="si">
     <div class="rv"><div class="ey">How It Works</div></div>
     <h2 class="stitle rv">From the ad impression to the <em>signed job.</em></h2>
-    <p style="color:var(--muted);font-size:.95rem;line-height:1.74;max-width:540px;margin-bottom:0" class="rv">Every screen in the funnel. Scroll through it like a storyboard.</p>
+    <p style="color:var(--muted);font-size:.95rem;line-height:1.74;max-width:540px;margin-bottom:0" class="rv">Every screen in the funnel. Pick your trade, then scroll through it like a storyboard.</p>
+
+    <div class="niche-sw" id="nicheSw">
+      <div class="niche-tabs" role="tablist" aria-label="Show the funnel for your trade">
+        <button type="button" class="niche-tab on" role="tab" aria-selected="true" data-niche="solar">Solar + Battery</button>
+        <button type="button" class="niche-tab" role="tab" aria-selected="false" data-niche="battery">Battery Retrofit</button>
+        <button type="button" class="niche-tab" role="tab" aria-selected="false" data-niche="roofing">Roofing</button>
+        <button type="button" class="niche-tab" role="tab" aria-selected="false" data-niche="hvac">HVAC</button>
+        <button type="button" class="niche-tab" role="tab" aria-selected="false" data-niche="reno">Renovations</button>
+      </div>
+    </div>
 
     <!-- STAGE 1: THE AD -->
     <div class="journey-stage rv">
@@ -1091,17 +1118,17 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
           <div class="fb-post">
             <div class="mk-bar"><span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span><div class="mk-url mock-app">Facebook · Sponsored post</div></div>
             <div class="fb-head">
-              <div class="fb-av fb-av-sun"><div class="ml-sun"></div></div>
-              <div><div class="fb-name">Sydney Solar Co.</div><div class="fb-meta">Sponsored · <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></div></div>
+              <div class="fb-av fb-av-sun" data-n="mark"><div class="ml-sun"></div></div>
+              <div><div class="fb-name" data-n="brand">Sydney Solar Co.</div><div class="fb-meta">Sponsored · <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></div></div>
               <div class="fb-more">···</div>
             </div>
-            <p class="fb-copy">Upgrade your home with one of the smartest solar + battery systems available today.<br><br>Whether you're looking to lower your power bills or futureproof your energy needs, Sigenergy delivers premium performance - harvesting power from your panels by day and storing it for whenever you need it.</p>
+            <p class="fb-copy" data-n="adCopy">Upgrade your home with one of the smartest solar + battery systems available today.<br><br>Whether you're looking to lower your power bills or futureproof your energy needs, Sigenergy delivers premium performance - harvesting power from your panels by day and storing it for whenever you need it.</p>
             <div class="fb-see">See more</div>
             <div class="ad-iframe-wrap">
-              <iframe class="ad-iframe" src="/ads/solar-ad.html" scrolling="no" frameborder="0" title="Sydney Solar Co meta ad example"></iframe>
+              <iframe class="ad-iframe" data-n="ad" src="/ads/solar-ad.html" scrolling="no" frameborder="0" title="Sydney Solar Co meta ad example"></iframe>
             </div>
             <div class="fb-link">
-              <div><div class="fb-dom">SYDNEYSOLARCO.COM.AU</div><div class="fb-hl">Get your free solar + battery quote</div></div>
+              <div><div class="fb-dom" data-n="domUp">SYDNEYSOLARCO.COM.AU</div><div class="fb-hl" data-n="adHl">Get your free solar + battery quote</div></div>
               <span class="fb-cta">Get quote</span>
             </div>
             <div class="fb-acts"><span><svg viewBox="0 0 24 24"><path d="M7 10v11H3V10h4zm0 0l4-8a3 3 0 0 1 3 3v4h5.5a2 2 0 0 1 2 2.3l-1.4 8a2 2 0 0 1-2 1.7H7"/></svg>Like</span><span><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.4A8.5 8.5 0 1 1 21 12z"/></svg>Comment</span><span><svg viewBox="0 0 24 24"><path d="M14 4l7 7-7 7M21 11H10a7 7 0 0 0-7 7v2"/></svg>Share</span></div>
@@ -1123,39 +1150,39 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
         <div class="mk-mockup mk-light">
           <div class="mk-bar">
             <span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span>
-            <div class="mk-url">sydneysolarco.com.au / get-a-quote</div>
+            <div class="mk-url" data-n="url">sydneysolarco.com.au / get-a-quote</div>
           </div>
           <div class="mk-body">
             <div class="mk-nav">
-              <div class="mk-logo"><div class="ml-sun"></div><span>Sydney Solar Co.</span></div>
-              <div class="mk-nav-links"><span>Systems</span><span>Finance</span><span>Reviews</span></div>
+              <div class="mk-logo"><span class="ml-mark" data-n="mark"><div class="ml-sun"></div></span><span data-n="brand">Sydney Solar Co.</span></div>
+              <div class="mk-nav-links" data-n="navLinks"><span>Systems</span><span>Finance</span><span>Reviews</span></div>
               <span class="mk-nav-cta">Get my quote</span>
             </div>
             <div class="mk-hero">
               <div class="mk-hero-left">
                 <div class="ml-rating"><span class="ml-stars">★★★★★</span> 4.9 on Google · local Sydney crew</div>
-                <div class="mk-h5">Cut your power bill with solar + battery.</div>
-                <div class="mk-p">Tell us about your home and get a fixed quote with your exact payback, in writing, within 24 hours. No call centre.</div>
+                <div class="mk-h5" data-n="h">Cut your power bill with solar + battery.</div>
+                <div class="mk-p" data-n="p">Tell us about your home and get a fixed quote with your exact payback, in writing, within 24 hours. No call centre.</div>
                 <div class="ml-review">
-                  <div class="ml-review-q">“Install was done in a day. Our bill went from $780 to $95 a quarter.”</div>
-                  <div class="ml-review-by"><span class="ml-av">S</span>Sarah, Penrith <span class="ml-stars">★★★★★</span></div>
+                  <div class="ml-review-q" data-n="reviewQ">“Install was done in a day. Our bill went from $780 to $95 a quarter.”</div>
+                  <div class="ml-review-by" data-n="reviewBy"><span class="ml-av">S</span>Sarah, Penrith <span class="ml-stars">★★★★★</span></div>
                 </div>
               </div>
               <div class="mk-survey">
-                <div class="mk-survey-head"><span class="mk-survey-step">Question 5 of 8</span><span>← Back</span></div>
-                <div class="mk-survey-bar"><div class="mk-survey-fill" style="width:62.5%"></div></div>
-                <div class="mk-survey-q">What's your average quarterly power bill?</div>
-                <div class="mk-survey-opts">
+                <div class="mk-survey-head"><span class="mk-survey-step" data-n="step">Question 5 of 8</span><span>← Back</span></div>
+                <div class="mk-survey-bar"><div class="mk-survey-fill" data-n="fill" style="width:62.5%"></div></div>
+                <div class="mk-survey-q" data-n="q">What's your average quarterly power bill?</div>
+                <div class="mk-survey-opts" data-n="opts">
                   <div class="mk-opt"><div class="mk-opt-lbl">Under $300</div><div class="ml-sub">under $100/mo</div></div>
                   <div class="mk-opt"><div class="mk-opt-lbl">$300 – $600</div><div class="ml-sub">$100–200/mo</div></div>
                   <div class="mk-opt selected"><div class="mk-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><div class="mk-opt-lbl">$600 – $1,000</div><div class="ml-sub">$200–330/mo</div></div>
                   <div class="mk-opt"><div class="mk-opt-lbl">$1,000+</div><div class="ml-sub">over $330/mo</div></div>
                 </div>
                 <div class="mk-survey-continue">Continue <svg viewBox="0 0 16 16"><path d="M2 8h12M9 4l4 4-4 4"/></svg></div>
-                <div class="ml-motive">3 questions left · your savings estimate is next</div>
+                <div class="ml-motive" data-n="motive">3 questions left · your savings estimate is next</div>
               </div>
             </div>
-            <div class="mk-trust">
+            <div class="mk-trust" data-n="trust">
               <span class="mk-trust-item">Licensed and insured</span>
               <span class="mk-trust-item">25-year panel warranty</span>
               <span class="mk-trust-item">No obligation, takes 90 seconds</span>
@@ -1180,11 +1207,11 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
           <div class="mk-bar"><span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span><div class="mk-url mock-app">QuoteLeads · Leads</div></div>
           <div class="preview-card-body">
             <div class="lead-card-header">
-              <div class="lead-avatar">JM</div>
-              <div class="lead-name-block"><div class="lead-name">James Mitchell</div><div class="lead-location">Penrith NSW 2750</div></div>
+              <div class="lead-avatar" data-n="ini">JM</div>
+              <div class="lead-name-block"><div class="lead-name" data-n="lead">James Mitchell</div><div class="lead-location" data-n="loc">Penrith NSW 2750</div></div>
               <span class="lead-badge"><i></i>Quote-ready</span>
             </div>
-            <div class="lead-fields">
+            <div class="lead-fields" data-n="fields">
               <div class="lead-field"><span class="lead-field-key">Phone</span><span class="lead-field-val">0412 *** ***</span></div>
               <div class="lead-field"><span class="lead-field-key">Email</span><span class="lead-field-val">james.m@email.com</span></div>
               <div class="lead-field"><span class="lead-field-key">Interested in</span><span class="lead-field-val">Solar + battery</span></div>
@@ -1199,7 +1226,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
               <div class="lead-field"><span class="lead-field-key">Power bill</span><span class="lead-field-val">Uploaded (PDF)</span></div>
               <div class="lead-field"><span class="lead-field-key">Source</span><span class="lead-field-val">Meta</span></div>
             </div>
-            <div class="lead-acts"><span class="lead-act pri"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call James</span><span class="lead-act">View lead</span></div>
+            <div class="lead-acts"><span class="lead-act pri"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span data-n="call">Call James</span></span><span class="lead-act">View lead</span></div>
           </div>
         </div>
       </div>
@@ -1217,16 +1244,18 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
       <div class="journey-visual">
         <div class="preview-card">
           <div class="mk-bar"><span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span><div class="mk-url mock-app">Messages</div></div>
-          <div class="sms-contact"><div class="lead-avatar">JM</div><div><div class="lead-name">James Mitchell</div><div class="lead-location">Mobile · texting your business number</div></div></div>
+          <div class="sms-contact"><div class="lead-avatar" data-n="ini">JM</div><div><div class="lead-name" data-n="lead">James Mitchell</div><div class="lead-location">Mobile · texting your business number</div></div></div>
           <div class="preview-card-body">
             <div class="sms-thread">
               <div class="sms-day">Today 2:41 pm</div>
+              <div class="sms-msgs" data-n="sms">
               <div class="sms-bubble sms-out">Hi James, thanks for your enquiry about solar. Are you free for a quick call this afternoon to go over your options?</div>
               <div class="sms-bubble sms-in">Yeah give me a call this arvo</div>
               <div class="sms-bubble sms-out">Perfect, we'll call you this afternoon</div>
+              </div>
               <div class="sms-time">Delivered · sent 3s after enquiry</div>
             </div>
-            <div class="sms-booked"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Callback booked for this afternoon</div>
+            <div class="sms-booked"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-n="booked">Callback booked for this afternoon</span></div>
           </div>
         </div>
       </div>
@@ -1491,6 +1520,112 @@ function scaleAdIframe(){
 }
 window.addEventListener('resize',scaleAdIframe);
 scaleAdIframe();
+
+// NICHE SWITCHER - swaps the How It Works mockups between trades.
+// Solar content is the static HTML (read from the page), the rest lives here.
+(function(){
+  const sw=document.getElementById('nicheSw');
+  const sec=document.getElementById('how-it-works');
+  if(!sw||!sec)return;
+  const ico=d=>'<span class="nm-ico"><svg viewBox="0 0 24 24">'+d+'</svg></span>';
+  const opts=(a,on)=>a.map((o,i)=>'<div class="mk-opt'+(i===on?' selected':'')+'">'+(i===on?'<div class="mk-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>':'')+'<div class="mk-opt-lbl">'+o[0]+'</div><div class="ml-sub">'+o[1]+'</div></div>').join('');
+  const fields=a=>a.map(f=>'<div class="lead-field"><span class="lead-field-key">'+f[0]+'</span><span class="lead-field-val">'+f[1]+'</span></div>').join('');
+  const sms=a=>a.map((m,i)=>'<div class="sms-bubble '+(i%2?'sms-in':'sms-out')+'">'+m+'</div>').join('');
+  const spans=a=>a.map(t=>'<span>'+t+'</span>').join('');
+  const trust=a=>a.map(t=>'<span class="mk-trust-item">'+t+'</span>').join('');
+  const by=(l,n)=>'<span class="ml-av">'+l+'</span>'+n+' <span class="ml-stars">★★★★★</span>';
+  const N={
+    battery:{
+      mark:ico('<rect x="2.5" y="7" width="17" height="10" rx="2.2"/><path d="M21.5 10.5v3"/><path d="M11.8 9 9.5 12.3h3.2L10.5 15"/>'),
+      brand:'Sydney Battery Co.',dom:'sydneybatteryco.com.au',img:'battery-ad-img.jpg',ad:'battery',
+      adCopy:'Already have solar? Store your daytime power for the evening instead of selling it back for a few cents.<br><br>Free battery assessment and a fixed quote in 24 hours, installed by qualified local electricians.',
+      adHl:'Get your free battery quote',navLinks:spans(['Batteries','Rebates','Reviews']),
+      h:'Add a battery to the solar you already have.',p:'Store your daytime power for the evening. Fixed quote within 24 hours. Qualified electricians.',
+      reviewQ:'“Battery went in alongside our old panels. Our bill is basically zero now.”',reviewBy:by('D','Dave, Penrith'),
+      step:'Question 3 of 8',fill:'37.5%',q:'How old is your solar system?',
+      opts:opts([['Under 5 years','newer inverter'],['5 to 10 years','the most common'],['10 to 15 years','may need a new inverter'],['15+ years','worth a check']],1),
+      motive:'5 questions left · your quote is next',trust:trust(['Qualified electricians','10-year battery warranty','No obligation, takes 60 seconds']),
+      ini:'MT',lead:'Mark Thompson',loc:'Kellyville NSW 2155',call:'Call Mark',
+      fields:fields([['Phone','0412 *** ***'],['Email','mark.t@email.com'],['Interested in','Battery retrofit'],['Existing solar','Yes, 6.6 kW'],['System age','5 to 10 years'],['Inverter','String, not hybrid'],['Feed-in tariff','Yes, 5c'],['Property','Freestanding house'],['Quarterly bill','$600 to $1,000'],['Ownership','Owner-occupied'],['Timeframe','Within 30 days'],['AI SMS','Replied in 3 seconds'],['Source','Meta']]),
+      sms:sms(['Hi Mark, thanks for your enquiry about adding a battery to your solar. Are you free for a quick call this afternoon to go over sizing and rebates?','Yep, anytime after 3 is good','Great, we\'ll call you after 3pm today']),
+      booked:'Callback booked for after 3pm today'},
+    roofing:{
+      mark:ico('<path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.6V20h13V9.6"/><path d="M10 20v-5h4v5"/>'),
+      brand:'Sydney Roofing Co.',dom:'sydneyroofingco.com.au',img:'roofing-ad-img.jpg',ad:'roofing',
+      adCopy:'Leaking, faded or tired roof? Don\'t wait for the next big storm to find out how bad it is.<br><br>Book a free roof inspection with a licensed local roofer and get a fixed written quote within 48 hours.',
+      adHl:'Book your free roof inspection',navLinks:spans(['Services','Gallery','Reviews']),
+      h:'Leaking or tired roof? Get it fixed properly.',p:'Free roof inspection and a fixed written quote within 48 hours. Licensed local roofers.',
+      reviewQ:'“Found the leak in an hour and quoted on the spot. Roof looks brand new.”',reviewBy:by('M','Mark, Castle Hill'),
+      step:'Question 3 of 8',fill:'37.5%',q:'What does your roof need?',
+      opts:opts([['Leak repair','fix it fast'],['Restoration','clean, repair, recoat'],['Full replacement','a new roof'],['Not sure','we inspect it free']],2),
+      motive:'5 questions left · your quote is next',trust:trust(['Licensed and insured','10-year workmanship warranty','No obligation, takes 60 seconds']),
+      ini:'MD',lead:'Mark Davies',loc:'Penrith NSW 2750',call:'Call Mark',
+      fields:fields([['Phone','0412 *** ***'],['Email','mark.d@email.com'],['Job type','Full replacement'],['Preferred roof','Tile-to-metal conversion'],['Current roof','Concrete tile'],['Roof age','25+ years'],['Issue','Leaks in heavy rain'],['Property','Single storey house'],['Ownership','Owner-occupied'],['Timeframe','Within 4 weeks'],['AI SMS','Replied in 3 seconds'],['Roof photos','3 uploaded'],['Source','Meta']]),
+      sms:sms(['Hi Mark, thanks for your enquiry about your roof. Would tomorrow morning suit for a free inspection?','Tomorrow 9am works','Done, we\'ll see you at 9am tomorrow']),
+      booked:'Free roof inspection booked for 9am tomorrow'},
+    hvac:{
+      mark:ico('<path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/><path d="m9.5 4.5 2.5 2.5 2.5-2.5M9.5 19.5l2.5-2.5 2.5 2.5"/>'),
+      brand:'Sydney Air Co.',dom:'sydneyairco.com.au',img:'hvac-ad-img.jpg',ad:'hvac',
+      adCopy:'Beat the heat this summer. Ducted and split systems from Daikin, sized properly for your home.<br><br>Installed by licensed local technicians, with a fixed quote in writing within 24 hours.',
+      adHl:'Get your free air conditioning quote',navLinks:spans(['Ducted','Split systems','Reviews']),
+      h:'Stay cool this summer. Ducted or split, installed right.',p:'Tell us about your home and get a fixed quote within 24 hours. Licensed local technicians.',
+      reviewQ:'“Ducted system in by Thursday and the house is finally cool. Great crew.”',reviewBy:by('P','Priya, Kellyville'),
+      step:'Question 3 of 8',fill:'37.5%',q:'What are you looking for?',
+      opts:opts([['Split system','one or two rooms'],['Ducted','the whole home'],['Replace existing','an old system'],['Not sure','we will advise']],1),
+      motive:'5 questions left · your quote is next',trust:trust(['Licensed and insured','5-year install warranty','No obligation, takes 60 seconds']),
+      ini:'LW',lead:'Lisa Wong',loc:'Blacktown NSW 2148',call:'Call Lisa',
+      fields:fields([['Phone','0412 *** ***'],['Email','lisa.w@email.com'],['Job type','Ducted, new install'],['Current cooling','None, ceiling fans'],['Bedrooms','4'],['Storeys','Double storey'],['Zones wanted','4 to 5'],['Roof space','Accessible'],['Property','Freestanding house'],['Ownership','Owner-occupied'],['Timeframe','Before summer, within 6 weeks'],['AI SMS','Replied in 3 seconds'],['Source','Meta']]),
+      sms:sms(['Hi Lisa, thanks for your enquiry about ducted air con. Can we give you a quick call today to talk through zones and sizing?','Sure, anytime after 5','Perfect, we\'ll call you after 5pm']),
+      booked:'Callback booked for after 5pm today'},
+    reno:{
+      mark:ico('<path d="M4 21V8a4 4 0 0 1 4-4h1a4 4 0 0 1 4 4"/><path d="M9.5 8h7"/><path d="M11 12v1.2M14 12v1.2M17 12v1.2M12.5 15.5v1.2M15.5 15.5v1.2"/>'),
+      brand:'Sydney Bathrooms Co.',dom:'sydneybathroomsco.com.au',img:'renovation-ad-img.jpg',ad:'renovation',
+      adCopy:'Your new bathroom, done in weeks, not months. One local team handles the strip-out, waterproofing, tiling and fit-off.<br><br>Book a free design consult and get a fixed-price quote, in writing.',
+      adHl:'Book your free design consult',navLinks:spans(['Bathrooms','Gallery','Reviews']),
+      h:'Your new bathroom, done in weeks, not months.',p:'Fixed-price quote after a free design consult. Licensed local builders.',
+      reviewQ:'“Bathroom gutted and finished in three weeks. Spotless job.”',reviewBy:by('E','Emma, Ryde'),
+      step:'Question 2 of 8',fill:'25%',q:'What are you renovating?',
+      opts:opts([['Bathroom','full or partial'],['Kitchen','layout or refresh'],['Laundry','including tiling'],['Whole home','several rooms']],0),
+      motive:'6 questions left · your quote is next',trust:trust(['Licensed builders','7-year waterproofing warranty','No obligation, takes 60 seconds']),
+      ini:'RK',lead:'Rachel Kelly',loc:'Cronulla NSW 2230',call:'Call Rachel',
+      fields:fields([['Phone','0412 *** ***'],['Email','rachel.k@email.com'],['Project','Full bathroom renovation'],['Rooms','Main bathroom'],['Scope','Strip-out, retile, new vanity'],['Layout','Keep existing'],['Budget','$30k to $45k'],['Property','Freestanding, built 1990s'],['Ownership','Owner-occupied'],['Timeframe','Start in 2 to 3 months'],['AI SMS','Replied in 3 seconds'],['Inspiration','4 photos uploaded'],['Source','Meta']]),
+      sms:sms(['Hi Rachel, thanks for your enquiry about your bathroom. Would Saturday morning suit for a free design consult at your place?','Saturday 10am would be great','Locked in, see you Saturday at 10am']),
+      booked:'Design consult booked for Saturday 10am'}
+  };
+  const els=k=>sec.querySelectorAll('[data-n="'+k+'"]');
+  const html=['mark','brand','adCopy','adHl','navLinks','h','p','reviewQ','reviewBy','step','q','opts','motive','trust','ini','lead','loc','call','fields','sms','booked'];
+  const mock=sec.querySelector('.mk-mockup.mk-light');
+  const frame=sec.querySelector('[data-n="ad"]');
+  // Capture the solar version from the static HTML so switching back restores it.
+  const solar={dom:'sydneysolarco.com.au',ad:'solar',img:null,fill:els('fill')[0].style.width};
+  html.forEach(k=>{const e=els(k)[0];if(e)solar[k]=e.innerHTML});
+  solar.markFb=els('mark')[0].innerHTML;solar.markLogo=els('mark')[1].innerHTML;
+  N.solar=solar;
+  let cur='solar',timer;
+  function apply(d){
+    html.forEach(k=>{if(d[k]==null)return;els(k).forEach((e,i)=>{e.innerHTML=(k==='mark'&&d===solar)?(i?d.markLogo:d.markFb):d[k]})});
+    els('fill').forEach(e=>e.style.width=d.fill);
+    els('domUp').forEach(e=>e.textContent=d.dom.toUpperCase());
+    els('url').forEach(e=>e.textContent=d.dom+' / get-a-quote');
+    if(mock){d.img?mock.style.setProperty('--ml-hero',"url('/"+d.img+"')"):mock.style.removeProperty('--ml-hero')}
+    if(frame){frame.src='/ads/'+d.ad+'-ad.html';frame.title=d.brand.replace(/<[^>]+>/g,'')+' meta ad example'}
+  }
+  function go(k,btn){
+    if(k===cur||!N[k])return;cur=k;
+    sw.querySelectorAll('.niche-tab').forEach(b=>{const on=b===btn;b.classList.toggle('on',on);b.setAttribute('aria-selected',on)});
+    const tb=btn.parentNode;tb.scrollLeft=Math.max(0,btn.offsetLeft-(tb.clientWidth-btn.offsetWidth)/2);
+    clearTimeout(timer);sec.classList.add('niche-swapping');
+    timer=setTimeout(()=>{apply(N[k]);scaleAdIframe();requestAnimationFrame(()=>sec.classList.remove('niche-swapping'))},220);
+  }
+  // Warm the hero photos so the swap does not flash.
+  Object.values(N).forEach(d=>{if(d.img){const i=new Image();i.src='/'+d.img}});
+  sw.addEventListener('click',e=>{const b=e.target.closest('.niche-tab');if(b)go(b.dataset.niche,b)});
+  sw.addEventListener('keydown',e=>{
+    if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+    const t=[...sw.querySelectorAll('.niche-tab')];let i=t.indexOf(document.activeElement);if(i<0)return;
+    i=(i+(e.key==='ArrowRight'?1:-1)+t.length)%t.length;t[i].focus();go(t[i].dataset.niche,t[i]);e.preventDefault();
+  });
+})();
 
 // MAGNETIC BUTTON
 document.querySelectorAll('.btn-mag').forEach(btn=>{
