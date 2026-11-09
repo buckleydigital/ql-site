@@ -200,12 +200,15 @@ section{padding:56px 0;position:relative}
 .price-row{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:8px}
 .price-now{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,11vw,3.6rem);color:var(--blue);
   text-shadow:0 0 44px rgba(71,151,255,.4)}
-.nocatch{border-color:var(--bblue)!important;background:linear-gradient(145deg,rgba(71,151,255,.13),rgba(71,151,255,.03))!important}
-.nocatch h3{font-family:var(--display);font-size:1.3rem;font-weight:600;color:var(--white);line-height:1.3}
-.nocatch h3 em{color:var(--blue);font-style:normal}
-.nocatch p{color:var(--off);line-height:1.7;margin-top:10px}
-.nocatch .nc-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.nocatch .nc-list span{font-size:.8rem;color:var(--mist);background:var(--bdim);border:1px solid var(--bblue);border-radius:100px;padding:5px 12px}
+.nocatch-sec{background:radial-gradient(ellipse 80% 70% at 50% 0%,rgba(71,151,255,.16),transparent 70%),var(--void);border-top:1px solid var(--bblue);border-bottom:1px solid var(--bblue)}
+.nocatch-sec h2{font-size:clamp(1.6rem,6vw,2.3rem);margin-top:16px;line-height:1.2}
+.nocatch-sec .nc-body{color:var(--off);line-height:1.75;font-size:1rem;max-width:56ch;margin:16px auto 0;text-align:center}
+.nc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.nc-item{border:1px solid var(--bblue);background:var(--bdim);border-radius:14px;padding:16px 14px;text-align:center}
+.nc-item b{display:block;font-family:var(--display);font-weight:600;color:var(--white);font-size:1rem}
+.nc-item span{display:block;color:var(--muted);font-size:.82rem;line-height:1.5;margin-top:4px}
+.nc-close{text-align:center;color:var(--white);font-family:var(--display);font-weight:600;font-size:1.05rem;margin-top:26px}
+@media(max-width:560px){.nc-grid{grid-template-columns:1fr}}
 .price-note{text-align:center;color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:16px}
 
 /* FORM */
@@ -868,12 +871,6 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <p class="center" style="color:var(--off);line-height:1.7">If you don't have 10 quote-ready leads within 30 days of your ads going live, we keep running and optimising the system with <b>no management fee</b> until you do, for up to 60 extra days. You don't pay another month until you've had your 10. Every lead has to be quote-ready, or it doesn't count.</p>
     </div>
 
-    <div class="card nocatch rv" style="margin-top:16px">
-      <h3>No guarantee with a catch <em>buried in your sales process.</em></h3>
-      <p>Most lead guarantees come with fine print about how you sell: follow our script, use our CRM, sit through our training, or it's void. Ours doesn't. You've been closing jobs for years. The guarantee counts quote-ready leads, the part we control. How you quote, sell and close stays yours.</p>
-      <div class="nc-list"><span>No scripts</span><span>No sales training</span><span>No one checking how you sell</span></div>
-    </div>
-
     <div class="card rv" style="margin-top:16px">
       <h3 style="font-family:var(--display);font-size:1.15rem;font-weight:600">What counts as a <em>quote-ready lead</em></h3>
       <p class="price-note" style="text-align:left;margin-top:8px">A homeowner in your service area who came through your funnel, gave their name, phone, email and postcode, and answered every question on our standard 8-question solar survey:</p>
@@ -890,6 +887,21 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <p class="price-note" style="text-align:left;margin-top:14px">Some leads upload their power bill too, as an optional extra. Want different questions? Swap any of the 8 for what matters to your business at onboarding, as long as the total stays at 8. Duplicates of a lead delivered in the last 90 days don't count.</p>
       <p class="price-note" style="text-align:left;margin-top:10px"><b style="color:var(--off)">Got a dud?</b> Within 72 hours, call it once, note the attempt and move it to Closed Lost, and it won't count toward your 10. The only exception is a lead that replied positively to the AI SMS.</p>
     </div>
+  </div>
+</section>
+
+<!-- NO CATCH -->
+<section class="nocatch-sec">
+  <div class="wrap">
+    <div class="center rv"><span class="pill">No fine print on how you sell</span></div>
+    <h2 class="center rv">No guarantee with a catch <em>buried in your sales process.</em></h2>
+    <p class="nc-body rv">Most lead guarantees come with fine print about how you sell: follow our script, use our CRM, sit through our training, or it's void. Ours doesn't. You've been closing jobs for years. The guarantee counts quote-ready leads, the part we control.</p>
+    <div class="nc-grid rv">
+      <div class="nc-item"><b>No scripts</b><span>Talk to homeowners your way</span></div>
+      <div class="nc-item"><b>No sales training</b><span>No sessions, no &ldquo;system&rdquo; to learn</span></div>
+      <div class="nc-item"><b>No one watching</b><span>Nobody checking how you sell</span></div>
+    </div>
+    <p class="nc-close rv">We handle the leads. How you quote, sell and close stays yours.</p>
   </div>
 </section>
 
