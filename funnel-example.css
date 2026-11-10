@@ -1,77 +1,97 @@
 /* Funnel example on the trade pages: the ad (step 1) and the landing page it
    opens (step 2), above the page's own lead card (step 3). Self-contained:
-   every class starts fx- so nothing clashes with the page's own styles. */
-.fx-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:28px;align-items:start;margin-top:34px}
+   every class starts fx- so nothing clashes with the page's own styles.
+
+   Each page's example is a made-up local brand with its own colours, set by
+   data-niche on .fx-grid. They match the ad images in /ads and the example
+   on the home page, so ad and page read as one business. */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+.fx-grid{--b:#0F2A47;--a:#F5A524;--ai:#1E1400;--soft:#FFF5E1;--line-a:#E9A321;--img:url('/solar-ad-img.webp');
+  --ink:#16181D;--mute:#5B6170;--line:#E7E8EC;--fx-font:'Plus Jakarta Sans',system-ui,sans-serif;
+  display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:28px;align-items:start;margin-top:34px}
+.fx-grid[data-niche="battery"]{--b:#0D3B2E;--a:#9BE15D;--ai:#0B2414;--soft:#F1FAE8;--line-a:#7CC743;--img:url('/battery-ad-img.jpg')}
+.fx-grid[data-niche="roofing"]{--b:#262120;--a:#C2410C;--ai:#fff;--soft:#FDF0E9;--line-a:#C2410C;--img:url('/roofing-ad-img.jpg')}
+.fx-grid[data-niche="hvac"]{--b:#0A2540;--a:#0EA5E9;--ai:#fff;--soft:#E8F6FD;--line-a:#0EA5E9;--img:url('/hvac-ad-img.jpg')}
+.fx-grid[data-niche="reno"]{--b:#1E1A16;--a:#B08D57;--ai:#fff;--soft:#F7F1E7;--line-a:#B08D57;--img:url('/renovation-ad-img.jpg')}
 .fx-col{min-width:0}
 .fx-lbl{display:flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;color:var(--sky,#7CB9FF);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
 .fx-lbl b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(71,151,255,.15);border:1px solid rgba(71,151,255,.35);font-size:.72rem;color:#fff}
 .fx-next{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:30px;font-size:.84rem;color:var(--muted,#9A9AA3)}
 .fx-next b{color:var(--sky,#7CB9FF);font-weight:600}
 
-/* Logo marks: a line icon in a blue ring, the same family as the solar sun. */
-.fx-mark{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#EDF4FF;box-shadow:inset 0 0 0 1.5px #4797FF;flex-shrink:0}
-.fx-mark svg{width:13px;height:13px;fill:none;stroke:#4797FF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.fx-sun{width:22px;height:22px;border-radius:50%;flex-shrink:0;background:radial-gradient(circle at 50% 50%,#9CC5FF 0 38%,transparent 39%),conic-gradient(from 0deg,#4797FF 0 6%,transparent 6% 12.5%,#4797FF 12.5% 18.5%,transparent 18.5% 25%,#4797FF 25% 31%,transparent 31% 37.5%,#4797FF 37.5% 43.5%,transparent 43.5% 50%,#4797FF 50% 56%,transparent 56% 62.5%,#4797FF 62.5% 68.5%,transparent 68.5% 75%,#4797FF 75% 81%,transparent 81% 87.5%,#4797FF 87.5% 93.5%,transparent 93.5%)}
+/* Logo marks: the brand's icon in its accent colour on a solid brand tile. */
+.fx-mark{width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;background:var(--b);flex-shrink:0}
+.fx-mark svg{width:16px;height:16px;fill:none;stroke:var(--a);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
-/* Step 1: the Facebook post. */
-.fx-fb{background:#0B0B13;border:1px solid rgba(255,255,255,.09);border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.75)}
+/* Step 1: the Facebook post, as it looks in a real (light) feed. */
+.fx-fb{background:#fff;border:1px solid rgba(255,255,255,.2);border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.75);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 .fx-fb-top{display:flex;align-items:center;gap:10px;padding:12px 14px 6px}
-.fx-fb-av{width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.fx-fb-av .fx-mark,.fx-fb-av .fx-sun{width:28px;height:28px}
-.fx-fb-av .fx-mark svg{width:16px;height:16px}
-.fx-fb-name{font-size:.88rem;font-weight:600;color:#F2F2F2;line-height:1.2}
-.fx-fb-meta{font-size:.72rem;color:#8A8A93}
-.fx-fb-copy{font-size:.8rem;color:#D4D4DA;line-height:1.55;padding:6px 14px 10px;margin:0}
-.fx-ad{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#05070f}
+.fx-fb-av{width:38px;height:38px;border-radius:50%;background:var(--b);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fx-fb-av .fx-mark{background:none;width:auto;height:auto}
+.fx-fb-av .fx-mark svg{width:20px;height:20px}
+.fx-fb-name{font-size:.88rem;font-weight:700;color:#050505;line-height:1.2}
+.fx-fb-meta{font-size:.72rem;color:#65676B}
+.fx-fb-copy{font-size:.8rem;color:#050505;line-height:1.55;padding:6px 14px 10px;margin:0}
+.fx-ad{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:var(--b)}
 .fx-ad iframe{position:absolute;top:0;left:0;width:1080px;height:1080px;border:0;transform-origin:0 0;transform:scale(var(--fx-s,.35));pointer-events:none}
-.fx-fb-link{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06)}
-.fx-fb-dom{font-size:.64rem;color:#8A8A93;letter-spacing:.04em}
-.fx-fb-hl{font-size:.82rem;font-weight:600;color:#F2F2F2}
-.fx-fb-cta{font-size:.76rem;font-weight:600;padding:8px 14px;border-radius:7px;background:#4797FF;color:#fff;white-space:nowrap}
+.fx-fb-link{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;background:#F0F2F5}
+.fx-fb-dom{font-size:.64rem;color:#65676B;letter-spacing:.04em}
+.fx-fb-hl{font-size:.82rem;font-weight:600;color:#050505}
+.fx-fb-cta{font-size:.76rem;font-weight:600;padding:8px 14px;border-radius:6px;background:#E4E6EB;color:#050505;white-space:nowrap}
 
-/* Step 2: the installer's landing page, light like a real trade website. */
-.fx-site{--acc:#4797FF;--ink:#16181D;--mute:#5B6170;--line:#E7E8EC;background:#F4F5F7;border:1px solid rgba(255,255,255,.18);border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.75);color:var(--ink)}
-.fx-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:#EEF0F3;border-bottom:1px solid #DADDE3}
-.fx-dot{width:9px;height:9px;border-radius:50%}
+/* Step 2: the installer's landing page. */
+.fx-site{background:#E9EBEF;border:1px solid rgba(255,255,255,.22);border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.75);color:var(--ink);padding:0 6px 6px}
+.fx-bar{display:flex;align-items:center;gap:7px;padding:10px 8px}
+.fx-dot{width:8px;height:8px;border-radius:50%}
 .fx-dot.r{background:#FF5F57}.fx-dot.y{background:#FEBC2E}.fx-dot.g{background:#28C840}
-.fx-url{flex:1;margin-left:10px;padding:5px 12px;background:#fff;border:1px solid #DADDE3;border-radius:7px;font-size:.68rem;color:#4B5160;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fx-body{background:#fff}
-.fx-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 20px;border-bottom:1px solid var(--line)}
-.fx-logo{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.88rem;color:var(--ink)}
-.fx-nav-cta{font-size:.68rem;font-weight:600;padding:7px 14px;border-radius:100px;background:var(--acc);color:#fff;white-space:nowrap}
-.fx-hero{display:grid;grid-template-columns:1fr 1.08fr;gap:20px;padding:24px 20px;align-items:center;background:linear-gradient(180deg,#F7FAFF 0%,#fff 70%)}
-.fx-rating{font-size:.62rem;color:var(--mute);margin-bottom:8px}
-.fx-stars{color:#F5A623;letter-spacing:1px}
-.fx-h{font-size:1.12rem;font-weight:650;line-height:1.2;letter-spacing:-.015em;margin:0 0 8px;color:var(--ink)}
-.fx-p{font-size:.72rem;color:var(--mute);line-height:1.55;margin:0 0 12px}
-.fx-review{border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:#FAFAFB}
-.fx-review-q{font-size:.66rem;color:var(--ink);line-height:1.5;margin-bottom:5px}
-.fx-review-by{display:flex;align-items:center;gap:6px;font-size:.6rem;color:var(--mute)}
-.fx-av{width:16px;height:16px;border-radius:50%;background:#DCE9FF;color:#1D4E9E;display:inline-flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700}
-.fx-survey{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:0 10px 30px -12px rgba(22,24,29,.18)}
+.fx-url{flex:1;margin-left:10px;padding:5px 12px;background:#fff;border-radius:7px;box-shadow:0 1px 2px rgba(0,0,0,.06);font-size:.68rem;color:#3E4450;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fx-body{background:#fff;border-radius:12px;overflow:hidden}
+.fx-util{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:5px 20px;background:var(--b);color:rgba(255,255,255,.72);font-size:.56rem}
+.fx-util b{display:inline-flex;align-items:center;gap:5px;color:#fff;font-weight:600}
+.fx-util svg{width:10px;height:10px;fill:none;stroke:var(--a);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.fx-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 20px;background:#fff}
+.fx-logo{display:flex;align-items:center;gap:9px;font-family:var(--fx-font);font-weight:800;letter-spacing:-.02em;font-size:.9rem;color:var(--ink)}
+.fx-nav-cta{font-size:.68rem;font-weight:700;padding:7px 13px;border-radius:8px;background:var(--a);color:var(--ai);white-space:nowrap}
+.fx-hero{display:grid;grid-template-columns:1fr 1.08fr;gap:20px;padding:26px 20px;align-items:center;
+  background:linear-gradient(90deg,var(--b) 0%,color-mix(in srgb,var(--b) 88%,transparent) 38%,color-mix(in srgb,var(--b) 35%,transparent) 68%,color-mix(in srgb,var(--b) 10%,transparent) 100%),var(--img) 70% 55%/cover no-repeat}
+.fx-rating{display:flex;align-items:center;gap:5px;font-size:.6rem;color:rgba(255,255,255,.82);margin-bottom:10px}
+.fx-rating b{color:#fff}
+.fx-g{width:14px;height:14px;border-radius:50%;background:#fff;color:#4285F4;font:800 .52rem/14px Arial,sans-serif;text-align:center}
+.fx-stars{color:#FBBC04;letter-spacing:1px}
+.fx-h{font-family:var(--fx-font);font-size:1.3rem;font-weight:800;line-height:1.05;letter-spacing:-.035em;margin:0 0 10px;color:#fff;text-wrap:balance}
+.fx-p{font-size:.72rem;color:rgba(255,255,255,.8);line-height:1.55;margin:0 0 12px}
+.fx-review{border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:9px 11px;background:rgba(255,255,255,.08);backdrop-filter:blur(6px)}
+.fx-review-q{font-size:.66rem;color:#fff;line-height:1.5;margin-bottom:5px}
+.fx-review-by{display:flex;align-items:center;gap:6px;font-size:.6rem;color:rgba(255,255,255,.72)}
+.fx-av{width:16px;height:16px;border-radius:50%;background:var(--a);color:var(--ai);display:inline-flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700}
+.fx-survey{background:#fff;border-radius:13px;padding:15px;box-shadow:0 24px 50px -18px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.08)}
 .fx-sv-head{display:flex;justify-content:space-between;font-size:.6rem;color:var(--mute);margin-bottom:7px}
-.fx-sv-step{color:var(--acc);font-weight:600}
+.fx-sv-step{color:var(--b);font-weight:700}
 .fx-sv-bar{height:3px;border-radius:100px;background:#F0F1F4;overflow:hidden;margin-bottom:12px}
-.fx-sv-fill{height:100%;background:var(--acc);border-radius:100px}
-.fx-sv-q{font-size:.84rem;font-weight:650;line-height:1.3;margin-bottom:10px;color:var(--ink)}
-.fx-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
-.fx-opt{position:relative;border:1px solid var(--line);border-radius:8px;padding:10px 6px;text-align:center;background:#fff}
-.fx-opt b{display:block;font-size:.68rem;font-weight:600;color:var(--ink)}
-.fx-opt span{display:block;font-size:.56rem;color:var(--mute);margin-top:2px}
-.fx-opt.on{border-color:var(--acc);background:#EDF4FF;box-shadow:inset 0 0 0 1px var(--acc)}
-.fx-opt.on b{color:#1D4E9E}
-.fx-opt.on::after{content:'✓';position:absolute;top:-6px;right:-6px;width:16px;height:16px;border-radius:50%;background:var(--acc);color:#fff;font-size:.55rem;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff}
-.fx-go{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:7px;background:var(--acc);color:#fff;font-size:.74rem;font-weight:600}
+.fx-sv-fill{height:100%;background:var(--a);border-radius:100px}
+.fx-sv-q{font-family:var(--fx-font);font-size:.86rem;font-weight:700;letter-spacing:-.015em;line-height:1.3;margin-bottom:10px;color:var(--ink)}
+.fx-opts{display:grid;grid-template-columns:1fr;gap:5px;margin-bottom:10px}
+.fx-opt{position:relative;display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:8px;padding:8px 10px 8px 29px;background:#fff}
+.fx-opt::before{content:'';position:absolute;left:10px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;border:1.5px solid #C5CAD3;box-sizing:border-box}
+.fx-opt b{font-size:.66rem;font-weight:600;color:var(--ink);white-space:nowrap}
+.fx-opt span{margin-left:auto;font-size:.54rem;color:var(--mute);text-align:right}
+.fx-opt.on{border-color:var(--line-a);background:var(--soft)}
+.fx-opt.on::before{border:3.5px solid var(--line-a)}
+.fx-go{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:8px;background:var(--a);color:var(--ai);font-size:.74rem;font-weight:700}
 .fx-motive{text-align:center;font-size:.58rem;color:var(--mute);margin-top:7px}
-.fx-trust{display:flex;flex-wrap:wrap;gap:6px 16px;padding:11px 20px;border-top:1px solid var(--line);background:#FAFAFB;font-size:.6rem;color:var(--mute)}
-.fx-trust span::before{content:'✓ ';color:#1F9D55}
+.fx-trust{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;padding:11px 20px;background:#fff;font-size:.6rem;font-weight:500;color:#3E4450}
+.fx-trust span{display:inline-flex;align-items:center;gap:5px}
+.fx-trust span::before{content:'';width:11px;height:11px;border-radius:50%;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/7px no-repeat;box-shadow:inset 0 0 0 1px var(--line-a)}
 
 @media (max-width:900px){
   .fx-grid{grid-template-columns:1fr;gap:26px}
   .fx-col-ad{max-width:420px}
 }
 @media (max-width:560px){
-  .fx-hero{grid-template-columns:1fr;padding:18px 14px}
-  .fx-nav{padding:11px 14px}
-  .fx-trust{padding:10px 14px}
+  .fx-hero{grid-template-columns:1fr;padding:22px 14px 16px;background:linear-gradient(180deg,color-mix(in srgb,var(--b) 25%,transparent) 0%,color-mix(in srgb,var(--b) 85%,transparent) 32%,var(--b) 55%),var(--img) 50% 30%/cover no-repeat}
+  .fx-nav{padding:10px 14px}
+  .fx-util{padding:5px 14px;justify-content:flex-end}
+  .fx-util span{display:none}
+  .fx-trust{padding:10px 14px;justify-content:flex-start}
 }

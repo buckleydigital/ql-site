@@ -1,0 +1,83 @@
+/* The made-up installer examples (Facebook ad post + landing page) on the
+   home page and the product pages. Each brand gets its own colours via
+   data-niche on .ml-theme; the ad images in /ads use the same palettes.
+   Loaded after each page's own styles, so these rules win. */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+.ml-mark{display:inline-flex}
+.nm-ico{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#EDF4FF;box-shadow:inset 0 0 0 1.5px #4797FF;flex-shrink:0}
+.nm-ico svg{width:13px;height:13px;fill:none;stroke:#4797FF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* Facebook post example, as it looks in a real (light) feed */
+.fb-post.ml-theme{background:#fff;border-color:rgba(255,255,255,.2);box-shadow:0 30px 70px -20px rgba(0,0,0,.7)}
+.fb-post.ml-theme .mk-bar{background:#F0F2F5;border-bottom:1px solid #E4E6EB}
+.fb-post.ml-theme .mk-dot.r{background:#FF5F57}.fb-post.ml-theme .mk-dot.y{background:#FEBC2E}.fb-post.ml-theme .mk-dot.g{background:#28C840}
+.fb-post.ml-theme .mk-url{background:#fff;border-color:#DADDE1;color:#65676B}
+.fb-post.ml-theme .mk-url::before{border-color:#1877F2;border-bottom-color:transparent}
+.fb-post.ml-theme .fb-name,.fb-post.ml-theme .fb-hl,.fb-post.ml-theme .fb-copy{color:#050505}
+.fb-post.ml-theme .fb-name{font-weight:700}
+.fb-post.ml-theme .fb-meta,.fb-post.ml-theme .fb-more,.fb-post.ml-theme .fb-see,.fb-post.ml-theme .fb-dom{color:#65676B}
+.fb-post.ml-theme .fb-link{background:#F0F2F5;border-top:none}
+.fb-post.ml-theme .fb-cta{background:#E4E6EB;color:#050505;border-radius:6px}
+.fb-post.ml-theme .fb-acts{border-top:1px solid #CED0D4;color:#65676B;margin:0 12px;padding:8px 0}
+.fb-post.ml-theme .fb-acts svg{stroke:#65676B}
+.fb-post.ml-theme .fb-av{background:var(--ml-brand);border-radius:50%;box-shadow:none}
+.fb-post.ml-theme .fb-av .nm-ico{background:none;box-shadow:none;width:auto;height:auto}
+.fb-post.ml-theme .fb-av .nm-ico svg{width:20px;height:20px;stroke:var(--ml-acc);stroke-width:2.2}
+
+/* ── Example landing page, v2: each made-up brand gets its own look ── */
+.ml-theme[data-niche]{--ml-brand:#0F2A47;--ml-acc:#F5A524;--ml-acc-ink:#1E1400;--ml-acc-soft:#FFF5E1;--ml-acc-line:#E9A321;--ml-font:'Plus Jakarta Sans',var(--body)}
+.ml-theme[data-niche="battery"]{--ml-brand:#0D3B2E;--ml-acc:#9BE15D;--ml-acc-ink:#0B2414;--ml-acc-soft:#F1FAE8;--ml-acc-line:#7CC743}
+.ml-theme[data-niche="roofing"]{--ml-brand:#262120;--ml-acc:#C2410C;--ml-acc-ink:#fff;--ml-acc-soft:#FDF0E9;--ml-acc-line:#C2410C}
+.ml-theme[data-niche="hvac"]{--ml-brand:#0A2540;--ml-acc:#0EA5E9;--ml-acc-ink:#fff;--ml-acc-soft:#E8F6FD;--ml-acc-line:#0EA5E9}
+.ml-theme[data-niche="reno"]{--ml-brand:#1E1A16;--ml-acc:#B08D57;--ml-acc-ink:#fff;--ml-acc-soft:#F7F1E7;--ml-acc-line:#B08D57}
+.mk-mockup.mk-light{background:#E9EBEF;padding:6px;border-color:rgba(255,255,255,.22)}
+.mk-mockup.mk-light .mk-bar{background:transparent;padding:6px 10px 10px}
+.mk-mockup.mk-light .mk-dot{width:8px;height:8px}
+.mk-mockup.mk-light .mk-url{background:#fff;border-color:transparent;box-shadow:0 1px 2px rgba(0,0,0,.06);justify-content:center;color:#3E4450}
+.mk-mockup.mk-light .mk-url::before{border:none;width:8px;height:9px;border-radius:2px;background:#8A909C;-webkit-mask:linear-gradient(#000 0 0) bottom/100% 60% no-repeat,radial-gradient(circle at 50% 45%,transparent 2.2px,#000 2.3px 3.6px,transparent 3.7px) top/100% 70% no-repeat;mask:linear-gradient(#000 0 0) bottom/100% 60% no-repeat,radial-gradient(circle at 50% 45%,transparent 2.2px,#000 2.3px 3.6px,transparent 3.7px) top/100% 70% no-repeat}
+.mk-mockup.mk-light .mk-body{border:none;border-radius:10px;font-family:var(--body)}
+.ml-util{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 22px;background:var(--ml-brand);color:rgba(255,255,255,.72);font-size:.56rem;letter-spacing:.01em}
+.ml-util-ph{display:inline-flex;align-items:center;gap:5px;color:#fff;font-weight:600}
+.ml-util-ph svg{width:10px;height:10px;fill:none;stroke:var(--ml-acc);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mk-mockup.mk-light .mk-nav{padding:12px 22px;background:#fff}
+.mk-mockup.mk-light .mk-logo{font-family:var(--ml-font);font-weight:800;letter-spacing:-.02em;font-size:.95rem;gap:9px}
+.mk-mockup.mk-light .mk-logo .nm-ico{width:28px;height:28px;border-radius:8px;background:var(--ml-brand);box-shadow:none}
+.mk-mockup.mk-light .mk-logo .nm-ico svg{width:16px;height:16px;stroke:var(--ml-acc);stroke-width:2.2}
+.mk-mockup.mk-light .mk-nav-links{font-weight:500;color:#3E4450}
+.mk-mockup.mk-light .mk-nav-cta{background:var(--ml-acc);color:var(--ml-acc-ink);border-radius:8px;font-weight:700;padding:8px 14px}
+.mk-mockup.mk-light .mk-hero{background:linear-gradient(90deg,var(--ml-brand) 0%,color-mix(in srgb,var(--ml-brand) 88%,transparent) 38%,color-mix(in srgb,var(--ml-brand) 35%,transparent) 66%,color-mix(in srgb,var(--ml-brand) 10%,transparent) 100%),var(--ml-hero,url('solar-ad-img.webp')) 70% 55%/cover no-repeat;padding:30px 22px 28px;gap:22px}
+.mk-mockup.mk-light .mk-h5{color:#fff;font-family:var(--ml-font);font-weight:800;font-size:1.5rem;line-height:1.05;letter-spacing:-.035em;margin-bottom:12px;text-wrap:balance}
+.mk-mockup.mk-light .mk-p{color:rgba(255,255,255,.78);font-size:.74rem}
+.mk-mockup.mk-light .ml-rating{color:rgba(255,255,255,.8);gap:6px;margin-bottom:12px}
+.mk-mockup.mk-light .ml-rating b{color:#fff}
+.ml-g{width:15px;height:15px;border-radius:50%;background:#fff;color:#4285F4;font:800 .55rem/15px Arial,sans-serif;text-align:center}
+.mk-mockup.mk-light .ml-stars{color:#FBBC04}
+.mk-mockup.mk-light .ml-review{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);backdrop-filter:blur(6px)}
+.mk-mockup.mk-light .ml-review-q{color:#fff}
+.mk-mockup.mk-light .ml-review-by{color:rgba(255,255,255,.72)}
+.mk-mockup.mk-light .ml-av{background:var(--ml-acc);color:var(--ml-acc-ink)}
+.mk-mockup.mk-light .mk-survey{border:none;border-radius:14px;padding:18px;box-shadow:0 24px 50px -18px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.08)}
+.mk-mockup.mk-light .mk-survey-step{color:var(--ml-brand);font-weight:700}
+.mk-mockup.mk-light .mk-survey-fill{background:var(--ml-acc)}
+.mk-mockup.mk-light .mk-survey-q{font-family:var(--ml-font);font-weight:700;letter-spacing:-.015em;font-size:.95rem}
+.mk-mockup.mk-light .mk-survey-opts{grid-template-columns:1fr;gap:6px}
+.mk-mockup.mk-light .mk-opt{flex-direction:row;justify-content:flex-start;align-items:center;text-align:left;min-height:0;padding:9px 12px 9px 32px;border-radius:9px;gap:8px}
+.mk-mockup.mk-light .mk-opt::before{content:'';position:absolute;left:11px;top:50%;width:13px;height:13px;margin-top:-6.5px;border-radius:50%;border:1.5px solid #C5CAD3;background:#fff;box-sizing:border-box}
+.mk-mockup.mk-light .mk-opt.selected{border-color:var(--ml-acc-line);background:var(--ml-acc-soft);box-shadow:none}
+.mk-mockup.mk-light .mk-opt.selected::before{border:4px solid var(--ml-acc-line)}
+.mk-mockup.mk-light .mk-opt.selected .mk-opt-lbl{color:var(--ml-ink)}
+.mk-mockup.mk-light .mk-opt-check{display:none !important}
+.mk-mockup.mk-light .mk-opt-lbl{font-size:.7rem;white-space:nowrap}
+.mk-mockup.mk-light .ml-sub{text-align:right}
+.mk-mockup.mk-light .ml-sub{margin-left:auto;font-size:.58rem}
+.mk-mockup.mk-light .mk-survey-continue{background:var(--ml-acc);color:var(--ml-acc-ink);border-radius:9px;font-weight:700;padding:11px}
+.mk-mockup.mk-light .mk-trust{background:#fff;justify-content:space-between;padding:11px 22px}
+.mk-mockup.mk-light .mk-trust-item{font-weight:500;color:#3E4450}
+.mk-mockup.mk-light .mk-trust-item::before{content:'';width:12px;height:12px;border-radius:50%;background:var(--ml-acc-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/8px no-repeat;box-shadow:inset 0 0 0 1px var(--ml-acc-line)}
+@media (max-width:760px){
+  .mk-mockup.mk-light .mk-hero{background:linear-gradient(180deg,color-mix(in srgb,var(--ml-brand) 25%,transparent) 0%,color-mix(in srgb,var(--ml-brand) 85%,transparent) 32%,var(--ml-brand) 55%),var(--ml-hero,url('solar-ad-img.webp')) 50% 30%/cover no-repeat;padding:26px 16px 18px}
+  .ml-util{padding:5px 14px;font-size:.5rem}
+  .ml-util span:first-child{display:none}
+  .ml-util{justify-content:flex-end}
+  .mk-mockup.mk-light .mk-h5{font-size:1.2rem}
+  .mk-mockup.mk-light .mk-trust{justify-content:flex-start}
+}
