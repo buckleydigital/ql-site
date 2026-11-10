@@ -518,6 +518,9 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 .lead-consent-k svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .lead-consent-v{font-size:.8rem;line-height:1.5;color:var(--off,#CACAD0)}
 .lead-consent-v b{color:var(--white,#F2F2F2);font-weight:600}
+
+/* {{business_name}} placeholder in example consent lines */
+.biz-ph{display:inline-block;padding:0 6px;border-radius:5px;background:rgba(71,151,255,.14);border:1px dashed rgba(124,185,255,.55);color:#B8D4FF;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;font-weight:500;white-space:nowrap}
 </style>
 <link rel="stylesheet" href="/examples.css">
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
@@ -712,7 +715,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <div class="lf"><span class="lf-k">Avg quarterly bill</span><span class="lf-v">$600 - $900</span></div>
         <div class="lf"><span class="lf-k">Purchase timeline</span><span class="lf-v">ASAP (next 30 days)</span></div>
         <div class="lf"><span class="lf-k">Custom fields</span><span class="lf-v">Scope, ownership</span></div>
-        <div class="lead-consent"><div class="lead-consent-k"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><polyline points="9 12 11 14 15 10"/></svg>Consent</div><div class="lead-consent-v">&ldquo;I agree to be contacted by <b>Your Solar Co.</b> regarding my obligation-free quote.&rdquo;</div></div>
+        <div class="lead-consent"><div class="lead-consent-k"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><polyline points="9 12 11 14 15 10"/></svg>Consent</div><div class="lead-consent-v">&ldquo;I agree to be contacted by <span class="biz-ph">{{business_name}}</span> regarding my obligation-free quote.&rdquo;</div></div>
         <div class="lead-note">Custom fields are yours to set. Capture any information you need for the call or the quote, and it arrives with every lead.</div>
       </div>
     </div>

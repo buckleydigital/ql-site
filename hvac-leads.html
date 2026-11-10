@@ -508,6 +508,9 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   .stats-row{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr}
 }
+
+/* {{business_name}} placeholder in example consent lines */
+.biz-ph{display:inline-block;padding:0 6px;border-radius:5px;background:rgba(71,151,255,.14);border:1px dashed rgba(124,185,255,.55);color:#B8D4FF;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;font-weight:500;white-space:nowrap}
 </style>
 <link rel="stylesheet" href="/footer.css">
 <link rel="stylesheet" href="/funnel-example.css">
@@ -801,7 +804,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 </div>
                 <div class="lead-field">
                     <div class="lead-field-lbl">Consent</div>
-                    <div class="lead-field-val">&ldquo;I agree to be contacted by <strong>Sydney Air Co.</strong> regarding my obligation-free quote.&rdquo;</div>
+                    <div class="lead-field-val">&ldquo;I agree to be contacted by <span class="biz-ph">{{business_name}}</span> regarding my obligation-free quote.&rdquo;</div>
                 </div>
             </div>
             <div class="lead-card-foot">
