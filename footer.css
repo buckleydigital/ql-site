@@ -21,3 +21,9 @@ footer.ql-foot{display:block;margin:0;padding:56px 5%;border-top:1px solid rgba(
   footer.ql-foot{padding:40px 5%}
   .ql-foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
 }
+/* Links to each trade's hub page, on every page. */
+.ql-foot-hubs{flex:0 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07)}
+.ql-foot-hubs span{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9A9AA3}
+.ql-foot-hubs a{font-size:.8rem;color:#78787F;text-decoration:none;transition:color .2s}
+.ql-foot-hubs a:hover{color:#F2F2F2}
+@media(max-width:768px){.ql-foot-hubs{gap:10px 18px}.ql-foot-hubs span{flex:0 0 100%}}

@@ -95,3 +95,13 @@
   .fx-util span{display:none}
   .fx-trust{padding:10px 14px;justify-content:flex-start}
 }
+
+/* City pages, linked from the trade hubs. */
+.fx-cities-lead{color:var(--muted,#9A9AA3);font-size:.95rem;line-height:1.75;max-width:600px;margin-bottom:32px}
+.fx-cities{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.fx-cities a{display:flex;flex-direction:column;gap:4px;padding:18px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;text-decoration:none;transition:border-color .25s,background .25s}
+.fx-cities a:hover{border-color:rgba(71,151,255,.3);background:rgba(71,151,255,.08)}
+.fx-cities span{font-size:.95rem;font-weight:600;color:#F2F2F2}
+.fx-cities small{font-size:.75rem;color:#7CB9FF}
+@media (max-width:900px){.fx-cities{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.fx-cities{grid-template-columns:1fr 1fr}}
