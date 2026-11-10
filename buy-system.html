@@ -37,7 +37,8 @@
   --white:#F2F2F2;--off:#CACAD0;--muted:#9A9AA3;--faint:#78787F;
   --display:'General Sans','PP Neue Montreal',system-ui,sans-serif;
   --body:'Inter',system-ui,sans-serif;
-  --maxw:660px;
+  --maxw:760px;
+  --nh:68px;
 }
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--void);color:var(--white);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:'cv11','ss01','ss03'}
@@ -46,6 +47,7 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 .center{text-align:center}
 em{font-style:normal;color:var(--blue)}
+h1 em{background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* AMBIENT GRADIENT - matched to the home page hero */
 .glow{position:fixed;inset:0;z-index:0;pointer-events:none;
@@ -85,8 +87,29 @@ section+section{border-top:1px solid var(--border)}
 @media(prefers-reduced-motion:reduce){.price-now{animation:none}.sticky{transition:none}}
 
 /* TOP BAR */
-.topbar{padding:22px 0 0;text-align:center}
-.topbar img{height:30px;width:auto;opacity:.9}
+/* Site header, as on the rest of the site */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 5%;
+  background:rgba(4,4,10,0);border-bottom:1px solid transparent;
+  transition:background .4s,border-color .4s,backdrop-filter .4s}
+.site-header.sc{background:rgba(4,4,10,.92);backdrop-filter:blur(28px);border-bottom-color:var(--border)}
+.header-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:var(--nh)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:.84rem;font-weight:400;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.02em}
+.nav-links a:hover{color:var(--white)}
+.mob-btn{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-direction:column;gap:5px}
+.mob-btn span{display:block;width:22px;height:1.5px;background:var(--white);transition:.3s}
+.mob-menu{display:none;position:absolute;top:100%;left:0;right:0;
+  background:rgba(4,4,10,.97);border-bottom:1px solid var(--border);padding:0 5% 20px;
+  backdrop-filter:blur(28px)}
+.mob-menu.open{display:flex;flex-direction:column;gap:0}
+.mob-menu a{padding:14px 0;font-size:1rem;color:var(--off);text-decoration:none;border-bottom:1px solid var(--border)}
+.mob-menu a:hover{color:var(--white)}
+.nav-cta-dark{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%);color:#fff !important;font-family:var(--body);font-size:.84rem;font-weight:600;padding:10px 24px;border-radius:100px;border:1px solid rgba(255,255,255,.16);text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 14px rgba(71,151,255,.30),0 0 0 4px rgba(71,151,255,.09);transition:transform .2s,box-shadow .3s,filter .2s}
+.nav-cta-dark:hover{transform:translateY(-1px);filter:brightness(1.06);color:#fff !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.46),inset 0 -6px 12px rgba(0,0,0,.12),0 8px 24px rgba(71,151,255,.42),0 0 0 5px rgba(71,151,255,.13)}
+.mob-cta-dark{background:linear-gradient(180deg,#6FADFF 0%,#4797FF 46%,#2F82F0 100%) !important;color:#fff !important;padding:15px 0 !important;font-weight:600;border-radius:100px;text-align:center;margin-top:12px;border-bottom:none !important;border:1px solid rgba(255,255,255,.16) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.38),0 6px 18px rgba(71,151,255,.30)}
+.mob-cta-dark:hover{filter:brightness(1.06);color:#fff !important}
+@media(max-width:768px){.nav-links{display:none}.mob-btn{display:flex}}
 
 /* PILL */
 .pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-size:.72rem;font-weight:600;
@@ -411,7 +434,12 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 @media(max-width:520px){section{padding:44px 0}.card{padding:24px 20px}}
 
 /* ── buy page ── */
-.hero.buy{padding-top:28px}
+.spend-note{margin-top:18px;padding:18px 20px;border-radius:14px;background:var(--bdim);border:1px solid var(--bblue);text-align:left}
+.spend-h{font-family:var(--display);font-weight:600;font-size:1rem;margin-bottom:8px;color:var(--white)}
+.spend-note p{font-size:.88rem;color:var(--off);line-height:1.6}
+.spend-note p+p{margin-top:8px}
+.spend-note b{color:var(--white);font-weight:600}
+.hero.buy{padding-top:calc(var(--nh) + 56px)}
 .step-h{font-family:var(--display);font-size:clamp(1.15rem,4.4vw,1.4rem);font-weight:600;margin-bottom:6px}
 .step-sub{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:18px}
 .q{display:flex;align-items:center;gap:14px;justify-content:space-between;padding:14px 0;border-top:1px solid var(--border)}
@@ -445,7 +473,30 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 <div class="glow"></div>
 <div class="page">
 
-<div class="topbar"><a href="/"><img src="/quoteleads-logo-white.png" alt="QuoteLeads"></a></div>
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/quoteleads-logo-white.png" alt="QuoteLeads" style="height:36px;width:auto;display:block">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
+      <li><a href="/get-started">Book a call</a></li>
+      <li><a href="#order" class="nav-cta-dark">Get Started</a></li>
+    </ul>
+    <button class="mob-btn" id="mobBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mob-menu" id="mobMenu">
+    <a href="/#how-it-works">How It Works</a>
+    <a href="/pricing">Pricing</a>
+    <a href="https://quoteleadshq.com/dashboard">Login</a>
+    <a href="/get-started">Book a call</a>
+    <a href="#order" class="mob-cta-dark">Get Started</a>
+  </nav>
+</header>
 <header class="hero buy">
   <div class="wrap">
     <div class="center rv"><span class="pill"><span class="dot"></span>Branded Lead Gen System</span></div>
@@ -482,7 +533,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           <div class="tier-gst">ex GST, one-off build</div>
           <div class="tier-mo">first 30 days of management included</div>
           <div class="tier-badge">Recommended for you</div>
-          <p class="tier-for">Around <b>30 to 60 enquiries a month</b> from about $50/day in ad spend. 1 campaign, one service area, one offer. Unlimited budget scaling.<br><br>After day 30, optional: <b>$600/mo + GST</b> to keep it running on our system.</p>
+          <p class="tier-for"><b>1 campaign</b>: one service, one service area, one offer. Starts at around 30 to 60 enquiries a month on about $50/day in ad spend, and <b>scales to more enquiries</b> by lifting the budget.<br><br>After day 30, optional: <b>$600/mo + GST</b> to keep it running on our system.</p>
         </button>
         <button type="button" class="tier" role="radio" aria-checked="false" data-tier="growth">
           <span class="tsel">&#10003;</span>
@@ -491,8 +542,13 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           <div class="tier-gst">ex GST, one-off build</div>
           <div class="tier-mo">first 30 days of management included</div>
           <div class="tier-badge">Recommended for you</div>
-          <p class="tier-for">Around <b>60 to 90+ enquiries a month</b> from about $100/day. 2 to 4 campaigns, service areas or offers. Unlimited budget scaling.<br><br>After day 30, optional: <b>$1,200/mo + GST</b> to keep it running on our system.</p>
+          <p class="tier-for"><b>2 to 4 campaigns</b>: a second offer, service or service area. Around 60 to 90+ enquiries a month from about $100/day across them, and scales the same way.<br><br>After day 30, optional: <b>$1,200/mo + GST</b> to keep it running on our system.</p>
         </button>
+      </div>
+      <div class="spend-note">
+        <div class="spend-h">About the $1,500 a month ad spend</div>
+        <p>That's the <b>starting</b> budget: about <b>$50 a day</b>, which is what one campaign needs to bring in around <b>30 to 60 enquiries a month</b>. It's paid to Meta from your own card, never to us.</p>
+        <p>Need more enquiries for the same service and area? You don't need a bigger build. During management we lift the daily budget when you're ready, and enquiries go up with it. Growth is only for running <b>more than one campaign</b>.</p>
       </div>
       <p class="price-note" style="margin-top:16px">Both builds include the build, the launch and your first 30 days of management. After that the monthly fee is optional: it keeps the system running on ours, with ongoing optimisation, reporting and QuoteLeadsHQ access. Stop at any time and the accounts, ads and funnel stay yours. Ad spend is paid direct to Meta or Google from your own account, never through us. <a href="/quoteleads-terms" style="color:var(--blue)">See full terms</a>.</p>
     </div>
@@ -625,19 +681,17 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   // /pricing. Paid to Meta from their own card, never through us.
   var LEADS_HINT = {
     '30-60': 'That takes around $50 a day in ad spend (about $1,500 a month), paid to Meta from your own card.',
-    '60+': 'That takes around $100 a day and up in ad spend (about $3,000+ a month), paid to Meta from your own card.'
+    '60+': 'That takes around $100 a day and up in ad spend (about $3,000+ a month), paid to Meta from your own card. Same build: we start at $50 a day and lift it as it works.'
   };
 
-  // 60+ enquiries or a second campaign means Growth. Every answer ticks the
-  // build it points to, over whatever was ticked before (a ?tier= link or a
-  // click); a card clicked after answering stays until an answer changes.
+  // Only a second campaign means Growth. More enquiries from one campaign is a
+  // bigger ad budget on the Standard build, not a bigger build, so the leads
+  // answer only sets the ad spend hint. The campaign answer ticks the build it
+  // points to, over whatever was ticked before (a ?tier= link or a click); a
+  // card clicked after answering stays until the answer changes.
   function judge(){
-    var yes = [];
     if (answers.leads) $('leadsHint').textContent = LEADS_HINT[answers.leads];
-    if (answers.leads === '60+') yes.push('60+ enquiries a month');
-    if (answers.multi === 'yes') yes.push('more than one campaign');
-    var allAnswered = answers.leads && answers.multi;
-    var rec = yes.length ? 'growth' : (allAnswered ? 'standard' : null);
+    var rec = answers.multi === 'yes' ? 'growth' : (answers.multi === 'no' ? 'standard' : null);
     document.querySelectorAll('.tier').forEach(function(b){ b.classList.toggle('rec', b.getAttribute('data-tier') === rec); });
     if (rec) setTier(rec);
   }
@@ -719,6 +773,11 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         msg.textContent = 'Sorry, checkout did not open (' + err.message + '). Try again, or email contact@quoteleads.com.au.';
       });
   });
+
+  var hdr = $('siteHeader');
+  window.addEventListener('scroll', function(){ hdr.classList.toggle('sc', window.scrollY > 20); }, { passive: true });
+  $('mobBtn').addEventListener('click', function(){ $('mobMenu').classList.toggle('open'); });
+  $('mobMenu').querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ $('mobMenu').classList.remove('open'); }); });
 
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
