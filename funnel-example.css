@@ -115,3 +115,12 @@
 .tr-season p{font-size:.86rem;line-height:1.65;color:#9A9AA3;margin:0}
 .tr-season-note{margin-top:22px;font-size:.92rem;line-height:1.7;color:#CACAD0;max-width:720px}
 @media (max-width:900px){.tr-season{grid-template-columns:1fr}}
+
+/* Step 3 of the funnel example: the lead card, in the same section. */
+.fx-lead{margin-top:34px}
+.fx-lead .lead-card{margin-top:0}
+/* The consent row fills the rest of the last line of the lead card. */
+@media (min-width:769px){
+  .fx-lead .lead-field.fx-fill2{grid-column:span 2}
+  .fx-lead .lead-field.fx-fill3{grid-column:1/-1}
+}
