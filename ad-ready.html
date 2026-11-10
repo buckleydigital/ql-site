@@ -98,6 +98,34 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(-
 .btn-buy:hover{transform:translateY(-2px);filter:brightness(1.07)}
 .btn-buy svg{width:18px;height:18px}
 .btn-block{width:100%}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:16px 26px;border-radius:100px;color:var(--white);text-decoration:none;font-size:.98rem;font-weight:500;white-space:nowrap;border:1px solid var(--bmid);background:var(--glass);transition:border-color .2s,background .2s,transform .2s}
+.btn-ghost:hover{border-color:var(--bblue);background:var(--bdim);transform:translateY(-2px)}
+.btn-ghost svg{width:16px;height:16px;color:var(--sky)}
+.btn-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.hero-cb{margin-top:16px;font-size:.92rem;color:var(--muted)}
+.hero-cb a{color:var(--sky);text-decoration:none;font-weight:500}
+.hero-cb a:hover{color:var(--white)}
+/* callback form */
+.cb-card{max-width:620px;margin:0 auto;padding:36px;border-radius:24px;background:var(--surf);border:1px solid var(--border)}
+.cb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cb-fld{display:flex;flex-direction:column;gap:6px}
+.cb-fld.wide{grid-column:1/-1}
+.cb-fld label{font-size:.8rem;font-weight:500;color:var(--off)}
+.cb-fld input,.cb-fld select{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--bmid);background:rgba(255,255,255,.03);color:var(--white);font:inherit;font-size:.95rem;outline:none;transition:border-color .2s}
+.cb-fld select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239A9AA3' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.cb-fld select option{background:#0C0C18}
+.cb-fld input:focus,.cb-fld select:focus{border-color:var(--blue)}
+.cb-fld input.bad{border-color:#f87171}
+.cb-ts{margin:18px 0 4px;min-height:65px;display:flex;justify-content:center}
+.cb-card .btn-buy{width:100%;margin-top:10px;border:none;cursor:pointer;font-family:inherit}
+.cb-card .btn-buy:disabled{opacity:.5;cursor:not-allowed;transform:none;filter:none}
+.cb-hint{font-size:.8rem;color:var(--faint);text-align:center;margin-top:10px}
+.cb-err{display:none;margin-top:12px;font-size:.86rem;color:#fecaca;text-align:center}
+.cb-done{display:none;text-align:center;padding:12px 0}
+.cb-done h3{font-size:1.5rem;font-weight:600;margin:12px 0 8px}
+.cb-done p{color:var(--muted);line-height:1.6}
+.cb-done .tick-big{width:52px;height:52px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;background:rgba(52,211,153,.14);color:var(--green)}
+.cb-done .tick-big svg{width:24px;height:24px}
 .alt{font-size:.84rem;color:var(--muted);margin-top:14px;text-align:center}
 .alt a{color:var(--sky);text-decoration:none}
 
@@ -221,6 +249,9 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(-
   .hero{padding:110px 5% 70px}
   .hero-buy{flex-direction:column;align-items:stretch;text-align:center}
   .btn-buy{width:100%}
+  .btn-ghost{width:100%}
+  .cb-card{padding:26px 20px}
+  .cb-grid{grid-template-columns:1fr}
   .mock{height:330px}
   .mock-site{right:0;top:20px}
   .mock-hero{min-height:150px;padding:24px 20px}
@@ -243,6 +274,7 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(-
 .note.ok{background:rgba(52,211,153,.12);border-bottom-color:rgba(52,211,153,.35);color:#bbf7d0}
 .note.on{margin-top:var(--nh)}
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=cbTsReady&render=explicit" async defer></script>
 <link rel="stylesheet" href="/footer.css">
 </head>
 <body>
@@ -282,6 +314,7 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(-
       <div class="hero-buy"><a class="btn-buy js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         <div class="hero-price"><b>$499</b> + GST one-off<br><span>one-time setup &middot; no monthly fees</span></div>
       </div>
+      <p class="hero-cb">Rather talk it through first? <a href="#callback">Request a callback &rarr;</a></p>
       <ul class="hero-ticks"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Done for you</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Everything in your name</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>$250 back if you upgrade</li></ul>
     </div>
     <div class="mock" aria-hidden="true">
@@ -332,7 +365,7 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(-
         <div class="offer-then"><b>One-time payment.</b> No monthly fees and nothing to cancel.</div>
         <a class="btn-buy btn-block js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         <div class="credit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg><span><b>Half your setup back.</b> Upgrade to a Standard or Growth ads build within 60 days and $250 comes off.</span></div>
-        <p class="alt">Questions first? <a href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Email us</a></p>
+        <a class="btn-ghost" style="margin-top:12px" href="#callback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Request a callback</a>
       </div>
     </div>
   </div>
@@ -356,11 +389,41 @@ h1 em,h2 em{font-style:normal;background:linear-gradient(90deg,var(--mist),var(-
   </div>
 </section>
 
+<section id="callback">
+  <div class="in">
+    <div class="sec-head rv" style="text-align:center;margin-left:auto;margin-right:auto"><div class="ey">Talk to us first</div><h2>Request a <em>callback</em>.</h2><p style="color:var(--muted);line-height:1.7;margin-top:14px">Leave your details and we'll ring you during business hours (AEST) to answer your questions. No obligation.</p></div>
+    <div class="cb-card rv">
+      <div id="cbForm">
+        <div class="cb-grid">
+          <div class="cb-fld"><label for="cbName">Your name</label><input id="cbName" autocomplete="name" placeholder="Full name"></div>
+          <div class="cb-fld"><label for="cbCompany">Business name</label><input id="cbCompany" autocomplete="organization" placeholder="Business name"></div>
+          <div class="cb-fld"><label for="cbPhone">Phone</label><input id="cbPhone" type="tel" autocomplete="tel" placeholder="04XX XXX XXX"></div>
+          <div class="cb-fld"><label for="cbEmail">Email</label><input id="cbEmail" type="email" autocomplete="email" placeholder="you@business.com.au"></div>
+          <div class="cb-fld wide"><label for="cbTrade">What trade are you in?</label>
+            <select id="cbTrade"><option value="">Select your trade&hellip;</option><option>Solar</option><option>Solar + Battery</option><option>Battery Retrofit</option><option>HVAC</option><option>Roofing</option><option>Renovation</option><option>Other</option></select></div>
+        </div>
+        <div class="cb-ts"><div id="cbTurnstile"></div></div>
+        <button class="btn-buy" id="cbBtn" type="button" disabled>Request a callback</button>
+        <p class="cb-hint" id="cbHint">Fill in your name, phone and email.</p>
+        <div class="cb-err" id="cbErr"></div>
+      </div>
+      <div class="cb-done" id="cbDone">
+        <div class="tick-big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Thanks, we'll call you shortly.</h3>
+        <p>Someone from our team will ring you during business hours (AEST). Keep an eye on your phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="final">
   <div class="in in-narrow rv">
     <h2>Get the foundations right <em>before</em> you pay for clicks.</h2>
     <p>$499 + GST, done for you, and $250 comes off your ads build if you upgrade within 60 days.</p>
-    <a class="btn-buy js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    <div class="btn-row">
+      <a class="btn-buy js-buy" href="mailto:contact@quoteleads.com.au?subject=Ad-Ready%20setup">Get ad-ready now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a class="btn-ghost" href="#callback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Request a callback</a>
+    </div>
   </div>
 </section>
 
@@ -426,6 +489,56 @@ window.addEventListener('scroll',function(){hdr.classList.toggle('sc',window.scr
 var mobBtn=document.getElementById('mobBtn'),mobMenu=document.getElementById('mobMenu');
 mobBtn.addEventListener('click',function(){mobMenu.classList.toggle('open')});
 mobMenu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mobMenu.classList.remove('open')})});
+
+// Request a callback: callback-request on ql-hq puts it on ql-mc's Sales
+// Pipeline as a New Lead (source quoteleads.com.au/ad-ready) and emails
+// contact@, the same route /get-started uses. Turnstile is verified there.
+var CALLBACK_FN = 'https://wjadekgptkstfdootuol.supabase.co/functions/v1/callback-request';
+var cbToken = '';
+function cbEl(id){ return document.getElementById(id); }
+function cbVals(){
+  return { name: cbEl('cbName').value.trim(), company: cbEl('cbCompany').value.trim(),
+           phone: cbEl('cbPhone').value.trim(), email: cbEl('cbEmail').value.trim(), trade: cbEl('cbTrade').value };
+}
+function cbPhoneOk(v){ var d = v.replace(/[^\d+]/g, '').replace(/^\+?61/, '0'); return /^0[2-478]\d{8}$/.test(d); }
+function cbEmailOk(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+function cbRefresh(){
+  var v = cbVals(), filled = v.name && v.phone && v.email;
+  var ok = filled && cbPhoneOk(v.phone) && cbEmailOk(v.email);
+  cbEl('cbPhone').classList.toggle('bad', !!v.phone && !cbPhoneOk(v.phone));
+  cbEl('cbEmail').classList.toggle('bad', !!v.email && !cbEmailOk(v.email));
+  cbEl('cbBtn').disabled = !(ok && cbToken);
+  cbEl('cbHint').textContent = !filled ? 'Fill in your name, phone and email.'
+    : !cbPhoneOk(v.phone) ? 'Enter an Australian phone number, for example 0412 345 678.'
+    : !cbEmailOk(v.email) ? 'That email does not look right, check for a typo.'
+    : !cbToken ? 'Just confirming you are human…'
+    : "We'll ring you during business hours (AEST).";
+}
+['cbName','cbCompany','cbPhone','cbEmail','cbTrade'].forEach(function(id){ cbEl(id).addEventListener('input', cbRefresh); });
+window.cbTsReady = function(){
+  turnstile.render('#cbTurnstile', { sitekey: '0x4AAAAAABj4xsGpuNPXeW_7', theme: 'dark',
+    callback: function(t){ cbToken = t; cbRefresh(); },
+    'expired-callback': function(){ cbToken = ''; cbRefresh(); } });
+};
+cbEl('cbBtn').addEventListener('click', function(){
+  var v = cbVals(), btn = cbEl('cbBtn'), err = cbEl('cbErr');
+  err.style.display = 'none'; btn.disabled = true; btn.textContent = 'Sending…';
+  fetch(CALLBACK_FN, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: v.name, company: v.company, phone: v.phone, email: v.email,
+      trade: v.trade, goal: 'Ad-Ready setup ($499)', turnstile_token: cbToken,
+      source: 'quoteleads.com.au/ad-ready' }) })
+    .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); })
+    .then(function(){
+      try { if (window.fbq) fbq('track', 'Lead'); if (window.gtag) gtag('event', 'generate_lead'); } catch (e) {}
+      cbEl('cbForm').style.display = 'none'; cbEl('cbDone').style.display = 'block';
+    })
+    .catch(function(){
+      cbToken = ''; try { if (window.turnstile) turnstile.reset('#cbTurnstile'); } catch (e) {}
+      btn.textContent = 'Request a callback'; cbRefresh();
+      err.textContent = 'Something went wrong sending your request. Please try again, or email contact@quoteleads.com.au.';
+      err.style.display = 'block';
+    });
+});
 
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.08});
 document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
