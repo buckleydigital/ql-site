@@ -393,6 +393,13 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 .ls-chosen b{color:var(--white,#fff);font-weight:600}
 .ls-chosen button{background:none;border:0;color:var(--blue,#4797ff);font:inherit;font-size:.82rem;cursor:pointer;padding:0}
 .ls-form-h{font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:14px;text-align:center}
+
+/* Consent line on the example lead: the wording the client's form records. */
+.lead-consent{margin-top:12px;padding:12px 14px;border-radius:12px;background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.22)}
+.lead-consent-k{display:flex;align-items:center;gap:6px;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#86efac;margin-bottom:5px}
+.lead-consent-k svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.lead-consent-v{font-size:.8rem;line-height:1.5;color:var(--off,#CACAD0)}
+.lead-consent-v b{color:var(--white,#F2F2F2);font-weight:600}
 </style>
 <link rel="stylesheet" href="/examples.css">
 <link rel="stylesheet" href="/footer.css">
@@ -563,6 +570,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <div class="lf"><span class="lf-k">Avg quarterly bill</span><span class="lf-v">$600 - $900</span></div>
         <div class="lf"><span class="lf-k">Purchase timeline</span><span class="lf-v">ASAP (next 30 days)</span></div>
         <div class="lf"><span class="lf-k">Custom fields</span><span class="lf-v">Ownership, budget check</span></div>
+        <div class="lead-consent"><div class="lead-consent-k"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3z"/><polyline points="9 12 11 14 15 10"/></svg>Consent</div><div class="lead-consent-v">&ldquo;I agree to be contacted by <b>Sydney Solar Co.</b> regarding my obligation-free quote.&rdquo;</div></div>
         <div class="lead-note">Custom fields are yours to set. Capture any information you need for the call or the quote, and it arrives with every lead.</div>
       </div>
     </div>
