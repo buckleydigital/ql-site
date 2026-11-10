@@ -103,7 +103,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -975,6 +975,82 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .niche-swapping .journey-visual{opacity:0}
 .sms-msgs{display:flex;flex-direction:column;gap:8px}
 .ml-mark{display:inline-flex}
+/* Facebook post example, as it looks in a real (light) feed */
+.fb-post.ml-theme{background:#fff;border-color:rgba(255,255,255,.2);box-shadow:0 30px 70px -20px rgba(0,0,0,.7)}
+.fb-post.ml-theme .mk-bar{background:#F0F2F5;border-bottom:1px solid #E4E6EB}
+.fb-post.ml-theme .mk-dot.r{background:#FF5F57}.fb-post.ml-theme .mk-dot.y{background:#FEBC2E}.fb-post.ml-theme .mk-dot.g{background:#28C840}
+.fb-post.ml-theme .mk-url{background:#fff;border-color:#DADDE1;color:#65676B}
+.fb-post.ml-theme .mk-url::before{border-color:#1877F2;border-bottom-color:transparent}
+.fb-post.ml-theme .fb-name,.fb-post.ml-theme .fb-hl,.fb-post.ml-theme .fb-copy{color:#050505}
+.fb-post.ml-theme .fb-name{font-weight:700}
+.fb-post.ml-theme .fb-meta,.fb-post.ml-theme .fb-more,.fb-post.ml-theme .fb-see,.fb-post.ml-theme .fb-dom{color:#65676B}
+.fb-post.ml-theme .fb-link{background:#F0F2F5;border-top:none}
+.fb-post.ml-theme .fb-cta{background:#E4E6EB;color:#050505;border-radius:6px}
+.fb-post.ml-theme .fb-acts{border-top:1px solid #CED0D4;color:#65676B;margin:0 12px;padding:8px 0}
+.fb-post.ml-theme .fb-acts svg{stroke:#65676B}
+.fb-post.ml-theme .fb-av{background:var(--ml-brand);border-radius:50%;box-shadow:none}
+.fb-post.ml-theme .fb-av .nm-ico{background:none;box-shadow:none;width:auto;height:auto}
+.fb-post.ml-theme .fb-av .nm-ico svg{width:20px;height:20px;stroke:var(--ml-acc);stroke-width:2.2}
+
+/* ── Example landing page, v2: each made-up brand gets its own look ── */
+.ml-theme{--ml-brand:#0F2A47;--ml-acc:#F5A524;--ml-acc-ink:#1E1400;--ml-acc-soft:#FFF5E1;--ml-acc-line:#E9A321;--ml-font:'Plus Jakarta Sans',var(--body)}
+.ml-theme[data-niche="battery"]{--ml-brand:#0D3B2E;--ml-acc:#9BE15D;--ml-acc-ink:#0B2414;--ml-acc-soft:#F1FAE8;--ml-acc-line:#7CC743}
+.ml-theme[data-niche="roofing"]{--ml-brand:#262120;--ml-acc:#C2410C;--ml-acc-ink:#fff;--ml-acc-soft:#FDF0E9;--ml-acc-line:#C2410C}
+.ml-theme[data-niche="hvac"]{--ml-brand:#0A2540;--ml-acc:#0EA5E9;--ml-acc-ink:#fff;--ml-acc-soft:#E8F6FD;--ml-acc-line:#0EA5E9}
+.ml-theme[data-niche="reno"]{--ml-brand:#1E1A16;--ml-acc:#B08D57;--ml-acc-ink:#fff;--ml-acc-soft:#F7F1E7;--ml-acc-line:#B08D57}
+.mk-mockup.mk-light{background:#E9EBEF;padding:6px;border-color:rgba(255,255,255,.22)}
+.mk-mockup.mk-light .mk-bar{background:transparent;padding:6px 10px 10px}
+.mk-mockup.mk-light .mk-dot{width:8px;height:8px}
+.mk-mockup.mk-light .mk-url{background:#fff;border-color:transparent;box-shadow:0 1px 2px rgba(0,0,0,.06);justify-content:center;color:#3E4450}
+.mk-mockup.mk-light .mk-url::before{border:none;width:8px;height:9px;border-radius:2px;background:#8A909C;-webkit-mask:linear-gradient(#000 0 0) bottom/100% 60% no-repeat,radial-gradient(circle at 50% 45%,transparent 2.2px,#000 2.3px 3.6px,transparent 3.7px) top/100% 70% no-repeat;mask:linear-gradient(#000 0 0) bottom/100% 60% no-repeat,radial-gradient(circle at 50% 45%,transparent 2.2px,#000 2.3px 3.6px,transparent 3.7px) top/100% 70% no-repeat}
+.mk-mockup.mk-light .mk-body{border:none;border-radius:10px;font-family:var(--body)}
+.ml-util{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 22px;background:var(--ml-brand);color:rgba(255,255,255,.72);font-size:.56rem;letter-spacing:.01em}
+.ml-util-ph{display:inline-flex;align-items:center;gap:5px;color:#fff;font-weight:600}
+.ml-util-ph svg{width:10px;height:10px;fill:none;stroke:var(--ml-acc);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mk-mockup.mk-light .mk-nav{padding:12px 22px;background:#fff}
+.mk-mockup.mk-light .mk-logo{font-family:var(--ml-font);font-weight:800;letter-spacing:-.02em;font-size:.95rem;gap:9px}
+.mk-mockup.mk-light .mk-logo .nm-ico{width:28px;height:28px;border-radius:8px;background:var(--ml-brand);box-shadow:none}
+.mk-mockup.mk-light .mk-logo .nm-ico svg{width:16px;height:16px;stroke:var(--ml-acc);stroke-width:2.2}
+.mk-mockup.mk-light .mk-nav-links{font-weight:500;color:#3E4450}
+.mk-mockup.mk-light .mk-nav-cta{background:var(--ml-acc);color:var(--ml-acc-ink);border-radius:8px;font-weight:700;padding:8px 14px}
+.mk-mockup.mk-light .mk-hero{background:linear-gradient(90deg,var(--ml-brand) 0%,color-mix(in srgb,var(--ml-brand) 88%,transparent) 38%,color-mix(in srgb,var(--ml-brand) 35%,transparent) 66%,color-mix(in srgb,var(--ml-brand) 10%,transparent) 100%),var(--ml-hero,url('solar-ad-img.webp')) 70% 55%/cover no-repeat;padding:30px 22px 28px;gap:22px}
+.mk-mockup.mk-light .mk-h5{color:#fff;font-family:var(--ml-font);font-weight:800;font-size:1.5rem;line-height:1.05;letter-spacing:-.035em;margin-bottom:12px;text-wrap:balance}
+.mk-mockup.mk-light .mk-p{color:rgba(255,255,255,.78);font-size:.74rem}
+.mk-mockup.mk-light .ml-rating{color:rgba(255,255,255,.8);gap:6px;margin-bottom:12px}
+.mk-mockup.mk-light .ml-rating b{color:#fff}
+.ml-g{width:15px;height:15px;border-radius:50%;background:#fff;color:#4285F4;font:800 .55rem/15px Arial,sans-serif;text-align:center}
+.mk-mockup.mk-light .ml-stars{color:#FBBC04}
+.mk-mockup.mk-light .ml-review{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);backdrop-filter:blur(6px)}
+.mk-mockup.mk-light .ml-review-q{color:#fff}
+.mk-mockup.mk-light .ml-review-by{color:rgba(255,255,255,.72)}
+.mk-mockup.mk-light .ml-av{background:var(--ml-acc);color:var(--ml-acc-ink)}
+.mk-mockup.mk-light .mk-survey{border:none;border-radius:14px;padding:18px;box-shadow:0 24px 50px -18px rgba(0,0,0,.55),0 2px 6px rgba(0,0,0,.08)}
+.mk-mockup.mk-light .mk-survey-step{color:var(--ml-brand);font-weight:700}
+.mk-mockup.mk-light .mk-survey-fill{background:var(--ml-acc)}
+.mk-mockup.mk-light .mk-survey-q{font-family:var(--ml-font);font-weight:700;letter-spacing:-.015em;font-size:.95rem}
+.mk-mockup.mk-light .mk-survey-opts{grid-template-columns:1fr;gap:6px}
+.mk-mockup.mk-light .mk-opt{flex-direction:row;justify-content:flex-start;align-items:center;text-align:left;min-height:0;padding:9px 12px 9px 32px;border-radius:9px;gap:8px}
+.mk-mockup.mk-light .mk-opt::before{content:'';position:absolute;left:11px;top:50%;width:13px;height:13px;margin-top:-6.5px;border-radius:50%;border:1.5px solid #C5CAD3;background:#fff;box-sizing:border-box}
+.mk-mockup.mk-light .mk-opt.selected{border-color:var(--ml-acc-line);background:var(--ml-acc-soft);box-shadow:none}
+.mk-mockup.mk-light .mk-opt.selected::before{border:4px solid var(--ml-acc-line)}
+.mk-mockup.mk-light .mk-opt.selected .mk-opt-lbl{color:var(--ml-ink)}
+.mk-mockup.mk-light .mk-opt-check{display:none !important}
+.mk-mockup.mk-light .mk-opt-lbl{font-size:.7rem;white-space:nowrap}
+.mk-mockup.mk-light .ml-sub{text-align:right}
+.mk-mockup.mk-light .ml-sub{margin-left:auto;font-size:.58rem}
+.mk-mockup.mk-light .mk-survey-continue{background:var(--ml-acc);color:var(--ml-acc-ink);border-radius:9px;font-weight:700;padding:11px}
+.mk-mockup.mk-light .mk-trust{background:#fff;justify-content:space-between;padding:11px 22px}
+.mk-mockup.mk-light .mk-trust-item{font-weight:500;color:#3E4450}
+.mk-mockup.mk-light .mk-trust-item::before{content:'';width:12px;height:12px;border-radius:50%;background:var(--ml-acc-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/8px no-repeat;box-shadow:inset 0 0 0 1px var(--ml-acc-line)}
+@media (max-width:760px){
+  .mk-mockup.mk-light .mk-hero{background:linear-gradient(180deg,color-mix(in srgb,var(--ml-brand) 25%,transparent) 0%,color-mix(in srgb,var(--ml-brand) 85%,transparent) 32%,var(--ml-brand) 55%),var(--ml-hero,url('solar-ad-img.webp')) 50% 30%/cover no-repeat;padding:26px 16px 18px}
+  .ml-util{padding:5px 14px;font-size:.5rem}
+  .ml-util span:first-child{display:none}
+  .ml-util{justify-content:flex-end}
+  .mk-mockup.mk-light .mk-h5{font-size:1.2rem}
+  .mk-mockup.mk-light .mk-trust{justify-content:flex-start}
+}
+
 .nm-ico{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#EDF4FF;box-shadow:inset 0 0 0 1.5px #4797FF;flex-shrink:0}
 .nm-ico svg{width:13px;height:13px;fill:none;stroke:#4797FF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .fb-av .nm-ico{width:30px;height:30px}.fb-av .nm-ico svg{width:17px;height:17px}
@@ -1115,10 +1191,10 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
       <div class="journey-visual">
         <div style="position:relative">
           <div class="ad-platform">Meta &amp; Google Ads</div>
-          <div class="fb-post">
+          <div class="fb-post ml-theme" data-niche="solar">
             <div class="mk-bar"><span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span><div class="mk-url mock-app">Facebook · Sponsored post</div></div>
             <div class="fb-head">
-              <div class="fb-av fb-av-sun" data-n="mark"><div class="ml-sun"></div></div>
+              <div class="fb-av" data-n="mark"><span class="nm-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></span></div>
               <div><div class="fb-name" data-n="brand">Sydney Solar Co.</div><div class="fb-meta">Sponsored · <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2 2.2 2 10.8 0 13M8 1.5c-2 2.2-2 10.8 0 13" fill="none" stroke="currentColor" stroke-width="1.1"/></svg></div></div>
               <div class="fb-more">···</div>
             </div>
@@ -1147,20 +1223,21 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
         <div class="own-tag"><svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>High intent, self-qualified prospects only</div>
       </div>
       <div class="journey-visual">
-        <div class="mk-mockup mk-light">
+        <div class="mk-mockup mk-light ml-theme" data-niche="solar">
           <div class="mk-bar">
             <span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span>
             <div class="mk-url" data-n="url">sydneysolarco.com.au / get-a-quote</div>
           </div>
           <div class="mk-body">
+            <div class="ml-util"><span>Family owned &middot; Sydney since 2011</span><span class="ml-util-ph"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>(02) 5550 1234</span></div>
             <div class="mk-nav">
-              <div class="mk-logo"><span class="ml-mark" data-n="mark"><div class="ml-sun"></div></span><span data-n="brand">Sydney Solar Co.</span></div>
+              <div class="mk-logo"><span class="ml-mark" data-n="mark"><span class="nm-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg></span></span><span data-n="brand">Sydney Solar Co.</span></div>
               <div class="mk-nav-links" data-n="navLinks"><span>Systems</span><span>Finance</span><span>Reviews</span></div>
               <span class="mk-nav-cta">Get my quote</span>
             </div>
             <div class="mk-hero">
               <div class="mk-hero-left">
-                <div class="ml-rating"><span class="ml-stars">★★★★★</span> 4.9 on Google · local Sydney crew</div>
+                <div class="ml-rating"><span class="ml-g">G</span><span class="ml-stars">★★★★★</span><b>4.9</b> from 212 Google reviews</div>
                 <div class="mk-h5" data-n="h">Cut your power bill with solar + battery.</div>
                 <div class="mk-p" data-n="p">Tell us about your home and get a fixed quote with your exact payback, in writing, within 24 hours. No call centre.</div>
                 <div class="ml-review">
@@ -1607,6 +1684,8 @@ scaleAdIframe();
     els('fill').forEach(e=>e.style.width=d.fill);
     els('domUp').forEach(e=>e.textContent=d.dom.toUpperCase());
     els('url').forEach(e=>e.textContent=d.dom+' / get-a-quote');
+    const nk=d===solar?'solar':Object.keys(N).find(k=>N[k]===d)||'solar';
+    sec.querySelectorAll('.ml-theme').forEach(e=>e.dataset.niche=nk);
     if(mock){d.img?mock.style.setProperty('--ml-hero',"url('/"+d.img+"')"):mock.style.removeProperty('--ml-hero')}
     if(frame){frame.src='/ads/'+d.ad+'-ad.html';frame.title=d.brand.replace(/<[^>]+>/g,'')+' meta ad example'}
   }
