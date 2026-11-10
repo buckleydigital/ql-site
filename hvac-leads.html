@@ -514,6 +514,70 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 </style>
 <link rel="stylesheet" href="/footer.css">
 <link rel="stylesheet" href="/funnel-example.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much do HVAC leads cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You pay a one-off build fee for the Branded Lead Gen System, not a fee per lead. The Standard build is $2,500 + GST for one campaign, or $5,000 + GST for Growth if you want more than one. Both include your first 30 days of management; after that, management is optional. Ad spend is paid straight to Meta and Google from your own card, starting around $50 a day. Full details are on the pricing page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I choose which HVAC jobs I get?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You choose the job types: split systems, ducted installs, replacements or servicing. Each gets its own landing page and survey, and you can leave out work you do not want."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the leads exclusive to my business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The homeowner names your business in the consent line before they submit, and the enquiry goes to you only. It is never shared or resold."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you filter out renters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The survey asks whether they own the home, so you can choose to receive owner-occupiers only, instead of tenants asking about their landlord's system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this for commercial HVAC too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The campaigns and surveys are built for residential work: homes, not offices or fit-outs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need my own Meta and Google ad accounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The campaigns run on your accounts, so you keep them. If you do not have them yet, we set them up with you during onboarding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly will leads start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually within 24 to 48 hours of the campaigns going live."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -654,6 +718,20 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- SEASONALITY -->
+<section>
+    <div class="si">
+        <div class="ey rv">Timing</div>
+        <h2 class="stitle rv">When HVAC work <em>comes in.</em></h2>
+        <div class="tr-season rv">
+            <div><b>Late spring and summer</b><h3>Cooling installs</h3><p>Enquiries jump with the first run of hot days. Installers get booked out quickly, and homeowners take the first business that can come out.</p></div>
+            <div><b>Late autumn and winter</b><h3>Heating and reverse cycle</h3><p>In the southern states and Canberra, cold weather drives reverse-cycle and ducted heating enquiries, plus replacements of old gas heaters.</p></div>
+            <div><b>Spring and autumn</b><h3>Servicing and planned upgrades</h3><p>The milder months are when homeowners book servicing and plan bigger ducted jobs without the pressure of a heatwave.</p></div>
+        </div>
+        <p class="tr-season-note rv">Start campaigns a few weeks before your peak so they are running smoothly when demand arrives. You can switch job types between seasons, for example from cooling installs to heating.</p>
     </div>
 </section>
 
@@ -835,6 +913,44 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
                     <li>Quote drafting and delivery automation</li>
                     <li>Exclusive leads, verified before delivery</li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section>
+    <div class="si">
+        <div class="ey rv">Questions</div>
+        <h2 class="stitle rv">What HVAC businesses ask<br><em>before they start.</em></h2>
+        <div class="faq-list rv">
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How much do HVAC leads cost?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">You pay a one-off build fee for the Branded Lead Gen System, not a fee per lead. The Standard build is $2,500 + GST for one campaign, or $5,000 + GST for Growth if you want more than one. Both include your first 30 days of management; after that, management is optional. Ad spend is paid straight to Meta and Google from your own card, starting around $50 a day. Full details are on the pricing page.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Can I choose which HVAC jobs I get?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">Yes. You choose the job types: split systems, ducted installs, replacements or servicing. Each gets its own landing page and survey, and you can leave out work you do not want.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Are the leads exclusive to my business?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">Yes. The homeowner names your business in the consent line before they submit, and the enquiry goes to you only. It is never shared or resold.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do you filter out renters?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">The survey asks whether they own the home, so you can choose to receive owner-occupiers only, instead of tenants asking about their landlord's system.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Is this for commercial HVAC too?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">No. The campaigns and surveys are built for residential work: homes, not offices or fit-outs.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Do I need my own Meta and Google ad accounts?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">The campaigns run on your accounts, so you keep them. If you do not have them yet, we set them up with you during onboarding.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How quickly will leads start?</span><span class="faq-qi">+</span></button>
+                <div class="faq-a">Usually within 24 to 48 hours of the campaigns going live.</div>
             </div>
         </div>
     </div>
