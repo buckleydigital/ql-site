@@ -25,6 +25,7 @@
 
 /* ── Example landing page, v2: each made-up brand gets its own look ── */
 .ml-theme[data-niche]{--ml-brand:#0F2A47;--ml-acc:#F5A524;--ml-acc-ink:#1E1400;--ml-acc-soft:#FFF5E1;--ml-acc-line:#E9A321;--ml-font:'Plus Jakarta Sans',var(--body)}
+.ml-theme[data-niche="commercial"]{--ml-brand:#0F3437;--ml-acc:#2DD4BF;--ml-acc-ink:#04201E;--ml-acc-soft:#E6FBF7;--ml-acc-line:#14B8A6}
 .ml-theme[data-niche="battery"]{--ml-brand:#0D3B2E;--ml-acc:#9BE15D;--ml-acc-ink:#0B2414;--ml-acc-soft:#F1FAE8;--ml-acc-line:#7CC743}
 .ml-theme[data-niche="roofing"]{--ml-brand:#262120;--ml-acc:#C2410C;--ml-acc-ink:#fff;--ml-acc-soft:#FDF0E9;--ml-acc-line:#C2410C}
 .ml-theme[data-niche="hvac"]{--ml-brand:#0A2540;--ml-acc:#0EA5E9;--ml-acc-ink:#fff;--ml-acc-soft:#E8F6FD;--ml-acc-line:#0EA5E9}
@@ -39,7 +40,7 @@
 .ml-util-ph{display:inline-flex;align-items:center;gap:5px;color:#fff;font-weight:600}
 .ml-util-ph svg{width:10px;height:10px;fill:none;stroke:var(--ml-acc);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 .mk-mockup.mk-light .mk-nav{padding:12px 22px;background:#fff}
-.mk-mockup.mk-light .mk-logo{font-family:var(--ml-font);font-weight:800;letter-spacing:-.02em;font-size:.95rem;gap:9px}
+.mk-mockup.mk-light .mk-logo{font-family:var(--ml-font);font-weight:800;letter-spacing:-.02em;font-size:.95rem;gap:9px;white-space:nowrap}
 .mk-mockup.mk-light .mk-logo .nm-ico{width:28px;height:28px;border-radius:8px;background:var(--ml-brand);box-shadow:none}
 .mk-mockup.mk-light .mk-logo .nm-ico svg{width:16px;height:16px;stroke:var(--ml-acc);stroke-width:2.2}
 .mk-mockup.mk-light .mk-nav-links{font-weight:500;color:#3E4450}
@@ -80,4 +81,10 @@
   .ml-util{justify-content:flex-end}
   .mk-mockup.mk-light .mk-h5{font-size:1.2rem}
   .mk-mockup.mk-light .mk-trust{justify-content:flex-start}
+}
+@media (max-width:480px){
+  .mk-mockup.mk-light .mk-nav{padding:10px 12px;gap:8px}
+  .mk-mockup.mk-light .mk-logo{font-size:.8rem;gap:7px}
+  .mk-mockup.mk-light .mk-logo .nm-ico{width:24px;height:24px;border-radius:7px}
+  .mk-mockup.mk-light .mk-nav-cta{padding:6px 10px;font-size:.6rem}
 }

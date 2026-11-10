@@ -1109,6 +1109,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
     <div class="niche-sw" id="nicheSw">
       <div class="niche-tabs" role="tablist" aria-label="Show the funnel for your trade">
         <button type="button" class="niche-tab on" role="tab" aria-selected="true" data-niche="solar">Solar + Battery</button>
+        <button type="button" class="niche-tab" role="tab" aria-selected="false" data-niche="commercial">Commercial Solar</button>
         <button type="button" class="niche-tab" role="tab" aria-selected="false" data-niche="battery">Battery Retrofit</button>
         <button type="button" class="niche-tab" role="tab" aria-selected="false" data-niche="roofing">Roofing</button>
         <button type="button" class="niche-tab" role="tab" aria-selected="false" data-niche="hvac">HVAC</button>
@@ -1290,6 +1291,7 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
     <h2 class="stitle rv">Your trade. <em>Your service area.</em></h2>
     <div class="ind-grid rv">
       <a href="/solar-and-battery-leads" class="ind-item"><div class="ind-img"><img src="/solar-and-battery-leads-au.png" alt="Solar and battery leads" width="263" height="263" loading="lazy"></div><div class="ind-body"><h3>Solar + Battery</h3><p class="ind-desc">Homeowners buying complete solar + battery systems from scratch. High-value installs, qualified before they reach you.</p><span class="ind-link">Solar + Battery leads →</span></div></a>
+      <a href="/commercial-solar-leads" class="ind-item"><div class="ind-img"><img src="/commercial-solar-au.png" alt="Commercial solar leads" width="263" height="263" loading="lazy"></div><div class="ind-body"><h3>Commercial Solar</h3><p class="ind-desc">Business owners after solar for offices, warehouses and factories. Bigger systems, qualified on bill size and timeline.</p><span class="ind-link">Commercial Solar leads →</span></div></a>
       <a href="/battery-retrofit-leads" class="ind-item"><div class="ind-img"><img src="/battery-retrofit-leads-au.png" alt="Battery retrofit leads" width="263" height="263" loading="lazy"></div><div class="ind-body"><h3>Battery Retrofit</h3><p class="ind-desc">Existing solar owners adding battery storage. Pre-qualified with bill data and purchase timeline.</p><span class="ind-link">Battery Retrofit leads →</span></div></a>
       <a href="/roofing-leads" class="ind-item"><div class="ind-img"><img src="/roofing-leads-au.png" alt="Roofing leads" width="263" height="263" loading="lazy"></div><div class="ind-body"><h3>Roofing</h3><p class="ind-desc">Storm season or not - roofing leads from homeowners ready to spend, delivered to you alone.</p><span class="ind-link">Roofing leads →</span></div></a>
       <a href="/hvac-leads" class="ind-item"><div class="ind-img"><img src="/hvac-leads-au.png" alt="HVAC leads" width="263" height="263" loading="lazy"></div><div class="ind-body"><h3>HVAC</h3><p class="ind-desc">Summer peaks. Winter installs. Year-round leads without chasing a marketplace.</p><span class="ind-link">HVAC leads →</span></div></a>
@@ -1550,6 +1552,20 @@ scaleAdIframe();
   const trust=a=>a.map(t=>'<span class="mk-trust-item">'+t+'</span>').join('');
   const by=(l,n)=>'<span class="ml-av">'+l+'</span>'+n+' <span class="ml-stars">★★★★★</span>';
   const N={
+    commercial:{
+      mark:ico('<rect x="4" y="9" width="16" height="12" rx="1.5"/><path d="M8 9V5h8v4"/><path d="M8 13h2M14 13h2M8 17h2M14 17h2"/>'),
+      brand:'Sydney Commercial Solar',dom:'sydneycommercialsolar.com.au',img:'commercial-solar-au-img.png',ad:'commercial',
+      adCopy:'Running a warehouse, factory or office? Your roof could be cutting your power bill every working day.<br><br>Free site assessment and a written proposal with your payback, from a local commercial installer.',
+      adHl:'Get your free commercial solar proposal',navLinks:spans(['Projects','Finance','Reviews']),
+      h:'Cut your business power bill with solar.',p:'Free site assessment and a written proposal with your payback. For offices, warehouses and factories.',
+      reviewQ:'“Our warehouse bill dropped by more than half, and the install didn\'t stop work for a day.”',reviewBy:by('S','Steve, Wetherill Park'),
+      step:'Question 2 of 7',fill:'28.5%',q:"What's your average quarterly power bill?",
+      opts:opts([['Under $2,000','smaller sites'],['$2,000 to $5,000','offices and shops'],['$5,000 to $10,000','warehouses'],['$10,000+','factories']],2),
+      motive:'5 questions left · your proposal is next',trust:trust(['Licensed electricians','Written payback proposal','No obligation, takes 60 seconds']),
+      ini:'DK',lead:'Daniel Kerr',loc:'Wetherill Park NSW 2164',call:'Call Daniel',
+      fields:fields([['Phone','0412 *** ***'],['Email','daniel.k@email.com'],['Postcode','2164'],['Avg quarterly bill','$5,000 to $10,000'],['Purchase timeline','Within 3 months'],['Has solar','No'],['ABN (optional)','51 824 *** ***']]),
+      sms:sms(['Hi Daniel, thanks for your enquiry about solar for your business. Could we book a quick site visit this week to look at the roof and your bills?','Thursday morning works','Booked in, see you Thursday at 9am']),
+      booked:'Site visit booked for Thursday 9am'},
     battery:{
       mark:ico('<rect x="2.5" y="7" width="17" height="10" rx="2.2"/><path d="M21.5 10.5v3"/><path d="M11.8 9 9.5 12.3h3.2L10.5 15"/>'),
       brand:'Sydney Battery Co.',dom:'sydneybatteryco.com.au',img:'battery-ad-img.jpg',ad:'battery',
