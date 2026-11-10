@@ -10,6 +10,7 @@
 .fx-grid{--b:#0F2A47;--a:#F5A524;--ai:#1E1400;--soft:#FFF5E1;--line-a:#E9A321;--img:url('/solar-ad-img.webp');
   --ink:#16181D;--mute:#5B6170;--line:#E7E8EC;--fx-font:'Plus Jakarta Sans',system-ui,sans-serif;
   display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:28px;align-items:start;margin-top:34px}
+.fx-grid[data-niche="commercial"]{--b:#0F3437;--a:#2DD4BF;--ai:#04201E;--soft:#E6FBF7;--line-a:#14B8A6;--img:url('/commercial-solar-au-img.png')}
 .fx-grid[data-niche="battery"]{--b:#0D3B2E;--a:#9BE15D;--ai:#0B2414;--soft:#F1FAE8;--line-a:#7CC743;--img:url('/battery-ad-img.jpg')}
 .fx-grid[data-niche="roofing"]{--b:#262120;--a:#C2410C;--ai:#fff;--soft:#FDF0E9;--line-a:#C2410C;--img:url('/roofing-ad-img.jpg')}
 .fx-grid[data-niche="hvac"]{--b:#0A2540;--a:#0EA5E9;--ai:#fff;--soft:#E8F6FD;--line-a:#0EA5E9;--img:url('/hvac-ad-img.jpg')}
