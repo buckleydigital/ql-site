@@ -434,6 +434,25 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 @media(max-width:520px){section{padding:44px 0}.card{padding:24px 20px}}
 
 /* ── buy page ── */
+
+/* SURVEY */
+[hidden]{display:none !important}
+.sv{padding-top:22px}
+.sv-top{display:flex;align-items:center;justify-content:space-between;min-height:28px;margin-bottom:10px}
+.sv-back{background:none;border:none;color:var(--muted);font:inherit;font-size:.86rem;cursor:pointer;padding:4px 0}
+.sv-back:hover{color:var(--white)}
+.sv-count{font-size:.78rem;color:var(--faint);margin-left:auto}
+.sv-bar{height:4px;border-radius:4px;background:var(--glass2);overflow:hidden;margin-bottom:30px}
+.sv-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--sky));transition:width .35s ease}
+.sv-step{animation:svIn .3s ease}
+@keyframes svIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sv-q{font-family:var(--display);font-size:clamp(1.45rem,3.6vw,1.9rem);font-weight:600;letter-spacing:-.02em;line-height:1.15;margin-bottom:8px}
+.sv-sub{color:var(--muted);font-size:.95rem;line-height:1.6;margin-bottom:22px}
+.sv-big{display:grid !important;grid-template-columns:1fr 1fr;gap:12px}
+.sv-big button{padding:20px 16px !important;font-size:1rem !important;border-radius:14px !important;min-height:64px}
+.sv-big button[aria-pressed=true]{border-color:var(--blue) !important;background:var(--bdim) !important;color:var(--white) !important}
+.sv-next{width:100%;margin-top:22px}
+@media(max-width:520px){.sv-big{grid-template-columns:1fr}}
 .spend-note{margin-top:18px;padding:18px 20px;border-radius:14px;background:var(--bdim);border:1px solid var(--bblue);text-align:left}
 .spend-h{font-family:var(--display);font-weight:600;font-size:1rem;margin-bottom:8px;color:var(--white)}
 .spend-note p{font-size:.88rem;color:var(--off);line-height:1.6}
@@ -508,24 +527,29 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 
 <section id="order" style="padding-top:20px">
   <div class="wrap">
-
-    <div class="card rv" style="margin-bottom:18px">
-      <div class="step-h">1. Which build do you need?</div>
-      <p class="step-sub">Two quick questions.</p>
-      <div class="q q-wide">
-        <div class="q-t">How many enquiries a month are you after?<small id="leadsHint">We'll tell you the ad spend that takes.</small></div>
-        <div class="yn" data-q="leads"><button type="button" data-v="30-60">30 to 60</button><button type="button" data-v="60+">60 to 90+</button></div>
+    <div class="card sv rv">
+      <div class="sv-top">
+        <button type="button" class="sv-back" id="svBack" hidden>&larr; Back</button>
+        <span class="sv-count" id="svCount"></span>
       </div>
-      <div class="q">
-        <div class="q-t">Do you want more than one campaign?<small>A second offer, or a second service area</small></div>
-        <div class="yn" data-q="multi"><button type="button" data-v="no">No</button><button type="button" data-v="yes">Yes</button></div>
-      </div>
-    </div>
+      <div class="sv-bar"><span id="svBar"></span></div>
 
-    <div class="card rv" style="margin-bottom:18px">
-      <div class="step-h">2. Your build</div>
-      <p class="step-sub">Picked for you from your answers. You can change it.</p>
-      <div class="tiers" role="radiogroup" aria-label="Build">
+      <div class="sv-step" data-step="multi">
+        <div class="sv-q">Do you want more than one campaign?</div>
+        <p class="sv-sub">A second offer, a second service, or a second service area.</p>
+        <div class="yn sv-big" data-q="multi"><button type="button" data-v="no">No, just one</button><button type="button" data-v="yes">Yes, more than one</button></div>
+      </div>
+
+      <div class="sv-step" data-step="leads" hidden>
+        <div class="sv-q">How many enquiries a month are you after?</div>
+        <p class="sv-sub" id="leadsHint">We'll tell you the ad spend that takes.</p>
+        <div class="yn sv-big" data-q="leads"><button type="button" data-v="30-60">30 to 60</button><button type="button" data-v="60+">60 to 90+</button></div>
+      </div>
+
+      <div class="sv-step" data-step="build" hidden>
+        <div class="sv-q">Your build</div>
+        <p class="sv-sub">Picked for you from your answers. You can change it.</p>
+        <div class="tiers" role="radiogroup" aria-label="Build">
         <button type="button" class="tier" role="radio" aria-checked="false" data-tier="standard">
           <span class="tsel">&#10003;</span>
           <div class="tier-name">Standard</div>
@@ -545,19 +569,20 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           <p class="tier-for"><b>2 to 4 campaigns</b>: a second offer, service or service area. Around 60 to 90+ enquiries a month from about $100/day across them, and scales the same way.<br><br>After day 30, optional: <b>$1,200/mo + GST</b> to keep it running on our system.</p>
         </button>
       </div>
-      <div class="spend-note">
+        <div class="spend-note">
         <div class="spend-h">About the $1,500 a month ad spend</div>
         <p>That's the <b>starting</b> budget: about <b>$50 a day</b>, which is what one campaign needs to bring in around <b>30 to 60 enquiries a month</b>. It's paid to Meta from your own card, never to us.</p>
         <p>Need more enquiries for the same service and area? You don't need a bigger build. During management we lift the daily budget when you're ready, and enquiries go up with it. Growth is only for running <b>more than one campaign</b>.</p>
       </div>
-      <p class="price-note" style="margin-top:16px">Both builds include the build, the launch and your first 30 days of management. After that the monthly fee is optional: it keeps the system running on ours, with ongoing optimisation, reporting and QuoteLeadsHQ access. Stop at any time and the accounts, ads and funnel stay yours. Ad spend is paid direct to Meta or Google from your own account, never through us. <a href="/quoteleads-terms" style="color:var(--blue)">See full terms</a>.</p>
-    </div>
+        <p class="price-note" style="margin-top:16px;font-size:.8rem">Both builds include the build, the launch and your first 30 days of management. After that the monthly fee is optional: it keeps the system running on ours, with ongoing optimisation, reporting and QuoteLeadsHQ access. Stop at any time and the accounts, ads and funnel stay yours. Ad spend is paid direct to Meta or Google from your own account, never through us. <a href="/quoteleads-terms" style="color:var(--blue)">See full terms</a>.</p>
+        <button type="button" class="btn btn-primary sv-next" data-next>Continue</button>
+      </div>
 
-    <div class="card rv">
-      <div class="step-h">3. Your details</div>
-      <p class="step-sub">So we can set up your account and start onboarding as soon as you've paid.</p>
-      <div class="nsel" id="fNicheWrap">
-        <div class="nsel-lbl" id="nicheLbl">Which trade should we build your campaign for?</div>
+      <div class="sv-step" data-step="trade" hidden>
+        <div class="sv-q">Which trade should we build your campaign for?</div>
+        <p class="sv-sub">Pick your trade, then the type of work.</p>
+        <div class="nsel" id="fNicheWrap">
+        <div class="nsel-lbl" id="nicheLbl" hidden>Trade</div>
         <div class="nsel-opts" role="group" aria-labelledby="nicheLbl">
           <button type="button" class="nsel-opt" data-niche="solar" aria-pressed="false">Solar</button>
           <button type="button" class="nsel-opt" data-niche="roofing" aria-pressed="false">Roofing</button>
@@ -597,7 +622,13 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           </div>
         </div>
       </div>
-      <div class="namepair">
+        <button type="button" class="btn btn-primary sv-next" data-next>Continue</button>
+      </div>
+
+      <div class="sv-step" data-step="details" hidden>
+        <div class="sv-q">Your details</div>
+        <p class="sv-sub">So we can set up your account and start onboarding as soon as you've paid.</p>
+        <div class="namepair">
         <input class="field" id="fFirst" type="text" placeholder="First name" autocomplete="given-name">
         <input class="field" id="fLast" type="text" placeholder="Last name" autocomplete="family-name">
       </div>
@@ -605,7 +636,14 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <input class="field" id="fEmail" type="email" placeholder="Email address" autocomplete="email">
       <input class="field" id="fPhone" type="tel" placeholder="Phone number" autocomplete="tel">
       <input class="field" id="fArea" type="text" placeholder="Main service area or postcode">
-      <label class="consent">
+        <div class="formmsg" id="detailsMsg" aria-live="polite"></div>
+        <button type="button" class="btn btn-primary sv-next" data-next>Continue</button>
+      </div>
+
+      <div class="sv-step" data-step="pay" hidden>
+        <div class="sv-q">Review and pay</div>
+        <p class="sv-sub" id="svSummary"></p>
+        <label class="consent">
         <input type="checkbox" id="fTerms">
         <span>I agree to the <a href="/quoteleads-terms" target="_blank" style="color:var(--blue)">terms</a>.</span>
       </label>
@@ -621,8 +659,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         <span>Australian owned and operated</span>
       </div>
       <p class="talk">Rather talk it through first? <a href="/get-started">Book a free call</a></p>
+      </div>
     </div>
-
   </div>
 </section>
 
@@ -773,6 +811,45 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         msg.textContent = 'Sorry, checkout did not open (' + err.message + '). Try again, or email contact@quoteleads.com.au.';
       });
   });
+
+  // ── Survey: one question at a time ──
+  var STEPS = ['multi','leads','build','trade','details','pay'];
+  var stepI = 0;
+  function show(n){
+    stepI = Math.max(0, Math.min(STEPS.length - 1, n));
+    document.querySelectorAll('.sv-step').forEach(function(el){ el.hidden = el.getAttribute('data-step') !== STEPS[stepI]; });
+    $('svBack').hidden = stepI === 0;
+    $('svCount').textContent = 'Step ' + (stepI + 1) + ' of ' + STEPS.length;
+    $('svBar').style.width = ((stepI + 1) / STEPS.length * 100) + '%';
+    if (STEPS[stepI] === 'pay') {
+      $('svSummary').textContent = TIERS[tier].name + ' build for ' + ($('fCompany').value.trim() || 'your business') + '. Tick the terms and you\'re on to secure checkout.';
+    }
+    var top = document.querySelector('.sv').getBoundingClientRect().top;
+    if (top < 70) window.scrollTo({ top: window.scrollY + top - 90, behavior: 'smooth' });
+  }
+  function canLeave(step){
+    if (step === 'trade' && (!niche || !subNiche)) { $('fNicheWrap').classList.add('err'); return false; }
+    if (step === 'details') {
+      var bad = [];
+      ['fFirst','fCompany','fEmail','fPhone','fArea'].forEach(function(id){ $(id).classList.remove('err'); });
+      if (!$('fFirst').value.trim()) { $('fFirst').classList.add('err'); bad.push('your name'); }
+      if (!$('fCompany').value.trim()) { $('fCompany').classList.add('err'); bad.push('your business name'); }
+      if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test($('fEmail').value.trim())) { $('fEmail').classList.add('err'); bad.push('a valid email'); }
+      if ($('fPhone').value.replace(/\D/g, '').length < 8) { $('fPhone').classList.add('err'); bad.push('a phone number'); }
+      if (!$('fArea').value.trim()) { $('fArea').classList.add('err'); bad.push('your service area'); }
+      $('detailsMsg').textContent = bad.length ? 'Please add ' + bad.join(', ') + '.' : '';
+      if (bad.length) return false;
+    }
+    return true;
+  }
+  function next(){ if (canLeave(STEPS[stepI])) show(stepI + 1); }
+  document.querySelectorAll('[data-next]').forEach(function(b){ b.addEventListener('click', next); });
+  $('svBack').addEventListener('click', function(){ show(stepI - 1); });
+  // Answering a question moves on by itself, after a beat so they see it tick.
+  document.querySelectorAll('.sv-big button, .nsel-opt[data-sub]').forEach(function(b){
+    b.addEventListener('click', function(){ setTimeout(next, 260); });
+  });
+  show(0);
 
   var hdr = $('siteHeader');
   window.addEventListener('scroll', function(){ hdr.classList.toggle('sc', window.scrollY > 20); }, { passive: true });
