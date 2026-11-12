@@ -590,6 +590,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 </style>
 <link rel="stylesheet" href="/footer.css">
 <link rel="stylesheet" href="/market.css">
+<link rel="stylesheet" href="/cost-calc.css">
 </head>
 <body>
 
@@ -840,6 +841,16 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 </section>
 
 <!-- ECONOMICS -->
+<!-- PRICE THE PROBLEM (cost-calc.js) -->
+<section>
+    <div class="si">
+        <div class="ey rv">Price The Problem</div>
+        <h2 class="stitle rv">What bad leads<br><em>cost you now.</em></h2>
+        <p class="cc-lead rv">Put in your own numbers. Nothing here is our guess about your business.</p>
+        <div class="cost-calc rv" data-rivals="other installers" data-trade="All Solar"></div>
+    </div>
+</section>
+
 <section>
     <div class="si">
         <div class="ey rv">The Economics</div>
@@ -1168,5 +1179,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 </script>
+<script src="/cost-calc.js" defer></script>
 </body>
 </html>

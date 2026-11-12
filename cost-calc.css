@@ -1,0 +1,41 @@
+/* "What bad leads cost you now" on the trade pages. The visitor's own
+   numbers, worked out live; nothing is filled in on their behalf except
+   the two generic starting points (leads a month, share that go nowhere).
+   Markup comes from cost-calc.js; every class starts cc- so nothing
+   clashes with the page. */
+.cc{margin-top:28px;max-width:760px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--bmid,rgba(255,255,255,.1));border-radius:20px;padding:26px}
+.cc-lead{color:var(--muted,#9A9AA3);font-size:.95rem;line-height:1.7;max-width:600px;margin-top:14px}
+.cc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cc-in label{display:block;font-size:.78rem;color:var(--muted,#9A9AA3);margin-bottom:6px}
+.cc-box{position:relative}
+.cc-box input{width:100%;box-sizing:border-box;background:var(--glass,rgba(255,255,255,.04));border:1px solid var(--bmid,rgba(255,255,255,.1));border-radius:12px;padding:12px 14px;color:var(--white,#F2F2F2);font:500 1rem var(--body,Inter,sans-serif);font-variant-numeric:tabular-nums;outline:none;transition:border-color .2s}
+.cc-box input:focus{border-color:var(--blue,#4797FF)}
+.cc-box input::placeholder{color:var(--faint,#78787F)}
+.cc-box.pre input{padding-left:28px}
+.cc-box.suf input{padding-right:32px}
+.cc-box .u{position:absolute;top:50%;transform:translateY(-50%);color:var(--faint,#78787F);font-size:.95rem;pointer-events:none}
+.cc-box.pre .u{left:14px}.cc-box.suf .u{right:14px}
+.cc-in.need .cc-box input{border-color:rgba(71,151,255,.55)}
+.cc-total{margin-top:22px;padding:20px 18px;border-radius:14px;background:var(--bdim,rgba(71,151,255,.12));border:1px solid var(--bblue,rgba(71,151,255,.3));text-align:center}
+.cc-total small{display:block;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sky,#7CB9FF)}
+.cc-total b{display:block;font-family:var(--display,inherit);font-size:clamp(2rem,6vw,2.6rem);font-weight:600;color:var(--white,#F2F2F2);letter-spacing:-.02em;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.cc-total b.empty{font-size:1.15rem;color:var(--off,#CACAD0);letter-spacing:0;margin:10px 0 6px}
+.cc-total span{font-size:.85rem;color:var(--off,#CACAD0)}
+.cc-lines{margin-top:12px}
+.cc-line{display:flex;justify-content:space-between;gap:12px;padding:10px 2px;border-bottom:1px solid var(--border,rgba(255,255,255,.07));font-size:.88rem;color:var(--off,#CACAD0)}
+.cc-line b{color:var(--white,#F2F2F2);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.cc-line b.dim{color:var(--faint,#78787F);font-weight:500}
+.cc-how{margin-top:14px;border:1px solid var(--border,rgba(255,255,255,.07));border-radius:12px}
+.cc-how summary{cursor:pointer;list-style:none;padding:12px 14px;font-size:.86rem;color:var(--sky,#7CB9FF);display:flex;justify-content:space-between}
+.cc-how summary::-webkit-details-marker{display:none}
+.cc-how summary::after{content:'+';color:var(--muted,#9A9AA3)}
+.cc-how[open] summary::after{content:'\2013'}
+.cc-how-b{padding:0 14px 14px;font-size:.84rem;color:var(--muted,#9A9AA3);line-height:1.7}
+.cc-how-b p{margin:8px 0}
+.cc-how-b .f{color:var(--off,#CACAD0)}
+.cc-how-b .cc-grid{grid-template-columns:repeat(3,1fr);margin:10px 0 4px}
+.cc-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:18px}
+.cc-note{font-size:.78rem;color:var(--faint,#78787F);line-height:1.6;max-width:340px;margin:0}
+@media (max-width:600px){.cc{padding:20px}.cc-grid,.cc-how-b .cc-grid{grid-template-columns:1fr}.cc-foot .btn-mag{width:100%}}
+.cc-box input::-webkit-outer-spin-button,.cc-box input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cc-box input[type=number]{-moz-appearance:textfield;appearance:textfield}

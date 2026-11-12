@@ -205,6 +205,11 @@ input.invalid,select.invalid{border-color:rgba(248,113,113,.55)}
           <option value="Renovation">Renovation</option>
           <option value="Other">Other</option>
         </select>
+        <script>
+        // ?trade=HVAC (from a trade page's "Book a call") picks it for them.
+        (function(){ try { var t = new URLSearchParams(location.search).get('trade'), sel = document.getElementById('trade');
+          if (t && [].some.call(sel.options, function(o){ return o.value === t; })) sel.value = t; } catch(e){} })();
+        </script>
       </div>
 
       <div class="fld">
