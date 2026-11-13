@@ -6,64 +6,73 @@
 <title>Sydney Bathrooms Co. Ad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  /* Example Meta ad, 1080 x 1080. Same made-up brand, colours and logo as its
-     landing page example on the site, so ad and page read as one business.
-     All five ads share this layout; only the brand block at the top differs. */
+  /* Example Meta ad, 1080 x 1080, for the made-up Sydney Bathrooms Co. A
+     three-colour scheme: Espresso (the deep warm base), Travertine (the warm
+     ivory neutral) and Brass (the accent). The bathroom is dimmed so its own
+     lights carry the glow: the backlit mirror and the shower niche, lifted in
+     brass. Below it, an editorial travertine panel with espresso type and one
+     italic brass phrase. */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --b: #1E1A16; --a: #C29B62; --ai: #fff; --rgb: 30,26,22; }
-  html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--b); font-family: 'Inter', sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
-  .ad { position: relative; width: 1080px; height: 1080px; overflow: hidden; }
-  .photo { position: absolute; inset: 0; background: url('../renovation-ad-img.jpg') center 50% / cover no-repeat; }
-  .shade { position: absolute; inset: 0; background:
-      linear-gradient(180deg, rgba(var(--rgb),.70) 0%, rgba(var(--rgb),.15) 22%, rgba(var(--rgb),0) 36%, rgba(var(--rgb),.55) 54%, rgba(var(--rgb),.93) 70%, var(--b) 100%); }
+  :root { --espresso: #1C1714; --espresso2: #2A221D; --travertine: #F1E9DC; --brass: #B8904F; --brass-lt: #E6C891; --brass-dk: #8C6A34; }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  .ad { position: relative; width: 1080px; height: 1080px; overflow: hidden; background: var(--espresso); }
 
-  .top { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 56px 64px; }
-  .logo { display: flex; align-items: center; gap: 20px; }
-  .tile { width: 84px; height: 84px; border-radius: 22px; background: var(--b); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px rgba(255,255,255,.14), 0 12px 30px rgba(0,0,0,.3); }
-  .tile svg { width: 46px; height: 46px; fill: none; stroke: var(--a); stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
-  .name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 38px; letter-spacing: -.02em; line-height: 1; }
-  .name small { display: block; margin-top: 8px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 19px; letter-spacing: 0; color: rgba(255,255,255,.75); }
-  .rating { display: flex; align-items: center; gap: 12px; padding: 14px 22px 14px 14px; border-radius: 100px; background: #fff; color: #16181D; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
-  .g { width: 40px; height: 40px; border-radius: 50%; background: #F1F3F4; color: #4285F4; font: 800 24px/40px Arial, sans-serif; text-align: center; }
-  .rating b { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 28px; }
-  .stars { color: #FBBC04; font-size: 24px; letter-spacing: 2px; }
+  /* the room, at dusk, with its own lights on */
+  .room { position: absolute; left: 0; right: 0; top: 0; height: 650px; overflow: hidden; }
+  .photo { position: absolute; inset: 0; background: url('../renovation-ad-img.jpg') center -25px / 1080px auto no-repeat; filter: saturate(.8) brightness(.52) contrast(1.1) sepia(.26); }
+  .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,23,20,.78) 0%, rgba(28,23,20,.1) 24%, rgba(28,23,20,0) 62%, rgba(28,23,20,.75) 100%); }
+  .lights { position: absolute; inset: 0; width: 1080px; height: 660px; mix-blend-mode: screen; pointer-events: none; }
 
-  .bottom { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 64px 60px; }
-  .tag { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 100px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); font-size: 20px; font-weight: 600; margin-bottom: 26px; }
-  .tag::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--a); }
-  h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 100px; line-height: .98; letter-spacing: -.045em; max-width: 920px; text-wrap: balance; }
-  h1 em { font-style: normal; color: var(--a); }
-  .chips { display: flex; gap: 14px; margin-top: 36px; }
-  .chip { flex: 1; padding: 20px 22px; border-radius: 18px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(8px); }
-  .chip b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -.02em; line-height: 1.1; }
-  .chip span { font-size: 20px; color: rgba(255,255,255,.75); }
-  .cta-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 32px; }
-  .cta { display: inline-flex; align-items: center; gap: 14px; padding: 28px 40px; border-radius: 18px; background: var(--a); color: var(--ai); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -.01em; box-shadow: 0 16px 36px rgba(0,0,0,.3); white-space: nowrap; }
-  .cta svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-  .foot { font-size: 21px; color: rgba(255,255,255,.78); text-align: right; line-height: 1.45; }
+  .top { position: absolute; left: 56px; right: 56px; top: 48px; display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+  .logo { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 27px; color: var(--travertine); letter-spacing: -.01em; }
+  .logo svg { width: 36px; height: 36px; fill: none; stroke: var(--brass-lt); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .rate { padding: 10px 18px; border-radius: 18px; background: rgba(241,233,220,.1); border: 1px solid rgba(241,233,220,.22); backdrop-filter: blur(8px); text-align: right; color: var(--travertine); }
+  .rate b { display: block; font: 400 30px 'Instrument Serif'; line-height: 1; }
+  .rate span { font-size: 14px; color: rgba(241,233,220,.72); }
+
+  /* the travertine panel */
+  .panel { position: absolute; left: 0; right: 0; bottom: 0; height: 440px; background: linear-gradient(180deg, #F5EEE3 0%, var(--travertine) 100%); padding: 40px 60px 0; }
+  .panel::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--brass) 20%, var(--brass-lt) 50%, var(--brass) 80%, transparent); }
+  .kicker { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--brass-dk); }
+  .kicker::before { content: ''; width: 34px; height: 1.5px; background: var(--brass); }
+  h1 { margin-top: 16px; font-weight: 500; font-size: 74px; line-height: 1.0; letter-spacing: -.04em; color: var(--espresso); }
+  h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 86px; letter-spacing: -.01em; color: var(--brass-dk); }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 24px; }
+  .sub { font-size: 22px; line-height: 1.45; color: #5E5249; max-width: 520px; }
+  .btn { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; padding: 20px 32px; border-radius: 100px; background: var(--espresso); color: var(--travertine); font-size: 22px; font-weight: 600; box-shadow: 0 16px 34px -14px rgba(28,23,20,.6); }
+  .trio { position: absolute; left: 60px; right: 60px; bottom: 34px; display: flex; gap: 30px; padding-top: 18px; border-top: 1px solid rgba(140,106,52,.25); font-size: 16px; font-weight: 500; letter-spacing: .02em; color: #6E6056; }
+  .trio span { display: inline-flex; align-items: center; gap: 10px; }
+  .trio span::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--brass); }
+  .btn svg { width: 22px; height: 22px; fill: none; stroke: var(--brass-lt); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 </style>
 </head>
 <body>
 <div class="ad">
-  <div class="photo"></div>
-  <div class="shade"></div>
-  <div class="top">
-    <div class="logo">
-      <div class="tile"><svg viewBox="0 0 24 24"><path d="M4 21V8a4 4 0 0 1 4-4h1a4 4 0 0 1 4 4"/><path d="M9.5 8h7"/><path d="M11 12v1.2M14 12v1.2M17 12v1.2M12.5 15.5v1.2M15.5 15.5v1.2"/></svg></div>
-      <div class="name">Sydney Bathrooms Co.<small>Family owned &middot; Sydney</small></div>
+  <div class="room">
+    <div class="photo"></div><div class="shade"></div>
+    <svg class="lights" viewBox="0 0 1080 660" aria-hidden="true"><defs>
+      <filter id="halo-wide" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter>
+      <filter id="halo-tight" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter></defs>
+      <ellipse cx="410" cy="330" rx="178" ry="172" fill="none" stroke="#F0CF92" stroke-width="54" filter="url(#halo-wide)" opacity=".55"/>
+      <ellipse cx="410" cy="330" rx="176" ry="170" fill="none" stroke="#FFE2AE" stroke-width="9" filter="url(#halo-tight)" opacity=".95"/>
+      <rect x="664" y="326" width="186" height="14" rx="7" fill="#F5D7A0" filter="url(#halo-tight)" opacity=".85"/>
+      <rect x="650" y="300" width="214" height="70" rx="30" fill="#E8C185" filter="url(#halo-wide)" opacity=".45"/>
+    </svg>
+    <div class="top">
+      <div class="logo"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/><path d="M6 12V5a2 2 0 0 1 2-2h1"/><path d="M7 19l-1 2M17 19l1 2"/></svg>Sydney Bathrooms Co.</div>
+      <div class="rate"><b>4.9 &#9733;</b><span>212 Google reviews</span></div>
     </div>
-    <div class="rating"><span class="g">G</span><b>4.9</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
   </div>
-  <div class="bottom">
-    <div class="tag">Free design consult</div>
-    <h1>From outdated <em>to outstanding.</em></h1>
-    <div class="chips"><div class="chip"><b>Design</b><span>to handover</span></div><div class="chip"><b>7-year</b><span>waterproofing warranty</span></div><div class="chip"><b>3 weeks</b><span>typical build</span></div></div>
-    <div class="cta-row">
-      <div class="cta">Get my free quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="foot">Licensed local builders &middot; Fixed-price quote</div>
+  <div class="panel">
+    <div class="kicker">Bathroom renovations &middot; Sydney</div>
+    <h1>Your new bathroom,<br><em>in weeks, not months.</em></h1>
+    <div class="row">
+      <p class="sub">From design to the last tile, by licensed local builders. One team, one fixed price.</p>
+      <span class="btn">Book a consult <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </div>
+    <div class="trio"><span>Free design consult</span><span>Fixed-price quote</span><span>Licensed builders</span></div>
   </div>
 </div>
 </body>

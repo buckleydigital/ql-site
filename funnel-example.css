@@ -129,7 +129,11 @@
 .fx-grid[data-niche="battery"]{--a2:#D9F99D;--glow:rgba(155,225,93,.12);--hz:#FFA056}
 .fx-grid[data-niche="roofing"]{--a2:#F7A46B;--glow:rgba(194,65,12,.18);--hz:#FF8A3D}
 .fx-grid[data-niche="hvac"]{--a2:#7DD3FC;--glow:rgba(14,165,233,.2)}
-.fx-grid[data-niche="reno"]{--a2:#D9B884;--glow:rgba(176,141,87,.16)}
+.fx-grid[data-niche="reno"]{--b:#1C1714;--a:#B8904F;--ai:#1C1714;--soft:#F1E9DC;--line-a:#B8904F;--a2:#E6C891;--glow:rgba(184,144,79,.16);--hz:#C99A55}
+.fx-grid[data-niche="reno"] .fx-survey{background:#F5EEE3}
+.fx-grid[data-niche="reno"] .fx-opt{background:#FBF7F0;border-color:#E6DCCB}
+.fx-grid[data-niche="reno"] .fx-opt.on{background:#EFE3CD;border-color:#B8904F}
+.fx-grid[data-niche="reno"] .fx-go{background:#1C1714;color:#F1E9DC;box-shadow:0 8px 20px -8px rgba(28,23,20,.6)}
 
 .fx-site{background:#10131B;border-color:rgba(255,255,255,.12)}
 .fx-bar .fx-url{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);box-shadow:none}

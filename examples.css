@@ -100,7 +100,9 @@
 .ml-theme[data-niche="battery"]{--ml-acc2:#D9F99D;--ml-glow:rgba(155,225,93,.12);--hz:#FFA056}
 .ml-theme[data-niche="roofing"]{--ml-acc2:#F7A46B;--ml-glow:rgba(194,65,12,.18);--hz:#FF8A3D}
 .ml-theme[data-niche="hvac"]{--ml-acc2:#7DD3FC;--ml-glow:rgba(14,165,233,.2)}
-.ml-theme[data-niche="reno"]{--ml-acc2:#D9B884;--ml-glow:rgba(176,141,87,.16)}
+.ml-theme[data-niche="reno"]{--ml-brand:#1C1714;--ml-acc:#B8904F;--ml-acc-ink:#1C1714;--ml-acc-soft:#F1E9DC;--ml-acc-line:#B8904F;--ml-acc2:#E6C891;--ml-glow:rgba(184,144,79,.16);--hz:#C99A55}
+.mk-mockup.mk-light.ml-theme[data-niche="reno"] .mk-survey{background:#F5EEE3}
+.mk-mockup.mk-light.ml-theme[data-niche="reno"] .mk-survey-continue{background:#1C1714;color:#F1E9DC}
 .mk-mockup.mk-light.ml-theme{background:#10131B;border-color:rgba(255,255,255,.12)}
 .mk-mockup.mk-light.ml-theme .mk-url{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6)}
 .mk-mockup.mk-light.ml-theme .mk-body{background:var(--ml-brand);color:#F4F1EA}
