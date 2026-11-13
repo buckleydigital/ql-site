@@ -98,7 +98,7 @@
 .ml-theme[data-niche]{--ml-acc2:#FFC861;--ml-glow:rgba(91,140,255,.20);--hz:var(--ml-acc)}
 .ml-theme[data-niche="commercial"]{--ml-acc2:#7EF2E0;--ml-glow:rgba(45,212,191,.16);--hz:#FFA05A}
 .ml-theme[data-niche="battery"]{--ml-acc2:#D9F99D;--ml-glow:rgba(155,225,93,.12);--hz:#FFA056}
-.ml-theme[data-niche="roofing"]{--ml-acc2:#F59A62;--ml-glow:rgba(194,65,12,.18)}
+.ml-theme[data-niche="roofing"]{--ml-acc2:#F7A46B;--ml-glow:rgba(194,65,12,.18);--hz:#FF8A3D}
 .ml-theme[data-niche="hvac"]{--ml-acc2:#7DD3FC;--ml-glow:rgba(14,165,233,.2)}
 .ml-theme[data-niche="reno"]{--ml-acc2:#D9B884;--ml-glow:rgba(176,141,87,.16)}
 .mk-mockup.mk-light.ml-theme{background:#10131B;border-color:rgba(255,255,255,.12)}

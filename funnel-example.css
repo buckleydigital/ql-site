@@ -127,7 +127,7 @@
 .fx-grid{--a2:#FFC861;--glow:rgba(91,140,255,.20);--hz:var(--a)}
 .fx-grid[data-niche="commercial"]{--a2:#7EF2E0;--glow:rgba(45,212,191,.16);--hz:#FFA05A}
 .fx-grid[data-niche="battery"]{--a2:#D9F99D;--glow:rgba(155,225,93,.12);--hz:#FFA056}
-.fx-grid[data-niche="roofing"]{--a2:#F59A62;--glow:rgba(194,65,12,.18)}
+.fx-grid[data-niche="roofing"]{--a2:#F7A46B;--glow:rgba(194,65,12,.18);--hz:#FF8A3D}
 .fx-grid[data-niche="hvac"]{--a2:#7DD3FC;--glow:rgba(14,165,233,.2)}
 .fx-grid[data-niche="reno"]{--a2:#D9B884;--glow:rgba(176,141,87,.16)}
 

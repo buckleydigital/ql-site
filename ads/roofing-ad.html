@@ -3,67 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sydney Roofing Ad</title>
+<title>Sydney Roofing Co. Ad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  /* Example Meta ad, 1080 x 1080. Same made-up brand, colours and logo as its
-     landing page example on the site, so ad and page read as one business.
-     All five ads share this layout; only the brand block at the top differs. */
+  /* Example Meta ad, 1080 x 1080, for the made-up Sydney Roofing Co. Same brand,
+     colours and logo as its landing page example on the site, so ad and page
+     read as one business. The look: a deep brand colour lit from within (a
+     soft glow behind the headline, a warm horizon rising behind the tinted
+     photo), one italic serif word in the accent colour, and the product shown
+     working on floating cards. */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --b: #262120; --a: #E0571C; --ai: #fff; --rgb: 38,33,32; }
-  html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--b); font-family: 'Inter', sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
-  .ad { position: relative; width: 1080px; height: 1080px; overflow: hidden; }
-  .photo { position: absolute; inset: 0; background: url('../roofing-ad-img.jpg') center 60% / cover no-repeat; }
-  .shade { position: absolute; inset: 0; background:
-      linear-gradient(180deg, rgba(var(--rgb),.70) 0%, rgba(var(--rgb),.15) 22%, rgba(var(--rgb),0) 36%, rgba(var(--rgb),.55) 54%, rgba(var(--rgb),.93) 70%, var(--b) 100%); }
+  :root { --base: #141110; --base2: #201A18; --acc: #E2671F; --acc2: #F7A46B; --ink: #F4F1EA; --mute: rgba(244,241,234,.7); }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .ad { position: relative; width: 1080px; height: 1080px; overflow: hidden;
+    background: radial-gradient(60% 40% at 50% 26%, rgba(226,103,31,.10), transparent 70%), linear-gradient(180deg, var(--base) 0%, var(--base2) 55%, #2A201C 100%); }
+  .photo { position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: url('../roofing-ad-img.jpg') center 93% / cover no-repeat;
+    -webkit-mask: linear-gradient(180deg, transparent 0%, #000 15%); mask: linear-gradient(180deg, transparent 0%, #000 15%); filter: saturate(.7) brightness(.4) contrast(1.08); }
+  .tint { position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: linear-gradient(180deg, rgba(20,17,16,0) 0%, rgba(20,17,16,.6) 9%, rgba(20,17,16,.25) 22%, rgba(20,17,16,.45) 55%, rgba(20,17,16,.93)); }
+  .horizon { position: absolute; left: -15%; right: -15%; bottom: 420px; height: 320px; mix-blend-mode: screen; background: radial-gradient(52% 62% at 45% 100%, rgba(255,140,60,.8), rgba(226,103,31,.26) 42%, transparent 72%); filter: blur(12px); }
 
-  .top { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 56px 64px; }
-  .logo { display: flex; align-items: center; gap: 20px; }
-  .tile { width: 84px; height: 84px; border-radius: 22px; background: var(--b); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px rgba(255,255,255,.14), 0 12px 30px rgba(0,0,0,.3); }
-  .tile svg { width: 46px; height: 46px; fill: none; stroke: var(--a); stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
-  .name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 38px; letter-spacing: -.02em; line-height: 1; }
-  .name small { display: block; margin-top: 8px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 19px; letter-spacing: 0; color: rgba(255,255,255,.75); }
-  .rating { display: flex; align-items: center; gap: 12px; padding: 14px 22px 14px 14px; border-radius: 100px; background: #fff; color: #16181D; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
-  .g { width: 40px; height: 40px; border-radius: 50%; background: #F1F3F4; color: #4285F4; font: 800 24px/40px Arial, sans-serif; text-align: center; }
-  .rating b { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 28px; }
-  .stars { color: #FBBC04; font-size: 24px; letter-spacing: 2px; }
+  .rim { position: absolute; inset: 0; width: 1080px; height: 1080px; mix-blend-mode: screen; pointer-events: none; }
+  .top { position: absolute; left: 60px; right: 60px; top: 52px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 28px; letter-spacing: -.01em; }
+  .logo svg { width: 38px; height: 38px; fill: none; stroke: var(--acc); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .rate { padding: 11px 18px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); text-align: right; }
+  .rate b { display: block; font: 400 30px 'Instrument Serif'; line-height: 1; }
+  .rate span { font-size: 14px; color: var(--mute); }
 
-  .bottom { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 64px 60px; }
-  .tag { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 100px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); font-size: 20px; font-weight: 600; margin-bottom: 26px; }
-  .tag::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--a); }
-  h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 100px; line-height: .98; letter-spacing: -.045em; max-width: 920px; text-wrap: balance; }
-  h1 em { font-style: normal; color: var(--a); }
-  .chips { display: flex; gap: 14px; margin-top: 36px; }
-  .chip { flex: 1; padding: 20px 22px; border-radius: 18px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(8px); }
-  .chip b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -.02em; line-height: 1.1; }
-  .chip span { font-size: 20px; color: rgba(255,255,255,.75); }
-  .cta-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 32px; }
-  .cta { display: inline-flex; align-items: center; gap: 14px; padding: 28px 40px; border-radius: 18px; background: var(--a); color: var(--ai); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -.01em; box-shadow: 0 16px 36px rgba(0,0,0,.3); white-space: nowrap; }
-  .cta svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-  .foot { font-size: 21px; color: rgba(255,255,255,.78); text-align: right; line-height: 1.45; }
+  .h { position: absolute; left: 0; right: 0; top: 180px; text-align: center; }
+  h1 { font-weight: 500; font-size: 90px; line-height: 1.0; letter-spacing: -.04em; }
+  h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 106px; letter-spacing: -.01em; color: var(--acc2); }
+  .sub { margin: 22px auto 0; max-width: 700px; font-size: 26px; line-height: 1.45; color: var(--mute); }
+  .btn { display: inline-flex; align-items: center; gap: 12px; margin-top: 32px; font-size: 26px; font-weight: 600; padding: 20px 38px; border-radius: 100px;
+    background: linear-gradient(180deg, var(--acc2), var(--acc)); color: #1A0C04; box-shadow: 0 18px 50px -12px rgba(226,103,31,.6); }
+
+  .cards { position: absolute; left: 60px; right: 60px; bottom: 56px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; }
+  .card { border-radius: 24px; padding: 22px 24px; background: rgba(255,255,255,.93); color: #14161C; box-shadow: 0 40px 80px -24px rgba(0,0,0,.7); }
+  .card small { display: block; font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #7A7F8C; }
+  .card b { display: block; font-size: 28px; font-weight: 600; margin-top: 6px; letter-spacing: -.02em; }
+  .card span { font-size: 16px; color: #7A7F8C; }
+  .row { display: flex; align-items: center; justify-content: space-between; }
+  .ring { width: 78px; height: 78px; border-radius: 50%; background: conic-gradient(#E2671F 0 94%, #EEE9DF 94% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ring i { width: 60px; height: 60px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font: 600 20px 'Inter'; font-style: normal; }
+  .pill { font-size: 14px; font-weight: 700; letter-spacing: .06em; padding: 6px 12px; border-radius: 100px; background: #E8F7EF; color: #178A50; }
 </style>
 </head>
 <body>
 <div class="ad">
-  <div class="photo"></div>
-  <div class="shade"></div>
+  <div class="photo"></div><div class="tint"></div><div class="horizon"></div>
+  <svg class="rim" viewBox="0 0 1080 1080" aria-hidden="true"><defs>
+      <linearGradient id="rimfade" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#FF8A3D" stop-opacity=".35"/><stop offset=".4" stop-color="#FFA060" stop-opacity="1"/><stop offset=".72" stop-color="#FF9550" stop-opacity=".85"/><stop offset="1" stop-color="#FF8A3D" stop-opacity=".25"/></linearGradient>
+      <linearGradient id="ridgefade" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#FFA060" stop-opacity=".9"/><stop offset="1" stop-color="#FF8A3D" stop-opacity="0"/></linearGradient>
+      <filter id="rimsoft" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="26"/></filter>
+      <filter id="rimtight" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="5"/></filter></defs>
+    <path d="M-20,642 L180,639 L480,640 L774,642 L900,718 L1100,860" fill="none" stroke="url(#rimfade)" stroke-width="90" stroke-linejoin="round" filter="url(#rimsoft)" opacity=".7"/>
+    <path d="M-20,642 L180,639 L480,640 L774,642 L900,718 L1100,860" fill="none" stroke="url(#rimfade)" stroke-width="9" stroke-linejoin="round" filter="url(#rimtight)" opacity=".9"/>
+    <path d="M504,664 L380,820 L250,980 L150,1110" fill="none" stroke="url(#ridgefade)" stroke-width="10" stroke-linecap="round" filter="url(#rimtight)" opacity=".75"/>
+  </svg>
   <div class="top">
-    <div class="logo">
-      <div class="tile"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.6V20h13V9.6"/><path d="M10 20v-5h4v5"/></svg></div>
-      <div class="name">Sydney Roofing Co.<small>Family owned &middot; Sydney</small></div>
-    </div>
-    <div class="rating"><span class="g">G</span><b>4.9</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+    <div class="logo"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/></svg>Sydney Roofing Co.</div>
+    <div class="rate"><b>4.9 &#9733;</b><span>212 Google reviews</span></div>
   </div>
-  <div class="bottom">
-    <div class="tag">Free roof inspection</div>
-    <h1>Roof restoration, <em>done properly.</em></h1>
-    <div class="chips"><div class="chip"><b>Restore</b><span>clean, repair, recoat</span></div><div class="chip"><b>10-year</b><span>warranty</span></div><div class="chip"><b>48h</b><span>written quote</span></div></div>
-    <div class="cta-row">
-      <div class="cta">Get my free quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="foot">Licensed local roofers &middot; No obligation</div>
-    </div>
+  <div class="h">
+    <h1>Your roof, restored<br><em>before the next storm.</em></h1>
+    <p class="sub">Free roof inspection, repairs and a full restoration. Fixed written quote within 48 hours.</p>
+    <span class="btn">Book my free inspection</span>
+  </div>
+  <div class="cards">
+    <div class="card"><small>Roof health check</small><div class="row"><div><b>3 cracked tiles found</b><span>roof score 94/100 once fixed</span></div><div class="ring"><i>94</i></div></div></div>
+    <div class="card"><small>Restoration</small><b>Booked · Tue 7:00am</b><div class="row" style="margin-top:6px"><span>10-year warranty</span><span class="pill">CONFIRMED</span></div></div>
   </div>
 </div>
 </body>
