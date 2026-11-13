@@ -585,22 +585,9 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   <div class="wrap">
     <div class="card rv" id="claim" style="margin-top:26px">
       <div id="offerBlock">
-        <div class="fq on" data-q="niche">
-          <div class="fq-top"><span>Question 1 of 4</span></div>
-          <div class="fq-bar"><div style="width:20%"></div></div>
-          <h2 class="center" id="q_niche" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Which campaign should we build first?</h2>
-          <p class="price-note center" style="margin-bottom:18px">Answer a few questions and we'll be in touch.</p>
-          <div class="nsel" id="fNicheWrap">
-            <div class="nsel-opts" role="group" aria-labelledby="q_niche">
-              <button type="button" class="nsel-opt" data-v="solar_and_battery" aria-pressed="false">Solar + battery</button>
-              <button type="button" class="nsel-opt" data-v="battery_retrofit" aria-pressed="false">Battery retrofit</button>
-              <button type="button" class="nsel-opt" data-v="commercial_solar" aria-pressed="false">Commercial solar</button>
-            </div>
-          </div>
-        </div>
-        <div class="fq" data-q="installs">
-          <div class="fq-top"><span>Question 2 of 4</span><button type="button" class="fq-back">&larr; Back</button></div>
-          <div class="fq-bar"><div style="width:40%"></div></div>
+        <div class="fq on" data-q="installs">
+          <div class="fq-top"><span>Question 1 of 3</span></div>
+          <div class="fq-bar"><div style="width:25%"></div></div>
           <h2 class="center" id="q_installs" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">How many installs do you do a month?</h2>
           <p class="price-note center" style="margin-bottom:18px">So we know what volume your team can handle.</p>
           <div class="nsel">
@@ -613,8 +600,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           </div>
         </div>
         <div class="fq" data-q="budget">
-          <div class="fq-top"><span>Question 3 of 4</span><button type="button" class="fq-back">&larr; Back</button></div>
-          <div class="fq-bar"><div style="width:60%"></div></div>
+          <div class="fq-top"><span>Question 2 of 3</span><button type="button" class="fq-back">&larr; Back</button></div>
+          <div class="fq-bar"><div style="width:50%"></div></div>
           <h2 class="center" id="q_budget" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">What monthly ad budget can you run?</h2>
           <p class="price-note center" style="margin-bottom:18px">Paid straight to Meta from your own account, never through us.</p>
           <div class="nsel">
@@ -627,8 +614,8 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           </div>
         </div>
         <div class="fq" data-q="lead_source">
-          <div class="fq-top"><span>Question 4 of 4</span><button type="button" class="fq-back">&larr; Back</button></div>
-          <div class="fq-bar"><div style="width:80%"></div></div>
+          <div class="fq-top"><span>Question 3 of 3</span><button type="button" class="fq-back">&larr; Back</button></div>
+          <div class="fq-bar"><div style="width:75%"></div></div>
           <h2 class="center" id="q_lead_source" style="font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:6px">Where do your leads come from now?</h2>
           <p class="price-note center" style="margin-bottom:18px">Pick the main one.</p>
           <div class="nsel">
@@ -1088,7 +1075,6 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     email: document.getElementById('fEmail'),
     phone: document.getElementById('fPhone'),
     postcode: document.getElementById('fPostcode'),
-    nicheWrap: document.getElementById('fNicheWrap'),
     consent: document.getElementById('fConsent'),
     msg: document.getElementById('formMsg'),
     call: document.getElementById('btnCall'),
@@ -1100,7 +1086,6 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   // The qualifying questions, one per screen. Nothing is pre-selected: a
   // default would just be echoed back and tell us nothing on the call. Each
   // tap records the answer and moves on; after the last, the details form.
-  var selectedNiche = null;
   var answers = { installs: '', budget: '', lead_source: '' };
   // Step tracking: where visitors drop out of the survey. Each step is sent
   // once per page view to GA4 (event 'qr_funnel', param 'step') and to Meta
@@ -1135,8 +1120,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         Array.prototype.forEach.call(st.querySelectorAll('.nsel-opt'), function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
         var key = st.dataset.q;
         qrTrack((i + 1) + '_' + key, { answer: btn.dataset.v });
-        if (key === 'niche') { selectedNiche = btn.dataset.v; els.nicheWrap.classList.remove('err'); }
-        else answers[key] = btn.dataset.v;
+        answers[key] = btn.dataset.v;
         // Under $1.5k a month can't fund a campaign that works: stop here.
         if (key === 'budget' && btn.dataset.v === 'Under $1.5k') {
           setTimeout(function(){ disqualify(i); }, 160);
@@ -1168,7 +1152,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       email: els.email.value.trim(),
       phone: els.phone.value.trim(),
       postcode: els.postcode.value.trim(),
-      niche: selectedNiche || '',
+      niche: 'solar_and_battery',
       installs: answers.installs,
       budget: answers.budget,
       lead_source: answers.lead_source
@@ -1184,8 +1168,6 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     });
     if(d.email && !EMAIL_RE.test(d.email)){ bad.push('a valid email'); els.email.classList.add('err'); }
     if(d.phone && !phoneOk(d.phone)){ bad.push('an Australian phone number'); els.phone.classList.add('err'); }
-    els.nicheWrap.classList.remove('err');
-    if(!d.niche){ missing.push('which campaign to build'); els.nicheWrap.classList.add('err'); }
     if(!els.consent.checked) missing.push('your consent');
 
     if(missing.length){
