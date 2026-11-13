@@ -6,64 +6,65 @@
 <title>Sydney Air Co. Ad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  /* Example Meta ad, 1080 x 1080. Same made-up brand, colours and logo as its
-     landing page example on the site, so ad and page read as one business.
-     All five ads share this layout; only the brand block at the top differs. */
+  /* Example Meta ad, 1080 x 1080, for the made-up Sydney Air Co. Same brand,
+     colours and logo as its landing page example on the site, so ad and page
+     read as one business. The look: a deep brand colour lit from within (a
+     soft glow behind the headline, a warm horizon rising behind the tinted
+     photo), one italic serif word in the accent colour, and the product shown
+     working on floating cards. */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --b: #0A2540; --a: #0EA5E9; --ai: #fff; --rgb: 10,37,64; }
-  html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--b); font-family: 'Inter', sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
-  .ad { position: relative; width: 1080px; height: 1080px; overflow: hidden; }
-  .photo { position: absolute; inset: 0; background: url('../hvac-ad-img.jpg') center 45% / cover no-repeat; }
-  .shade { position: absolute; inset: 0; background:
-      linear-gradient(180deg, rgba(var(--rgb),.70) 0%, rgba(var(--rgb),.15) 22%, rgba(var(--rgb),0) 36%, rgba(var(--rgb),.55) 54%, rgba(var(--rgb),.93) 70%, var(--b) 100%); }
+  :root { --base: #06142A; --base2: #0A2040; --acc: #22B8F0; --acc2: #A5E8FF; --ink: #F4F1EA; --mute: rgba(244,241,234,.7); }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .ad { position: relative; width: 1080px; height: 1080px; overflow: hidden;
+    background: radial-gradient(60% 40% at 50% 26%, rgba(56,189,248,.16), transparent 70%), linear-gradient(180deg, var(--base) 0%, var(--base2) 55%, #0B2547 100%); }
+  .photo { position: absolute; left: 0; right: 0; bottom: 0; height: 600px; background: url('../hvac-ad-img.jpg') center 80px / 1080px auto no-repeat;
+    -webkit-mask: linear-gradient(180deg, transparent 15%, #000 42%); mask: linear-gradient(180deg, transparent 15%, #000 42%); filter: saturate(.55) brightness(.42) contrast(1.06) hue-rotate(-8deg); }
+  .tint { position: absolute; left: 0; right: 0; bottom: 0; height: 520px; background: linear-gradient(180deg, transparent, rgba(6,20,42,.35) 55%, rgba(6,20,42,.9)); }
+  .horizon { position: absolute; left: 0; right: 0; top: 0; height: 1080px; mix-blend-mode: screen; pointer-events: none; background: radial-gradient(32% 7% at 50% 83%, rgba(140,225,255,.55), transparent 70%), radial-gradient(40% 22% at 50% 100%, rgba(56,189,248,.3), transparent 72%); filter: blur(6px); }
 
-  .top { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 56px 64px; }
-  .logo { display: flex; align-items: center; gap: 20px; }
-  .tile { width: 84px; height: 84px; border-radius: 22px; background: var(--b); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px rgba(255,255,255,.14), 0 12px 30px rgba(0,0,0,.3); }
-  .tile svg { width: 46px; height: 46px; fill: none; stroke: var(--a); stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
-  .name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 38px; letter-spacing: -.02em; line-height: 1; }
-  .name small { display: block; margin-top: 8px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 19px; letter-spacing: 0; color: rgba(255,255,255,.75); }
-  .rating { display: flex; align-items: center; gap: 12px; padding: 14px 22px 14px 14px; border-radius: 100px; background: #fff; color: #16181D; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
-  .g { width: 40px; height: 40px; border-radius: 50%; background: #F1F3F4; color: #4285F4; font: 800 24px/40px Arial, sans-serif; text-align: center; }
-  .rating b { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 28px; }
-  .stars { color: #FBBC04; font-size: 24px; letter-spacing: 2px; }
+  .air { position: absolute; inset: 0; width: 1080px; height: 1080px; mix-blend-mode: screen; pointer-events: none; }
+  .top { position: absolute; left: 60px; right: 60px; top: 52px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 28px; letter-spacing: -.01em; }
+  .logo svg { width: 38px; height: 38px; fill: none; stroke: var(--acc); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .rate { padding: 11px 18px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); text-align: right; }
+  .rate b { display: block; font: 400 30px 'Instrument Serif'; line-height: 1; }
+  .rate span { font-size: 14px; color: var(--mute); }
 
-  .bottom { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 64px 60px; }
-  .tag { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 100px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); font-size: 20px; font-weight: 600; margin-bottom: 26px; }
-  .tag::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--a); }
-  h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 100px; line-height: .98; letter-spacing: -.045em; max-width: 920px; text-wrap: balance; }
-  h1 em { font-style: normal; color: var(--a); }
-  .chips { display: flex; gap: 14px; margin-top: 36px; }
-  .chip { flex: 1; padding: 20px 22px; border-radius: 18px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(8px); }
-  .chip b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -.02em; line-height: 1.1; }
-  .chip span { font-size: 20px; color: rgba(255,255,255,.75); }
-  .cta-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 32px; }
-  .cta { display: inline-flex; align-items: center; gap: 14px; padding: 28px 40px; border-radius: 18px; background: var(--a); color: var(--ai); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -.01em; box-shadow: 0 16px 36px rgba(0,0,0,.3); white-space: nowrap; }
-  .cta svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-  .foot { font-size: 21px; color: rgba(255,255,255,.78); text-align: right; line-height: 1.45; }
+  .h { position: absolute; left: 0; right: 0; top: 180px; text-align: center; }
+  h1 { font-weight: 500; font-size: 90px; line-height: 1.0; letter-spacing: -.04em; }
+  h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 106px; letter-spacing: -.01em; color: var(--acc2); }
+  .sub { margin: 22px auto 0; max-width: 700px; font-size: 26px; line-height: 1.45; color: var(--mute); }
+  .btn { display: inline-flex; align-items: center; gap: 12px; margin-top: 32px; font-size: 26px; font-weight: 600; padding: 20px 38px; border-radius: 100px;
+    background: linear-gradient(180deg, var(--acc2), var(--acc)); color: #041826; box-shadow: 0 18px 50px -12px rgba(34,184,240,.6); }
+
+  .cards { position: absolute; left: 60px; right: 60px; bottom: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { border-radius: 24px; padding: 22px 24px; background: rgba(255,255,255,.93); color: #14161C; box-shadow: 0 40px 80px -24px rgba(0,0,0,.7); }
+  .card small { display: block; font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #7A7F8C; }
+  .card b { display: block; font-size: 28px; font-weight: 600; margin-top: 6px; letter-spacing: -.02em; }
+  .card span { font-size: 16px; color: #7A7F8C; }
+  .row { display: flex; align-items: center; justify-content: space-between; }
+  .ring { width: 78px; height: 78px; border-radius: 50%; background: conic-gradient(var(--acc) 0 82%, #EEE9DF 82% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ring i { width: 60px; height: 60px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font: 600 20px 'Inter'; font-style: normal; }
+  .pill { font-size: 14px; font-weight: 700; letter-spacing: .06em; padding: 6px 12px; border-radius: 100px; background: #E8F7EF; color: #178A50; }
 </style>
 </head>
 <body>
 <div class="ad">
-  <div class="photo"></div>
-  <div class="shade"></div>
+  <div class="photo"></div><div class="tint"></div><div class="horizon"></div>
+  <svg class="air" viewBox="0 0 1080 1080" aria-hidden="true"><defs><linearGradient id="airfall" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#BDEFFF" stop-opacity=".75"/><stop offset=".35" stop-color="#5CC8F5" stop-opacity=".32"/><stop offset="1" stop-color="#22B8F0" stop-opacity="0"/></linearGradient><filter id="airsoft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="22"/></filter><filter id="airtight"><feGaussianBlur stdDeviation="4"/></filter></defs>
+    <path d="M250,872 L825,920 L990,1100 L110,1100 Z" fill="url(#airfall)" filter="url(#airsoft)"/>
+    <path d="M254,868 L822,918" fill="none" stroke="#C8F2FF" stroke-width="6" stroke-linecap="round" filter="url(#airtight)" opacity=".9"/>
+  </svg>
   <div class="top">
-    <div class="logo">
-      <div class="tile"><svg viewBox="0 0 24 24"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/><path d="m9.5 4.5 2.5 2.5 2.5-2.5M9.5 19.5l2.5-2.5 2.5 2.5"/></svg></div>
-      <div class="name">Sydney Air Co.<small>Family owned &middot; Sydney</small></div>
-    </div>
-    <div class="rating"><span class="g">G</span><b>4.9</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+    <div class="logo"><svg viewBox="0 0 24 24"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9"/></svg>Sydney Air Co.</div>
+    <div class="rate"><b>4.9 &#9733;</b><span>212 Google reviews</span></div>
   </div>
-  <div class="bottom">
-    <div class="tag">Free in-home assessment</div>
-    <h1>Ducted air, <em>zoned room by room.</em></h1>
-    <div class="chips"><div class="chip"><b>14kW</b><span>Daikin ducted</span></div><div class="chip"><b>8-zone</b><span>control</span></div><div class="chip"><b>5-year</b><span>install warranty</span></div></div>
-    <div class="cta-row">
-      <div class="cta">Get my free quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="foot">Licensed local technicians &middot; Fixed quote in 24h</div>
-    </div>
+  <div class="h">
+    <h1>Beat the heat,<br><em>room by room.</em></h1>
+    <p class="sub">Ducted and split systems, sized for your home and installed by licensed local technicians.</p>
+    <span class="btn">Get my free quote</span>
   </div>
 </div>
 </body>
