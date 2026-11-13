@@ -22,8 +22,9 @@
   .photo { position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: url('../battery-ad-img.jpg') center 72% / cover no-repeat;
     -webkit-mask: linear-gradient(180deg, transparent 0%, #000 15%); mask: linear-gradient(180deg, transparent 0%, #000 15%); filter: saturate(.7) brightness(.4) contrast(1.08); }
   .tint { position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: linear-gradient(180deg, rgba(7,31,24,0) 0%, rgba(7,31,24,.55) 9%, rgba(7,31,24,.18) 22%, rgba(7,31,24,.45) 55%, rgba(7,31,24,.93)); }
-  .horizon { position: absolute; left: -15%; right: -15%; bottom: 450px; height: 300px; mix-blend-mode: screen; background: radial-gradient(50% 64% at 50% 100%, rgba(255,156,80,1), rgba(255,132,64,.36) 42%, transparent 72%); filter: blur(12px); }
+  .horizon { position: absolute; left: -15%; right: -15%; bottom: 450px; height: 300px; mix-blend-mode: screen; background: radial-gradient(50% 64% at 50% 100%, rgba(255,156,80,.7), rgba(255,132,64,.24) 42%, transparent 72%); filter: blur(12px); }
 
+  .rim { position: absolute; inset: 0; width: 1080px; height: 1080px; mix-blend-mode: screen; pointer-events: none; }
   .lights { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
     background: radial-gradient(70px 90px at 215px 810px, rgba(255,184,108,.55), transparent 70%), radial-gradient(60px 85px at 390px 810px, rgba(255,184,108,.45), transparent 70%), radial-gradient(28px 28px at 133px 795px, rgba(255,200,130,.7), transparent 70%), radial-gradient(28px 28px at 544px 815px, rgba(255,200,130,.6), transparent 70%); }
   .top { position: absolute; left: 60px; right: 60px; top: 52px; display: flex; justify-content: space-between; align-items: center; }
@@ -53,7 +54,15 @@
 </head>
 <body>
 <div class="ad">
-  <div class="photo"></div><div class="tint"></div><div class="horizon"></div><div class="lights"></div>
+  <div class="photo"></div><div class="tint"></div><div class="horizon"></div>
+  <svg class="rim" viewBox="0 0 1080 1080" aria-hidden="true"><defs>
+      <linearGradient id="rimfade" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#FF9C50" stop-opacity=".25"/><stop offset=".42" stop-color="#FFB070" stop-opacity="1"/><stop offset=".6" stop-color="#FFA060" stop-opacity=".85"/><stop offset="1" stop-color="#FF9C50" stop-opacity=".25"/></linearGradient>
+      <filter id="rimsoft" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="26"/></filter>
+      <filter id="rimtight" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="6"/></filter></defs>
+    <path d="M-20,689 L20,682 L60,674 L100,664 L140,655 L180,645 L220,635 L260,627 L300,618 L340,608 L380,600 L420,609 L460,603 L500,600 L540,611 L580,623 L620,634 L660,647 L700,651 L720,657 L780,679 L820,691 L860,704 L900,717 L940,727 L980,737 L1020,733 L1060,723 L1100,721" fill="none" stroke="url(#rimfade)" stroke-width="90" stroke-linejoin="round" filter="url(#rimsoft)" opacity=".75"/>
+    <path d="M-20,689 L20,682 L60,674 L100,664 L140,655 L180,645 L220,635 L260,627 L300,618 L340,608 L380,600 L420,609 L460,603 L500,600 L540,611 L580,623 L620,634 L660,647 L700,651 L720,657 L780,679 L820,691 L860,704 L900,717 L940,727 L980,737 L1020,733 L1060,723 L1100,721" fill="none" stroke="url(#rimfade)" stroke-width="10" stroke-linejoin="round" filter="url(#rimtight)" opacity=".9"/>
+  </svg>
+  <div class="lights"></div>
   <div class="top">
     <div class="logo"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="17" height="10" rx="2.2"/><path d="M21.5 10.5v3"/><path d="M11.8 9 9.5 12.3h3.2L10.5 15"/></svg>Sydney Battery Co.</div>
     <div class="rate"><b>4.9 &#9733;</b><span>212 Google reviews</span></div>
