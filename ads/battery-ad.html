@@ -6,64 +6,66 @@
 <title>Sydney Battery Co. Ad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  /* Example Meta ad, 1080 x 1080. Same made-up brand, colours and logo as its
-     landing page example on the site, so ad and page read as one business.
-     All five ads share this layout; only the brand block at the top differs. */
+  /* Example Meta ad, 1080 x 1080, for the made-up Sydney Battery Co. Same brand,
+     colours and logo as its landing page example on the site, so ad and page
+     read as one business. The look: a deep brand colour lit from within (a
+     soft glow behind the headline, a warm horizon rising behind the tinted
+     photo), one italic serif word in the accent colour, and the product shown
+     working on floating cards. */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --b: #0D3B2E; --a: #9BE15D; --ai: #0B2414; --rgb: 13,59,46; }
-  html, body { width: 1080px; height: 1080px; overflow: hidden; background: var(--b); font-family: 'Inter', sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
-  .ad { position: relative; width: 1080px; height: 1080px; overflow: hidden; }
-  .photo { position: absolute; inset: 0; background: url('../battery-ad-img.jpg') center 60% / cover no-repeat; }
-  .shade { position: absolute; inset: 0; background:
-      linear-gradient(180deg, rgba(var(--rgb),.70) 0%, rgba(var(--rgb),.15) 22%, rgba(var(--rgb),0) 36%, rgba(var(--rgb),.55) 54%, rgba(var(--rgb),.93) 70%, var(--b) 100%); }
+  :root { --base: #071F18; --base2: #0B2E23; --acc: #9BE15D; --acc2: #D9F99D; --ink: #F4F1EA; --mute: rgba(244,241,234,.7); }
+  html, body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Inter', sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .ad { position: relative; width: 1080px; height: 1080px; overflow: hidden;
+    background: radial-gradient(60% 40% at 50% 26%, rgba(155,225,93,.12), transparent 70%), linear-gradient(180deg, var(--base) 0%, var(--base2) 55%, #0E3528 100%); }
+  .photo { position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: url('../battery-ad-img.jpg') center 72% / cover no-repeat;
+    -webkit-mask: linear-gradient(180deg, transparent 12%, #000 32%); mask: linear-gradient(180deg, transparent 12%, #000 32%); filter: saturate(.7) brightness(.4) contrast(1.08); }
+  .tint { position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: linear-gradient(180deg, transparent, rgba(7,31,24,.45) 55%, rgba(7,31,24,.93)); }
+  .horizon { position: absolute; left: -15%; right: -15%; bottom: 440px; height: 360px; background: radial-gradient(50% 60% at 50% 100%, rgba(255,160,86,.95), rgba(255,138,70,.32) 45%, transparent 75%); filter: blur(10px); }
 
-  .top { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 56px 64px; }
-  .logo { display: flex; align-items: center; gap: 20px; }
-  .tile { width: 84px; height: 84px; border-radius: 22px; background: var(--b); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px rgba(255,255,255,.14), 0 12px 30px rgba(0,0,0,.3); }
-  .tile svg { width: 46px; height: 46px; fill: none; stroke: var(--a); stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
-  .name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 38px; letter-spacing: -.02em; line-height: 1; }
-  .name small { display: block; margin-top: 8px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 19px; letter-spacing: 0; color: rgba(255,255,255,.75); }
-  .rating { display: flex; align-items: center; gap: 12px; padding: 14px 22px 14px 14px; border-radius: 100px; background: #fff; color: #16181D; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
-  .g { width: 40px; height: 40px; border-radius: 50%; background: #F1F3F4; color: #4285F4; font: 800 24px/40px Arial, sans-serif; text-align: center; }
-  .rating b { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 28px; }
-  .stars { color: #FBBC04; font-size: 24px; letter-spacing: 2px; }
+  .lights { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+    background: radial-gradient(70px 90px at 215px 810px, rgba(255,184,108,.55), transparent 70%), radial-gradient(60px 85px at 390px 810px, rgba(255,184,108,.45), transparent 70%), radial-gradient(28px 28px at 133px 795px, rgba(255,200,130,.7), transparent 70%), radial-gradient(28px 28px at 544px 815px, rgba(255,200,130,.6), transparent 70%); }
+  .top { position: absolute; left: 60px; right: 60px; top: 52px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 28px; letter-spacing: -.01em; }
+  .logo svg { width: 38px; height: 38px; fill: none; stroke: var(--acc); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .rate { padding: 11px 18px; border-radius: 18px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); text-align: right; }
+  .rate b { display: block; font: 400 30px 'Instrument Serif'; line-height: 1; }
+  .rate span { font-size: 14px; color: var(--mute); }
 
-  .bottom { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 64px 60px; }
-  .tag { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 100px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); font-size: 20px; font-weight: 600; margin-bottom: 26px; }
-  .tag::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--a); }
-  h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 100px; line-height: .98; letter-spacing: -.045em; max-width: 920px; text-wrap: balance; }
-  h1 em { font-style: normal; color: var(--a); }
-  .chips { display: flex; gap: 14px; margin-top: 36px; }
-  .chip { flex: 1; padding: 20px 22px; border-radius: 18px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(8px); }
-  .chip b { display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -.02em; line-height: 1.1; }
-  .chip span { font-size: 20px; color: rgba(255,255,255,.75); }
-  .cta-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 32px; }
-  .cta { display: inline-flex; align-items: center; gap: 14px; padding: 28px 40px; border-radius: 18px; background: var(--a); color: var(--ai); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px; letter-spacing: -.01em; box-shadow: 0 16px 36px rgba(0,0,0,.3); white-space: nowrap; }
-  .cta svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
-  .foot { font-size: 21px; color: rgba(255,255,255,.78); text-align: right; line-height: 1.45; }
+  .h { position: absolute; left: 0; right: 0; top: 180px; text-align: center; }
+  h1 { font-weight: 500; font-size: 90px; line-height: 1.0; letter-spacing: -.04em; }
+  h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 106px; letter-spacing: -.01em; color: var(--acc2); }
+  .sub { margin: 22px auto 0; max-width: 700px; font-size: 26px; line-height: 1.45; color: var(--mute); }
+  .btn { display: inline-flex; align-items: center; gap: 12px; margin-top: 32px; font-size: 26px; font-weight: 600; padding: 20px 38px; border-radius: 100px;
+    background: linear-gradient(180deg, var(--acc2), var(--acc)); color: #0B2414; box-shadow: 0 18px 50px -12px rgba(155,225,93,.55); }
+
+  .cards { position: absolute; left: 60px; right: 60px; bottom: 56px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; }
+  .card { border-radius: 24px; padding: 22px 24px; background: rgba(255,255,255,.93); color: #14161C; box-shadow: 0 40px 80px -24px rgba(0,0,0,.7); }
+  .card small { display: block; font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #7A7F8C; }
+  .card b { display: block; font-size: 28px; font-weight: 600; margin-top: 6px; letter-spacing: -.02em; }
+  .card span { font-size: 16px; color: #7A7F8C; }
+  .row { display: flex; align-items: center; justify-content: space-between; }
+  .ring { width: 78px; height: 78px; border-radius: 50%; background: conic-gradient(#7CC743 0 76%, #EEE9DF 76% 100%); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ring i { width: 60px; height: 60px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font: 600 20px 'Inter'; font-style: normal; }
+  .pill { font-size: 14px; font-weight: 700; letter-spacing: .06em; padding: 6px 12px; border-radius: 100px; background: #E8F7EF; color: #178A50; }
 </style>
 </head>
 <body>
 <div class="ad">
-  <div class="photo"></div>
-  <div class="shade"></div>
+  <div class="horizon"></div><div class="photo"></div><div class="tint"></div><div class="lights"></div>
   <div class="top">
-    <div class="logo">
-      <div class="tile"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="17" height="10" rx="2.2"/><path d="M21.5 10.5v3"/><path d="M11.8 9 9.5 12.3h3.2L10.5 15"/></svg></div>
-      <div class="name">Sydney Battery Co.<small>Family owned &middot; Sydney</small></div>
-    </div>
-    <div class="rating"><span class="g">G</span><b>4.9</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+    <div class="logo"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="17" height="10" rx="2.2"/><path d="M21.5 10.5v3"/><path d="M11.8 9 9.5 12.3h3.2L10.5 15"/></svg>Sydney Battery Co.</div>
+    <div class="rate"><b>4.9 &#9733;</b><span>212 Google reviews</span></div>
   </div>
-  <div class="bottom">
-    <div class="tag">Free battery assessment</div>
-    <h1>Add a battery to the solar <em>you already have.</em></h1>
-    <div class="chips"><div class="chip"><b>13.5kWh</b><span>Tesla battery</span></div><div class="chip"><b>10-year</b><span>warranty</span></div><div class="chip"><b>1 day</b><span>install</span></div></div>
-    <div class="cta-row">
-      <div class="cta">Get my free quote <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="foot">Qualified local electricians &middot; Fixed quote in 24h</div>
-    </div>
+  <div class="h">
+    <h1>Your solar,<br><em>working after dark.</em></h1>
+    <p class="sub">Add a battery to the panels you already have and use today's sun tonight. Fixed quote within 24 hours.</p>
+    <span class="btn">Get my battery quote</span>
+  </div>
+  <div class="cards">
+    <div class="card"><small>Tonight, 8:40pm</small><div class="row"><div><b>Running on battery</b><span>stored from today's sun</span></div><div class="ring"><i>76%</i></div></div></div>
+    <div class="card"><small>Your quote</small><b>13.5kWh battery</b><div class="row" style="margin-top:6px"><span>Fits your existing solar</span><span class="pill">READY</span></div></div>
   </div>
 </div>
 </body>

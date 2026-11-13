@@ -95,9 +95,9 @@
    warm accent horizon behind the tinted photo, one italic serif word (<em>)
    in a light accent, glass chips. Selectors carry .ml-theme so they win over
    the page's own mockup rules. */
-.ml-theme[data-niche]{--ml-acc2:#FFC861;--ml-glow:rgba(91,140,255,.20)}
-.ml-theme[data-niche="commercial"]{--ml-acc2:#7EF2E0;--ml-glow:rgba(45,212,191,.16)}
-.ml-theme[data-niche="battery"]{--ml-acc2:#C6F28F;--ml-glow:rgba(155,225,93,.14)}
+.ml-theme[data-niche]{--ml-acc2:#FFC861;--ml-glow:rgba(91,140,255,.20);--hz:var(--ml-acc)}
+.ml-theme[data-niche="commercial"]{--ml-acc2:#7EF2E0;--ml-glow:rgba(45,212,191,.16);--hz:#FFA05A}
+.ml-theme[data-niche="battery"]{--ml-acc2:#D9F99D;--ml-glow:rgba(155,225,93,.12);--hz:#FFA056}
 .ml-theme[data-niche="roofing"]{--ml-acc2:#F59A62;--ml-glow:rgba(194,65,12,.18)}
 .ml-theme[data-niche="hvac"]{--ml-acc2:#7DD3FC;--ml-glow:rgba(14,165,233,.2)}
 .ml-theme[data-niche="reno"]{--ml-acc2:#D9B884;--ml-glow:rgba(176,141,87,.16)}
@@ -115,7 +115,7 @@
 .mk-mockup.mk-light.ml-theme .mk-hero::before{content:'';position:absolute;left:0;right:0;bottom:0;height:62%;z-index:-2;background:var(--ml-hero,url('/solar-ad-img.webp')) 60% 40%/cover no-repeat;
   -webkit-mask:linear-gradient(180deg,transparent,#000 70%);mask:linear-gradient(180deg,transparent,#000 70%);filter:saturate(.8) brightness(.5)}
 .mk-mockup.mk-light.ml-theme .mk-hero::after{content:'';position:absolute;left:-10%;right:-10%;bottom:-6%;height:58%;z-index:-1;
-  background:radial-gradient(50% 60% at 55% 100%,color-mix(in srgb,var(--ml-acc) 70%,transparent),color-mix(in srgb,var(--ml-acc) 18%,transparent) 50%,transparent 78%);filter:blur(4px)}
+  background:radial-gradient(50% 60% at 55% 100%,color-mix(in srgb,var(--hz) 70%,transparent),color-mix(in srgb,var(--hz) 18%,transparent) 50%,transparent 78%);filter:blur(4px)}
 .mk-mockup.mk-light.ml-theme .mk-h5{color:#F4F1EA;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:-.035em;line-height:1.04}
 .mk-mockup.mk-light.ml-theme .mk-h5 em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:1.16em;letter-spacing:-.005em;color:var(--ml-acc2);background:none;-webkit-text-fill-color:var(--ml-acc2)}
 .mk-mockup.mk-light.ml-theme .mk-p{color:rgba(244,241,234,.72)}

@@ -124,9 +124,9 @@
    photo, one italic serif word (<em>) in a light accent, and glass chips and
    cards. --a2 is the light accent each niche uses for that word. Comes after
    the rules above, so it wins over them, phones included. */
-.fx-grid{--a2:#FFC861;--glow:rgba(91,140,255,.20)}
-.fx-grid[data-niche="commercial"]{--a2:#7EF2E0;--glow:rgba(45,212,191,.16)}
-.fx-grid[data-niche="battery"]{--a2:#C6F28F;--glow:rgba(155,225,93,.14)}
+.fx-grid{--a2:#FFC861;--glow:rgba(91,140,255,.20);--hz:var(--a)}
+.fx-grid[data-niche="commercial"]{--a2:#7EF2E0;--glow:rgba(45,212,191,.16);--hz:#FFA05A}
+.fx-grid[data-niche="battery"]{--a2:#D9F99D;--glow:rgba(155,225,93,.12);--hz:#FFA056}
 .fx-grid[data-niche="roofing"]{--a2:#F59A62;--glow:rgba(194,65,12,.18)}
 .fx-grid[data-niche="hvac"]{--a2:#7DD3FC;--glow:rgba(14,165,233,.2)}
 .fx-grid[data-niche="reno"]{--a2:#D9B884;--glow:rgba(176,141,87,.16)}
@@ -145,7 +145,7 @@
 .fx-hero::before{content:'';position:absolute;left:0;right:0;bottom:0;height:62%;z-index:-2;background:var(--img) 60% 40%/cover no-repeat;
   -webkit-mask:linear-gradient(180deg,transparent,#000 70%);mask:linear-gradient(180deg,transparent,#000 70%);filter:saturate(.8) brightness(.5)}
 .fx-hero::after{content:'';position:absolute;left:-10%;right:-10%;bottom:-6%;height:58%;z-index:-1;
-  background:radial-gradient(50% 60% at 55% 100%,color-mix(in srgb,var(--a) 70%,transparent),color-mix(in srgb,var(--a) 18%,transparent) 50%,transparent 78%);filter:blur(4px)}
+  background:radial-gradient(50% 60% at 55% 100%,color-mix(in srgb,var(--hz) 70%,transparent),color-mix(in srgb,var(--hz) 18%,transparent) 50%,transparent 78%);filter:blur(4px)}
 .fx-h{font-family:'Inter',sans-serif;font-weight:500;letter-spacing:-.035em;line-height:1.04}
 .fx-h em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:1.16em;letter-spacing:-.005em;color:var(--a2)}
 .fx-p{color:rgba(244,241,234,.72)}
