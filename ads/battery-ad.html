@@ -20,9 +20,9 @@
   .ad { position: relative; width: 1080px; height: 1080px; overflow: hidden;
     background: radial-gradient(60% 40% at 50% 26%, rgba(155,225,93,.12), transparent 70%), linear-gradient(180deg, var(--base) 0%, var(--base2) 55%, #0E3528 100%); }
   .photo { position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: url('../battery-ad-img.jpg') center 72% / cover no-repeat;
-    -webkit-mask: linear-gradient(180deg, transparent 12%, #000 32%); mask: linear-gradient(180deg, transparent 12%, #000 32%); filter: saturate(.7) brightness(.4) contrast(1.08); }
-  .tint { position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: linear-gradient(180deg, transparent, rgba(7,31,24,.45) 55%, rgba(7,31,24,.93)); }
-  .horizon { position: absolute; left: -15%; right: -15%; bottom: 440px; height: 360px; background: radial-gradient(50% 60% at 50% 100%, rgba(255,160,86,.95), rgba(255,138,70,.32) 45%, transparent 75%); filter: blur(10px); }
+    -webkit-mask: linear-gradient(180deg, transparent 0%, #000 15%); mask: linear-gradient(180deg, transparent 0%, #000 15%); filter: saturate(.7) brightness(.4) contrast(1.08); }
+  .tint { position: absolute; left: 0; right: 0; bottom: 0; height: 560px; background: linear-gradient(180deg, rgba(7,31,24,0) 0%, rgba(7,31,24,.55) 9%, rgba(7,31,24,.18) 22%, rgba(7,31,24,.45) 55%, rgba(7,31,24,.93)); }
+  .horizon { position: absolute; left: -15%; right: -15%; bottom: 450px; height: 300px; mix-blend-mode: screen; background: radial-gradient(50% 64% at 50% 100%, rgba(255,156,80,1), rgba(255,132,64,.36) 42%, transparent 72%); filter: blur(12px); }
 
   .lights { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
     background: radial-gradient(70px 90px at 215px 810px, rgba(255,184,108,.55), transparent 70%), radial-gradient(60px 85px at 390px 810px, rgba(255,184,108,.45), transparent 70%), radial-gradient(28px 28px at 133px 795px, rgba(255,200,130,.7), transparent 70%), radial-gradient(28px 28px at 544px 815px, rgba(255,200,130,.6), transparent 70%); }
@@ -53,7 +53,7 @@
 </head>
 <body>
 <div class="ad">
-  <div class="horizon"></div><div class="photo"></div><div class="tint"></div><div class="lights"></div>
+  <div class="photo"></div><div class="tint"></div><div class="horizon"></div><div class="lights"></div>
   <div class="top">
     <div class="logo"><svg viewBox="0 0 24 24"><rect x="2.5" y="7" width="17" height="10" rx="2.2"/><path d="M21.5 10.5v3"/><path d="M11.8 9 9.5 12.3h3.2L10.5 15"/></svg>Sydney Battery Co.</div>
     <div class="rate"><b>4.9 &#9733;</b><span>212 Google reviews</span></div>
