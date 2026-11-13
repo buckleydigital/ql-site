@@ -1102,12 +1102,25 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   // tap records the answer and moves on; after the last, the details form.
   var selectedNiche = null;
   var answers = { installs: '', budget: '', lead_source: '' };
+  // Step tracking: where visitors drop out of the survey. Each step is sent
+  // once per page view to GA4 (event 'qr_funnel', param 'step') and to Meta
+  // as a custom event (QRFunnel), so drop-off shows in both. No personal
+  // details are sent, only the step and the multiple-choice answer.
+  var _qrSent = {};
+  function qrTrack(step, extra){
+    if (_qrSent[step]) return; _qrSent[step] = 1;
+    var p = { step: step, funnel: 'solar' };
+    if (extra) for (var k in extra) p[k] = extra[k];
+    try { if (window.gtag) gtag('event', 'qr_funnel', p); } catch(e){}
+    try { if (window.fbq) fbq('trackCustom', 'QRFunnel', p); } catch(e){}
+  }
   var steps = Array.prototype.slice.call(document.querySelectorAll('#claim .fq'));
   function show(i){
     els.card.classList.remove('dq');
     els.card.classList.toggle('go', i >= steps.length);
     steps.forEach(function(st, k){ st.classList.toggle('on', k === i); });
     if (i >= steps.length) {
+      qrTrack('reached_details');
       var labels = steps.map(function(st){ var b = st.querySelector('.nsel-opt[aria-pressed="true"]'); return b ? b.textContent : ''; }).filter(Boolean);
       document.getElementById('fChosen').textContent = labels.join(' \u00b7 ');
     }
@@ -1121,6 +1134,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       btn.addEventListener('click', function(){
         Array.prototype.forEach.call(st.querySelectorAll('.nsel-opt'), function(b){ b.setAttribute('aria-pressed', String(b === btn)); });
         var key = st.dataset.q;
+        qrTrack((i + 1) + '_' + key, { answer: btn.dataset.v });
         if (key === 'niche') { selectedNiche = btn.dataset.v; els.nicheWrap.classList.remove('err'); }
         else answers[key] = btn.dataset.v;
         // Under $1.5k a month can't fund a campaign that works: stop here.
@@ -1137,6 +1151,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   document.getElementById('fChange').addEventListener('click', function(){ show(steps.length - 1); });
   var dqFrom = 0;
   function disqualify(i){
+    qrTrack('disqualified_budget');
     dqFrom = i;
     steps.forEach(function(st){ st.classList.remove('on'); });
     els.card.classList.remove('go');
@@ -1189,8 +1204,10 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
     return d;
   }
 
+  ['name','company','email','phone','postcode'].forEach(function(k){ if (els[k]) els[k].addEventListener('input', function(){ qrTrack('details_started'); }); });
   els.call.addEventListener('click', function(){
-    var d = validate(); if(!d) return;
+    qrTrack('submit_click');
+    var d = validate(); if(!d) { qrTrack('submit_blocked', { reason: (els.msg.textContent || '').slice(0, 90) }); return; }
     if (d.budget === 'Under $1.5k') { disqualify(dqFrom); return; }
     els.call.disabled = true;
     els.call.textContent = 'Sending...';
@@ -1202,12 +1219,14 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       body: JSON.stringify(d)
     }).then(function(r){
       if(!r.ok) throw new Error('bad response');
+      qrTrack('submitted');
       els.offer.style.display = 'none';
       els.thanks.classList.add('on');
       // Tell Meta a lead came in, only once the enquiry has actually been accepted.
       try{if(window.fbq)fbq('track','Lead');if(window.gtag)gtag('event','generate_lead');}catch(e){}
       els.thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }).catch(function(){
+      qrTrack('submit_error');
       els.call.disabled = false;
       els.call.textContent = 'Request a callback';
       // A security-check token works once; get a fresh one for the retry.
