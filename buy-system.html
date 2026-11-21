@@ -540,15 +540,9 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       <div class="sv-bar"><span id="svBar"></span></div>
 
       <div class="sv-step" data-step="multi">
-        <div class="sv-q">Do you want more than one campaign, or Google Ads too?</div>
-        <p class="sv-sub">A second offer, service or service area, or Google Ads running alongside Meta from day 1.</p>
-        <div class="yn sv-big" data-q="multi"><button type="button" data-v="no">No, just one</button><button type="button" data-v="yes">Yes</button></div>
-      </div>
-
-      <div class="sv-step" data-step="leads" hidden>
-        <div class="sv-q">How many enquiries a month are you after?</div>
-        <p class="sv-sub" id="leadsHint">We'll tell you the ad spend that takes.</p>
-        <div class="yn sv-big" data-q="leads"><button type="button" data-v="30-60">30+</button><button type="button" data-v="60+">60+</button></div>
+        <div class="sv-q">How many service lines or service areas do you want to run?</div>
+        <p class="sv-sub">A service line is one service you sell (say, solar or batteries), and a service area is one area of 50km or more, run as one area, not split. Google Ads running alongside Meta from day 1 also counts as more than one.</p>
+        <div class="yn sv-big" data-q="multi"><button type="button" data-v="no">One service, one area</button><button type="button" data-v="yes">More than one</button></div>
       </div>
 
       <div class="sv-step" data-step="build" hidden>
@@ -562,7 +556,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           <div class="tier-gst">ex GST, one-off build</div>
           <div class="tier-mo">first 30 days of management included</div>
           <div class="tier-badge">Recommended for you</div>
-          <p class="tier-for"><b>1 Meta campaign</b>: one service, one service area, one offer. Starts on about $50/day in ad spend, and <b>scales to more enquiries</b> by lifting the budget.<br><br>Ongoing management: <b>$900/mo + GST</b>, cancel anytime.</p>
+          <p class="tier-for"><b>1 Meta campaign</b>: one service line in one service area (50km or more, not split), one offer. Starts on about $50/day in ad spend, and <b>scales to more enquiries</b> by lifting the budget.<br><br>Ongoing management: <b>$900/mo + GST</b>, cancel anytime.</p>
         </button>
         <button type="button" class="tier" role="radio" aria-checked="false" data-tier="growth">
           <span class="tsel">&#10003;</span>
@@ -571,7 +565,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
           <div class="tier-gst">ex GST, one-off build</div>
           <div class="tier-mo">first 30 days of management included</div>
           <div class="tier-badge">Recommended for you</div>
-          <p class="tier-for"><b>2 to 4 Meta campaigns, or Meta + Google Ads</b> from day 1: a second offer, service or service area, or Google alongside Meta. 60+ enquiries a month from about $100/day across them, and scales the same way.<br><br>Ongoing management: <b>$1,800/mo + GST</b>, cancel anytime.</p>
+          <p class="tier-for"><b>2 to 4 Meta campaigns, or Meta + Google Ads</b> from day 1: up to 4 service lines, offers or service areas (each 50km or more, not split), or Google alongside Meta. Starts on about $100/day across them, and scales the same way.<br><br>Ongoing management: <b>$1,800/mo + GST</b>, cancel anytime.</p>
         </button>
       </div>
         <div class="spend-note" id="spendNote">
@@ -728,24 +722,16 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
       '<p>That\'s the <b>starting</b> budget: about <b>$50 a day</b>, which is what one campaign needs to start bringing in enquiries. It\'s paid to Meta from your own card, never to us.</p>' +
       '<p>Need more enquiries for the same service and area? You don\'t need a bigger build. During management we lift the daily budget when you\'re ready, and enquiries go up with it. Growth is for running <b>more than one campaign</b>, or Google Ads alongside Meta.</p>',
     growth: '<div class="spend-h">About the $3,000 a month ad spend</div>' +
-      '<p>That\'s the <b>starting</b> budget: about <b>$100 a day</b> across your campaigns, which is what it takes to bring in <b>60+ enquiries a month</b>. It\'s paid to Meta or Google from your own card, never to us.</p>' +
+      '<p>That\'s the <b>starting</b> budget: about <b>$100 a day</b> across your campaigns, which is what it takes to run them all. It\'s paid to Meta or Google from your own card, never to us.</p>' +
       '<p>Want more enquiries again? During management we lift the daily budget on whichever campaign is working best when you\'re ready, and enquiries go up with it.</p>'
   };
 
-  // What each lead range takes in ad spend, in step with the enquiry ranges on
-  // /pricing. Paid to Meta from their own card, never through us.
-  var LEADS_HINT = {
-    '30-60': 'That takes around $50 a day in ad spend (about $1,500 a month), paid to Meta from your own card.',
-    '60+': 'That takes around $100 a day and up in ad spend (about $3,000+ a month), paid to Meta from your own card. Same build: we start at $50 a day and lift it as it works.'
-  };
-
-  // Only a second campaign means Growth. More enquiries from one campaign is a
-  // bigger ad budget on the Standard build, not a bigger build, so the leads
-  // answer only sets the ad spend hint. The campaign answer ticks the build it
+  // Only more than one service line, offer or service area (50km+, unsplit),
+  // or Google alongside Meta, means Growth. More enquiries from one campaign
+  // is a bigger ad budget on the Standard build, not a bigger build. The campaign answer ticks the build it
   // points to, over whatever was ticked before (a ?tier= link or a click); a
   // card clicked after answering stays until the answer changes.
   function judge(){
-    if (answers.leads) $('leadsHint').textContent = LEADS_HINT[answers.leads];
     var rec = answers.multi === 'yes' ? 'growth' : (answers.multi === 'no' ? 'standard' : null);
     document.querySelectorAll('.tier').forEach(function(b){ b.classList.toggle('rec', b.getAttribute('data-tier') === rec); });
     if (rec) setTier(rec);
@@ -830,7 +816,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
   });
 
   // ── Survey: one question at a time ──
-  var STEPS = ['multi','leads','build','trade','details','pay'];
+  var STEPS = ['multi','build','trade','details','pay'];
   var stepI = 0;
   function show(n){
     stepI = Math.max(0, Math.min(STEPS.length - 1, n));
