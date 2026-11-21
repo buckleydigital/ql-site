@@ -1,0 +1,60 @@
+/* Click-through funnel examples (funnel-demo.js). Sits on top of the mockup
+   styles in examples.css (.mk-survey) and funnel-example.css (.fx-survey). */
+.fxd{--d-acc:#4797FF;--d-ink:#16181D;--d-mute:#5B6170;--d-line:#E7E8EC;min-height:300px;display:flex;flex-direction:column}
+.mk-mockup.mk-light .fxd{--d-acc:var(--ml-acc);--d-ink:var(--ml-ink);--d-mute:var(--ml-mute);--d-line:var(--ml-line)}
+.fx-site .fxd{--d-acc:var(--b);--d-ink:var(--ink);--d-mute:var(--mute);--d-line:var(--line)}
+.fxd .fxd-body{flex:1}
+.fxd .fxd-back{background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer}
+.fxd .fxd-back:hover{color:var(--d-ink)}
+.fxd .fxd-back[hidden]{display:none}
+.fxd-kick{font-size:.56rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--d-acc);margin-bottom:4px}
+.fxd .mk-survey-q,.fxd .fx-sv-q{margin-bottom:4px}
+.fxd-help{font-size:.6rem;color:var(--d-mute);margin-bottom:10px;line-height:1.45}
+.fxd-lbl{display:block;margin:0}
+.fxd .mk-survey-opts,.fxd .fx-opts{margin-top:10px}
+.fxd button.mk-opt,.fxd button.fx-opt{font-family:inherit;width:100%;cursor:pointer;text-align:left;transition:border-color .15s,background .15s,transform .15s}
+.fxd button.mk-opt:hover,.fxd button.fx-opt:hover{border-color:var(--d-acc)}
+.fxd button.mk-opt:active,.fxd button.fx-opt:active{transform:scale(.98)}
+.fxd .mk-opt-lbl,.fxd .fx-opt b{white-space:normal}
+.fxd button:focus-visible{outline:2px solid var(--d-acc);outline-offset:2px}
+.fxd button.mk-survey-continue,.fxd button.fx-go{border:none;font-family:inherit;width:100%;cursor:pointer}
+.fxd button.mk-survey-continue[disabled],.fxd button.fx-go[disabled]{opacity:.45;cursor:not-allowed}
+.fxd .fxd-arr{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fxd-pane{animation:fxdIn .28s ease both}
+@keyframes fxdIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.fxd-row{display:flex;gap:8px;align-items:center;margin-top:12px}
+.fxd-row > button:last-child{flex:1}
+.fxd-skip{background:none;border:none;font-family:inherit;font-size:.66rem;color:var(--d-mute);text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:6px}
+.fxd-in{display:block;width:100%;box-sizing:border-box;font-family:inherit;font-size:.68rem;color:var(--d-ink);background:#fff;border:1px solid var(--d-line);border-radius:7px;padding:8px 10px;margin-top:4px}
+.fxd-in:focus{outline:none;border-color:var(--d-acc)}
+.fxd-lock{position:relative;margin-top:10px}
+.fxd-fields{display:grid;grid-template-columns:1fr 1fr;gap:6px;filter:blur(1.5px);opacity:.55;pointer-events:none;user-select:none}
+.fxd-fields .fxd-in{margin:0;background:#FAFAFB;color:var(--d-mute)}
+.fxd-fields .full{grid-column:1/-1}
+.fxd-note{position:absolute;inset:-4px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;padding:10px;border-radius:9px;background:rgba(255,255,255,.84);border:1px dashed var(--d-acc)}
+.fxd-note b{font-size:.72rem;color:var(--d-ink)}
+.fxd-note span{font-size:.6rem;color:var(--d-mute);line-height:1.45;max-width:34ch}
+.fxd-center{text-align:center;margin-top:6px}
+.fxd-end{text-align:center;padding:14px 4px 4px}
+.fxd-end .mk-survey-q,.fxd-end .fx-sv-q{margin-bottom:8px}
+.fxd-end p{font-size:.64rem;color:var(--d-mute);line-height:1.5;margin:0 auto 10px;max-width:34ch}
+.fxd-again{background:none;border:none;font-family:inherit;font-size:.66rem;font-weight:600;color:var(--d-acc);text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:4px}
+@media(max-width:480px){.fxd{min-height:260px}.fxd-help{font-size:.56rem}}
+
+/* Wrapper the script puts round the mockup, so the arrow can sit outside it.
+   The hero clips (not hides) its overflow so taps can't scroll it sideways. */
+.fxd-wrap{position:relative;min-width:0}
+.fxd-wrap .mk-hero,.fxd-wrap .fx-hero{overflow:clip}
+.fxd-hint{position:absolute;z-index:3;pointer-events:none;display:flex;align-items:center;gap:6px;font-weight:600;line-height:1.2;white-space:nowrap;opacity:0;transition:opacity .3s ease}
+.fxd-hint.on{opacity:1}
+.fxd-hint svg{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.fxd-hint .fxd-a-side{width:56px;height:34px;animation:fxdNudgeX 1.6s ease-in-out infinite}
+.fxd-hint .fxd-a-down{width:12px;height:12px;animation:fxdNudgeY 1.6s ease-in-out infinite}
+.fxd-hint.side{right:calc(100% + 14px);flex-direction:column;align-items:flex-end;text-align:right;color:#7CB9FF;font-size:.92rem}
+.fxd-hint.side .fxd-txt small{display:block;font-weight:400;font-size:.78rem;color:rgba(255,255,255,.6);margin-top:2px}
+.fxd-hint.side .fxd-a-down{display:none}
+.fxd-hint.tab{transform:translateX(-50%);background:#4797FF;color:#fff;font-size:.7rem;padding:5px 12px;border-radius:100px;box-shadow:0 6px 16px -4px rgba(71,151,255,.55)}
+.fxd-hint.tab .fxd-a-side,.fxd-hint.tab .fxd-txt small{display:none}
+@keyframes fxdNudgeX{0%,100%{transform:none}50%{transform:translateX(5px)}}
+@keyframes fxdNudgeY{0%,100%{transform:none}50%{transform:translateY(3px)}}
+@media (prefers-reduced-motion:reduce){.fxd-pane{animation:none}.fxd-hint svg{animation:none!important}}

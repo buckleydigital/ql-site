@@ -1,0 +1,28 @@
+/* The tile style for the quote-ready funnel surveys (/quote-ready-solar-leads,
+   /quote-ready-hvac-leads, /quote-ready-bathroom-leads), matching the
+   guarantee pages: options as tiles in a 2x2 grid with a line icon and a tick
+   circle, and a quarter-second slide between questions. Loaded after each
+   page's own styles, and scoped to the survey card (#claim), so nothing else
+   on the page changes. The survey's own script is untouched. */
+#claim .fq-top{font-size:.8rem;letter-spacing:.04em;color:var(--faint)}
+#claim .fq-bar{height:4px;border-radius:100px;margin-bottom:22px}
+#claim .fq-bar div{border-radius:100px;background:linear-gradient(90deg,#2F82F0,#7CB9FF);transition:width .25s ease}
+#claim .fq.on,#claim.dq .fq-dq,#claim.go .fstep2{animation:qtIn .25s ease both}
+@keyframes qtIn{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#claim .fq.on,#claim.dq .fq-dq,#claim.go .fstep2{animation:none}}
+
+/* Two columns on every screen size (the pages' own rule stacks them on phones). */
+#claim .nsel-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#claim .nsel-opt{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;
+  padding:16px 14px 14px;border-radius:16px;background:rgba(5,8,15,.6);border:1px solid var(--bmid);color:var(--white);
+  font-weight:600;font-size:.95rem;line-height:1.3;transition:border-color .2s ease,background .2s ease,transform .2s ease}
+#claim .nsel-opt:hover{border-color:rgba(71,151,255,.6);background:rgba(12,19,34,.85)}
+#claim .nsel-opt:active{transform:scale(.985)}
+#claim .nsel-opt[data-sub]::after{content:attr(data-sub);display:block;font-weight:400;font-size:.78rem;color:var(--faint)}
+#claim .nsel-opt .qi{display:block;margin-bottom:8px;color:#B8D4FF;line-height:0}
+#claim .nsel-opt .qi svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#claim .nsel-opt .qck{position:absolute;top:12px;right:12px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bmid);transition:all .2s ease}
+#claim .nsel-opt[aria-pressed="true"]{border-color:var(--blue);background:linear-gradient(180deg,rgba(71,151,255,.16),rgba(71,151,255,.05));font-weight:600}
+#claim .nsel-opt[aria-pressed="true"] .qi{color:#fff}
+#claim .nsel-opt[aria-pressed="true"] .qck{background:var(--blue);border-color:var(--blue);box-shadow:0 0 0 4px rgba(71,151,255,.2)}
+#claim .nsel-opt[aria-pressed="true"] .qck::after{content:'';position:absolute;left:6px;top:2.5px;width:5px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg)}

@@ -1,0 +1,15 @@
+/* "The market right now" section on the solar and battery hub pages:
+   national figures with their sources. Update the numbers and the source
+   line together when new data is published. */
+.mkt-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:34px 0 30px}
+.mkt-stat{padding:22px 20px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.mkt-stat b{display:block;font-family:var(--display,inherit);font-size:2rem;font-weight:600;letter-spacing:-.03em;line-height:1.05;color:#F2F2F2}
+.mkt-stat b em{font-style:normal;color:#7CB9FF}
+.mkt-stat span{display:block;margin-top:8px;font-size:.84rem;line-height:1.5;color:#9A9AA3}
+.mkt-body p{color:#CACAD0;font-size:1rem;line-height:1.75;max-width:720px}
+.mkt-body p+p{margin-top:14px}
+.mkt-body strong{color:#F2F2F2;font-weight:600}
+.mkt-src{margin-top:22px;font-size:.78rem;line-height:1.6;color:#78787F;max-width:720px}
+.mkt-src a{color:#9A9AA3;text-decoration:underline;text-underline-offset:2px}
+@media(max-width:900px){.mkt-stats{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.mkt-stat b{font-size:1.7rem}}

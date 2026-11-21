@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Transitional pages
+Disallow: /welcome
+Disallow: /welcome.html
+Disallow: /growth-onboarding
+Disallow: /growth-onboarding.html
+Disallow: /ppl-onboarding
+Disallow: /ppl-onboarding.html
+
+Sitemap: https://quoteleads.com.au/sitemap.xml
