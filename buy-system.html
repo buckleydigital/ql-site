@@ -541,7 +541,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
 
       <div class="sv-step" data-step="multi">
         <div class="sv-q">How many service lines or service areas do you want to run?</div>
-        <p class="sv-sub">A service line is one service you sell (say, solar or batteries), and a service area is one area of 50km or more, run as one area, not split. Google Ads running alongside Meta from day 1 also counts as more than one.</p>
+        <p class="sv-sub">A service line is one thing you sell (e.g. solar). A service area is 50km+, not split. Google Ads alongside Meta counts as more than one.</p>
         <div class="yn sv-big" data-q="multi"><button type="button" data-v="no">One service, one area</button><button type="button" data-v="yes">More than one</button></div>
       </div>
 
@@ -801,7 +801,7 @@ footer{border-top:1px solid var(--border);padding:38px 0;text-align:center}
         first_name: f.first, last_name: f.last, name: (f.first + ' ' + f.last).trim(),
         company: f.company, email: f.email, phone: f.phone,
         niche: niche, sub_niche: subNiche, service_location: f.area,
-        monthly_lead_goal: answers.leads || '', multi_campaign: answers.multi || '',
+        monthly_lead_goal: ({ no: 'One service line, one area', yes: 'More than one service line or area' })[answers.multi] || '', multi_campaign: answers.multi || '',
         source: 'buy-system'
       })
     }).then(function(r){ return r.json().then(function(d){ return { ok: r.ok, d: d }; }); })
