@@ -845,6 +845,18 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 #order-form.light .cap-cost{color:#3f3f46}
 #order-form.light #capSlider{background:linear-gradient(to right,var(--blue) var(--fill,5%),rgba(0,0,0,.1) var(--fill,5%))}
 @media(max-width:600px){.wz-progress{padding:20px 20px 0}.wz-next,.wz-back{padding:13px 18px}.cap-num{font-size:2.4rem}}
+
+.cov-toggle-btn{white-space:nowrap}
+#panelCity{margin-bottom:16px}
+.cov-city-lbl{font-size:.82rem;color:var(--muted);margin-bottom:8px}
+.cov-map-card{margin-top:18px}
+.cov-price{margin-top:16px;padding:14px 16px;border-radius:12px;background:var(--bdim);border:1px solid rgba(71,151,255,.25);font-size:.92rem;color:var(--off);line-height:1.5}
+.cov-price strong{color:var(--white);font-size:1.05rem}
+.cov-price.muted{background:var(--glass);border-color:var(--border);color:var(--muted)}
+.cov-price.bad{background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.3);color:#f87171}
+#order-form.light .cov-price{color:#3f3f46}
+#order-form.light .cov-price strong{color:#0f0f1a}
+#order-form.light .cov-city-lbl{color:#52525B}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -936,15 +948,87 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
       <div class="buy-card" id="buyCard">
 
-        <!-- BLOCK 01: CITY -->
-        <div class="buy-block" data-step="city">
+        <!-- BLOCK 02: TRADE/NICHE -->
+        <div class="buy-block" data-step="trade">
           <div class="buy-block-hd">
-            <span class="block-num">01</span>
+            <span class="block-num">02</span>
             <div>
-              <div class="block-title">Where do you service?</div>
-              <div class="block-sub">Pick a city, or go state-wide. Pricing is set per area and trade.</div>
+              <div class="block-title">What leads do you want?</div>
+              <div class="block-sub">Prices start from the amount shown. You'll see your exact price when you pick your suburbs.</div>
             </div>
           </div>
+          <div class="trade-grid">
+
+
+            <button class="trade-card" data-niche="solar-and-battery" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M11 10l-4 4h5l-4 4"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Solar + Battery</div>
+                <div class="trade-price dim" id="price-solar-and-battery">&nbsp;</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
+            <button class="trade-card" data-niche="battery-retrofit" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M7 11v3"/><path d="M11 11v3"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Battery Retrofit</div>
+                <div class="trade-price dim" id="price-battery-retrofit">&nbsp;</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
+
+            <button class="trade-card" data-niche="hvac" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">HVAC - Split &amp; Ducted</div>
+                <div class="trade-price dim" id="price-hvac">&nbsp;</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
+
+          </div>
+        </div>
+
+        <!-- BLOCK 03: LEAD TYPE (conditional) -->
+        <div class="buy-block" data-step="trade" id="blockSubNiche" style="display:none">
+          <div class="buy-block-hd">
+            <span class="block-num">03</span>
+            <div>
+              <div class="block-title">Select lead type</div>
+              <div class="block-sub" id="subNicheBlockSub">Choose a specific focus - or skip for any leads.</div>
+            </div>
+          </div>
+          <div class="sub-niche-grid" id="subNicheGrid"></div>
+          <div style="margin-top:14px;text-align:center">
+            <button class="sub-niche-skip" id="subNicheSkip" onclick="skipSubNiche()">Skip - any <span id="skipNicheName"></span></button>
+          </div>
+        </div>
+
+        <!-- BLOCK 04: COVERAGE AREA -->
+        <div class="buy-block" data-step="coverage">
+          <div class="buy-block-hd">
+            <span class="block-num">04</span>
+            <div>
+              <div class="block-title">Where do you want leads?</div>
+              <div class="block-sub">Add the suburbs you work from (up to five) and how far you'll travel from each. You'll see your price as you add them.</div>
+            </div>
+          </div>
+          <div class="cov-toggle" id="covToggle">
+            <button class="cov-toggle-btn sel" id="togRadius" onclick="setCovMode('radius')">Suburbs</button>
+            <button class="cov-toggle-btn" id="togPostcodes" onclick="setCovMode('postcodes')">Postcode list</button>
+            <button class="cov-toggle-btn" id="togStatewide" onclick="setCovMode('statewide')">Whole state</button>
+          </div>
+          <div class="cov-panel" id="panelCity" style="display:none">
+            <div class="cov-city-lbl" id="cityLbl">Which city are your postcodes near?</div>
           <div class="city-select-wrap">
             <select id="area_city" onchange="onCityChange()">
               <option value="">Select a city or state&hellip;</option>
@@ -998,89 +1082,6 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               </optgroup>
             </select>
           </div>
-        </div>
-
-        <!-- BLOCK 02: TRADE/NICHE -->
-        <div class="buy-block" data-step="trade">
-          <div class="buy-block-hd">
-            <span class="block-num">02</span>
-            <div>
-              <div class="block-title">Select your trade</div>
-              <div class="block-sub">Price per lead shown once city is selected.</div>
-            </div>
-          </div>
-          <div class="trade-grid">
-
-
-            <button class="trade-card" data-niche="solar-and-battery" onclick="selectTrade(this)">
-              <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M11 10l-4 4h5l-4 4"/></svg>
-              </div>
-              <div class="trade-info">
-                <div class="trade-name">Solar + Battery</div>
-                <div class="trade-price dim" id="price-solar-and-battery">Select city first</div>
-              </div>
-              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
-            </button>
-
-            <button class="trade-card" data-niche="battery-retrofit" onclick="selectTrade(this)">
-              <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M7 11v3"/><path d="M11 11v3"/></svg>
-              </div>
-              <div class="trade-info">
-                <div class="trade-name">Battery Retrofit</div>
-                <div class="trade-price dim" id="price-battery-retrofit">Select city first</div>
-              </div>
-              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
-            </button>
-
-
-            <button class="trade-card" data-niche="hvac" onclick="selectTrade(this)">
-              <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
-              </div>
-              <div class="trade-info">
-                <div class="trade-name">HVAC - Split &amp; Ducted</div>
-                <div class="trade-price dim" id="price-hvac">Select city first</div>
-              </div>
-              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
-            </button>
-
-
-          </div>
-        </div>
-
-        <!-- BLOCK 03: LEAD TYPE (conditional) -->
-        <div class="buy-block" data-step="trade" id="blockSubNiche" style="display:none">
-          <div class="buy-block-hd">
-            <span class="block-num">03</span>
-            <div>
-              <div class="block-title">Select lead type</div>
-              <div class="block-sub" id="subNicheBlockSub">Choose a specific focus - or skip for any leads.</div>
-            </div>
-          </div>
-          <div class="sub-niche-grid" id="subNicheGrid"></div>
-          <div style="margin-top:14px;text-align:center">
-            <button class="sub-niche-skip" id="subNicheSkip" onclick="skipSubNiche()">Skip - any <span id="skipNicheName"></span></button>
-          </div>
-        </div>
-
-        <!-- BLOCK 04: COVERAGE AREA -->
-        <div class="buy-block" data-step="coverage">
-          <div class="buy-block-hd">
-            <span class="block-num">04</span>
-            <div>
-              <div class="block-title">Coverage area</div>
-              <div class="block-sub">Define where your leads come from.</div>
-            </div>
-          </div>
-          <div class="cov-map-card">
-            <div class="cov-map" id="covMap"></div>
-            <div class="cov-map-cap" id="covMapCap">Pick a city above to see your coverage.</div>
-          </div>
-          <div class="cov-toggle" id="covToggle">
-            <button class="cov-toggle-btn sel" id="togRadius" onclick="setCovMode('radius')">Radius</button>
-            <button class="cov-toggle-btn" id="togPostcodes" onclick="setCovMode('postcodes')">Postcode List</button>
           </div>
           <div class="cov-panel" id="panelRadius">
             <div id="covRows"></div>
@@ -1101,10 +1102,15 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               </div>
               <div>
                 <div class="cov-statewide-title">State-wide coverage - <span id="statewideName">your state</span></div>
-                <div class="cov-statewide-sub">Your leads will be sourced from anywhere across the state - no radius or postcode list needed. Pick a city above instead if you'd prefer to target a specific area.</div>
+                <div class="cov-statewide-sub">Your leads come from anywhere across the state - no suburbs or postcode list needed.</div>
               </div>
             </div>
           </div>
+          <div class="cov-map-card">
+            <div class="cov-map" id="covMap"></div>
+            <div class="cov-map-cap" id="covMapCap">Pick a city above to see your coverage.</div>
+          </div>
+          <div class="cov-price" id="covPrice"></div>
         </div>
 
         <!-- BLOCK 05: PACK SIZE -->
@@ -1472,6 +1478,25 @@ function renderPackGrid() {
   if (note) note.textContent = cap < (order.statewide ? BL_STATE_MAX : BL_HARD_MAX) ? `Up to ${cap} leads a week per area available for this lead type here.` : '';
 }
 
+function covPriceShow() {
+  const el = document.getElementById('covPrice');
+  if (!el) return;
+  el.className = 'cov-price';
+  if (!order.niche) { el.className = 'cov-price muted'; el.textContent = 'Pick your lead type first.'; return; }
+  if (order.area_city && order.soldOut) { el.className = 'cov-price bad'; el.textContent = 'This lead type is unavailable in this area right now. Try another area.'; return; }
+  if (!order.area_city) {
+    el.className = 'cov-price muted';
+    el.textContent = order.location_type === 'radius' ? 'Add a suburb to see your price.' : (order.statewide ? 'Choose your state to see your price.' : 'Choose the nearest city to see your price.');
+    return;
+  }
+  const shown = document.getElementById('sum-ppl')?.textContent || '';
+  const price = /\d/.test(shown) ? shown : (order.pricePerLead ? `$${order.pricePerLead}` : null);
+  if (!price) { el.className = 'cov-price muted'; el.textContent = 'Getting your price…'; return; }
+  el.innerHTML = /varies/i.test(price)
+    ? `Your price <strong>varies by suburb</strong> (see the order summary), + GST a lead.`
+    : `Your price: <strong>${price} + GST a lead</strong>. You only pay for leads you receive.`;
+}
+
 function setCap(v) {
   const s = document.getElementById('capSlider');
   const cap = Math.max(WEEKLY_MIN, activeMax());
@@ -1507,7 +1532,7 @@ function capCost() {
 // Blocks carry data-step; blocks with the same step show together. Continue
 // checks the step before moving on; the last step is details and payment.
 const WZ = { steps: [], i: 0 };
-const WZ_TITLES = { city: 'Where', trade: 'Trade', coverage: 'Coverage area', weekly: 'Leads a week', details: 'Your details' };
+const WZ_TITLES = { trade: 'Lead type', coverage: 'Where', weekly: 'Leads a week', details: 'Your details' };
 function wzInit() {
   const card = document.getElementById('buyCard');
   if (!card) return;
@@ -1566,19 +1591,20 @@ function wzGo(d) {
 // What stops a step, or '' when it's complete.
 function wzCheck(i) {
   const key = WZ.steps[i] && WZ.steps[i][0].dataset.step;
-  if (key === 'city') {
-    if (!order.area_city) return 'Choose your city to continue.';
-  }
-  if (key === 'city' || key === 'trade') {
-    if (key === 'trade' && !order.niche) return 'Pick a trade to continue.';
-    if (order.niche && order.soldOut) return 'That trade is unavailable here right now. Try another city or trade.';
+  if (key === 'trade') {
+    if (!order.niche) return 'Pick a lead type to continue.';
   }
   if (key === 'coverage') {
-    if (order.location_type === 'radius' && typeof covAreas !== 'undefined') {
+    if (order.location_type === 'radius') {
       const unmatched = covAreas.find(a => a.label && a.lat === null);
       if (unmatched) return 'Pick each suburb from the suggestions, or remove it.';
-    }
-    if (order.location_type === 'postcodes' && !(document.getElementById('postcode_list')?.value || '').trim()) return 'Paste your postcodes to continue.';
+      if (!covValid().length) return 'Add at least one suburb (pick it from the suggestions).';
+    } else if (order.location_type === 'postcodes') {
+      if (!order.area_city) return 'Choose the city your postcodes are near.';
+      if (!(document.getElementById('postcode_list')?.value || '').trim()) return 'Paste your postcodes to continue.';
+    } else if (!order.area_city) return 'Choose your state to continue.';
+    if (order.soldOut) return 'This lead type is unavailable in this area right now. Try another area.';
+    if (!order.pricePerLead) return 'Just a moment, getting your price…';
   }
   if (key === 'weekly') {
     if (!order.quantity || order.quantity < WEEKLY_MIN) return `Choose at least ${WEEKLY_MIN} leads a week.`;
@@ -1635,14 +1661,56 @@ if (new URLSearchParams(location.search).get('cancelled') === 'true') {
 }
 
 // ─── CITY CHANGE ────────────────────────────────────────
+// "From $X" on each lead type before an area is picked: the lowest price
+// anywhere for it (get-ppl-pricing from_price).
+const FROM_PRICES = {};
+async function loadFromPrices() {
+  const trades = ['solar-and-battery','hvac','battery-retrofit'];
+  await Promise.allSettled(trades.map(n =>
+    fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${n}`).then(r => r.ok ? r.json() : null).then(d => {
+      const p = d && (d.from_price ?? d.price_per_lead);
+      if (p) FROM_PRICES[n] = p;
+      if (!order.area_city) setPriceLabel(n, null);
+    }).catch(() => {})
+  ));
+}
+
+// The city a suburb is priced at: the nearest one on the list (the checkout
+// prices each suburb the same way).
+function covNearestCity(lat, lng) {
+  let best = null, bestD = Infinity;
+  for (const [c, [la, ln]] of Object.entries(COV_CITIES)) {
+    const d = (la - lat) ** 2 + ((ln - lng) * Math.cos(lat * Math.PI / 180)) ** 2;
+    if (d < bestD) { best = c; bestD = d; }
+  }
+  return best;
+}
+// Suburbs mode: the price follows the first suburb picked.
+function covAutoCity() {
+  if (covMode !== 'radius') return;
+  const v = covValid();
+  if (!v.length) {
+    if (order.area_city) { order.area_city = null; loadPrices(null); }
+    return;
+  }
+  const city = covNearestCity(v[0].lat, v[0].lng);
+  if (city && city !== order.area_city) { order.area_city = city; order.statewide = false; loadPrices(city); }
+}
+
+// The dropdown, for a postcode list (the nearest city) or a whole state.
 async function onCityChange() {
   const sel  = document.getElementById('area_city');
   const city = sel.value;
   order.area_city = city || null;
   order.statewide = !!city && sel.selectedOptions[0]?.dataset.statewide === '1';
-  applyCoverageMode();
-  covSyncCity();
-  covChanged(true);
+  const nameEl = document.getElementById('statewideName');
+  if (nameEl) nameEl.textContent = order.statewide ? city : 'your state';
+  covRender(true);
+  await loadPrices(city);
+}
+
+async function loadPrices(city) {
+  renderPackGrid();
 
   if (!city) {
     ['solar-and-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, null));
@@ -1694,13 +1762,8 @@ async function onCityChange() {
   order.soldOut = order.soldOutByNiche[order.niche] === true;
 
   if (order.soldOut) {
-    // The trade the user had selected just went sold out for this city -
-    // drop the selection so they can't proceed on a greyed-out card.
-    document.querySelectorAll('.trade-card').forEach(c => c.classList.remove('sel'));
-    document.getElementById('blockSubNiche').style.display = 'none';
-    order.niche = null;
-    order.sub_niche = null;
-    order.soldOut = false;
+    // Their lead type isn't available in this area: the Where step says so
+    // and won't continue.
     order.pricePerLead = null;
   } else if (order.niche && order.prices[order.niche]) {
     if (order.sub_niche) {
@@ -1718,8 +1781,8 @@ function setPriceLabel(niche, val) {
   const card = document.querySelector(`.trade-card[data-niche="${niche}"]`);
   if (!el) return;
   if (val === null) {
-    el.className = 'trade-price dim';
-    el.innerHTML = 'Select city first';
+    el.className = FROM_PRICES[niche] ? 'trade-price' : 'trade-price dim';
+    el.innerHTML = FROM_PRICES[niche] ? `From $${FROM_PRICES[niche]} / lead` : '&nbsp;';
     card?.classList.remove('sold-out');
   } else if (val === 'loading') {
     el.className = 'trade-price dim';
@@ -1742,12 +1805,12 @@ function setPriceLabel(niche, val) {
 
 // ─── TRADE SELECT ────────────────────────────────────────
 function selectTrade(el) {
-  if (order.soldOutByNiche[el.dataset.niche]) return;
+  if (order.area_city && order.soldOutByNiche[el.dataset.niche]) return;
   document.querySelectorAll('.trade-card').forEach(c => c.classList.remove('sel'));
   el.classList.add('sel');
   order.niche = el.dataset.niche;
   order.sub_niche = FIXED_SUB_NICHE[order.niche] || null;
-  order.soldOut = false;
+  order.soldOut = order.soldOutByNiche[order.niche] === true;
 
   document.getElementById('blockSubNiche').style.display = 'none';
 
@@ -1886,19 +1949,36 @@ let covMode = 'radius';
 
 function setCovMode(mode) {
   covMode = mode;
-  if (!order.statewide) order.location_type = mode;
+  order.location_type = mode;
+  order.statewide = mode === 'statewide';
   document.getElementById('togRadius').classList.toggle('sel', mode === 'radius');
   document.getElementById('togPostcodes').classList.toggle('sel', mode === 'postcodes');
+  document.getElementById('togStatewide').classList.toggle('sel', mode === 'statewide');
   document.getElementById('panelRadius').style.display = mode === 'radius' ? '' : 'none';
   document.getElementById('panelPostcodes').style.display = mode === 'postcodes' ? '' : 'none';
-  updateSummary();
-  covRender();
+  document.getElementById('panelStatewide').style.display = mode === 'statewide' ? '' : 'none';
+  // The dropdown: the nearest city for a postcode list, the state for a whole
+  // state. Each shows only the options that make sense.
+  const sel = document.getElementById('area_city');
+  document.getElementById('panelCity').style.display = mode === 'radius' ? 'none' : '';
+  document.getElementById('cityLbl').textContent = mode === 'statewide' ? 'Which state?' : 'Which city are your postcodes near?';
+  [...sel.options].forEach(o => {
+    if (!o.value) return;
+    o.hidden = o.disabled = mode === 'statewide' ? o.dataset.statewide !== '1' : o.dataset.statewide === '1';
+  });
+  sel.querySelectorAll('optgroup').forEach(g => { g.hidden = ![...g.children].some(o => !o.hidden); });
+  if (mode === 'radius') { order.area_city = null; covAutoCity(); covRender(true); updateSummary(); renderPackGrid(); return; }
+  if (sel.selectedOptions[0]?.disabled) sel.value = '';
+  onCityChange();
 }
 
 // Locks coverage to "state-wide" when a whole state is selected,
 // and unlocks the Radius / Postcode controls for a specific city
 // (or when nothing is selected yet).
 function applyCoverageMode() {
+  return renderPackGrid();
+}
+function applyCoverageModeOld() {
   const toggle      = document.getElementById('covToggle');
   const panelRadius = document.getElementById('panelRadius');
   const panelPost   = document.getElementById('panelPostcodes');
@@ -2104,7 +2184,10 @@ function covRemove(id){
 
 // When the city changes, the auto city-centre row follows it. Suburbs the
 // buyer typed are left alone.
-function covSyncCity(force){
+function covSyncCity(){
+  if (!covAreas.length) covAddRow({});
+}
+function covSyncCityOld(force){
   const centre = order.area_city && !order.statewide && COV_CITIES[order.area_city];
   const first = covAreas[0];
   const label = order.area_city + ' (city centre)';
@@ -2136,6 +2219,7 @@ function covChanged(refit){
   });
   const add = document.getElementById('covAdd');
   if (add) add.disabled = covAreas.length >= COV_MAX;
+  covAutoCity();
   updateSummary();
   covRender(refit);
 }
@@ -2167,7 +2251,8 @@ function covRender(refit = true){
   const v = covValid();
 
   if (cap) {
-    if (!city) cap.textContent = 'Pick a city above to see your coverage.';
+    if (!city && order.location_type === 'radius') cap.textContent = 'Type a suburb below to see your coverage.';
+    else if (!city) cap.textContent = order.statewide ? 'Choose your state above.' : 'Choose the nearest city above.';
     else if (order.statewide) cap.innerHTML = `Leads from anywhere in <strong>${covEsc(city)}</strong>.`;
     else if (order.location_type === 'postcodes') cap.innerHTML = `Leads from the postcodes you list below, around <strong>${covEsc(city)}</strong>.`;
     else if (v.length > 1) cap.innerHTML = `<strong>${v.length} suburbs</strong>, each its own order with its own leads, priced at its nearest city.`;
@@ -2207,8 +2292,8 @@ function covRender(refit = true){
 
 covInitMap();
 covSyncCity();
-if (!covAreas.length) covAddRow({});
 covRender();
+loadFromPrices();
 
 // ─── PACK SELECT ─────────────────────────────────────────
 function selectPack(el) {
@@ -2228,6 +2313,7 @@ const nicheLabels = { 'solar-and-battery': 'Solar + Battery', hvac: 'HVAC', 'bat
 
 function updateSummary() {
   capCost();
+  covPriceShow();
   const tradeEl  = document.getElementById('sum-trade');
   const cityEl   = document.getElementById('sum-city');
   const packEl   = document.getElementById('sum-pack');
@@ -2261,7 +2347,7 @@ function updateSummary() {
   }
 
   const cityLblEl = document.getElementById('sum-city-lbl');
-  if (cityLblEl) cityLblEl.textContent = order.statewide ? 'State' : 'City';
+  if (cityLblEl) cityLblEl.textContent = order.statewide ? 'State' : 'Priced at';
   if (order.area_city) {
     cityEl.className = 'sum-val'; cityEl.textContent = order.area_city;
   } else {
@@ -2346,6 +2432,7 @@ async function sumQuote() {
     const money = v => '$' + Math.round(v).toLocaleString();
     const prices = [...new Set(q.areas.map(a => a.price_per_lead))];
     document.getElementById('sum-ppl').textContent = prices.length === 1 ? `$${prices[0]}` : 'Varies by suburb';
+    covPriceShow();
     document.getElementById('sum-pack').textContent = q.areas.length > 1
       ? `Up to ${q.areas[0].quantity} a week per suburb` : `Up to ${q.areas[0].quantity} a week`;
     const totalEl = document.getElementById('sum-total');
