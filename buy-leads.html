@@ -848,6 +848,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 
 .cov-toggle-btn{white-space:nowrap}
 .app-layout>*{min-width:0}
+.wz-nav-end{margin-top:20px}
 @media(max-width:420px){.cov-toggle-btn{padding:11px 6px;font-size:.8rem;white-space:normal;line-height:1.2}.buy-block{padding:20px 16px}.wz-progress{padding:18px 16px 0}.wz-nav{gap:10px}}
 #panelCity{margin-bottom:16px}
 .cov-city-lbl{font-size:.82rem;color:var(--muted);margin-bottom:8px}
@@ -1128,8 +1129,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
             <span class="cap-num" id="capNum">10</span>
             <span class="cap-unit">leads a week<span id="capPerArea"> per area</span></span>
           </div>
-          <input type="range" id="capSlider" min="5" max="100" step="1" value="10" oninput="onCapSlider(this)" aria-label="Most leads a week per area">
-          <div class="cap-scale"><span>5</span><span id="capMaxLbl">100</span></div>
+          <input type="range" id="capSlider" min="5" max="50" step="1" value="10" oninput="onCapSlider(this)" aria-label="Most leads a week per area">
+          <div class="cap-scale"><span>5</span><span id="capMaxLbl">50</span></div>
           <div class="cap-cost" id="capCost">You only pay for the leads you receive.</div>
           <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
@@ -1434,8 +1435,8 @@ const order = {
 
 // Leads per area per order: up to 100 for a radius or postcode list, 300
 // for a whole state. The checkout enforces the same caps (ppl-areas.ts).
-const BL_HARD_MAX = 100;
-const BL_STATE_MAX = 300;
+const BL_HARD_MAX = 50;
+const BL_STATE_MAX = 50;
 let sumQuoteTimer = null, sumQuoteSeq = 0;
 
 // Effective per-order cap for the current selection (sub-niche cap wins, then
@@ -1554,7 +1555,7 @@ function wzInit() {
       (isLast ? '' : '<button type="button" class="wz-next" onclick="wzGo(1)">Continue &rarr;</button>');
     const err = document.createElement('div');
     err.className = 'wz-err';
-    if (isLast) { last.insertBefore(nav, last.firstChild); } else { last.appendChild(nav); last.appendChild(err); }
+    if (isLast) { nav.classList.add('wz-nav-end'); last.appendChild(nav); } else { last.appendChild(nav); last.appendChild(err); }
   });
   wzShow(0, false);
 }
