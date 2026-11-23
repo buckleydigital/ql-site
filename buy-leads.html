@@ -808,6 +808,43 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
   border:1px solid var(--border);font-family:var(--body);font-size:.88rem;font-weight:400;
   padding:14px 28px;border-radius:100px;text-decoration:none;transition:all .25s;cursor:none}
 .btn-ghost:hover{border-color:var(--faint);color:var(--white)}
+
+/* ── Step-by-step order form + weekly limit slider ───────────────────── */
+#buyCard{scroll-margin-top:96px}
+.wz-progress{padding:24px 36px 0}
+.wz-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px}
+.wz-meta #wzLabel{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.wz-meta #wzTitle{font-size:.8rem;color:var(--muted)}
+.wz-bar{height:4px;border-radius:4px;background:var(--glass2);overflow:hidden}
+#wzFill{height:100%;width:0;background:var(--blue);border-radius:4px;transition:width .35s ease}
+#buyCard .block-num{display:none}
+.wz-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:28px}
+.wz-next,.wz-back{font:inherit;font-size:.92rem;font-weight:600;border-radius:10px;padding:13px 24px;cursor:pointer;transition:background .15s,color .15s,border-color .15s,filter .15s}
+.wz-next{background:var(--blue);color:#fff;border:none;margin-left:auto}
+.wz-next:hover{filter:brightness(1.08)}
+.wz-back{background:transparent;color:var(--muted);border:1px solid var(--border)}
+.wz-back:hover{color:var(--white);border-color:var(--bmid)}
+.wz-err{font-size:.82rem;color:#f87171;margin-top:10px;min-height:1.2em}
+.cap-readout{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+.cap-num{font-family:var(--display);font-size:2.8rem;font-weight:700;color:var(--white);line-height:1;letter-spacing:-.02em}
+.cap-unit{color:var(--muted);font-size:.95rem}
+#capSlider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;margin:6px 0;cursor:pointer;outline:none;
+  background:linear-gradient(to right,var(--blue) var(--fill,5%),var(--glass2) var(--fill,5%))}
+#capSlider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 2px 12px rgba(71,151,255,.45);cursor:grab}
+#capSlider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 2px 12px rgba(71,151,255,.45);cursor:grab}
+#capSlider:active::-webkit-slider-thumb{cursor:grabbing}
+#capSlider:focus-visible{box-shadow:0 0 0 3px rgba(71,151,255,.35)}
+.cap-scale{display:flex;justify-content:space-between;font-size:.75rem;color:var(--faint);margin-top:8px}
+.cap-cost{margin-top:16px;font-size:.9rem;color:var(--off);line-height:1.55}
+.cap-cost strong{color:var(--white)}
+#order-form.light .wz-bar{background:rgba(0,0,0,.08)}
+#order-form.light .wz-meta #wzTitle,#order-form.light .cap-unit{color:#52525B}
+#order-form.light .wz-back{color:#52525B;border-color:rgba(0,0,0,.14)}
+#order-form.light .wz-back:hover{color:#0f0f1a;border-color:rgba(0,0,0,.3)}
+#order-form.light .cap-num,#order-form.light .cap-cost strong{color:#0f0f1a}
+#order-form.light .cap-cost{color:#3f3f46}
+#order-form.light #capSlider{background:linear-gradient(to right,var(--blue) var(--fill,5%),rgba(0,0,0,.1) var(--fill,5%))}
+@media(max-width:600px){.wz-progress{padding:20px 20px 0}.wz-next,.wz-back{padding:13px 18px}.cap-num{font-size:2.4rem}}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -900,7 +937,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <div class="buy-card" id="buyCard">
 
         <!-- BLOCK 01: CITY -->
-        <div class="buy-block">
+        <div class="buy-block" data-step="city">
           <div class="buy-block-hd">
             <span class="block-num">01</span>
             <div>
@@ -964,7 +1001,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </div>
 
         <!-- BLOCK 02: TRADE/NICHE -->
-        <div class="buy-block">
+        <div class="buy-block" data-step="trade">
           <div class="buy-block-hd">
             <span class="block-num">02</span>
             <div>
@@ -1014,7 +1051,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </div>
 
         <!-- BLOCK 03: LEAD TYPE (conditional) -->
-        <div class="buy-block" id="blockSubNiche" style="display:none">
+        <div class="buy-block" data-step="trade" id="blockSubNiche" style="display:none">
           <div class="buy-block-hd">
             <span class="block-num">03</span>
             <div>
@@ -1029,7 +1066,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </div>
 
         <!-- BLOCK 04: COVERAGE AREA -->
-        <div class="buy-block">
+        <div class="buy-block" data-step="coverage">
           <div class="buy-block-hd">
             <span class="block-num">04</span>
             <div>
@@ -1071,7 +1108,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </div>
 
         <!-- BLOCK 05: PACK SIZE -->
-        <div class="buy-block">
+        <div class="buy-block" data-step="weekly">
           <div class="buy-block-hd">
             <span class="block-num">05</span>
             <div>
@@ -1079,18 +1116,19 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
               <div class="block-sub">Pay as you go. You pay for your first lead today and your card is saved; each lead after that is charged as it arrives, up to this many a week in each area. Pause or change it any time.</div>
             </div>
           </div>
-          <div class="pack-grid" id="pack-grid"></div>
-          <div class="pack-cap-note" id="pack-cap-note"></div>
-          <div class="custom-qty-lbl">Or enter your own weekly limit</div>
-          <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="5" max="300" step="1" placeholder="e.g. 8" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">leads a week per area (min. 5). Up to 100 a week per area, or 300 state wide</span>
+          <div class="cap-readout">
+            <span class="cap-num" id="capNum">10</span>
+            <span class="cap-unit">leads a week<span id="capPerArea"> per area</span></span>
           </div>
+          <input type="range" id="capSlider" min="5" max="100" step="1" value="10" oninput="onCapSlider(this)" aria-label="Most leads a week per area">
+          <div class="cap-scale"><span>5</span><span id="capMaxLbl">100</span></div>
+          <div class="cap-cost" id="capCost">You only pay for the leads you receive.</div>
+          <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
 
         <!-- BLOCK 06: DETAILS -->
-        <div class="buy-block">
+        <div class="buy-block" data-step="details">
           <div class="buy-block-hd">
             <span class="block-num">06</span>
             <div>
@@ -1125,7 +1163,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
         </div>
 
         <!-- BLOCK 07: CONSENT + SUBMIT -->
-        <div class="buy-block">
+        <div class="buy-block" data-step="details">
           <div class="consent-ack" id="consentAck">
             <input type="checkbox" id="consentBizCheck">
             <label for="consentBizCheck">
@@ -1425,38 +1463,132 @@ const FALLBACK_TIERS = [
 ];
 let currentTiers = [...FALLBACK_TIERS];
 
-function renderPackGrid(tiers) {
-  const grid = document.getElementById('pack-grid');
-  if (!grid || !tiers?.length) return;
-  // Smallest pack first, whatever order the API sends them in.
-  tiers = [...tiers].sort((a, b) => a.min_quantity - b.min_quantity);
-  currentTiers = tiers;
-  const prevQty = order.quantity;
+function renderPackGrid() {
+  // The weekly limit is a slider now (5 up to the area's maximum).
+  const s = document.getElementById('capSlider');
+  setCap(order.quantity || (s ? parseInt(s.value, 10) : 10));
   const cap = activeMax();
-  grid.innerHTML = tiers.map(t =>
-    `<button class="pack-btn${t.min_quantity > cap ? ' cap-off' : ''}" ${t.min_quantity > cap ? 'disabled title="Not available in this area right now"' : ''} data-qty="${t.min_quantity}" data-discount="${t.discount_percent}" onclick="selectPack(this)">` +
-    (t.is_popular ? '<div class="pack-popular">POPULAR</div>' : '') +
-    `<div class="pack-qty">${t.min_quantity}</div>` +
-    `<div class="pack-unit">leads a week</div>` +
-    `<div class="pack-saving none">per area</div>` +
-    `</button>`
-  ).join('');
-  grid.querySelectorAll('.pack-btn').forEach(b => {
-    b.addEventListener('mouseenter', () => document.body.classList.add('hov'));
-    b.addEventListener('mouseleave', () => document.body.classList.remove('hov'));
-  });
-  const selectable = tiers.filter(t => t.min_quantity <= cap);
-  const autoTier = selectable.find(t => t.min_quantity === prevQty)
-    || selectable.find(t => t.is_popular)
-    || selectable[selectable.length - 1]
-    || tiers[0];
-  const btn = autoTier && grid.querySelector(`[data-qty="${autoTier.min_quantity}"]`);
-  if (btn && !btn.classList.contains('cap-off')) selectPack(btn);
   const note = document.getElementById('pack-cap-note');
   if (note) note.textContent = cap < (order.statewide ? BL_STATE_MAX : BL_HARD_MAX) ? `Up to ${cap} leads a week per area available for this lead type here.` : '';
 }
 
-renderPackGrid(FALLBACK_TIERS);
+function setCap(v) {
+  const s = document.getElementById('capSlider');
+  const cap = Math.max(WEEKLY_MIN, activeMax());
+  v = Math.max(WEEKLY_MIN, Math.min(cap, Math.round(Number(v) || 10)));
+  if (s) {
+    s.max = cap; s.value = v;
+    s.style.setProperty('--fill', ((v - WEEKLY_MIN) / Math.max(1, cap - WEEKLY_MIN) * 100) + '%');
+  }
+  const num = document.getElementById('capNum'); if (num) num.textContent = v;
+  const mx = document.getElementById('capMaxLbl'); if (mx) mx.textContent = cap;
+  order.quantity = v;
+  order.discount = 0;
+  updateSummary();
+}
+function onCapSlider(el) { setCap(parseInt(el.value, 10)); }
+
+// "At most $X a week": the weekly limit at the current price, across areas.
+function capCost() {
+  const el = document.getElementById('capCost');
+  if (!el) return;
+  const areas = (order.location_type === 'radius' && !order.statewide && typeof covValid === 'function') ? Math.max(1, covValid().length) : 1;
+  const per = document.getElementById('capPerArea');
+  if (per) per.textContent = areas > 1 ? ' per suburb' : (order.statewide ? '' : ' per area');
+  if (order.pricePerLead && order.quantity) {
+    const max = Math.round(order.pricePerLead * order.quantity * areas);
+    el.innerHTML = `At most <strong>$${max.toLocaleString()} + GST a week</strong>${areas > 1 ? ` across ${areas} suburbs` : ''}. You only pay for the leads you receive, and can pause any time.`;
+  } else {
+    el.textContent = 'You only pay for the leads you receive, and can pause any time.';
+  }
+}
+
+// ─── STEP-BY-STEP FORM ───────────────────────────────────
+// Blocks carry data-step; blocks with the same step show together. Continue
+// checks the step before moving on; the last step is details and payment.
+const WZ = { steps: [], i: 0 };
+const WZ_TITLES = { city: 'Where', trade: 'Trade', coverage: 'Coverage area', weekly: 'Leads a week', details: 'Your details' };
+function wzInit() {
+  const card = document.getElementById('buyCard');
+  if (!card) return;
+  const blocks = [...card.querySelectorAll('.buy-block[data-step]')];
+  const keys = [...new Set(blocks.map(b => b.dataset.step))];
+  WZ.steps = keys.map(k => blocks.filter(b => b.dataset.step === k));
+  const prog = document.createElement('div');
+  prog.className = 'wz-progress';
+  prog.innerHTML = '<div class="wz-meta"><span id="wzLabel"></span><span id="wzTitle"></span></div><div class="wz-bar"><div id="wzFill"></div></div>';
+  card.insertBefore(prog, card.firstChild);
+  WZ.steps.forEach((grp, i) => {
+    const last = wzLast(i);
+    const isLast = i === WZ.steps.length - 1;
+    const nav = document.createElement('div');
+    nav.className = 'wz-nav';
+    nav.innerHTML = (i > 0 ? '<button type="button" class="wz-back" onclick="wzGo(-1)">&larr; Back</button>' : '<span></span>') +
+      (isLast ? '' : '<button type="button" class="wz-next" onclick="wzGo(1)">Continue &rarr;</button>');
+    const err = document.createElement('div');
+    err.className = 'wz-err';
+    if (isLast) { last.insertBefore(nav, last.firstChild); } else { last.appendChild(nav); last.appendChild(err); }
+  });
+  wzShow(0, false);
+}
+// The step's last block that can show (the sub-niche block only shows for
+// some trades, so the buttons never go in it).
+function wzLast(i) {
+  const grp = WZ.steps[i].filter(b => b.id !== 'blockSubNiche');
+  return grp[grp.length - 1];
+}
+function wzShow(i, scroll = true) {
+  WZ.i = i;
+  WZ.steps.forEach((grp, j) => grp.forEach(b => {
+    if (b.id === 'blockSubNiche') { if (j !== i) b.style.display = 'none'; return; }
+    b.style.display = j === i ? '' : 'none';
+  }));
+  const n = WZ.steps.length;
+  const key = WZ.steps[i][0].dataset.step;
+  document.getElementById('wzLabel').textContent = `Step ${i + 1} of ${n}`;
+  document.getElementById('wzTitle').textContent = WZ_TITLES[key] || '';
+  document.getElementById('wzFill').style.width = ((i + 1) / n * 100) + '%';
+  document.querySelectorAll('.wz-err').forEach(e => e.textContent = '');
+  if (key === 'weekly') renderPackGrid();
+  if (scroll) document.getElementById('buyCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function wzGo(d) {
+  if (d > 0) {
+    const msg = wzCheck(WZ.i);
+    if (msg) {
+      const errs = wzLast(WZ.i).querySelectorAll('.wz-err');
+      if (errs.length) errs[errs.length - 1].textContent = msg;
+      return;
+    }
+  }
+  wzShow(Math.max(0, Math.min(WZ.steps.length - 1, WZ.i + d)));
+}
+// What stops a step, or '' when it's complete.
+function wzCheck(i) {
+  const key = WZ.steps[i] && WZ.steps[i][0].dataset.step;
+  if (key === 'city') {
+    if (!order.area_city) return 'Choose your city to continue.';
+  }
+  if (key === 'city' || key === 'trade') {
+    if (key === 'trade' && !order.niche) return 'Pick a trade to continue.';
+    if (order.niche && order.soldOut) return 'That trade is unavailable here right now. Try another city or trade.';
+  }
+  if (key === 'coverage') {
+    if (order.location_type === 'radius' && typeof covAreas !== 'undefined') {
+      const unmatched = covAreas.find(a => a.label && a.lat === null);
+      if (unmatched) return 'Pick each suburb from the suggestions, or remove it.';
+    }
+    if (order.location_type === 'postcodes' && !(document.getElementById('postcode_list')?.value || '').trim()) return 'Paste your postcodes to continue.';
+  }
+  if (key === 'weekly') {
+    if (!order.quantity || order.quantity < WEEKLY_MIN) return `Choose at least ${WEEKLY_MIN} leads a week.`;
+    if (order.quantity > activeMax()) return `Up to ${activeMax()} leads a week per area here.`;
+  }
+  return '';
+}
+
+renderPackGrid();
+wzInit();
 
 // Load tiers on page load - not city-dependent
 (async function loadTiersEarly(){
@@ -2095,6 +2227,7 @@ function selectPack(el) {
 const nicheLabels = { 'solar-and-battery': 'Solar + Battery', hvac: 'HVAC', 'battery-retrofit': 'Battery Retrofit' };
 
 function updateSummary() {
+  capCost();
   const tradeEl  = document.getElementById('sum-trade');
   const cityEl   = document.getElementById('sum-city');
   const packEl   = document.getElementById('sum-pack');
@@ -2260,6 +2393,9 @@ fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?status=1`)
 
 async function submitOrder() {
   if (PPL_PAUSED) return;
+  for (let s = 0; s < WZ.steps.length - 1; s++) {
+    if (wzCheck(s)) { wzShow(s); wzGo(1); return; }
+  }
   if (!order.area_city) {
     document.getElementById('area_city').focus();
     return;
@@ -2269,14 +2405,14 @@ async function submitOrder() {
     return;
   }
   if (!order.quantity) {
-    document.querySelector('.pack-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('capSlider').scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
   const capNow = activeMax();
   if (order.quantity > capNow) {
     const hint = document.getElementById('custom-qty-hint');
     if (hint) hint.textContent = `Up to ${capNow} leads per area`;
-    document.querySelector('.pack-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('capSlider').scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
 
@@ -2390,9 +2526,7 @@ async function submitOrder() {
 function resetToForm() {
   document.getElementById('stateError').style.display = 'none';
   document.getElementById('stateError').classList.remove('active');
-  document.querySelectorAll('.buy-block').forEach(b => b.style.display = '');
-  const subBlock = document.getElementById('blockSubNiche');
-  if (subBlock) subBlock.style.display = 'none';
+  wzShow(WZ.i, false);
 }
 
 // ─── PARTICLES ───────────────────────────────────────────
