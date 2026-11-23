@@ -847,6 +847,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 @media(max-width:600px){.wz-progress{padding:20px 20px 0}.wz-next,.wz-back{padding:13px 18px}.cap-num{font-size:2.4rem}}
 
 .cov-toggle-btn{white-space:nowrap}
+.app-layout>*{min-width:0}
+@media(max-width:420px){.cov-toggle-btn{padding:11px 6px;font-size:.8rem;white-space:normal;line-height:1.2}.buy-block{padding:20px 16px}.wz-progress{padding:18px 16px 0}.wz-nav{gap:10px}}
 #panelCity{margin-bottom:16px}
 .cov-city-lbl{font-size:.82rem;color:var(--muted);margin-bottom:8px}
 .cov-map-card{margin-top:18px}
@@ -1674,6 +1676,7 @@ async function loadFromPrices() {
     }).catch(() => {})
   ));
 }
+loadFromPrices();
 
 // The city a suburb is priced at: the nearest one on the list (the checkout
 // prices each suburb the same way).
@@ -2290,10 +2293,8 @@ function covRender(refit = true){
   else covMap.fitBounds(COV_AU);
 }
 
-covInitMap();
-covSyncCity();
-covRender();
-loadFromPrices();
+try { covInitMap(); } catch (e) { console.error('map init', e); }
+try { covSyncCity(); covRender(); } catch (e) { console.error('coverage init', e); }
 
 // ─── PACK SELECT ─────────────────────────────────────────
 function selectPack(el) {
