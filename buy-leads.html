@@ -1083,8 +1083,8 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
           <div class="pack-cap-note" id="pack-cap-note"></div>
           <div class="custom-qty-lbl">Or enter a custom quantity</div>
           <div class="custom-qty-wrap">
-            <input type="number" id="custom_qty" min="25" max="300" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
-            <span class="custom-qty-unit">leads per area (min. 25). Up to 100 per area, or 300 state wide</span>
+            <input type="number" id="custom_qty" min="10" max="300" step="1" placeholder="e.g. 40" oninput="onCustomQty(this)">
+            <span class="custom-qty-unit">leads per area (min. 10). Up to 100 per area, or 300 state wide</span>
           </div>
           <div class="custom-qty-hint" id="custom-qty-hint"></div>
         </div>
@@ -1334,7 +1334,7 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
       <span>Pay per qualified lead</span>
       <span>Exclusive opportunities</span>
       <span>Disconnected numbers replaced</span>
-      <span>Start from 25 leads</span>
+      <span>Start from 10 leads</span>
       <span>No ongoing contract</span>
       <span>Australian owned and operated</span>
     </div>
@@ -1473,8 +1473,8 @@ function getTierForQty(qty) {
 function onCustomQty(input) {
   const hint = document.getElementById('custom-qty-hint');
   let raw = parseInt(input.value, 10);
-  if (!raw || raw < 25) {
-    if (hint) hint.textContent = raw && raw < 25 ? 'Minimum 25 leads per area' : '';
+  if (!raw || raw < 10) {
+    if (hint) hint.textContent = raw && raw < 10 ? 'Minimum 10 leads per area' : '';
     order.quantity = null;
     order.discount = 0;
     updateSummary();
