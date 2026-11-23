@@ -849,6 +849,25 @@ footer{padding:56px 5%;border-top:1px solid var(--border);background:var(--deep)
 .cov-toggle-btn{white-space:nowrap}
 .app-layout>*{min-width:0}
 .wz-nav-end{margin-top:20px}
+/* Stripe's embedded checkout, in a popup over the order page */
+.pay-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:24px 16px;background:rgba(4,4,12,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:auto}
+.pay-modal *{cursor:auto}
+.pay-modal button,.pay-modal a{cursor:pointer}
+.pay-modal.open{display:flex}
+body.pay-open{overflow:hidden;cursor:auto}
+body.pay-open #cur,body.pay-open #curR{display:none}
+.pay-box{background:#fff;color:#18181B;width:100%;max-width:560px;max-height:100%;border-radius:22px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.pay-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 24px;border-bottom:1px solid #ECECEF}
+.pay-hd h3{margin:0;font-family:var(--display);font-size:1.3rem;letter-spacing:-.02em;color:#18181B}
+.pay-close{background:#fff;border:1px solid #E4E4E7;border-radius:100px;padding:8px 18px;font:500 .9rem var(--body);color:#18181B}
+.pay-close:hover{background:#F4F4F5}
+.pay-body{overflow-y:auto;padding:20px 24px 24px;-webkit-overflow-scrolling:touch}
+.pay-note{margin:0 0 16px;padding:14px 16px;border-radius:14px;background:#F4F7FF;color:#3F3F46;font-size:.9rem;line-height:1.55}
+.pay-note b{color:#18181B}
+.pay-loading{display:flex;align-items:center;justify-content:center;gap:10px;padding:40px 0;color:#71717A;font-size:.9rem}
+.pay-loading .spin{width:20px;height:20px;border-width:2px;margin:0}
+.pay-safe{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;color:#71717A;font-size:.8rem}
+@media(max-width:600px){.pay-modal{padding:0;align-items:flex-end}.pay-box{max-width:none;border-radius:20px 20px 0 0;max-height:94vh}.pay-hd{padding:16px 18px}.pay-body{padding:16px 18px 22px}}
 @media(max-width:420px){.cov-toggle-btn{padding:11px 6px;font-size:.8rem;white-space:normal;line-height:1.2}.buy-block{padding:20px 16px}.wz-progress{padding:18px 16px 0}.wz-nav{gap:10px}}
 #panelCity{margin-bottom:16px}
 .cov-city-lbl{font-size:.82rem;color:var(--muted);margin-bottom:8px}
@@ -1578,6 +1597,7 @@ function wzShow(i, scroll = true) {
   document.getElementById('wzFill').style.width = ((i + 1) / n * 100) + '%';
   document.querySelectorAll('.wz-err').forEach(e => e.textContent = '');
   if (key === 'weekly') renderPackGrid();
+  if (i === n - 1) loadStripeJs().catch(() => {});
   if (scroll) document.getElementById('buyCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 function wzGo(d) {
@@ -2480,6 +2500,48 @@ fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?status=1`)
   })
   .catch(() => {}); // the checkout still refuses while paused
 
+// ─── PAYMENT POPUP ──────────────────────────────────────
+// Stripe's embedded checkout: the same checkout session as before, shown in
+// a popup on this page instead of a redirect to stripe.com. Once paid,
+// Stripe sends the buyer to the welcome page.
+const STRIPE_PK = 'pk_live_51R8lfGGDfpSvNOmBPSXrD7uHeR9Xu5VE26lKzkpBb2PImwmdrj1ckqujXM6chUqPLFzwYp4HVJmRAj0qPTfiS9wW00jqLkG1S4';
+let _stripeJs = null, _payCheckout = null;
+function loadStripeJs() {
+  if (window.Stripe) return Promise.resolve();
+  if (!_stripeJs) _stripeJs = new Promise((res, rej) => {
+    const sc = document.createElement('script');
+    sc.src = 'https://js.stripe.com/v3/';
+    sc.onload = res;
+    sc.onerror = () => { _stripeJs = null; sc.parentNode && sc.parentNode.removeChild(sc); rej(new Error('stripe.js')); };
+    document.head.appendChild(sc);
+  });
+  return _stripeJs;
+}
+function payNoteHtml() {
+  const trade = nicheLabels[order.niche] || 'lead';
+  const price = order.pricePerLead ? `$${order.pricePerLead}` : 'your area price';
+  return `You pay for <b>your first ${trade} lead now</b> (${price} + GST) and your card is saved. ` +
+    `After that each lead is charged to this card as we send it to you, <b>up to ${order.quantity} a week</b> per area. ` +
+    `Pause or change your limit any time.`;
+}
+async function openPayModal(clientSecret) {
+  document.getElementById('payNote').innerHTML = payNoteHtml();
+  document.getElementById('payLoading').style.display = 'flex';
+  document.getElementById('payModal').classList.add('open');
+  document.body.classList.add('pay-open');
+  const stripe = Stripe(STRIPE_PK);
+  _payCheckout = await stripe.initEmbeddedCheckout({ fetchClientSecret: async () => clientSecret });
+  _payCheckout.mount('#payMount');
+  document.getElementById('payLoading').style.display = 'none';
+}
+function closePayModal() {
+  if (_payCheckout) { try { _payCheckout.destroy(); } catch (e) {} _payCheckout = null; }
+  document.getElementById('payMount').innerHTML = '';
+  document.getElementById('payModal').classList.remove('open');
+  document.body.classList.remove('pay-open');
+  wzShow(WZ.steps.length - 1, false);
+}
+
 async function submitOrder() {
   if (PPL_PAUSED) return;
   for (let s = 0; s < WZ.steps.length - 1; s++) {
@@ -2590,6 +2652,9 @@ async function submitOrder() {
   }
   // location_type === 'statewide': no radius or postcode list - the whole state is covered
 
+  // The popup needs Stripe.js; if it won't load, fall back to Stripe's page.
+  try { await loadStripeJs(); payload.embedded = true; } catch (e) {}
+
   try {
     const res  = await fetch(`${SUPABASE_URL}/functions/v1/create-ppl-signup-checkout`, {
       method: 'POST',
@@ -2598,12 +2663,18 @@ async function submitOrder() {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || data.message || 'Server error');
-    if (data.url) {
+    if (payload.embedded && data.client_secret) {
+      document.getElementById('stateLoading').style.display = 'none';
+      document.getElementById('stateLoading').classList.remove('active');
+      await openPayModal(data.client_secret);
+    } else if (data.url) {
       window.location.href = data.url;
     } else {
       throw new Error('No checkout URL returned.');
     }
   } catch (err) {
+    if (document.getElementById('payModal').classList.contains('open')) closePayModal();
+    document.querySelectorAll('.buy-block').forEach(b => b.style.display = 'none');
     document.getElementById('stateLoading').style.display = 'none';
     document.getElementById('stateLoading').classList.remove('active');
     document.getElementById('errorMsg').textContent = err.message || "We couldn't create your checkout session. Please try again.";
@@ -2819,5 +2890,19 @@ function toggleFaq(btn){const item=btn.closest('.faq-item');const isOpen=item.cl
   }
 })();
 </script>
+<div class="pay-modal" id="payModal" role="dialog" aria-modal="true" aria-labelledby="payTitle">
+  <div class="pay-box">
+    <div class="pay-hd">
+      <h3 id="payTitle">Add your card</h3>
+      <button type="button" class="pay-close" onclick="closePayModal()">Close</button>
+    </div>
+    <div class="pay-body">
+      <p class="pay-note" id="payNote"></p>
+      <div class="pay-loading" id="payLoading"><div class="spin"></div>Loading secure payment&hellip;</div>
+      <div id="payMount"></div>
+      <div class="pay-safe"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Payments by Stripe. We never see your full card number.</div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
