@@ -422,7 +422,7 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
         <div class="prose rv">
             <p>Run the ad with a website conversion objective, not lead forms. You want the click to go to your own page, where you control the questions, not to an instant form Meta fills in for them.</p>
             <ul>
-                <li><strong>Speak to one situation.</strong>"Got panels from 2012 and a dropping feed-in tariff?" beats "Save with solar". The more specific the hook, the more qualified the click.</li>
+                <li><strong>Speak to one situation.</strong>"Power bill over $600 a quarter?" beats "Save with solar". The more specific the hook, the more qualified the click.</li>
                 <li><strong>Tell them what's next.</strong>"Answer a few quick questions to see what a battery would save you" sets up the survey, so the questions feel like the point, not a hurdle.</li>
                 <li><strong>Don't over-target.</strong>Broad audiences work well on Meta now. The survey and the tracking do the filtering, so let the algorithm find the people.</li>
             </ul>
@@ -503,9 +503,6 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
                 <thead><tr><th>Question</th><th>Answers</th></tr></thead>
                 <tbody>
                     <tr><td>What are you interested in?</td><td>Solar panels / Battery storage / Solar + battery / Not sure yet</td></tr>
-                    <tr><td>Do you currently have solar panels?</td><td>Yes / No</td></tr>
-                    <tr><td>About how old is your solar system? <span class="muted">(only if they have solar)</span></td><td>Under 5 / 5 to 10 / 10 to 15 / Over 15 years / Not sure</td></tr>
-                    <tr><td>Do you know your feed-in tariff? <span class="muted">(only if they have solar)</span></td><td>Yes, then type it in (optional) / No or not sure</td></tr>
                     <tr><td>Do you currently have a battery?</td><td>Yes / No</td></tr>
                     <tr><td>Average quarterly electricity bill?</td><td>Under $300 / $300 to $600 / $600 to $1,000 / Over $1,000</td></tr>
                     <tr><td>Do you own the property?</td><td>Own outright / Mortgaged / Renting <span class="muted">(ends the survey)</span></td></tr>
@@ -517,8 +514,7 @@ body.hov #curR{width:54px;height:54px;border-color:rgba(71,151,255,.7)}
             <p>Then, and only then: <strong>name, email, phone and postcode.</strong></p>
             <h3>Rules that make it work</h3>
             <ul>
-                <li><strong>Tap answers, not typing.</strong>Every free-text question costs completions. Keep typing to the contact step and the feed-in tariff.</li>
-                <li><strong>Branch.</strong>"No solar" skips the system age and feed-in tariff questions. Nobody answers a question that doesn't apply, so the survey feels shorter than it is.</li>
+                <li><strong>Tap answers, not typing.</strong>Every free-text question costs completions. Keep typing to the contact step.</li>
                 <li><strong>Disqualify politely.</strong>"Renting" ends with a friendly message, not a lead. You never pay attention to someone who can't buy.</li>
                 <li><strong>Show progress.</strong>A progress bar keeps people going.</li>
                 <li><strong>Cap it.</strong>Ask only what you need to quote. Past that, each extra step costs more leads than the information is worth. Ask the nice-to-haves (roof type, best time to call) by SMS or on the call.</li>
@@ -711,11 +707,6 @@ index.html
 - Questions, in order:
   - What are you interested in? Solar / Battery /
     Solar + battery / Not sure yet
-  - Do you currently have solar? Yes / No
-  - (only if they have solar) How old is your system?
-    Under 5 / 5-10 / 10-15 / Over 15 years / Not sure
-  - (only if they have solar) Do you know your feed-in
-    tariff? Yes / No. If yes, ask for it as optional text.
   - Do you currently have a battery? Yes / No
   - Average quarterly power bill? Under $300 / $300-600 /
     $600-1,000 / Over $1,000
@@ -773,12 +764,9 @@ Content-Type: application/json
   "email": "sarah@example.com",
   "phone": "0412345678",
   "postcode": "4556",
-  "source": "Meta - Battery retrofit",
+  "source": "Meta - Solar + battery",
   "custom_fields": {
     "interested_in": "Solar + battery",
-    "existing_solar": "Yes, panels only",
-    "system_age": "10-15 years",
-    "feed_in_tariff": "44c",
     "quarterly_bill": "$300-600",
     "ownership": "Own outright",
     "property_type": "Freestanding house",

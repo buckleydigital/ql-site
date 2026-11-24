@@ -15,18 +15,10 @@
   var OWN = { k: 'Your property', h: 'Do you own the property?', dq: 'Renting',
     o: [['Own outright', 'Yes, I own it'], ['Mortgaged', "I'm buying / mortgaged"], ['Renting', 'No, I rent']] };
   function when(k, v) { return function (q) { return function (A) { return A[k] === v && (!q || q(A)); }; }; }
-  var hasSolar = when('has_solar', 'Yes')();
 
   var SOLAR_Q = {
     interest: { k: "Let's get started", h: 'What are you interested in?',
       o: [['Solar', 'Solar panels'], ['Battery', 'Battery storage'], ['Solar + Battery', 'Solar + battery'], ['Not sure', "Not sure yet, I'd like advice"]] },
-    has_solar: { k: 'Your current setup', h: 'Do you currently have solar panels?', o: [['Yes', 'Yes, I have solar'], ['No', 'No, not yet']] },
-    solar_age: { k: 'Your current setup', h: 'About how old is your solar system?', when: hasSolar,
-      o: [['Under 5 years', 'Under 5 years'], ['5 to 10 years', '5 to 10 years'], ['10 to 15 years', '10 to 15 years'], ['Over 15 years', 'Over 15 years'], ['Not sure', 'Not sure']] },
-    fit_known: { k: 'Your current setup', h: "Do you know what feed-in tariff you're getting?", help: "It's the rate your retailer pays for power you send to the grid.", when: hasSolar,
-      o: [['Yes', 'Yes, I know it'], ['No', 'No / not sure']] },
-    fit_rate: { k: 'Your current setup', h: "What's your feed-in tariff?", help: 'Optional. A rough number is fine.', when: when('fit_known', 'Yes')(hasSolar),
-      text: { label: 'Feed-in tariff', ph: 'e.g. 5c per kWh' } },
     has_battery: { k: 'Your current setup', h: 'Do you currently have a battery?', o: [['Yes', 'Yes'], ['No', 'No']] },
     bill_range: { k: 'Your power bill', h: "What's your average quarterly electricity bill?",
       o: [['Under $300', 'Under $300', 'under $100/mo'], ['$300 to $600', '$300 to $600', '$100–200/mo'], ['$600 to $1,000', '$600 to $1,000', '$200–330/mo'], ['Over $1,000', 'Over $1,000', 'over $330/mo']] },
@@ -49,10 +41,10 @@
 
   var FUNNELS = {
     solar: ext(SITE_VISIT, { q: SOLAR_Q,
-      order: ['interest', 'has_solar', 'solar_age', 'fit_known', 'fit_rate', 'has_battery', 'bill_range', 'ownership', 'timeframe'] }),
+      order: ['interest', 'has_battery', 'bill_range', 'ownership', 'timeframe'] }),
     // Battery retrofit: the solar survey without "What are you interested in?"
     battery: ext(SITE_VISIT, { q: SOLAR_Q,
-      order: ['has_solar', 'solar_age', 'fit_known', 'fit_rate', 'has_battery', 'bill_range', 'ownership', 'timeframe'] }),
+      order: ['has_battery', 'bill_range', 'ownership', 'timeframe'] }),
     hvac: ext(QUOTE, {
       order: ['need', 'install', 'zones', 'ductwork', 'ownership', 'timeframe'],
       q: {
