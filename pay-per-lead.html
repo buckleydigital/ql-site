@@ -28,20 +28,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pay Per Lead | QuoteLeads</title>
-<meta name="description" content="Exclusive, verified homeowner leads for Australian energy and structural trades. Pay only for leads delivered.">
+<meta name="description" content="Exclusive, verified homeowner leads for Australian trades. Pay only for leads delivered.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://quoteleads.com.au/pay-per-lead">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://quoteleads.com.au/pay-per-lead">
 <meta property="og:title" content="Pay Per Lead | QuoteLeads">
-<meta property="og:description" content="Exclusive, verified homeowner leads for Australian energy and structural trades. Pay only for leads delivered.">
+<meta property="og:description" content="Exclusive, verified homeowner leads for Australian trades. Pay only for leads delivered.">
 <meta property="og:image" content="https://quoteleads.com.au/quoteleadsogimage.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "QuoteLeads Pay Per Lead",
-  "description": "Exclusive, verified homeowner leads for Australian energy and structural trades. Pay only for leads delivered.",
+  "description": "Exclusive, verified homeowner leads for Australian trades. Pay only for leads delivered.",
   "url": "https://quoteleads.com.au/pay-per-lead",
   "provider": {
     "@type": "Organization",
@@ -590,7 +590,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
 .pp-bill span{color:var(--muted);font-size:.8rem}
 
 /* pricing */
-.pp-price{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.pp-price{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:52px}
 .pp-tier{border-radius:20px;padding:32px;border:1px solid var(--border);background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));display:flex;flex-direction:column;gap:16px;transition:all .3s}
 .pp-tier:hover{border-color:var(--bblue);transform:translateY(-3px)}
 .pp-tier.hot{border-color:rgba(71,151,255,.45);background:linear-gradient(145deg,rgba(71,151,255,.16),rgba(12,12,24,.92))}
@@ -603,15 +603,11 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
 .pp-tier .btn-mag,.pp-tier .btn-ghost{margin-top:auto}
 
 /* industries */
-.tabs2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--border);margin:44px 0 28px;max-width:480px}
-.tabs2 button{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:14px 8px;font:500 .9rem var(--body);color:var(--muted);cursor:none}
-.tabs2 button[aria-selected=true]{color:var(--white);border-bottom-color:var(--blue)}
-.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:44px}
 .tile{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-rows:auto auto;column-gap:14px;align-items:center;padding:14px 18px 14px 14px;border-radius:16px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));border:1px solid var(--border);color:var(--white);text-decoration:none;transition:transform .2s,border-color .2s,background .2s}
 .tile .ti{grid-row:1/3;width:64px;height:64px;border-radius:14px;background:rgba(71,151,255,.07);border:1px solid rgba(255,255,255,.06);display:grid;place-items:center;overflow:hidden}
 .tile .ti img{width:100%;height:100%;object-fit:contain}
-.tile b{font-size:.98rem;font-weight:500;align-self:end}
-.tile span{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);align-self:start;margin-top:4px}
+.tile b{font-size:.98rem;font-weight:500;grid-row:1/3}
 .tile .ta{grid-row:1/3;grid-column:3;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--muted);background:var(--glass2);transition:all .2s}
 .tile .ta svg{width:14px;height:14px}
 .tile:hover{border-color:var(--bblue);background:rgba(71,151,255,.06);transform:translateY(-2px)}
@@ -627,7 +623,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
 .pp-calc input[type=number]:focus,.sel select:focus,.addpc input:focus{outline:none;border-color:var(--blue)}
 .sel{position:relative;margin-top:10px}
 .sel select{appearance:none;-webkit-appearance:none;width:100%;min-height:48px;padding:0 40px 0 14px;border-radius:12px;border:1px solid var(--bmid);background:rgba(4,4,10,.6);color:var(--white);font:500 15px var(--body);cursor:none}
-.sel select optgroup,.sel select option{background:#0C0C18;color:#fff}
+.sel select option{background:#0C0C18;color:#fff}
 .sel svg{position:absolute;right:14px;top:50%;width:10px;height:10px;transform:translateY(-50%);color:var(--muted);pointer-events:none}
 .pp-calc .outs{padding:clamp(24px,3.5vw,44px);display:flex;flex-direction:column;gap:22px;background:linear-gradient(145deg,rgba(71,151,255,.1),transparent)}
 .pp-calc .k{color:var(--muted);font-size:.84rem}
@@ -807,7 +803,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
       <div class="hbadge"><div class="bpulse"></div>PAY PER LEAD</div>
       <h1><span class="ga">Exclusive</span> leads for Australian trades.</h1>
       <div class="hrule"></div>
-      <p class="hero-sub">Verified homeowner enquiries for energy and structural trades, sent to one business only. Choose your jobs, postcodes and weekly cap. We run the ads. You only pay for leads that land.</p>
+      <p class="hero-sub">Verified homeowner enquiries for solar, battery, HVAC, roofing and renovation businesses, sent to one business only. Choose your jobs, postcodes and weekly cap. We run the ads. You only pay for leads that land.</p>
       <div class="hbtns pp-ctas">
         <a href="/buy-leads" class="btn-mag">Start getting leads <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
         <a href="#platform" class="btn-ghost">See the platform</a>
@@ -977,18 +973,11 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
     <p class="slead rv">Each lead type has its own price, based on the size of the job. You see it before you switch a lead type on, and it never changes without notice.</p>
     <div class="pp-price rv">
       <div class="pp-tier hot">
-        <h3>Energy</h3>
+        <h3>Lead types</h3>
         <div class="amt">Per lead type</div>
-        <p class="sub">For solar, battery and HVAC installers</p>
-        <ul><li>Solar + Battery</li><li>Batteries</li><li>HVAC</li></ul>
-        <a class="btn-mag" href="/buy-leads">Buy energy leads</a>
-      </div>
-      <div class="pp-tier">
-        <h3>Structural</h3>
-        <div class="amt">Per lead type</div>
-        <p class="sub">For roofers, builders and renovators</p>
-        <ul><li>Roofing</li><li>Renovations</li></ul>
-        <a class="btn-mag" href="/buy-leads">Buy structural leads</a>
+        <p class="sub">For solar, battery, HVAC, roofing and renovation businesses</p>
+        <ul><li>Solar + Battery</li><li>Batteries</li><li>HVAC</li><li>Roofing</li><li>Renovations</li></ul>
+        <a class="btn-mag" href="/buy-leads">Buy leads</a>
       </div>
       <div class="pp-tier">
         <h3>Custom</h3>
@@ -1007,13 +996,8 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
   <div class="si">
     <div class="rv"><div class="ey">Industries</div></div>
     <h2 class="stitle rv">Industries <em>we serve</em></h2>
-    <p class="slead rv">Two categories, five lead types. Turn on one, a few, or all of them.</p>
-    <div class="tabs2 rv" role="tablist" aria-label="Filter industries">
-      <button type="button" role="tab" aria-selected="true" data-f="all">All</button>
-      <button type="button" role="tab" aria-selected="false" data-f="e">Energy</button>
-      <button type="button" role="tab" aria-selected="false" data-f="s">Structural</button>
-    </div>
-    <div class="tiles" id="tiles"><a class="tile" href="/buy-leads" data-cat="e"><i class="ti"><img src="/solar-and-battery-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>Solar + Battery</b><span>Energy</span><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tile" href="/buy-leads" data-cat="e"><i class="ti"><img src="/battery-retrofit-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>Batteries</b><span>Energy</span><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tile" href="/buy-leads" data-cat="e"><i class="ti"><img src="/hvac-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>HVAC</b><span>Energy</span><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tile" href="/buy-leads" data-cat="s"><i class="ti"><img src="/roofing-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>Roofing</b><span>Structural</span><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tile" href="/buy-leads" data-cat="s"><i class="ti"><img src="/renovation-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>Renovations</b><span>Structural</span><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a></div>
+    <p class="slead rv">Five lead types. Turn on one, a few, or all of them.</p>
+    <div class="tiles" id="tiles"><a class="tile" href="/buy-leads"><i class="ti"><img src="/solar-and-battery-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>Solar + Battery</b><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tile" href="/buy-leads"><i class="ti"><img src="/battery-retrofit-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>Batteries</b><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tile" href="/buy-leads"><i class="ti"><img src="/hvac-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>HVAC</b><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tile" href="/buy-leads"><i class="ti"><img src="/roofing-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>Roofing</b><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tile" href="/buy-leads"><i class="ti"><img src="/renovation-leads-au.png" alt="" width="263" height="263" loading="lazy"></i><b>Renovations</b><em class="ta" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a></div>
   </div>
 </section>
 
@@ -1025,7 +1009,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
     <p class="slead rv">Your close rate and average job value, a week of leads, and what it could return. Your numbers, not a promise.</p>
     <div class="pp-calc pp-panel rv">
       <div class="ins">
-        <div class="f"><label for="rType">Lead type</label><div class="sel"><select id="rType"><optgroup label="Energy"><option value="14000" selected>Solar + Battery</option><option value="11000">Batteries</option><option value="9000">HVAC</option></optgroup><optgroup label="Structural"><option value="18000">Roofing</option><option value="60000">Renovations</option></optgroup></select><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div></div>
+        <div class="f"><label for="rType">Lead type</label><div class="sel"><select id="rType"><option value="14000" selected>Solar + Battery</option><option value="11000">Batteries</option><option value="9000">HVAC</option><option value="18000">Roofing</option><option value="60000">Renovations</option></select><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div></div>
         <div class="f"><label for="rLeads">Leads per week <b id="vLeads">10</b></label><input type="range" class="range" id="rLeads" min="1" max="40" value="10"></div>
         <div class="f"><label for="rClose">Close rate <b id="vClose">20%</b></label><input type="range" class="range" id="rClose" min="5" max="60" value="20"></div>
         <div class="f"><label for="rPrice">Price per lead</label><input type="number" id="rPrice" min="1" step="1" value="98" inputmode="numeric"></div>
@@ -1337,8 +1321,6 @@ const rloop=t=>{const dt=rl?Math.min(.05,(t-rl)/1000):0;rl=t;acc+=dt;if(acc>.55)
 if(!still)requestAnimationFrame(rloop);
 })();
 
-/* industry tiles */
-document.querySelectorAll('.tabs2 button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tabs2 button').forEach(x=>x.setAttribute('aria-selected',x===b));const f=b.dataset.f;document.querySelectorAll('#tiles .tile').forEach(t=>t.hidden=!(f==='all'||t.dataset.cat===f))}));
 </script>
 </body>
 </html>
