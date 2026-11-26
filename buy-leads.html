@@ -1392,8 +1392,8 @@ const order = {
   maxByNiche: {}         // per-order cap per niche / "niche:sub" (null/undefined = unlimited)
 };
 
-// Leads per area per order: up to 100 for a radius or postcode list, 300
-// for a whole state. The checkout enforces the same caps (ppl-areas.ts).
+// Weekly limit per area: up to 50 for a radius, postcode list or whole state.
+// The checkout enforces the same caps (ppl-areas.ts, PPL_WEEKLY_CAP_MAX).
 const BL_HARD_MAX = 50;
 const BL_STATE_MAX = 50;
 let sumQuoteTimer = null, sumQuoteSeq = 0;
