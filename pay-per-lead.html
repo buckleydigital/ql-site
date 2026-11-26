@@ -748,6 +748,43 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
   .kv div+div{border-top:1px solid var(--border)}
 }
 @media(hover:none),(pointer:coarse){#cur,#curR{display:none}}
+/* testimonials, FAQ extras, bespoke (moved from buy-leads) */
+.tstars{font-size:.7rem;color:var(--sky);margin-bottom:10px;letter-spacing:2px}
+.tauth{display:flex;align-items:center;gap:10px}
+.tav{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.66rem;font-weight:600;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--sky))}
+.tnm{font-size:.84rem;font-weight:500;color:var(--white);margin-bottom:2px}
+.tco{font-size:.74rem;color:var(--muted)}
+
+/* TESTIMONIALS */
+.testi-section{background:var(--deep);padding:80px 5%}
+.testi-inner{max-width:1120px;margin:0 auto}
+.testi-h{text-align:center;margin-bottom:60px}
+.car-scene{perspective:1400px;perspective-origin:50% 40%;position:relative;height:380px;margin:0 auto;max-width:1000px}
+.car-track{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.tc{position:absolute;width:340px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:32px 28px;backdrop-filter:blur(16px);transition:all .6s cubic-bezier(.4,0,.2,1);will-change:transform,opacity;cursor:none;overflow:hidden}
+.tc::before{content:'\201C';position:absolute;top:-8px;right:16px;font-family:var(--display);font-size:5rem;font-weight:600;color:rgba(71,151,255,.06);line-height:1;pointer-events:none}
+.tc.pos-center{transform:translateX(0) translateZ(80px) rotateY(0deg) scale(1.04);opacity:1;z-index:3}
+.tc.pos-right{transform:translateX(360px) translateZ(-50px) rotateY(-16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
+.tc.pos-left{transform:translateX(-360px) translateZ(-50px) rotateY(16deg) scale(.88);opacity:.5;z-index:2;filter:blur(.5px)}
+.tc.pos-hidden{transform:translateX(0) translateZ(-200px) scale(.6);opacity:0;z-index:1;pointer-events:none}
+.tresult{display:inline-flex;align-items:center;gap:8px;background:rgba(71,151,255,.08);border:1px solid rgba(71,151,255,.2);color:var(--sky);font-size:.7rem;font-weight:700;padding:4px 13px;border-radius:100px;margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
+.trd{width:5px;height:5px;background:var(--blue);border-radius:50%}
+.tbody{font-size:.88rem;color:#CACAC0;line-height:1.74;margin-bottom:20px;font-style:italic}
+.car-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:48px}
+.car-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--glass);display:flex;align-items:center;justify-content:center;cursor:none;color:var(--muted);transition:all .25s;font-size:.9rem;backdrop-filter:blur(10px)}
+.car-btn:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 0 20px rgba(71,151,255,.15)}
+.car-dots{display:flex;gap:8px;align-items:center}
+.car-dot{width:6px;height:6px;border-radius:50%;background:var(--faint);transition:all .3s;cursor:none}
+.car-dot.a{background:var(--blue);width:20px;border-radius:3px}
+@media(max-width:768px){.car-scene{height:420px}.tc.pos-right,.tc.pos-left{opacity:0}.testi-section{padding:72px 5%}}
+@media(max-width:420px){.tc{width:calc(100vw - 40px)}}
+.bespoke-box{border:1px solid var(--border);border-radius:20px;background:var(--glass);padding:40px 44px;margin-top:40px}
+.bespoke-box h3{font-family:var(--display);font-size:1.4rem;font-weight:600;letter-spacing:-.015em;margin-bottom:14px}
+.bespoke-box p{font-size:.92rem;color:var(--muted);line-height:1.7;max-width:760px;margin-bottom:10px}
+.bespoke-box .btn-mag{margin-top:14px;width:auto}
+@media(max-width:768px){.bespoke-box{padding:28px 22px}.bespoke-box .btn-mag{width:100%}}
+
 
 </style>
 <link rel="stylesheet" href="/footer.css">
@@ -988,6 +1025,13 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
       </div>
     </div>
     <p class="pp-note rv">Every lead type&rsquo;s price is shown in your dashboard before you go live. Prices in AUD, excluding GST.</p>
+    <div class="bespoke-box rv">
+      <div class="ey">Bespoke pricing</div>
+      <h3>Need extra fields or customisation?</h3>
+      <p>Every solar lead includes name, email, phone, postcode, average quarterly electricity bill and purchase timeline. Every HVAC lead includes name, email, phone, postcode, system type and purchase timeline.</p>
+      <p>If you need extra fields, or anything else specific to your sales process, we can build a custom lead form and quote a custom price for your order.</p>
+      <a href="/get-started" class="btn-mag">Request a custom quote <svg viewBox="0 0 16 16" fill="currentColor" style="width:14px;height:14px"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
+    </div>
   </div>
 </section>
 
@@ -1084,6 +1128,66 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<div class="testi-section">
+  <div class="testi-inner">
+    <div class="testi-h rv">
+      <div style="justify-content:center;display:flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px">
+        <span style="display:block;width:22px;height:1px;background:var(--blue)"></span>Results
+      </div>
+      <h2 style="font-family:var(--display);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.025em;color:var(--white);margin-bottom:12px">What businesses are saying.</h2>
+      <p style="color:var(--muted);font-size:.92rem;max-width:380px;margin:0 auto">Real businesses. Real outcomes. Not shared leads.</p>
+    </div>
+    <div class="car-scene rv">
+      <div class="car-track" id="carTrack">
+        <div class="tc" data-i="0"><div class="tresult"><div class="trd"></div>Lamm Solar</div><div class="tstars">★★★★★</div><p class="tbody">"We get about 70% of leads turning into quality appointments"</p><div class="tauth"><div class="tav">LS</div><div><div class="tnm">Lamm Solar</div><div class="tco">Solar Installations</div></div></div></div>
+        <div class="tc" data-i="1"><div class="tresult"><div class="trd"></div>AB Built</div><div class="tstars">★★★★★</div><p class="tbody">"I've had some good local leads coming in lately and filling up next year rather quickly and converting around 50%"</p><div class="tauth"><div class="tav">AB</div><div><div class="tnm">AB Built</div><div class="tco">Contractor</div></div></div></div>
+        <div class="tc" data-i="3"><div class="tresult"><div class="trd"></div>Max &amp; Mitchell</div><div class="tstars">★★★★★</div><p class="tbody">"First sale $25k, next one $39k. Buzzing."</p><div class="tauth"><div class="tav">MM</div><div><div class="tnm">Max &amp; Mitchell</div><div class="tco">Contractor</div></div></div></div>
+        <div class="tc" data-i="4"><div class="tresult"><div class="trd"></div>SolarHarvest</div><div class="tstars">★★★★★</div><p class="tbody">"Fast setup, great support and higher intent solar leads."</p><div class="tauth"><div class="tav">SH</div><div><div class="tnm">SolarHarvest</div><div class="tco">Solar Installations</div></div></div></div>
+        <div class="tc" data-i="5"><div class="tresult"><div class="trd"></div>Lamm Solar</div><div class="tstars">★★★★★</div><p class="tbody">"70% lead-to-appointment rate"</p><div class="tauth"><div class="tav">LS</div><div><div class="tnm">Lamm Solar</div><div class="tco">Solar Installations</div></div></div></div>
+        <div class="tc" data-i="6"><div class="tresult"><div class="trd"></div>Max &amp; Mitchell</div><div class="tstars">★★★★★</div><p class="tbody">"First sale $25k, next one $39k"</p><div class="tauth"><div class="tav">MM</div><div><div class="tnm">Max &amp; Mitchell</div><div class="tco">Contractor</div></div></div></div>
+      </div>
+    </div>
+    <div class="car-nav rv">
+      <button class="car-btn" id="carPrev" aria-label="Previous">←</button>
+      <div class="car-dots">
+        <div class="car-dot a" data-d="0"></div><div class="car-dot" data-d="1"></div><div class="car-dot" data-d="2"></div><div class="car-dot" data-d="3"></div><div class="car-dot" data-d="4"></div><div class="car-dot" data-d="5"></div><div class="car-dot" data-d="6"></div>
+      </div>
+      <button class="car-btn" id="carNext" aria-label="Next">→</button>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="si">
+    <div class="rv"><div class="ey">Questions</div></div>
+    <h2 class="stitle rv">Questions. Answered straight.</h2>
+    <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Why are your leads more expensive than some other options?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Because of the filtering and verification we apply before a lead is ever delivered. Every lead is exclusive, fully contactable, and already matched to your service area. The goal is lower cost per closed job, not the lowest possible cost per lead.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What happens if a lead is disconnected or outside my area?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Every number is checked against Australian phone carriers. If a number is disconnected it is automatically replaced. On the rare occasion a lead says they're outside your service area, that lead is also replaced free of charge.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What does "named consent" actually mean?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Before any prospect submits their enquiry, they see a consent form that shows your business name explicitly. They agree to be contacted by your business specifically, not by a generic lead pool, not by five competitors. By the time a lead lands in your inbox, they already know who you are and they're expecting your call. That level of consent is rare in this industry. We think it should be standard.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">What information do you collect before a lead is sent to me?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">More than most. For solar, every lead completes a minimum survey covering their name, email, phone and postcode, plus their average quarterly electricity bill and their purchase timeline. These two extra data points alone tell you whether someone is motivated and ready to move, not just curious. Most providers send a name, a number, an email and a postcode. We send you buying signals.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">How fast will I receive leads?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Expect your first lead within 24-48 hours of payment confirmation. It can occasionally take longer, as every lead is generated in real time and we wait on genuine demand in your area. After that, leads arrive as homeowners enquire, up to the weekly limit you set for each area, and you are only charged for the leads you receive. We work to deliver as fast as we can. How many arrive each week depends on the market in your area: how many homeowners are looking, and how many other installers are advertising to them. Wider service areas (100km+ radius) give us more homeowners to reach, so they usually fill faster. The quality doesn't change at volume. The same verification, the same named consent, the same survey depth. If your geo supports it, we deliver at scale without compromise. See our <a href="/pay-per-lead-terms#delivery" style="color:var(--blue)">Pay Per Lead Terms</a> for full details.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <div class="final-cta" id="start">
   <div class="cta-glow"></div>
@@ -1094,6 +1198,12 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
     <div class="pp-ctas rv">
       <a href="/buy-leads" class="btn-mag">Create account <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
       <a href="mailto:contact@quoteleads.com.au?subject=Pay%20per%20lead%20question" class="btn-ghost">Ask us a question</a>
+    </div>
+    <div class="final-trust rv">
+      <span>Stripe-secured payments</span>
+      <span>First lead typically within 24-48 hours</span>
+      <span>No lock-in contract</span>
+      <span>Australian owned and operated</span>
     </div>
     <div class="pp-res rv">
       <a href="/pay-per-lead-terms">Pay per lead terms</a>
@@ -1169,7 +1279,7 @@ document.addEventListener('mousemove',e=>{
   aura.style.left=mx+'px';aura.style.top=my+'px';
 });
 (function aR(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(aR)})();
-document.querySelectorAll('a,button,input,select,label,.feat-card,.stat,.tile,.pp-tier').forEach(el=>{
+document.querySelectorAll('a,button,input,select,label,.feat-card,.stat,.tile,.pp-tier,.tc').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
 });
@@ -1320,6 +1430,39 @@ const rloop=t=>{const dt=rl?Math.min(.05,(t-rl)/1000):0;rl=t;acc+=dt;if(acc>.55)
   requestAnimationFrame(rloop)};
 if(!still)requestAnimationFrame(rloop);
 })();
+
+
+// ─── CAROUSEL ────────────────────────────────────────────
+const cards = [...document.querySelectorAll('.tc')];
+const dots  = [...document.querySelectorAll('.car-dot')];
+let curI = 0, autoT;
+function setCarousel(idx) {
+  curI = ((idx % cards.length) + cards.length) % cards.length;
+  cards.forEach((c, i) => {
+    c.classList.remove('pos-center', 'pos-left', 'pos-right', 'pos-hidden');
+    const rel = (i - curI + cards.length) % cards.length;
+    if (rel === 0) c.classList.add('pos-center');
+    else if (rel === 1) c.classList.add('pos-right');
+    else if (rel === cards.length - 1) c.classList.add('pos-left');
+    else c.classList.add('pos-hidden');
+  });
+  dots.forEach((d, i) => d.classList.toggle('a', i === curI));
+}
+setCarousel(0);
+document.getElementById('carNext').addEventListener('click', () => { setCarousel(curI + 1); clearInterval(autoT); startAuto() });
+document.getElementById('carPrev').addEventListener('click', () => { setCarousel(curI - 1); clearInterval(autoT); startAuto() });
+dots.forEach((d, i) => d.addEventListener('click', () => { setCarousel(i); clearInterval(autoT); startAuto() }));
+function startAuto() { autoT = setInterval(() => setCarousel(curI + 1), 4500) }
+startAuto();
+const cs = document.querySelector('.car-scene');
+if (cs) {
+  let tx = 0;
+  cs.addEventListener('touchstart', e => tx = e.touches[0].clientX, { passive: true });
+  cs.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) { setCarousel(dx < 0 ? curI + 1 : curI - 1); clearInterval(autoT); startAuto() }
+  }, { passive: true });
+}
 
 </script>
 </body>
