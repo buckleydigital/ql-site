@@ -10,7 +10,7 @@
 <style>
   /* Example Meta ad, 1080 x 1080, for the made-up Sydney Kitchens Co.
      Three colours: Forest (the deep base), Linen (the warm neutral) and Sage
-     (the accent). The top is the kitchen photo (kitchen-ad-img.jpg); until that
+     (the accent). The top is the kitchen photo (kitchen-au.png); until that
      file exists it falls back to a drawn kitchen, so the ad never looks broken. */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root { --forest: #18201B; --forest2: #24302A; --linen: #F3EFE6; --sage: #7FA684; --sage-lt: #B9D3B2; --sage-dk: #4E6F54; --oak: #B98B5E; }
@@ -19,7 +19,7 @@
 
   .room { position: absolute; left: 0; right: 0; top: 0; height: 650px; overflow: hidden; }
   .drawn { position: absolute; inset: 0; }
-  .photo { position: absolute; inset: 0; background: url('../kitchen-ad-img.jpg') center / cover no-repeat; filter: saturate(.85) brightness(.6) contrast(1.08); }
+  .photo { position: absolute; inset: 0; background: url('../kitchen-au.png') center / cover no-repeat; filter: saturate(.85) brightness(.6) contrast(1.08); }
   .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(24,32,27,.8) 0%, rgba(24,32,27,.1) 26%, rgba(24,32,27,0) 62%, rgba(24,32,27,.75) 100%); }
 
   .top { position: absolute; left: 56px; right: 56px; top: 48px; display: flex; justify-content: space-between; align-items: center; z-index: 2; }

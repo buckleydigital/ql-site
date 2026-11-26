@@ -16,7 +16,7 @@
 .fx-grid[data-niche="roofing"]{--b:#262120;--a:#C2410C;--ai:#fff;--soft:#FDF0E9;--line-a:#C2410C;--img:url('/roofing-ad-img.jpg')}
 .fx-grid[data-niche="hvac"]{--b:#0A2540;--a:#0EA5E9;--ai:#fff;--soft:#E8F6FD;--line-a:#0EA5E9;--img:url('/hvac-ad-img.jpg')}
 .fx-grid[data-niche="reno"]{--b:#1E1A16;--a:#B08D57;--ai:#fff;--soft:#F7F1E7;--line-a:#B08D57;--img:url('/renovation-ad-img.jpg')}
-.fx-grid[data-niche="kitchen"]{--b:#1D2621;--a:#6B8F71;--ai:#fff;--soft:#EEF3EC;--line-a:#6B8F71;--img:url('/kitchen-ad-img.jpg')}
+.fx-grid[data-niche="kitchen"]{--b:#1D2621;--a:#6B8F71;--ai:#fff;--soft:#EEF3EC;--line-a:#6B8F71;--img:url('/kitchen-au.png')}
 .fx-col{min-width:0}
 .fx-lbl{display:flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;color:var(--sky,#7CB9FF);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
 .fx-lbl b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(71,151,255,.15);border:1px solid rgba(71,151,255,.35);font-size:.72rem;color:#fff}
