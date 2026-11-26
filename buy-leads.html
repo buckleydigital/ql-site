@@ -207,9 +207,14 @@ body::before{content:'';position:fixed;inset:0;
   transition:border-color .2s,background .2s,transform .15s,box-shadow .2s;position:relative;text-align:left}
 .trade-card:hover{border-color:rgba(71,151,255,.4);background:var(--bdim);transform:translateY(-1px)}
 .trade-card.sel{border-color:var(--blue);background:var(--bdim);box-shadow:0 0 0 1px var(--blue)}
-.trade-ico{width:40px;height:40px;border-radius:10px;background:var(--bdim);
-  border:1px solid rgba(71,151,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* The trade's 3D icon (the same set as the homepage and /pay-per-lead). */
+.trade-ico{width:56px;height:56px;border-radius:14px;background:rgba(71,151,255,.07);
+  border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;transition:background .2s,border-color .2s}
+.trade-ico img{width:100%;height:100%;object-fit:contain;display:block}
 .trade-ico svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.trade-card:hover .trade-ico,.trade-card.sel .trade-ico{background:rgba(71,151,255,.16);border-color:rgba(71,151,255,.35)}
+#order-form.light .trade-ico{background:rgba(71,151,255,.08);border-color:rgba(0,0,0,.06)}
+@media(max-width:420px){.trade-ico{width:48px;height:48px;border-radius:12px}}
 .trade-info{flex:1;min-width:0}
 .trade-name{font-family:var(--display);font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:4px}
 .trade-price{font-size:.78rem;font-weight:500;color:var(--blue);font-family:var(--display);
@@ -957,7 +962,7 @@ body.pay-open #cur,body.pay-open #curR{display:none}
 
             <button class="trade-card" data-niche="solar-and-battery" onclick="selectTrade(this)">
               <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M11 10l-4 4h5l-4 4"/></svg>
+                <img src="/solar-and-battery-leads-au.png" alt="" width="263" height="263" decoding="async">
               </div>
               <div class="trade-info">
                 <div class="trade-name">Solar + Battery</div>
@@ -968,7 +973,7 @@ body.pay-open #cur,body.pay-open #curR{display:none}
 
             <button class="trade-card" data-niche="battery-retrofit" onclick="selectTrade(this)">
               <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M7 11v3"/><path d="M11 11v3"/></svg>
+                <img src="/battery-retrofit-leads-au.png" alt="" width="263" height="263" decoding="async">
               </div>
               <div class="trade-info">
                 <div class="trade-name">Batteries</div>
@@ -979,7 +984,7 @@ body.pay-open #cur,body.pay-open #curR{display:none}
 
             <button class="trade-card" data-niche="roofing" onclick="selectTrade(this)">
               <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/></svg>
+                <img src="/roofing-leads-au.png" alt="" width="263" height="263" decoding="async">
               </div>
               <div class="trade-info">
                 <div class="trade-name">Roofing</div>
@@ -990,7 +995,7 @@ body.pay-open #cur,body.pay-open #curR{display:none}
 
             <button class="trade-card" data-niche="hvac" onclick="selectTrade(this)">
               <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+                <img src="/hvac-leads-au.png" alt="" width="263" height="263" decoding="async">
               </div>
               <div class="trade-info">
                 <div class="trade-name">HVAC</div>
@@ -1001,7 +1006,7 @@ body.pay-open #cur,body.pay-open #curR{display:none}
 
             <button class="trade-card" data-niche="kitchen-renovation" onclick="selectTrade(this)">
               <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><rect x="3" y="12" width="18" height="9" rx="1.5"/><path d="M3 15h18"/><path d="M7 12V9a5 5 0 0 1 10 0v3"/><path d="M12 4V2.5"/></svg>
+                <img src="/kitchen-renovation-leads-au.png" alt="" width="263" height="263" decoding="async">
               </div>
               <div class="trade-info">
                 <div class="trade-name">Kitchens</div>
@@ -1012,7 +1017,7 @@ body.pay-open #cur,body.pay-open #curR{display:none}
 
             <button class="trade-card" data-niche="bathroom-renovation" onclick="selectTrade(this)">
               <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><path d="M3 12h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 12V5a2 2 0 0 1 4 0"/><path d="M7 19l-1 2M17 19l1 2"/></svg>
+                <img src="/renovation-leads-au.png" alt="" width="263" height="263" decoding="async">
               </div>
               <div class="trade-info">
                 <div class="trade-name">Bathrooms</div>
