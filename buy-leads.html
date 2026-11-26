@@ -1929,10 +1929,8 @@ const COV_STATES = {
   'South Australia':[[-38.1,129.0],[-26.0,141.0]],'Australian Capital Territory':[[-35.93,148.76],[-35.12,149.40]]
 };
 const COV_AU = [[-43.7,113.0],[-10.6,153.7]];
-const COV_TILES = {
-  dark:['Canvas/World_Dark_Gray_Base','Canvas/World_Dark_Gray_Reference'],
-  light:['Canvas/World_Light_Gray_Base','Canvas/World_Light_Gray_Reference']
-};
+// Full-colour street map (roads, parks, water and labels in one layer).
+const COV_TILES = { dark:['World_Street_Map'], light:['World_Street_Map'] };
 let covMap = null, covLayers = [], covTileTheme = null;
 
 function covTileUrl(svc){ return `https://server.arcgisonline.com/ArcGIS/rest/services/${svc}/MapServer/tile/{z}/{y}/{x}`; }
@@ -1943,11 +1941,9 @@ function covSetTiles(){
   if (theme === covTileTheme) return;
   covTileTheme = theme;
   covLayers.forEach(l => covMap.removeLayer(l));
-  covLayers = [
-    L.tileLayer(covTileUrl(COV_TILES[theme][0]), { maxZoom: 16, attribution: '&copy; Esri, OpenStreetMap contributors' }).addTo(covMap),
-    L.tileLayer(covTileUrl(COV_TILES[theme][1]), { maxZoom: 16 }).addTo(covMap)
-  ];
-  document.getElementById('covMap').style.background = theme === 'light' ? '#e8e8e8' : '#1b1b1f';
+  covLayers = COV_TILES[theme].map((svc, i) =>
+    L.tileLayer(covTileUrl(svc), { maxZoom: 16, ...(i === 0 ? { attribution: '&copy; Esri, HERE, Garmin, OpenStreetMap contributors' } : {}) }).addTo(covMap));
+  document.getElementById('covMap').style.background = '#e9e5dc';
 }
 
 function covInitMap(){
