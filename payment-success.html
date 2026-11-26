@@ -29,7 +29,7 @@
   window.qlPurchaseSent = (function(){
     var q = new URLSearchParams(location.search), sid = q.get('session_id');
     if (!sid || !/^cs_/.test(sid)) return Promise.resolve();
-    var list = q.get('plan') === 'growth' ? 5000 : 2500, sent = false;
+    var list = q.get('plan') === 'growth' ? 2500 : 1250, sent = false;
     function send(v){ if (sent) return; sent = true; fbq('track', 'Purchase', {currency: 'AUD', value: v}, {eventID: sid}); }
     return new Promise(function(done){
       var t = setTimeout(function(){ send(list); done(); }, 1500);
