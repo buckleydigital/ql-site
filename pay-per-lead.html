@@ -753,6 +753,21 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
 .hq-shot{margin:0;box-shadow:0 60px 120px -60px rgba(71,151,255,.35)}
 .hq-shot .kbar{justify-content:center}
 .hq-shot img{display:block;width:100%;height:auto}
+.own-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.own-col{border-radius:20px;padding:30px;border:1px solid var(--border);background:var(--glass)}
+.own-col.hot{border-color:rgba(71,151,255,.38);background:linear-gradient(145deg,rgba(71,151,255,.14),rgba(12,12,24,.92));box-shadow:0 30px 80px rgba(5,10,30,.34)}
+.own-k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.own-big{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.1rem);font-weight:600;letter-spacing:-.02em;margin-top:10px}
+.own-col.hot .own-big{background:linear-gradient(90deg,var(--mist),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.own-sub{font-size:.84rem;color:var(--muted);margin-top:2px}
+.own-col ul{list-style:none;display:grid;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid var(--border)}
+.own-col li{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;color:var(--off);line-height:1.5}
+.own-col li .pp-tick{margin-top:1px}
+.own-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.own-cta a{width:auto}
+@media(max-width:860px){.own-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.own-col{padding:24px}.own-cta a{width:100%}}
+
 @media(hover:none),(pointer:coarse){#cur,#curR{display:none}}
 /* testimonials, FAQ extras, bespoke (moved from buy-leads) */
 .tstars{font-size:.7rem;color:var(--sky);margin-bottom:10px;letter-spacing:2px}
@@ -1041,6 +1056,42 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
   </div>
 </section>
 
+<!-- YOUR OWN SYSTEM (upsell to the Branded Lead Gen System) -->
+<section id="own-system">
+  <div class="si">
+    <div class="rv"><div class="ey">Buying a lot of leads?</div></div>
+    <h2 class="stitle rv">Past about 15 leads a month, <em>your own system usually costs less.</em></h2>
+    <p class="slead rv">Pay per lead is the quickest way to start: no setup, pay as leads arrive. If you want steady volume, we can build the same lead engine on your own ad accounts, in your business name, and run it for you.</p>
+    <div class="own-grid rv">
+      <div class="own-col">
+        <div class="own-k">Pay per lead</div>
+        <div class="own-big">$75&ndash;$150</div>
+        <div class="own-sub">per lead, plus GST</div>
+        <ul>
+          <li><span class="pp-tick"><svg><use href="#ok"/></svg></span>No setup, start this week</li>
+          <li><span class="pp-tick"><svg><use href="#ok"/></svg></span>Pay only for leads delivered</li>
+          <li><span class="pp-tick"><svg><use href="#ok"/></svg></span>Best for testing an area or topping up a quiet month</li>
+        </ul>
+      </div>
+      <div class="own-col hot">
+        <div class="own-k">Your own system</div>
+        <div class="own-big">Typically $40&ndash;$85*</div>
+        <div class="own-sub">per enquiry, all in, at about $50/day</div>
+        <ul>
+          <li><span class="pp-tick"><svg><use href="#ok"/></svg></span>Your brand, your ad accounts, your data, yours to keep</li>
+          <li><span class="pp-tick"><svg><use href="#ok"/></svg></span>Cost per enquiry tends to fall as your campaigns learn</li>
+          <li><span class="pp-tick"><svg><use href="#ok"/></svg></span>Managed for you: creative, daily checks, AI SMS and a report every 30 days</li>
+        </ul>
+      </div>
+    </div>
+    <div class="own-cta rv">
+      <a href="/get-started" class="btn-mag">Book a call about your own system <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
+      <a href="/pricing" class="btn-ghost">See system pricing</a>
+    </div>
+    <p class="pp-note rv">* An estimate, not a promise or guarantee. Based on $600/mo + GST management plus about $1,500 a month in ad spend, which typically brings 25&ndash;50 enquiries a month outside peak season. Results depend on your trade, how many homeowners are in your area, your offer and the time of year. The one-off build fee ($1,250 + GST) is extra and includes your first 30 days of management.</p>
+  </div>
+</section>
+
 <!-- INDUSTRIES -->
 <section id="industries">
   <div class="si">
@@ -1139,6 +1190,10 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
     <div class="rv"><div class="ey">Questions</div></div>
     <h2 class="stitle rv">Questions. Answered straight.</h2>
     <div class="faq-list rv">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Should I buy leads or get my own system?</span><span class="faq-qi">+</span></button>
+        <div class="faq-a">Buy leads if you want to start this week, test an area, or top up a quiet month. If you want around 15 or more leads a month, your own system usually works out cheaper per enquiry, and the ad accounts, funnel and data are in your name. <a href="/get-started" style="color:var(--blue)">Book a call</a> and we'll run the numbers for your trade and area.</div>
+      </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-qt">Why are your leads more expensive than some other options?</span><span class="faq-qi">+</span></button>
         <div class="faq-a">Because of the filtering and verification we apply before a lead is ever delivered. Every lead is exclusive, fully contactable, and already matched to your service area. The goal is lower cost per closed job, not the lowest possible cost per lead.</div>
