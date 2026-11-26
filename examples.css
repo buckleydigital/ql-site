@@ -31,6 +31,7 @@
 .ml-theme[data-niche="roofing"]{--ml-brand:#262120;--ml-acc:#C2410C;--ml-acc-ink:#fff;--ml-acc-soft:#FDF0E9;--ml-acc-line:#C2410C}
 .ml-theme[data-niche="hvac"]{--ml-brand:#0A2540;--ml-acc:#0EA5E9;--ml-acc-ink:#fff;--ml-acc-soft:#E8F6FD;--ml-acc-line:#0EA5E9}
 .ml-theme[data-niche="reno"]{--ml-brand:#1E1A16;--ml-acc:#B08D57;--ml-acc-ink:#fff;--ml-acc-soft:#F7F1E7;--ml-acc-line:#B08D57}
+.ml-theme[data-niche="kitchen"]{--ml-brand:#1D2621;--ml-acc:#6B8F71;--ml-acc-ink:#fff;--ml-acc-soft:#EEF3EC;--ml-acc-line:#6B8F71}
 .mk-mockup.mk-light{background:#E9EBEF;padding:6px;border-color:rgba(255,255,255,.22)}
 .mk-mockup.mk-light .mk-bar{background:transparent;padding:6px 10px 10px}
 .mk-mockup.mk-light .mk-dot{width:8px;height:8px}
@@ -103,6 +104,9 @@
 .ml-theme[data-niche="reno"]{--ml-brand:#1C1714;--ml-acc:#B8904F;--ml-acc-ink:#1C1714;--ml-acc-soft:#F1E9DC;--ml-acc-line:#B8904F;--ml-acc2:#E6C891;--ml-glow:rgba(184,144,79,.16);--hz:#C99A55}
 .mk-mockup.mk-light.ml-theme[data-niche="reno"] .mk-survey{background:#F5EEE3}
 .mk-mockup.mk-light.ml-theme[data-niche="reno"] .mk-survey-continue{background:#1C1714;color:#F1E9DC}
+.ml-theme[data-niche="kitchen"]{--ml-brand:#18201B;--ml-acc:#7FA684;--ml-acc-ink:#18201B;--ml-acc-soft:#E7EFE5;--ml-acc-line:#7FA684;--ml-acc2:#B9D3B2;--ml-glow:rgba(127,166,132,.16);--hz:#8DB592}
+.mk-mockup.mk-light.ml-theme[data-niche="kitchen"] .mk-survey{background:#EEF3EC}
+.mk-mockup.mk-light.ml-theme[data-niche="kitchen"] .mk-survey-continue{background:#18201B;color:#E7EFE5}
 .mk-mockup.mk-light.ml-theme{background:#10131B;border-color:rgba(255,255,255,.12)}
 .mk-mockup.mk-light.ml-theme .mk-url{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6)}
 .mk-mockup.mk-light.ml-theme .mk-body{background:var(--ml-brand);color:#F4F1EA}

@@ -85,21 +85,36 @@
         timeframe: { k: 'Almost done', h: 'When do you want it done?',
           o: [['ASAP', 'As soon as possible'], ['Within 4 weeks', 'Within 4 weeks'], ['1 to 3 months', '1 to 3 months'], ['Researching', 'Just researching for now']] }
       } }),
+    // Bathrooms (the 'reno' key is the bathroom example on the site).
     reno: ext(QUOTE, {
-      order: ['what', 'size', 'layout', 'built', 'budget', 'ownership', 'timeframe'],
+      order: ['which', 'size', 'layout', 'built', 'budget', 'ownership', 'timeframe'],
       q: {
-        what: { k: "Let's get started", h: 'What are you renovating?',
-          o: [['Bathroom', 'Bathroom', 'full or partial'], ['Kitchen', 'Kitchen', 'layout or refresh'], ['Laundry', 'Laundry', 'including tiling'], ['Whole home', 'Whole home', 'several rooms']] },
-        size: { k: 'The job', h: 'How big is the job?', o: [['Full renovation', 'Full renovation'], ['Partial update', 'Partial update'], ['Not sure', 'Not sure yet']] },
-        layout: { k: 'The job', h: 'Is the layout changing?', o: [['Same layout', 'Keeping the layout'], ['Moving things', 'Moving things around'], ['Not sure', 'Not sure']] },
+        which: { k: "Let's get started", h: 'Which bathroom is it?',
+          o: [['Main bathroom', 'Main bathroom', 'full or partial'], ['Ensuite', 'Ensuite', 'new or existing'], ['Second bathroom', 'Second bathroom', 'or powder room'], ['Several', 'Several', 'more than one']] },
+        size: { k: 'The job', h: 'How big is the job?', o: [['Full renovation', 'Full renovation, strip-out'], ['Partial update', 'Partial update'], ['Not sure', 'Not sure yet']] },
+        layout: { k: 'The job', h: 'Is the layout changing?', o: [['Same layout', 'Keeping the layout'], ['Moving things', 'Moving the shower, bath or toilet'], ['Not sure', 'Not sure']] },
         built: { k: 'Your home', h: 'Roughly when was it built?', o: [['Before 1980', 'Before 1980'], ['1980 to 2000', '1980 to 2000'], ['After 2000', 'After 2000'], ['Not sure', 'Not sure']] },
-        budget: { k: 'Your budget', h: "What's your budget?", o: [['Under $20k', 'Under $20k'], ['$20k to $40k', '$20k to $40k'], ['$40k to $80k', '$40k to $80k'], ['$80k+', '$80k+']] },
+        budget: { k: 'Your budget', h: "What's your budget?", o: [['Under $20k', 'Under $20k'], ['$20k to $35k', '$20k to $35k'], ['$35k to $50k', '$35k to $50k'], ['$50k+', '$50k+']] },
+        ownership: OWN,
+        timeframe: { k: 'Almost done', h: 'When do you want to start?',
+          o: [['ASAP', 'As soon as possible'], ['1 to 3 months', 'Within 1 to 3 months'], ['3 to 6 months', '3 to 6 months'], ['Researching', 'Just researching for now']] }
+      } }),
+    kitchen: ext(QUOTE, {
+      order: ['what', 'layout', 'benchtop', 'built', 'budget', 'ownership', 'timeframe'],
+      q: {
+        what: { k: "Let's get started", h: 'What kind of kitchen job is it?',
+          o: [['Full renovation', 'Full renovation', 'new kitchen'], ['Layout change', 'Layout change', 'or open plan'], ['Refresh', 'Refresh', 'doors, benchtops'], ['Not sure', 'Not sure', 'help me decide']] },
+        layout: { k: 'The job', h: 'Is the layout changing?', o: [['Same layout', 'Keeping the layout'], ['Adding an island', 'Adding an island'], ['Opening up', 'Opening up to the living area'], ['Not sure', 'Not sure']] },
+        benchtop: { k: 'The job', h: 'What benchtop are you thinking?', o: [['Stone', 'Engineered or natural stone'], ['Laminate', 'Laminate'], ['Timber', 'Timber'], ['Not sure', 'Not sure yet']] },
+        built: { k: 'Your home', h: 'Roughly when was it built?', o: [['Before 1980', 'Before 1980'], ['1980 to 2000', '1980 to 2000'], ['After 2000', 'After 2000'], ['Not sure', 'Not sure']] },
+        budget: { k: 'Your budget', h: "What's your budget?", o: [['Under $25k', 'Under $25k'], ['$25k to $50k', '$25k to $50k'], ['$50k to $80k', '$50k to $80k'], ['$80k+', '$80k+']] },
         ownership: OWN,
         timeframe: { k: 'Almost done', h: 'When do you want to start?',
           o: [['ASAP', 'As soon as possible'], ['1 to 3 months', 'Within 1 to 3 months'], ['3 to 6 months', '3 to 6 months'], ['Researching', 'Just researching for now']] }
       } })
   };
-  FUNNELS.renovation = FUNNELS.renovations = FUNNELS.reno;
+  FUNNELS.renovation = FUNNELS.renovations = FUNNELS.bathroom = FUNNELS.bathrooms = FUNNELS.reno;
+  FUNNELS.kitchens = FUNNELS.kitchen;
 
   // The two mockup styles: class names and option markup.
   var CHECK = '<div class="mk-opt-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>';

@@ -951,7 +951,6 @@ body.pay-open #cur,body.pay-open #curR{display:none}
           </div>
           <div class="trade-grid">
 
-
             <button class="trade-card" data-niche="solar-and-battery" onclick="selectTrade(this)">
               <div class="trade-ico">
                 <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M11 10l-4 4h5l-4 4"/></svg>
@@ -968,20 +967,8 @@ body.pay-open #cur,body.pay-open #curR{display:none}
                 <svg viewBox="0 0 24 24"><rect x="2" y="7" width="16" height="11" rx="2"/><path d="M22 11v3"/><path d="M7 11v3"/><path d="M11 11v3"/></svg>
               </div>
               <div class="trade-info">
-                <div class="trade-name">Battery Retrofit</div>
+                <div class="trade-name">Batteries</div>
                 <div class="trade-price dim" id="price-battery-retrofit">&nbsp;</div>
-              </div>
-              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
-            </button>
-
-
-            <button class="trade-card" data-niche="hvac" onclick="selectTrade(this)">
-              <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
-              </div>
-              <div class="trade-info">
-                <div class="trade-name">HVAC - Split &amp; Ducted</div>
-                <div class="trade-price dim" id="price-hvac">&nbsp;</div>
               </div>
               <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
             </button>
@@ -997,17 +984,38 @@ body.pay-open #cur,body.pay-open #curR{display:none}
               <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
             </button>
 
-            <button class="trade-card" data-niche="renovation" onclick="selectTrade(this)">
+            <button class="trade-card" data-niche="hvac" onclick="selectTrade(this)">
               <div class="trade-ico">
-                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
               </div>
               <div class="trade-info">
-                <div class="trade-name">Renovations</div>
-                <div class="trade-price dim" id="price-renovation">&nbsp;</div>
+                <div class="trade-name">HVAC</div>
+                <div class="trade-price dim" id="price-hvac">&nbsp;</div>
               </div>
               <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
             </button>
 
+            <button class="trade-card" data-niche="kitchen-renovation" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><rect x="3" y="12" width="18" height="9" rx="1.5"/><path d="M3 15h18"/><path d="M7 12V9a5 5 0 0 1 10 0v3"/><path d="M12 4V2.5"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Kitchens</div>
+                <div class="trade-price dim" id="price-kitchen-renovation">&nbsp;</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
+            <button class="trade-card" data-niche="bathroom-renovation" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><path d="M3 12h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 12V5a2 2 0 0 1 4 0"/><path d="M7 19l-1 2M17 19l1 2"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Bathrooms</div>
+                <div class="trade-price dim" id="price-bathroom-renovation">&nbsp;</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
 
           </div>
         </div>
@@ -1313,26 +1321,51 @@ body.pay-open #cur,body.pay-open #curR{display:none}
 
 <footer class="ql-foot">
   <div class="ql-foot-inner">
-    <div class="ql-foot-logo">
-      <img src="/quoteleads-logo-white.png" alt="QuoteLeads">
+    <div class="ql-foot-grid">
+      <div class="ql-foot-brand">
+        <a href="/" class="ql-foot-logo" aria-label="QuoteLeads home"><img src="/quoteleads-logo-white.png" alt="QuoteLeads" width="160" height="32"></a>
+        <p class="ql-foot-tag">Exclusive, verified homeowner leads for Australian trades. Australian owned and operated.</p>
+        <div class="ql-foot-social">
+          <a href="https://facebook.com/quoteleads" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://instagram.com/quoteleads" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://linkedin.com/company/quoteleads" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <nav class="ql-foot-col" aria-label="Lead generation by trade">
+        <h4>Leads by trade</h4>
+        <ul>
+          <li><a href="/solar-and-battery-leads">Solar + Battery</a></li>
+          <li><a href="/battery-retrofit-leads">Batteries</a></li>
+          <li><a href="/roofing-leads">Roofing</a></li>
+          <li><a href="/hvac-leads">HVAC</a></li>
+          <li><a href="/kitchen-renovation-leads">Kitchens</a></li>
+          <li><a href="/bathroom-renovation-leads">Bathrooms</a></li>
+        </ul>
+      </nav>
+      <nav class="ql-foot-col" aria-label="Company">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/pay-per-lead">Pay per lead</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="https://quoteleadshq.com/dashboard">Login</a></li>
+        </ul>
+      </nav>
+      <nav class="ql-foot-col" aria-label="Support and legal">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/book-a-call">Book a call</a></li>
+          <li><a href="mailto:contact@quoteleads.com.au">Email us</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="ql-foot-links">
-      <a href="/">Home</a>
-      <a href="/pricing">Pricing</a>
-      <a href="https://quoteleadshq.com/dashboard">Login</a>
-      <a href="/blog">Blog</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="mailto:contact@quoteleads.com.au">contact@quoteleads.com.au</a>
+    <div class="ql-foot-bottom">
+      <div class="ql-foot-copy">&copy; 2026 QuoteLeads &middot; contact@quoteleads.com.au</div>
+      <div class="ql-foot-status"><span class="ql-foot-status-dot"></span>All systems operational</div>
     </div>
-    <div class="ql-foot-social">
-      <a href="https://facebook.com/quoteleads" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-      <a href="https://instagram.com/quoteleads" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-      <a href="https://linkedin.com/company/quoteleads" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-    </div>
-    <nav class="ql-foot-hubs" aria-label="Lead generation by trade"><span>Lead generation by trade</span><a href="/solar-and-battery-leads">Solar + battery leads</a><a href="/roofing-leads">Roofing leads</a><a href="/hvac-leads">HVAC leads</a><a href="/renovation-leads">Renovation leads</a></nav>
-    <div class="ql-foot-copy">&copy; 2026 QuoteLeads &middot; Australian owned and operated</div>
-    <div class="ql-foot-status"><span class="ql-foot-status-dot"></span>All systems operational</div>
   </div>
 </footer>
 
@@ -1591,7 +1624,7 @@ if (new URLSearchParams(location.search).get('cancelled') === 'true') {
 // "From $X" on each lead type before an area is picked: the lowest price
 // anywhere for it (get-ppl-pricing from_price).
 // Every lead type on sale, as get-ppl-pricing names them.
-const PPL_TRADES = ['solar-and-battery','hvac','battery-retrofit','roofing','renovation'];
+const PPL_TRADES = ['solar-and-battery','battery-retrofit','roofing','hvac','kitchen-renovation','bathroom-renovation'];
 const FROM_PRICES = {};
 async function loadFromPrices() {
   const trades = PPL_TRADES;
@@ -2233,7 +2266,7 @@ function selectPack(el) {
 }
 
 // ─── SUMMARY UPDATE ──────────────────────────────────────
-const nicheLabels = { 'solar-and-battery': 'Solar + Battery', hvac: 'HVAC', 'battery-retrofit': 'Battery Retrofit', roofing: 'Roofing', renovation: 'Renovations' };
+const nicheLabels = { 'solar-and-battery': 'Solar + Battery', 'battery-retrofit': 'Batteries', roofing: 'Roofing', hvac: 'HVAC', 'kitchen-renovation': 'Kitchens', 'bathroom-renovation': 'Bathrooms' };
 
 function updateSummary() {
   capCost();

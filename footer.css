@@ -1,29 +1,39 @@
 /* The site footer, the same on every page. Linked from each page's <head>;
    the markup is the same everywhere, so change it in every page at once.
-   Class names are ql-foot-* so no page's own footer styles can reach them. */
-footer.ql-foot{display:block;margin:0;padding:56px 5%;border-top:1px solid rgba(255,255,255,0.07);background:#08080F;position:relative;z-index:3;text-align:left;color:#78787F;font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.5}
-.ql-foot-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.ql-foot-logo img{display:block;height:32px;width:auto;opacity:.7}
-.ql-foot-links{display:flex;gap:24px;flex-wrap:wrap;margin:0}
-.ql-foot-links a{font-size:.8rem;font-weight:400;color:#78787F;text-decoration:none;transition:color .2s}
-.ql-foot-links a:hover{color:#F2F2F2}
-.ql-foot-social{display:flex;gap:12px}
-.ql-foot-social a{width:34px;height:34px;border:1px solid rgba(255,255,255,0.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9A9AA3;text-decoration:none;transition:all .2s;background:rgba(255,255,255,0.04)}
+   Class names are ql-foot-* so no page's own footer styles can reach them.
+   Layout: brand column, then link columns that run down the page, then a
+   bottom bar. Four columns on desktop, two on tablets and phones. */
+footer.ql-foot{display:block;margin:0;padding:64px 5% 32px;border-top:1px solid rgba(255,255,255,0.07);background:#08080F;position:relative;z-index:3;text-align:left;color:#78787F;font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.5}
+.ql-foot-inner{max-width:1120px;margin:0 auto}
+.ql-foot-grid{display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:40px 32px}
+.ql-foot-logo{display:inline-block}
+.ql-foot-logo img{display:block;height:32px;width:auto;opacity:.85}
+.ql-foot-tag{margin:16px 0 20px;max-width:290px;font-size:.84rem;line-height:1.6;color:#9A9AA3}
+.ql-foot-col h4{margin:4px 0 16px;font-family:'Inter',system-ui,sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#CACAD0}
+.ql-foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.ql-foot-col a{font-size:.86rem;color:#8A8A93;text-decoration:none;transition:color .2s;overflow-wrap:anywhere}
+.ql-foot-col a:hover,.ql-foot-col a:focus-visible{color:#F2F2F2}
+.ql-foot-social{display:flex;gap:10px}
+.ql-foot-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,0.07);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9A9AA3;text-decoration:none;transition:all .2s;background:rgba(255,255,255,0.04)}
 .ql-foot-social a:hover{border-color:#4797FF;color:#4797FF;background:rgba(71,151,255,0.12)}
 .ql-foot-social svg{display:block}
+/* Landing pages for our ads carry Meta's required disclaimer. */
+.ql-foot-disc{margin-top:36px;font-size:.72rem;line-height:1.65;color:#78787F;opacity:.85}
+.ql-foot-bottom{margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap}
+.ql-foot-disc+.ql-foot-bottom{margin-top:22px}
 .ql-foot-copy{font-size:.78rem;color:#78787F}
 .ql-foot-status{display:inline-flex;align-items:center;gap:7px;font-size:.75rem;color:#78787F}
 .ql-foot-status-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.5);flex-shrink:0;animation:qlFootPulse 2.5s ease-in-out infinite}
 @keyframes qlFootPulse{0%,100%{opacity:1}50%{opacity:.45}}
-/* Landing pages for our ads carry Meta's required disclaimer. */
-.ql-foot-disc{flex:0 0 100%;font-size:.7rem;line-height:1.65;color:#78787F;opacity:.85}
-@media(max-width:768px){
-  footer.ql-foot{padding:40px 5%}
-  .ql-foot-inner{flex-direction:column;align-items:flex-start;gap:20px}
+@media(max-width:900px){
+  .ql-foot-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ql-foot-brand{grid-column:1/-1}
+  .ql-foot-tag{max-width:420px}
 }
-/* "Lead generation by trade": links to each trade's hub page, on every page. */
-.ql-foot-hubs{flex:0 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07)}
-.ql-foot-hubs span{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9A9AA3}
-.ql-foot-hubs a{font-size:.8rem;color:#78787F;text-decoration:none;transition:color .2s}
-.ql-foot-hubs a:hover{color:#F2F2F2}
-@media(max-width:768px){.ql-foot-hubs{gap:10px 18px}.ql-foot-hubs span{flex:0 0 100%}}
+@media(max-width:600px){
+  footer.ql-foot{padding:48px 6% 28px}
+  .ql-foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px}
+  .ql-foot-col a{display:inline-block;padding:2px 0}
+  .ql-foot-bottom{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){.ql-foot-status-dot{animation:none}}

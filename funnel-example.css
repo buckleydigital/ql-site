@@ -16,6 +16,7 @@
 .fx-grid[data-niche="roofing"]{--b:#262120;--a:#C2410C;--ai:#fff;--soft:#FDF0E9;--line-a:#C2410C;--img:url('/roofing-ad-img.jpg')}
 .fx-grid[data-niche="hvac"]{--b:#0A2540;--a:#0EA5E9;--ai:#fff;--soft:#E8F6FD;--line-a:#0EA5E9;--img:url('/hvac-ad-img.jpg')}
 .fx-grid[data-niche="reno"]{--b:#1E1A16;--a:#B08D57;--ai:#fff;--soft:#F7F1E7;--line-a:#B08D57;--img:url('/renovation-ad-img.jpg')}
+.fx-grid[data-niche="kitchen"]{--b:#1D2621;--a:#6B8F71;--ai:#fff;--soft:#EEF3EC;--line-a:#6B8F71;--img:url('/kitchen-ad-img.jpg')}
 .fx-col{min-width:0}
 .fx-lbl{display:flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;color:var(--sky,#7CB9FF);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
 .fx-lbl b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(71,151,255,.15);border:1px solid rgba(71,151,255,.35);font-size:.72rem;color:#fff}
@@ -134,6 +135,11 @@
 .fx-grid[data-niche="reno"] .fx-opt{background:#FBF7F0;border-color:#E6DCCB}
 .fx-grid[data-niche="reno"] .fx-opt.on{background:#EFE3CD;border-color:#B8904F}
 .fx-grid[data-niche="reno"] .fx-go{background:#1C1714;color:#F1E9DC;box-shadow:0 8px 20px -8px rgba(28,23,20,.6)}
+.fx-grid[data-niche="kitchen"]{--b:#18201B;--a:#7FA684;--ai:#18201B;--soft:#E7EFE5;--line-a:#7FA684;--a2:#B9D3B2;--glow:rgba(127,166,132,.16);--hz:#8DB592}
+.fx-grid[data-niche="kitchen"] .fx-survey{background:#EEF3EC}
+.fx-grid[data-niche="kitchen"] .fx-opt{background:#F6F9F5;border-color:#D5E2D2}
+.fx-grid[data-niche="kitchen"] .fx-opt.on{background:#DDEBD9;border-color:#7FA684}
+.fx-grid[data-niche="kitchen"] .fx-go{background:#18201B;color:#E7EFE5;box-shadow:0 8px 20px -8px rgba(24,32,27,.6)}
 
 .fx-site{background:#10131B;border-color:rgba(255,255,255,.12)}
 .fx-bar .fx-url{background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);box-shadow:none}
