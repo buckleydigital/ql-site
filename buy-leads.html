@@ -986,6 +986,28 @@ body.pay-open #cur,body.pay-open #curR{display:none}
               <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
             </button>
 
+            <button class="trade-card" data-niche="roofing" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Roofing</div>
+                <div class="trade-price dim" id="price-roofing">&nbsp;</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
+            <button class="trade-card" data-niche="renovation" onclick="selectTrade(this)">
+              <div class="trade-ico">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>
+              </div>
+              <div class="trade-info">
+                <div class="trade-name">Renovations</div>
+                <div class="trade-price dim" id="price-renovation">&nbsp;</div>
+              </div>
+              <div class="trade-check"><svg viewBox="0 0 10 8"><path d="M1 4l3 3 5-6" stroke-width="1.8"/></svg></div>
+            </button>
+
 
           </div>
         </div>
@@ -1568,9 +1590,11 @@ if (new URLSearchParams(location.search).get('cancelled') === 'true') {
 // ─── CITY CHANGE ────────────────────────────────────────
 // "From $X" on each lead type before an area is picked: the lowest price
 // anywhere for it (get-ppl-pricing from_price).
+// Every lead type on sale, as get-ppl-pricing names them.
+const PPL_TRADES = ['solar-and-battery','hvac','battery-retrofit','roofing','renovation'];
 const FROM_PRICES = {};
 async function loadFromPrices() {
-  const trades = ['solar-and-battery','hvac','battery-retrofit'];
+  const trades = PPL_TRADES;
   await Promise.allSettled(trades.map(n =>
     fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${n}`).then(r => r.ok ? r.json() : null).then(d => {
       const p = d && (d.from_price ?? d.price_per_lead);
@@ -1619,7 +1643,7 @@ async function loadPrices(city) {
   renderPackGrid();
 
   if (!city) {
-    ['solar-and-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, null));
+    PPL_TRADES.forEach(n => setPriceLabel(n, null));
     order.prices = {};
     order.soldOutByNiche = {};
     order.maxByNiche = {};
@@ -1629,10 +1653,10 @@ async function loadPrices(city) {
   }
 
   // Show loading spinners on all trade cards
-  ['solar-and-battery','hvac','battery-retrofit'].forEach(n => setPriceLabel(n, 'loading'));
+  PPL_TRADES.forEach(n => setPriceLabel(n, 'loading'));
 
   // Fetch all trade prices in parallel from Supabase
-  const trades = ['solar-and-battery','hvac','battery-retrofit'];
+  const trades = PPL_TRADES;
   const results = await Promise.allSettled(
     trades.map(niche =>
       fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${niche}&area=${encodeURIComponent(city)}`)
@@ -2209,7 +2233,7 @@ function selectPack(el) {
 }
 
 // ─── SUMMARY UPDATE ──────────────────────────────────────
-const nicheLabels = { 'solar-and-battery': 'Solar + Battery', hvac: 'HVAC', 'battery-retrofit': 'Battery Retrofit' };
+const nicheLabels = { 'solar-and-battery': 'Solar + Battery', hvac: 'HVAC', 'battery-retrofit': 'Battery Retrofit', roofing: 'Roofing', renovation: 'Renovations' };
 
 function updateSummary() {
   capCost();
