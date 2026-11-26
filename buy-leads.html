@@ -215,6 +215,10 @@ body::before{content:'';position:fixed;inset:0;
 .trade-price{font-size:.78rem;font-weight:500;color:var(--blue);font-family:var(--display);
   display:flex;align-items:center;gap:6px}
 .trade-price.dim{color:var(--faint);font-style:italic;font-family:var(--body);font-weight:400}
+.price-skel{display:inline-block;width:92px;height:11px;border-radius:6px;vertical-align:middle;background:linear-gradient(90deg,rgba(255,255,255,.06) 0%,rgba(71,151,255,.28) 50%,rgba(255,255,255,.06) 100%);background-size:200% 100%;animation:priceSkel 1.1s ease-in-out infinite}
+@keyframes priceSkel{0%{background-position:100% 0}100%{background-position:-100% 0}}
+#order-form.light .price-skel{background:linear-gradient(90deg,rgba(0,0,0,.06) 0%,rgba(71,151,255,.22) 50%,rgba(0,0,0,.06) 100%);background-size:200% 100%}
+@media(prefers-reduced-motion:reduce){.price-skel{animation:none}}
 .price-spin{width:10px;height:10px;border:1.5px solid var(--faint);border-top-color:var(--blue);
   border-radius:50%;animation:spin .6s linear infinite;flex-shrink:0}
 .trade-check{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;
@@ -1626,8 +1630,10 @@ if (new URLSearchParams(location.search).get('cancelled') === 'true') {
 // Every lead type on sale, as get-ppl-pricing names them.
 const PPL_TRADES = ['solar-and-battery','battery-retrofit','roofing','hvac','kitchen-renovation','bathroom-renovation'];
 const FROM_PRICES = {};
+let FROM_LOADING = true;
 async function loadFromPrices() {
   const trades = PPL_TRADES;
+  trades.forEach(n => setPriceLabel(n, null));
   await Promise.allSettled(trades.map(n =>
     fetch(`${SUPABASE_URL}/functions/v1/get-ppl-pricing?niche=${n}`).then(r => r.ok ? r.json() : null).then(d => {
       const p = d && (d.from_price ?? d.price_per_lead);
@@ -1635,6 +1641,8 @@ async function loadFromPrices() {
       if (!order.area_city) setPriceLabel(n, null);
     }).catch(() => {})
   ));
+  FROM_LOADING = false;
+  if (!order.area_city) trades.forEach(n => setPriceLabel(n, null));
 }
 loadFromPrices();
 
@@ -1745,11 +1753,12 @@ function setPriceLabel(niche, val) {
   if (!el) return;
   if (val === null) {
     el.className = FROM_PRICES[niche] ? 'trade-price' : 'trade-price dim';
-    el.innerHTML = FROM_PRICES[niche] ? `From $${FROM_PRICES[niche]} / lead` : '&nbsp;';
+    // Starting prices still on their way: a loading bar, not a blank line.
+    el.innerHTML = FROM_PRICES[niche] ? `From $${FROM_PRICES[niche]} / lead` : (FROM_LOADING ? '<span class="price-skel" aria-label="Loading price"></span>' : '&nbsp;');
     card?.classList.remove('sold-out');
   } else if (val === 'loading') {
     el.className = 'trade-price dim';
-    el.innerHTML = '<div class="price-spin"></div>';
+    el.innerHTML = '<span class="price-skel" aria-label="Loading price"></span>';
     card?.classList.remove('sold-out');
   } else if (val === 'error') {
     el.className = 'trade-price dim';
@@ -2009,8 +2018,13 @@ function covInitMap(){
   covMap.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
   covSetTiles();
   covMap.fitBounds(COV_AU);
-  // Lazy-loaded page sections can change the map's size after init.
-  if ('ResizeObserver' in window) new ResizeObserver(() => covMap.invalidateSize()).observe(document.getElementById('covMap'));
+  // The map is built while its step is hidden (no size), so fitting Australia
+  // then does nothing and Leaflet shows the whole world. Re-fit the moment it
+  // gets a real size, and whenever it is resized.
+  const el = document.getElementById('covMap');
+  let sized = el.offsetWidth > 0;
+  const refit = () => { covMap.invalidateSize(); if (el.offsetWidth > 0) { const first = !sized; sized = true; covRender(true); if (first && !covShapes.length) covMap.fitBounds(COV_AU); } else sized = false; };
+  if ('ResizeObserver' in window) new ResizeObserver(refit).observe(el);
 }
 
 // Suburbs on a radius order. The first row starts as the chosen city's centre
