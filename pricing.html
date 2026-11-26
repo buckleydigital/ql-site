@@ -251,11 +251,16 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .pc-std .pc-price{color:#4797FF}
 .pc-per{font-size:.82rem;color:var(--muted);margin-top:6px}
 .pc-hot .pc-per,.pc-hot .pc-for,.pc-hot .pc-mo,.pc-hot .pc-list li{color:rgba(255,255,255,.86)}
+.pc-est{display:block;margin-top:3px;color:#6ee7b7;font-size:.82rem;font-weight:500}
+.pc-hot .pc-est{color:#fff}
+.pc-est-plain,.pc-hot .pc-est-plain{color:var(--muted);font-weight:400}
+.pc-expect{margin:18px auto 0;max-width:860px;text-align:center;font-size:.78rem;line-height:1.6;color:var(--faint)}
+.pc-expect b{color:var(--muted);font-weight:500}
 .pc-spend{margin-top:14px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;font-size:.8rem;line-height:1.5;color:var(--muted);text-align:center}
 .pc-spend b{display:block;color:var(--off);font-size:.95rem;font-weight:600}
 .pc-hot .pc-spend{border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.86)}
 .pc-hot .pc-spend b{color:#fff}
-.pc-for{font-size:.88rem;color:var(--off);line-height:1.6;margin-top:16px;min-height:4.8em}
+.pc-for{font-size:.88rem;color:var(--off);line-height:1.6;margin-top:16px;min-height:3.2em}
 .pc-btn{width:100%;justify-content:center;margin-top:18px;font-size:.9rem;padding:14px 20px}
 .pc-hot .pc-btn{background:#fff;color:#0b1d3d}
 .pc-btn svg{width:14px;height:14px;flex-shrink:0}
@@ -576,10 +581,10 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
           <div class="pc-pill">Standard</div>
           <div class="pc-price"><sup>$</sup>1,250</div>
           <div class="pc-per">one-off build + GST</div>
-          <div class="pc-spend"><b>+ ad spend from $50/day</b>About $1,500/mo to start, no cap on scaling. Billed by ad platforms as it&rsquo;s spent. Never upfront, never through us.</div>
-          <p class="pc-for"><b>1 Meta campaign</b>: one service line in one service area (50km or more, not split) and one offer. Built to get you quote-ready enquiries from week one.</p>
+          <div class="pc-spend"><b>+ ad spend from $50/day</b><span class="pc-est">Typically 25&ndash;50 enquiries a month*</span></div>
+          <p class="pc-for">One service, one area (50km+), one offer.</p>
           <a href="/buy-system?tier=standard" class="btn-mag btn-green pc-btn">Buy now <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
-          <div class="pc-mo"><b>Ongoing management: $600/mo + GST</b>, cancel anytime. Your first 30 days are included.</div>
+          <div class="pc-mo"><b>Then $600/mo + GST management</b>First 30 days included. Cancel anytime.</div>
           <ul class="pc-list">
             <li><svg class="pc-ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>1 Meta campaign</b> built on <b>your</b> ad account, brand and creative</span></li>
             <li><svg class="pc-ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Unlimited budget scaling</b> as results come in</span></li>
@@ -597,10 +602,10 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
           <div class="pc-pill">Growth</div>
           <div class="pc-price"><sup>$</sup>2,500</div>
           <div class="pc-per">one-off build + GST</div>
-          <div class="pc-spend"><b>+ ad spend from $100/day</b>About $3,000/mo to start, no cap on scaling. Billed by ad platforms as it&rsquo;s spent. Never upfront, never through us.</div>
-          <p class="pc-for"><b>2 to 4 Meta campaigns, or Meta + Google Ads</b> from day 1, for more than one service line, offer or service area. Each gets its own campaign.</p>
+          <div class="pc-spend"><b>+ ad spend from $100/day</b><span class="pc-est">Roughly double the Standard range*</span></div>
+          <p class="pc-for">More than one service, offer or area, or Google Ads too.</p>
           <a href="/buy-system?tier=growth" class="btn-mag pc-btn">Buy now <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
-          <div class="pc-mo"><b>Ongoing management: $1,200/mo + GST</b>, cancel anytime. Your first 30 days are included.</div>
+          <div class="pc-mo"><b>Then $1,200/mo + GST management</b>First 30 days included. Cancel anytime.</div>
           <ul class="pc-list">
             <li><svg class="pc-ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Everything in Standard, plus</b></span></li>
             <li><svg class="pc-ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Starts on about $100/day</b> across your campaigns</span></li>
@@ -617,8 +622,8 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
           <div class="pc-pill">Custom</div>
           <div class="pc-price pc-custom">Custom</div>
           <div class="pc-per">quoted after a discovery call</div>
-          <div class="pc-spend"><b>Ad spend set to your goals</b>Always paid by you direct to Meta and Google</div>
-          <p class="pc-for">A plan built around your service area and goals, when neither build quite fits.</p>
+          <div class="pc-spend"><b>Ad spend set to your goals</b><span class="pc-est pc-est-plain">Paid by you, direct to Meta and Google</span></div>
+          <p class="pc-for">Built around your areas and goals when neither build fits.</p>
           <a href="/get-started" class="btn-ghost pc-btn">Book a call <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L6.6 1.4 12.2 7H0v2h12.2l-5.6 5.6L8 16l8-8z"/></svg></a>
           <div class="pc-mo">No lock-in</div>
           <ul class="pc-list">
@@ -629,6 +634,8 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5%
         </div>
 
       </div>
+
+      <p class="pc-expect rv"><b>* What to expect:</b> these are typical ranges from our campaigns, not a promise or guarantee. Results depend on your trade, area, offer and the time of year: ad costs rise in November and December, so enquiry numbers are usually lower then. Your first 30-day report shows exactly what you spent, how many enquiries it brought and your cost per enquiry.</p>
 
       <div class="pc-covers rv">
         <h3 class="pc-covers-title">What the monthly fee pays for</h3>
