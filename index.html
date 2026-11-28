@@ -1017,12 +1017,30 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 .hqs-head{text-align:center;max-width:640px;margin:0 auto 44px}
 .hqs-head .ey{justify-content:center}
 .hqs-head p{color:var(--muted);font-size:1rem;line-height:1.7;margin:0}
-.hqs-shot img{display:block;width:100%;height:auto}
-.hqs-row{display:grid;grid-template-columns:1.65fr 1fr;gap:16px;margin-top:16px;align-items:start}
+.hql-desk,.hql-phone{background:#0B0B13;border:1px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden;max-width:960px;margin:0 auto}
+.hql-phone{display:none}
+.hql-top{display:flex;align-items:baseline;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.hql-title{font-family:var(--display);font-size:1.35rem;font-weight:600;color:var(--white)}
+.hql-count{font-size:.95rem;color:var(--muted)}
+.hql-table{width:100%;border-collapse:collapse;font-size:1rem}
+.hql-table th{text-align:left;font-size:.85rem;font-weight:500;color:var(--muted);padding:12px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.hql-table td{padding:16px 24px;color:var(--off);border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle}
+.hql-table tr:last-child td{border-bottom:0}
+.hql-table td b{display:block;color:var(--white);font-weight:600}
+.hql-table td span{display:block;font-size:.85rem;color:var(--muted);margin-top:2px}
+.hql-st{font-style:normal;display:inline-block;font-size:.85rem;font-weight:600;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.hql-st.new{background:rgba(71,151,255,.15);color:#7FB6FF}
+.hql-st.call{background:rgba(245,158,11,.14);color:#F7B649}
+.hql-st.quote{background:rgba(255,255,255,.08);color:var(--off)}
+.hql-st.won{background:rgba(40,200,64,.14);color:#5BD97A}
+.hql-card{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.hql-card:last-child{border-bottom:0}
+.hql-card b{display:block;color:var(--white);font-size:1.05rem;font-weight:600}
+.hql-card span{display:block;font-size:.9rem;color:var(--muted);margin-top:3px}
+@media(max-width:760px){.hql-desk{display:none}.hql-phone{display:block;max-width:380px}.hql-top{padding:18px 20px}}
 .hqs-cap{display:flex;justify-content:center;gap:12px 28px;flex-wrap:wrap;margin-top:28px;font-size:.82rem;color:var(--muted)}
 .hqs-cap span{display:flex;align-items:center;gap:8px}
 .hqs-cap span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0}
-@media(max-width:900px){.hqs-row{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="/examples.css">
 <link rel="stylesheet" href="/footer.css">
@@ -1388,42 +1406,44 @@ section.hero-section{background:var(--void);border-top:none;padding:0}
 <section id="quoteleadshq">
   <div class="si">
     <div class="hqs-head">
-      <h2 class="stitle rv">See every dollar <em>in your pipeline.</em></h2>
-      <p class="rv"><strong>QuoteLeadsHQ</strong> puts every lead, conversation, appointment, quote and deposit on one screen, with a forecast for the month.</p>
+      <h2 class="stitle rv">Every lead. <em>One simple list.</em></h2>
+      <p class="rv">Who enquired, what they want, and what happens next. On your phone or your computer.</p>
     </div>
-    <div class="preview-card hqs-shot rv">
-      <div class="mk-bar" aria-hidden="true"><span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span><div class="mk-url">quoteleadshq.com/dashboard</div></div>
-      <img src="/assets/img/hq-status-dark.webp" alt="QuoteLeadsHQ Status page: on pace for 47 leads this month, 25% up on last month, and the leads that need a quote" width="1920" height="880" loading="lazy" decoding="async">
-    </div>
-    <div class="hqs-row">
-      <div class="preview-card hqs-shot rv">
-        <div class="mk-bar" aria-hidden="true"><span class="mk-dot r"></span><span class="mk-dot y"></span><span class="mk-dot g"></span><div class="mk-url">quoteleadshq.com/dashboard</div></div>
-        <img src="/assets/img/hq-pipeline-dark.webp" alt="QuoteLeadsHQ pipeline board, from new lead to closed won" width="1190" height="445" loading="lazy" decoding="async">
+
+    <!-- Desktop: leads list -->
+    <div class="hql-desk rv" aria-label="Example of the QuoteLeadsHQ leads list">
+      <div class="hql-top">
+        <div class="hql-title">Leads</div>
+        <div class="hql-count">5 new this week</div>
       </div>
-      <div class="preview-card rv d1">
-        <div class="sms-contact"><div class="lead-avatar">SK</div><div><div class="lead-name">Sarah K.</div><div class="lead-location">AI SMS · follow-up after no reply</div></div></div>
-        <div class="preview-card-body">
-          <div class="sms-thread">
-            <div class="sms-day">Monday 6:18 pm</div>
-            <div class="sms-msgs">
-              <div class="sms-bubble sms-out">Hi Sarah, thanks for your enquiry about adding a battery. When suits for a quick call?</div>
-            </div>
-            <div class="sms-day">Wednesday 9:05 am</div>
-            <div class="sms-msgs">
-              <div class="sms-bubble sms-out">Hi Sarah, just following up on your battery enquiry. Would a call tomorrow morning work?</div>
-              <div class="sms-bubble sms-in">Sorry, been flat out. Tomorrow 10am is good</div>
-              <div class="sms-bubble sms-out">No worries, we'll call you tomorrow at 10am</div>
-            </div>
-            <div class="sms-time">Follow-up sent automatically</div>
-          </div>
-          <div class="sms-booked"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Callback booked, logged in QuoteLeadsHQ</span></div>
-        </div>
-      </div>
+      <table class="hql-table">
+        <thead><tr><th>Name</th><th>Job</th><th>Suburb</th><th>Came in</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><b>Sarah Kelly</b><span>0412 xxx 381</span></td><td>6.6kW solar + battery</td><td>Penrith</td><td>12 min ago</td><td><i class="hql-st new">New</i></td></tr>
+          <tr><td><b>Mark Nguyen</b><span>0438 xxx 902</span></td><td>Battery only</td><td>Castle Hill</td><td>Today, 9:14am</td><td><i class="hql-st call">Call booked</i></td></tr>
+          <tr><td><b>Dave Thompson</b><span>0401 xxx 557</span></td><td>10kW solar</td><td>Ryde</td><td>Yesterday</td><td><i class="hql-st quote">Quote sent</i></td></tr>
+          <tr><td><b>Lisa Morris</b><span>0422 xxx 160</span></td><td>Solar upgrade</td><td>Blacktown</td><td>Mon</td><td><i class="hql-st won">Won · $14,800</i></td></tr>
+          <tr><td><b>Pete Walker</b><span>0457 xxx 228</span></td><td>6.6kW solar</td><td>Parramatta</td><td>Mon</td><td><i class="hql-st call">Call booked</i></td></tr>
+        </tbody>
+      </table>
     </div>
+
+    <!-- Mobile: phone view -->
+    <div class="hql-phone rv" aria-label="Example of the QuoteLeadsHQ leads list on a phone">
+      <div class="hql-top">
+        <div class="hql-title">Leads</div>
+        <div class="hql-count">5 new this week</div>
+      </div>
+      <div class="hql-card"><div><b>Sarah Kelly</b><span>6.6kW solar + battery · Penrith</span><span>12 min ago</span></div><i class="hql-st new">New</i></div>
+      <div class="hql-card"><div><b>Mark Nguyen</b><span>Battery only · Castle Hill</span><span>Today, 9:14am</span></div><i class="hql-st call">Call booked</i></div>
+      <div class="hql-card"><div><b>Dave Thompson</b><span>10kW solar · Ryde</span><span>Yesterday</span></div><i class="hql-st quote">Quote sent</i></div>
+      <div class="hql-card"><div><b>Lisa Morris</b><span>Solar upgrade · Blacktown</span><span>Mon</span></div><i class="hql-st won">Won</i></div>
+    </div>
+
     <div class="hqs-cap rv">
-      <span>The real QuoteLeadsHQ, shown with a demo account</span>
-      <span>Works with your CRM, SMS, email and job software</span>
-      <span>Phone and desktop</span>
+      <span>Every lead lands here the second it comes in</span>
+      <span>Tap to call or text</span>
+      <span>Works on phone and computer</span>
     </div>
   </div>
 </section>
