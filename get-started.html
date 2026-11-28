@@ -120,7 +120,7 @@ select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%
 .goal-sub{font-size:.76rem;color:var(--muted);margin-top:3px}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .goal-wide{grid-column:1/-1}
-/* Optional suburb search */
+/* Suburb search */
 .opt-tag{font-weight:400;color:var(--muted);margin-left:4px}
 .area-wrap{position:relative}
 .area-sugg{display:none;position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;background:var(--deep);border:1px solid var(--bmid);border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.5)}
@@ -275,7 +275,7 @@ input.invalid,select.invalid{border-color:rgba(248,113,113,.55)}
 
       <!-- 5. Area + send -->
       <div class="gs-step" data-title="Last one">
-        <div class="gs-q">Where are you based? <span class="opt-tag">(optional)</span></div>
+        <div class="gs-q">Where are you based?</div>
         <div class="fld">
           <div class="area-wrap">
             <input type="text" id="area" autocomplete="off" placeholder="Suburb or postcode, e.g. Carindale or 4152">
@@ -380,7 +380,8 @@ function fields(){
     name:document.getElementById('name').value.trim(),
     company:document.getElementById('company').value.trim(),
     email:document.getElementById('email').value.trim(),
-    phone:document.getElementById('phone').value.trim()
+    phone:document.getElementById('phone').value.trim(),
+    area:document.getElementById('area').value.trim()
   };
 }
 var EMAIL_RE=/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
@@ -394,7 +395,7 @@ function phoneOk(v){
 // Core contact details required for BOTH actions.
 function coreValid(){
   var f=fields();
-  return !!(f.trade&&f.name&&f.company&&emailOk(f.email)&&phoneOk(f.phone));
+  return !!(f.trade&&f.name&&f.company&&emailOk(f.email)&&phoneOk(f.phone)&&f.area);
 }
 // Callback also needs a goal + Turnstile on top of the core details.
 function callbackValid(){return coreValid()&&!!fields().goalEl&&!!turnstileToken;}
@@ -408,6 +409,7 @@ function missingBits(){
   if(!f.company)m.push('your company name');
   if(!emailOk(f.email))m.push('a valid email');
   if(!phoneOk(f.phone))m.push('a valid phone number');
+  if(!f.area)m.push('your suburb or postcode');
   if(!turnstileToken)m.push('the security check to finish');
   return m;
 }
@@ -529,7 +531,7 @@ function basePayload(){
   };
 }
 
-// ── Optional suburb search ──
+// ── Suburb search (required) ──
 // Suggests Australian suburbs/postcodes as they type (Esri geocoder, same as the
 // onboarding forms). Whatever is in the box is sent, picked or not, and if the
 // lookup is unreachable the field is simply a plain text box.
@@ -546,7 +548,7 @@ function basePayload(){
     });
     box.classList.toggle('show',items.length>0);
   }
-  function pick(i){if(items[i])input.value=items[i];items=[];active=-1;render();}
+  function pick(i){if(items[i])input.value=items[i];items=[];active=-1;render();refreshSubmit();}
   input.addEventListener('input',function(){
     clearTimeout(timer);var q=input.value.trim();
     if(q.length<2){items=[];render();return;}
