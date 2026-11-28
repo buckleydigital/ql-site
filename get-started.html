@@ -150,6 +150,28 @@ input.invalid,select.invalid{border-color:rgba(248,113,113,.55)}
 
 /* FOOTER */
 @media(max-width:900px){.nav-links{display:none}.mob-btn{display:flex}}
+
+/* Step-by-step survey (same feel as /buy-leads) */
+.wz-progress{margin-bottom:26px}
+.wz-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px}
+.wz-meta #wzLabel{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.wz-meta #wzTitle{font-size:.8rem;color:var(--muted)}
+.wz-bar{height:4px;border-radius:4px;background:var(--glass2,rgba(255,255,255,.08));overflow:hidden}
+#wzFill{height:100%;width:0;background:var(--blue);border-radius:4px;transition:width .35s ease}
+.gs-step{display:none;animation:gsIn .25s ease}
+.gs-step.on{display:block}
+@keyframes gsIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.gs-q{font-family:var(--display);font-size:1.3rem;font-weight:600;color:var(--white);line-height:1.3;margin-bottom:18px}
+.gs-q .opt-tag{font-family:var(--body);font-size:.85rem}
+.wz-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px}
+.wz-next,.wz-back{font:inherit;font-size:.92rem;font-weight:600;border-radius:100px;padding:13px 24px;cursor:pointer;transition:background .15s,color .15s,border-color .15s,filter .15s}
+.wz-next{background:var(--blue);color:#fff;border:none;margin-left:auto}
+.wz-next:hover{filter:brightness(1.08)}
+.wz-back{background:transparent;color:var(--muted);border:1px solid var(--border)}
+.wz-back:hover{color:var(--white);border-color:var(--bmid)}
+.wz-err{font-size:.82rem;color:#f87171;margin-top:10px;min-height:1.2em}
+.turnstile-wrap{margin:0}
+@media(max-width:600px){.wz-next,.wz-back{padding:13px 18px}.gs-q{font-size:1.15rem}}
 </style>
 <link rel="stylesheet" href="/footer.css">
 </head>
@@ -180,33 +202,41 @@ input.invalid,select.invalid{border-color:rgba(248,113,113,.55)}
   <div id="formView">
     <div class="eyebrow">Get Started</div>
     <h1>Let's get you <em>more jobs.</em></h1>
-    <p class="lead">Fill in your details and request a callback - we'll walk you through the Branded Lead Gen System and get you set up.</p>
+    <p class="lead">A few quick questions, then we'll call you to walk you through the Branded Lead Gen System and get you set up.</p>
 
-    <div class="card">
-      <div class="fld">
-        <label class="fld-label" for="trade">What trade are you in? <span class="req">*</span></label>
-        <select id="trade" required>
-          <option value="">Select your trade…</option>
-          <option value="All Solar">All Solar</option>
-          <option value="Solar + Battery">Solar + Battery</option>
-          <option value="Batteries">Batteries</option>
-          <option value="Roofing">Roofing</option>
-          <option value="HVAC">HVAC</option>
-          <option value="Kitchens">Kitchens</option>
-          <option value="Bathrooms">Bathrooms</option>
-          <option value="Other">Other</option>
-        </select>
-        <script>
-        // ?trade=HVAC (from a trade page's "Book a call") picks it for them.
-        (function(){ try { var t = new URLSearchParams(location.search).get('trade'), sel = document.getElementById('trade');
-          if (t && [].some.call(sel.options, function(o){ return o.value === t; })) sel.value = t; } catch(e){} })();
-        </script>
+    <div class="card" id="gsCard">
+      <div class="wz-progress"><div class="wz-meta"><span id="wzLabel"></span><span id="wzTitle"></span></div><div class="wz-bar"><div id="wzFill"></div></div></div>
+
+      <!-- 1. Trade -->
+      <div class="gs-step" data-title="Your trade">
+        <div class="gs-q">What trade are you in?</div>
+        <input type="hidden" id="trade" value="">
+        <div class="goal-grid">
+          <label class="goal-opt"><input type="radio" name="tradePick" value="All Solar">
+            <div class="goal-box"><div class="goal-vol">All Solar</div></div></label>
+          <label class="goal-opt"><input type="radio" name="tradePick" value="Solar + Battery">
+            <div class="goal-box"><div class="goal-vol">Solar + Battery</div></div></label>
+          <label class="goal-opt"><input type="radio" name="tradePick" value="Batteries">
+            <div class="goal-box"><div class="goal-vol">Batteries</div></div></label>
+          <label class="goal-opt"><input type="radio" name="tradePick" value="Roofing">
+            <div class="goal-box"><div class="goal-vol">Roofing</div></div></label>
+          <label class="goal-opt"><input type="radio" name="tradePick" value="HVAC">
+            <div class="goal-box"><div class="goal-vol">HVAC</div></div></label>
+          <label class="goal-opt"><input type="radio" name="tradePick" value="Kitchens">
+            <div class="goal-box"><div class="goal-vol">Kitchens</div></div></label>
+          <label class="goal-opt"><input type="radio" name="tradePick" value="Bathrooms">
+            <div class="goal-box"><div class="goal-vol">Bathrooms</div></div></label>
+          <label class="goal-opt"><input type="radio" name="tradePick" value="Other">
+            <div class="goal-box"><div class="goal-vol">Other</div></div></label>
+        </div>
+        <div class="wz-err"></div>
       </div>
 
-      <div class="fld">
-        <label class="fld-label">How many leads a month are you after? <span class="req">*</span></label>
+      <!-- 2. Volume -->
+      <div class="gs-step" data-title="Lead volume">
+        <div class="gs-q">How many leads a month are you after?</div>
         <div class="goal-grid">
-          <label class="goal-opt"><input type="radio" name="goal" value="15-30 leads/month" required>
+          <label class="goal-opt"><input type="radio" name="goal" value="15-30 leads/month">
             <div class="goal-box"><div class="goal-vol">15-30</div><div class="goal-sub">leads a month</div></div></label>
           <label class="goal-opt"><input type="radio" name="goal" value="30-60 leads/month">
             <div class="goal-box"><div class="goal-vol">30-60</div><div class="goal-sub">leads a month</div></div></label>
@@ -217,35 +247,49 @@ input.invalid,select.invalid{border-color:rgba(248,113,113,.55)}
           <label class="goal-opt goal-wide"><input type="radio" name="goal" value="Not sure">
             <div class="goal-box"><div class="goal-vol">Not sure</div><div class="goal-sub">we'll work it out with you</div></div></label>
         </div>
+        <div class="wz-nav"><button type="button" class="wz-back" onclick="gsGo(-1)">&larr; Back</button><span></span></div>
+        <div class="wz-err"></div>
       </div>
 
-      <div class="two-col">
+      <!-- 3. Who -->
+      <div class="gs-step" data-title="About you">
+        <div class="gs-q">Who are we talking to?</div>
         <div class="fld"><label class="fld-label" for="name">Your name <span class="req">*</span></label>
-          <input type="text" id="name" autocomplete="name" placeholder="Full name" required></div>
+          <input type="text" id="name" autocomplete="name" placeholder="Full name"></div>
         <div class="fld"><label class="fld-label" for="company">Company name <span class="req">*</span></label>
-          <input type="text" id="company" autocomplete="organization" placeholder="Business name" required></div>
-      </div>
-      <div class="two-col">
-        <div class="fld"><label class="fld-label" for="email">Email <span class="req">*</span></label>
-          <input type="email" id="email" autocomplete="email" placeholder="you@business.com.au" required><div class="fld-err" id="emailErr">That email does not look right - check for a typo.</div></div>
-        <div class="fld"><label class="fld-label" for="phone">Phone <span class="req">*</span></label>
-          <input type="tel" id="phone" autocomplete="tel" placeholder="04XX XXX XXX" required><div class="fld-err" id="phoneErr">Enter an Australian mobile or landline, for example 0412 345 678.</div></div>
+          <input type="text" id="company" autocomplete="organization" placeholder="Business name"></div>
+        <div class="wz-nav"><button type="button" class="wz-back" onclick="gsGo(-1)">&larr; Back</button><button type="button" class="wz-next" onclick="gsGo(1)">Continue &rarr;</button></div>
+        <div class="wz-err"></div>
       </div>
 
-      <div class="fld">
-        <label class="fld-label" for="area">Where are you based? <span class="opt-tag">(optional)</span></label>
-        <div class="area-wrap">
-          <input type="text" id="area" autocomplete="off" placeholder="Suburb or postcode, e.g. Carindale or 4152">
-          <div class="area-sugg" id="areaSugg"></div>
+      <!-- 4. Contact -->
+      <div class="gs-step" data-title="How to reach you">
+        <div class="gs-q">Where should we call you?</div>
+        <div class="fld"><label class="fld-label" for="phone">Phone <span class="req">*</span></label>
+          <input type="tel" id="phone" autocomplete="tel" placeholder="04XX XXX XXX"><div class="fld-err" id="phoneErr">Enter an Australian mobile or landline, for example 0412 345 678.</div></div>
+        <div class="fld"><label class="fld-label" for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" autocomplete="email" placeholder="you@business.com.au"><div class="fld-err" id="emailErr">That email does not look right - check for a typo.</div></div>
+        <div class="wz-nav"><button type="button" class="wz-back" onclick="gsGo(-1)">&larr; Back</button><button type="button" class="wz-next" onclick="gsGo(1)">Continue &rarr;</button></div>
+        <div class="wz-err"></div>
+      </div>
+
+      <!-- 5. Area + send -->
+      <div class="gs-step" data-title="Last one">
+        <div class="gs-q">Where are you based? <span class="opt-tag">(optional)</span></div>
+        <div class="fld">
+          <div class="area-wrap">
+            <input type="text" id="area" autocomplete="off" placeholder="Suburb or postcode, e.g. Carindale or 4152">
+            <div class="area-sugg" id="areaSugg"></div>
+          </div>
         </div>
+        <button class="btn-submit" id="callbackBtn" type="button" disabled onclick="submitGetStarted()">Request a callback</button>
+        <p class="callback-hint" id="callbackHint">We'll ring you during business hours (AEST).</p>
+        <div class="form-err" id="formErr"></div>
+        <div class="wz-nav"><button type="button" class="wz-back" onclick="gsGo(-1)">&larr; Back</button><span></span></div>
+        <p class="form-note">By continuing you agree to receive communications from QuoteLeads, and to our <a href="/quoteleads-terms" style="color:var(--muted)">Branded Lead Gen System Terms</a>. View our <a href="/privacy" style="color:var(--muted)">Privacy Policy</a>.</p>
       </div>
 
       <div class="turnstile-wrap"><div id="turnstile-container"></div></div>
-
-      <button class="btn-submit" id="callbackBtn" type="button" disabled onclick="submitGetStarted()">Request a callback</button>
-      <p class="callback-hint" id="callbackHint">We'll ring you during business hours (AEST).</p>
-      <div class="form-err" id="formErr"></div>
-      <p class="form-note">By continuing you agree to receive communications from QuoteLeads, and to our <a href="/quoteleads-terms" style="color:var(--muted)">Branded Lead Gen System Terms</a>. View our <a href="/privacy" style="color:var(--muted)">Privacy Policy</a>.</p>
     </div>
   </div>
 
@@ -377,7 +421,8 @@ function refreshSubmit(){
     hint.classList.remove('todo');
   }else{
     var m=missingBits(),txt;
-    if(m.length===1){txt='Just add '+m[0]+' to continue.';}
+    if(m.length===1&&!turnstileToken){txt='Finishing a quick security check\u2026';}
+    else if(m.length===1){txt='Just add '+m[0]+' to continue.';}
     else if(m.length===2){txt='Add '+m[0]+' and '+m[1]+' to continue.';}
     else{txt='Add '+m.slice(0,-1).join(', ')+' and '+m[m.length-1]+' to continue.';}
     hint.textContent=txt;
@@ -411,6 +456,58 @@ document.querySelectorAll('#formView select,#formView input').forEach(function(e
   el.addEventListener('input',refreshSubmit);el.addEventListener('change',refreshSubmit);
 });
 refreshSubmit();
+
+// ── Step-by-step survey ──
+// One question at a time. Picking a trade or a lead volume moves on by itself;
+// the typed steps check themselves before Continue. Everything still submits
+// through submitGetStarted() below, unchanged.
+var GS={steps:[].slice.call(document.querySelectorAll('.gs-step')),i:0};
+function gsShow(i,scroll){
+  GS.i=i;
+  GS.steps.forEach(function(el,j){el.classList.toggle('on',j===i);});
+  var n=GS.steps.length;
+  document.getElementById('wzLabel').textContent='Step '+(i+1)+' of '+n;
+  document.getElementById('wzTitle').textContent=GS.steps[i].dataset.title||'';
+  document.getElementById('wzFill').style.width=((i+1)/n*100)+'%';
+  document.querySelectorAll('.gs-step .wz-err').forEach(function(e){e.textContent='';});
+  refreshSubmit();
+  var first=GS.steps[i].querySelector('input[type=text],input[type=tel],input[type=email]');
+  if(first&&window.matchMedia('(min-width:700px)').matches)setTimeout(function(){first.focus();},60);
+  if(scroll!==false){var c=document.getElementById('gsCard');if(c.getBoundingClientRect().top<70)c.scrollIntoView({behavior:'smooth',block:'start'});}
+}
+function gsCheck(i){
+  var f=fields();
+  if(i===0&&!f.trade)return 'Pick your trade to continue.';
+  if(i===1&&!f.goalEl)return 'Pick how many leads you are after.';
+  if(i===2){if(!f.name)return 'Add your name to continue.';if(!f.company)return 'Add your company name to continue.';}
+  if(i===3){
+    if(!phoneOk(f.phone)){markField('phone','phoneErr',false);return 'Add a valid Australian phone number.';}
+    if(!emailOk(f.email)){markField('email','emailErr',false);return 'Add a valid email address.';}
+  }
+  return '';
+}
+function gsGo(d){
+  if(d>0){var m=gsCheck(GS.i);if(m){GS.steps[GS.i].querySelector('.wz-err').textContent=m;return;}}
+  gsShow(Math.max(0,Math.min(GS.steps.length-1,GS.i+d)));
+}
+document.querySelectorAll('input[name="tradePick"]').forEach(function(r){
+  r.addEventListener('change',function(){document.getElementById('trade').value=r.value;refreshSubmit();setTimeout(function(){gsGo(1);},180);});
+});
+document.querySelectorAll('input[name="goal"]').forEach(function(r){
+  r.addEventListener('change',function(){setTimeout(function(){gsGo(1);},180);});
+});
+// Enter on a typed step = Continue.
+['name','company','phone','email'].forEach(function(id){
+  document.getElementById(id).addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();gsGo(1);}});
+});
+// ?trade=HVAC (from a trade page's "Book a call") picks it and starts on step 2.
+(function(){
+  var start=0;
+  try{var t=new URLSearchParams(location.search).get('trade');
+    var r=t&&[].filter.call(document.querySelectorAll('input[name="tradePick"]'),function(x){return x.value===t;})[0];
+    if(r){r.checked=true;document.getElementById('trade').value=t;start=1;}}catch(e){}
+  gsShow(start,false);
+})();
 
 function basePayload(){
   var f=fields();
